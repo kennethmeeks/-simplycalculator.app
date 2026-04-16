@@ -1,0 +1,5 @@
+Contact: mailto:kennethmeeks2718@gmail.com
+Expires: 2027-04-01T13:46:57.000Z
+Preferred-Languages: en
+Canonical: https://simplycalculator.app/.well-known/security.txt
+Policy: https://simplycalculator.app/privacy

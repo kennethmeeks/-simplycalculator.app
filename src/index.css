@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Verdana:wght@400;700&display=swap');
+
+@theme {
+  --font-sans: "Verdana", "Arial", sans-serif;
+  
+  /* Redefine colors as hex to support html2canvas/jsPDF which don't support oklch */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+}
+
+body {
+  @apply font-sans bg-[#f2f2f2] text-[#333];
+}
+
+.calculator-container {
+  @apply bg-white p-4 border border-[#ccc] shadow-sm;
+}
+
+.input-group {
+  @apply flex flex-col gap-1 mb-3;
+}
+
+.input-label {
+  @apply text-sm font-bold text-[#555];
+}
+
+.input-field {
+  @apply px-2 py-1 bg-white border border-[#aaa] rounded-sm focus:outline-none focus:border-[#666] transition-all text-sm;
+}
+
+.btn-primary {
+  @apply bg-[#0066cc] text-white px-4 py-1.5 rounded-sm font-bold text-sm hover:bg-[#0052a3] transition-colors;
+}
+
+.sidebar-link {
+  @apply block py-1.5 px-2 text-sm text-[#0066cc] hover:underline border-b border-[#eee];
+}
+
+.result-box {
+  @apply bg-[#e6f2ff] p-4 border border-[#b3d9ff] rounded-sm mt-4;
+}
+
+.section-title {
+  @apply text-lg font-bold text-[#0066cc] border-b-2 border-[#0066cc] pb-1 mb-4;
+}
+
+h1 {
+  @apply text-2xl font-bold text-[#000] mb-4;
+}
+
+h2 {
+  @apply text-xl font-bold text-[#0066cc] mt-6 mb-3;
+}
+
+p {
+  @apply mb-3 leading-normal text-sm;
+}
+
+ul {
+  @apply list-disc ml-6 mb-4 text-sm;
+}
+
+li {
+  @apply mb-1;
+}
+
