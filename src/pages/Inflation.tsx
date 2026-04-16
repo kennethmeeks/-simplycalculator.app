@@ -85,14 +85,14 @@ export const InflationCalculator: React.FC = () => {
                 <div className="text-4xl font-bold text-[#0066cc]">${futureValue.toLocaleString()}</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
                 <div className="p-3 bg-slate-50 rounded border border-slate-100">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Purchasing Power</div>
-                  <div className="text-lg font-bold text-slate-700">${purchasingPower.toLocaleString()}</div>
+                  <div className="text-lg font-bold text-[#0066cc]">${purchasingPower.toLocaleString()}</div>
                 </div>
                 <div className="p-3 bg-slate-50 rounded border border-slate-100">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Price Increase</div>
-                  <div className="text-lg font-bold text-slate-700">${totalIncrease.toLocaleString()}</div>
+                  <div className="text-lg font-bold text-[#0066cc]">${totalIncrease.toLocaleString()}</div>
                 </div>
               </div>
             </div>

@@ -99,7 +99,7 @@ export const SavingsCalculator: React.FC = () => {
                 <div className="text-4xl font-bold text-[#0066cc]">${totalSavings.toLocaleString()}</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
                 <div className="p-3 bg-slate-50 rounded border border-slate-100">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Deposits</div>
                   <div className="text-lg font-bold text-[#0066cc]">${totalDeposits.toLocaleString()}</div>

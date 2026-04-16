@@ -147,7 +147,7 @@ export const FourOhOneKCalculator: React.FC = () => {
                 <div className="text-4xl font-bold text-[#0066cc]">${futureBalance.toLocaleString()}</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
                 <div className="p-4 bg-slate-50 rounded border border-slate-100">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Your Total Contributions</div>
                   <div className="text-xl font-bold text-[#0066cc]">${totalContributions.toLocaleString()}</div>

@@ -90,6 +90,16 @@ export const About: React.FC = () => {
           </p>
         </section>
 
+        <section className="bg-indigo-50 p-8 rounded-2xl border border-indigo-200">
+          <div className="flex items-center gap-3 mb-4">
+            < Award className="w-6 h-6 text-indigo-600" />
+            <h2 className="text-3xl font-bold text-slate-900">Advertiser Disclosure</h2>
+          </div>
+          <p>
+            <strong>simplycalculator.app</strong> is an independent, advertising-supported comparison service. We may receive compensation from the companies whose products appear on this site.
+          </p>
+        </section>
+
         <section className="bg-amber-50 p-8 rounded-2xl border border-amber-200">
           <div className="flex items-center gap-3 mb-4">
             <ShieldCheck className="w-6 h-6 text-amber-600" />

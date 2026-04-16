@@ -72,6 +72,16 @@ export const Privacy: React.FC = () => {
           </p>
         </section>
 
+        <section className="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+          <div className="flex items-center gap-3 mb-4">
+            <DollarSign className="w-6 h-6 text-indigo-600" />
+            <h2 className="text-2xl font-bold text-slate-900">Advertiser Disclosure</h2>
+          </div>
+          <p>
+            <strong>simplycalculator.app</strong> is an independent, advertising-supported comparison service. We may receive compensation from the companies whose products appear on this site.
+          </p>
+        </section>
+
         <section>
           <div className="flex items-center gap-3 mb-4">
             <DollarSign className="w-6 h-6 text-[#0066cc]" />

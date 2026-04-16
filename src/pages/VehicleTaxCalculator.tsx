@@ -105,7 +105,7 @@ export const VehicleTaxCalculator: React.FC = () => {
                 <div className="text-4xl font-bold mb-1 text-[#0066cc]">${totalOutTheDoor.toLocaleString()}</div>
                 <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Estimated Cost</div>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-center py-4">
+              <div className="space-y-4 text-center py-4 border-b border-[#0066cc]/10">
                 <div>
                   <div className="text-xl font-bold text-[#0066cc]">${totalTax.toLocaleString()}</div>
                   <div className="text-[10px] text-slate-500 uppercase font-bold">Sales Tax</div>

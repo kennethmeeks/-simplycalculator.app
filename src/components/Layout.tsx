@@ -137,6 +137,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               © 2026 simplycalculator.app. All rights reserved. Providing free online calculators for everyone.
             </p>
             <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
+              <strong>Advertiser Disclosure:</strong> simplycalculator.app is an independent, advertising-supported comparison service. We may receive compensation from the companies whose products appear on this site.
+            </p>
+            <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
               <strong>Disclaimer:</strong> The calculations provided are for illustrative purposes only and do not constitute financial, investment, or legal advice. simplycalculator.app is not a financial institution. We recommend consulting with a qualified professional before making any financial decisions. Member FDIC status applies only to products offered by our banking partners.
             </p>
           </div>

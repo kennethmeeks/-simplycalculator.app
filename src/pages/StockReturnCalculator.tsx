@@ -121,7 +121,7 @@ export const StockReturnCalculator: React.FC = () => {
                 </div>
                 <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total ROI</div>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-center py-4">
+              <div className="space-y-4 text-center py-4 border-b border-[#0066cc]/10">
                 <div>
                   <div className="text-xl font-bold text-[#0066cc]">${netProfit.toLocaleString()}</div>
                   <div className="text-[10px] text-slate-500 uppercase font-bold">Net Profit</div>
