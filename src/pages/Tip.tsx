@@ -96,7 +96,7 @@ export const TipCalculator: React.FC = () => {
               </div>
               <div className="flex justify-between items-center mb-2">
                 <span className="font-bold">Total Bill:</span>
-                <span className="text-xl font-bold">${total.toFixed(2)}</span>
+                <span className="text-xl font-bold text-[#0066cc]">${total.toFixed(2)}</span>
               </div>
               <div className="pt-4 mt-4 border-t border-[#b3d9ff] flex justify-between items-center">
                 <span className="text-lg font-bold">Per Person:</span>

@@ -98,9 +98,9 @@ export const PaceCalculator: React.FC = () => {
                 <div className="text-sm text-slate-500 mt-1 font-medium">min / km</div>
               </div>
               
-              <div className="p-4 bg-slate-50 rounded border border-slate-100 text-center">
-                <div className="text-xs text-slate-500 uppercase font-bold mb-1">Average Speed</div>
-                <div className="text-2xl font-bold text-slate-700">{speedKmh} km/h</div>
+              <div className="p-4 bg-[#f0f7ff] rounded border border-[#0066cc]/10 text-center">
+                <div className="text-xs text-slate-500 uppercase font-bold mb-1 border-b border-[#0066cc]/10 pb-1">Average Speed</div>
+                <div className="text-2xl font-bold text-[#0066cc]">{speedKmh} km/h</div>
               </div>
             </div>
           </div>

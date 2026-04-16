@@ -221,7 +221,7 @@ export const MortgageCalculator: React.FC = () => {
         <div className="space-y-6">
           <div className="result-box">
             <h3 className="text-[#0066cc] font-bold mb-2 uppercase text-xs tracking-wider">Monthly Payment</h3>
-            <div className="text-4xl font-bold text-[#000]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+            <div className="text-4xl font-bold text-[#0066cc]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
           </div>
 
           <div className="calculator-container">
@@ -229,15 +229,15 @@ export const MortgageCalculator: React.FC = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-[#666]">Total Interest:</span>
-                <span className="font-bold">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                <span className="font-bold text-[#0066cc]">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#666]">Total Cost:</span>
-                <span className="font-bold">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                <span className="font-bold text-[#0066cc]">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#666]">Loan Amount:</span>
-                <span className="font-bold">${(homePrice - downPayment).toLocaleString()}</span>
+                <span className="font-bold text-[#0066cc]">${(Number(homePrice) - Number(downPayment)).toLocaleString()}</span>
               </div>
             </div>
             

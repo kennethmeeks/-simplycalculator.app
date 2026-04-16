@@ -109,26 +109,26 @@ export const StockReturnCalculator: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="calculator-container bg-slate-900 text-white">
-            <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]">
+            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0066cc]">
               <BarChart3 className="w-5 h-5" />
               Investment Results
             </h2>
             <div className="space-y-6">
-              <div className="text-center py-4 border-b border-slate-800">
-                <div className={`text-4xl font-bold mb-1 ${percentageReturn >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+              <div className="text-center py-4 border-b border-[#0066cc]/10">
+                <div className={`text-4xl font-bold mb-1 ${percentageReturn >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {percentageReturn}%
                 </div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Total ROI</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total ROI</div>
               </div>
               <div className="grid grid-cols-2 gap-4 text-center py-4">
                 <div>
-                  <div className="text-xl font-bold text-slate-200">${netProfit.toLocaleString()}</div>
-                  <div className="text-[10px] text-slate-400 uppercase font-bold">Net Profit</div>
+                  <div className="text-xl font-bold text-[#0066cc]">${netProfit.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Net Profit</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-slate-200">${totalValue.toLocaleString()}</div>
-                  <div className="text-[10px] text-slate-400 uppercase font-bold">Total Value</div>
+                  <div className="text-xl font-bold text-[#0066cc]">${totalValue.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Total Value</div>
                 </div>
               </div>
             </div>

@@ -102,11 +102,11 @@ export const SavingsCalculator: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-3 bg-slate-50 rounded border border-slate-100">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Deposits</div>
-                  <div className="text-lg font-bold text-slate-700">${totalDeposits.toLocaleString()}</div>
+                  <div className="text-lg font-bold text-[#0066cc]">${totalDeposits.toLocaleString()}</div>
                 </div>
                 <div className="p-3 bg-slate-50 rounded border border-slate-100">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Interest Earned</div>
-                  <div className="text-lg font-bold text-slate-700">${interestEarned.toLocaleString()}</div>
+                  <div className="text-lg font-bold text-[#0066cc]">${interestEarned.toLocaleString()}</div>
                 </div>
               </div>
             </div>

@@ -104,19 +104,19 @@ export const FlooringCalculator: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="calculator-container bg-slate-900 text-white">
-            <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]">
+            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0066cc]">
               <ShoppingCart className="w-5 h-5" />
               Project Estimate
             </h2>
             <div className="space-y-6">
-              <div className="text-center py-4 border-b border-slate-800">
-                <div className="text-4xl font-bold mb-1">{totalAreaWithWaste}</div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Total Sq Ft Needed</div>
+              <div className="text-center py-4 border-b border-[#0066cc]/10">
+                <div className="text-4xl font-bold mb-1 text-[#0066cc]">{totalAreaWithWaste}</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Sq Ft Needed</div>
               </div>
               <div className="text-center py-4">
-                <div className="text-4xl font-bold mb-1">${totalCost.toLocaleString()}</div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Estimated Material Cost</div>
+                <div className="text-4xl font-bold mb-1 text-[#0066cc]">${totalCost.toLocaleString()}</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Estimated Material Cost</div>
               </div>
             </div>
           </div>

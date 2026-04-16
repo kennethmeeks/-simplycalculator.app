@@ -81,10 +81,10 @@ export const ScientificCalculator: React.FC = () => {
       
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="calculator-container p-6 bg-slate-900 rounded-xl shadow-xl">
-          <div className="bg-slate-800 p-4 rounded-lg mb-4 text-right">
+        <div className="calculator-container p-6 bg-[#f0f7ff] border border-[#0066cc]/10 rounded-xl shadow-xl">
+          <div className="bg-white p-4 rounded-lg mb-4 text-right border border-slate-100">
             <div className="text-slate-400 text-xs h-4 mb-1">{equation}</div>
-            <div className="text-white text-3xl font-mono overflow-hidden">{display}</div>
+            <div className="text-[#0066cc] text-3xl font-mono overflow-hidden">{display}</div>
           </div>
           <div className="grid grid-cols-4 gap-2">
             {buttons.flat().map((btn, i) => {
@@ -103,10 +103,10 @@ export const ScientificCalculator: React.FC = () => {
                   key={i}
                   onClick={onClick}
                   className={`p-3 rounded-lg font-bold text-sm transition-colors ${
-                    isOp ? 'bg-orange-500 text-white hover:bg-orange-600' :
-                    isFn ? 'bg-slate-700 text-slate-200 hover:bg-slate-600' :
+                    isOp ? 'bg-[#0066cc] text-white hover:bg-[#0052a3]' :
+                    isFn ? 'bg-[#0066cc]/10 text-[#0066cc] hover:bg-[#0066cc]/20' :
                     btn === 'C' ? 'bg-red-500 text-white hover:bg-red-600' :
-                    'bg-slate-800 text-white hover:bg-slate-700'
+                    'bg-white text-slate-700 border border-slate-100 hover:bg-slate-50'
                   }`}
                 >
                   {btn}

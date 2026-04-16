@@ -108,18 +108,18 @@ export const IPSubnetCalculator: React.FC = () => {
                 <div className="text-xs text-slate-500 uppercase font-bold">Network Address</div>
                 <div className="text-xl font-mono font-bold text-[#0066cc]">{network}</div>
               </div>
-              <div className="result-box">
+              <div className="result-box bg-[#f0f7ff] border-[#0066cc]/10">
                 <div className="text-xs text-slate-500 uppercase font-bold">Usable Host Range</div>
-                <div className="text-sm font-mono font-bold text-slate-700">{firstHost} - {lastHost}</div>
+                <div className="text-sm font-mono font-bold text-[#0066cc]">{firstHost} - {lastHost}</div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
+                <div className="p-3 bg-[#f0f7ff] rounded border border-[#0066cc]/10 text-center">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Broadcast</div>
-                  <div className="text-sm font-mono font-bold">{broadcast}</div>
+                  <div className="text-sm font-mono font-bold text-[#0066cc]">{broadcast}</div>
                 </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
+                <div className="p-3 bg-[#f0f7ff] rounded border border-[#0066cc]/10 text-center">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Hosts</div>
-                  <div className="text-sm font-mono font-bold">{numHosts.toLocaleString()}</div>
+                  <div className="text-sm font-mono font-bold text-[#0066cc]">{numHosts.toLocaleString()}</div>
                 </div>
               </div>
             </div>
@@ -129,17 +129,17 @@ export const IPSubnetCalculator: React.FC = () => {
       </div>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div className="p-4 bg-[#f0f7ff] border border-[#0066cc]/20 rounded-lg shadow-sm">
           <div className="text-xs font-bold text-slate-400 uppercase mb-2">Subnet Mask</div>
-          <div className="text-sm font-mono font-bold text-slate-700">{netmask}</div>
+          <div className="text-sm font-mono font-bold text-[#0066cc]">{netmask}</div>
         </div>
-        <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div className="p-4 bg-[#f0f7ff] border border-[#0066cc]/20 rounded-lg shadow-sm">
           <div className="text-xs font-bold text-slate-400 uppercase mb-2">Wildcard Mask</div>
-          <div className="text-sm font-mono font-bold text-slate-700">{wildcard}</div>
+          <div className="text-sm font-mono font-bold text-[#0066cc]">{wildcard}</div>
         </div>
-        <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div className="p-4 bg-[#f0f7ff] border border-[#0066cc]/20 rounded-lg shadow-sm">
           <div className="text-xs font-bold text-slate-400 uppercase mb-2">IP Class</div>
-          <div className="text-sm font-bold text-slate-700">Class {ipClass}</div>
+          <div className="text-sm font-bold text-[#0066cc]">Class {ipClass}</div>
         </div>
       </div>
 

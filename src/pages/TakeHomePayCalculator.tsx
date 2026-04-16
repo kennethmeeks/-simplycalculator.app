@@ -120,23 +120,23 @@ export const TakeHomePayCalculator: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="calculator-container bg-slate-900 text-white">
-            <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]">
+            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0066cc]">
               <DollarSign className="w-5 h-5" />
               Net Pay Summary
             </h2>
             <div className="space-y-6">
-              <div className="text-center py-4 border-b border-slate-800">
-                <div className="text-4xl font-bold mb-1">${monthlyNet.toLocaleString()}</div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Monthly Take-Home</div>
+              <div className="text-center py-4 border-b border-[#0066cc]/10">
+                <div className="text-4xl font-bold mb-1 text-[#0066cc]">${monthlyNet.toLocaleString()}</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Monthly Take-Home</div>
               </div>
               <div className="text-center py-4">
-                <div className="text-2xl font-bold text-slate-200">${annualNet.toLocaleString()}</div>
-                <div className="text-[10px] text-slate-400 uppercase font-bold">Annual Take-Home</div>
+                <div className="text-2xl font-bold text-[#0066cc]">${annualNet.toLocaleString()}</div>
+                <div className="text-[10px] text-slate-500 uppercase font-bold">Annual Take-Home</div>
               </div>
-              <div className="text-center py-4 border-t border-slate-800">
-                <div className="text-xl font-bold text-slate-300">${totalTaxes.toLocaleString()}</div>
-                <div className="text-[10px] text-slate-400 uppercase font-bold">Total Estimated Taxes</div>
+              <div className="text-center py-4 border-t border-[#0066cc]/10">
+                <div className="text-xl font-bold text-[#0066cc]">${totalTaxes.toLocaleString()}</div>
+                <div className="text-[10px] text-slate-500 uppercase font-bold">Total Estimated Taxes</div>
               </div>
             </div>
           </div>

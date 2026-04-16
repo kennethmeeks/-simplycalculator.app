@@ -229,7 +229,7 @@ export const BMICalculator: React.FC = () => {
         <div className="space-y-6">
           <div className="result-box text-center">
             <h3 className="text-[#0066cc] font-bold mb-2 uppercase text-xs tracking-wider">Your BMI</h3>
-            <div className="text-5xl font-bold text-[#000] mb-2">{bmi.toFixed(1)}</div>
+            <div className="text-5xl font-bold text-[#0066cc] mb-2">{bmi.toFixed(1)}</div>
             <p className={`text-lg font-bold ${getCategoryColor()}`}>{category}</p>
             <button 
               onClick={saveToHistory}
@@ -254,7 +254,7 @@ export const BMICalculator: React.FC = () => {
                 {history.map((entry) => (
                   <div key={entry.id} className="flex justify-between items-center text-sm border-b border-slate-50 pb-2 last:border-0">
                     <div>
-                      <p className="font-bold text-slate-900">{entry.bmi} <span className="text-[10px] font-normal text-slate-400">({entry.weight})</span></p>
+                      <p className="font-bold text-[#0066cc]">{entry.bmi} <span className="text-[10px] font-normal text-slate-400">({entry.weight})</span></p>
                       <p className="text-[10px] text-slate-500">{entry.date}</p>
                     </div>
                     <span className={`text-xs font-bold ${getCategoryColor(entry.category)}`}>

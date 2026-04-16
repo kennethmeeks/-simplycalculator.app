@@ -113,23 +113,23 @@ export const IncomeTaxCalculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-blue-50 p-6 rounded-lg shadow-md border border-blue-100">
-            <h2 className="text-xl font-semibold mb-4 text-blue-900">Tax Summary</h2>
+          <div className="bg-[#f0f7ff] border border-[#0066cc]/20 p-6 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-4 text-[#0066cc]">Tax Summary</h2>
             
             <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-blue-200 pb-2">
-                <span className="text-blue-800">Estimated Federal Tax:</span>
-                <span className="text-2xl font-bold text-blue-900">${tax.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+              <div className="flex justify-between items-center border-b border-[#0066cc]/10 pb-2">
+                <span className="text-slate-600">Estimated Federal Tax:</span>
+                <span className="text-2xl font-bold text-[#0066cc]">${tax.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
               </div>
               
-              <div className="flex justify-between items-center border-b border-blue-200 pb-2">
-                <span className="text-blue-800">Effective Tax Rate:</span>
-                <span className="text-xl font-semibold text-blue-900">{effectiveRate.toFixed(2)}%</span>
+              <div className="flex justify-between items-center border-b border-[#0066cc]/10 pb-2">
+                <span className="text-slate-600">Effective Tax Rate:</span>
+                <span className="text-xl font-semibold text-[#0066cc]">{effectiveRate.toFixed(2)}%</span>
               </div>
-
+ 
               <div className="flex justify-between items-center pt-2">
-                <span className="text-blue-800 font-semibold">Estimated Take-Home:</span>
-                <span className="text-2xl font-bold text-green-700">${takeHome.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                <span className="text-slate-800 font-semibold">Estimated Take-Home:</span>
+                <span className="text-2xl font-bold text-[#0066cc]">${takeHome.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
               </div>
             </div>
           </div>

@@ -51,34 +51,34 @@ export const BasicCalculator: React.FC = () => {
 
       
 
-      <div className="max-w-xs mx-auto bg-slate-900 p-6 rounded-2xl shadow-xl mb-12">
-        <div className="bg-slate-800 p-4 rounded-xl mb-6 text-right">
+      <div className="max-w-xs mx-auto bg-[#f0f7ff] border border-[#0066cc]/10 p-6 rounded-2xl shadow-xl mb-12">
+        <div className="bg-white p-4 rounded-xl mb-6 text-right border border-slate-100">
           <p className="text-slate-400 text-xs h-4 mb-1">{equation}</p>
-          <p className="text-white text-3xl font-mono truncate">{display}</p>
+          <p className="text-[#0066cc] text-3xl font-mono truncate">{display}</p>
         </div>
 
         <div className="grid grid-cols-4 gap-3">
-          <button onClick={handleClear} className="col-span-2 bg-slate-700 text-white p-4 rounded-xl hover:bg-slate-600 transition-colors font-bold">AC</button>
-          <button onClick={() => handleOperator('/')} className="bg-orange-500 text-white p-4 rounded-xl hover:bg-orange-400 transition-colors font-bold">÷</button>
-          <button onClick={() => handleOperator('*')} className="bg-orange-500 text-white p-4 rounded-xl hover:bg-orange-400 transition-colors font-bold">×</button>
+          <button onClick={handleClear} className="col-span-2 bg-slate-200 text-slate-700 p-4 rounded-xl hover:bg-slate-300 transition-colors font-bold">AC</button>
+          <button onClick={() => handleOperator('/')} className="bg-[#0066cc]/10 text-[#0066cc] p-4 rounded-xl hover:bg-[#0066cc]/20 transition-colors font-bold text-xl">÷</button>
+          <button onClick={() => handleOperator('*')} className="bg-[#0066cc]/10 text-[#0066cc] p-4 rounded-xl hover:bg-[#0066cc]/20 transition-colors font-bold text-xl">×</button>
 
           {[7, 8, 9].map(n => (
-            <button key={n} onClick={() => handleNumber(String(n))} className="bg-slate-800 text-white p-4 rounded-xl hover:bg-slate-700 transition-colors font-bold">{n}</button>
+            <button key={n} onClick={() => handleNumber(String(n))} className="bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">{n}</button>
           ))}
-          <button onClick={() => handleOperator('-')} className="bg-orange-500 text-white p-4 rounded-xl hover:bg-orange-400 transition-colors font-bold">-</button>
+          <button onClick={() => handleOperator('-')} className="bg-[#0066cc]/10 text-[#0066cc] p-4 rounded-xl hover:bg-[#0066cc]/20 transition-colors font-bold text-xl">-</button>
 
           {[4, 5, 6].map(n => (
-            <button key={n} onClick={() => handleNumber(String(n))} className="bg-slate-800 text-white p-4 rounded-xl hover:bg-slate-700 transition-colors font-bold">{n}</button>
+            <button key={n} onClick={() => handleNumber(String(n))} className="bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">{n}</button>
           ))}
-          <button onClick={() => handleOperator('+')} className="bg-orange-500 text-white p-4 rounded-xl hover:bg-orange-400 transition-colors font-bold">+</button>
+          <button onClick={() => handleOperator('+')} className="bg-[#0066cc]/10 text-[#0066cc] p-4 rounded-xl hover:bg-[#0066cc]/20 transition-colors font-bold text-xl">+</button>
 
           {[1, 2, 3].map(n => (
-            <button key={n} onClick={() => handleNumber(String(n))} className="bg-slate-800 text-white p-4 rounded-xl hover:bg-slate-700 transition-colors font-bold">{n}</button>
+            <button key={n} onClick={() => handleNumber(String(n))} className="bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">{n}</button>
           ))}
-          <button onClick={handleCalculate} className="row-span-2 bg-orange-500 text-white p-4 rounded-xl hover:bg-orange-400 transition-colors font-bold">=</button>
+          <button onClick={handleCalculate} className="row-span-2 bg-[#0066cc] text-white p-4 rounded-xl hover:bg-[#0052a3] transition-colors font-bold text-xl">=</button>
 
-          <button onClick={() => handleNumber('0')} className="col-span-2 bg-slate-800 text-white p-4 rounded-xl hover:bg-slate-700 transition-colors font-bold">0</button>
-          <button onClick={() => handleNumber('.')} className="bg-slate-800 text-white p-4 rounded-xl hover:bg-slate-700 transition-colors font-bold">.</button>
+          <button onClick={() => handleNumber('0')} className="col-span-2 bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">0</button>
+          <button onClick={() => handleNumber('.')} className="bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">.</button>
         </div>
       </div>
 

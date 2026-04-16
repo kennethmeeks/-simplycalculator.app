@@ -150,13 +150,13 @@ export const BodyFatCalculator: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
+                <div className="p-3 bg-[#f0f7ff] rounded border border-[#0066cc]/10 text-center">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Fat Mass</div>
-                  <div className="text-lg font-bold text-slate-700">{fatMass} kg</div>
+                  <div className="text-lg font-bold text-[#0066cc]">{fatMass} kg</div>
                 </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
+                <div className="p-3 bg-[#f0f7ff] rounded border border-[#0066cc]/10 text-center">
                   <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Lean Mass</div>
-                  <div className="text-lg font-bold text-slate-700">{leanMass} kg</div>
+                  <div className="text-lg font-bold text-[#0066cc]">{leanMass} kg</div>
                 </div>
               </div>
             </div>

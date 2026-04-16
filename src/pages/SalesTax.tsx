@@ -68,7 +68,7 @@ export const SalesTaxCalculator: React.FC = () => {
 
               <div className="p-4 bg-slate-50 rounded border border-slate-100">
                 <div className="text-xs text-slate-500 uppercase font-bold mb-1">Sales Tax Amount</div>
-                <div className="text-2xl font-bold text-slate-700">${taxAmount.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#0066cc]">${taxAmount.toLocaleString()}</div>
               </div>
             </div>
           </div>

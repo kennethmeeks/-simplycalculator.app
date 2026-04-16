@@ -122,11 +122,11 @@ export const RothIRACalculator: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-slate-500 mb-1">Total Contributions</p>
-                <p className="text-xl font-semibold text-slate-900">${totalContributions.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                <p className="text-xl font-semibold text-[#0066cc]">${totalContributions.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
               </div>
               <div>
                 <p className="text-sm text-slate-500 mb-1">Estimated Tax Savings</p>
-                <p className="text-xl font-semibold text-slate-900">${taxSavings.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                <p className="text-xl font-semibold text-[#0066cc]">${taxSavings.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
               </div>
             </div>
             <div className="pt-4 border-t border-slate-200">

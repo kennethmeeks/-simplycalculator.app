@@ -119,24 +119,24 @@ export const PayrollCalculator: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="calculator-container bg-slate-900 text-white">
-            <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]">
+            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0066cc]">
               <DollarSign className="w-5 h-5" />
               Pay Summary
             </h2>
             <div className="space-y-6">
-              <div className="text-center py-4 border-b border-slate-800">
-                <div className="text-4xl font-bold mb-1">${netPay.toLocaleString()}</div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Net Take-Home Pay</div>
+              <div className="text-center py-4 border-b border-[#0066cc]/10">
+                <div className="text-4xl font-bold mb-1 text-[#0066cc]">${netPay.toLocaleString()}</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Net Take-Home Pay</div>
               </div>
               <div className="grid grid-cols-2 gap-4 text-center py-4">
                 <div>
-                  <div className="text-xl font-bold text-slate-200">${totalTaxes.toLocaleString()}</div>
-                  <div className="text-[10px] text-slate-400 uppercase font-bold">Total Taxes</div>
+                  <div className="text-xl font-bold text-[#0066cc]">${totalTaxes.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Total Taxes</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-slate-200">${otherDeductions.toLocaleString()}</div>
-                  <div className="text-[10px] text-slate-400 uppercase font-bold">Deductions</div>
+                  <div className="text-xl font-bold text-[#0066cc]">${otherDeductions.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Deductions</div>
                 </div>
               </div>
             </div>

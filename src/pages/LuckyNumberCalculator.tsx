@@ -84,24 +84,24 @@ export const LuckyNumberCalculator: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="calculator-container bg-slate-900 text-white">
-            <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-              <Star className="w-5 h-5 text-yellow-400" />
+          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]">
+            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0066cc]">
+              <Star className="w-5 h-5 text-yellow-500" />
               Your Lucky Profile
             </h2>
             <div className="space-y-6">
-              <div className="text-center py-4 border-b border-slate-800">
+              <div className="text-center py-4 border-b border-[#0066cc]/10">
                 <div className="text-8xl font-bold mb-2 text-[#0066cc]">{luckyNumber}</div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Your Lucky Number</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Your Lucky Number</div>
               </div>
               <div className="grid grid-cols-2 gap-4 text-center py-4">
                 <div>
-                  <div className="text-xl font-bold text-slate-200">{luckyColor}</div>
-                  <div className="text-[10px] text-slate-400 uppercase font-bold">Lucky Color</div>
+                  <div className="text-xl font-bold text-[#0066cc]">{luckyColor}</div>
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Lucky Color</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-slate-200">{luckyDay}</div>
-                  <div className="text-[10px] text-slate-400 uppercase font-bold">Lucky Day</div>
+                  <div className="text-xl font-bold text-[#0066cc]">{luckyDay}</div>
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Lucky Day</div>
                 </div>
               </div>
             </div>
