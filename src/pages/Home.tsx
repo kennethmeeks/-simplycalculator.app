@@ -35,19 +35,24 @@ export const Home: React.FC = () => {
           {CATEGORIES.map((cat) => (
             <div key={cat.slug} className="group">
               <div className="flex items-center justify-between mb-6 border-b border-[#eee] pb-3 group-hover:border-[#0066cc] transition-colors">
-                <h2 className="text-xl font-black text-[#111] tracking-tight group-hover:text-[#0066cc] transition-colors">
-                  {cat.title}
-                </h2>
+                <div className="flex flex-col">
+                  <h2 className="text-xl font-black text-[#111] tracking-tight group-hover:text-[#0066cc] transition-colors">
+                    {cat.title}
+                  </h2>
+                  <span className="text-[10px] text-[#999] font-black uppercase tracking-widest leading-none mt-1">
+                    {cat.items.length} Fully Verified Tools
+                  </span>
+                </div>
                 <Link 
                     to={`/${cat.slug}`} 
                     className="text-[11px] font-black text-[#0066cc] hover:underline uppercase tracking-tighter"
                 >
-                    Expand Category →
+                    All {cat.title} Index →
                 </Link>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-                {cat.items.slice(0, 8).map((item) => (
+                {cat.items.slice(0, 12).map((item) => (
                   <div key={item.path} className="relative pl-4 border-l-2 border-transparent hover:border-[#0066cc] transition-all">
                     <Link 
                       to={item.path} 
@@ -60,12 +65,12 @@ export const Home: React.FC = () => {
                     </p>
                   </div>
                 ))}
-                {cat.items.length > 8 && (
+                {cat.items.length > 12 && (
                    <Link 
                     to={`/${cat.slug}`} 
                     className="text-[12px] text-[#0066cc] font-bold hover:underline italic pl-4"
                   >
-                    + {cat.items.length - 8} more in {cat.title}...
+                    + {cat.items.length - 12} more in {cat.title}...
                   </Link>
                 )}
               </div>

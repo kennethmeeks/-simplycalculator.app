@@ -118,11 +118,14 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                     onClick={() => toggleCategory(cat.slug)}
                     className="w-full flex items-center justify-between p-4 bg-[#fcfcfc] hover:bg-[#f5f5f5] text-left border-b border-[#eee]"
                   >
-                    <span className="font-bold text-[13px] text-[#333] uppercase tracking-wide">{cat.title}</span>
+                    <div className="flex flex-col">
+                      <span className="font-bold text-[13px] text-[#333] uppercase tracking-wide">{cat.title}</span>
+                      <span className="text-[10px] text-[#999] font-medium uppercase tracking-tighter mt-0.5">{cat.items.length} Tools Available</span>
+                    </div>
                     {isOpen ? <ChevronDown className="w-4 h-4 text-[#999]" /> : <ChevronRight className="w-4 h-4 text-[#999]" />}
                   </button>
-                  <div className={`${transitionClass} ${isOpen ? 'max-h-[500px] opacity-100 p-4' : 'max-h-0 opacity-0'} space-y-2 overflow-hidden`}>
-                    {cat.items.slice(0, 6).map((item) => (
+                  <div className={`${transitionClass} ${isOpen ? 'max-h-[600px] opacity-100 p-4' : 'max-h-0 opacity-0'} space-y-2 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-200`}>
+                    {cat.items.slice(0, 50).map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
@@ -133,11 +136,16 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                         {item.name}
                       </Link>
                     ))}
+                    {cat.items.length > 50 && (
+                      <div className="text-[11px] text-[#999] italic pb-2">
+                        + {cat.items.length - 50} more items...
+                      </div>
+                    )}
                     <Link 
                       to={`/${cat.slug}`}
-                      className="block pt-2 text-[11px] font-bold text-[#999] hover:text-[#0066cc] uppercase tracking-tighter"
+                      className="block pt-2 border-t border-[#eee] text-[11px] font-bold text-[#999] hover:text-[#0066cc] uppercase tracking-tighter"
                     >
-                      Explore All {cat.title} →
+                      View Comprehensive Index →
                     </Link>
                   </div>
                 </div>

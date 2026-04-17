@@ -32,6 +32,11 @@ export const CategoryPage: React.FC = () => {
           <h1 className="text-4xl font-black mb-4 text-[#111] tracking-tighter border-b-4 border-[#0066cc] inline-block pb-2">
             {data.title}
           </h1>
+          <div className="flex items-center gap-2 mt-2">
+              <span className="bg-[#111] text-white text-[10px] font-black px-2 py-0.5 rounded-sm uppercase tracking-widest">
+                  {data.items.length} Tools Available
+              </span>
+          </div>
           <p className="text-sm leading-relaxed text-[#555] max-w-3xl mt-4 font-medium italic">
             {data.description}
           </p>

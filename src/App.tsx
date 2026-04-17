@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CalculatorPage } from './pages/CalculatorPage';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
@@ -526,8 +527,10 @@ export default function App() {
             <Route path="/everyday" element={<CategoryPage />} />
             <Route path="/automotive" element={<CategoryPage />} />
             <Route path="/insurance" element={<CategoryPage />} />
-            <Route path="/conversions" element={<CategoryPage />} />
+            <Route path="/converters" element={<CategoryPage />} />
+            <Route path="/business" element={<CategoryPage />} />
             <Route path="/category/:categoryKey" element={<CategoryPage />} />
+            <Route path="/:calculatorPath" element={<CalculatorPage />} />
           </Routes>
         </Layout>
       </Router>
