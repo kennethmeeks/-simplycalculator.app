@@ -257,6 +257,7 @@ import { HealthInsuranceCalculator } from './pages/HealthInsurance';
 import { CarInsuranceCalculator } from './pages/CarInsurance';
 import { CreditScoreSimulator } from './pages/CreditScoreSimulator';
 import { Sitemap } from './pages/Sitemap';
+import { CategoryPage } from './pages/CategoryPage';
 
 export default function App() {
   return (
@@ -265,21 +266,100 @@ export default function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            
+            {/* Standard Top-Level Routes */}
             <Route path="/mortgage" element={<MortgageCalculator />} />
             <Route path="/bmi" element={<BMICalculator />} />
-            <Route path="/tip" element={<TipCalculator />} />
-            <Route path="/salary" element={<SalaryCalculator />} />
             <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
+            <Route path="/salary" element={<SalaryCalculator />} />
             <Route path="/percentage" element={<PercentageCalculator />} />
             <Route path="/age" element={<AgeCalculator />} />
             <Route path="/auto-loan" element={<AutoLoanCalculator />} />
-            <Route path="/average-return" element={<AverageReturnCalculator />} />
             <Route path="/discount" element={<DiscountCalculator />} />
             <Route path="/calorie" element={<CalorieCalculator />} />
-            <Route path="/vat" element={<VATCalculator />} />
-            <Route path="/gpa" element={<GPACalculator />} />
+            <Route path="/tip" element={<TipCalculator />} />
+            <Route path="/unit-converter" element={<UnitConverter />} />
+            <Route path="/currency-converter" element={<CurrencyConverter />} />
+            <Route path="/word-counter" element={<WordCounter />} />
+            <Route path="/scientific-notation" element={<ScientificNotation />} />
+            <Route path="/apr" element={<APRCalculator />} />
+            <Route path="/simple-interest" element={<SimpleInterestCalculator />} />
+            <Route path="/sales-tax" element={<SalesTaxCalculator />} />
+            <Route path="/slope" element={<SlopeCalculator />} />
+            <Route path="/exponent" element={<ExponentCalculator />} />
+            <Route path="/matrix" element={<MatrixCalculator />} />
+            <Route path="/long-division" element={<LongDivisionCalculator />} />
+            <Route path="/log" element={<LogCalculator />} />
+            <Route path="/percent-error" element={<PercentErrorCalculator />} />
+
+            {/* Silo: Finance (Moved to top-level) */}
+            <Route path="/payroll" element={<PayrollCalculator />} />
+            <Route path="/take-home-pay" element={<TakeHomePayCalculator />} />
+            <Route path="/capital-gains-tax" element={<CapitalGainsTaxCalculator />} />
+            <Route path="/tax-bracket" element={<TaxBracketCalculator />} />
+            <Route path="/dividend" element={<DividendCalculator />} />
+            <Route path="/net-worth" element={<NetWorthCalculator />} />
+            <Route path="/stock-return" element={<StockReturnCalculator />} />
+            <Route path="/cryptocurrency" element={<CryptocurrencyCalculator />} />
+            <Route path="/bitcoin-profit" element={<BitcoinProfitCalculator />} />
+            <Route path="/loan" element={<LoanCalculator />} />
+            <Route path="/investment" element={<InvestmentCalculator />} />
+            <Route path="/retirement" element={<RetirementCalculator />} />
+            <Route path="/savings" element={<SavingsCalculator />} />
+            <Route path="/income-tax" element={<IncomeTaxCalculator />} />
+            <Route path="/cd" element={<CDCalculator />} />
+            <Route path="/interest-rate" element={<InterestRateCalculator />} />
+            <Route path="/401k" element={<FourOhOneKCalculator />} />
+            <Route path="/roth-ira" element={<RothIRACalculator />} />
+            <Route path="/house-affordability" element={<HouseAffordabilityCalculator />} />
+            <Route path="/heloc" element={<HELOCCalculator />} />
+            <Route path="/personal-loan" element={<PersonalLoanCalculator />} />
+            <Route path="/student-loan" element={<StudentLoanCalculator />} />
+            <Route path="/business-loan" element={<BusinessLoanCalculator />} />
+            <Route path="/credit-card" element={<CreditCardCalculator />} />
+            <Route path="/debt-payoff" element={<DebtPayoffCalculator />} />
+            <Route path="/debt-consolidation" element={<DebtConsolidationCalculator />} />
+            <Route path="/roi" element={<ROICalculator />} />
+            <Route path="/inflation" element={<InflationCalculator />} />
+            <Route path="/credit-score-simulator" element={<CreditScoreSimulator />} />
+
+            {/* Silo: Health (Moved to top-level) */}
+            <Route path="/bmr" element={<BMRCalculator />} />
+            <Route path="/body-fat" element={<BodyFatCalculator />} />
+            <Route path="/macro" element={<MacroCalculator />} />
+            <Route path="/tdee" element={<TDEECalculator />} />
+            <Route path="/pace" element={<PaceCalculator />} />
+            <Route path="/target-heart-rate" element={<TargetHeartRateCalculator />} />
+            <Route path="/protein" element={<ProteinCalculator />} />
             <Route path="/pregnancy" element={<PregnancyCalculator />} />
             <Route path="/ideal-weight" element={<IdealWeightCalculator />} />
+            <Route path="/ovulation" element={<Ovulation />} />
+            <Route path="/sleep-calculator" element={<SleepCalculator />} />
+            <Route path="/calories-burned" element={<CaloriesBurned />} />
+            <Route path="/water-intake" element={<WaterIntake />} />
+            <Route path="/one-rep-max" element={<OneRepMax />} />
+            <Route path="/arm-body-fat" element={<ArmBodyFat />} />
+            <Route path="/child-height-predictor" element={<ChildHeightPredictor />} />
+            <Route path="/lean-body-mass" element={<LeanBodyMass />} />
+            <Route path="/waist-to-hip" element={<WaistToHip />} />
+            <Route path="/vo2-max" element={<VO2Max />} />
+            <Route path="/postpartum-recovery" element={<PostpartumRecovery />} />
+            <Route path="/due-date" element={<DueDate />} />
+            <Route path="/fertility-calculator" element={<FertilityCalculator />} />
+            <Route path="/baby-weight" element={<BabyWeight />} />
+
+            {/* Silo: Conversions (Moved to top-level) */}
+            <Route path="/temperature-converter" element={<TemperatureConverter />} />
+            <Route path="/roman-numeral-converter" element={<RomanNumeralConverter />} />
+            <Route path="/shoe-size-conversion" element={<ShoeSizeConversion />} />
+            <Route path="/time-zone-converter" element={<TimeZoneConverter />} />
+            <Route path="/square-footage" element={<SquareFootageCalculator />} />
+            <Route path="/hex" element={<HexCalculator />} />
+            <Route path="/binary" element={<BinaryCalculator />} />
+
+            {/* All other routes */}
+            <Route path="/vat" element={<VATCalculator />} />
+            <Route path="/gpa" element={<GPACalculator />} />
             <Route path="/concrete" element={<ConcreteCalculator />} />
             <Route path="/amazon-fba" element={<AmazonFBACalculator />} />
             <Route path="/brrrr" element={<BRRRRCalculator />} />
@@ -291,7 +371,6 @@ export default function App() {
             <Route path="/statistics" element={<StatisticsCalculator />} />
             <Route path="/triangle" element={<TriangleCalculator />} />
             <Route path="/password-generator" element={<PasswordGenerator />} />
-            <Route path="/square-footage" element={<SquareFootageCalculator />} />
             <Route path="/time" element={<TimeCalculator />} />
             <Route path="/grade" element={<GradeCalculator />} />
             <Route path="/hours" element={<HoursCalculator />} />
@@ -303,53 +382,10 @@ export default function App() {
             <Route path="/dew-point" element={<DewPoint />} />
             <Route path="/roofing" element={<Roofing />} />
             <Route path="/heat-index" element={<HeatIndex />} />
-            <Route path="/loan" element={<LoanCalculator />} />
-            <Route path="/investment" element={<InvestmentCalculator />} />
-            <Route path="/retirement" element={<RetirementCalculator />} />
-            <Route path="/savings" element={<SavingsCalculator />} />
-            <Route path="/credit-card" element={<CreditCardCalculator />} />
-            <Route path="/inflation" element={<InflationCalculator />} />
-            <Route path="/roi" element={<ROICalculator />} />
-            <Route path="/apr" element={<APRCalculator />} />
-            <Route path="/simple-interest" element={<SimpleInterestCalculator />} />
-            <Route path="/sales-tax" element={<SalesTaxCalculator />} />
-            <Route path="/slope" element={<SlopeCalculator />} />
-            <Route path="/hex" element={<HexCalculator />} />
-            <Route path="/exponent" element={<ExponentCalculator />} />
-            <Route path="/matrix" element={<MatrixCalculator />} />
-            <Route path="/long-division" element={<LongDivisionCalculator />} />
-            <Route path="/log" element={<LogCalculator />} />
-            <Route path="/binary" element={<BinaryCalculator />} />
-            <Route path="/percent-error" element={<PercentErrorCalculator />} />
-            <Route path="/bmr" element={<BMRCalculator />} />
-            <Route path="/body-fat" element={<BodyFatCalculator />} />
-            <Route path="/macro" element={<MacroCalculator />} />
-            <Route path="/tdee" element={<TDEECalculator />} />
-            <Route path="/pace" element={<PaceCalculator />} />
-            <Route path="/payback-period" element={<PaybackPeriodCalculator />} />
-            <Route path="/target-heart-rate" element={<TargetHeartRateCalculator />} />
-            <Route path="/protein" element={<ProteinCalculator />} />
-            <Route path="/401k" element={<FourOhOneKCalculator />} />
-            <Route path="/interest-rate" element={<InterestRateCalculator />} />
-            <Route path="/house-affordability" element={<HouseAffordabilityCalculator />} />
-            <Route path="/rent" element={<RentCalculator />} />
-            <Route path="/rental-property" element={<RentalPropertyCalculator />} />
-            <Route path="/marriage-tax" element={<MarriageTaxCalculator />} />
-            <Route path="/estate-tax" element={<EstateTaxCalculator />} />
-            <Route path="/pension" element={<PensionCalculator />} />
-            <Route path="/social-security" element={<SocialSecurityCalculator />} />
-            <Route path="/annuity" element={<AnnuityCalculator />} />
-            <Route path="/annuity-payout" element={<AnnuityPayoutCalculator />} />
-            <Route path="/credit-card-payoff" element={<CreditCardPayoffCalculator />} />
-            <Route path="/debt-payoff" element={<DebtPayoffCalculator />} />
-            <Route path="/debt-consolidation" element={<DebtConsolidationCalculator />} />
             <Route path="/repayment" element={<RepaymentCalculator />} />
-            <Route path="/student-loan" element={<StudentLoanCalculator />} />
             <Route path="/college-cost" element={<CollegeCostCalculator />} />
-            <Route path="/cd" element={<CDCalculator />} />
             <Route path="/bond" element={<BondCalculator />} />
             <Route path="/mutual-fund" element={<MutualFundCalculator />} />
-            <Route path="/roth-ira" element={<RothIRACalculator />} />
             <Route path="/ira" element={<IRACalculator />} />
             <Route path="/rmd" element={<RMDCalculator />} />
             <Route path="/cash-back-low-interest" element={<CashBackLowInterestCalculator />} />
@@ -359,48 +395,24 @@ export default function App() {
             <Route path="/present-value" element={<PresentValueCalculator />} />
             <Route path="/future-value" element={<FutureValueCalculator />} />
             <Route path="/commission" element={<CommissionCalculator />} />
-            <Route path="/heloc" element={<HELOCCalculator />} />
             <Route path="/canadian-mortgage" element={<CanadianMortgageCalculator />} />
             <Route path="/mortgage-uk" element={<MortgageUKCalculator />} />
             <Route path="/home-equity" element={<HomeEquityCalculator />} />
             <Route path="/dti-ratio" element={<DebtToIncomeRatioCalculator />} />
-            <Route path="/personal-loan" element={<PersonalLoanCalculator />} />
             <Route path="/boat-loan" element={<BoatLoanCalculator />} />
             <Route path="/lease" element={<LeaseCalculator />} />
             <Route path="/refinance" element={<RefinanceCalculator />} />
             <Route path="/budget" element={<BudgetCalculator />} />
-            <Route path="/business-loan" element={<BusinessLoanCalculator />} />
-            <Route path="/unit-converter" element={<UnitConverter />} />
-            <Route path="/currency-converter" element={<CurrencyConverter />} />
             <Route path="/percentage-off" element={<PercentageOff />} />
-            <Route path="/scientific-notation" element={<ScientificNotation />} />
             <Route path="/random-number" element={<RandomNumber />} />
-            <Route path="/word-counter" element={<WordCounter />} />
             <Route path="/love-calculator" element={<LoveCalculator />} />
             <Route path="/numerology" element={<Numerology />} />
             <Route path="/zodiac" element={<Zodiac />} />
-            <Route path="/ovulation" element={<Ovulation />} />
-            <Route path="/sleep-calculator" element={<SleepCalculator />} />
-            <Route path="/calories-burned" element={<CaloriesBurned />} />
             <Route path="/average" element={<AverageCalculator />} />
             <Route path="/ratio" element={<RatioCalculator />} />
             <Route path="/square-root" element={<SquareRoot />} />
-            <Route path="/temperature-converter" element={<TemperatureConverter />} />
-            <Route path="/roman-numeral-converter" element={<RomanNumeralConverter />} />
-            <Route path="/water-intake" element={<WaterIntake />} />
-            <Route path="/one-rep-max" element={<OneRepMax />} />
-            <Route path="/arm-body-fat" element={<ArmBodyFat />} />
-            <Route path="/child-height-predictor" element={<ChildHeightPredictor />} />
             <Route path="/sobriety-calculator" element={<SobrietyCalculator />} />
-            <Route path="/lean-body-mass" element={<LeanBodyMass />} />
-            <Route path="/waist-to-hip" element={<WaistToHip />} />
-            <Route path="/vo2-max" element={<VO2Max />} />
-            <Route path="/postpartum-recovery" element={<PostpartumRecovery />} />
-            <Route path="/due-date" element={<DueDate />} />
-            <Route path="/fertility-calculator" element={<FertilityCalculator />} />
-            <Route path="/baby-weight" element={<BabyWeight />} />
             <Route path="/days-until" element={<DaysUntil />} />
-            <Route path="/time-zone-converter" element={<TimeZoneConverter />} />
             <Route path="/business-days" element={<BusinessDays />} />
             <Route path="/chronological-age" element={<ChronologicalAge />} />
             <Route path="/work-hours" element={<WorkHours />} />
@@ -445,15 +457,6 @@ export default function App() {
             <Route path="/wallpaper" element={<WallpaperCalculator />} />
             <Route path="/deck" element={<DeckCalculator />} />
             <Route path="/calculator-monthly-searches" element={<CalculatorMonthlySearches />} />
-            <Route path="/payroll" element={<PayrollCalculator />} />
-            <Route path="/take-home-pay" element={<TakeHomePayCalculator />} />
-            <Route path="/capital-gains-tax" element={<CapitalGainsTaxCalculator />} />
-            <Route path="/tax-bracket" element={<TaxBracketCalculator />} />
-            <Route path="/dividend" element={<DividendCalculator />} />
-            <Route path="/net-worth" element={<NetWorthCalculator />} />
-            <Route path="/stock-return" element={<StockReturnCalculator />} />
-            <Route path="/cryptocurrency" element={<CryptocurrencyCalculator />} />
-            <Route path="/bitcoin-profit" element={<BitcoinProfitCalculator />} />
             <Route path="/dog-age" element={<DogAgeCalculator />} />
             <Route path="/cat-age" element={<CatAgeCalculator />} />
             <Route path="/angel-number" element={<AngelNumberCalculator />} />
@@ -472,7 +475,6 @@ export default function App() {
             <Route path="/prime-number" element={<PrimeNumberChecker />} />
             <Route path="/significant-figures" element={<SignificantFiguresCalculator />} />
             <Route path="/standard-deviation" element={<StandardDeviationCalculator />} />
-            <Route path="/income-tax" element={<IncomeTaxCalculator />} />
             <Route path="/voltage-drop" element={<VoltageDropCalculator />} />
             <Route path="/resistor" element={<ResistorCalculator />} />
             <Route path="/ohms-law" element={<OhmsLawCalculator />} />
@@ -488,7 +490,6 @@ export default function App() {
             <Route path="/bra-size" element={<BraSizeCalculator />} />
             <Route path="/dice-roller" element={<DiceRoller />} />
             <Route path="/gdp" element={<GDPCalculator />} />
-            <Route path="/shoe-size-conversion" element={<ShoeSizeConversion />} />
             <Route path="/density" element={<DensityCalculator />} />
             <Route path="/mass" element={<MassCalculator />} />
             <Route path="/weight" element={<WeightCalculator />} />
@@ -515,11 +516,18 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/life-insurance" element={<LifeInsuranceCalculator />} />
-            <Route path="/health-insurance" element={<HealthInsuranceCalculator />} />
-            <Route path="/car-insurance" element={<CarInsuranceCalculator />} />
-            <Route path="/credit-score-simulator" element={<CreditScoreSimulator />} />
             <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="/finance" element={<CategoryPage />} />
+            <Route path="/personal" element={<CategoryPage />} />
+            <Route path="/health" element={<CategoryPage />} />
+            <Route path="/math" element={<CategoryPage />} />
+            <Route path="/science" element={<CategoryPage />} />
+            <Route path="/construction" element={<CategoryPage />} />
+            <Route path="/everyday" element={<CategoryPage />} />
+            <Route path="/automotive" element={<CategoryPage />} />
+            <Route path="/insurance" element={<CategoryPage />} />
+            <Route path="/conversions" element={<CategoryPage />} />
+            <Route path="/category/:categoryKey" element={<CategoryPage />} />
           </Routes>
         </Layout>
       </Router>
