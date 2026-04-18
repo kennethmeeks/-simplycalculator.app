@@ -555,6 +555,7 @@ export default function App() {
             <Route path="/time-date" element={<CategoryPage />} />
             <Route path="/geography" element={<CategoryPage />} />
             <Route path="/fashion" element={<CategoryPage />} />
+            <Route path="/chemistry" element={<CategoryPage />} />
             <Route path="/entertainment" element={<CategoryPage />} />
             <Route path="/roofing" element={<CategoryPage />} />
             <Route path="/real-estate" element={<CategoryPage />} />
