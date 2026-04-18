@@ -28,8 +28,17 @@ export const BasicCalculator: React.FC = () => {
       if (!/^[0-9+\-*/. ]+$/.test(fullEquation)) {
         throw new Error('Invalid characters in equation');
       }
-      // eslint-disable-next-line no-eval
-      const result = eval(fullEquation);
+      
+      // Use Function constructor as a slightly safer (but still restricted) way or a simple parser
+      // Since we already strictly validated with regex, we can use Function('')() which is scoped.
+      // Alternatively, for these basic ops, we can just use a simple eval-like but restricted approach.
+      // eslint-disable-next-line no-new-func
+      const result = new Function(`return ${fullEquation}`)();
+      
+      if (typeof result !== 'number' || !isFinite(result)) {
+        throw new Error('Invalid result');
+      }
+      
       setDisplay(String(result));
       setEquation('');
     } catch (e) {

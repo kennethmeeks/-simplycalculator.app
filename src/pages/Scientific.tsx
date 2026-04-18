@@ -31,8 +31,14 @@ export const ScientificCalculator: React.FC = () => {
       if (!/^[0-9+\-*/. ]+$/.test(fullEquation)) {
         throw new Error('Invalid characters in equation');
       }
-      // eslint-disable-next-line no-eval
-      const result = eval(fullEquation);
+      
+      // eslint-disable-next-line no-new-func
+      const result = new Function(`return ${fullEquation}`)();
+      
+      if (typeof result !== 'number' || !isFinite(result)) {
+        throw new Error('Invalid result');
+      }
+
       setDisplay(String(result));
       setEquation('');
     } catch (e) {

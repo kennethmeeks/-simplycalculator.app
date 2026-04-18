@@ -5,15 +5,17 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  ChevronRight
+  ChevronRight,
+  Search,
+  Star
 } from 'lucide-react';
 import { CATEGORIES } from '../constants/categories';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [searchTerm, setSearchTerm] = React.useState('');
   const [expandedCategories, setExpandedCategories] = React.useState<Record<string, boolean>>({
     'finance': true,
-    'health': true
   });
   const location = useLocation();
 
@@ -32,24 +34,39 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     { name: 'Age Calculator', path: '/age' },
   ];
 
+  const filteredCategories = React.useMemo(() => {
+    if (!searchTerm) return CATEGORIES;
+    return CATEGORIES.map(cat => ({
+      ...cat,
+      items: cat.items.filter(item => 
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.desc.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    })).filter(cat => cat.items.length > 0);
+  }, [searchTerm]);
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#f2f2f2]">
+    <div className="min-h-screen flex flex-col bg-[#f8f9fa] font-sans">
       {/* Header */}
-      <header className="bg-white border-b border-[#ccc]">
-        <div className="max-w-[1000px] mx-auto px-4 h-16 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 text-[#0066cc] font-bold text-2xl">
-            <Calculator className="w-8 h-8" />
-            <span>simplycalculator.app</span>
+      <header className="bg-[#111] text-white sticky top-0 z-50 shadow-lg">
+        <div className="max-w-[1400px] mx-auto px-6 h-16 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-3 font-black text-xl tracking-tighter uppercase group">
+            <div className="w-8 h-8 bg-blue-600 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+              <Calculator className="w-5 h-5 text-white" />
+            </div>
+            <span>simplycalculator<span className="text-blue-500">.app</span></span>
           </Link>
 
-          <div className="hidden md:flex gap-6 text-sm">
-            <Link to="/" className="text-[#0066cc] font-bold hover:underline">Home</Link>
-            <Link to="/about" className="text-[#0066cc] font-bold hover:underline">About</Link>
-            <Link to="/contact" className="text-[#0066cc] font-bold hover:underline">Contact</Link>
+          <div className="hidden md:flex gap-8 text-[11px] font-black uppercase tracking-widest items-center">
+            <Link to="/" className="hover:text-blue-500 transition-colors">Home</Link>
+            <Link to="/finance" className="hover:text-blue-500 transition-colors">Finance</Link>
+            <Link to="/health" className="hover:text-blue-500 transition-colors">Health</Link>
+            <div className="h-4 w-[1px] bg-white/20 mx-2"></div>
+            <Link to="/about" className="hover:text-blue-500 transition-colors text-white/60">Info</Link>
           </div>
 
           <button
-            className="md:hidden p-2 text-[#666]"
+            className="md:hidden p-2 text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -87,19 +104,34 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       )}
 
       {/* Main Content Area */}
-      <div className="max-w-[1100px] mx-auto w-full flex flex-col md:flex-row gap-8 px-4 py-8">
+      <div className="max-w-[1400px] mx-auto w-full flex flex-col md:flex-row gap-8 lg:gap-12 px-6 py-6 lg:py-12 flex-1">
         {/* Sidebar */}
-        <aside className="hidden md:block w-72 shrink-0">
-          <div className="space-y-6">
-            <div className="bg-white border border-[#ccc] p-5 shadow-sm">
-                <h3 className="font-bold text-sm text-[#333] uppercase tracking-widest border-b border-[#ccc] pb-2 mb-4">Quick Links</h3>
+        <aside className="hidden md:block w-72 shrink-0 h-[calc(100vh-120px)] sticky top-24 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
+          <div className="space-y-8">
+            {/* Search Box */}
+            <div className="relative group">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#aaa] group-focus-within:text-blue-600 transition-colors" />
+              <input 
+                type="text" 
+                placeholder="Search 500+ tools..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-white border-2 border-[#eee] focus:border-blue-600 outline-none text-[12px] font-bold uppercase tracking-wider transition-all placeholder:text-[#ccc]"
+              />
+            </div>
+
+            <div className="bg-white border-2 border-[#111] p-6 shadow-[6px_6px_0px_0px_rgba(17,17,17,1)]">
+                <div className="flex items-center gap-2 border-b-2 border-[#eee] pb-3 mb-4">
+                  <Star className="w-3 h-3 text-blue-600 fill-blue-600" />
+                  <h3 className="font-black text-[10px] text-[#111] uppercase tracking-[0.2em]">Priority Hub</h3>
+                </div>
                 <nav className="flex flex-col gap-2">
                   {popularCalculators.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`text-[13px] text-[#0066cc] hover:underline ${
-                        location.pathname === item.path ? 'font-bold' : ''
+                      className={`text-[12px] font-bold text-[#666] hover:text-blue-600 transition-colors ${
+                        location.pathname === item.path ? 'text-blue-600' : ''
                       }`}
                     >
                       {item.name}
@@ -108,63 +140,68 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 </nav>
             </div>
 
-            {CATEGORIES.map((cat) => {
-              const transitionClass = "transition-all duration-300 ease-in-out";
-              const isOpen = expandedCategories[cat.slug];
-              
-              return (
-                <div key={cat.slug} className="bg-white border border-[#ccc] shadow-sm overflow-hidden">
-                  <button 
-                    onClick={() => toggleCategory(cat.slug)}
-                    className="w-full flex items-center justify-between p-4 bg-[#fcfcfc] hover:bg-[#f5f5f5] text-left border-b border-[#eee]"
-                  >
-                    <div className="flex flex-col">
-                      <span className="font-bold text-[13px] text-[#333] uppercase tracking-wide">{cat.title}</span>
-                      <span className="text-[10px] text-[#999] font-medium uppercase tracking-tighter mt-0.5">{cat.items.length} Tools Available</span>
-                    </div>
-                    {isOpen ? <ChevronDown className="w-4 h-4 text-[#999]" /> : <ChevronRight className="w-4 h-4 text-[#999]" />}
-                  </button>
-                  <div className={`${transitionClass} ${isOpen ? 'max-h-[600px] opacity-100 p-4' : 'max-h-0 opacity-0'} space-y-2 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-200`}>
-                    {cat.items.slice(0, 50).map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className={`block text-[13px] text-[#0066cc] hover:underline ${
-                          location.pathname === item.path ? 'font-bold' : ''
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                    {cat.items.length > 50 && (
-                      <div className="text-[11px] text-[#999] italic pb-2">
-                        + {cat.items.length - 50} more items...
-                      </div>
-                    )}
-                    <Link 
-                      to={`/${cat.slug}`}
-                      className="block pt-2 border-t border-[#eee] text-[11px] font-bold text-[#999] hover:text-[#0066cc] uppercase tracking-tighter"
+            <div className="space-y-4">
+              {filteredCategories.map((cat) => {
+                const transitionClass = "transition-all duration-300 ease-in-out";
+                const isOpen = expandedCategories[cat.slug] || searchTerm.length > 0;
+                
+                return (
+                  <div key={cat.slug} className="group">
+                    <button 
+                      onClick={() => toggleCategory(cat.slug)}
+                      className={`w-full flex items-center justify-between py-3 px-4 border-2 transition-all ${
+                        isOpen ? 'bg-[#111] border-[#111] text-white' : 'bg-white border-[#eee] hover:border-[#111] text-[#111]'
+                      }`}
                     >
-                      View Comprehensive Index →
-                    </Link>
+                      <div className="flex flex-col text-left">
+                        <span className="font-black text-[10px] uppercase tracking-widest">{cat.title}</span>
+                        {!isOpen && <span className="text-[8px] opacity-40 uppercase tracking-tighter mt-0.5">{cat.items.length} Tools</span>}
+                      </div>
+                      {isOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                    </button>
+                    
+                    <div className={`${transitionClass} overflow-hidden ${isOpen ? 'max-h-[500px] opacity-100 mt-2 border-l-2 border-[#eee] ml-2 pl-4' : 'max-h-0 opacity-0'}`}>
+                      <div className="space-y-2 py-2">
+                        {cat.items.slice(0, 30).map((item) => (
+                          <Link
+                            key={item.path}
+                            to={item.path}
+                            className={`block text-[12px] font-bold text-[#666] hover:text-blue-600 transition-colors truncate ${
+                              location.pathname === item.path ? 'text-blue-600' : ''
+                            }`}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                        {cat.items.length > 30 && (
+                          <div className="text-[9px] text-[#999] font-black uppercase tracking-widest py-1 border-t border-[#eee]">
+                            + {cat.items.length - 30} more
+                          </div>
+                        )}
+                        <Link 
+                          to={`/${cat.slug}`}
+                          className="block pt-2 text-[10px] font-black text-blue-600 hover:text-blue-700 uppercase tracking-widest"
+                        >
+                          View Full Category »
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </aside>
 
-        {/* Content */}
-        <main className="flex-1 min-w-0">
-          <div className="bg-white border border-[#ccc] p-8 shadow-sm relative">
-            <div className="absolute top-4 right-8">
-              <span className="text-[10px] text-slate-400 uppercase tracking-widest font-medium">
-                Educational Tool • Not Financial Advice
-              </span>
+        {/* Content Area */}
+        <div className="flex-1 flex flex-col xl:flex-row gap-8 lg:gap-12 min-w-0">
+          {/* Main Content */}
+          <main className="flex-1 min-w-0">
+            <div className="relative">
+              {children}
             </div>
-            {children}
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
 
       <footer className="bg-[#333] text-white py-8 mt-auto">

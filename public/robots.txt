@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://simplycalculator.app/sitemap.xml
+
+Sitemap: https://simplycalculator.app/sitemap

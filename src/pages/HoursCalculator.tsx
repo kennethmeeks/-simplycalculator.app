@@ -95,7 +95,7 @@ export const HoursCalculator: React.FC = () => {
                   <input 
                     type="text" 
                     value={e.day} 
-                    onChange={(e) => updateEntry(e.id, 'day', e.target.value)}
+                    onChange={(ev) => updateEntry(e.id, 'day', ev.target.value)}
                     className="w-full md:w-32 text-sm border-slate-200 rounded focus:border-[#0066cc] focus:ring-1 focus:ring-[#0066cc]"
                   />
                   <div className="flex gap-3 flex-1 w-full md:w-auto">
