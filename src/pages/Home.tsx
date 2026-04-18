@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
                   </h2>
                 </div>
                 <Link 
-                    to={`/${cat.slug}`} 
+                    to={`/category/${cat.slug}`} 
                     className="text-[10px] font-black text-[#111] hover:text-blue-600 uppercase tracking-widest border-2 border-[#111] px-4 py-2 hover:bg-[#111] hover:text-white transition-all shadow-[4px_4px_0px_0px_#eee]"
                 >
                     Expand Hub »
@@ -67,7 +67,7 @@ export const Home: React.FC = () => {
                 ))}
                 {cat.items.length > 10 && (
                    <Link 
-                    to={`/${cat.slug}`} 
+                    to={`/category/${cat.slug}`} 
                     className="flex items-center gap-2 text-[11px] font-black text-blue-600 hover:tracking-widest transition-all uppercase"
                   >
                     Explore {cat.items.length - 10} more in {cat.title} →

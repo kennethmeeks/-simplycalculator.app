@@ -294,7 +294,7 @@ export const CalculatorPage: React.FC = () => {
                 <nav className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#999] mb-8 overflow-x-auto whitespace-nowrap pb-2">
                     <Link to="/" className="hover:text-blue-600">Home</Link>
                     <ChevronRight className="w-3 h-3" />
-                    <Link to={`/${foundCategory.slug}`} className="hover:text-blue-600">{foundCategory.title}</Link>
+                    <Link to={`/category/${foundCategory.slug}`} className="hover:text-blue-600">{foundCategory.title}</Link>
                     <ChevronRight className="w-3 h-3" />
                     <span className="text-[#111]">{foundItem.name}</span>
                 </nav>

@@ -52,7 +52,7 @@ export const CategoryPage: React.FC = () => {
                 {CATEGORIES.map(c => (
                     <Link 
                       key={c.slug} 
-                      to={`/${c.slug}`} 
+                      to={`/category/${c.slug}`} 
                       className={`text-[11px] font-black uppercase tracking-tighter transition-colors ${
                         c.slug === categoryKey ? 'text-blue-600 underline underline-offset-4 decoration-2' : 'text-[#111] hover:text-blue-600'
                       }`}

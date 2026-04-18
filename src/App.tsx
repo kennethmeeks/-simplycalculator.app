@@ -540,6 +540,28 @@ export default function App() {
             <Route path="/insurance" element={<CategoryPage />} />
             <Route path="/converters" element={<CategoryPage />} />
             <Route path="/business" element={<CategoryPage />} />
+            <Route path="/military" element={<CategoryPage />} />
+            <Route path="/medical" element={<CategoryPage />} />
+            <Route path="/lifestyle" element={<CategoryPage />} />
+            <Route path="/hobbies" element={<CategoryPage />} />
+            <Route path="/tech" element={<CategoryPage />} />
+            <Route path="/sports" element={<CategoryPage />} />
+            <Route path="/environment" element={<CategoryPage />} />
+            <Route path="/culinary" element={<CategoryPage />} />
+            <Route path="/academic" element={<CategoryPage />} />
+            <Route path="/biology" element={<CategoryPage />} />
+            <Route path="/pets" element={<CategoryPage />} />
+            <Route path="/gardening" element={<CategoryPage />} />
+            <Route path="/time-date" element={<CategoryPage />} />
+            <Route path="/geography" element={<CategoryPage />} />
+            <Route path="/fashion" element={<CategoryPage />} />
+            <Route path="/entertainment" element={<CategoryPage />} />
+            <Route path="/roofing" element={<CategoryPage />} />
+            <Route path="/real-estate" element={<CategoryPage />} />
+            <Route path="/hydraulics" element={<CategoryPage />} />
+            <Route path="/masonry" element={<CategoryPage />} />
+            <Route path="/home-improvement" element={<CategoryPage />} />
+            <Route path="/engineering" element={<CategoryPage />} />
             <Route path="/category/:categoryKey" element={<CategoryPage />} />
             <Route path="/:calculatorPath" element={<CalculatorPage />} />
           </Routes>
