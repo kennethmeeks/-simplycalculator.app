@@ -1,23 +1,3 @@
-export interface CalculatorItem {
-  name: string;
-  path: string;
-  desc: string;
-  keywords?: string[];
-}
-
-export interface CategoryData {
-  title: string;
-  slug: string;
-  description: string;
-  items: CalculatorItem[];
-}
-
-export const CATEGORIES: CategoryData[] = [
-  {
-    title: 'Finance & Investment',
-    slug: 'finance',
-    description: 'Grow your wealth and manage your debt with precision. Our finance suite covers everything from daily budgeting to complex investment analysis and tax planning.',
-    items: [
       { name: '12-Hour Shift Pay Calculator', path: '/12-hour-shift-pay', desc: 'Calculate earnings for 12-hour shift rotations.', keywords: ['12 hour shift salary', 'shift differential', 'overtime pay', 'nursing schedule pay', 'industrial shift calculator', 'work hours earnings', '12h rotation pay', 'wages calculator', 'hourly pay shift', 'shift work income'] },
       { name: '3x Rent Calculator', path: '/3x-rent-calculator', desc: 'Check if your income meets the 3x rent rule.', keywords: ['rent affordability', 'income for rent', '3x rent rule', 'leasing requirement', 'apartment qualifying', 'landlord check', 'monthly rent budget', 'can i afford this rent', 'salary for apartment', 'rental income test'] },
       { name: '401k Calculator', path: '/401k', desc: 'Estimate future 401k balance.', keywords: ['retirement savings', 'employer match', '401k growth', 'investment projection', 'wealth building', 'pension alternative', 'nest egg', 'retirement planning', 'contribution limit', 'compounding interest'] },
@@ -252,13 +232,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Tax Equivalent Yield', path: '/tax-equivalent-yield', desc: 'Compare municipal and taxable bonds.' },
       { name: 'Times Interest Earned', path: '/times-interest-earned', desc: 'Solvency and interest payment health.' },
       { name: 'Yield to Maturity', path: '/ytm-calculator', desc: 'Total expected bond return over life.' },
-    ]
-  },
-  {
-    title: 'Personal & Fun',
-    slug: 'personal',
-    description: 'Life metrics and entertaining curiosities. Our personal tools help you track unique milestones, compatibility, and day-to-day life calculations.',
-    items: [
       { name: 'Dog Age Calculator', path: '/dog-age', desc: 'Convert dog years to human years.' },
       { name: 'Cat Age Calculator', path: '/cat-age', desc: 'Convert cat years to human years.' },
       { name: 'Angel Number', path: '/angel-number', desc: 'Discover your unique angel number.' },
@@ -276,23 +249,9 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Work Hours', path: '/work-hours', desc: 'Track your daily and weekly working time.' },
       { name: 'Time Card', path: '/time-card', desc: 'Calculate total hours and pay for a week.' },
       { name: 'Age Calculator', path: '/age', desc: 'Find out exactly how old you are.' },
-    ]
-  },
-  {
-    title: 'Insurance',
-    slug: 'insurance',
-    description: 'Secure your future with proper coverage. Our tools help you estimate how much life, health, or auto insurance you actually need.',
-    items: [
       { name: 'Life Insurance', path: '/life-insurance', desc: 'Coverage for family protection.' },
       { name: 'Health Insurance', path: '/health-insurance', desc: 'Out-of-pocket and premium math.' },
       { name: 'Car Insurance', path: '/car-insurance', desc: 'Drive with financial peace of mind.' },
-    ]
-  },
-  {
-    title: 'Arithmetic',
-    slug: 'arithmetic',
-    description: 'Master the fundamentals of numbers. From basic operations and fractions to number theory and advanced precision arithmetic.',
-    items: [
       { name: 'Absolute Change', path: '/absolute-change', desc: 'Calculate the total difference between two values.', keywords: ['math difference', 'absolute value', 'change math', 'arithmetic', 'number difference', 'variance', 'total change', 'absolute math', 'subtraction help', 'math basics'] },
       { name: 'Absolute Value', path: '/absolute-value', desc: 'Find the non-negative magnitude of any number.', keywords: ['magnitude', 'positive value', 'distance from zero', 'number magnitude', 'math basics', 'arithmetic', 'positive number', 'absolute math', 'real numbers', 'distance math'] },
       { name: 'Addition', path: '/addition', desc: 'Sum multiple numbers with precision.', keywords: ['plus', 'summation', 'total', 'arithmetic', 'math basics', 'combine numbers', 'sum math', 'basic math', 'addition tool', 'math help'] },
@@ -349,13 +308,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Square Root', path: '/square-root', desc: 'Calculate the geometric root of any number.', keywords: ['radical', 'root of 2', 'pythagorean', 'exponent math', 'geometry', 'math basics', 'inverse power', 'perfect square', 'root calculation', 'math help'] },
       { name: 'Digit Sum', path: '/digit-sum', desc: 'Calculate the total of all digits in a number.', keywords: ['digital root', 'number theory', 'digit addition', 'math basics', 'recreational math', 'arithmetic', 'number properties', 'digit total', 'math logic', 'sequences'] },
       { name: 'Weighted Average', path: '/weighted-average', desc: 'Calculate mean with varying importance levels.', keywords: ['gpa', 'grades', 'weighted mean', 'statistics', 'averaging', 'data analysis', 'portfolio return', 'grade tracking', 'importance weights', 'math mean'] },
-    ]
-  },
-  {
-    title: 'Algebra',
-    slug: 'algebra',
-    description: 'Solve for unknowns and master variables. From linear equations and polynomials to complex numbers and functional analysis.',
-    items: [
       { name: 'Absolute Value Equation', path: '/absolute-value-equation', desc: 'Solve equations containing absolute terms.', keywords: ['solve for x', 'absolute value', 'linear algebra', 'inequalities', 'math help', 'algebra solver', 'magnitude equations', 'homework helper', 'algebra 1', 'algebra 2'] },
       { name: 'Absolute Value Inequalities', path: '/absolute-value-inequality', desc: 'Find ranges for absolute comparisons.', keywords: ['interval notation', 'number line', 'inequality solver', 'algebra basics', 'math help', 'range of values', 'absolute distance', 'algebra 2', 'inequalities', 'graphing'] },
       { name: 'Adding/Subtracting Polynomials', path: '/polynomial-addition', desc: 'Combine algebraic terms by degree.', keywords: ['polynomials', 'algebra basics', 'combining like terms', 'math help', 'algebra homework', 'polynomial math', 'simplifying expressions', 'term grouping', 'algebra prep', 'math solver'] },
@@ -381,13 +333,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Synthetic Division', path: '/synthetic-division', desc: 'Fast method for dividing polynomials by (x - c).', keywords: ['division shortcut', 'polynomials', 'roots of equations', 'algebra 2', 'precalculus', 'math help', 'remainder theorem', 'factor theorem', 'synthetic divisor', 'algebraic math'] },
       { name: 'System of Equations', path: '/system-of-equations', desc: 'Find intersections of multiple algebraic lines.', keywords: ['simultaneous equations', 'linear algebra', 'solve for x and y', 'elimination', 'substitution', 'graphing systems', 'intersection', 'algebra 1', 'algebra 2', 'math solver'] },
       { name: 'Truth Table Generator', path: '/truth-table', desc: 'Map boolean logic outcomes.', keywords: ['boolean algebra', 'logic gates', 'computer science math', 'propositional logic', 'and or not', 'discrete math', 'logic analyzer', 'truth values', 'logic homework', 'proofs'] },
-    ]
-  },
-  {
-    title: 'Geometry',
-    slug: 'geometry',
-    description: 'Explore the mathematics of shapes and space. From 2D areas and perimeters to 3D volumes and complex coordinate systems.',
-    items: [
       { name: 'Area Calculator', path: '/area', desc: 'Calculate the 2D surface area for any shape.', keywords: ['surface area', 'geometry math', '2d shapes', 'square area', 'rectangle area', 'polygon area', 'math basics', 'floor area', 'room size', 'geometry solver'] },
       { name: 'Area of a Circle', path: '/circle-area', desc: 'Calculate the total area within a circle.', keywords: ['pi r squared', 'circle math', 'geometry', 'radius area', 'diameter area', 'circumference', 'math basics', 'circle solver', 'geometric area', 'circular math'] },
       { name: 'Area of a Rectangle', path: '/rectangle-area', desc: 'Multiply length by width for rectangular area.', keywords: ['quadrilateral area', 'square area', 'length times width', 'geometry math', 'math basics', 'room area', 'plot size', 'rectangle math', 'arithmetic', 'simple area'] },
@@ -405,13 +350,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Trapezoid Calculator', path: '/trapezoid', desc: 'Solve for area and height of 4-sided trapeziums.', keywords: ['quadrilateral', 'parallel sides', 'geometry math', 'trapezoid area', 'perimeter', 'height math', 'trapezium', 'geometry helper', 'math basics', 'geometry solver'] },
       { name: 'Triangle Area', path: '/triangle-area', desc: 'Calculate surface area for any triangle type.', keywords: ['base times height', 'geometry basics', 'triangle math', 'herons formula', 'area solver', 'triangle help', 'right triangle area', 'equilateral area', 'math homework', 'geometry tool'] },
       { name: 'Volume Calculator', path: '/volume', desc: 'Calculate total 3D capacity for various objects.', keywords: ['geometric capacity', 'cube volume', 'box volume', 'sphere volume', '3d math', 'liquid capacity', 'tank size', 'volume solver', 'geometry help', 'math basics'] },
-    ]
-  },
-  {
-    title: 'Trigonometry',
-    slug: 'trigonometry',
-    description: 'Solve for angles and side lengths. From basic sine and cosine to complex inverse functions and identities.',
-    items: [
       { name: 'Sine Calculator', path: '/sine', desc: 'Calculate the ratio of opposite to hypotenuse.', keywords: ['sin theta', 'trig functions', 'right triangle', 'wave math', 'geometry basics', 'oscillation', 'physics math', 'math help', 'sine wave', 'angle math'] },
       { name: 'Cosine Calculator', path: '/cosine', desc: 'Calculate the ratio of adjacent to hypotenuse.', keywords: ['cos theta', 'trig functions', 'right triangle', 'adjacent side', 'geometry basics', 'phasor math', 'math help', 'cosine wave', 'angle math', 'trigonometry'] },
       { name: 'Tangent Calculator', path: '/tangent', desc: 'Calculate the ratio of opposite to adjacent.', keywords: ['tan theta', 'trig functions', 'slope', 'right triangle', 'gradient', 'math help', 'tangent line', 'angle math', 'geometry basics', 'trigonometry'] },
@@ -423,13 +361,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Pythagorean Theorem', path: '/pythagorean-theorem', desc: 'Solve for hypotenuse or legs (a² + b² = c²).', keywords: ['right triangle', 'geometry basics', 'a2 b2 c2', 'side lengths', 'math help', 'geometry solver', 'distance formula', 'hypotenuse', 'legs', 'math homework'] },
       { name: 'Trig Identities', path: '/trig-identities', desc: 'Verify and simplify trigonometric expressions.', keywords: ['math proofs', 'pythagorean identity', 'double angle', 'half angle', 'trig simplification', 'advanced math', 'precalculus', 'identities helper', 'trig theory', 'formulas'] },
       { name: 'Unit Circle', path: '/unit-circle', desc: 'Reference coordinates for any angle (radians/degrees).', keywords: ['coordinates', 'sin cos tan', 'pi radians', 'standard angles', 'geometry visual', 'trig reference', 'math help', 'circular motion', 'visualizing trig', 'unit radius'] },
-    ]
-  },
-  {
-    title: 'Percentages',
-    slug: 'percentage',
-    description: 'Calculate relative changes and proportions. From simple percentage increase to complex error analysis and percentage points.',
-    items: [
       { name: 'Percentage Calculator', path: '/percentage', desc: 'Standard "X% of Y" and proportion solver.', keywords: ['percent share', 'portion of total', 'math basics', 'percentage math', 'arithmetic', 'discount help', 'share calculation', 'portion solver', 'math help', 'basics'] },
       { name: 'Percentage Change', path: '/percentage-change', desc: 'Calculate the relative shift between two numbers.', keywords: ['fluctuation', 'growth rate', 'decline rate', 'delta percentage', 'finance math', 'statistics', 'math basics', 'performance tracking', 'relative change', 'trend analysis'] },
       { name: 'Percentage Decrease', path: '/percentage-decrease', desc: 'Find the reduction percentage between values.', keywords: ['drop percentage', 'loss math', 'markdown', 'price drop', 'savings', 'decline', 'negative growth', 'math help', 'value reduction', 'percentage down'] },
@@ -437,26 +368,12 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Percentage Increase', path: '/percentage-increase', desc: 'Find the growth percentage between values.', keywords: ['markup', 'gain math', 'growth rate', 'appreciation', 'inflation', 'percentage up', 'math help', 'performance gain', 'value gain', 'increase math'] },
       { name: 'Percent Error', path: '/percent-error', desc: 'Measure precision and accuracy in data.', keywords: ['experimental error', 'scientific math', 'accuracy', 'precision', 'margin of error', 'measurement math', 'physics lab', 'stats helper', 'error analysis', 'math help'] },
       { name: 'Percent to Goal', path: '/percent-to-goal', desc: 'Track progress toward targets or quotas.', keywords: ['quota tracking', 'sales targets', 'achievement', 'milestones', 'performance metrics', 'goal completion', 'progress bar', 'business math', 'productivity', 'kpi'] },
-    ]
-  },
-  {
-    title: 'Fractions',
-    slug: 'fractions',
-    description: 'Master non-integer mathematics. Convert, simplify, and solve with unit ratios and mixed numbers.',
-    items: [
       { name: 'Fraction Calculator', path: '/fraction', desc: 'Arithmetic with proper and improper fractions.', keywords: ['adding fractions', 'multiplying fractions', 'division', 'subtraction', 'numerator denominator', 'math basics', 'school math', 'fraction helper', 'simplification', 'math solver'] },
       { name: 'Fraction to Decimal', path: '/fraction-to-decimal', desc: 'Convert ratios to point notation.', keywords: ['decimal conversion', 'floating point', 'fraction helper', 'math basics', 'conversion tool', 'ratio to decimal', 'numerator division', 'math help', 'arithmetic', 'precise conversion'] },
       { name: 'Decimal to Fraction', path: '/decimal-to-fraction', desc: 'Convert point notation to ratios.', keywords: ['simplify decimals', 'rationalize', 'math basics', 'fractional representation', 'conversion tool', 'decimal to ratio', 'math help', 'arithmetic', 'precise conversion', 'rational numbers'] },
       { name: 'Fraction to Percent', path: '/fraction-to-percent', desc: 'Convert ratios to percentages.', keywords: ['percentage math', 'ratio to percent', 'proportion helper', 'math basics', 'conversion tool', 'fractional share', 'math help', 'arithmetic', 'percent conversion', 'basics'] },
       { name: 'Mixed Number', path: '/mixed-number', desc: 'Operations with whole numbers and fractions.', keywords: ['improper fractions', 'integer fractions', 'school math', 'fraction helper', 'arithmetic', 'whole number math', 'fraction conversion', 'mixed fractions', 'math solver', 'basics'] },
       { name: 'Simplify Fractions', path: '/simplify-fraction', desc: 'Reduce fractions to their simplest form.', keywords: ['lowest terms', 'common divisor', 'fraction reduction', 'math basics', 'school math', 'numerator denominator', 'hcf gcf', 'simplify math', 'math help', 'basics'] },
-    ]
-  },
-  {
-    title: 'Linear Algebra',
-    slug: 'linear-algebra',
-    description: 'Master vectors, matrices, and linear transformations. Essential tools for computer science, engineering, and data analysis.',
-    items: [
       { name: 'Characteristic Polynomial', path: '/characteristic-polynomial', desc: 'Find the polynomial associated with a matrix.', keywords: ['eigenvalues', 'determinant', 'matrix theory', 'linear algebra', 'polynomial roots', 'lambda math', 'characteristic equation', 'math help', 'advanced algebra', 'matrix solver'] },
       { name: 'Eigenvalue & Eigenvector', path: '/eigen-calculator', desc: 'Calculate the core scaling and direction factors.', keywords: ['eigen decomposition', 'linear transformations', 'principal component', 'matrix analysis', 'spectrology', 'vector space', 'math help', 'advanced algebra', 'matrix scaling', 'eigen solver'] },
       { name: 'Inverse Matrix', path: '/inverse-matrix', desc: 'Calculate the reciprocal matrix (A-1).', keywords: ['matrix division', 'linear systems', 'matrix identity', 'linear algebra', 'solving equations', 'invertible matrix', 'math help', 'advanced algebra', 'matrix solver', 'determinant help'] },
@@ -466,13 +383,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Matrix Rank', path: '/matrix-rank', desc: 'Determine the dimensionality of a matrix span.', keywords: ['linear independence', 'pivot points', 'matrix space', 'linear algebra', 'dimension', 'math help', 'rank solver', 'echelon form', 'advanced algebra', 'matrix analysis'] },
       { name: 'Matrix Trace', path: '/matrix-trace', desc: 'Calculate the sum of the main diagonal elements.', keywords: ['diagonal sum', 'matrix theory', 'linear algebra', 'eigenvalue sum', 'math properties', 'matrix trace', 'math helper', 'algebra basics', 'linear math', 'matrix analysis'] },
       { name: 'Matrix Transpose', path: '/matrix-transpose', desc: 'Flip a matrix over its main diagonal.', keywords: ['matrix flip', 'rows to columns', 'matrix theory', 'linear algebra', 'math basics', 'array manipulation', 'transpose solver', 'math helper', 'linear transformations', 'algebra'] },
-    ]
-  },
-  {
-    title: 'Coordinate Geometry',
-    slug: 'coordinate-geometry',
-    description: 'Analyze graphs, vectors, and spatial relationships. From distance and midpoints to vectors and 3D coordinates.',
-    items: [
       { name: 'Cross Product', path: '/cross-product', desc: 'Find the orthogonal vector between two 3D vectors.', keywords: ['vector math', 'perpendicular vector', '3d geometry', 'physics math', 'torque calculation', 'linear algebra', 'right hand rule', 'magnitude and direction', 'vector solver', 'math help'] },
       { name: 'Distance Formula', path: '/distance-formula', desc: 'Calculate the straight-line distance between coordinates.', keywords: ['pythagorean distance', 'point to point', 'coordinate geometry', 'length between points', 'math basics', 'geometry helper', 'linear distance', 'distance solver', '2d distance', '3d distance'] },
       { name: 'Dot Product', path: '/dot-product', desc: 'Calculate the scalar product of two vectors.', keywords: ['vector projection', 'angle between vectors', 'linear algebra', 'scalar math', 'physics work', 'inner product', 'vector math', 'math helper', 'vector dot', 'algebra basics'] },
@@ -480,13 +390,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Slope Calculator', path: '/slope', desc: 'Calculate the steepness and direction of a line.', keywords: ['rise over run', 'gradient', 'linear equations', 'coordinate geometry', 'line steepness', 'math basics', 'y-intercept', 'slope formula', 'algebra 1', 'slope solver'] },
       { name: 'Vector Addition', path: '/vector-addition', desc: 'Combine magnitudes and directions.', keywords: ['resultant vector', 'vector sum', 'physics math', 'force addition', 'geometry', 'linear algebra', 'tip to tail', 'vector components', 'math solver', 'basics'] },
       { name: 'Vector Magnitude', path: '/vector-magnitude', desc: 'Calculate the total length of a vector.', keywords: ['vector length', 'norm', 'pythagorean theorem', 'physics math', 'magnitude solver', 'linear algebra', 'coordinate geometry', 'vector size', 'directional length', 'math basics'] },
-    ]
-  },
-  {
-    title: 'Roofing & Framing',
-    slug: 'roofing',
-    description: 'Specialized structural engineering for envelopes and rafters. From truss math to shingle coverage, ensure your building is watertight and structurally sound.',
-    items: [
       { name: 'Roofing Calculator', path: '/roofing', desc: 'Estimate shingles and materials.' },
       { name: 'Rafter Length', path: '/rafter-length', desc: 'Step-by-step rafter sizing and layout.' },
       { name: 'Roof Pitch', path: '/roof-pitch', desc: 'Calculate slope and angle for roofs.' },
@@ -496,13 +399,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Birdsmouth Cut', path: '/birdsmouth-cut', desc: 'Rafter notch dimensions for wall plates.' },
       { name: 'Metal Roof Cost', path: '/metal-roof-cost', desc: 'Compare standing seam vs. corrugated expenses.' },
       { name: 'Snow Load', path: '/snow-load', desc: 'Calculate weight pressure for structural safety.' },
-    ]
-  },
-  {
-    title: 'Real Estate & Mortgages',
-    slug: 'real-estate',
-    description: 'Expert planning for property and residential financing. Analyze mortgage structures, investment returns, and leasing math with professional precision.',
-    items: [
       { name: 'Mortgage Calculator', path: '/mortgage', desc: 'Primary mortgage payment analysis.' },
       { name: 'House Affordability', path: '/house-affordability', desc: 'Find your home budget range.' },
       { name: 'Mortgage Acceleration', path: '/mortgage-acceleration', desc: 'See how extra payments shorten your loan.' },
@@ -530,13 +426,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Occupancy Rate', path: '/occupancy-rate', desc: 'Analyze property utilization efficiency.' },
       { name: 'Real Estate Commission', path: '/real-estate-commission', desc: 'Calculate broker fees and net proceeds.' },
       { name: 'Price Per Sq Ft', path: '/price-per-square-foot', desc: 'Standardize property value comparison.' },
-    ]
-  },
-  {
-    title: 'Construction & Building',
-    slug: 'construction',
-    description: 'Specialized calculators for structural engineering and building materials. Estimate lumber, steel weight, and framing requirements for professional worksites.',
-    items: [
       { name: 'Lumber Calculator', path: '/lumber', desc: 'Board feet and volume for framing.' },
       { name: 'Board Foot', path: '/board-foot', desc: 'Standard lumber volume measurement.' },
       { name: 'Framing Calculator', path: '/framing', desc: 'Estimate studs and plates for walls.' },
@@ -583,13 +472,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'True Position', path: '/true-position', desc: 'GD&T math for precision manufacturing.' },
       { name: 'Welding Calculator', path: '/welding', desc: 'Analyze gas flow and heat settings.' },
       { name: 'Wood Beam Span', path: '/wood-beam-span', desc: 'Safe horizontal distance for timber supports.' },
-    ]
-  },
-  {
-    title: 'Water & Hydraulics',
-    slug: 'hydraulics',
-    description: 'Precision fluid dynamics for plumbing, fire safety, and landscaping. Calculate flow rates, vessel volumes, and pressure drops for complex pipe systems.',
-    items: [
       { name: 'Pool Calculator', path: '/pool', desc: 'Gallons, heating, and chemical needs.' },
       { name: 'Pond Calculator', path: '/pond', desc: 'Liner area and volume for water features.' },
       { name: 'Tank Volume', path: '/tank-volume', desc: 'Identify capacity for horizontal or vertical vessels.' },
@@ -598,13 +480,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Gallons Per Minute', path: '/gpm', desc: 'Flow rate for pumps and household plumbing.' },
       { name: 'Liters Per Minute', path: '/lpm', desc: 'Metric flow volume for industrial applications.' },
       { name: 'Hydraulic Pressure', path: '/hydraulic-pressure', desc: 'Force and area math for heavy machinery.' },
-    ]
-  },
-  {
-    title: 'Concrete & Masonry',
-    slug: 'masonry',
-    description: 'Precision math for concrete, brick, and stone work. From slab volume to mortar quantity, ensure your foundation is perfectly measured.',
-    items: [
       { name: 'Concrete Calculator', path: '/concrete', desc: 'Estimate volume for building slabs.' },
       { name: 'Concrete Block', path: '/concrete-block', desc: 'Count for walls and foundations.' },
       { name: 'Concrete Column', path: '/concrete-column', desc: 'Volume for cylindrical or square supports.' },
@@ -622,13 +497,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Quiz: Stone Weight', path: '/stone-weight-quiz', desc: 'Verify your masonry material math.' },
       { name: 'Tile Calculator', path: '/tile', desc: 'Estimate count and waste factors.' },
       { name: 'Hole Volume', path: '/hole-volume', desc: 'Post-hole and boring dimensions.' },
-    ]
-  },
-  {
-    title: 'Home Improvement',
-    slug: 'home-improvement',
-    description: 'Utilities for renovations and mechanical systems. Optimize HVAC sizing, calculate flooring needs, and plan your interior design projects.',
-    items: [
       { name: 'Paint Calculator', path: '/paint', desc: 'Estimate gallons and coverage.' },
       { name: 'Wallpaper', path: '/wallpaper', desc: 'Analyze roll count and coverage.' },
       { name: 'Flooring Calculator', path: '/flooring', desc: 'Materials for wood, tile, carpet.' },
@@ -659,13 +527,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Chicken Coop Size', path: '/chicken-coop-size', desc: 'Safe dimensions for avian welfare.' },
       { name: 'Hoop House', path: '/hoop-house', desc: 'Frame and plastic for greenhouses.' },
       { name: 'Floor Area Ratio', path: '/far-calculator', desc: 'Property buildable area compliance.' },
-    ]
-  },
-  {
-    title: 'Science',
-    slug: 'science',
-    description: 'Scientific precision at your fingertips. Our tools cover chemistry, physics, and engineering to help professionals and students verify complex results.',
-    items: [
       { name: 'Activation Energy', path: '/activation-energy', desc: 'Calculate energy needed for chemical reactions.', keywords: ['chemistry', 'kinetics', 'arrhenius', 'reaction rate', 'energy barrier', 'thermodynamics', 'chemical math', 'activation barrier', 'catalyst', 'molecular speed'] },
       { name: 'Actual Yield', path: '/actual-yield', desc: 'Calculate the measured amount of product.', keywords: ['stoichiometry', 'chemistry lab', 'experiment results', 'yield percentage', 'theoretical vs actual', 'chemical quantity', 'product amount', 'reaction efficiency', 'lab math', 'chemistry calculator'] },
       { name: 'AFR (Air-Fuel Ratio)', path: '/afr-calculator', desc: 'Analyze combustion engine efficiency.', keywords: ['automotive', 'engine tuning', 'combustion', 'lambda', 'stoichiometric ratio', 'internal combustion', 'fuel efficiency', 'tuner math', 'racing', 'afr ratio'] },
@@ -732,13 +593,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Volume Conversion', path: '/volume', desc: 'Liters, gallons, and cubic units.' },
       { name: 'Theoretical Yield', path: '/theoretical-yield', desc: 'Calculate maximum possible product.' },
       { name: 'Voltage Drop', path: '/voltage-drop', desc: 'Estimate electrical line loss.' },
-    ]
-  },
-  {
-    title: 'Everyday Tools',
-    slug: 'everyday',
-    description: 'Utilities for the modern lifestyle. Secure your digital world, manage your time, or handle small mathematical tasks in your daily routine.',
-    items: [
       { name: 'Time Calculator', path: '/time', desc: 'Durations and time additions.' },
       { name: 'Appliance Depreciation', path: '/appliance-depreciation', desc: 'Track value loss of home equipment.' },
       { name: 'Appliance Wattage', path: '/appliance-wattage', desc: 'Check power consumption by device.' },
@@ -805,13 +659,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Sunscreen', path: '/sunscreen', desc: 'Calculate SPF coverage and UV protection.', keywords: ['spf', 'uv protection', 'skin safety', 'sunburn prevention', 'sunscreen application', 'beach day', 'skincare'] },
       { name: 'Toilet Paper', path: '/toilet-paper', desc: 'Project how long your household supply will last.', keywords: ['household supplies', 'tp usage', 'supply duration', 'quarantine supplies', 'grocery planning', 'bathroom math'] },
       { name: 'Toothpaste', path: '/toothpaste', desc: 'Track dental hygiene supply duration.', keywords: ['hygiene supplies', 'dental care', 'tube duration', 'brushing frequency', 'oral health', 'toothpaste usage', 'supply tracking'] },
-    ]
-  },
-  {
-    title: 'Automotive',
-    slug: 'automotive',
-    description: 'Keep your vehicle running efficiently. Manage fuel budgets, track depreciation, and analyze the true cost of car ownership.',
-    items: [
       { name: 'Car Refinance', path: '/car-refinance', desc: 'Check if new auto rates save you money.' },
       { name: 'Car Depreciation', path: '/car-depreciation', desc: 'Vehicle value loss over time.' },
       { name: '0-60 Time', path: '/0-60', desc: 'Estimate vehicle acceleration performance.' },
@@ -850,13 +697,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Wheel Offset', path: '/wheel-offset', desc: 'Calculate fitment for custom rims.' },
       { name: 'Winch Size', path: '/winch-size', desc: 'Determine proper recovery pull capacity.' },
       { name: 'Windsock Calculator', path: '/windsock', desc: 'Interpret wind speed from visual indicators.' },
-    ]
-  },
-  {
-    title: 'Health & Fitness',
-    slug: 'health',
-    description: 'Monitor your physical benchmarks and nutritional health with precision. Our suite of clinical and fitness tools helps you understand your metabolism and stay on track with your body goals.',
-    items: [
       { name: 'Added Sugar Intake', path: '/added-sugar-intake', desc: 'Calculate recommended maximum daily sugar.' },
       { name: 'Arm Body Fat', path: '/arm-body-fat', desc: 'Analyze upper body composition.', keywords: ['arm fat', 'triceps skinfold', 'biceps fat', 'upper body composition', 'limb fat percentage', 'body fat distribution', 'caliper test', 'arm circumference', 'muscle vs fat', 'fitness measurement', 'body fat calculator', 'localized fat', 'arm toning', 'body metrics'] },
       { name: 'BAC Calculator', path: '/bac', desc: 'Estimate Blood Alcohol Concentration.', keywords: ['blood alcohol content', 'drunk calculator', 'alcohol level', 'sobriety test', 'drinking limit', 'impaired driving', 'intoxication level', 'alcohol metabolism', 'widmark formula', 'booze level', 'wine consumption', 'beer intake', 'spirit level', 'safety calculator'] },
@@ -944,13 +784,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Water Intake', path: '/water-intake', desc: 'Find your daily hydration needs.' },
       { name: 'Weight Gain', path: '/weight-gain-calculator', desc: 'Healthy weight gain strategies.' },
       { name: 'Weight Watchers Points', path: '/weight-watchers-points', desc: 'Estimate system point values.' },
-    ]
-  },
-  {
-    title: 'Medical & Clinical',
-    slug: 'medical',
-    description: 'Specialized healthcare and clinical indicators. Tools for diabetes management, cardiovascular risk, and professional medical assessments.',
-    items: [
       { name: 'Blood Sugar Converter', path: '/blood-sugar-converter', desc: 'Switch between mg/dL and mmol/L.', keywords: ['diabetes math', 'glucose conversion', 'blood sugar units', 'mg dl to mmol l', 'diabetic tracking', 'unit converter medical', 'glucose monitoring', 'blood chemistry', 'lab results converter', 'diabetes management', 'blood sugar levels'] },
       { name: 'A1c to Glucose', path: '/a1c-calculator', desc: 'Convert Hemoglobin A1c to average blood sugar.', keywords: ['hemoglobin a1c', 'estimated average glucose', 'eag', 'diabetes tracking', 'sugar average', '3 month sugar', 'hba1c conversion', 'blood glucose average', 'diabetic monitoring', 'clinical a1c'] },
       { name: 'Diabetes Risk', path: '/diabetes-risk', desc: 'Analyze probability of type 2 diabetes.', keywords: ['type 2 diabetes', 't2d risk', 'prediabetes screening', 'metabolic risk', 'diabetes symptoms', 'risk assessment', 'blood sugar health', 'obesity risk', 'diabetes prevention', 'health indicators'] },
@@ -971,13 +804,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'STOP-BANG', path: '/stop-bang', desc: 'Obstructive Sleep Segregation screening tool.', keywords: ['sleep apnea screening', 'stop bang', 'osa risk', 'snoring', 'tiredness', 'observed apnea', 'blood pressure apnea', 'bmi apnea', 'age apnea', 'neck circumference'] },
       { name: 'Epworth Sleepiness', path: '/epworth-sleepiness', desc: 'Measure daytime sleepiness levels.', keywords: ['epworth scale', 'ess', 'daytime sleepiness', 'narcolepsy screening', 'sleep disorders', 'fatigue', 'tiredness', 'sleep apnea related', 'sleep quality', 'sleep assessment'] },
       { name: 'Pediatric Epworth', path: '/pediatric-epworth', desc: 'Sleep assessment for children and teens.', keywords: ['pediatric sleep', 'child sleepiness', 'teen sleep', 'ess ch', 'pediatric epworth scale', 'childhood sleep disorders', 'adolescent sleep', 'pediatrics', 'child health', 'teen health'] },
-    ]
-  },
-  {
-    title: 'Military & Recruitment',
-    slug: 'military',
-    description: 'Compliance and fitness standards for the armed forces. Calculate scores for PT tests and body composition requirements across various branches.',
-    items: [
       { name: 'ACFT Calculator', path: '/acft-calculator', desc: 'Army Combat Fitness Test grading.', keywords: ['acft scoring', 'army fitness', 'strength test', 'deadlift', 'power throw', 'army pt', 'leg tuck', 'shuttle run', 'combat fitness', 'grading scale', 'physical assessment', 'military health', 'standards', 'exercise math'] },
       { name: 'APFT Calculator', path: '/apft-calculator', desc: 'Legacy Army Physical Fitness Test scoring.', keywords: ['army physical fitness', 'apft', 'legacy army pt', 'pushups and situps', 'two mile run', 'pt test scoring', 'army standards', 'vintage army fitness', 'physical training', 'score chart', 'army metrics', 'military exercise'] },
       { name: 'Army Body Fat', path: '/army-body-fat', desc: 'Tape test measurement for US Army standards.', keywords: ['army tape test', 'bodyfat percentage', 'neck measurement', 'waist measurement', 'height tape', 'army composition', 'military standards', 'body fat standards', 'physical readiness', 'army taping', 'army metrics'] },
@@ -985,13 +811,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Air Force PT', path: '/air-force-pt', desc: 'Fitness assessment for the US Air Force.', keywords: ['air force fitness', 'af pt test', 'pushups situps run', 'af standards', 'airman fitness', 'physical training air force', 'scoring guide af', 'air force military', 'fitness metrics af'] },
       { name: 'Navy PRT', path: '/navy-prt', desc: 'Physical Readiness Test for US Navy personnel.', keywords: ['navy prt scoring', 'physical readiness test', 'navy fitness test', 'pushups situps run', 'navy standards', 'sailor fitness', 'prt chart', 'physical assessment navy', 'military health'] },
       { name: 'Marine PFT', path: '/marine-pft', desc: 'Physical Fitness Test for the US Marines.', keywords: ['marines pft', 'pullups crunches run', 'marine fitness', 'usmc standards', 'marine physical', 'scoring chart usmc', 'combat fitness related', 'marine corporal tools', 'physical readiness usmc'] },
-    ]
-  },
-  {
-    title: 'Converters',
-    slug: 'converters',
-    description: 'Instant unit transformation. Convert length, weight, tech formats, and historical numbering systems with total accuracy.',
-    items: [
       { name: 'Unit Converter', path: '/unit-converter', desc: 'Metric and Imperial conversions.', keywords: ['metric converter', 'imperial units', 'length weight volume', 'universal converter', 'measurement math', 'si units', 'customary units', 'unit transformation', 'comprehensive converter', 'precision units', 'engineering units', 'daily conversion', 'measurement transformation', 'unit scale', 'conversion tools'] },
       { name: 'Force Converter', path: '/force-converter', desc: 'Convert Newtons, lbf, and more.', keywords: ['newton converter', 'pound force', 'lbf to n', 'dyne conversion', 'physic force', 'engineering dynamics', 'kilonewton', 'force units', 'mechanical engineering', 'statics math', 'force transformation', 'kip conversion', 'structural force'] },
       { name: 'Pressure Conversion', path: '/pressure-conversion', desc: 'PSI, bar, Pascal, and atm.', keywords: ['psi to bar', 'pascal converter', 'atmosphere pressure', 'torr conversion', 'kilopascal', 'mbar to psi', 'hydraulic pressure', 'pneumatic math', 'industrial pressure', 'scientific pressure', 'weather pressure', 'meteorology units'] },
@@ -1070,13 +889,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Shoe Size', path: '/shoe-size-conversion', desc: 'Global footwear standards.' },
       { name: 'Time Zone', path: '/time-zone-converter', desc: 'Global sync for meetings/travel.' },
       { name: 'Scientific Notation', path: '/scientific-notation', desc: 'Standard power-of-10 format.' },
-    ]
-  },
-  {
-    title: 'Business & Marketing',
-    slug: 'business',
-    description: 'Optimize your operations and scale your growth. Our business suite covers everything from SaaS metrics and marketing performance to HR analytics and corporate finance.',
-    items: [
       { name: '3D Printer - Buy vs Outsource', path: '/3d-printer-buy-vs-outsource', desc: 'Decide whether to manufacture in-house or outsource.' },
       { name: 'Absence Percentage', path: '/absence-percentage', desc: 'Calculate the rate of employee absenteeism.' },
       { name: 'Accumulated Depreciation', path: '/accumulated-depreciation', desc: 'Track total asset value loss over time.' },
@@ -1152,13 +964,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Year-over-Year Growth', path: '/yoy-growth', desc: 'Compare annual performance metrics.' },
       { name: 'Yield Multiplier', path: '/yield-multiplier', desc: 'Analyze investment return amplification.' },
       { name: 'Zero-Based Budget', path: '/zero-based-budget', desc: 'Allocate every dollar based on necessity.' },
-    ]
-  },
-  {
-    title: 'Sales & Business',
-    slug: 'sales',
-    description: 'Grow your venture and shop smarter. Our retail suite covers everything from profit margins and markups to strategic discount analysis for major sales events.',
-    items: [
       { name: 'Black Friday Calculator', path: '/black-friday', desc: 'Strategize for the biggest shopping event of the year.', keywords: ['cyber week', 'retail deals', 'doorbusters', 'shopping strategy', 'savings tracker', 'holiday shopping', 'seasonal sales', 'discount math', 'shopping list', 'deal analyzer'] },
       { name: 'Cash Back Calculator', path: '/cash-back', desc: 'Calculate the real value of rewards and rebates.', keywords: ['credit card rewards', 'rebates', 'loyalty points', 'financial perks', 'shopping returns', 'reward value', 'cash incentives', 'savings math', 'bonus points', 'reward tracking'] },
       { name: 'Check Digit', path: '/check-digit', desc: 'Verify barcodes and product IDs for inventory.', keywords: ['upc', 'ean', 'isbn', 'barcode verification', 'inventory control', 'product tracking', 'supply chain', 'warehouse math', 'data integrity', 'logistics'] },
@@ -1180,13 +985,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Percentage Discount', path: '/percentage-discount', desc: 'Convert % off to actual dollar savings.', keywords: ['savings math', 'percent conversion', 'discount value', 'shopping logic', 'value tracker', 'price reduction', 'money saver', 'deal math', 'retail percent', 'shopping help'] },
       { name: 'Percent Off', path: '/percent-off', desc: 'Quick-access tool for promotional price reduction.', keywords: ['sale price', 'clearance', 'quick savings', 'shopping math', 'retail math', 'deal finder', 'instant markdown', 'shopping help', 'percentage math', 'money save'] },
       { name: 'Triple Discount', path: '/triple-discount', desc: 'Calculate complex layered promotions and coupons.', keywords: ['advanced stacking', 'coupon logic', 'extreme couponing', 'triple savings', 'retail mastery', 'savings optimization', 'complex discount', 'promo stack', 'deal hunting', 'master shopper'] },
-    ]
-  },
-  {
-    title: 'Engineering & Industrial',
-    slug: 'engineering',
-    description: 'Precision tools for mechanical, electrical, and structural engineering. Handle complex tolerances, industrial throughput, and manufacturing specifications.',
-    items: [
       { name: 'Acoustic Impedance', path: '/acoustic-impedance', desc: 'Calculate sound propagation in materials.' },
       { name: 'Airflow Velocity', path: '/airflow-velocity', desc: 'Measure air movement in ducts.' },
       { name: 'Aspect Ratio', path: '/aspect-ratio', desc: 'Calculate screen and image proportions.' },
@@ -1218,13 +1016,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Thermal Conductivity', path: '/thermal-conductivity', desc: 'Measure heat flow through substances.' },
       { name: 'Torque Calculator', path: '/torque', desc: 'Force times distance relationship.' },
       { name: 'Velocity and Flow', path: '/velocity-flow', desc: 'Convert between flow rate and speed.' },
-    ]
-  },
-  {
-    title: 'Sports & Outdoors',
-    slug: 'sports',
-    description: 'Track your performance in the field, on the trail, or in the gym. Specialized math for professional athletes and outdoor enthusiasts.',
-    items: [
       { name: 'Batting Average', path: '/batting-average', desc: 'Calculate base hit frequency.', keywords: ['baseball stats', 'sabermetrics', 'batting avg', 'hitting percentage', 'baseball math', 'mlb metrics', 'hitting stats', 'at bats', 'base hits', 'offense calculator', 'hitting ratio', 'batting statistics'] },
       { name: 'ERA Calculator', path: '/era-calculator', desc: 'Earned Run Average for pitchers.', keywords: ['earned run average', 'era', 'pitching stats', 'sabermetrics', 'baseball pitching', 'pitching performance', 'pitching math', 'earned runs', 'innings pitched', 'mlb pitching metrics', 'pitcher analytics'] },
       { name: 'Fielding Percentage', path: '/fielding-percentage', desc: 'Measure defensive accuracy.', keywords: ['fielding percentage', 'defense stats', 'baseball fielding', 'fielding errors', 'defensive analytics', 'ball game math', 'fielding accuracy', 'putouts', 'assists', 'total chances', 'baseball defense'] },
@@ -1290,13 +1081,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Tennis Serve Speed', path: '/tennis-serve-speed', desc: 'Estimate velocity from video and distance.' },
       { name: 'Vertical Jump', path: '/vertical-jump', desc: 'Measure explosive lower body power.' },
       { name: 'Wrestling Weight', path: '/wrestling-weight', desc: 'Track healthy weight class navigation.' },
-    ]
-  },
-  {
-    title: 'Sustainability & Environment',
-    slug: 'environment',
-    description: 'Measure your impact on the planet. Tools for carbon tracking, renewable energy planning, and eco-friendly lifestyle choices.',
-    items: [
       { name: 'Carbon Footprint', path: '/carbon-footprint', desc: 'Calculate annual CO2 emissions.', keywords: ['carbon footprint', 'co2 emissions', 'climate impact', 'greenhouse gas', 'environment math', 'eco footprint', 'sustainability', 'emissions tracking', 'climate change', 'ecology', 'nature impact', 'environmental science'] },
       { name: 'Solar ROI', path: '/solar-roi', desc: 'Calculate playback for solar panel installs.', keywords: ['solar payback', 'renewable energy', 'solar return', 'solar installation', 'energy savings', 'solar investment', 'photovoltaic math', 'green energy', 'utility savings', 'solar ROI', 'environmental finance'] },
       { name: 'Tree Value', path: '/tree-value', desc: 'Estimate ecological and property value of trees.', keywords: ['arboriculture', 'tree benefits', 'cliamte impact tree', 'property value tree', 'landscape investment', 'ecological services', 'carbon storage tree', 'aesthetic value', 'tree health', 'nature math'] },
@@ -1304,13 +1088,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Wind Energy', path: '/wind-energy', desc: 'Estimate power output from turbines.', keywords: ['wind power', 'turbine output', 'renewable energy', 'wind speed power', 'clean energy', 'aerodynamics', 'utility generation', 'wind farm math', 'energy physics', 'wind turbine'] },
       { name: 'Recycling Impact', path: '/recycling-impact', desc: 'Visualize energy saved through recycling.', keywords: ['recycling energy', 'waste reduction', 'eco impact', 'sustainability', 'resource conservation', 'material reuse', 'landfill impact', 'recycling benefits', 'ecology', 'green living'] },
       { name: 'Compost Ratio', path: '/compost-ratio', desc: 'Optimize green-to-brown waste mix.', keywords: ['composting', 'soil science', 'waste management', 'organic recycling', 'green brown ratio', 'garden nutrition', 'compost mix', 'sustainability', 'microbiology', 'nature math'] },
-    ]
-  },
-  {
-    title: 'Culinary & Cooking',
-    slug: 'culinary',
-    description: 'Precision in the kitchen and at the bar. Professional scales for bakers, chefs, and home cooks to ensure perfect results every time.',
-    items: [
       { name: 'Baker\'s Percentage', path: '/bakers-percentage', desc: 'Calculate ingredient ratios relative to flour.' },
       { name: 'Recipe Scaling', path: '/recipe-scaler', desc: 'Adjust ingredient quantities for different serving sizes.' },
       { name: 'Butter to Oil', path: '/butter-to-oil', desc: 'Convert between solid fats and liquid oils in baking.' },
@@ -1321,13 +1098,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Slow Cooker Adjust', path: '/slow-cooker-time', desc: 'Convert standard bake times to slow cooker durations.' },
       { name: 'Meat Smoking Time', path: '/meat-smoking', desc: 'Estimate finish times based on weight and temp.' },
       { name: 'Hydration Calculator', path: '/dough-hydration', desc: 'Calculate water-to-flour ratio for breads.' },
-    ]
-  },
-  {
-    title: 'Academic & Education',
-    slug: 'academic',
-    description: 'Tools for students, researchers, and writers. Manage your grades, track your reading, and optimize your study sessions with clinical precision.',
-    items: [
       { name: 'Word to Pages', path: '/word-to-page', desc: 'Estimate document length based on font and spacing.' },
       { name: 'Reading Time', path: '/reading-time', desc: 'Calculate how long it takes to finish a text.' },
       { name: 'Speaking Time', path: '/speaking-time', desc: 'Estimate speech duration based on word count.' },
@@ -1338,13 +1108,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Bibliography Check', path: '/bibliography-check', desc: 'Verify citation count and source diversity.' },
       { name: 'Final Exam Grade', path: '/final-exam-grade', desc: 'Find the score needed to reach your target grade.' },
       { name: 'Academic Bibliography', path: '/academic-bibliography', desc: 'Standardize source tracking.' },
-    ]
-  },
-  {
-    title: 'Hobbies & Creative',
-    slug: 'hobbies',
-    description: 'Calculations for makers, gamers, and artists. From photography precision to 3D printing costs, we handle the math behind your passions.',
-    items: [
       { name: 'Depth of Field', path: '/depth-of-field', desc: 'Measure focus range for photography.' },
       { name: '3D Print Cost', path: '/3d-print-cost', desc: 'Estimate material and energy expenses for models.' },
       { name: 'RPG XP Calculator', path: '/rpg-xp', desc: 'Track experience points and leveling curves.' },
@@ -1355,13 +1118,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Print Resolution', path: '/print-resolution', desc: 'Determine DPI needed for target physical sizes.' },
       { name: 'Knitting Gauge', path: '/knitting-gauge', desc: 'Calculate stitches and rows for patterns.' },
       { name: 'Fish Tank Volume', path: '/fish-tank-volume', desc: 'Gallons and weight for aquarium setups.' },
-    ]
-  },
-  {
-    title: 'Tech & Programming',
-    slug: 'tech',
-    description: 'Digital utilities for developers and technicians. Handle data conversions, network subnets, and coding mathematics.',
-    items: [
       { name: 'Subnet Mask', path: '/subnet-mask', desc: 'Calculate network ranges and host counts.' },
       { name: 'Hex to Decimal', path: '/hex-to-decimal', desc: 'Convert programming codes to standard numbers.' },
       { name: 'Cron Expression', path: '/cron-expression', desc: 'Plan and verify automated task schedules.' },
@@ -1381,13 +1137,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Byte Conversion', path: '/byte-conversion', desc: 'Scale from bits to petabytes.' },
       { name: 'Mbps Calculator', path: '/mbps-calculator', desc: 'Calculate download and upload times.' },
       { name: 'Capacitance Converter', path: '/capacitance', desc: 'Farad units for circuit design.' },
-    ]
-  },
-  {
-    title: 'Travel & Lifestyle',
-    slug: 'lifestyle',
-    description: 'Optimize your daily adventures. From flight planning to lifestyle milestones, manage every aspect of your mobile existence.',
-    items: [
       { name: 'Jet Lag Recovery', path: '/jet-lag', desc: 'Calculate the time needed to adjust to new zones.' },
       { name: 'Pack Your Bag', path: '/luggage-capacity', desc: 'Estimate volume and weight for travel gear.' },
       { name: 'Passport Renewal', path: '/passport-renewal-timer', desc: 'Track validity and time needed for updates.' },
@@ -1398,13 +1147,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Gift Tax', path: '/gift-tax-calculator', desc: 'Analyze tax implications for large transfers.' },
       { name: 'Vacation Fund', path: '/vacation-savings', desc: 'Calculate monthly savings to reach travel goals.' },
       { name: 'Daily Habits', path: '/habit-streak', desc: 'Track consecutive days of life improvements.' },
-    ]
-  },
-  {
-    title: 'Biology & Life Sciences',
-    slug: 'biology',
-    description: 'Advanced tools for biotechnology, microbiology, and genetics. Calculate concentrations, dilutions, and mapping for precise lab results.',
-    items: [
       { name: 'Annealing Temp', path: '/annealing-temperature', desc: 'Optimal PCR primer binding temperature.' },
       { name: 'Generation Time', path: '/generation-time', desc: 'Calculate bacterial population growth rates.' },
       { name: 'Cell Dilution', path: '/cell-dilution', desc: 'Manage sample concentrations for subculturing.' },
@@ -1420,13 +1162,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Punnett Square', path: '/punnett-square', desc: 'Standard genetic cross visualization.' },
       { name: 'qPCR Efficiency', path: '/qpcr-efficiency', desc: 'Analyze amplification performance.' },
       { name: 'Trihybrid Cross', path: '/trihybrid-cross', desc: 'Complex three-trait genetic mapping.' },
-    ]
-  },
-  {
-    title: 'Pets & Animals',
-    slug: 'pets',
-    description: 'Expert care tools for your animal companions and livestock. Calculate health dosages, track pregnancy, and manage nutritional needs for all species.',
-    items: [
       { name: 'Dog Pregnancy', path: '/dog-pregnancy', desc: 'Track gestation and expected delivery date.' },
       { name: 'Cat Pregnancy', path: '/cat-pregnancy', desc: 'Feline gestation milestones and due dates.' },
       { name: 'Horse Gestation', path: '/mare-gestation', desc: 'Long-term equine pregnancy tracking.' },
@@ -1461,13 +1196,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Rabbit Cage Size', path: '/rabbit-cage', desc: 'Determine welfare-standard housing dimensions.' },
       { name: 'Livestock Mortality', path: '/animal-mortality-rate', desc: 'Analyze herd health benchmarks.' },
       { name: 'Feed Conversion', path: '/feed-conversion-ratio', desc: 'Measure livestock growth efficiency.' },
-    ]
-  },
-  {
-    title: 'Gardening & Agriculture',
-    slug: 'gardening',
-    description: 'Professional planning for gardens, farms, and landscapes. Optimize your yields and manage resources for sustainable growth.',
-    items: [
       { name: 'Plant Spacing', path: '/plant-spacing', desc: 'Calculate distance for optimal growth.' },
       { name: 'Vegetable Yield', path: '/vegetable-yield', desc: 'Estimate harvest weight by area.' },
       { name: 'Fertilizer Calculator', path: '/fertilizer', desc: 'Determine NPK requirements for crops.' },
@@ -1489,13 +1217,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Growing Degree Units', path: '/gdu', desc: 'Track crop maturity based on temperature.' },
       { name: 'Grain Conversion', path: '/grain-conversion', desc: 'Convert weights and volumes for harvests.' },
       { name: 'Water Soluble Fertilizer', path: '/water-soluble-fertilizer', desc: 'Calculate mix ratios for fertigation.' },
-    ]
-  },
-  {
-    title: 'Time & Date',
-    slug: 'time-date',
-    description: "Don't waste your time counting days - every second is precious. That's why we created this set of calculators that will help you with your problems… around the clock 😉. From the days between dates to the leap year, we didn't run out the clock - each one of our calculators will help you.",
-    items: [
       { name: '8-Hour Shift', path: '/8-hour-shift', desc: 'Track work rotations and pay.', keywords: ['shift work', 'schedule', 'work hours', 'nursing shift', 'industrial schedule'] },
       { name: 'Add Time', path: '/add-time', desc: 'Add durations to establish end times.', keywords: ['duration', 'time math', 'adding hours', 'time tracker'] },
       { name: 'Age Calculator', path: '/age', desc: 'Find exact age in years, months, and days.', keywords: ['birthday', 'chronological age', 'how old am i', 'years months days'] },
@@ -1532,24 +1253,10 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Military Time', path: '/military-time', desc: 'Convert 12-hour clock or find current UTC.', keywords: ['24 hour clock', 'navy time', 'utc conversion', 'zulu time'] },
       { name: 'Time Zones', path: '/time-zones', desc: 'Find current time across global regions.', keywords: ['world clock', 'dst', 'gmt', 'timezone converter'] },
       { name: 'Unix Time', path: '/unix-time-conversion', desc: 'Convert epoch seconds to human readable dates.', keywords: ['linux time', 'epoch converter', 'timestamp', 'programming time'] },
-    ]
-  },
-  {
-    title: 'Geographic & Cartographic',
-    slug: 'geography',
-    description: 'Precision mapping and spatial analysis. Convert global coordinates, calculate map scales, and handle advanced surveying math.',
-    items: [
       { name: 'Coordinates', path: '/coordinates-converter', desc: 'Convert GPS to decimal or DMS.' },
       { name: 'Lat Long to UTM', path: '/lat-long-to-utm', desc: 'Project global coordinates to grid systems.' },
       { name: 'Degrees Minutes Seconds', path: '/dms-calculator', desc: 'Precise navigational unit conversions.' },
       { name: 'Map Scale', path: '/map-scale', desc: 'Calculate real-world distances from map readings.' },
-    ]
-  },
-  {
-    title: 'Fashion & Textiles',
-    slug: 'fashion',
-    description: 'Precision tools for designers, crafters, and shoppers. Calculate fabric needs, find perfect international sizes, and master complicated quilting geometry.',
-    items: [
       { name: 'Fabric Calculator', path: '/fabric', desc: 'Yardage needed for sewing and upholstery.', keywords: ['sewing', 'upholstery', 'yardage', 'textile math', 'fabric estimator', 'dressmaking', 'home decor', 'sewing project', 'material count', 'bolt length'] },
       { name: 'Bra Size Calculator', path: '/bra-size-calc', desc: 'Find the perfect fit based on band and cup measures.', keywords: ['lingerie', 'intimates', 'bra fitting', 'cup size', 'band size', 'measurement', 'underwear', 'comfort fit', 'sizing guide', 'woman fashion'] },
       { name: 'Circle Skirt', path: '/circle-skirt', desc: 'Calculate radius and fabric for swirling designs.', keywords: ['skirt math', 'sewing pattern', 'circle radius', 'full skirt', 'fashion design', 'diy clothes', 'skirt drafting', 'waist measurement', 'swirl skirt', 'draping'] },
@@ -1579,13 +1286,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Lost Socks', path: '/lost-socks', desc: 'Probability analysis for laundry disappearances.', keywords: ['laundry', 'washing machine', 'missing items', 'probability', 'funny math', 'sock monster', 'household mystery', 'dryer vortex', 'single socks', 'chances of loss'] },
       { name: 'Pleated Skirt', path: '/pleated-skirt', desc: 'Calculate fold depth and fabric width.', keywords: ['sewing pleats', 'box pleat', 'knife pleat', 'skirt design', 'tailoring', 'fashion math', 'fabric volume', 'sewing pattern', 'skirt drafting', 'textile design'] },
       { name: 'Quiz: Fabric', path: '/fabric-quiz', desc: 'Test your textile math and yardage skills.', keywords: ['sewing trivia', 'textile knowledge', 'fabric education', 'sewing quiz', 'yardage test', 'craft knowledge', 'diy skills', 'fashion education', 'skill check', 'textile challenge'] },
-    ]
-  },
-  {
-    title: 'Chemistry & Lab Science',
-    slug: 'chemistry',
-    description: 'Precision tools for researchers, students, and professionals. From molecular weight calculations to complex reaction thermodynamics, our chemistry suite provides accurate data for every experiment.',
-    items: [
       { name: 'Atom Calculator', path: '/atom', desc: 'Calculate subatomic particles and properties.', keywords: ['protons', 'neutrons', 'electrons', 'isotope', 'nuclear math'] },
       { name: 'Atomic Mass', path: '/atomic-mass', desc: 'Weighted average of naturally occurring isotopes.', keywords: ['amu', 'mass number', 'molar mass', 'isotopes', 'periodic table'] },
       { name: 'Average Atomic Mass', path: '/average-atomic-mass', desc: 'Calculate based on isotopic abundance.', keywords: ['abundance', 'isotopes', 'weighted average', 'chemistry math'] },
@@ -1693,13 +1393,6 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Detention Time', path: '/detention-time', desc: 'Fluid residence time in chambers.', keywords: ['wastewater', 'civil engineering', 'flow math'] },
       { name: 'Hydraulic Retention Time', path: '/hydraulic-retention-time', desc: 'Measure system throughput efficiency.', keywords: ['bioreactor', 'water treatment', 'engineering'] },
       { name: 'Miller Indices', path: '/miller-indices', desc: 'Identify crystal planes and directions.', keywords: ['crystallography', 'solid state', 'materials'] },
-    ]
-  },
-  {
-    title: 'Entertainment & Fun',
-    slug: 'entertainment',
-    description: 'Pop culture Marathons, personality generators, and time-reclaiming utilities. Analyze your binge-watching habits and explore the math of fiction.',
-    items: [
       { name: 'Audiobooks Saver', path: '/audiobooks-time', desc: "Calculate time reclaimed from 'dead time' listening.", keywords: ['audiobooks', 'time management', 'productivity', 'listening time', 'audible', 'commute productivity', 'dead time', 'reading goals', 'efficiency', 'book time'] },
       { name: 'Podcast Reclaimer', path: '/podcast-time', desc: 'Reclaim waiting time with educational binging.', keywords: ['podcasts', 'learning time', 'productivity hack', 'commute learning', 'spotify', 'apple podcasts', 'education', 'reclaim time', 'efficiency', 'listening'] },
       { name: 'Star Wars Marathon', path: '/star-wars-marathon', desc: 'Total duration of all films and series.', keywords: ['star wars', 'disney plus', 'binge watch', 'movie marathon', 'jedi', 'skywalker', 'mandalorian', 'clone wars', 'film length', 'fandom'] },
@@ -1727,6 +1420,3 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Upside-Down Text', path: '/upside-down-text', desc: 'Flip your characters 180 degrees.', keywords: ['upside down', 'flipped text', 'inverted', 'funny text', 'social media', 'custom font', 'unicode flip', 'reverse characters', 'text generator', 'stylized'] },
       { name: 'Clay Shrinkage', path: '/clay-shrinkage', desc: 'Pottery math for drying and firing stages.', keywords: ['pottery', 'ceramics', 'kiln', 'sculpture', 'craft math', 'drying time', 'firing stages', 'clay body', 'material science', 'craftsmanship'] },
       { name: 'Quarantine Silver Lining', path: '/quarantine-silver-lining', desc: 'Analyze positive growth during isolation periods.', keywords: ['positivity', 'growth', 'quarantine', 'mental health', 'reflection', 'self improvement', 'optimism', 'isolation', 'wellness', 'life analysis'] },
-    ]
-  },
-];

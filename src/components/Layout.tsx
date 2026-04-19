@@ -226,6 +226,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               <strong>Advertiser Disclosure:</strong> simplycalculator.app is an independent, advertising-supported comparison service. We may receive compensation from the companies whose products appear on this site.
             </p>
             <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
+              <strong>Affiliate Disclaimer:</strong> simplycalculator.app participates in affiliate marketing programs, which means we may earn a commission on sales made through our links to retailer sites. This comes at no additional cost to you and helps us keep our tools free for everyone.
+            </p>
+            <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
               <strong>Disclaimer:</strong> The calculations provided are for illustrative purposes only and do not constitute financial, investment, or legal advice. simplycalculator.app is not a financial institution. We recommend consulting with a qualified professional before making any financial decisions. Member FDIC status applies only to products offered by our banking partners.
             </p>
           </div>

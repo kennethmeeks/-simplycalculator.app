@@ -534,7 +534,7 @@ export default function App() {
             <Route path="/health" element={<CategoryPage />} />
             <Route path="/math" element={<CategoryPage />} />
             <Route path="/science" element={<CategoryPage />} />
-            <Route path="/construction" element={<CategoryPage />} />
+            <Route path="/real-estate-construction" element={<CategoryPage />} />
             <Route path="/everyday" element={<CategoryPage />} />
             <Route path="/automotive" element={<CategoryPage />} />
             <Route path="/insurance" element={<CategoryPage />} />
@@ -557,8 +557,7 @@ export default function App() {
             <Route path="/fashion" element={<CategoryPage />} />
             <Route path="/chemistry" element={<CategoryPage />} />
             <Route path="/entertainment" element={<CategoryPage />} />
-            <Route path="/roofing" element={<CategoryPage />} />
-            <Route path="/real-estate" element={<CategoryPage />} />
+            <Route path="/real-estate-construction" element={<CategoryPage />} />
             <Route path="/hydraulics" element={<CategoryPage />} />
             <Route path="/masonry" element={<CategoryPage />} />
             <Route path="/home-improvement" element={<CategoryPage />} />

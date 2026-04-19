@@ -93,10 +93,13 @@ export const About: React.FC = () => {
         <section className="bg-indigo-50 p-8 rounded-2xl border border-indigo-200">
           <div className="flex items-center gap-3 mb-4">
             < Award className="w-6 h-6 text-indigo-600" />
-            <h2 className="text-3xl font-bold text-slate-900">Advertiser Disclosure</h2>
+            <h2 className="text-3xl font-bold text-slate-900">Advertiser & Affiliate Disclosure</h2>
           </div>
-          <p>
+          <p className="mb-4">
             <strong>simplycalculator.app</strong> is an independent, advertising-supported comparison service. We may receive compensation from the companies whose products appear on this site.
+          </p>
+          <p>
+            <strong>Affiliate Links:</strong> Some of the links on our website are "affiliate links." This means if you click on the link and purchase an item or sign up for a service, we will receive an affiliate commission at no extra cost to you. We only recommend products or services that we believe will add value to our users. This income allows us to maintain the platform and continue providing free, high-quality calculation tools.
           </p>
         </section>
 
