@@ -284,7 +284,7 @@ export default function App() {
             <Route path="/bmi" element={<BMICalculator />} />
             <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
             <Route path="/salary" element={<SalaryCalculator />} />
-            <Route path="/percentage" element={<PercentageCalculator />} />
+            <Route path="/math/percentage" element={<PercentageCalculator />} />
             <Route path="/age" element={<AgeCalculator />} />
             <Route path="/auto-loan" element={<AutoLoanCalculator />} />
             <Route path="/discount" element={<DiscountCalculator />} />
@@ -297,12 +297,12 @@ export default function App() {
             <Route path="/apr" element={<APRCalculator />} />
             <Route path="/simple-interest" element={<SimpleInterestCalculator />} />
             <Route path="/sales-tax" element={<SalesTaxCalculator />} />
-            <Route path="/slope" element={<SlopeCalculator />} />
-            <Route path="/exponent" element={<ExponentCalculator />} />
-            <Route path="/matrix" element={<MatrixCalculator />} />
-            <Route path="/long-division" element={<LongDivisionCalculator />} />
-            <Route path="/log" element={<LogCalculator />} />
-            <Route path="/percent-error" element={<PercentErrorCalculator />} />
+            <Route path="/math/slope" element={<SlopeCalculator />} />
+            <Route path="/math/exponent" element={<ExponentCalculator />} />
+            <Route path="/math/matrix" element={<MatrixCalculator />} />
+            <Route path="/math/long-division" element={<LongDivisionCalculator />} />
+            <Route path="/math/log" element={<LogCalculator />} />
+            <Route path="/math/percent-error" element={<PercentErrorCalculator />} />
 
             {/* Silo: Finance (Moved to top-level) */}
             <Route path="/payroll" element={<PayrollCalculator />} />
@@ -376,12 +376,12 @@ export default function App() {
             <Route path="/amazon-fba" element={<AmazonFBACalculator />} />
             <Route path="/brrrr" element={<BRRRRCalculator />} />
             <Route path="/scientific" element={<ScientificCalculator />} />
-            <Route path="/fraction" element={<FractionCalculator />} />
+            <Route path="/math/fraction" element={<FractionCalculator />} />
             <Route path="/date" element={<DateCalculator />} />
-            <Route path="/volume" element={<VolumeCalculator />} />
-            <Route path="/area" element={<AreaCalculator />} />
-            <Route path="/statistics" element={<StatisticsCalculator />} />
-            <Route path="/triangle" element={<TriangleCalculator />} />
+            <Route path="/math/volume" element={<VolumeCalculator />} />
+            <Route path="/math/area" element={<AreaCalculator />} />
+            <Route path="/math/statistics" element={<StatisticsCalculator />} />
+            <Route path="/math/triangle" element={<TriangleCalculator />} />
             <Route path="/password-generator" element={<PasswordGenerator />} />
             <Route path="/time" element={<TimeCalculator />} />
             <Route path="/grade" element={<GradeCalculator />} />
@@ -420,8 +420,8 @@ export default function App() {
             <Route path="/love-calculator" element={<LoveCalculator />} />
             <Route path="/numerology" element={<Numerology />} />
             <Route path="/zodiac" element={<Zodiac />} />
-            <Route path="/average" element={<AverageCalculator />} />
-            <Route path="/ratio" element={<RatioCalculator />} />
+            <Route path="/math/average" element={<AverageCalculator />} />
+            <Route path="/math/ratio" element={<RatioCalculator />} />
             <Route path="/square-root" element={<SquareRoot />} />
             <Route path="/sobriety-calculator" element={<SobrietyCalculator />} />
             <Route path="/days-until" element={<DaysUntil />} />
@@ -477,27 +477,27 @@ export default function App() {
             <Route path="/star-sign-compatibility" element={<StarSignCompatibility />} />
             <Route path="/name-compatibility" element={<NameCompatibility />} />
             <Route path="/iq-score" element={<IQScoreEstimator />} />
-            <Route path="/quadratic-formula" element={<QuadraticFormulaCalculator />} />
-            <Route path="/gcf" element={<GCFCalculator />} />
-            <Route path="/lcm" element={<LCMCalculator />} />
-            <Route path="/pythagorean-theorem" element={<PythagoreanTheoremCalculator />} />
-            <Route path="/probability" element={<ProbabilityCalculator />} />
-            <Route path="/permutation" element={<PermutationCalculator />} />
-            <Route path="/combination" element={<CombinationCalculator />} />
-            <Route path="/prime-number" element={<PrimeNumberChecker />} />
-            <Route path="/significant-figures" element={<SignificantFiguresCalculator />} />
-            <Route path="/standard-deviation" element={<StandardDeviationCalculator />} />
+            <Route path="/math/quadratic-formula" element={<QuadraticFormulaCalculator />} />
+            <Route path="/math/gcf" element={<GCFCalculator />} />
+            <Route path="/math/lcm" element={<LCMCalculator />} />
+            <Route path="/math/pythagorean-theorem" element={<PythagoreanTheoremCalculator />} />
+            <Route path="/math/probability" element={<ProbabilityCalculator />} />
+            <Route path="/math/permutation" element={<PermutationCalculator />} />
+            <Route path="/math/combination" element={<CombinationCalculator />} />
+            <Route path="/math/prime-number" element={<PrimeNumberChecker />} />
+            <Route path="/math/significant-figures" element={<SignificantFiguresCalculator />} />
+            <Route path="/math/standard-deviation" element={<StandardDeviationCalculator />} />
             <Route path="/voltage-drop" element={<VoltageDropCalculator />} />
             <Route path="/resistor" element={<ResistorCalculator />} />
             <Route path="/ohms-law" element={<OhmsLawCalculator />} />
             <Route path="/electricity" element={<ElectricityCalculator />} />
-            <Route path="/factor" element={<FactorCalculator />} />
-            <Route path="/rounding" element={<RoundingCalculator />} />
-            <Route path="/big-number" element={<BigNumberCalculator />} />
-            <Route path="/prime-factorization" element={<PrimeFactorizationCalculator />} />
-            <Route path="/common-factor" element={<CommonFactorCalculator />} />
-            <Route path="/basic-calculator" element={<BasicCalculator />} />
-            <Route path="/p-value" element={<PValueCalculator />} />
+            <Route path="/math/factor" element={<FactorCalculator />} />
+            <Route path="/math/rounding" element={<RoundingCalculator />} />
+            <Route path="/math/big-number" element={<BigNumberCalculator />} />
+            <Route path="/math/prime-factorization" element={<PrimeFactorizationCalculator />} />
+            <Route path="/math/common-factor" element={<CommonFactorCalculator />} />
+            <Route path="/math/basic-calculator" element={<BasicCalculator />} />
+            <Route path="/math/p-value" element={<PValueCalculator />} />
             <Route path="/height" element={<HeightCalculator />} />
             <Route path="/bra-size" element={<BraSizeCalculator />} />
             <Route path="/dice-roller" element={<DiceRoller />} />
@@ -516,15 +516,15 @@ export default function App() {
             <Route path="/time-duration" element={<TimeDurationCalculator />} />
             <Route path="/day-counter" element={<DayCounter />} />
             <Route path="/day-of-the-week" element={<DayOfTheWeekCalculator />} />
-            <Route path="/right-triangle" element={<RightTriangleCalculator />} />
-            <Route path="/number-sequence" element={<NumberSequenceCalculator />} />
-            <Route path="/half-life" element={<HalfLifeCalculator />} />
-            <Route path="/sample-size" element={<SampleSizeCalculator />} />
-            <Route path="/z-score" element={<ZScoreCalculator />} />
-            <Route path="/confidence-interval" element={<ConfidenceIntervalCalculator />} />
-            <Route path="/distance" element={<DistanceCalculator />} />
-            <Route path="/circle" element={<CircleCalculator />} />
-            <Route path="/surface-area" element={<SurfaceAreaCalculator />} />
+            <Route path="/math/right-triangle" element={<RightTriangleCalculator />} />
+            <Route path="/math/number-sequence" element={<NumberSequenceCalculator />} />
+            <Route path="/math/half-life" element={<HalfLifeCalculator />} />
+            <Route path="/math/sample-size" element={<SampleSizeCalculator />} />
+            <Route path="/math/z-score" element={<ZScoreCalculator />} />
+            <Route path="/math/confidence-interval" element={<ConfidenceIntervalCalculator />} />
+            <Route path="/math/distance" element={<DistanceCalculator />} />
+            <Route path="/math/circle" element={<CircleCalculator />} />
+            <Route path="/math/surface-area" element={<SurfaceAreaCalculator />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
@@ -533,13 +533,14 @@ export default function App() {
             <Route path="/personal" element={<CategoryPage />} />
             <Route path="/health" element={<CategoryPage />} />
             <Route path="/math" element={<CategoryPage />} />
+            <Route path="/math/:calculatorPath" element={<CalculatorPage />} />
             <Route path="/science" element={<CategoryPage />} />
             <Route path="/real-estate-construction" element={<CategoryPage />} />
             <Route path="/everyday" element={<CategoryPage />} />
             <Route path="/automotive" element={<CategoryPage />} />
             <Route path="/insurance" element={<CategoryPage />} />
             <Route path="/converters" element={<CategoryPage />} />
-            <Route path="/business" element={<CategoryPage />} />
+            <Route path="/business-and-marketing" element={<CategoryPage />} />
             <Route path="/military" element={<CategoryPage />} />
             <Route path="/medical" element={<CategoryPage />} />
             <Route path="/lifestyle" element={<CategoryPage />} />
@@ -557,9 +558,6 @@ export default function App() {
             <Route path="/fashion" element={<CategoryPage />} />
             <Route path="/chemistry" element={<CategoryPage />} />
             <Route path="/entertainment" element={<CategoryPage />} />
-            <Route path="/real-estate-construction" element={<CategoryPage />} />
-            <Route path="/hydraulics" element={<CategoryPage />} />
-            <Route path="/masonry" element={<CategoryPage />} />
             <Route path="/home-improvement" element={<CategoryPage />} />
             <Route path="/engineering" element={<CategoryPage />} />
             <Route path="/category/:categoryKey" element={<CategoryPage />} />

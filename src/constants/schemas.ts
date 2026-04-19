@@ -46,7 +46,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
      { id: 'birthDate', label: 'Birth Date', type: 'date' },
      { id: 'targetDate', label: 'Age at Date', type: 'date', defaultValue: new Date().toISOString().split('T')[0] }
   ],
-  '/percentage': [
+  '/math/percentage': [
     { id: 'num1', label: 'Number 1', type: 'number' },
     { id: 'num2', label: 'Number 2', type: 'number' },
     { id: 'operation', label: 'Operation', type: 'select', options: [

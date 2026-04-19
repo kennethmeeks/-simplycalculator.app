@@ -7,7 +7,6 @@ import {
   Clock, 
   HelpCircle, 
   ArrowRight,
-  Github,
   Twitter,
   Linkedin,
   Lightbulb,
@@ -123,23 +122,10 @@ export const Contact: React.FC = () => {
               </motion.div>
             </div>
 
-            <div className="pt-8 border-t border-slate-200">
-              <h3 className="text-lg font-bold text-slate-900 mb-4">Follow Our Journey</h3>
-              <div className="flex gap-3">
-                {[
-                  { icon: Twitter, label: 'Twitter', color: 'hover:bg-sky-500' },
-                  { icon: Github, label: 'GitHub', color: 'hover:bg-slate-800' },
-                  { icon: Linkedin, label: 'LinkedIn', color: 'hover:bg-blue-700' }
-                ].map((social) => (
-                  <button 
-                    key={social.label}
-                    className={`w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:text-white transition-all ${social.color}`}
-                    title={social.label}
-                  >
-                    <social.icon size={18} />
-                  </button>
-                ))}
-              </div>
+            <div className="pt-8 border-t border-slate-200 text-center">
+              <p className="text-[#999] text-[10px] leading-relaxed max-w-2xl mx-auto">
+                <strong>Affiliate Disclaimer:</strong> simplycalculator.app participates in affiliate marketing programs, which means we may earn a commission on sales made through our links to retailer sites. This comes at no additional cost to you and helps us keep our tools free for everyone.
+              </p>
             </div>
 
             {/* Quick Tips Card */}

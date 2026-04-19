@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { CATEGORIES } from '../constants/categories';
 import { POPULAR_SCHEMAS, CalculatorField } from '../constants/schemas';
@@ -19,6 +19,7 @@ const getAI = () => {
 // Component
 export const CalculatorPage: React.FC = () => {
     const { calculatorPath } = useParams<{ calculatorPath: string }>();
+    const location = useLocation();
     const [inputs, setInputs] = useState<Record<string, string>>({});
     const [result, setResult] = useState<any>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -33,28 +34,30 @@ export const CalculatorPage: React.FC = () => {
 
     // Find the item
     const { foundItem, foundCategory } = useMemo(() => {
+        const fullPath = location.pathname;
         for (const cat of CATEGORIES) {
-            const item = cat.items.find(i => i.path === `/${calculatorPath}`);
+            const item = cat.items.find(i => i.path === fullPath);
             if (item) return { foundItem: item, foundCategory: cat };
         }
         return { foundItem: null, foundCategory: null };
-    }, [calculatorPath]);
+    }, [location.pathname]);
 
     // Determine current fields
     const currentFields = useMemo(() => {
         if (!foundItem) return [];
-        return POPULAR_SCHEMAS[`/${calculatorPath}`] || dynamicFields || [];
-    }, [calculatorPath, dynamicFields, foundItem]);
+        return POPULAR_SCHEMAS[foundItem.path] || dynamicFields || [];
+    }, [foundItem, dynamicFields]);
 
     // Discover schema if not popular
     useEffect(() => {
-        if (!foundItem || POPULAR_SCHEMAS[`/${calculatorPath}`]) {
+        if (!foundItem || POPULAR_SCHEMAS[foundItem.path]) {
             setDynamicFields(null);
             setError(null);
             return;
         }
 
-        const cached = localStorage.getItem(CACHE_KEY_SCHEMA(calculatorPath || ''));
+        const pathKey = foundItem.path.slice(1);
+        const cached = localStorage.getItem(CACHE_KEY_SCHEMA(pathKey));
         if (cached) {
             try {
                 setDynamicFields(JSON.parse(cached));
@@ -109,7 +112,7 @@ export const CalculatorPage: React.FC = () => {
                 
                 const data = JSON.parse(response.text);
                 setDynamicFields(data.fields);
-                localStorage.setItem(CACHE_KEY_SCHEMA(calculatorPath || ''), JSON.stringify(data.fields));
+                localStorage.setItem(CACHE_KEY_SCHEMA(foundItem.path), JSON.stringify(data.fields));
             } catch (err) {
                 console.error("Schema discovery error:", err);
                 setError("Unable to initialize this specific module. Please try again later.");
@@ -125,13 +128,13 @@ export const CalculatorPage: React.FC = () => {
     useEffect(() => {
         if (!foundItem) return;
 
-        const cached = localStorage.getItem(CACHE_KEY_GUIDE(calculatorPath || ''));
+        const cached = localStorage.getItem(CACHE_KEY_GUIDE(foundItem.path));
         if (cached) {
             try {
                 setGuideContent(JSON.parse(cached));
                 return;
             } catch (e) {
-                localStorage.removeItem(CACHE_KEY_GUIDE(calculatorPath || ''));
+                localStorage.removeItem(CACHE_KEY_GUIDE(foundItem.path));
             }
         }
 
@@ -180,7 +183,7 @@ export const CalculatorPage: React.FC = () => {
                 });
                 const data = JSON.parse(response.text);
                 setGuideContent(data);
-                localStorage.setItem(CACHE_KEY_GUIDE(calculatorPath || ''), JSON.stringify(data));
+                localStorage.setItem(CACHE_KEY_GUIDE(foundItem.path), JSON.stringify(data));
             } catch (err) {
                 console.error("Guide generation error:", err);
             } finally {
