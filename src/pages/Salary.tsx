@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { parseInput } from '@/src/lib/calculatorUtils';
+import { FileDown, RotateCcw, Share2 } from 'lucide-react';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const SalaryCalculator: React.FC = () => {
   const [amount, setAmount] = useState<number | string>(50000);
   const [period, setPeriod] = useState('year');
   const [hoursPerWeek, setHoursPerWeek] = useState<number | string>(40);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const [results, setResults] = useState({
     hourly: 0,
@@ -14,6 +19,30 @@ export const SalaryCalculator: React.FC = () => {
     monthly: 0,
     annually: 0,
   });
+
+  const handleReset = () => {
+    setAmount(50000);
+    setPeriod('year');
+    setHoursPerWeek(40);
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    const doc = new jsPDF();
+    try {
+      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pdfWidth - 20;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
+      doc.setFontSize(22);
+      doc.text('Salary Report', 20, 20);
+      doc.setFontSize(10);
+      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
+      doc.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
+      doc.save('Salary_Report.pdf');
+    } catch (err) { console.error(err); }
+  };
 
   useEffect(() => {
     const amt = parseInput(amount.toString());
@@ -91,8 +120,8 @@ export const SalaryCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div>
-          <div className="calculator-container">
+        <div id="result-panel" ref={resultsRef}>
+          <div className="calculator-container h-full">
             <div className="section-title">Results</div>
             <div className="result-box">
               <div className="space-y-3">
@@ -117,9 +146,17 @@ export const SalaryCalculator: React.FC = () => {
                   <span className="text-2xl font-bold text-[#0066cc]">${results.annually.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                 </div>
               </div>
+
+              <ResultActions 
+                onReset={handleReset}
+                onDownloadPDF={handleDownloadPDF}
+                onCopy={() => {
+                    const text = `Salary Results:\nHourly: $${results.hourly.toFixed(2)}\nAnnually: $${results.annually.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                }}
+              />
             </div>
           </div>
-          
         </div>
       </div>
 

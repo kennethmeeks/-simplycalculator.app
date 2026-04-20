@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { Download, AlertCircle } from 'lucide-react';
+import { FileDown, AlertCircle, Share2, RotateCcw } from 'lucide-react';
+import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { parseInput } from '@/src/lib/calculatorUtils';
@@ -20,6 +21,15 @@ export const MortgageCalculator: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isExporting, setIsExporting] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
+
+  const handleReset = () => {
+    setHomePrice(400000);
+    setDownPayment(80000);
+    setInterestRate(6.5);
+    setLoanTerm(30);
+    setPropertyTax(1.2);
+    setInsurance(1200);
+  };
 
   useEffect(() => {
     const newErrors: Record<string, string> = {};
@@ -67,9 +77,8 @@ export const MortgageCalculator: React.FC = () => {
     }
   }, [homePrice, downPayment, interestRate, loanTerm, propertyTax, insurance]);
 
-  const exportPDF = async () => {
+  const handleDownloadPDF = async () => {
     if (!resultsRef.current) return;
-    setIsExporting(true);
     try {
       const canvas = await html2canvas(resultsRef.current, {
         scale: 2,
@@ -79,19 +88,18 @@ export const MortgageCalculator: React.FC = () => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      const contentWidth = pdfWidth - 20;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
       
-      pdf.setFontSize(18);
-      pdf.text('Mortgage Calculation Report', 10, 20);
+      pdf.setFontSize(22);
+      pdf.text('Mortgage Report', 20, 20);
       pdf.setFontSize(10);
-      pdf.text(`Generated on: ${new Date().toLocaleDateString()}`, 10, 28);
+      pdf.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
       
-      pdf.addImage(imgData, 'PNG', 10, 35, pdfWidth - 20, pdfHeight - 20);
-      pdf.save('mortgage-report.pdf');
+      pdf.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
+      pdf.save('Mortgage_Report.pdf');
     } catch (error) {
       console.error('PDF Export failed:', error);
-    } finally {
-      setIsExporting(false);
     }
   };
 
@@ -107,7 +115,7 @@ export const MortgageCalculator: React.FC = () => {
         <p className="text-slate-500">Estimate your monthly housing costs for 2026.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8" ref={resultsRef}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Left: Inputs */}
         <div className="lg:col-span-2 space-y-6">
           <div className="calculator-container">
@@ -218,15 +226,14 @@ export const MortgageCalculator: React.FC = () => {
         </div>
 
         {/* Right: Results */}
-        <div className="space-y-6">
-          <div className="result-box">
-            <h3 className="text-[#0066cc] font-bold mb-2 uppercase text-xs tracking-wider">Monthly Payment</h3>
-            <div className="text-4xl font-bold text-[#0066cc]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
-          </div>
+        <div className="space-y-6" id="result-panel" ref={resultsRef}>
+          <div className="calculator-container h-full">
+            <div className="result-box">
+              <h3 className="text-[#0066cc] font-bold mb-2 uppercase text-xs tracking-wider">Monthly Payment</h3>
+              <div className="text-4xl font-bold text-[#0066cc]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+            </div>
 
-          <div className="calculator-container">
-            <h3 className="font-bold text-sm border-b border-[#eee] pb-2 mb-3">Payment Breakdown</h3>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-4 pt-6">
               <div className="flex justify-between">
                 <span className="text-[#666]">Total Interest:</span>
                 <span className="font-bold text-[#0066cc]">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
@@ -241,14 +248,14 @@ export const MortgageCalculator: React.FC = () => {
               </div>
             </div>
             
-            <button 
-              onClick={exportPDF}
-              disabled={isExporting || Object.keys(errors).length > 0}
-              className="w-full mt-6 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white font-bold py-3 px-4 rounded-lg transition-colors text-sm"
-            >
-              <Download size={16} />
-              {isExporting ? 'Generating PDF...' : 'Download PDF Report'}
-            </button>
+            <ResultActions 
+                onReset={handleReset}
+                onDownloadPDF={handleDownloadPDF}
+                onCopy={() => {
+                    const text = `Mortgage Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                }}
+            />
           </div>
         </div>
       </div>

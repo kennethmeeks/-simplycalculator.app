@@ -212,10 +212,12 @@ export const BMICalculator: React.FC = () => {
           
           <h2 className="text-[#0066cc] font-black text-2xl mb-8 relative z-10">Your Results</h2>
           
-          <div className="flex-1 flex flex-col justify-center relative z-10">
-            <div className="space-y-2">
-              <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Calculated BMI</p>
-              <div className="text-[#0066cc] text-7xl font-black tracking-tight">{bmi.toFixed(1)}</div>
+          <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
+            <div className="space-y-4 w-full">
+              <div>
+                <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Calculated BMI</p>
+                <div className="text-[#0066cc] text-7xl font-black tracking-tight">{bmi.toFixed(1)}</div>
+              </div>
               <p className={`text-xl font-black uppercase tracking-tighter ${getCategoryColor()}`}>{category}</p>
             </div>
 

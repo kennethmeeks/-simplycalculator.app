@@ -1,16 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import { TrendingUp, DollarSign, Percent, BarChart } from 'lucide-react';
+import { TrendingUp, DollarSign, Percent, BarChart, FileDown, Share2, RotateCcw } from 'lucide-react';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const ROICalculator: React.FC = () => {
   const [amountInvested, setAmountInvested] = useState(10000);
   const [amountReturned, setAmountReturned] = useState(15000);
   const [investmentPeriod, setInvestmentPeriod] = useState(2); // years
+  const resultsRef = useRef<HTMLDivElement>(null);
   
   const [totalProfit, setTotalProfit] = useState(0);
   const [roi, setRoi] = useState(0);
   const [annualizedRoi, setAnnualizedRoi] = useState(0);
+
+  const handleReset = () => {
+    setAmountInvested(10000);
+    setAmountReturned(15000);
+    setInvestmentPeriod(2);
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    const doc = new jsPDF();
+    try {
+      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pdfWidth - 20;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
+      doc.setFontSize(22);
+      doc.text('ROI Report', 20, 20);
+      doc.setFontSize(10);
+      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
+      doc.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
+      doc.save('ROI_Report.pdf');
+    } catch (err) { console.error(err); }
+  };
 
   useEffect(() => {
     const profit = amountReturned - amountInvested;
@@ -70,28 +98,36 @@ export const ROICalculator: React.FC = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
-          <div className="calculator-container">
+        <div className="space-y-6" id="result-panel" ref={resultsRef}>
+          <div className="calculator-container h-full">
             <div className="section-title">Performance Summary</div>
             <div className="space-y-6">
-              <div className="result-box bg-[#f0f7ff] border-[#0066cc]/10">
-                <div className="text-xs text-slate-500 uppercase font-bold">Total ROI</div>
+              <div className="result-box bg-[#f0f7ff] border-[#0066cc]/10 text-center">
+                <div className="text-xs text-slate-500 uppercase font-bold mb-1">Total ROI</div>
                 <div className="text-4xl font-bold text-[#0066cc]">{roi}%</div>
               </div>
 
               <div className="space-y-4">
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                  <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Profit</div>
+                <div className="p-3 bg-slate-50 rounded border border-slate-100 flex justify-between items-center">
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Total Profit</div>
                   <div className="text-lg font-bold text-[#0066cc]">${totalProfit.toLocaleString()}</div>
                 </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                  <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Annualized ROI</div>
+                <div className="p-3 bg-slate-50 rounded border border-slate-100 flex justify-between items-center">
+                  <div className="text-[10px] text-slate-500 uppercase font-bold">Annualized ROI</div>
                   <div className="text-lg font-bold text-[#0066cc]">{annualizedRoi}%</div>
                 </div>
               </div>
+
+                <ResultActions 
+                  onReset={handleReset}
+                  onDownloadPDF={handleDownloadPDF}
+                  onCopy={() => {
+                        const text = `ROI Results:\nTotal ROI: ${roi}%\nProfit: $${totalProfit.toLocaleString()}\nCalculated at simplycalculator.app`;
+                        navigator.clipboard.writeText(text);
+                    }}
+                />
             </div>
           </div>
-          
         </div>
       </div>
 

@@ -1,15 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const StudentLoanCalculator: React.FC = () => {
   const [loanAmount, setLoanAmount] = useState<number>(30000);
   const [interestRate, setInterestRate] = useState<number>(5.5);
   const [loanTerm, setLoanTerm] = useState<number>(10);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [totalInterest, setTotalInterest] = useState<number>(0);
   const [totalPayment, setTotalPayment] = useState<number>(0);
+
+  const handleReset = () => {
+    setLoanAmount(30000);
+    setInterestRate(5.5);
+    setLoanTerm(10);
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    const doc = new jsPDF();
+    try {
+      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pdfWidth - 40;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
+      
+      doc.setFontSize(22);
+      doc.text('Student Loan Report', 20, 20);
+      doc.setFontSize(10);
+      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
+      
+      doc.addImage(imgData, 'PNG', 20, 35, contentWidth, contentHeight);
+      doc.save('Student_Loan_Report.pdf');
+    } catch (err) { console.error(err); }
+  };
 
   useEffect(() => {
     const r = interestRate / 100 / 12;
@@ -43,61 +72,69 @@ export const StudentLoanCalculator: React.FC = () => {
       
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-          <h2 className="text-xl font-semibold mb-6">Loan Details</h2>
+        <div className="calculator-container shadow-none border-slate-200">
+          <h2 className="section-title">Loan Details</h2>
           
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Loan Amount ($)</label>
+              <label className="input-label">Loan Amount ($)</label>
               <input
                 type="number"
                 value={loanAmount}
                 onChange={(e) => setLoanAmount(Number(e.target.value))}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#0066cc] focus:border-transparent outline-none"
+                className="input-field"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Interest Rate (%)</label>
+              <label className="input-label">Interest Rate (%)</label>
               <input
                 type="number"
                 value={interestRate}
                 onChange={(e) => setInterestRate(Number(e.target.value))}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#0066cc] focus:border-transparent outline-none"
+                className="input-field"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Loan Term (Years)</label>
+              <label className="input-label">Loan Term (Years)</label>
               <input
                 type="number"
                 value={loanTerm}
                 onChange={(e) => setLoanTerm(Number(e.target.value))}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#0066cc] focus:border-transparent outline-none"
+                className="input-field"
               />
             </div>
           </div>
         </div>
 
-        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-          <h2 className="text-xl font-semibold mb-6">Repayment Summary</h2>
-          <div className="space-y-6">
-            <div>
-              <p className="text-sm text-slate-500 mb-1">Estimated Monthly Payment</p>
-              <p className="text-4xl font-bold text-[#0066cc]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-6" ref={resultsRef}>
+          <div className="calculator-container bg-[#f0f7ff] border-[#0066cc]/10">
+            <h2 className="section-title text-[#0066cc]">Repayment Summary</h2>
+            <div className="space-y-6 text-center">
               <div>
-                <p className="text-sm text-slate-500 mb-1">Total Interest</p>
-                <p className="text-xl font-semibold text-slate-900">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                <p className="text-xs text-slate-500 uppercase font-bold mb-1">Estimated Monthly Payment</p>
+                <p className="text-4xl font-bold text-[#0066cc]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
               </div>
-              <div>
-                <p className="text-sm text-slate-500 mb-1">Total Payment</p>
-                <p className="text-xl font-semibold text-slate-900">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+              <div className="grid grid-cols-2 gap-4 border-t border-[#0066cc]/10 pt-6">
+                <div>
+                  <p className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Interest</p>
+                  <p className="text-xl font-bold text-slate-900">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-slate-500 uppercase font-bold mb-1">Total Payment</p>
+                  <p className="text-xl font-bold text-slate-900">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                </div>
               </div>
-            </div>
-            <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
-                Note: This calculation provides an estimate. Actual payments may vary based on lender fees and specific loan terms.
-              </p>
+              
+              <div className="pt-4">
+                <ResultActions 
+                  onReset={handleReset}
+                  onDownloadPDF={handleDownloadPDF}
+                  onCopy={() => {
+                    const text = `Student Loan Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nTotal Payment: $${totalPayment.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

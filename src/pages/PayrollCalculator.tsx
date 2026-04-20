@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-
 import { DollarSign, Calculator, Info, Briefcase } from 'lucide-react';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const PayrollCalculator: React.FC = () => {
   const [grossPay, setGrossPay] = useState<number>(5000);
@@ -10,8 +12,39 @@ export const PayrollCalculator: React.FC = () => {
   const [stateTaxRate, setStateTaxRate] = useState<number>(5);
   const [ficaRate, setFicaRate] = useState<number>(7.65);
   const [otherDeductions, setOtherDeductions] = useState<number>(200);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
   const [netPay, setNetPay] = useState<number>(0);
   const [totalTaxes, setTotalTaxes] = useState<number>(0);
+
+  const handleReset = () => {
+    setGrossPay(5000);
+    setFederalTaxRate(15);
+    setStateTaxRate(5);
+    setFicaRate(7.65);
+    setOtherDeductions(200);
+    setPayFrequency('monthly');
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    const doc = new jsPDF();
+    try {
+      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pdfWidth - 40;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
+      
+      doc.setFontSize(22);
+      doc.text('Payroll Report', 20, 20);
+      doc.setFontSize(10);
+      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
+      
+      doc.addImage(imgData, 'PNG', 20, 35, contentWidth, contentHeight);
+      doc.save('Payroll_Report.pdf');
+    } catch (err) { console.error(err); }
+  };
 
   useEffect(() => {
     const federalTax = grossPay * (federalTaxRate / 100);
@@ -119,8 +152,8 @@ export const PayrollCalculator: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]">
-            <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0066cc]">
+          <div className="calculator-container bg-[#f0f7ff] border border-[#0066cc]/20 text-[#0066cc]" ref={resultsRef}>
+            <h2 className="section-title text-[#0066cc] flex items-center gap-2">
               <DollarSign className="w-5 h-5" />
               Pay Summary
             </h2>
@@ -130,24 +163,35 @@ export const PayrollCalculator: React.FC = () => {
                 <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Net Take-Home Pay</div>
               </div>
               <div className="space-y-4 text-center py-4 border-b border-[#0066cc]/10">
-                <div>
-                  <div className="text-xl font-bold text-[#0066cc]">${totalTaxes.toLocaleString()}</div>
+                <div className="flex justify-between items-center px-4">
                   <div className="text-[10px] text-slate-500 uppercase font-bold">Total Taxes</div>
+                  <div className="text-xl font-bold text-[#0066cc]">${totalTaxes.toLocaleString()}</div>
                 </div>
-                <div>
-                  <div className="text-xl font-bold text-[#0066cc]">${otherDeductions.toLocaleString()}</div>
+                <div className="flex justify-between items-center px-4">
                   <div className="text-[10px] text-slate-500 uppercase font-bold">Deductions</div>
+                  <div className="text-xl font-bold text-[#0066cc]">${otherDeductions.toLocaleString()}</div>
                 </div>
+              </div>
+              
+              <div className="pt-2">
+                <ResultActions 
+                  onReset={handleReset}
+                  onDownloadPDF={handleDownloadPDF}
+                  onCopy={() => {
+                    const text = `Payroll Results:\nNet Pay: $${netPay.toLocaleString()}\nTotal Taxes: $${totalTaxes.toLocaleString()}\nDeductions: $${otherDeductions.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                />
               </div>
             </div>
           </div>
           
           <div className="calculator-container">
-            <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <Briefcase className="w-4 h-4" />
+            <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2 uppercase tracking-tight text-sm">
+              <Briefcase className="w-4 h-4 text-blue-600" />
               Employment Tips
             </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
               Review your pay stub regularly to ensure all taxes and benefits are being withheld correctly. Adjust your W-4 if you find you're owing too much or getting a massive refund at tax time.
             </p>
           </div>

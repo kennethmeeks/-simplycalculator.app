@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { FileDown, RotateCcw, Share2 } from 'lucide-react';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const AmazonFBACalculator: React.FC = () => {
   const [price, setPrice] = useState(29.99);
@@ -11,6 +14,35 @@ export const AmazonFBACalculator: React.FC = () => {
   const [fulfillmentFee, setFulfillmentFee] = useState(5.40);
   const [storageFee, setStorageFee] = useState(0.45);
   const [advertising, setAdvertising] = useState(3.00); // Per unit
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  const handleReset = () => {
+    setPrice(29.99);
+    setCost(8.50);
+    setShipping(1.20);
+    setReferralFeePercent(15);
+    setFulfillmentFee(5.40);
+    setStorageFee(0.45);
+    setAdvertising(3.00);
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    const doc = new jsPDF();
+    try {
+      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pdfWidth - 20;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
+      doc.setFontSize(22);
+      doc.text('Amazon FBA Report', 20, 20);
+      doc.setFontSize(10);
+      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
+      doc.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
+      doc.save('AmazonFBA_Report.pdf');
+    } catch (err) { console.error(err); }
+  };
   
   const [referralFee, setReferralFee] = useState(0);
   const [totalFees, setTotalFees] = useState(0);
@@ -124,8 +156,8 @@ export const AmazonFBACalculator: React.FC = () => {
           </div>
         </div>
 
-        <div>
-          <div className="calculator-container">
+        <div id="result-panel" ref={resultsRef}>
+          <div className="calculator-container h-full">
             <div className="section-title">Profit Analysis</div>
             <div className="result-box">
               <div className="space-y-4">
@@ -161,10 +193,18 @@ export const AmazonFBACalculator: React.FC = () => {
                     <span>${(cost + shipping).toFixed(2)}</span>
                   </div>
                 </div>
+
+                <ResultActions 
+                  onReset={handleReset}
+                  onDownloadPDF={handleDownloadPDF}
+                  onCopy={() => {
+                      const text = `Amazon FBA Results:\nNet Profit: $${netProfit.toFixed(2)}\nROI: ${roi.toFixed(1)}%\nCalculated at simplycalculator.app`;
+                      navigator.clipboard.writeText(text);
+                  }}
+                />
               </div>
             </div>
           </div>
-          
         </div>
       </div>
 

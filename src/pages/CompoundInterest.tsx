@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { parseInput } from '@/src/lib/calculatorUtils';
+import { ResultActions } from '../components/ResultActions';
+import { FileDown, RotateCcw, Share2 } from 'lucide-react';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const CompoundInterestCalculator: React.FC = () => {
   const [principal, setPrincipal] = useState<number | string>(10000);
@@ -8,9 +12,36 @@ export const CompoundInterestCalculator: React.FC = () => {
   const [years, setYears] = useState<number | string>(10);
   const [compounding, setCompounding] = useState(12); // Monthly
   const [contribution, setContribution] = useState<number | string>(100);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const [total, setTotal] = useState(0);
   const [interest, setInterest] = useState(0);
+
+  const handleReset = () => {
+    setPrincipal(10000);
+    setRate(7);
+    setYears(10);
+    setCompounding(12);
+    setContribution(100);
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    const doc = new jsPDF();
+    try {
+      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
+      const imgData = canvas.toDataURL('image/png');
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pdfWidth - 20;
+      const contentHeight = (canvas.height * contentWidth) / canvas.width;
+      doc.setFontSize(22);
+      doc.text('Compound Interest Report', 20, 20);
+      doc.setFontSize(10);
+      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
+      doc.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
+      doc.save('Compound_Interest_Report.pdf');
+    } catch (err) { console.error(err); }
+  };
 
   useEffect(() => {
     const p = parseInput(principal.toString());
@@ -110,8 +141,8 @@ export const CompoundInterestCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div>
-          <div className="calculator-container">
+        <div id="result-panel" ref={resultsRef}>
+          <div className="calculator-container h-full">
             <div className="section-title">Results</div>
             <div className="result-box">
               <div className="space-y-3">
@@ -124,9 +155,17 @@ export const CompoundInterestCalculator: React.FC = () => {
                   <span className="text-2xl font-bold text-[#0066cc]">${total.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                 </div>
               </div>
+
+              <ResultActions 
+                onReset={handleReset}
+                onDownloadPDF={handleDownloadPDF}
+                onCopy={() => {
+                    const text = `Compound Interest Results:\nFuture Value: $${total.toLocaleString()}\nInterest Earned: $${interest.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                }}
+              />
             </div>
           </div>
-          
         </div>
       </div>
 
