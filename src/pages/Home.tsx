@@ -18,11 +18,11 @@ export const Home: React.FC = () => {
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="relative z-10 max-w-2xl">
             <h1 className="text-5xl sm:text-7xl font-black mb-6 tracking-tighter uppercase leading-none text-blue-500">
-              The Hub for Accurate Logic.
+              Free & Accurate Calculators.
             </h1>
-            <p className="text-lg sm:text-xl text-white/50 mb-10 font-medium italic">
+            <p className="text-lg sm:text-xl text-white/50 mb-10 font-medium">
               Professional-grade calculators for finance, health, and industry. 
-              Verified for the 2026.4 operational standard.
+              Reliable formulas updated for 2026.
             </p>
             
             <div className="flex flex-wrap gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-blue-500">
@@ -90,13 +90,13 @@ export const Home: React.FC = () => {
                 <div>
                     <h3 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 text-blue-600 italic">// Compliance</h3>
                     <p className="text-[14px] text-[#111] font-bold leading-relaxed">
-                        All modules updated for the 2026.4 operational window in accordance with global mathematical standards.
+                        All tools follow industry-standard mathematical formulas and are verified for accuracy.
                     </p>
                 </div>
                 <div>
                     <h3 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 text-blue-600 italic">// Development</h3>
                     <p className="text-[14px] text-[#111] font-bold leading-relaxed">
-                        The simplycalculator engine is maintained by a global consortium of educators and industry experts.
+                        The simplycalculator platform is maintained by a global team of developers and industry contributors.
                     </p>
                 </div>
             </div>

@@ -33,13 +33,13 @@ export const CategoryPage: React.FC = () => {
 
           <header className="border-b-8 border-[#111] pb-10">
             <div className="flex items-center gap-3 mb-4">
-              <span className="bg-blue-600 text-white text-[9px] font-black px-3 py-1 uppercase tracking-[0.3em]">Vertical Hub</span>
-              <span className="text-[9px] font-bold text-[#999] uppercase tracking-[0.2em]">{data.items.length} Production Ready Modules</span>
+              <span className="bg-blue-600 text-white text-[9px] font-black px-3 py-1 uppercase tracking-[0.3em]">Category Hub</span>
+              <span className="text-[9px] font-bold text-[#999] uppercase tracking-[0.2em]">{data.items.length} Calculators Available</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-black text-[#111] tracking-tighter uppercase leading-none">
               {data.title}
             </h1>
-            <p className="text-lg sm:text-xl leading-relaxed text-[#666] max-w-3xl mt-6 font-medium italic">
+            <p className="text-lg sm:text-xl leading-relaxed text-[#666] max-w-3xl mt-6 font-medium">
               {data.description}
             </p>
           </header>
@@ -47,7 +47,7 @@ export const CategoryPage: React.FC = () => {
 
         {/* Global Hub Navigation */}
         <section className="bg-white border-2 border-[#eee] p-6 shadow-[8px_8px_0px_0px_#f0f0f0]">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#bbb] mb-4 italic">// Jump to Hub</h3>
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#bbb] mb-4">// Jump to Hub</h3>
             <div className="flex flex-wrap gap-x-8 gap-y-4">
                 {CATEGORIES.map(c => (
                     <Link 
@@ -71,12 +71,12 @@ export const CategoryPage: React.FC = () => {
               className="group p-8 bg-white border-2 border-[#eee] hover:border-[#111] hover:shadow-[10px_10px_0px_0px_rgba(37,99,235,1)] transition-all duration-300 relative flex flex-col h-full"
             >
               <div className="absolute top-4 right-4 text-[9px] font-black uppercase tracking-widest text-[#eee] group-hover:text-blue-600/20 transition-colors">
-                  Logic Module
+                  Calculator Tool
               </div>
               <h2 className="text-xl font-black text-[#111] group-hover:text-blue-600 mb-4 leading-tight uppercase tracking-tight">
                 {item.name}
               </h2>
-              <p className="text-[11px] text-[#999] leading-relaxed italic font-medium mt-auto group-hover:text-[#666]">
+              <p className="text-[11px] text-[#999] leading-relaxed font-medium mt-auto group-hover:text-[#666]">
                 {item.desc}
               </p>
             </Link>
@@ -86,12 +86,12 @@ export const CategoryPage: React.FC = () => {
         <section className="mt-20 bg-[#f9f9f9] p-12 border-2 border-[#111] relative overflow-hidden">
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#111]/5 -rotate-12 translate-x-8 translate-y-8"></div>
             <article className="max-w-none text-[#555] relative z-10">
-                <h2 className="text-2xl font-black text-[#111] mb-8 tracking-tighter uppercase font-sans">Precision Protocol: {data.title}</h2>
+                <h2 className="text-2xl font-black text-[#111] mb-8 tracking-tighter uppercase font-sans">Accuracy Standard: {data.title}</h2>
                 <div className="grid md:grid-cols-2 gap-16">
                     <div>
                         <p className="leading-relaxed text-[14px] font-medium">
-                            Accuracy is our absolute priority in the <strong>{data.title}</strong> sector. Our active logic implementations 
-                            follow verified 2026.4 operational standards. Every result is generated using deterministic mathematical algorithms 
+                            Accuracy is our absolute priority in the <strong>{data.title}</strong> sector. Our calculators
+                            follow standard 2026 mathematical protocols. Every result is generated using verified algorithms 
                             ensuring consistent reproducibility.
                         </p>
                     </div>

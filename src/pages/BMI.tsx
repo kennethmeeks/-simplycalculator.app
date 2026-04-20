@@ -107,165 +107,142 @@ export const BMICalculator: React.FC = () => {
         <meta name="description" content="Calculate your Body Mass Index with our free BMI calculator for adults with history. Track your weight trends over time and understand your health category in 2026." />
       </Helmet>
 
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">BMI Calculator</h1>
-        <p className="text-slate-500">Body Mass Index for adults.</p>
-      </div>
+      <header className="text-center space-y-4 mb-12">
+        <h1 className="text-4xl font-black text-[#111] tracking-tight uppercase">BMI Calculator</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium">Standard Body Mass Index measurement for adults.</p>
+      </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="calculator-container">
-            <h2 className="section-title">Body Parameters</h2>
-            
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        {/* Input Panel */}
+        <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm flex flex-col h-full">
+          <div className="mb-8">
+            <h2 className="text-[#0066cc] font-black text-2xl">Your Details</h2>
+          </div>
+          
+          <div className="space-y-6 flex-1">
             {/* Unit Toggle */}
-            <div className="flex gap-4 mb-6">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  checked={unitSystem === 'metric'}
-                  onChange={() => setUnitSystem('metric')}
-                />
-                <span className="text-sm font-bold">Metric Units</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  checked={unitSystem === 'imperial'}
-                  onChange={() => setUnitSystem('imperial')}
-                />
-                <span className="text-sm font-bold">US Units</span>
-              </label>
+            <div className="flex gap-4 p-1 bg-slate-50 rounded-lg w-fit">
+              <button
+                onClick={() => setUnitSystem('metric')}
+                className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
+                  unitSystem === 'metric' ? 'bg-[#0066cc] text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                }`}
+              >
+                Metric Units
+              </button>
+              <button
+                onClick={() => setUnitSystem('imperial')}
+                className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
+                  unitSystem === 'imperial' ? 'bg-[#0066cc] text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                }`}
+              >
+                US Units
+              </button>
             </div>
 
-            <div className="space-y-4 max-w-md">
+            <div className="space-y-4">
               {unitSystem === 'metric' ? (
                 <>
-                  <div className="input-group">
-                    <label className="input-label">Weight (kg)</label>
+                  <div className="space-y-1.5">
+                    <label className="text-sm font-bold text-slate-600">Weight (kg)</label>
                     <input 
                       type="number" 
                       value={weightKg} 
                       onChange={(e) => setWeightKg(e.target.value)}
-                      className="input-field"
+                      className="w-full h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] focus:ring-1 focus:ring-[#0066cc] outline-none font-medium text-slate-700 transition-all"
                     />
                   </div>
-                  <div className="input-group">
-                    <label className="input-label">Height (cm)</label>
+                  <div className="space-y-1.5">
+                    <label className="text-sm font-bold text-slate-600">Height (cm)</label>
                     <input 
                       type="number" 
                       value={heightCm} 
                       onChange={(e) => setHeightCm(e.target.value)}
-                      className="input-field"
+                      className="w-full h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] focus:ring-1 focus:ring-[#0066cc] outline-none font-medium text-slate-700 transition-all"
                     />
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="input-group">
-                    <label className="input-label">Weight (lbs)</label>
+                  <div className="space-y-1.5">
+                    <label className="text-sm font-bold text-slate-600">Weight (lbs)</label>
                     <input 
                       type="number" 
                       value={weightLbs} 
                       onChange={(e) => setWeightLbs(e.target.value)}
-                      className="input-field"
+                      className="w-full h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] focus:ring-1 focus:ring-[#0066cc] outline-none font-medium text-slate-700 transition-all"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="input-group">
-                      <label className="input-label">Height (ft)</label>
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-bold text-slate-600">Height (ft)</label>
                       <input 
                         type="number" 
                         value={heightFt} 
                         onChange={(e) => setHeightFt(e.target.value)}
-                        className="input-field"
+                        className="w-full h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] focus:ring-1 focus:ring-[#0066cc] outline-none font-medium text-slate-700 transition-all"
                       />
                     </div>
-                    <div className="input-group">
-                      <label className="input-label">Height (in)</label>
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-bold text-slate-600">Height (in)</label>
                       <input 
                         type="number" 
                         value={heightIn} 
                         onChange={(e) => setHeightIn(e.target.value)}
-                        className="input-field"
+                        className="w-full h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] focus:ring-1 focus:ring-[#0066cc] outline-none font-medium text-slate-700 transition-all"
                       />
                     </div>
                   </div>
                 </>
               )}
             </div>
-          </div>
 
-          <div className="prose prose-slate max-w-none text-sm">
-            <h2>BMI Classification Table</h2>
-            <table className="w-full border-collapse border border-[#ccc] text-left">
-              <thead>
-                <tr className="bg-[#f9f9f9]">
-                  <th className="border border-[#ccc] p-2">Category</th>
-                  <th className="border border-[#ccc] p-2">BMI Range (kg/m²)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-[#ccc] p-2">Underweight</td>
-                  <td className="border border-[#ccc] p-2">&lt; 18.5</td>
-                </tr>
-                <tr className="bg-[#f9f9f9]">
-                  <td className="border border-[#ccc] p-2">Normal weight</td>
-                  <td className="border border-[#ccc] p-2">18.5 – 24.9</td>
-                </tr>
-                <tr>
-                  <td className="border border-[#ccc] p-2">Overweight</td>
-                  <td className="border border-[#ccc] p-2">25 – 29.9</td>
-                </tr>
-                <tr className="bg-[#f9f9f9]">
-                  <td className="border border-[#ccc] p-2">Obesity</td>
-                  <td className="border border-[#ccc] p-2">&gt; 30</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div className="result-box text-center">
-            <h3 className="text-[#0066cc] font-bold mb-2 uppercase text-xs tracking-wider">Your BMI</h3>
-            <div className="text-5xl font-bold text-[#0066cc] mb-2">{bmi.toFixed(1)}</div>
-            <p className={`text-lg font-bold ${getCategoryColor()}`}>{category}</p>
             <button 
               onClick={saveToHistory}
-              className="mt-4 w-full py-2 px-4 bg-[#0066cc] text-white font-bold rounded-lg hover:bg-blue-700 transition-colors text-sm"
+              className="w-full h-14 bg-[#111] text-white rounded-lg font-black uppercase tracking-widest hover:bg-slate-800 transition-all shadow-md active:scale-[0.98]"
             >
-              Save to History
+              Log Entry to History
             </button>
           </div>
+        </section>
 
-          {history.length > 0 && (
-            <div className="calculator-container">
-              <div className="flex justify-between items-center mb-4 border-b border-slate-100 pb-2">
-                <h3 className="font-bold text-slate-900">History</h3>
-                <button 
-                  onClick={clearHistory}
-                  className="text-xs text-rose-500 hover:underline font-medium"
-                >
-                  Clear All
-                </button>
-              </div>
-              <div className="space-y-3">
-                {history.map((entry) => (
-                  <div key={entry.id} className="flex justify-between items-center text-sm border-b border-slate-50 pb-2 last:border-0">
-                    <div>
-                      <p className="font-bold text-[#0066cc]">{entry.bmi} <span className="text-[10px] font-normal text-slate-400">({entry.weight})</span></p>
-                      <p className="text-[10px] text-slate-500">{entry.date}</p>
-                    </div>
-                    <span className={`text-xs font-bold ${getCategoryColor(entry.category)}`}>
-                      {entry.category}
-                    </span>
-                  </div>
-                ))}
-              </div>
+        {/* Output Panel */}
+        <section className="bg-[#f8fbfe] rounded-xl border border-[#e1eefc] p-8 shadow-sm flex flex-col h-full ring-1 ring-[#e1eefc]/50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          
+          <h2 className="text-[#0066cc] font-black text-2xl mb-8 relative z-10">Your Results</h2>
+          
+          <div className="flex-1 flex flex-col justify-center relative z-10">
+            <div className="space-y-2">
+              <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Calculated BMI</p>
+              <div className="text-[#0066cc] text-7xl font-black tracking-tight">{bmi.toFixed(1)}</div>
+              <p className={`text-xl font-black uppercase tracking-tighter ${getCategoryColor()}`}>{category}</p>
             </div>
-          )}
-        </div>
+
+            {history.length > 0 && (
+              <div className="mt-8 pt-8 border-t border-blue-100/50">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400">History Trend</h3>
+                  <button onClick={clearHistory} className="text-[10px] text-slate-300 hover:text-rose-500 font-bold uppercase">Clear All</button>
+                </div>
+                <div className="space-y-2 max-h-[120px] overflow-y-auto pr-2 scrollbar-thin">
+                  {history.map((entry) => (
+                    <div key={entry.id} className="flex justify-between items-center text-xs p-2 bg-white/50 rounded border border-blue-50">
+                      <span className="font-bold text-[#0066cc]">{entry.bmi} <span className="font-normal text-slate-400">({entry.weight})</span></span>
+                      <span className={`font-black uppercase tracking-tighter ${getCategoryColor(entry.category)}`}>{entry.category}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-blue-100/50 relative z-10">
+            <p className="text-slate-400 text-[11px] font-medium leading-relaxed italic">
+              Note: This is an estimate. Individual factors like muscle mass and bone density are not considered. Always consult with a healthcare professional for health-related guidance.
+            </p>
+          </div>
+        </section>
       </div>
 
       <div className="prose prose-slate max-w-none">
