@@ -40,12 +40,12 @@ export const Home: React.FC = () => {
             <div className="h-[2px] flex-1 bg-slate-100"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: 'Student Loan', path: '/student-loan', color: 'bg-blue-600', icon: '🎓' },
-              { name: 'Payroll Calc', path: '/payroll', color: 'bg-indigo-600', icon: '💰' },
-              { name: 'Mortgage', path: '/mortgage', color: 'bg-emerald-600', icon: '🏠' },
-              { name: 'BMI Calculator', path: '/bmi', color: 'bg-rose-600', icon: '⚖️' },
-            ].map((tool) => (
+              {[
+                { name: 'Student Loan Calculator', path: '/student-loan', color: 'bg-blue-600', icon: '🎓' },
+                { name: 'Payroll Calculator', path: '/payroll', color: 'bg-indigo-600', icon: '💰' },
+                { name: 'Mortgage Calculator', path: '/mortgage', color: 'bg-emerald-600', icon: '🏠' },
+                { name: 'BMI Calculator', path: '/bmi', color: 'bg-rose-600', icon: '⚖️' },
+              ].map((tool) => (
               <Link 
                 key={tool.path}
                 to={tool.path}

@@ -192,7 +192,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </div>
 
       <footer className="bg-[#333] text-white py-8 mt-auto">
-        <div className="max-w-[1000px] mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2 font-bold text-xl">
               <Calculator className="w-6 h-6" />

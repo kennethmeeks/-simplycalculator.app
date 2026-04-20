@@ -92,34 +92,35 @@ export const MortgageCalculator: React.FC = () => {
       const contentHeight = (canvas.height * contentWidth) / canvas.width;
       
       pdf.setFontSize(22);
-      pdf.text('Mortgage Report', 20, 20);
+      pdf.text('Mortgage Calculator Report', 20, 20);
       pdf.setFontSize(10);
       pdf.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
       
       pdf.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
-      pdf.save('Mortgage_Report.pdf');
+      pdf.save('Mortgage_Calculator_Report.pdf');
     } catch (error) {
       console.error('PDF Export failed:', error);
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
         <title>Mortgage Calculator with Taxes and Insurance 2026 | simplycalculator.app</title>
         <meta name="description" content="Calculate your total monthly house payment with our free mortgage calculator with taxes and insurance. Estimate principal, interest, property tax, and homeowners insurance for 2026." />
       </Helmet>
 
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900">Mortgage Calculator</h1>
-        <p className="text-slate-500">Estimate your monthly housing costs for 2026.</p>
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl sm:text-5xl font-black text-black uppercase tracking-tighter leading-none">Mortgage Calculator</h1>
+        <p className="text-slate-500 font-medium italic text-lg opacity-70">Estimate your monthly housing costs for 2026 with full precision.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start relative">
         {/* Left: Inputs */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="calculator-container">
-            <h2 className="section-title">Mortgage Parameters</h2>
+          <div className="calculator-container p-6 sm:p-10 relative">
+            <h2 className="section-title text-center !border-0 mb-0">Mortgage Parameters</h2>
+            <div className="h-1 w-16 bg-blue-600 mx-auto mb-10 rounded-full"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               <div className="input-group">
                 <label className="input-label">Home Price</label>
@@ -252,7 +253,7 @@ export const MortgageCalculator: React.FC = () => {
                 onReset={handleReset}
                 onDownloadPDF={handleDownloadPDF}
                 onCopy={() => {
-                    const text = `Mortgage Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    const text = `Mortgage Calculator Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
                     navigator.clipboard.writeText(text);
                 }}
             />
@@ -263,7 +264,7 @@ export const MortgageCalculator: React.FC = () => {
       <div className="prose prose-slate max-w-none">
         <h3 className="text-2xl font-bold text-slate-900">About this Mortgage Calculator with Taxes and Insurance</h3>
         <p>
-          Our <strong>free mortgage calculator with taxes and insurance 2026</strong> is designed to provide home buyers with a clear, comprehensive picture of their future housing costs. Unlike basic calculators that only show principal and interest, our tool factors in property taxes and homeowners insurance, giving you a more realistic estimate of your total monthly "PITI" (Principal, Interest, Taxes, and Insurance) payment. This tool is essential for anyone looking to buy a home in 2026, as interest rates and property values continue to evolve in a dynamic real estate market.
+          Our <strong>free Mortgage Calculator with Taxes and Insurance 2026</strong> is designed to provide home buyers with a clear, comprehensive picture of their future housing costs. Unlike basic calculators that only show principal and interest, our tool factors in property taxes and homeowners insurance, giving you a more realistic estimate of your total monthly "PITI" (Principal, Interest, Taxes, and Insurance) payment. This tool is essential for anyone looking to buy a home in 2026, as interest rates and property values continue to evolve in a dynamic real estate market.
         </p>
 
         <h4 className="text-xl font-bold text-slate-900 mt-8">Understanding the Mortgage Formula</h4>
