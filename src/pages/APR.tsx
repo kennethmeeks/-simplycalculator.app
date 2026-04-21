@@ -25,20 +25,67 @@ export const APRCalculator: React.FC = () => {
 
   const handleDownloadPDF = async () => {
     if (!resultsRef.current) return;
-    const doc = new jsPDF();
     try {
-      const canvas = await html2canvas(resultsRef.current, { scale: 2, backgroundColor: '#ffffff' });
-      const imgData = canvas.toDataURL('image/png');
-      const pdfWidth = doc.internal.pageSize.getWidth();
-      const contentWidth = pdfWidth - 20;
-      const contentHeight = (canvas.height * contentWidth) / canvas.width;
-      doc.setFontSize(22);
-      doc.text('APR Analysis Report', 20, 20);
-      doc.setFontSize(10);
-      doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 28);
-      doc.addImage(imgData, 'PNG', 10, 35, contentWidth, contentHeight);
-      doc.save('APR_Report.pdf');
-    } catch (err) { console.error(err); }
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL APR ANALYSIS REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('ANNUAL PERCENTAGE RATE BREAKDOWN', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('APR_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
   };
 
   useEffect(() => {
