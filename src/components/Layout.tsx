@@ -115,7 +115,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
                 <input 
                   type="text" 
-                  placeholder="SEARCH 1200+ TOOLS..."
+                  placeholder="SEARCH 1300+ TOOLS..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 bg-transparent outline-none text-[12px] font-bold tracking-widest placeholder:text-slate-300"

@@ -104,5 +104,72 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       return { value: `${diff.toFixed(2)}%`, explanation: `Percentage change from ${x} to ${y} is ${diff.toFixed(2)}%` };
     }
     return { value: 'Select operation' };
+  },
+  '/tip-calculator': (inputs) => {
+    const bill = parseFloat(inputs.billAmount);
+    const tip = parseFloat(inputs.tipPercent);
+    const people = parseFloat(inputs.numPeople) || 1;
+    if (isNaN(bill) || isNaN(tip)) return { value: 'Invalid input' };
+    const totalTip = bill * (tip / 100);
+    const total = bill + totalTip;
+    return {
+      value: `$${(total / people).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} /person`,
+      explanation: `Total bill: $${total.toLocaleString()}. Tip amount: $${totalTip.toLocaleString()}.`
+    };
+  },
+  '/fuel-cost-calculator': (inputs) => {
+    const dist = parseFloat(inputs.distance);
+    const mpg = parseFloat(inputs.efficiency);
+    const price = parseFloat(inputs.pricePerUnit);
+    if (isNaN(dist) || isNaN(mpg) || isNaN(price) || mpg === 0) return { value: 'Invalid input' };
+    const cost = (dist / mpg) * price;
+    return {
+      value: `$${cost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+      explanation: `Estimated cost for a ${dist.toLocaleString()} mile trip.`
+    };
+  },
+  '/grade-calculator': (inputs) => {
+    const current = parseFloat(inputs.currentGrade);
+    const target = parseFloat(inputs.targetGrade);
+    const weight = parseFloat(inputs.finalWeight);
+    if (isNaN(current) || isNaN(target) || isNaN(weight) || weight === 0) return { value: 'Invalid input' };
+    const needed = (target - current * (1 - weight / 100)) / (weight / 100);
+    return {
+      value: `${needed.toFixed(2)}%`,
+      explanation: `You need a ${needed.toFixed(2)}% on your final exam to achieve a ${target}% overall.`
+    };
+  },
+  '/bmr': (inputs) => {
+    const w = parseFloat(inputs.weight);
+    const h = parseFloat(inputs.height);
+    const a = parseFloat(inputs.age);
+    const g = inputs.gender;
+    if (isNaN(w) || isNaN(h) || isNaN(a)) return { value: 'Invalid input' };
+    
+    // Mifflin-St Jeor Equation
+    let bmr = 10 * w + 6.25 * h - 5 * a;
+    if (g === 'male') bmr += 5;
+    else bmr -= 161;
+    
+    return {
+      value: `${bmr.toFixed(0)} kcal/day`,
+      explanation: `Resting metabolic rate: ${bmr.toFixed(0)} calories burned at rest.`
+    };
+  },
+  '/pressure-conversion': (inputs) => {
+    const val = parseFloat(inputs.value);
+    const from = inputs.fromUnit;
+    if (isNaN(val)) return { value: 'Invalid input' };
+    
+    // Base is Pascal
+    let pa = val;
+    if (from === 'psi') pa = val * 6894.76;
+    if (from === 'bar') pa = val * 100000;
+    if (from === 'atm') pa = val * 101325;
+    
+    return {
+      value: `${pa.toLocaleString()} Pa`,
+      explanation: `Conversion results: ${(pa/100000).toFixed(4)} bar | ${(pa/6894.76).toFixed(2)} psi | ${(pa/101325).toFixed(4)} atm`
+    };
   }
 };

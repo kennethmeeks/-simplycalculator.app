@@ -56,14 +56,13 @@ export const CalculatorPage: React.FC = () => {
             return;
         }
 
-        const pathKey = foundItem.path.slice(1);
-        const cached = localStorage.getItem(CACHE_KEY_SCHEMA(pathKey));
+        const cached = localStorage.getItem(CACHE_KEY_SCHEMA(foundItem.path));
         if (cached) {
             try {
                 setDynamicFields(JSON.parse(cached));
                 return;
             } catch (e) {
-                localStorage.removeItem(CACHE_KEY_SCHEMA(calculatorPath || ''));
+                localStorage.removeItem(CACHE_KEY_SCHEMA(foundItem.path));
             }
         }
 

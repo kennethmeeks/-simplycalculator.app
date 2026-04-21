@@ -207,4 +207,19 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'steps', label: 'Steps', type: 'number' },
     { id: 'weight', label: 'Weight (kg)', type: 'number' }
   ],
+  '/tip-calculator': [
+    { id: 'billAmount', label: 'Bill Amount', type: 'number', unit: '$' },
+    { id: 'tipPercent', label: 'Tip Percentage', type: 'number', unit: '%' },
+    { id: 'numPeople', label: 'Number of People', type: 'number', defaultValue: '1' }
+  ],
+  '/fuel-cost-calculator': [
+    { id: 'distance', label: 'Trip Distance', type: 'number', unit: 'miles' },
+    { id: 'efficiency', label: 'Fuel Efficiency', type: 'number', unit: 'MPG' },
+    { id: 'pricePerUnit', label: 'Fuel Price', type: 'number', unit: 'per gallon' }
+  ],
+  '/grade-calculator': [
+    { id: 'currentGrade', label: 'Current Grade', type: 'number', unit: '%' },
+    { id: 'targetGrade', label: 'Target Grade', type: 'number', unit: '%' },
+    { id: 'finalWeight', label: 'Final Exam Weight', type: 'number', unit: '%' }
+  ]
 };
