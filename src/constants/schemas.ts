@@ -221,5 +221,9 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'currentGrade', label: 'Current Grade', type: 'number', unit: '%' },
     { id: 'targetGrade', label: 'Target Grade', type: 'number', unit: '%' },
     { id: 'finalWeight', label: 'Final Exam Weight', type: 'number', unit: '%' }
+  ],
+  '/math/percent-error': [
+    { id: 'experimental', label: 'Experimental Value (Measured)', type: 'number' },
+    { id: 'theoretical', label: 'Theoretical Value (Accepted)', type: 'number' }
   ]
 };

@@ -159,10 +159,14 @@ export const CalculatorPage: React.FC = () => {
             try {
                 const response = await callGeminiWithRetry({
                     model: MODEL_PRO,
-                    contents: `Create a comprehensive, SEO-optimized guide for the "${foundItem.name}" (${foundItem.desc}). 
-                    Focus on ranking for long-tail keywords like "how to calculate ${foundItem.name}", "standard formula for ${foundItem.name}", and common questions.`,
+                    contents: `Generate a professional, SEO-optimized technical guide for the "${foundItem.name}" calculator.
+                    You MUST include:
+                    1. A dedicated section on "Mathematical Formula" explaining the logic clearly.
+                    2. A section on "Unit Conversions" (e.g. Metric to Imperial) if relevant to this tool.
+                    3. A section on "Usage & Examples" providing context on when to use this.
+                    Keep the response authoritative yet concise (under 5000 characters total).`,
                     config: {
-                        systemInstruction: "You are an SEO content expert. Provide the output strictly in the requested JSON format.",
+                        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Ensure the 'sections' array contains exactly 3 items addressing: Formula, Units, and Usage Context. Accuracy is paramount.",
                         responseMimeType: "application/json",
                         responseSchema: {
                             type: Type.OBJECT,
@@ -193,7 +197,17 @@ export const CalculatorPage: React.FC = () => {
                     }
                 });
 
-                const data = JSON.parse(response.text);
+                if (!response.text) throw new Error("Empty AI response");
+                
+                // Safety check for incomplete JSON
+                let jsonStr = response.text.trim();
+                if (!jsonStr.endsWith('}')) {
+                    // Try to semi-recover or just fail gracefully
+                    console.error("Incomplete JSON detected from AI");
+                    return;
+                }
+
+                const data = JSON.parse(jsonStr);
                 setGuideContent(data);
                 localStorage.setItem(CACHE_KEY_GUIDE(foundItem.path), JSON.stringify(data));
             } catch (err) {
@@ -357,6 +371,7 @@ export const CalculatorPage: React.FC = () => {
             <Helmet>
                 <title>{foundItem.name} | Free Professional Calculator | simplycalculator.app</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
+                <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
                 {guideContent && (
                     <script type="application/ld+json">
                         {JSON.stringify({

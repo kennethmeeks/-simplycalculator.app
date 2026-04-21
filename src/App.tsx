@@ -261,6 +261,7 @@ const HealthInsuranceCalculator = lazy(() => import('./pages/HealthInsurance').t
 const CarInsuranceCalculator = lazy(() => import('./pages/CarInsurance').then(m => ({ default: m.CarInsuranceCalculator })));
 const CreditScoreSimulator = lazy(() => import('./pages/CreditScoreSimulator').then(m => ({ default: m.CreditScoreSimulator })));
 const Sitemap = lazy(() => import('./pages/Sitemap').then(m => ({ default: m.Sitemap })));
+const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 const CategoryPage = lazy(() => import('./pages/CategoryPage').then(m => ({ default: m.CategoryPage })));
 
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -528,6 +529,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/sitemap" element={<Sitemap />} />
             <Route path="/finance" element={<CategoryPage />} />
             <Route path="/personal" element={<CategoryPage />} />

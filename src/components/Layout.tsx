@@ -202,6 +202,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             <div className="flex gap-6 text-sm">
               <Link to="/about" className="hover:underline">About Us</Link>
               <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
+              <Link to="/terms" className="hover:underline">Terms of Service</Link>
               <Link to="/contact" className="hover:underline">Contact Us</Link>
               <Link to="/sitemap" className="hover:underline">Sitemap</Link>
             </div>

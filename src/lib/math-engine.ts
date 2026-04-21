@@ -171,5 +171,15 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       value: `${pa.toLocaleString()} Pa`,
       explanation: `Conversion results: ${(pa/100000).toFixed(4)} bar | ${(pa/6894.76).toFixed(2)} psi | ${(pa/101325).toFixed(4)} atm`
     };
+  },
+  '/math/percent-error': (inputs) => {
+    const exp = parseFloat(inputs.experimental);
+    const theo = parseFloat(inputs.theoretical);
+    if (isNaN(exp) || isNaN(theo) || theo === 0) return { value: 'Invalid input' };
+    const err = Math.abs((exp - theo) / theo) * 100;
+    return {
+      value: `${err.toFixed(4)}%`,
+      explanation: `The percentage difference between your measured value (${exp}) and the accepted value (${theo}) is ${err.toFixed(4)}%.`
+    };
   }
 };
