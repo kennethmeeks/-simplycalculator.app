@@ -42,6 +42,27 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/age': [
     { id: 'birthDate', label: 'Birth Date', type: 'date' }
   ],
+  '/compound-interest': [
+    { id: 'principal', label: 'Initial Investment', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%' },
+    { id: 'term', label: 'Time Period', type: 'number', unit: 'years' },
+    { id: 'compounding', label: 'Compounding Frequency', type: 'select', options: [
+      { label: 'Monthly', value: '12' },
+      { label: 'Quarterly', value: '4' },
+      { label: 'Semi-Annually', value: '2' },
+      { label: 'Annually', value: '1' }
+    ]}
+  ],
+  '/salary': [
+    { id: 'amount', label: 'Amount', type: 'number', unit: '$' },
+    { id: 'frequency', label: 'Pay Frequency', type: 'select', options: [
+      { label: 'Hourly (40h/week)', value: 'hourly' },
+      { label: 'Weekly', value: 'weekly' },
+      { label: 'Bi-Weekly', value: 'biweekly' },
+      { label: 'Monthly', value: 'monthly' },
+      { label: 'Annually', value: 'annual' }
+    ]}
+  ],
   '/chronological-age': [
      { id: 'birthDate', label: 'Birth Date', type: 'date' },
      { id: 'targetDate', label: 'Age at Date', type: 'date', defaultValue: new Date().toISOString().split('T')[0] }
