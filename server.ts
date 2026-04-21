@@ -5,6 +5,8 @@ import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import fs from "fs";
+import cors from "cors";
+import { rateLimit } from "express-rate-limit";
 
 dotenv.config();
 
@@ -14,14 +16,33 @@ const logError = (msg: string, error: any) => {
   fs.appendFileSync("server_error.log", logStr);
 };
 
+// Rate limiting for API routes
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many requests, please try again later." }
+});
+
 async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Security Middlewares
   app.use(helmet({
-    contentSecurityPolicy: false, // Disable CSP for dev/vite compatibility if needed, or configure strictly
+    contentSecurityPolicy: process.env.NODE_ENV === "production" ? undefined : false,
+    crossOriginEmbedderPolicy: false,
   }));
-  app.use(express.json());
+  
+  app.use(cors({
+     origin: true, // Allow all for now, or restrict to your domain
+     credentials: true
+  }));
+
+  app.use(express.json({ limit: '10kb' })); // Body limit to prevent large payload attacks
+
+  app.use("/api/", apiLimiter);
 
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", env: !!process.env.GEMINI_API_KEY });
@@ -192,9 +213,14 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  if (!process.env.VERCEL) {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  }
+
+  return app;
 }
 
-startServer();
+const appPromise = startServer();
+export default appPromise;
