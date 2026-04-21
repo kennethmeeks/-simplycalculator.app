@@ -45,16 +45,16 @@ async function startServer() {
   app.use("/api/", apiLimiter);
 
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", env: !!process.env.GEMINI_API_KEY });
+    res.json({ status: "ok", env: !!(process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY) });
   });
 
   // AI Service Lazy Init
   let genAI: GoogleGenAI | null = null;
   const getAI = () => {
     if (!genAI) {
-      const apiKey = process.env.GEMINI_API_KEY;
+      const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
       if (!apiKey) {
-        throw new Error("GEMINI_API_KEY is not configured.");
+        throw new Error("Gemini API Key is not configured. Please set GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY.");
       }
       genAI = new GoogleGenAI({ apiKey });
     }
