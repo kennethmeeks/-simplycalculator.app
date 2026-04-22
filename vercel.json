@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.ts": {
-      "runtime": "vercel-node@latest"
-    }
-  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/((?!assets/|favicon.ico|robots.txt).*).*", "destination": "/index.html" }
+    { "handle": "filesystem" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
