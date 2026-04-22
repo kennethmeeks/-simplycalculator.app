@@ -115,26 +115,6 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/crore-to-lakh': [
     { id: 'value', label: 'Crore', type: 'number' }
   ],
-  '/byte-conversion': [
-    { id: 'value', label: 'Value', type: 'number' },
-    { id: 'fromUnit', label: 'From', type: 'select', options: [
-        { label: 'Bytes', value: 'b' },
-        { label: 'Kilobytes (KB)', value: 'kb' },
-        { label: 'Megabytes (MB)', value: 'mb' },
-        { label: 'Gigabytes (GB)', value: 'gb' },
-        { label: 'Terabytes (TB)', value: 'tb' }
-    ]},
-    { id: 'toUnit', label: 'To', type: 'select', options: [
-        { label: 'Bytes', value: 'b' },
-        { label: 'Kilobytes (KB)', value: 'kb' },
-        { label: 'Megabytes (MB)', value: 'mb' },
-        { label: 'Gigabytes (GB)', value: 'gb' },
-        { label: 'Terabytes (TB)', value: 'tb' }
-    ]}
-  ],
-  '/mbps-to-gbps': [
-    { id: 'value', label: 'Mbps', type: 'number', unit: 'Mbps' }
-  ],
   '/payback-period': [
     { id: 'investment', label: 'Total Investment', type: 'number', unit: '$' },
     { id: 'cashFlow', label: 'Annual Cash Flow', type: 'number', unit: '$' }
@@ -401,5 +381,154 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/cac': [
     { id: 'salesMarketingCosts', label: 'Total Sales & Marketing Spend', type: 'number', unit: '$' },
     { id: 'newCustomers', label: 'New Customers Acquired', type: 'number' }
+  ],
+  '/aim-tracking': [
+    { id: 'hits', label: 'Total Hits', type: 'number' },
+    { id: 'misses', label: 'Total Misses', type: 'number' },
+    { id: 'time', label: 'Session Time', type: 'number', unit: 'seconds' }
+  ],
+  '/discount': [
+    { id: 'originalPrice', label: 'Original Price', type: 'number', unit: '$' },
+    { id: 'discountPercent', label: 'Discount Percentage', type: 'number', unit: '%' }
+  ],
+  '/margin': [
+    { id: 'cost', label: 'Cost of Goods', type: 'number', unit: '$' },
+    { id: 'revenue', label: 'Total Revenue', type: 'number', unit: '$' }
+  ],
+  '/markup': [
+    { id: 'cost', label: 'Cost of Goods', type: 'number', unit: '$' },
+    { id: 'markupPercent', label: 'Markup Percentage', type: 'number', unit: '%' }
+  ],
+  '/paypal-fee': [
+    { id: 'amount', label: 'Transaction Amount', type: 'number', unit: '$' },
+    { id: 'feeRate', label: 'Fee Percentage', type: 'number', unit: '%', defaultValue: '2.9' },
+    { id: 'fixedFee', label: 'Fixed Fee', type: 'number', unit: '$', defaultValue: '0.30' }
+  ],
+  '/percentage-discount': [
+    { id: 'price', label: 'Original Price', type: 'number', unit: '$' },
+    { id: 'percentOff', label: 'Percentage Off', type: 'number', unit: '%' }
+  ],
+  '/steps-to-miles': [
+    { id: 'steps', label: 'Number of Steps', type: 'number' },
+    { id: 'strideLength', label: 'Stride Length (Optional)', type: 'number', unit: 'inches', placeholder: 'Default: 30' }
+  ],
+  '/vertical-jump': [
+    { id: 'standingReach', label: 'Standing Reach', type: 'number', unit: 'inches' },
+    { id: 'jumpReach', label: 'Maximum Jump Reach', type: 'number', unit: 'inches' }
+  ],
+  '/home-run-distance': [
+    { id: 'exitVelocity', label: 'Exit Velocity', type: 'number', unit: 'mph' },
+    { id: 'launchAngle', label: 'Launch Angle', type: 'number', unit: 'degrees' }
+  ],
+  '/carbon-footprint': [
+    { id: 'milesPerMonth', label: 'Monthly Driving distance', type: 'number', unit: 'miles' },
+    { id: 'avgMpg', label: 'Vehicle Avg MPG', type: 'number', defaultValue: '25' },
+    { id: 'electricBill', label: 'Monthly Electric Bill', type: 'number', unit: '$' }
+  ],
+  '/final-exam-grade': [
+    { id: 'currentGrade', label: 'Current Class Grade', type: 'number', unit: '%' },
+    { id: 'targetGrade', label: 'Target Final Grade', type: 'number', unit: '%' },
+    { id: 'weight', label: 'Final Exam Weight', type: 'number', unit: '%' }
+  ],
+  '/mbps-to-gbps': [
+    { id: 'mbps', label: 'Megabits per second (Mbps)', type: 'number' }
+  ],
+  '/byte-conversion': [
+    { id: 'value', label: 'Value', type: 'number' },
+    { id: 'fromUnit', label: 'From Unit', type: 'select', options: [
+      { label: 'Bytes', value: 'b' },
+      { label: 'Kilobytes (KB)', value: 'kb' },
+      { label: 'Megabytes (MB)', value: 'mb' },
+      { label: 'Gigabytes (GB)', value: 'gb' },
+      { label: 'Terabytes (TB)', value: 'tb' }
+    ]}
+  ],
+  '/kilograms-to-pounds': [
+    { id: 'kg', label: 'Weight in Kilograms (kg)', type: 'number' }
+  ],
+  '/pounds-to-kilograms': [
+    { id: 'lbs', label: 'Weight in Pounds (lbs)', type: 'number' }
+  ],
+  '/inches-to-cm': [
+    { id: 'inches', label: 'Length in Inches (in)', type: 'number' }
+  ],
+  '/cm-to-inches': [
+    { id: 'cm', label: 'Length in Centimeters (cm)', type: 'number' }
+  ],
+  '/black-friday': [
+    { id: 'price', label: 'Original Price', type: 'number', unit: '$' },
+    { id: 'discount1', label: 'Store Discount', type: 'number', unit: '%' },
+    { id: 'discount2', label: 'Additional Coupon', type: 'number', unit: '%' }
+  ],
+  '/cash-back': [
+    { id: 'amount', label: 'Purchase Amount', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Cash Back Rate', type: 'number', unit: '%' }
+  ],
+  '/cltv': [
+    { id: 'avgOrderValue', label: 'Average Order Value', type: 'number', unit: '$' },
+    { id: 'frequency', label: 'Purchase Frequency (per month)', type: 'number' },
+    { id: 'duration', label: 'Customer Lifespan (months)', type: 'number' }
+  ],
+  '/double-discount': [
+    { id: 'price', label: 'Original Price', type: 'number', unit: '$' },
+    { id: 'd1', label: 'First Discount', type: 'number', unit: '%' },
+    { id: 'd2', label: 'Second Discount', type: 'number', unit: '%' }
+  ],
+  '/running-pace': [
+    { id: 'distance', label: 'Distance', type: 'number', unit: 'miles' },
+    { id: 'time', label: 'Total Time', type: 'text', placeholder: 'HH:MM:SS' }
+  ],
+  '/home-affordability': [
+    { id: 'income', label: 'Annual Household Income', type: 'number', unit: '$' },
+    { id: 'debt', label: 'Monthly Debt Payments', type: 'number', unit: '$' },
+    { id: 'downPayment', label: 'Available Down Payment', type: 'number', unit: '$' }
+  ],
+  '/net-worth': [
+    { id: 'assets', label: 'Total Assets (Savings, Home, etc.)', type: 'number', unit: '$' },
+    { id: 'liabilities', label: 'Total Liabilities (Loans, Debt)', type: 'number', unit: '$' }
+  ],
+  '/roas': [
+    { id: 'revenue', label: 'Revenue from Ads', type: 'number', unit: '$' },
+    { id: 'cost', label: 'Ad Spend', type: 'number', unit: '$' }
+  ],
+  '/website-ad-revenue': [
+    { id: 'pageviews', label: 'Monthly Pageviews', type: 'number' },
+    { id: 'rpm', label: 'Revenue per 1000 views (RPM)', type: 'number', unit: '$' }
+  ],
+  '/reading-time': [
+    { id: 'words', label: 'Word Count', type: 'number' },
+    { id: 'speed', label: 'Reading Speed', type: 'select', options: [
+      { label: 'Slow (150 wpm)', value: '150' },
+      { label: 'Average (250 wpm)', value: '250' },
+      { label: 'Fast (400 wpm)', value: '400' }
+    ]}
+  ],
+  '/unix-time': [
+    { id: 'timestamp', label: 'Unix Timestamp', type: 'number' }
+  ],
+  '/hex-to-rgb': [
+    { id: 'hex', label: 'Hex Code', type: 'text', placeholder: '#FFFFFF' }
+  ],
+  '/rgb-to-hex': [
+    { id: 'r', label: 'Red (0-255)', type: 'number' },
+    { id: 'g', label: 'Green (0-255)', type: 'number' },
+    { id: 'b', label: 'Blue (0-255)', type: 'number' }
+  ],
+  '/bakers-percentage': [
+    { id: 'flour', label: 'Total Flour Weight', type: 'number', unit: 'g' },
+    { id: 'water', label: 'Water Weight', type: 'number', unit: 'g' },
+    { id: 'salt', label: 'Salt Weight', type: 'number', unit: 'g' }
+  ],
+  '/dog-food': [
+    { id: 'weight', label: 'Dog Weight', type: 'number', unit: 'lbs' },
+    { id: 'activity', label: 'Activity Level', type: 'select', options: [
+      { label: 'Low', value: '1.2' },
+      { label: 'Moderate', value: '1.5' },
+      { label: 'High', value: '2.0' }
+    ]}
+  ],
+  '/solar-roi': [
+    { id: 'cost', label: 'Installation Cost', type: 'number', unit: '$' },
+    { id: 'monthlySavings', label: 'Expected Monthly Savings', type: 'number', unit: '$' }
   ]
 };

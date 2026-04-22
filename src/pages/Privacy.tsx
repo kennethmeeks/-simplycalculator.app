@@ -114,7 +114,7 @@ export const Privacy: React.FC = () => {
             If you have questions about this policy or how we handle your data, please reach out to us:
           </p>
           <div className="bg-slate-50 p-4 rounded-lg inline-block">
-            <p className="font-mono text-sm">Email: privacy@simplycalculator.app</p>
+            <p className="font-mono text-sm">Email: support@simplycalculator.app</p>
           </div>
         </section>
       </div>

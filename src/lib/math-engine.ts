@@ -430,5 +430,234 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
   '/403b': (inputs) => {
     // 403b logic is essentially the same as 401k for basic estimation
     return standardCalculations['/401k'](inputs);
+  },
+  '/aim-tracking': (inputs) => {
+    const hits = parseFloat(inputs.hits);
+    const misses = parseFloat(inputs.misses);
+    const time = parseFloat(inputs.time);
+    if (isNaN(hits) || isNaN(misses)) return { value: 'Invalid input' };
+
+    const total = hits + misses;
+    const accuracy = total > 0 ? (hits / total) * 100 : 0;
+    const hps = time > 0 ? (hits / time) : 0;
+
+    return {
+      value: `${accuracy.toFixed(1)}% Accuracy`,
+      explanation: `Session Performance: ${accuracy.toFixed(1)}% accuracy across ${total} shots. Scoring ${hps.toFixed(2)} hits per second over ${time}s.`
+    };
+  },
+  '/discount': (inputs) => {
+    const price = parseFloat(inputs.originalPrice);
+    const discount = parseFloat(inputs.discountPercent);
+    if (isNaN(price) || isNaN(discount)) return { value: 'Invalid input' };
+
+    const saved = price * (discount / 100);
+    const final = price - saved;
+
+    return {
+      value: `$${final.toFixed(2)}`,
+      explanation: `You save $${saved.toFixed(2)} (${discount}%). The final price is $${final.toFixed(2)}.`
+    };
+  },
+  '/margin': (inputs) => {
+    const cost = parseFloat(inputs.cost);
+    const rev = parseFloat(inputs.revenue);
+    if (isNaN(cost) || isNaN(rev) || rev === 0) return { value: 'Invalid input' };
+
+    const margin = ((rev - cost) / rev) * 100;
+    return {
+      value: `${margin.toFixed(2)}% Margin`,
+      explanation: `Gross Profit: $${(rev - cost).toFixed(2)}. Profit Margin: ${margin.toFixed(2)}%.`
+    };
+  },
+  '/markup': (inputs) => {
+    const cost = parseFloat(inputs.cost);
+    const markup = parseFloat(inputs.markupPercent);
+    if (isNaN(cost) || isNaN(markup)) return { value: 'Invalid input' };
+
+    const price = cost * (1 + markup / 100);
+    return {
+      value: `$${price.toFixed(2)}`,
+      explanation: `To achieve a ${markup}% markup on a $${cost} cost, set the price to $${price.toFixed(2)}.`
+    };
+  },
+  '/paypal-fee': (inputs) => {
+    const amount = parseFloat(inputs.amount);
+    const rate = parseFloat(inputs.feeRate) || 2.9;
+    const fixed = parseFloat(inputs.fixedFee) || 0.30;
+    if (isNaN(amount)) return { value: 'Invalid input' };
+
+    const fee = (amount * (rate / 100)) + fixed;
+    const net = amount - fee;
+
+    return {
+      value: `$${net.toFixed(2)} Net`,
+      explanation: `Total Fee: $${fee.toFixed(2)} (${rate}% + $${fixed.toFixed(2)}). You will receive $${net.toFixed(2)}.`
+    };
+  },
+  '/kilograms-to-pounds': (inputs) => {
+    const kg = parseFloat(inputs.kg);
+    if (isNaN(kg)) return { value: 'Invalid input' };
+    const lbs = kg * 2.20462;
+    return { value: `${lbs.toFixed(2)} lbs`, explanation: `${kg} kg is approximately ${lbs.toFixed(2)} pounds.` };
+  },
+  '/pounds-to-kilograms': (inputs) => {
+    const lbs = parseFloat(inputs.lbs);
+    if (isNaN(lbs)) return { value: 'Invalid input' };
+    const kg = lbs / 2.20462;
+    return { value: `${kg.toFixed(2)} kg`, explanation: `${lbs} lbs is approximately ${kg.toFixed(2)} kilograms.` };
+  },
+  '/percentage-discount': (inputs) => {
+    return standardCalculations['/discount']({ originalPrice: inputs.price, discountPercent: inputs.percentOff });
+  },
+  '/steps-to-miles': (inputs) => {
+    const steps = parseFloat(inputs.steps);
+    const stride = parseFloat(inputs.strideLength) || 30; // inches
+    if (isNaN(steps)) return { value: 'Invalid input' };
+
+    const miles = (steps * stride) / 63360; // 63360 inches in a mile
+    return {
+      value: `${miles.toFixed(2)} miles`,
+      explanation: `Based on ${steps} steps and a ${stride}" stride length.`
+    };
+  },
+  '/vertical-jump': (inputs) => {
+    const stand = parseFloat(inputs.standingReach);
+    const jump = parseFloat(inputs.jumpReach);
+    if (isNaN(stand) || isNaN(jump)) return { value: 'Invalid input' };
+
+    const diff = jump - stand;
+    return {
+      value: `${diff.toFixed(1)}" Jump`,
+      explanation: `Your vertical jump height is ${diff.toFixed(1)} inches.`
+    };
+  },
+  '/final-exam-grade': (inputs) => {
+    const current = parseFloat(inputs.currentGrade);
+    const target = parseFloat(inputs.targetGrade);
+    const weight = parseFloat(inputs.weight) / 100;
+    if (isNaN(current) || isNaN(target) || isNaN(weight) || weight <= 0) return { value: 'Invalid input' };
+
+    const needed = (target - (current * (1 - weight))) / weight;
+
+    return {
+      value: `${needed.toFixed(1)}%`,
+      explanation: `To get a ${target}% overall, you need at least ${needed.toFixed(1)}% on your final exam.`
+    };
+  },
+  '/mbps-to-gbps': (inputs) => {
+    const mbps = parseFloat(inputs.mbps);
+    if (isNaN(mbps)) return { value: 'Invalid input' };
+    const gbps = mbps / 1000;
+    return { value: `${gbps.toFixed(3)} Gbps`, explanation: `${mbps} Mbps is equal to ${gbps.toFixed(3)} Gigabits per second.` };
+  },
+  '/byte-conversion': (inputs) => {
+    let val = parseFloat(inputs.value);
+    const from = inputs.fromUnit || 'mb';
+    if (isNaN(val)) return { value: 'Invalid input' };
+
+    // Normalize to bytes
+    let b = val;
+    if (from === 'kb') b = val * 1024;
+    if (from === 'mb') b = val * 1024 * 1024;
+    if (from === 'gb') b = val * 1024 * 1024 * 1024;
+    if (from === 'tb') b = val * 1024 * 1024 * 1024 * 1024;
+
+    const mb = b / (1024 * 1024);
+    const gb = mb / 1024;
+
+    return {
+      value: `${gb.toFixed(2)} GB`,
+      explanation: `Equivalent to ${mb.toLocaleString()} MB or ${gb.toFixed(4)} GB.`
+    };
+  },
+  '/inches-to-cm': (inputs) => {
+    const val = parseFloat(inputs.inches);
+    if (isNaN(val)) return { value: 'Invalid input' };
+    const cm = val * 2.54;
+    return { value: `${cm.toFixed(2)} cm`, explanation: `${val} inches is equal to ${cm.toFixed(2)} centimeters.` };
+  },
+  '/cm-to-inches': (inputs) => {
+    const val = parseFloat(inputs.cm);
+    if (isNaN(val)) return { value: 'Invalid input' };
+    const inc = val / 2.54;
+    return { value: `${inc.toFixed(2)} in`, explanation: `${val} cm is approximately ${inc.toFixed(2)} inches.` };
+  },
+  '/black-friday': (inputs) => {
+    const price = parseFloat(inputs.price);
+    const d1 = parseFloat(inputs.discount1) || 0;
+    const d2 = parseFloat(inputs.discount2) || 0;
+    if (isNaN(price)) return { value: 'Invalid input' };
+
+    const first = price * (1 - d1 / 100);
+    const final = first * (1 - d2 / 100);
+    return { value: `$${final.toFixed(2)}`, explanation: `After ${d1}% store discount and an extra ${d2}% coupon, the final price is $${final.toFixed(2)}.` };
+  },
+  '/cash-back': (inputs) => {
+    const amt = parseFloat(inputs.amount);
+    const rate = parseFloat(inputs.rate);
+    if (isNaN(amt) || isNaN(rate)) return { value: 'Invalid input' };
+    const saved = amt * (rate / 100);
+    return { value: `$${saved.toFixed(2)}`, explanation: `With a ${rate}% cash back rate, you earn $${saved.toFixed(2)} on your purchase.` };
+  },
+  '/cltv': (inputs) => {
+    const val = parseFloat(inputs.avgOrderValue);
+    const freq = parseFloat(inputs.frequency);
+    const dur = parseFloat(inputs.duration);
+    if (isNaN(val) || isNaN(freq) || isNaN(dur)) return { value: 'Invalid input' };
+    const cltv = val * freq * dur;
+    return { value: `$${cltv.toLocaleString()}`, explanation: `Estimated Customer Lifetime Value over ${dur} months is $${cltv.toLocaleString()}.` };
+  },
+  '/double-discount': (inputs) => {
+    return standardCalculations['/black-friday']({ price: inputs.price, discount1: inputs.d1, discount2: inputs.d2 });
+  },
+  '/net-worth': (inputs) => {
+    const a = parseFloat(inputs.assets);
+    const l = parseFloat(inputs.liabilities);
+    if (isNaN(a) || isNaN(l)) return { value: 'Invalid input' };
+    const nw = a - l;
+    return { value: `$${nw.toLocaleString()}`, explanation: `Your total net worth is $${nw.toLocaleString()} (Assets $${a.toLocaleString()}, Liabilities $${l.toLocaleString()}).` };
+  },
+  '/roas': (inputs) => {
+    const rev = parseFloat(inputs.revenue);
+    const cost = parseFloat(inputs.cost);
+    if (isNaN(rev) || isNaN(cost) || cost === 0) return { value: 'Invalid input' };
+    const roas = rev / cost;
+    return { value: `${roas.toFixed(2)}x`, explanation: `For every $1 spent, you generated $${roas.toFixed(2)} in revenue.` };
+  },
+  '/reading-time': (inputs) => {
+    const words = parseFloat(inputs.words);
+    const speed = parseFloat(inputs.speed) || 250;
+    if (isNaN(words)) return { value: 'Invalid input' };
+    const mins = words / speed;
+    return { value: `${Math.ceil(mins)} min`, explanation: `By reading at ${speed} words per minute, it will take about ${Math.ceil(mins)} minutes to finish ${words} words.` };
+  },
+  '/hex-to-rgb': (inputs) => {
+    const hex = inputs.hex.replace('#', '');
+    if (hex.length !== 6) return { value: 'Invalid Hex' };
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return { value: `rgb(${r}, ${g}, ${b})`, explanation: `The RGB equivalent of #${hex} is rgb(${r}, ${g}, ${b}).` };
+  },
+  '/rgb-to-hex': (inputs) => {
+    const r = parseInt(inputs.r);
+    const g = parseInt(inputs.g);
+    const b = parseInt(inputs.b);
+    if (isNaN(r) || isNaN(g) || isNaN(b)) return { value: 'Invalid input' };
+    const componentToHex = (c: number) => {
+      const h = c.toString(16);
+      return h.length === 1 ? '0' + h : h;
+    };
+    const hex = `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`.toUpperCase();
+    return { value: hex, explanation: `The Hex equivalent of rgb(${r}, ${g}, ${b}) is ${hex}.` };
+  },
+  '/solar-roi': (inputs) => {
+    const cost = parseFloat(inputs.cost);
+    const savings = parseFloat(inputs.monthlySavings);
+    if (isNaN(cost) || isNaN(savings) || savings <= 0) return { value: 'Invalid input' };
+    const months = cost / savings;
+    const years = months / 12;
+    return { value: `${years.toFixed(1)} Years`, explanation: `It will take approximately ${years.toFixed(1)} years to recover your $${cost.toLocaleString()} investment through monthly savings of $${savings.toLocaleString()}.` };
   }
 };
