@@ -93,73 +93,97 @@ export const PercentageCalculator: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
         <title>Percentage Calculator | Calculate Percentages with Formula & Steps</title>
         <meta name="description" content="Free online percentage calculator for 2026. Calculate percentages, percentage change, and more with clear steps and formulas for easy understanding." />
       </Helmet>
 
-      <h1>Percentage Calculator</h1>
-      <p>Calculate percentages in various forms.</p>
+      <header className="text-center space-y-4 mb-12">
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Percentage Calculator</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Efficient, verified percentage calculations for professional and everyday use in 2026.</p>
+      </header>
 
-      
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-        <div className="space-y-8" ref={resultsRef}>
-          <div className="calculator-container">
-            <div className="section-title text-slate-900 font-bold mb-4">What is X% of Y?</div>
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 flex-wrap">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="md:col-span-2 space-y-8" ref={resultsRef}>
+          <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                <span className="text-blue-600 font-bold text-xl">%</span>
+              </div>
+              <h2 className="text-blue-600 font-bold text-2xl">What is X% of Y?</h2>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 flex-wrap bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <span className="text-sm font-bold text-slate-600">What is</span>
                 <input 
                   type="number" 
                   value={val1} 
                   onChange={(e) => setVal1(e.target.value)} 
-                  className="w-20 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
+                  className="w-24 h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-bold text-slate-700 transition-all" 
                 />
                 <span className="text-sm font-bold text-slate-600">% of</span>
                 <input 
                   type="number" 
                   value={val2} 
                   onChange={(e) => setVal2(e.target.value)} 
-                  className="w-24 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
+                  className="w-32 h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-bold text-slate-700 transition-all" 
                 />
-                <span className="text-sm">?</span>
+                <span className="text-sm font-bold text-slate-600">?</span>
               </div>
-              <div className="result-box bg-[#f8fbfe] p-4 rounded-lg border border-[#e1eefc]">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#999] block mb-1">Result</span>
-                <span className="text-3xl font-black text-[#0066cc]">{result1.toFixed(2)}</span>
+
+              <div className="flex items-center justify-between p-6 bg-blue-600 rounded-xl text-white shadow-md">
+                <div className="space-y-0.5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">Calculation Result</p>
+                  <p className="text-sm font-medium opacity-90">Verified output</p>
+                </div>
+                <span className="text-4xl font-black">{result1.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="calculator-container">
-            <div className="section-title text-slate-900 font-bold mb-4">X is what % of Y?</div>
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 flex-wrap">
+          <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                <span className="text-blue-600 font-bold text-xl">?</span>
+              </div>
+              <h2 className="text-blue-600 font-bold text-2xl">X is what % of Y?</h2>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 flex-wrap bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <input 
                   type="number" 
                   value={val3} 
                   onChange={(e) => setVal3(e.target.value)} 
-                  className="w-20 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
+                  className="w-28 h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-bold text-slate-700 transition-all" 
                 />
                 <span className="text-sm font-bold text-slate-600">is what % of</span>
                 <input 
                   type="number" 
                   value={val4} 
                   onChange={(e) => setVal4(e.target.value)} 
-                  className="w-24 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
+                  className="w-32 h-12 px-4 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-bold text-slate-700 transition-all" 
                 />
-                <span className="text-sm">?</span>
+                <span className="text-sm font-bold text-slate-600">?</span>
               </div>
-              <div className="result-box bg-[#f8fbfe] p-4 rounded-lg border border-[#e1eefc]">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#999] block mb-1">Result</span>
-                <span className="text-3xl font-black text-[#0066cc]">{result2.toFixed(2)}%</span>
+
+              <div className="flex items-center justify-between p-6 bg-blue-600 rounded-xl text-white shadow-md">
+                <div className="space-y-0.5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">Percentage Value</p>
+                  <p className="text-sm font-medium opacity-90">Calculated ratio</p>
+                </div>
+                <span className="text-4xl font-black">{result2.toFixed(2)}%</span>
               </div>
             </div>
-          </div>
+          </section>
           
-          <div data-html2canvas-ignore>
+          <div data-html2canvas-ignore className="md:pt-4">
               <ResultActions 
                 onReset={() => {
                   setVal1(20);
@@ -176,16 +200,28 @@ export const PercentageCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div>
-          
-          <div className="mt-8 calculator-container p-6 bg-white rounded-xl shadow-sm border border-slate-200">
-            <div className="section-title text-slate-900 font-bold mb-4 border-b pb-2">Common Percentage Formulas</div>
-            <ul className="space-y-2 text-slate-600 list-disc pl-5">
-              <li>Percentage = (Value / Total Value) × 100</li>
-              <li>Value = (Percentage / 100) × Total Value</li>
+        <aside className="space-y-6">
+          <div className="bg-slate-900 rounded-xl p-8 text-white shadow-lg space-y-6">
+            <h3 className="text-blue-400 font-bold text-[11px] uppercase tracking-widest border-b border-white/10 pb-4">Standard Formulae</h3>
+            <ul className="space-y-6">
+              <li className="space-y-2">
+                <span className="text-xs text-white/50 block uppercase tracking-wider font-bold">Relative Value</span>
+                <p className="text-sm font-medium leading-relaxed">Percentage = (Value / Total) × 100</p>
+              </li>
+              <li className="space-y-2">
+                <span className="text-xs text-white/50 block uppercase tracking-wider font-bold">Absolute Value</span>
+                <p className="text-sm font-medium leading-relaxed">Value = (Percentage / 100) × Total</p>
+              </li>
             </ul>
           </div>
-        </div>
+
+          <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+            <h3 className="text-slate-900 font-bold text-sm mb-4">Precision Note</h3>
+            <p className="text-slate-500 text-xs leading-relaxed">
+              Results are calculated using floating-point precision and rounded to two decimal places for maximum reliability in commercial applications.
+            </p>
+          </div>
+        </aside>
       </div>
 
       <div className="mt-12 prose prose-slate max-w-none">

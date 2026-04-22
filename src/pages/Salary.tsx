@@ -117,83 +117,105 @@ export const SalaryCalculator: React.FC = () => {
   }, [amount, period, hoursPerWeek]);
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
         <title>Salary Calculator | Hourly to Annual Salary Converter 2026</title>
         <meta name="description" content="Calculate your annual, monthly, and weekly income with our free salary calculator. Convert hourly to annual salary and see your take-home pay potential for 2026." />
       </Helmet>
 
-      <h1>Salary Calculator</h1>
-      <p>Convert pay between different time periods like hourly, weekly, monthly, and annually.</p>
+      <header className="text-center space-y-4 mb-12">
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Salary Calculator</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Convert pay between different time periods like hourly, weekly, monthly, and annually.</p>
+      </header>
 
-      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="md:col-span-2 space-y-6">
+          <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+            <div className="mb-8">
+              <h2 className="text-blue-600 font-bold text-2xl">Income Parameters</h2>
+            </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="calculator-container">
-          <div className="section-title">Input</div>
-          <div className="space-y-4">
-            <div className="input-group">
-              <label className="input-label">Amount ($)</label>
-              <input 
-                type="number" 
-                value={amount} 
-                onChange={(e) => setAmount(e.target.value)}
-                className="input-field w-full"
-              />
-            </div>
-            <div className="input-group">
-              <label className="input-label">Pay Period</label>
-              <select 
-                value={period} 
-                onChange={(e) => setPeriod(e.target.value)}
-                className="input-field w-full"
-              >
-                <option value="hour">Hourly</option>
-                <option value="day">Daily</option>
-                <option value="week">Weekly</option>
-                <option value="month">Monthly</option>
-                <option value="year">Annually</option>
-              </select>
-            </div>
-            <div className="input-group">
-              <label className="input-label">Hours per Week</label>
-              <input 
-                type="number" 
-                value={hoursPerWeek} 
-                onChange={(e) => setHoursPerWeek(e.target.value)}
-                className="input-field w-full"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div id="result-panel" ref={resultsRef}>
-          <div className="calculator-container h-full">
-            <div className="section-title">Results</div>
-            <div className="result-box">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center pb-2 border-b border-[#b3d9ff]">
-                  <span className="font-bold">Hourly:</span>
-                  <span className="font-bold text-[#0066cc]">${results.hourly.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between items-center pb-2 border-b border-[#b3d9ff]">
-                  <span className="font-bold">Daily:</span>
-                  <span className="font-bold text-[#0066cc]">${results.daily.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between items-center pb-2 border-b border-[#b3d9ff]">
-                  <span className="font-bold">Weekly:</span>
-                  <span className="font-bold text-[#0066cc]">${results.weekly.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between items-center pb-2 border-b border-[#b3d9ff]">
-                  <span className="font-bold">Monthly:</span>
-                  <span className="font-bold text-[#0066cc]">${results.monthly.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="text-lg font-bold">Annually:</span>
-                  <span className="text-2xl font-bold text-[#0066cc]">${results.annually.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Amount</label>
+                <div className="flex items-center gap-2 border border-slate-200 rounded-lg px-3 h-12 focus-within:border-blue-600 transition-colors">
+                  <span className="text-sm text-slate-400">$</span>
+                  <input 
+                    type="number" 
+                    value={amount} 
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
+                  />
                 </div>
               </div>
 
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Pay Period</label>
+                <select 
+                  value={period} 
+                  onChange={(e) => setPeriod(e.target.value)}
+                  className="w-full h-12 px-3 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-medium text-slate-700 transition-all"
+                >
+                  <option value="hour">Hourly</option>
+                  <option value="day">Daily</option>
+                  <option value="week">Weekly</option>
+                  <option value="month">Monthly</option>
+                  <option value="year">Annually</option>
+                </select>
+              </div>
+
+              <div className="space-y-1.5 sm:col-span-2">
+                <label className="text-sm font-bold text-slate-600">Hours per Week</label>
+                <input 
+                  type="number" 
+                  value={hoursPerWeek} 
+                  onChange={(e) => setHoursPerWeek(e.target.value)}
+                  className="w-full h-12 px-3 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-medium text-slate-700 transition-all"
+                />
+              </div>
+            </div>
+          </section>
+
+          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+            <h2 className="text-xl font-bold text-slate-900">Understanding Gross Income</h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              This calculator provides your <strong>gross income</strong>, which is the total amount earned before taxes, social security, and other deductions.
+            </p>
+          </div>
+        </div>
+
+        <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm flex flex-col h-full relative overflow-hidden" ref={resultsRef}>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          
+          <h2 className="text-blue-600 font-bold text-2xl mb-8 relative z-10">Income Results</h2>
+
+          <div className="flex-1 space-y-6 relative z-10">
+            <div className="space-y-4">
+              <div className="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span className="text-sm text-slate-500 font-medium">Hourly</span>
+                <span className="font-bold text-slate-700">${results.hourly.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span className="text-sm text-slate-500 font-medium">Daily</span>
+                <span className="font-bold text-slate-700">${results.daily.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span className="text-sm text-slate-500 font-medium">Weekly</span>
+                <span className="font-bold text-slate-700">${results.weekly.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span className="text-sm text-slate-500 font-medium">Monthly</span>
+                <span className="font-bold text-slate-700">${results.monthly.toFixed(2)}</span>
+              </div>
+              <div className="pt-4 text-center">
+                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-1">Annual Salary</p>
+                <div className="text-blue-600 text-5xl font-bold tracking-tight">
+                  ${results.annually.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8">
               <ResultActions 
                 onReset={handleReset}
                 onDownloadPDF={handleDownloadPDF}
@@ -204,7 +226,13 @@ export const SalaryCalculator: React.FC = () => {
               />
             </div>
           </div>
-        </div>
+
+          <div className="mt-8 pt-8 border-t border-slate-100 relative z-10">
+            <p className="text-slate-400 text-[11px] font-medium leading-relaxed italic">
+              Estimated based on {hoursPerWeek} hours/week and 52 weeks/year.
+            </p>
+          </div>
+        </section>
       </div>
 
       <div className="mt-12 prose prose-slate max-w-none">

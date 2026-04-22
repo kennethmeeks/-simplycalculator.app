@@ -17,6 +17,36 @@ const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
 const MODEL_FLASH = "gemini-3-flash-preview";
 const MODEL_PRO = "gemini-3.1-pro-preview";
 
+// Helper for parsing JSON from AI strings
+const safeParseAIResponse = (text: string | undefined): any => {
+    if (!text) throw new Error("Empty AI response");
+    
+    // Remove markdown code blocks if present
+    let cleaned = text.trim();
+    if (cleaned.startsWith('```')) {
+        cleaned = cleaned.replace(/^```json\n?/, '').replace(/```$/, '').trim();
+    }
+    
+    try {
+        return JSON.parse(cleaned);
+    } catch (e) {
+        // Basic recovery for minor truncation (unclosed object)
+        if (!cleaned.endsWith('}') && cleaned.includes('{')) {
+            try {
+                return JSON.parse(cleaned + '}');
+            } catch (e2) {
+                // Try recovery for missing array/object combo if nested
+                try {
+                    return JSON.parse(cleaned + ']}');
+                } catch (e3) {
+                    throw new Error("Malformed or incomplete JSON response from AI");
+                }
+            }
+        }
+        throw new Error("Malformed JSON response from AI");
+    }
+};
+
 // Helper for retries
 const callGeminiWithRetry = async (params: any, retries = 2) => {
     let lastError;
@@ -126,7 +156,7 @@ export const CalculatorPage: React.FC = () => {
                     }
                 });
                 
-                const data = JSON.parse(response.text);
+                const data = safeParseAIResponse(response.text);
                 setDynamicFields(data.fields);
                 localStorage.setItem(CACHE_KEY_SCHEMA(foundItem.path), JSON.stringify(data.fields));
             } catch (err) {
@@ -164,7 +194,7 @@ export const CalculatorPage: React.FC = () => {
                     1. A dedicated section on "Mathematical Formula" explaining the logic clearly.
                     2. A section on "Unit Conversions" (e.g. Metric to Imperial) if relevant to this tool.
                     3. A section on "Usage & Examples" providing context on when to use this.
-                    Keep the response authoritative yet concise (under 5000 characters total).`,
+                    Keep the response authoritative yet concise (under 3000 characters total).`,
                     config: {
                         systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Ensure the 'sections' array contains exactly 3 items addressing: Formula, Units, and Usage Context. Accuracy is paramount.",
                         responseMimeType: "application/json",
@@ -197,17 +227,7 @@ export const CalculatorPage: React.FC = () => {
                     }
                 });
 
-                if (!response.text) throw new Error("Empty AI response");
-                
-                // Safety check for incomplete JSON
-                let jsonStr = response.text.trim();
-                if (!jsonStr.endsWith('}')) {
-                    // Try to semi-recover or just fail gracefully
-                    console.error("Incomplete JSON detected from AI");
-                    return;
-                }
-
-                const data = JSON.parse(jsonStr);
+                const data = safeParseAIResponse(response.text);
                 setGuideContent(data);
                 localStorage.setItem(CACHE_KEY_GUIDE(foundItem.path), JSON.stringify(data));
             } catch (err) {
@@ -270,7 +290,7 @@ export const CalculatorPage: React.FC = () => {
                 }
             });
 
-            const data = JSON.parse(response.text);
+            const data = safeParseAIResponse(response.text);
             setResult(data);
         } catch (err) {
             console.error("Calculation error:", err);
