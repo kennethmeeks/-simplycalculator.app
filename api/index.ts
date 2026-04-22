@@ -9,16 +9,10 @@ import { rateLimit } from "express-rate-limit";
 
 dotenv.config();
 
-const logError = (msg: string, error: any) => {
-  const logStr = `[${new Date().toISOString()}] ${msg}: ${error.stack || error}\n`;
-  console.error(logStr);
-  fs.appendFileSync("server_error.log", logStr);
-};
-
 // Rate limiting for API routes
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  windowMs: 15 * 60 * 1000, 
+  max: 100,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many requests, please try again later." }
@@ -28,19 +22,17 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Security Middlewares
   app.use(helmet({
     contentSecurityPolicy: process.env.NODE_ENV === "production" ? undefined : false,
     crossOriginEmbedderPolicy: false,
   }));
   
   app.use(cors({
-     origin: true, // Allow all for now, or restrict to your domain
+     origin: true,
      credentials: true
   }));
 
-  app.use(express.json({ limit: '10kb' })); // Body limit to prevent large payload attacks
-
+  app.use(express.json({ limit: '10kb' }));
   app.use("/api/", apiLimiter);
 
   app.get("/api/health", (req, res) => {
@@ -48,18 +40,22 @@ async function startServer() {
   });
 
   // Vite middleware for development
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
+    // In production on Vercel, static files are handled by Vercel edge
+    // but we keep this for local production testing / other environments
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
+    if (fs.existsSync(distPath)) {
+        app.use(express.static(distPath));
+        app.get("*", (req, res) => {
+          res.sendFile(path.join(distPath, "index.html"));
+        });
+    }
   }
 
   if (!process.env.VERCEL) {
@@ -71,5 +67,9 @@ async function startServer() {
   return app;
 }
 
-const appPromise = startServer();
-export default appPromise;
+// For Vercel, we export the app promise but it's better to export the app directly
+// However, startServer is async. 
+// Vercel CLI 51.6.1 + @vercel/node can handle a default export of an express app.
+// We'll use a top-level await if possible, but for reliability in older node versions:
+const app = await startServer();
+export default app;
