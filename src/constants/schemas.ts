@@ -296,5 +296,110 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'amount', label: 'Amount', type: 'number', unit: '$' },
     { id: 'startYear', label: 'Start Year', type: 'number', defaultValue: '2000' },
     { id: 'endYear', label: 'End Year', type: 'number', defaultValue: new Date().getFullYear().toString() }
+  ],
+  '/bitcoin-etf-calculator': [
+    { id: 'investment', label: 'Investment Amount', type: 'number', unit: '$' },
+    { id: 'btcPrice', label: 'Bitcoin Price at Purchase', type: 'number', unit: '$' },
+    { id: 'expenseRatio', label: 'ETF Expense Ratio (Annual)', type: 'number', unit: '%', defaultValue: '0.2' },
+    { id: 'currentPrice', label: 'Current Bitcoin Price', type: 'number', unit: '$' }
+  ],
+  '/btc-roi': [
+    { id: 'invested', label: 'Amount Invested', type: 'number', unit: '$' },
+    { id: 'purchasePrice', label: 'Bitcoin Price at Purchase', type: 'number', unit: '$' },
+    { id: 'sellingPrice', label: 'Bitcoin Price at Sale', type: 'number', unit: '$' }
+  ],
+  '/403b': [
+    { id: 'salary', label: 'Annual Salary', type: 'number', unit: '$' },
+    { id: 'contribution', label: 'Your Contribution', type: 'number', unit: '%' },
+    { id: 'match', label: 'Employer Match', type: 'number', unit: '%' },
+    { id: 'years', label: 'Years to retirement', type: 'number' }
+  ],
+  '/50-30-20-rule': [
+    { id: 'income', label: 'Monthly Take-Home Pay', type: 'number', unit: '$' }
+  ],
+  '/apy-calculator': [
+    { id: 'rate', label: 'Nominal Interest Rate', type: 'number', unit: '%' },
+    { id: 'compounding', label: 'Compounding Frequency', type: 'select', options: [
+      { label: 'Daily', value: '365' },
+      { label: 'Monthly', value: '12' },
+      { label: 'Quarterly', value: '4' },
+      { label: 'Semi-Annually', value: '2' },
+      { label: 'Annually', value: '1' }
+    ]}
+  ],
+  '/cagr-calculator': [
+    { id: 'beginningValue', label: 'Beginning Value', type: 'number', unit: '$' },
+    { id: 'endingValue', label: 'Ending Value', type: 'number', unit: '$' },
+    { id: 'periods', label: 'Number of Periods', type: 'number', unit: 'years' }
+  ],
+  '/dti-calculator': [
+    { id: 'monthlyDebt', label: 'Total Monthly Debt Payments', type: 'number', unit: '$' },
+    { id: 'grossMonthlyIncome', label: 'Gross Monthly Income', type: 'number', unit: '$' }
+  ],
+  '/blood-sugar-converter': [
+    { id: 'value', label: 'Blood Sugar Value', type: 'number' },
+    { id: 'unit', label: 'Current Unit', type: 'select', options: [
+      { label: 'mg/dL (USA)', value: 'mgdl' },
+      { label: 'mmol/L (Intl)', value: 'mmoll' }
+    ]}
+  ],
+  '/a1c-calculator': [
+    { id: 'a1c', label: 'A1c Level', type: 'number', unit: '%' }
+  ],
+  '/tdee': [
+    { id: 'bmr', label: 'BMR (if known)', type: 'number', placeholder: 'Optional' },
+    { id: 'activity', label: 'Activity Level', type: 'select', options: [
+      { label: 'Sedentary (Office job)', value: '1.2' },
+      { label: 'Lightly Active', value: '1.375' },
+      { label: 'Moderately Active', value: '1.55' },
+      { label: 'Very Active', value: '1.725' },
+      { label: 'Extra Active', value: '1.9' }
+    ]}
+  ],
+  '/water-intake': [
+    { id: 'weight', label: 'Your Weight', type: 'number', unit: 'kg' },
+    { id: 'activity', label: 'Daily Exercise', type: 'number', unit: 'minutes', defaultValue: '30' }
+  ],
+  '/sleep': [
+    { id: 'wakeTime', label: 'I want to wake up at', type: 'text', placeholder: 'e.g. 07:00 AM' }
+  ],
+  '/acft-calculator': [
+    { id: 'deadlift', label: '3-Rep Max Deadlift', type: 'number', unit: 'lbs' },
+    { id: 'powerThrow', label: 'Standing Power Throw', type: 'number', unit: 'm' },
+    { id: 'pushups', label: 'Hand-Release Push-ups', type: 'number' },
+    { id: 'sprintDragCarry', label: 'Sprint-Drag-CarryTime', type: 'text', placeholder: 'MM:SS' },
+    { id: 'plank', label: 'Plank Time', type: 'text', placeholder: 'MM:SS' },
+    { id: 'run', label: '2-Mile Run Time', type: 'text', placeholder: 'MM:SS' }
+  ],
+  '/army-body-fat': [
+    { id: 'gender', label: 'Gender', type: 'select', options: [{label: 'Male', value: 'male'}, {label: 'Female', value: 'female'}]},
+    { id: 'height', label: 'Height', type: 'number', unit: 'inches' },
+    { id: 'neck', label: 'Neck', type: 'number', unit: 'inches' },
+    { id: 'waist', label: 'Waist', type: 'number', unit: 'inches' },
+    { id: 'hips', label: 'Hips (Female Only)', type: 'number', unit: 'inches' }
+  ],
+  '/unit-converter': [
+    { id: 'value', label: 'Value', type: 'number' },
+    { id: 'type', label: 'Category', type: 'select', options: [
+      { label: 'Length', value: 'length' },
+      { label: 'Weight', value: 'weight' },
+      { label: 'Volume', value: 'volume' },
+      { label: 'Temperature', value: 'temp' }
+    ]}
+  ],
+  '/color-converter': [
+    { id: 'color', label: 'Color Code', type: 'text', placeholder: 'e.g. #0066cc or rgb(0,102,204)' }
+  ],
+  '/military-time': [
+    { id: 'time', label: 'Time to Convert', type: 'text', placeholder: 'e.g. 2:30 PM or 1430' }
+  ],
+  '/break-even': [
+    { id: 'fixedCosts', label: 'Total Fixed Costs', type: 'number', unit: '$' },
+    { id: 'pricePerUnit', label: 'Price per Unit', type: 'number', unit: '$' },
+    { id: 'variableCostPerUnit', label: 'Variable Cost per Unit', type: 'number', unit: '$' }
+  ],
+  '/cac': [
+    { id: 'salesMarketingCosts', label: 'Total Sales & Marketing Spend', type: 'number', unit: '$' },
+    { id: 'newCustomers', label: 'New Customers Acquired', type: 'number' }
   ]
 };

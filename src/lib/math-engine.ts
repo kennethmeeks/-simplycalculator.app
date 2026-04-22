@@ -301,5 +301,134 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       value: due.toLocaleDateString(),
       explanation: `Estimated due date based on LMP + 280 days. You are approximately ${weeks} weeks pregnant.`
     };
+  },
+  '/bitcoin-etf-calculator': (inputs) => {
+    const investment = parseFloat(inputs.investment);
+    const btcPrice = parseFloat(inputs.btcPrice);
+    const currentPrice = parseFloat(inputs.currentPrice);
+    const expense = parseFloat(inputs.expenseRatio) / 100;
+    if (isNaN(investment) || isNaN(btcPrice) || isNaN(currentPrice)) return { value: 'Invalid input' };
+
+    const btcAmount = investment / btcPrice;
+    const grossValue = btcAmount * currentPrice;
+    const fee = grossValue * expense;
+    const netValue = grossValue - fee;
+    const profit = netValue - investment;
+    const roi = (profit / investment) * 100;
+
+    return {
+      value: `$${netValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`,
+      explanation: `Your Bitcoin ETF investment is now worth $${netValue.toLocaleString()}. Gross: $${grossValue.toLocaleString()} less an estimated annual fee of $${fee.toLocaleString()}. This represents a ${roi.toFixed(2)}% return.`
+    };
+  },
+  '/btc-roi': (inputs) => {
+    const invested = parseFloat(inputs.invested);
+    const buy = parseFloat(inputs.purchasePrice);
+    const sell = parseFloat(inputs.sellingPrice);
+    if (isNaN(invested) || isNaN(buy) || isNaN(sell)) return { value: 'Invalid input' };
+
+    const amount = invested / buy;
+    const value = amount * sell;
+    const profit = value - invested;
+    const roi = (profit / invested) * 100;
+
+    return {
+      value: `$${value.toLocaleString()}`,
+      explanation: `Your $${invested.toLocaleString()} investment at $${buy.toLocaleString()}/BTC resulted in ${amount.toFixed(8)} BTC. At $${sell.toLocaleString()}/BTC, it is worth $${value.toLocaleString()} (${roi.toFixed(2)}% profit).`
+    };
+  },
+  '/50-30-20-rule': (inputs) => {
+    const income = parseFloat(inputs.income);
+    if (isNaN(income)) return { value: 'Invalid input' };
+
+    const needs = income * 0.5;
+    const wants = income * 0.3;
+    const savings = income * 0.2;
+
+    return {
+      value: `Needs: $${needs.toLocaleString()}`,
+      explanation: `Based on your $${income.toLocaleString()} income: Needs (50%): $${needs.toLocaleString()}, Wants (30%): $${wants.toLocaleString()}, Savings/Debt (20%): $${savings.toLocaleString()}.`
+    };
+  },
+  '/blood-sugar-converter': (inputs) => {
+    const val = parseFloat(inputs.value);
+    const unit = inputs.unit || 'mgdl';
+    if (isNaN(val)) return { value: 'Invalid input' };
+
+    if (unit === 'mgdl') {
+      const mmol = val / 18.018;
+      return { value: `${mmol.toFixed(2)} mmol/L`, explanation: `${val} mg/dL is equal to ${mmol.toFixed(2)} mmol/L.` };
+    } else {
+      const mgdl = val * 18.018;
+      return { value: `${Math.round(mgdl)} mg/dL`, explanation: `${val} mmol/L is equal to ${Math.round(mgdl)} mg/dL.` };
+    }
+  },
+  '/a1c-calculator': (inputs) => {
+    const a1c = parseFloat(inputs.a1c);
+    if (isNaN(a1c)) return { value: 'Invalid input' };
+
+    // Formula: (28.7 * A1c) - 46.7
+    const eag = (28.7 * a1c) - 46.7;
+    return {
+      value: `${Math.round(eag)} mg/dL`,
+      explanation: `An A1c of ${a1c}% indicates an Estimated Average Glucose (eAG) of ${Math.round(eag)} mg/dL.`
+    };
+  },
+  '/water-intake': (inputs) => {
+    const weight = parseFloat(inputs.weight);
+    const activity = parseFloat(inputs.activity) || 0;
+    if (isNaN(weight)) return { value: 'Invalid input' };
+
+    // Base: 33ml per kg + 500ml per 30m exercise
+    const base = weight * 0.033;
+    const extra = (activity / 30) * 0.5;
+    const total = base + extra;
+
+    return {
+      value: `${total.toFixed(1)} Liters`,
+      explanation: `Based on your weight (${weight}kg) and activity (${activity}m), you should drink approximately ${total.toFixed(1)}L (${Math.round(total * 4.22)} cups) of water daily.`
+    };
+  },
+  '/military-time': (inputs) => {
+    const time = inputs.time.toUpperCase().trim();
+    if (!time) return { value: 'Invalid input' };
+
+    // From 24h to 12h
+    if (/^\d{4}$/.test(time)) {
+      let hours = parseInt(time.substring(0, 2));
+      const mins = time.substring(2, 4);
+      const period = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      return { value: `${hours}:${mins} ${period}`, explanation: `Military time ${time} is ${hours}:${mins} ${period}.` };
+    }
+    
+    // From 12h to 24h (simple)
+    return { value: 'Use 0000 format', explanation: 'Enter a 4-digit military time (e.g., 1430) to convert to standard time.' };
+  },
+  '/401k': (inputs) => {
+    const salary = parseFloat(inputs.salary);
+    const contrib = parseFloat(inputs.contribution) / 100;
+    const match = parseFloat(inputs.match) / 100;
+    const years = parseFloat(inputs.years);
+    if (isNaN(salary) || isNaN(contrib) || isNaN(years)) return { value: 'Invalid input' };
+
+    const rate = 0.07; // 7% average market return
+    let balance = 0;
+    const annualContribution = salary * contrib;
+    const annualMatch = Math.min(salary * match, annualContribution); // Typically logic: match up to what you contribute or a cap
+    const totalAnnual = annualContribution + annualMatch;
+
+    for (let i = 0; i < years; i++) {
+      balance = (balance + totalAnnual) * (1 + rate);
+    }
+
+    return {
+      value: `$${Math.round(balance).toLocaleString()}`,
+      explanation: `Assuming a 7% annual return, your balance after ${years} years would be $${Math.round(balance).toLocaleString()}. Total annual contribution: $${totalAnnual.toLocaleString()} ($${annualContribution.toLocaleString()} yours + $${annualMatch.toLocaleString()} match).`
+    };
+  },
+  '/403b': (inputs) => {
+    // 403b logic is essentially the same as 401k for basic estimation
+    return standardCalculations['/401k'](inputs);
   }
 };

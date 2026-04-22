@@ -79,6 +79,7 @@ export const CalculatorPage: React.FC = () => {
     const [guideContent, setGuideContent] = useState<{ sections: {title: string, body: string}[], faq: {q: string, a: string}[] } | null>(null);
     const [isGuideLoading, setIsGuideLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [discoveryFailed, setDiscoveryFailed] = useState(false);
 
     const CACHE_KEY_SCHEMA = (path: string) => `sc_schema_${path}`;
     const CACHE_KEY_GUIDE = (path: string) => `sc_guide_${path}`;
@@ -100,10 +101,77 @@ export const CalculatorPage: React.FC = () => {
     }, [foundItem, dynamicFields]);
 
     // Discover schema if not popular
+    const fetchSchema = React.useCallback(async (isRetry = false) => {
+        if (!foundItem || POPULAR_SCHEMAS[foundItem.path]) return;
+
+        setIsSchemaLoading(true);
+        setError(null);
+        setDiscoveryFailed(false);
+        try {
+            const response = await callGeminiWithRetry({
+                model: isRetry ? MODEL_PRO : MODEL_FLASH,
+                contents: `Define the 2-4 primary input fields needed for a professional "${foundItem.name}" (${foundItem.desc}). 
+                Use accurate labels and units. 
+                Return JSON only. Format: { fields: [{id, label, type: 'number'|'text'|'date'|'select', unit?, options?: [{label, value}] }] }`,
+                config: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: Type.OBJECT,
+                        properties: {
+                            fields: {
+                                type: Type.ARRAY,
+                                items: {
+                                    type: Type.OBJECT,
+                                    properties: {
+                                        id: { type: Type.STRING },
+                                        label: { type: Type.STRING },
+                                        type: { type: Type.STRING },
+                                        unit: { type: Type.STRING },
+                                        options: {
+                                            type: Type.ARRAY,
+                                            items: {
+                                                type: Type.OBJECT,
+                                                properties: {
+                                                    label: { type: Type.STRING },
+                                                    value: { type: Type.STRING }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    required: ['id', 'label', 'type']
+                                }
+                            }
+                        },
+                        required: ['fields']
+                    }
+                }
+            });
+            
+            const data = safeParseAIResponse(response.text);
+            if (data?.fields && Array.isArray(data.fields)) {
+                setDynamicFields(data.fields);
+                localStorage.setItem(CACHE_KEY_SCHEMA(foundItem.path), JSON.stringify(data.fields));
+            } else {
+                throw new Error("Invalid schema received from AI");
+            }
+        } catch (err: any) {
+            console.error("Schema discovery error:", err);
+            setDiscoveryFailed(true);
+            setDynamicFields([
+              { id: 'value1', label: 'Value 1', type: 'number' },
+              { id: 'value2', label: 'Value 2', type: 'number' }
+            ]);
+            setError("The discovery service is reaching its limit. Results may be less accurate using generic inputs.");
+        } finally {
+            setIsSchemaLoading(false);
+        }
+    }, [foundItem]);
+
     useEffect(() => {
         if (!foundItem || POPULAR_SCHEMAS[foundItem.path]) {
             setDynamicFields(null);
             setError(null);
+            setDiscoveryFailed(false);
             return;
         }
 
@@ -111,76 +179,15 @@ export const CalculatorPage: React.FC = () => {
         if (cached) {
             try {
                 setDynamicFields(JSON.parse(cached));
+                setDiscoveryFailed(false);
                 return;
             } catch (e) {
                 localStorage.removeItem(CACHE_KEY_SCHEMA(foundItem.path));
             }
         }
 
-        const fetchSchema = async () => {
-            setIsSchemaLoading(true);
-            setError(null);
-            try {
-                const response = await callGeminiWithRetry({
-                    model: MODEL_FLASH,
-                    contents: `Define the standard 2-4 input fields needed for a professional "${foundItem.name}" (${foundItem.desc}). 
-                    Return JSON only. Format: { fields: [{id, label, type: 'number'|'text'|'date'|'select', unit?, options?: [{label, value}] }] }`,
-                    config: {
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: Type.OBJECT,
-                            properties: {
-                                fields: {
-                                    type: Type.ARRAY,
-                                    items: {
-                                        type: Type.OBJECT,
-                                        properties: {
-                                            id: { type: Type.STRING },
-                                            label: { type: Type.STRING },
-                                            type: { type: Type.STRING },
-                                            unit: { type: Type.STRING },
-                                            options: {
-                                                type: Type.ARRAY,
-                                                items: {
-                                                    type: Type.OBJECT,
-                                                    properties: {
-                                                        label: { type: Type.STRING },
-                                                        value: { type: Type.STRING }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        required: ['id', 'label', 'type']
-                                    }
-                                }
-                            },
-                            required: ['fields']
-                        }
-                    }
-                });
-                
-                const data = safeParseAIResponse(response.text);
-                if (data?.fields && Array.isArray(data.fields)) {
-                    setDynamicFields(data.fields);
-                    localStorage.setItem(CACHE_KEY_SCHEMA(foundItem.path), JSON.stringify(data.fields));
-                } else {
-                    throw new Error("Invalid schema received from AI");
-                }
-            } catch (err: any) {
-                console.error("Schema discovery error:", err);
-                // Fallback to generic fields instead of showing a fatal error
-                setDynamicFields([
-                  { id: 'value1', label: 'Value 1', type: 'number' },
-                  { id: 'value2', label: 'Value 2', type: 'number' }
-                ]);
-                setError("Note: Using generic inputs as discovery service is temporarily unavailable.");
-            } finally {
-                setIsSchemaLoading(false);
-            }
-        };
-
         fetchSchema();
-    }, [calculatorPath, foundItem]);
+    }, [foundItem, fetchSchema]);
 
     // Fetch SEO Guide Content
     useEffect(() => {
@@ -528,8 +535,17 @@ export const CalculatorPage: React.FC = () => {
                                         ))}
 
                                         {error && (
-                                            <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-xs font-bold text-red-600">
-                                                {error}
+                                            <div className="p-4 bg-red-50 border border-red-200 rounded-lg space-y-3">
+                                                <p className="text-xs font-bold text-red-600 uppercase tracking-tight">{error}</p>
+                                                {discoveryFailed && (
+                                                    <button 
+                                                        onClick={() => fetchSchema(true)}
+                                                        className="text-[10px] bg-red-600 text-white px-3 py-1.5 rounded font-black uppercase tracking-widest hover:bg-red-700 transition-colors flex items-center gap-2"
+                                                    >
+                                                        <RotateCcw className="w-3 h-3" />
+                                                        Retry Discovery
+                                                    </button>
+                                                )}
                                             </div>
                                         )}
 
