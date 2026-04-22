@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { parseInput } from '@/src/lib/calculatorUtils';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const PercentageCalculator: React.FC = () => {
   const [val1, setVal1] = useState<number | string>(20);
@@ -10,6 +13,8 @@ export const PercentageCalculator: React.FC = () => {
   const [val3, setVal3] = useState<number | string>(50);
   const [val4, setVal4] = useState<number | string>(200);
   const [result2, setResult2] = useState(0);
+  
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const v1 = parseInput(val1.toString());
@@ -20,6 +25,72 @@ export const PercentageCalculator: React.FC = () => {
     setResult1((v1 / 100) * v2);
     setResult2(v4 !== 0 ? (v3 / v4) * 100 : 0);
   }, [val1, val2, val3, val4]);
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    try {
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL MATHEMATICAL REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('PERCENTAGE ANALYSIS', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
+      pdf.text('simplycalculator.app assumes no liability for critical financial or medical decisions.', 15, footerY + 4);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('Percentage_Calculator_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -34,30 +105,30 @@ export const PercentageCalculator: React.FC = () => {
       
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-        <div className="space-y-8">
+        <div className="space-y-8" ref={resultsRef}>
           <div className="calculator-container">
             <div className="section-title text-slate-900 font-bold mb-4">What is X% of Y?</div>
             <div className="space-y-4">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-sm">What is</span>
+                <span className="text-sm font-bold text-slate-600">What is</span>
                 <input 
                   type="number" 
                   value={val1} 
                   onChange={(e) => setVal1(e.target.value)} 
-                  className="input-field w-20" 
+                  className="w-20 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
                 />
-                <span className="text-sm">% of</span>
+                <span className="text-sm font-bold text-slate-600">% of</span>
                 <input 
                   type="number" 
                   value={val2} 
                   onChange={(e) => setVal2(e.target.value)} 
-                  className="input-field w-24" 
+                  className="w-24 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
                 />
                 <span className="text-sm">?</span>
               </div>
-              <div className="result-box bg-slate-50 p-4 rounded-lg border border-slate-200">
-                <span className="font-bold text-slate-700">Result: </span>
-                <span className="text-xl font-bold text-[#0066cc]">{result1.toFixed(2)}</span>
+              <div className="result-box bg-[#f8fbfe] p-4 rounded-lg border border-[#e1eefc]">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#999] block mb-1">Result</span>
+                <span className="text-3xl font-black text-[#0066cc]">{result1.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -70,22 +141,38 @@ export const PercentageCalculator: React.FC = () => {
                   type="number" 
                   value={val3} 
                   onChange={(e) => setVal3(e.target.value)} 
-                  className="input-field w-20" 
+                  className="w-20 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
                 />
-                <span className="text-sm">is what % of</span>
+                <span className="text-sm font-bold text-slate-600">is what % of</span>
                 <input 
                   type="number" 
                   value={val4} 
                   onChange={(e) => setVal4(e.target.value)} 
-                  className="input-field w-24" 
+                  className="w-24 h-10 px-3 bg-white border border-slate-200 rounded-lg focus:border-[#0066cc] outline-none font-medium" 
                 />
                 <span className="text-sm">?</span>
               </div>
-              <div className="result-box bg-slate-50 p-4 rounded-lg border border-slate-200">
-                <span className="font-bold text-slate-700">Result: </span>
-                <span className="text-xl font-bold text-[#0066cc]">{result2.toFixed(2)}%</span>
+              <div className="result-box bg-[#f8fbfe] p-4 rounded-lg border border-[#e1eefc]">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#999] block mb-1">Result</span>
+                <span className="text-3xl font-black text-[#0066cc]">{result2.toFixed(2)}%</span>
               </div>
             </div>
+          </div>
+          
+          <div data-html2canvas-ignore>
+              <ResultActions 
+                onReset={() => {
+                  setVal1(20);
+                  setVal2(100);
+                  setVal3(50);
+                  setVal4(200);
+                }}
+                onDownloadPDF={handleDownloadPDF}
+                onCopy={() => {
+                   const text = `${val1}% of ${val2} is ${result1.toFixed(2)}\n${val3} is ${result2.toFixed(2)}% of ${val4}\nCalculated at simplycalculator.app`;
+                   navigator.clipboard.writeText(text);
+                }}
+              />
           </div>
         </div>
 

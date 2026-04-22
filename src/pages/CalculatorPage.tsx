@@ -419,7 +419,7 @@ export const CalculatorPage: React.FC = () => {
             </Helmet>
 
             <div className="w-full">
-                <nav className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#999] mb-8 overflow-x-auto whitespace-nowrap pb-2">
+                <nav className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-8 overflow-x-auto whitespace-nowrap pb-2">
                     <Link to="/" className="hover:text-blue-600">Home</Link>
                     <ChevronRight className="w-3 h-3" />
                     {foundCategory && (
@@ -434,10 +434,10 @@ export const CalculatorPage: React.FC = () => {
                 <div className="flex flex-col xl:flex-row gap-16">
                     <div className="flex-1 min-w-0">
                         <header className="text-center space-y-4 mb-12">
-                            <h1 className="text-4xl font-black text-[#111] tracking-tight uppercase">
+                            <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">
                                 {foundItem.name}
                             </h1>
-                            <p className="text-slate-500 max-w-2xl mx-auto font-medium">
+                            <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">
                                 {foundItem.desc}
                             </p>
                         </header>

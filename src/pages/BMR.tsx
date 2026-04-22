@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-
 import { Activity, User, Info } from 'lucide-react';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const BMRCalculator: React.FC = () => {
   const [gender, setGender] = useState<'male' | 'female'>('male');
@@ -9,6 +11,7 @@ export const BMRCalculator: React.FC = () => {
   const [height, setHeight] = useState(175);
   const [age, setAge] = useState(30);
   const [bmr, setBmr] = useState(0);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Mifflin-St Jeor Equation
@@ -20,6 +23,72 @@ export const BMRCalculator: React.FC = () => {
     }
     setBmr(Math.round(bmrValue));
   }, [gender, weight, height, age]);
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    try {
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL METABOLISM REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('BASAL METABOLIC RATE (BMR) ANALYSIS', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
+      pdf.text('simplycalculator.app assumes no liability for critical financial or medical decisions.', 15, footerY + 4);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('BMR_Calculator_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -86,7 +155,7 @@ export const BMRCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6" id="result-panel" ref={resultsRef}>
           <div className="calculator-container">
             <div className="section-title">Your BMR Result</div>
             <div className="space-y-6">
@@ -100,6 +169,19 @@ export const BMRCalculator: React.FC = () => {
                 This is the minimum energy your body requires to maintain vital functions if you were to stay in bed all day.
               </div>
             </div>
+
+            <ResultActions 
+                onReset={() => {
+                  setWeight(70);
+                  setHeight(175);
+                  setAge(30);
+                }}
+                onDownloadPDF={handleDownloadPDF}
+                onCopy={() => {
+                  const text = `BMR Result: ${bmr} calories/day\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+            />
           </div>
           
         </div>

@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { parseInput } from '@/src/lib/calculatorUtils';
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const BMICalculator: React.FC = () => {
   const [unitSystem, setUnitSystem] = useState<'metric' | 'imperial'>('metric');
+  const resultsRef = useRef<HTMLDivElement>(null);
   
   // Base values in metric
   const [weightKg, setWeightKg] = useState<number | string>(70);
@@ -100,6 +104,72 @@ export const BMICalculator: React.FC = () => {
     }
   };
 
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    try {
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL HEALTH REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('BODY MASS INDEX (BMI) ANALYSIS', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
+      pdf.text('simplycalculator.app assumes no liability for critical financial or medical decisions.', 15, footerY + 4);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('BMI_Calculator_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
+  };
+
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <Helmet>
@@ -108,8 +178,8 @@ export const BMICalculator: React.FC = () => {
       </Helmet>
 
       <header className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-black text-[#111] tracking-tight uppercase">BMI Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto font-medium">Standard Body Mass Index measurement for adults.</p>
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">BMI Calculator</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Standard Body Mass Index measurement for adults.</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -199,7 +269,7 @@ export const BMICalculator: React.FC = () => {
 
             <button 
               onClick={saveToHistory}
-              className="w-full h-14 bg-[#111] text-white rounded-lg font-black uppercase tracking-widest hover:bg-slate-800 transition-all shadow-md active:scale-[0.98]"
+              className="w-full h-14 bg-blue-600 text-white rounded-lg font-bold uppercase tracking-wider hover:bg-blue-700 transition-all shadow-md active:scale-[0.98]"
             >
               Log Entry to History
             </button>
@@ -207,24 +277,24 @@ export const BMICalculator: React.FC = () => {
         </section>
 
         {/* Output Panel */}
-        <section className="bg-[#f8fbfe] rounded-xl border border-[#e1eefc] p-8 shadow-sm flex flex-col h-full ring-1 ring-[#e1eefc]/50 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm flex flex-col h-full relative overflow-hidden" ref={resultsRef}>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           
-          <h2 className="text-[#0066cc] font-black text-2xl mb-8 relative z-10">Your Results</h2>
+          <h2 className="text-blue-600 font-bold text-2xl mb-8 relative z-10">Your Results</h2>
           
           <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
             <div className="space-y-4 w-full">
               <div>
-                <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Calculated BMI</p>
-                <div className="text-[#0066cc] text-7xl font-black tracking-tight">{bmi.toFixed(1)}</div>
+                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-1">Calculated BMI</p>
+                <div className="text-blue-600 text-7xl font-bold tracking-tight">{bmi.toFixed(1)}</div>
               </div>
-              <p className={`text-xl font-black uppercase tracking-tighter ${getCategoryColor()}`}>{category}</p>
+              <p className={`text-xl font-bold uppercase tracking-tight ${getCategoryColor()}`}>{category}</p>
             </div>
 
             {history.length > 0 && (
-              <div className="mt-8 pt-8 border-t border-blue-100/50">
+              <div className="mt-8 pt-8 border-t border-slate-100 w-full" data-html2canvas-ignore>
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-400">History Trend</h3>
+                  <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">History Trend</h3>
                   <button onClick={clearHistory} className="text-[10px] text-slate-300 hover:text-rose-500 font-bold uppercase">Clear All</button>
                 </div>
                 <div className="space-y-2 max-h-[120px] overflow-y-auto pr-2 scrollbar-thin">
@@ -237,6 +307,18 @@ export const BMICalculator: React.FC = () => {
                 </div>
               </div>
             )}
+            
+            <ResultActions 
+              onReset={() => {
+                setWeightKg(70);
+                setHeightCm(175);
+              }}
+              onDownloadPDF={handleDownloadPDF}
+              onCopy={() => {
+                const text = `BMI Calculator Results:\nBMI: ${bmi.toFixed(1)}\nCategory: ${category}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }}
+            />
           </div>
 
           <div className="mt-8 pt-8 border-t border-blue-100/50 relative z-10">

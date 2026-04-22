@@ -4,7 +4,7 @@ import {
   User, 
   ShieldHalf, 
   Variable, 
-  Triangle, 
+  Home, 
   Building2, 
   Hammer, 
   Droplets, 
@@ -15,7 +15,7 @@ import {
   Car, 
   HeartPulse, 
   Stethoscope, 
-  Sword, 
+  Target, 
   ArrowLeftRight, 
   Briefcase, 
   Tags, 
@@ -62,7 +62,8 @@ import {
   Fingerprint,
   Mic2,
   Package,
-  Activity
+  Activity,
+  Calculator as CalcIcon
 } from 'lucide-react';
 
 export const CATEGORY_ICON_MAP: Record<string, React.ReactNode> = {
@@ -70,7 +71,7 @@ export const CATEGORY_ICON_MAP: Record<string, React.ReactNode> = {
   'personal': <User />,
   'insurance': <ShieldHalf />,
   'math': <Variable />,
-  'roofing': <Triangle />,
+  'roofing': <Home />,
   'real-estate': <Building2 />,
   'construction': <Hammer />,
   'hydraulics': <Droplets />,
@@ -81,7 +82,7 @@ export const CATEGORY_ICON_MAP: Record<string, React.ReactNode> = {
   'automotive': <Car />,
   'health': <HeartPulse />,
   'medical': <Stethoscope />,
-  'military': <Sword />,
+  'military': <Target />,
   'converters': <ArrowLeftRight />,
   'business': <Briefcase />,
   'sales': <Tags />,
@@ -129,6 +130,6 @@ export const CATEGORY_ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 export const getCategoryIcon = (slug: string, className: string = "w-5 h-5") => {
-  const icon = CATEGORY_ICON_MAP[slug] || <Calculator />;
+  const icon = CATEGORY_ICON_MAP[slug] || <CalcIcon />;
   return React.cloneElement(icon as React.ReactElement<any>, { className });
 };

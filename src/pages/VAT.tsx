@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const VATCalculator: React.FC = () => {
   const [amount, setAmount] = useState(100);
@@ -10,6 +12,8 @@ export const VATCalculator: React.FC = () => {
   const [vatAmount, setVatAmount] = useState(0);
   const [netAmount, setNetAmount] = useState(0);
   const [grossAmount, setGrossAmount] = useState(0);
+  
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isInclusive) {
@@ -28,6 +32,72 @@ export const VATCalculator: React.FC = () => {
       setGrossAmount(gross);
     }
   }, [amount, vatRate, isInclusive]);
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    try {
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL TAX REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('VAT ANALYSIS', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
+      pdf.text('simplycalculator.app assumes no liability for critical financial or medical decisions.', 15, footerY + 4);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('VAT_Calculator_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -78,26 +148,38 @@ export const VATCalculator: React.FC = () => {
         </div>
 
         <div>
-          <div className="calculator-container">
+          <div className="calculator-container" ref={resultsRef}>
             <div className="section-title">Results</div>
             <div className="result-box">
               <div className="space-y-3">
                 <div className="flex justify-between items-center pb-2 border-b border-[#b3d9ff]">
-                  <span className="font-bold">Net Amount:</span>
-                  <span className="font-bold text-[#0066cc]">${netAmount.toFixed(2)}</span>
+                  <span className="font-bold text-slate-600">Net Amount:</span>
+                  <span className="font-bold text-[#0066cc]">${netAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between items-center pb-2 border-b border-[#b3d9ff]">
-                  <span className="font-bold">VAT Amount ({vatRate}%):</span>
-                  <span className="font-bold text-[#0066cc]">${vatAmount.toFixed(2)}</span>
+                  <span className="font-bold text-slate-600">VAT Amount ({vatRate}%):</span>
+                  <span className="font-bold text-[#0066cc]">${vatAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-lg font-bold">Gross Amount:</span>
-                  <span className="text-2xl font-bold text-[#0066cc]">${grossAmount.toFixed(2)}</span>
+                  <span className="text-lg font-black uppercase text-slate-900">Gross Amount:</span>
+                  <span className="text-2xl font-black text-[#0066cc]">${grossAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
               </div>
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setAmount(100);
+              setVatRate(20);
+              setIsInclusive(false);
+            }}
+            onDownloadPDF={handleDownloadPDF}
+            onCopy={() => {
+              const text = `VAT Results:\nNet: $${netAmount.toFixed(2)}\nVAT: $${vatAmount.toFixed(2)}\nGross: $${grossAmount.toFixed(2)}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

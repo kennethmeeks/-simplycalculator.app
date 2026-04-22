@@ -92,24 +92,24 @@ export const InteractiveCalculator: React.FC = () => {
     ];
 
     return (
-        <div className="bg-[#111] p-6 rounded-3xl shadow-2xl max-w-sm mx-auto w-full border-8 border-slate-800 ring-4 ring-[#0066cc]/20">
+        <div className="bg-slate-100 p-8 rounded-lg shadow-sm max-w-sm mx-auto w-full border border-slate-200">
             {/* Display */}
-            <div className="bg-[#222] p-6 rounded-2xl mb-6 text-right overflow-hidden border border-white/5">
-                <div className="text-blue-500/50 text-[10px] font-black uppercase tracking-widest h-4 mb-1">
+            <div className="bg-white p-6 rounded border border-slate-300 mb-6 text-right overflow-hidden shadow-inner">
+                <div className="text-slate-400 text-xs font-mono h-4 mb-2">
                     {prevValue !== null && `${prevValue} ${operator}`}
                 </div>
-                <div className="text-white text-4xl font-black tracking-tighter truncate">
+                <div className="text-slate-900 text-4xl font-bold tracking-tight truncate font-mono">
                     {display}
                 </div>
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-4 gap-2">
                 {buttons.map((btn, idx) => (
                     <button
                         key={idx}
                         onClick={btn.action}
-                        className={`h-14 rounded-xl font-black text-sm uppercase transition-all active:scale-95 flex items-center justify-center border border-black/10 shadow-sm ${btn.className}`}
+                        className={`h-14 rounded font-bold text-sm transition-all active:scale-95 flex items-center justify-center border border-slate-300 shadow-sm ${btn.className}`}
                     >
                         {btn.icon ? <btn.icon className="w-5 h-5" /> : btn.label}
                     </button>

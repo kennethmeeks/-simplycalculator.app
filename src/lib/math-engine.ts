@@ -27,7 +27,13 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     if (isNaN(p) || isNaN(r) || isNaN(n) || n === 0) return { value: 'Invalid input' };
     
     const principal = p - down;
-    const payment = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    let payment = 0;
+    if (r === 0) {
+      payment = principal / n;
+    } else {
+      payment = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    }
+    
     return { 
       value: `$${payment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       explanation: `Your monthly payment (principal and interest) for a $${principal.toLocaleString()} loan at ${parseFloat(inputs.rate)}% interest.`
@@ -81,7 +87,14 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const r = parseFloat(inputs.rate) / 100 / 12;
     const n = parseFloat(inputs.term); // months
     if (isNaN(p) || isNaN(r) || isNaN(n) || n === 0) return { value: 'Invalid input' };
-    const payment = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    
+    let payment = 0;
+    if (r === 0) {
+      payment = p / n;
+    } else {
+      payment = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    }
+    
     return {
       value: `$${payment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       explanation: `Monthly payment for a $${p.toLocaleString()} loan over ${n} months.`

@@ -155,155 +155,162 @@ export const MortgageCalculator: React.FC = () => {
         <meta name="description" content="Calculate your total monthly house payment with our free mortgage calculator with taxes and insurance. Estimate principal, interest, property tax, and homeowners insurance for 2026." />
       </Helmet>
 
-      <div className="text-center space-y-4">
-        <h1 className="text-3xl sm:text-5xl font-black text-black uppercase tracking-tighter leading-none">Mortgage Calculator</h1>
-        <p className="text-slate-500 font-medium italic text-lg opacity-70">Estimate your monthly housing costs for 2026 with full precision.</p>
-      </div>
+      <header className="text-center space-y-4 mb-12">
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Mortgage Calculator</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Estimate your monthly housing costs for 2026 with full precision.</p>
+      </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start relative">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* Left: Inputs */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="calculator-container p-6 sm:p-10 relative">
-            <h2 className="section-title text-center !border-0 mb-0">Mortgage Parameters</h2>
-            <div className="h-1 w-16 bg-blue-600 mx-auto mb-10 rounded-full"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-              <div className="input-group">
-                <label className="input-label">Home Price</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 py-2 transition-colors ${errors.homePrice ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-500'}`}>
-                  <span className="text-sm text-slate-500">$</span>
+          <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+            <div className="mb-8">
+              <h2 className="text-blue-600 font-bold text-2xl">Mortgage Parameters</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Home Price</label>
+                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.homePrice ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
+                  <span className="text-sm text-slate-400">$</span>
                   <input 
                     type="number" 
                     value={homePrice} 
                     onChange={(e) => setHomePrice(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-900"
+                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
                   />
                 </div>
                 {errors.homePrice && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.homePrice}</p>}
               </div>
-              <div className="input-group">
-                <label className="input-label">Down Payment</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 py-2 transition-colors ${errors.downPayment ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-500'}`}>
-                  <span className="text-sm text-slate-500">$</span>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Down Payment</label>
+                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.downPayment ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
+                  <span className="text-sm text-slate-400">$</span>
                   <input 
                     type="number" 
                     value={downPayment} 
                     onChange={(e) => setDownPayment(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-900"
+                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
                   />
                 </div>
                 {errors.downPayment && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.downPayment}</p>}
               </div>
-              <div className="input-group">
-                <label className="input-label">Interest Rate</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 py-2 transition-colors ${errors.interestRate ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-500'}`}>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Interest Rate</label>
+                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.interestRate ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
                   <input 
                     type="number" 
                     step="0.1"
                     value={interestRate} 
                     onChange={(e) => setInterestRate(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-900"
+                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
                   />
-                  <span className="text-sm text-slate-500">%</span>
+                  <span className="text-sm text-slate-400">%</span>
                 </div>
                 {errors.interestRate && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.interestRate}</p>}
               </div>
-              <div className="input-group">
-                <label className="input-label">Loan Term</label>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Loan Term (Years)</label>
                 <select 
                   value={loanTerm} 
                   onChange={(e) => setLoanTerm(Number(e.target.value))}
-                  className="input-field"
+                  className="w-full h-12 px-3 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-medium text-slate-700 transition-all"
                 >
                   <option value={15}>15 Years</option>
                   <option value={20}>20 Years</option>
                   <option value={30}>30 Years</option>
                 </select>
               </div>
-              <div className="input-group">
-                <label className="input-label">Property Tax</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 py-2 transition-colors ${errors.propertyTax ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-500'}`}>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Property Tax</label>
+                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.propertyTax ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
                   <input 
                     type="number" 
                     step="0.01"
                     value={propertyTax} 
                     onChange={(e) => setPropertyTax(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-900"
+                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
                   />
-                  <span className="text-sm text-slate-500">%</span>
+                  <span className="text-sm text-slate-400">%</span>
                 </div>
                 {errors.propertyTax && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.propertyTax}</p>}
               </div>
-              <div className="input-group">
-                <label className="input-label">Annual Insurance</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 py-2 transition-colors ${errors.insurance ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-500'}`}>
-                  <span className="text-sm text-slate-500">$</span>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-bold text-slate-600">Annual Insurance</label>
+                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.insurance ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
+                  <span className="text-sm text-slate-400">$</span>
                   <input 
                     type="number" 
                     value={insurance} 
                     onChange={(e) => setInsurance(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-900"
+                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
                   />
                 </div>
                 {errors.insurance && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.insurance}</p>}
               </div>
             </div>
-          </div>
+          </section>
 
           <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
-            <h2 className="text-xl font-bold text-slate-900">Components of a Monthly Mortgage Payment</h2>
-            <p className="text-slate-600 text-sm">
-              Your monthly mortgage payment is typically made up of several key components:
+            <h2 className="text-xl font-bold text-slate-900">Payment Breakdown</h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Your monthly mortgage payment is typically made up of several key components: Principal, Interest, Property Taxes, and Homeowners Insurance (PITI).
             </p>
-            <ul className="list-disc pl-5 space-y-3 text-sm text-slate-700">
-              <li>
-                <span className="font-bold text-slate-900">Principal & Interest:</span>
-                <span className="ml-1">The core part of your mortgage payment that pays off the loan balance and the interest charged by the lender.</span>
-              </li>
-              <li>
-                <span className="font-bold text-slate-900">Property Tax:</span>
-                <span className="ml-1">Annual taxes paid to your local government, usually based on the home's value. These are often collected monthly by the lender.</span>
-              </li>
-              <li>
-                <span className="font-bold text-slate-900">Insurance:</span>
-                <span className="ml-1">Protection for your home against damage and liability. Lenders typically require homeowners insurance to protect their investment.</span>
-              </li>
-            </ul>
           </div>
         </div>
 
         {/* Right: Results */}
-        <div className="space-y-6" id="result-panel" ref={resultsRef}>
-          <div className="calculator-container h-full">
-            <div className="result-box">
-              <h3 className="text-[#0066cc] font-bold mb-2 uppercase text-xs tracking-wider">Monthly Payment</h3>
-              <div className="text-4xl font-bold text-[#0066cc]">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+        <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm flex flex-col h-full relative overflow-hidden" ref={resultsRef}>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          
+          <h2 className="text-blue-600 font-bold text-2xl mb-8 relative z-10">Your Results</h2>
+          
+          <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
+            <div className="space-y-4 w-full">
+              <div>
+                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-1">Monthly Payment</p>
+                <div className="text-blue-600 text-6xl font-bold tracking-tight">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+              </div>
+              
+              <div className="pt-8 border-t border-slate-100 w-full space-y-3">
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500 font-medium">Total Interest:</span>
+                  <span className="font-bold text-slate-700">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500 font-medium">Total Cost:</span>
+                  <span className="font-bold text-slate-700">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-500 font-medium">Loan Amount:</span>
+                  <span className="font-bold text-slate-700">${(Number(homePrice) - Number(downPayment)).toLocaleString()}</span>
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-4 pt-6">
-              <div className="flex justify-between">
-                <span className="text-[#666]">Total Interest:</span>
-                <span className="font-bold text-[#0066cc]">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#666]">Total Cost:</span>
-                <span className="font-bold text-[#0066cc]">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#666]">Loan Amount:</span>
-                <span className="font-bold text-[#0066cc]">${(Number(homePrice) - Number(downPayment)).toLocaleString()}</span>
-              </div>
+            <div className="mt-12 w-full">
+              <ResultActions 
+                  onReset={handleReset}
+                  onDownloadPDF={handleDownloadPDF}
+                  onCopy={() => {
+                      const text = `Mortgage Calculator Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
+                      navigator.clipboard.writeText(text);
+                  }}
+              />
             </div>
-            
-            <ResultActions 
-                onReset={handleReset}
-                onDownloadPDF={handleDownloadPDF}
-                onCopy={() => {
-                    const text = `Mortgage Calculator Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
-                    navigator.clipboard.writeText(text);
-                }}
-            />
           </div>
-        </div>
+
+          <div className="mt-8 pt-8 border-t border-slate-100 relative z-10">
+            <p className="text-slate-400 text-[11px] font-medium leading-relaxed italic">
+              Note: This report is an estimate based on mathematical models and verified formulas.
+            </p>
+          </div>
+        </section>
       </div>
 
       <div className="prose prose-slate max-w-none">

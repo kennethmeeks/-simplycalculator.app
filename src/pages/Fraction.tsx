@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { ResultActions } from '../components/ResultActions';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 type Operation = '+' | '-' | '*' | '/';
 
@@ -15,6 +17,8 @@ export const FractionCalculator: React.FC = () => {
   const [resDen, setResDen] = useState(0);
   const [resWhole, setResWhole] = useState(0);
   const [resMixedNum, setResMixedNum] = useState(0);
+  
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const gcd = (a: number, b: number): number => {
     return b === 0 ? a : gcd(b, a % b);
@@ -57,6 +61,72 @@ export const FractionCalculator: React.FC = () => {
     setResWhole(Math.floor(simplifiedNum / simplifiedDen));
     setResMixedNum(simplifiedNum % simplifiedDen);
   }, [num1, den1, num2, den2, operation]);
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    try {
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL MATHEMATICAL REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('FRACTION CALCULATION ANALYSIS', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
+      pdf.text('simplycalculator.app assumes no liability for critical financial or medical decisions.', 15, footerY + 4);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('Fraction_Calculator_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -123,43 +193,57 @@ export const FractionCalculator: React.FC = () => {
         </div>
 
         <div>
-          <div className="calculator-container">
+          <div className="calculator-container" ref={resultsRef}>
             <div className="section-title">Result</div>
-            <div className="result-box">
-              <div className="flex flex-col items-center justify-center space-y-4">
-                <div className="flex items-center gap-4">
+            <div className="result-box bg-[#f8fbfe] border-[#e1eefc] p-10 rounded-xl">
+              <div className="flex flex-col items-center justify-center space-y-6">
+                <div className="flex items-center gap-6">
                   <div className="flex flex-col items-center">
-                    <span className="text-2xl font-bold text-[#0066cc]">{resNum}</span>
-                    <div className="w-16 h-[2px] bg-[#0066cc]"></div>
-                    <span className="text-2xl font-bold text-[#0066cc]">{resDen}</span>
+                    <span className="text-4xl font-black text-[#0066cc] tracking-tight">{resNum}</span>
+                    <div className="w-20 h-[3px] bg-[#0066cc] my-1 opacity-20"></div>
+                    <span className="text-4xl font-black text-[#0066cc] tracking-tight">{resDen}</span>
                   </div>
                   {resWhole !== 0 && resMixedNum !== 0 && (
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-slate-400">=</span>
-                      <div className="flex items-center gap-1">
-                        <span className="text-3xl font-bold text-[#0066cc]">{resWhole}</span>
-                        <div className="flex flex-col items-center scale-75">
-                          <span className="text-xl font-bold text-[#0066cc]">{Math.abs(resMixedNum)}</span>
-                          <div className="w-10 h-[2px] bg-[#0066cc]"></div>
-                          <span className="text-xl font-bold text-[#0066cc]">{resDen}</span>
+                    <div className="flex items-center gap-4">
+                      <span className="text-2xl font-black text-slate-300">=</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-5xl font-black text-[#0066cc] tracking-tight">{resWhole}</span>
+                        <div className="flex flex-col items-center scale-90">
+                          <span className="text-2xl font-black text-[#0066cc] tracking-tight">{Math.abs(resMixedNum)}</span>
+                          <div className="w-12 h-[3px] bg-[#0066cc] my-1 opacity-20"></div>
+                          <span className="text-2xl font-black text-[#0066cc] tracking-tight">{resDen}</span>
                         </div>
                       </div>
                     </div>
                   )}
                   {resDen === 1 && (
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-slate-400">=</span>
-                      <span className="text-3xl font-bold text-[#0066cc]">{resNum}</span>
+                    <div className="flex items-center gap-4">
+                      <span className="text-2xl font-black text-slate-300">=</span>
+                      <span className="text-5xl font-black text-[#0066cc] tracking-tight">{resNum}</span>
                     </div>
                   )}
                 </div>
-                <div className="text-sm text-slate-500 italic">
-                  Decimal: {(resNum / resDen).toFixed(4)}
+                <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] border-t border-blue-100/50 pt-4 w-full text-center">
+                  Decimal Value: {(resNum / resDen).toFixed(6)}
                 </div>
               </div>
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setNum1(1);
+              setDen1(2);
+              setNum2(1);
+              setDen2(4);
+              setOperation('+');
+            }}
+            onDownloadPDF={handleDownloadPDF}
+            onCopy={() => {
+              const text = `Fraction Result: ${resNum}/${resDen} = ${(resNum / resDen).toFixed(4)}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

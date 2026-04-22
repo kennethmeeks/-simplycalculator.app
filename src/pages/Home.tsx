@@ -32,36 +32,36 @@ export const Home: React.FC = () => {
 
       <div className="space-y-24">
         {/* Search Hero */}
-        <section className="bg-[#111] text-white p-12 sm:p-24 shadow-[24px_24px_0px_0px_rgba(37,99,235,1)] relative overflow-hidden border-2 border-white/10">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+        <section className="bg-white border border-slate-200 p-12 sm:p-24 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
           <div className="relative z-10 max-w-3xl">
-            <div className="flex items-center gap-3 mb-8">
-              <span className="w-12 h-[2px] bg-blue-600"></span>
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Industry Standard 2026</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-12 h-[1px] bg-blue-600"></span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600">Professional Mathematical Suite 2026</span>
             </div>
-            <h1 className="text-6xl sm:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.9] text-white">
-              Absolute <br />
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-tight text-slate-900">
+              Verified <br />
               <span className="text-blue-600">Accuracy.</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-white/40 mb-12 font-medium max-w-xl leading-relaxed">
-              Professional-grade mathematical engines for finance, health, and research. 
-              Verified formulas. Zero overhead.
+            <p className="text-lg sm:text-xl text-slate-500 mb-10 font-medium max-w-xl leading-relaxed">
+              Access over 1600+ professional-grade calculators for finance, health, and engineering. 
+              Built with industry-standard formulas and zero latency.
             </p>
             
             <div className="flex flex-wrap gap-8">
                 <div className="space-y-1">
-                  <span className="block text-2xl font-black text-white">1600+</span>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-blue-500/60">Verified Tools</span>
+                  <span className="block text-2xl font-bold text-slate-900">1600+</span>
+                  <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Verified Tools</span>
                 </div>
-                <div className="w-[1px] h-12 bg-white/10"></div>
+                <div className="w-[1px] h-10 bg-slate-200"></div>
                 <div className="space-y-1">
-                  <span className="block text-2xl font-black text-white">0.0ms</span>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-blue-500/60">Latency</span>
+                  <span className="block text-2xl font-bold text-slate-900">100%</span>
+                  <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Privacy Policy</span>
                 </div>
-                <div className="w-[1px] h-12 bg-white/10"></div>
+                <div className="w-[1px] h-10 bg-slate-200"></div>
                 <div className="space-y-1">
-                  <span className="block text-2xl font-black text-white">100%</span>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-blue-500/60">Client Side</span>
+                  <span className="block text-2xl font-bold text-slate-900">2026</span>
+                  <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Compliant</span>
                 </div>
             </div>
           </div>
@@ -69,8 +69,8 @@ export const Home: React.FC = () => {
 
         {/* Featured Tools - Bento Grid */}
         <section>
-          <div className="flex items-center gap-6 mb-12">
-            <h2 className="text-[11px] font-black uppercase tracking-[0.6em] text-blue-600 italic">// Featured Stations</h2>
+          <div className="flex items-center gap-4 mb-8">
+            <h2 className="text-[12px] font-bold uppercase tracking-[0.2em] text-slate-900">Featured Calculators</h2>
             <div className="h-[1px] flex-1 bg-slate-200"></div>
           </div>
           
@@ -78,147 +78,127 @@ export const Home: React.FC = () => {
             {/* Main Feature */}
             <Link 
               to="/mortgage"
-              className="md:col-span-2 md:row-span-2 group bg-white border-2 border-slate-900 p-12 transition-all hover:bg-blue-600 hover:border-blue-600 hover:shadow-[16px_16px_0px_0px_#111] flex flex-col justify-between overflow-hidden relative"
+              className="md:col-span-2 md:row-span-2 group bg-white border border-slate-200 p-10 transition-all hover:border-blue-600 hover:shadow-lg flex flex-col justify-between overflow-hidden relative"
             >
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-slate-100 rounded-sm mb-8 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  {getCategoryIcon('real-estate', 'w-8 h-8 text-black group-hover:text-white')}
+                <div className="w-12 h-12 bg-blue-50 rounded-lg mb-6 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                  {getCategoryIcon('real-estate', 'w-6 h-6 text-blue-600 group-hover:text-white')}
                 </div>
-                <h3 className="text-4xl font-black text-slate-900 uppercase tracking-tighter leading-none group-hover:text-white mb-4">
-                  Mortgage <br /> Mastery.
+                <h3 className="text-3xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
+                  Mortgage <br /> Estimation.
                 </h3>
-                <p className="text-slate-400 font-medium group-hover:text-white/70 max-w-xs uppercase text-[10px] tracking-widest">
-                  Comprehensive home financing analysis with sub-second property calculations.
+                <p className="text-slate-500 font-medium text-sm leading-relaxed max-w-xs">
+                  Detailed home financing analysis including property taxes and PMI.
                 </p>
               </div>
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                {getCategoryIcon('real-estate', 'w-64 h-64 text-black group-hover:text-white')}
-              </div>
-              <span className="mt-12 text-xs font-black uppercase tracking-widest text-blue-600 group-hover:text-white inline-flex items-center gap-2">
-                Launch Module <ChevronRight size={14} />
+              <span className="mt-10 text-sm font-bold text-blue-600 inline-flex items-center gap-2">
+                Launch Tool <ChevronRight size={16} />
               </span>
             </Link>
 
             <Link 
               to="/student-loan"
-              className="md:col-span-2 group bg-slate-900 p-10 border-2 border-slate-900 transition-all hover:border-blue-600 flex items-start gap-8"
+              className="md:col-span-2 group bg-slate-50 p-8 border border-slate-200 transition-all hover:border-blue-600 hover:bg-white flex items-start gap-6"
             >
-              <div className="w-12 h-12 bg-blue-600 flex items-center justify-center rounded-sm shrink-0">
-                {getCategoryIcon('academic', 'w-6 h-6 text-white')}
+              <div className="w-10 h-10 bg-white border border-slate-200 flex items-center justify-center rounded-lg group-hover:bg-blue-600 group-hover:border-blue-600 transition-colors">
+                {getCategoryIcon('academic', 'w-5 h-5 text-slate-400 group-hover:text-white')}
               </div>
               <div>
-                <h3 className="text-xl font-black text-white uppercase tracking-tighter mb-2 italic">Student Loan Repayment</h3>
-                <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">Optimal debt strategies for graduates.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">Student Loan Repayment</h3>
+                <p className="text-slate-500 text-sm">Calculate optimal payoff strategies.</p>
               </div>
             </Link>
 
             <Link 
               to="/bmi"
-              className="group bg-white border-2 border-slate-200 p-8 transition-all hover:border-slate-900 flex flex-col justify-between"
+              className="group bg-white border border-slate-200 p-8 transition-all hover:border-blue-600 hover:shadow-md flex flex-col justify-between"
             >
-              <div className="flex justify-between items-start">
-                <div className="w-10 h-10 bg-slate-50 border border-slate-100 flex items-center justify-center rounded-sm group-hover:bg-slate-900 group-hover:border-slate-900 transition-colors">
-                  {getCategoryIcon('health', 'w-5 h-5 text-slate-400 group-hover:text-white')}
-                </div>
-                <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">BIO STATS</span>
+              <div className="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-lg group-hover:bg-blue-50 transition-colors">
+                {getCategoryIcon('health', 'w-5 h-5 text-slate-400 group-hover:text-blue-600')}
               </div>
-              <div>
-                <h3 className="text-lg font-black text-slate-900 uppercase tracking-tighter mb-1">Body Metrics</h3>
-                <p className="text-slate-400 text-[9px] font-bold uppercase tracking-tight">BMI & Body Fat Standards</p>
+              <div className="mt-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-1">Body Metrics</h3>
+                <p className="text-slate-500 text-sm">BMI & health standards.</p>
               </div>
             </Link>
 
             <Link 
               to="/payroll"
-              className="group bg-blue-50 border-2 border-blue-100 p-8 transition-all hover:bg-white hover:border-blue-600 flex flex-col justify-between"
+              className="group bg-white border border-slate-200 p-8 transition-all hover:border-blue-600 hover:shadow-md flex flex-col justify-between"
             >
-              <div className="flex justify-between items-start">
-                <div className="w-10 h-10 bg-blue-600 flex items-center justify-center rounded-sm">
-                  {getCategoryIcon('finance', 'w-5 h-5 text-white')}
-                </div>
+              <div className="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-lg group-hover:bg-blue-50 transition-colors">
+                {getCategoryIcon('finance', 'w-5 h-5 text-slate-400 group-hover:text-blue-600')}
               </div>
-              <div>
-                <h3 className="text-lg font-black text-[#0066cc] uppercase tracking-tighter mb-1">Payroll Hub</h3>
-                <p className="text-blue-300 text-[9px] font-bold uppercase tracking-tight">Net Income & Tax Shielding</p>
+              <div className="mt-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-1">Payroll Hub</h3>
+                <p className="text-slate-500 text-sm">Net income & tax estimates.</p>
               </div>
             </Link>
           </div>
         </section>
 
         {/* Global Category Network */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-24">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
           {CATEGORIES.map((cat) => (
-            <div key={cat.slug} className="group border-l border-slate-100 pl-10 relative">
-              <div className="absolute top-0 left-[-1px] w-[2px] h-0 bg-blue-600 group-hover:h-full transition-all duration-500"></div>
-              
-              <div className="flex items-center justify-between mb-10">
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-slate-50 rounded-sm flex items-center justify-center group-hover:bg-blue-50 transition-colors border border-slate-100 group-hover:border-blue-100">
-                      {getCategoryIcon(cat.slug, "w-4 h-4 text-slate-400 group-hover:text-blue-600")}
-                    </div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600 italic">{cat.items.length} Tools</span>
+            <div key={cat.slug} className="group border-t border-slate-100 pt-8 relative">
+              <div className="flex items-start justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center group-hover:bg-blue-50 transition-colors border border-slate-100">
+                    {getCategoryIcon(cat.slug, "w-5 h-5 text-slate-400 group-hover:text-blue-600")}
                   </div>
-                  <h2 className="text-4xl font-black text-[#111] tracking-tighter uppercase group-hover:text-blue-600 transition-colors leading-none">
-                    {cat.title.split(' ')[0]} <br />
-                    <span className="opacity-10 group-hover:opacity-100 transition-opacity">{cat.title.split(' ').slice(1).join(' ')}</span>
-                  </h2>
+                  <div>
+                    <h2 className="text-2xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                      {cat.title}
+                    </h2>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{cat.items.length} Tools Available</span>
+                  </div>
                 </div>
                 <Link 
                     to={`/category/${cat.slug}`} 
-                    className="text-[9px] font-black text-slate-400 hover:text-blue-600 uppercase tracking-[0.2em] transition-all"
+                    className="text-[11px] font-bold text-blue-600 hover:underline uppercase tracking-wider"
                 >
-                    HUB DATA →
+                    Browse All →
                 </Link>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
                 {cat.items.slice(0, 8).map((item) => (
-                  <div key={item.path} className="group/item relative overflow-hidden">
+                  <div key={item.path} className="group/item">
                     <Link 
                       to={item.path} 
-                      className="text-[14px] text-[#111] font-black hover:text-blue-600 block leading-tight mb-2 uppercase tracking-tight transition-colors border-b border-transparent hover:border-blue-600/30 w-fit"
+                      className="text-[15px] text-slate-700 font-medium hover:text-blue-600 block mb-1 transition-colors"
                     >
                       {item.name}
                     </Link>
-                    <p className="text-[10px] text-slate-400 line-clamp-1 leading-relaxed font-bold uppercase tracking-tight opacity-60">
+                    <p className="text-[12px] text-slate-400 line-clamp-1 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
                 ))}
-                {cat.items.length > 8 && (
-                   <Link 
-                    to={`/category/${cat.slug}`} 
-                    className="flex items-center gap-2 text-[9px] font-black text-blue-600 hover:gap-4 transition-all uppercase tracking-[0.3em] mt-2"
-                  >
-                    View +{cat.items.length - 8} Tools
-                  </Link>
-                )}
               </div>
             </div>
           ))}
         </section>
 
         {/* Footer Mission Block */}
-        <section className="bg-slate-900 border-2 border-slate-900 p-16 relative overflow-hidden text-white mb-12">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]"></div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 relative z-10">
+        <section className="bg-white border border-slate-200 p-12 rounded-xl relative overflow-hidden text-slate-600 mb-12 shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
                 <div>
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8 text-blue-500 italic">// Core Objectives</h3>
-                    <p className="text-[13px] text-slate-400 font-bold leading-relaxed uppercase tracking-tight">
+                    <h3 className="text-[11px] font-bold uppercase tracking-widest mb-4 text-slate-900 underline decoration-blue-600 underline-offset-4">Core Objectives</h3>
+                    <p className="text-[13px] leading-relaxed">
                         Absolute mathematical clarity through zero-latency, verified tooling for critical decision pathways.
                     </p>
                 </div>
                 <div>
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8 text-blue-500 italic">// Compliance Tier</h3>
-                    <p className="text-[13px] text-slate-400 font-bold leading-relaxed uppercase tracking-tight">
-                        Formula adherence verified against 2026 industry standards. Multi-region support enabled.
+                    <h3 className="text-[11px] font-bold uppercase tracking-widest mb-4 text-slate-900 underline decoration-blue-600 underline-offset-4">Compliant Data</h3>
+                    <p className="text-[13px] leading-relaxed">
+                        Formula adherence verified against 2026 industry standards. Localized calculations for global markets.
                     </p>
                 </div>
                 <div>
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8 text-blue-500 italic">// Engine Build</h3>
-                    <p className="text-[13px] text-slate-400 font-bold leading-relaxed uppercase tracking-tight">
-                        Built on a low-latency TypeScript stack for purely local browser-side execution.
+                    <h3 className="text-[11px] font-bold uppercase tracking-widest mb-4 text-slate-900 underline decoration-blue-600 underline-offset-4">Verified Safe</h3>
+                    <p className="text-[13px] leading-relaxed">
+                        Built for client-side execution to ensure maximum privacy and data security for all users.
                     </p>
                 </div>
             </div>
