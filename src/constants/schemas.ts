@@ -530,5 +530,159 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/solar-roi': [
     { id: 'cost', label: 'Installation Cost', type: 'number', unit: '$' },
     { id: 'monthlySavings', label: 'Expected Monthly Savings', type: 'number', unit: '$' }
+  ],
+  '/concrete': [
+    { id: 'length', label: 'Length', type: 'number', unit: 'ft' },
+    { id: 'width', label: 'Width', type: 'number', unit: 'ft' },
+    { id: 'thickness', label: 'Thickness', type: 'number', unit: 'in' }
+  ],
+  '/concrete-block': [
+    { id: 'length', label: 'Wall Length', type: 'number', unit: 'ft' },
+    { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
+    { id: 'blockSize', label: 'Block Size', type: 'select', options: [
+      { label: '8" x 8" x 16"', value: '8x8x16' },
+      { label: '4" x 8" x 16"', value: '4x8x16' }
+    ]}
+  ],
+  '/concrete-column': [
+    { id: 'diameter', label: 'Diameter', type: 'number', unit: 'in' },
+    { id: 'height', label: 'Height', type: 'number', unit: 'ft' }
+  ],
+  '/paint': [
+    { id: 'length', label: 'Wall Length', type: 'number', unit: 'ft' },
+    { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
+    { id: 'coats', label: 'Number of Coats', type: 'number', defaultValue: '2' }
+  ],
+  '/flooring': [
+    { id: 'length', label: 'Room Length', type: 'number', unit: 'ft' },
+    { id: 'width', label: 'Room Width', type: 'number', unit: 'ft' },
+    { id: 'waste', label: 'Waste percentage', type: 'number', unit: '%', defaultValue: '10' }
+  ],
+  '/0-60-time': [
+    { id: 'power', label: 'Horsepower', type: 'number', unit: 'hp' },
+    { id: 'weight', label: 'Vehicle Weight', type: 'number', unit: 'lbs' }
+  ],
+  '/diabetes-risk': [
+    { id: 'age', label: 'Age', type: 'number' },
+    { id: 'bmi', label: 'BMI', type: 'number' }
+  ],
+  '/insulin-dosage': [
+    { id: 'carbs', label: 'Total Carbs', type: 'number', unit: 'g' },
+    { id: 'ratio', label: 'Insulin-to-Carb Ratio', type: 'number' }
+  ],
+  '/subnet-mask': [
+    { id: 'ip', label: 'IP Address', type: 'text', placeholder: '192.168.1.1' },
+    { id: 'mask', label: 'Subnet Mask', type: 'text', placeholder: '24' }
+  ],
+  '/dog-pregnancy': [
+    { id: 'matingDate', label: 'Mating Date', type: 'date' }
+  ],
+  '/anniversary': [
+    { id: 'startDate', label: 'Start Date', type: 'date' }
+  ],
+  '/bra-size': [
+    { id: 'bust', label: 'Bust Measurement', type: 'number', unit: 'in' },
+    { id: 'underbust', label: 'Underbust Measurement', type: 'number', unit: 'in' }
+  ],
+  '/concrete-stairs': [
+    { id: 'steps', label: 'Number of Steps', type: 'number' },
+    { id: 'width', label: 'Step Width', type: 'number', unit: 'in' },
+    { id: 'run', label: 'Step Run', type: 'number', unit: 'in' },
+    { id: 'rise', label: 'Step Rise', type: 'number', unit: 'in' }
+  ],
+  '/brick': [
+    { id: 'length', label: 'Wall Length', type: 'number', unit: 'ft' },
+    { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
+    { id: 'brickType', label: 'Brick size', type: 'select', options: [
+      { label: 'Standard (8 x 2.25 x 3.75)', value: 'std' },
+      { label: 'Engineer (8 x 2.75 x 3.75)', value: 'eng' }
+    ]}
+  ],
+  '/a1c-to-glucose': [
+    { id: 'a1c', label: 'A1c Level', type: 'number', unit: '%' }
+  ],
+  '/words-to-pages': [
+    { id: 'words', label: 'Word Count', type: 'number' },
+    { id: 'spacing', label: 'Spacing', type: 'select', options: [
+      { label: 'Single Spaced', value: '1' },
+      { label: 'Double Spaced', value: '2' }
+    ]}
+  ],
+  '/gpa': [
+    { id: 'grade1', label: 'Grade 1', type: 'number' },
+    { id: 'grade2', label: 'Grade 2', type: 'number' },
+    { id: 'grade3', label: 'Grade 3', type: 'number' }
+  ],
+  '/bac-calculator': [
+    { id: 'drinks', label: 'Number of Drinks', type: 'number' },
+    { id: 'weight', label: 'Body Weight', type: 'number', unit: 'lbs' },
+    { id: 'gender', label: 'Gender', type: 'select', options: [{label: 'Male', value: 'male'}, {label: 'Female', value: 'female'}]},
+    { id: 'hours', label: 'Hours since drinking', type: 'number' }
+  ],
+  '/car-lease': [
+    { id: 'price', label: 'Vehicle MSRP', type: 'number', unit: '$' },
+    { id: 'residual', label: 'Residual Value', type: 'number', unit: '%' },
+    { id: 'moneyFactor', label: 'Money Factor', type: 'number', placeholder: 'e.g. 0.0025' }
+  ],
+  '/recipe-scaling': [
+    { id: 'originalYield', label: 'Original Yield', type: 'number' },
+    { id: 'desiredYield', label: 'Desired Yield', type: 'number' }
+  ],
+  '/bitcoin-profit-loss': [
+    { id: 'buyPrice', label: 'Buy Price', type: 'number', unit: '$' },
+    { id: 'sellPrice', label: 'Sell Price', type: 'number', unit: '$' },
+    { id: 'amount', label: 'Amount BTC', type: 'number' }
+  ],
+  '/time-calculator': [
+    { id: 'h1', label: 'Hours', type: 'number' },
+    { id: 'm1', label: 'Minutes', type: 'number' },
+    { id: 'h2', label: 'Add Hours', type: 'number' },
+    { id: 'm2', label: 'Add Minutes', type: 'number' }
+  ],
+  '/grout': [
+    { id: 'area', label: 'Area', type: 'number', unit: 'sq ft' },
+    { id: 'tileW', label: 'Tile Width', type: 'number', unit: 'in' },
+    { id: 'tileL', label: 'Tile Length', type: 'number', unit: 'in' },
+    { id: 'jointW', label: 'Joint Width', type: 'number', unit: 'in' }
+  ],
+  '/wallpaper': [
+    { id: 'width', label: 'Wall Width', type: 'number', unit: 'ft' },
+    { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
+    { id: 'rollSize', label: 'Roll Coverage', type: 'number', unit: 'sq ft', defaultValue: '56' }
+  ],
+  '/freelance-hourly-rate': [
+    { id: 'targetIncome', label: 'Annual Target Income', type: 'number', unit: '$' },
+    { id: 'overhead', label: 'Monthly Overhead', type: 'number', unit: '$' },
+    { id: 'billableHours', label: 'Weekly Billable Hours', type: 'number', defaultValue: '30' }
+  ],
+  '/concrete-weight': [
+    { id: 'volume', label: 'Total Volume', type: 'number', unit: 'cubic yards' },
+    { id: 'type', label: 'Concrete Type', type: 'select', options: [
+      { label: 'Normal Weight (150 lb/cu ft)', value: '150' },
+      { label: 'Lightweight (110 lb/cu ft)', value: '110' }
+    ]}
+  ],
+  '/cement': [
+    { id: 'volume', label: 'Desired Concrete Volume', type: 'number', unit: 'cubic yards' },
+    { id: 'ratio', label: 'Mix Ratio (Cement:Sand:Gravel)', type: 'select', options: [
+      { label: '1:2:3 (Standard)', value: '1:2:3' },
+      { label: '1:2:4 (Footings)', value: '1:2:4' }
+    ]}
+  ],
+  '/stair-carpet': [
+    { id: 'steps', label: 'Number of Steps', type: 'number' },
+    { id: 'width', label: 'Stair Width', type: 'number', unit: 'in' },
+    { id: 'run', label: 'Tread (Run)', type: 'number', unit: 'in' },
+    { id: 'rise', label: 'Riser (Height)', type: 'number', unit: 'in' }
+  ],
+  '/wainscoting': [
+    { id: 'wallLength', label: 'Total Wall Length', type: 'number', unit: 'ft' },
+    { id: 'panelWidth', label: 'Desired Panel Width', type: 'number', unit: 'in' },
+    { id: 'stileWidth', label: 'Stile (Divider) Width', type: 'number', unit: 'in' }
+  ],
+  '/shiplap': [
+    { id: 'width', label: 'Wall Width', type: 'number', unit: 'ft' },
+    { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
+    { id: 'boardWidth', label: 'Board Width', type: 'number', unit: 'in', defaultValue: '5.25' }
   ]
 };

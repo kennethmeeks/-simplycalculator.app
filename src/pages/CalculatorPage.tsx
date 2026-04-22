@@ -158,10 +158,12 @@ export const CalculatorPage: React.FC = () => {
             console.error("Schema discovery error:", err);
             setDiscoveryFailed(true);
             setDynamicFields([
-              { id: 'input1', label: `${foundItem.name} Value 1`, type: 'number' },
-              { id: 'input2', label: `${foundItem.name} Value 2`, type: 'number' }
+              { id: 'input1', label: `${foundItem.name} Input 1`, type: 'number' },
+              { id: 'input2', label: `${foundItem.name} Input 2`, type: 'number' },
+              { id: 'input3', label: `${foundItem.name} Input 3`, type: 'number' }
             ]);
-            setError("The discovery service is reaching its limit. You can try to 'Retry Discovery' or use the generic inputs above.");
+            // Suppress loud error for better UX, just provide a discreet retry if needed
+            setError(null); 
         } finally {
             setIsSchemaLoading(false);
         }

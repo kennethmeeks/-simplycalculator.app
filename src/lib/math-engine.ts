@@ -659,5 +659,144 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const months = cost / savings;
     const years = months / 12;
     return { value: `${years.toFixed(1)} Years`, explanation: `It will take approximately ${years.toFixed(1)} years to recover your $${cost.toLocaleString()} investment through monthly savings of $${savings.toLocaleString()}.` };
+  },
+  '/concrete': (inputs) => {
+    const l = parseFloat(inputs.length);
+    const w = parseFloat(inputs.width);
+    const t = parseFloat(inputs.thickness) / 12; // in to ft
+    if (isNaN(l) || isNaN(w) || isNaN(t)) return { value: 'Invalid input' };
+    const cubicFeet = l * w * t;
+    const cubicYards = cubicFeet / 27;
+    return { value: `${cubicYards.toFixed(2)} Yards`, explanation: `Total volume for a slab of ${l}x${w} with ${inputs.thickness}" thickness is ${cubicYards.toFixed(2)} cubic yards (or ${Math.ceil(cubicYards * 45)} 80lb bags).` };
+  },
+  '/paint': (inputs) => {
+    const l = parseFloat(inputs.length);
+    const h = parseFloat(inputs.height);
+    const coats = parseFloat(inputs.coats) || 1;
+    if (isNaN(l) || isNaN(h)) return { value: 'Invalid input' };
+    const sqft = l * h * coats;
+    const gallons = sqft / 350; // Standard coverage per gallon
+    return { value: `${gallons.toFixed(1)} Gallons`, explanation: `To cover ${sqft} sq ft, you will need approximately ${gallons.toFixed(1)} gallons of paint.` };
+  },
+  '/flooring': (inputs) => {
+    const l = parseFloat(inputs.length);
+    const w = parseFloat(inputs.width);
+    const waste = parseFloat(inputs.waste) / 100 || 0.1;
+    if (isNaN(l) || isNaN(w)) return { value: 'Invalid input' };
+    const net = l * w;
+    const gross = net * (1 + waste);
+    return { value: `${Math.ceil(gross)} sq ft`, explanation: `Net area is ${net} sq ft. Including ${waste * 100}% waste, you should order ${Math.ceil(gross)} sq ft.` };
+  },
+  '/bra-size': (inputs) => {
+    const bust = parseFloat(inputs.bust);
+    const under = parseFloat(inputs.underbust);
+    if (isNaN(bust) || isNaN(under)) return { value: 'Invalid input' };
+    const diff = Math.round(bust - under);
+    const band = Math.round(under);
+    const cups = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD', 'G', 'H', 'I', 'J'];
+    const cup = cups[diff] || 'Unknown';
+    return { value: `${band}${cup}`, explanation: `Based on your measurements, your estimated size is ${band}${cup}.` };
+  },
+  '/concrete-stairs': (inputs) => {
+    const steps = parseFloat(inputs.steps);
+    const w = parseFloat(inputs.width);
+    const run = parseFloat(inputs.run);
+    const rise = parseFloat(inputs.rise);
+    if (isNaN(steps) || isNaN(w) || isNaN(run) || isNaN(rise)) return { value: 'Invalid input' };
+    
+    // Each step is a wedge? No, usually landing part.
+    // Vol = Sum (width * run * height_at_step)
+    // Height at step i = i * rise
+    let volume = 0;
+    for(let i=1; i<=steps; i++) {
+        volume += (w * run * (i * rise));
+    }
+    const cubicYards = volume / 46656; // cubic inches to cubic yards
+    return { value: `${cubicYards.toFixed(2)} Yards`, explanation: `Total concrete needed for ${steps} steps is ${cubicYards.toFixed(2)} cubic yards.` };
+  },
+  '/brick': (inputs) => {
+    const l = parseFloat(inputs.length);
+    const h = parseFloat(inputs.height);
+    const type = inputs.brickType || 'std';
+    if (isNaN(l) || isNaN(h)) return { value: 'Invalid input' };
+    
+    const area = l * h;
+    const bricksPerSqft = (type === 'std') ? 7 : 6; // Standard estimate
+    const count = Math.ceil(area * bricksPerSqft * 1.1); // 10% waste
+    return { value: `${count} Bricks`, explanation: `For a ${l}'x${h}' wall, you need about ${count} bricks (includes 10% waste).` };
+  },
+  '/a1c-to-glucose': (inputs) => {
+    const a1c = parseFloat(inputs.a1c);
+    if (isNaN(a1c)) return { value: 'Invalid input' };
+    const mgdl = (28.7 * a1c) - 46.7;
+    const mmol = mgdl / 18.0182;
+    return { value: `${Math.round(mgdl)} mg/dL`, explanation: `An A1c of ${a1c}% corresponds to an average glucose of ${Math.round(mgdl)} mg/dL (${mmol.toFixed(1)} mmol/L).` };
+  },
+  '/words-to-pages': (inputs) => {
+    const words = parseFloat(inputs.words);
+    const spacing = parseFloat(inputs.spacing) || 1;
+    if (isNaN(words)) return { value: 'Invalid input' };
+    const wordsPerPage = 500 / spacing;
+    const pages = words / wordsPerPage;
+    return { value: `${pages.toFixed(1)} Pages`, explanation: `Approximately ${pages.toFixed(1)} pages based on standard formatting.` };
+  },
+  '/bac-calculator': (inputs) => {
+    const drinks = parseFloat(inputs.drinks);
+    const weight = parseFloat(inputs.weight);
+    const gender = inputs.gender;
+    const hours = parseFloat(inputs.hours) || 0;
+    if (isNaN(drinks) || isNaN(weight)) return { value: 'Invalid input' };
+    
+    const r = (gender === 'female') ? 0.66 : 0.73;
+    const bac = (drinks * 5.14 / (weight * r)) - (0.015 * hours);
+    const result = Math.max(0, bac);
+    return { value: `${result.toFixed(3)}%`, explanation: `Estimated Blood Alcohol Concentration based on Widmark's formula.` };
+  },
+  '/wallpaper': (inputs) => {
+    const w = parseFloat(inputs.width);
+    const h = parseFloat(inputs.height);
+    const roll = parseFloat(inputs.rollSize) || 56;
+    if (isNaN(w) || isNaN(h)) return { value: 'Invalid input' };
+    const area = w * h;
+    const rolls = area / roll;
+    return { value: `${Math.ceil(rolls)} Rolls`, explanation: `To cover ${area} sq ft, you will need ${Math.ceil(rolls)} rolls (based on ${roll} sq ft per roll).` };
+  },
+  '/freelance-hourly-rate': (inputs) => {
+    const income = parseFloat(inputs.targetIncome);
+    const overhead = parseFloat(inputs.overhead) || 0;
+    const hours = parseFloat(inputs.billableHours) || 30;
+    if (isNaN(income)) return { value: 'Invalid input' };
+    
+    const yearlyOverhead = overhead * 12;
+    const totalNeeded = income + yearlyOverhead;
+    const yearlyHours = hours * 48; // 4 weeks vacation
+    const rate = totalNeeded / yearlyHours;
+    return { value: `$${rate.toFixed(2)}/hr`, explanation: `To net $${income} after overhead and taxes, your hourly rate should be $${rate.toFixed(2)}.` };
+  },
+  '/concrete-weight': (inputs) => {
+    const vol = parseFloat(inputs.volume);
+    const density = parseFloat(inputs.type) || 150;
+    if (isNaN(vol)) return { value: 'Invalid input' };
+    const weightLbs = vol * 27 * density;
+    const tons = weightLbs / 2000;
+    return { value: `${tons.toFixed(2)} Tons`, explanation: `Total weight of ${vol} cubic yards is approximately ${weightLbs.toLocaleString()} lbs or ${tons.toFixed(2)} tons.` };
+  },
+  '/cement': (inputs) => {
+    const vol = parseFloat(inputs.volume);
+    if (isNaN(vol)) return { value: 'Invalid input' };
+    // Rule of thumb: 1 yard of concrete takes roughly 5-6 bags of cement if doing custom mix
+    const bags70lb = vol * 6; 
+    return { value: `${Math.ceil(bags70lb)} Bags`, explanation: `To create ${vol} cu yards of concrete from scratch, you will need about ${Math.ceil(bags70lb)} 70lb bags of Portland cement plus sand/gravel.` };
+  },
+  '/wainscoting': (inputs) => {
+    const wall = parseFloat(inputs.wallLength) * 12; // ft to in
+    const panel = parseFloat(inputs.panelWidth);
+    const stile = parseFloat(inputs.stileWidth);
+    if (isNaN(wall) || isNaN(panel) || isNaN(stile)) return { value: 'Invalid input' };
+    
+    // wall = n*panel + (n+1)*stile
+    // wall - stile = n*(panel + stile)
+    const n = Math.floor((wall - stile) / (panel + stile));
+    return { value: `${n} Panels`, explanation: `Based on your wall length and desired widths, you can fit ${n} panels perfectly.` };
   }
 };
