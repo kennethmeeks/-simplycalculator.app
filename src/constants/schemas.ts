@@ -225,5 +225,76 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/math/percent-error': [
     { id: 'experimental', label: 'Experimental Value (Measured)', type: 'number' },
     { id: 'theoretical', label: 'Theoretical Value (Accepted)', type: 'number' }
+  ],
+  '/12-hour-shift-pay': [
+    { id: 'hourlyRate', label: 'Hourly Rate', type: 'number', unit: '$' },
+    { id: 'shiftDifferential', label: 'Shift Differential (per hour)', type: 'number', unit: '$', defaultValue: '0' },
+    { id: 'hoursPerShift', label: 'Hours per Shift', type: 'number', defaultValue: '12' },
+    { id: 'shiftsPerWeek', label: 'Shifts per Week', type: 'number', defaultValue: '3' }
+  ],
+  '/3x-rent-calculator': [
+    { id: 'monthlyRent', label: 'Monthly Rent', type: 'number', unit: '$' },
+    { id: 'annualIncome', label: 'Your Annual Gross Income', type: 'number', unit: '$' }
+  ],
+  '/coordinates-converter': [
+    { id: 'latitude', label: 'Latitude', type: 'number', placeholder: 'e.g. 40.7128' },
+    { id: 'longitude', label: 'Longitude', type: 'number', placeholder: 'e.g. -74.0060' },
+    { id: 'format', label: 'Output Format', type: 'select', options: [
+      { label: 'Degrees Minutes Seconds (DMS)', value: 'dms' },
+      { label: 'Decimal Degrees (DD)', value: 'dd' }
+    ]}
+  ],
+  '/401k': [
+    { id: 'salary', label: 'Annual Salary', type: 'number', unit: '$' },
+    { id: 'contribution', label: 'Your Contribution', type: 'number', unit: '%' },
+    { id: 'match', label: 'Employer Match', type: 'number', unit: '%' },
+    { id: 'years', label: 'Years to Retirement', type: 'number' }
+  ],
+  '/overtime-calculator': [
+    { id: 'hourlyRate', label: 'Regular Hourly Rate', type: 'number', unit: '$' },
+    { id: 'regularHours', label: 'Regular Hours Worked', type: 'number', defaultValue: '40' },
+    { id: 'overtimeHours', label: 'Overtime Hours Worked', type: 'number' },
+    { id: 'otMultiplier', label: 'Overtime Multiplier (1.5x)', type: 'number', defaultValue: '1.5' }
+  ],
+  '/roi': [
+    { id: 'invested', label: 'Amount Invested', type: 'number', unit: '$' },
+    { id: 'returned', label: 'Amount Returned', type: 'number', unit: '$' },
+    { id: 'years', label: 'Time Period (Optional)', type: 'number', unit: 'years' }
+  ],
+  '/auto-loan': [
+    { id: 'price', label: 'Vehicle price', type: 'number', unit: '$' },
+    { id: 'downPayment', label: 'Down Payment', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%' },
+    { id: 'term', label: 'Loan Term', type: 'number', unit: 'months' }
+  ],
+  '/hourly-to-salary': [
+    { id: 'hourlyRate', label: 'Hourly Wage', type: 'number', unit: '$' },
+    { id: 'hoursPerWeek', label: 'Hours per Week', type: 'number', defaultValue: '40' }
+  ],
+  '/take-home-pay': [
+    { id: 'salary', label: 'Annual Gross Salary', type: 'number', unit: '$' },
+    { id: 'state', label: 'State (US)', type: 'text', placeholder: 'e.g. CA' },
+    { id: 'status', label: 'Filing Status', type: 'select', options: [
+      { label: 'Single', value: 'single' },
+      { label: 'Married', value: 'married' },
+      { label: 'Head of Household', value: 'head' }
+    ]}
+  ],
+  '/pregnancy': [
+    { id: 'lastPeriod', label: 'First day of last period', type: 'date' },
+    { id: 'cycleLength', label: 'Average cycle length', type: 'number', defaultValue: '28', unit: 'days' }
+  ],
+  '/gpa-advanced': [
+    { id: 'grade1', label: 'Grade (0-4 or A-F)', type: 'text', placeholder: 'e.g. 4.0 or A' },
+    { id: 'credits1', label: 'Credits', type: 'number', defaultValue: '3' },
+    { id: 'grade2', label: 'Grade', type: 'text' },
+    { id: 'credits2', label: 'Credits', type: 'number', defaultValue: '3' },
+    { id: 'grade3', label: 'Grade', type: 'text' },
+    { id: 'credits3', label: 'Credits', type: 'number', defaultValue: '3' }
+  ],
+  '/inflation': [
+    { id: 'amount', label: 'Amount', type: 'number', unit: '$' },
+    { id: 'startYear', label: 'Start Year', type: 'number', defaultValue: '2000' },
+    { id: 'endYear', label: 'End Year', type: 'number', defaultValue: new Date().getFullYear().toString() }
   ]
 };

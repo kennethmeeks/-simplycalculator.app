@@ -49,6 +49,9 @@ const safeParseAIResponse = (text: string | undefined): any => {
 
 // Helper for retries
 const callGeminiWithRetry = async (params: any, retries = 2) => {
+    if (!process.env.GEMINI_API_KEY) {
+        throw new Error("AI services are currently unavailable. Please verify API configuration.");
+    }
     let lastError;
     for (let i = 0; i <= retries; i++) {
         try {
@@ -134,7 +137,7 @@ export const CalculatorPage: React.FC = () => {
                                         properties: {
                                             id: { type: Type.STRING },
                                             label: { type: Type.STRING },
-                                            type: { type: Type.STRING, enum: ['number', 'text', 'date', 'select'] },
+                                            type: { type: Type.STRING },
                                             unit: { type: Type.STRING },
                                             options: {
                                                 type: Type.ARRAY,
@@ -157,11 +160,20 @@ export const CalculatorPage: React.FC = () => {
                 });
                 
                 const data = safeParseAIResponse(response.text);
-                setDynamicFields(data.fields);
-                localStorage.setItem(CACHE_KEY_SCHEMA(foundItem.path), JSON.stringify(data.fields));
-            } catch (err) {
+                if (data?.fields && Array.isArray(data.fields)) {
+                    setDynamicFields(data.fields);
+                    localStorage.setItem(CACHE_KEY_SCHEMA(foundItem.path), JSON.stringify(data.fields));
+                } else {
+                    throw new Error("Invalid schema received from AI");
+                }
+            } catch (err: any) {
                 console.error("Schema discovery error:", err);
-                setError("Unable to initialize this specific module. Please try again later.");
+                // Fallback to generic fields instead of showing a fatal error
+                setDynamicFields([
+                  { id: 'value1', label: 'Value 1', type: 'number' },
+                  { id: 'value2', label: 'Value 2', type: 'number' }
+                ]);
+                setError("Note: Using generic inputs as discovery service is temporarily unavailable.");
             } finally {
                 setIsSchemaLoading(false);
             }

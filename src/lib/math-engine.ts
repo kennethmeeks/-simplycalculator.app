@@ -194,5 +194,112 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       value: `${err.toFixed(4)}%`,
       explanation: `The percentage difference between your measured value (${exp}) and the accepted value (${theo}) is ${err.toFixed(4)}%.`
     };
+  },
+  '/coordinates-converter': (inputs) => {
+    const lat = parseFloat(inputs.latitude);
+    const lon = parseFloat(inputs.longitude);
+    const format = inputs.format || 'dms';
+    if (isNaN(lat) || isNaN(lon)) return { value: 'Invalid input' };
+
+    const toDMS = (coord: number, isLat: boolean) => {
+      const absolute = Math.abs(coord);
+      const degrees = Math.floor(absolute);
+      const minutesNotTruncated = (absolute - degrees) * 60;
+      const minutes = Math.floor(minutesNotTruncated);
+      const seconds = ((minutesNotTruncated - minutes) * 60).toFixed(2);
+      const direction = isLat 
+        ? (coord >= 0 ? 'N' : 'S') 
+        : (coord >= 0 ? 'E' : 'W');
+      return `${degrees}° ${minutes}' ${seconds}" ${direction}`;
+    };
+
+    if (format === 'dms') {
+      return {
+        value: `${toDMS(lat, true)}, ${toDMS(lon, false)}`,
+        explanation: 'Converted from decimal degrees to Degrees Minutes Seconds.'
+      };
+    }
+    return {
+      value: `${lat.toFixed(6)}, ${lon.toFixed(6)}`,
+      explanation: 'Decimal Degree format (standard GPS).'
+    };
+  },
+  '/3x-rent-calculator': (inputs) => {
+    const rent = parseFloat(inputs.monthlyRent);
+    const income = parseFloat(inputs.annualIncome);
+    if (isNaN(rent) || isNaN(income)) return { value: 'Invalid input' };
+
+    const requiredIncome = rent * 3 * 12;
+    const canAfford = income >= requiredIncome;
+    const monthlyIncome = income / 12;
+    const rentRatio = (rent / monthlyIncome) * 100;
+
+    return {
+      value: canAfford ? 'Eligible' : 'Not Recommended',
+      explanation: `To afford $${rent.toLocaleString()} rent comfortably (3x rule), you need $${requiredIncome.toLocaleString()} annual income. Your current rent-to-income ratio is ${rentRatio.toFixed(1)}%.`
+    };
+  },
+  '/12-hour-shift-pay': (inputs) => {
+    const rate = parseFloat(inputs.hourlyRate);
+    const diff = parseFloat(inputs.shiftDifferential) || 0;
+    const hours = parseFloat(inputs.hoursPerShift) || 12;
+    const shifts = parseFloat(inputs.shiftsPerWeek) || 3;
+    if (isNaN(rate)) return { value: 'Invalid input' };
+
+    const totalRate = rate + diff;
+    const weeklyPay = totalRate * hours * shifts;
+    const annualPay = weeklyPay * 52;
+
+    return {
+      value: `$${weeklyPay.toLocaleString()} /wk`,
+      explanation: `With a ${hours}-hour shift and ${shifts} shifts/week, including a $${diff} differential, your annual gross is $${annualPay.toLocaleString()}.`
+    };
+  },
+  '/overtime-calculator': (inputs) => {
+    const rate = parseFloat(inputs.hourlyRate);
+    const regHours = parseFloat(inputs.regularHours) || 40;
+    const otHours = parseFloat(inputs.overtimeHours) || 0;
+    const multi = parseFloat(inputs.otMultiplier) || 1.5;
+    if (isNaN(rate)) return { value: 'Invalid input' };
+
+    const regPay = rate * regHours;
+    const otPay = (rate * multi) * otHours;
+    const total = regPay + otPay;
+
+    return {
+      value: `$${total.toLocaleString()}`,
+      explanation: `Regular Pay: $${regPay.toLocaleString()}. Overtime Pay: $${otPay.toLocaleString()} (${otHours} hours at $${(rate*multi).toFixed(2)}/hr).`
+    };
+  },
+  '/hourly-to-salary': (inputs) => {
+    const hr = parseFloat(inputs.hourlyRate);
+    const hrsPerWk = parseFloat(inputs.hoursPerWeek) || 40;
+    if (isNaN(hr)) return { value: 'Invalid input' };
+
+    const weekly = hr * hrsPerWk;
+    const annual = weekly * 52;
+    const monthly = annual / 12;
+
+    return {
+      value: `$${annual.toLocaleString()} /yr`,
+      explanation: `Based on ${hrsPerWk} hours/week: Weekly: $${weekly.toLocaleString()} | Monthly: $${monthly.toLocaleString(undefined, {maximumFractionDigits: 0})}.`
+    }
+  },
+  '/pregnancy': (inputs) => {
+    const lmp = new Date(inputs.lastPeriod);
+    if (isNaN(lmp.getTime())) return { value: 'Invalid date' };
+    
+    // Naegele's rule: +280 days
+    const due = new Date(lmp);
+    due.setDate(due.getDate() + 280);
+    
+    // Weeks along
+    const diff = new Date().getTime() - lmp.getTime();
+    const weeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
+    
+    return {
+      value: due.toLocaleDateString(),
+      explanation: `Estimated due date based on LMP + 280 days. You are approximately ${weeks} weeks pregnant.`
+    };
   }
 };
