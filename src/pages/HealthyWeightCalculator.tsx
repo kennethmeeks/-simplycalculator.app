@@ -74,24 +74,37 @@ export const HealthyWeightCalculator: React.FC = () => {
       </div>
 
       <div className="prose prose-slate max-w-none">
-        <h2>What is a Healthy Weight?</h2>
+        <h2 className="text-2xl font-bold text-slate-900">What is a Healthy Weight?</h2>
         <p>
-          A healthy weight is a weight that is appropriate for your height and body type. It's not just about how you look, but about your overall health and well-being. Maintaining a healthy weight can reduce your risk of developing chronic diseases like heart disease, type 2 diabetes, and certain types of cancer.
+          A healthy weight is a weight that is appropriate for your height and body type. It's not just about how you look, but about your overall health and well-being. Our <strong>healthy weight calculator 2026</strong> provides a target range using the standard Body Mass Index (BMI) of 18.5 to 24.9.
         </p>
-        <h3>How Healthy Weight is Calculated</h3>
+        
+        <h3 className="text-xl font-bold text-slate-900 mt-8">How Healthy Weight is Calculated</h3>
         <p>
-          The most common way to determine a healthy weight range is by using the Body Mass Index (BMI). A BMI between 18.5 and 24.9 is generally considered to be in the healthy range for most adults.
+          The most common way to determine a healthy weight range is by using the Body Mass Index (BMI). A BMI between 18.5 and 24.9 is generally considered to be in the healthy range for most adults. While BMI doesn't account for muscle mass or bone density, it is a reliable starting point for the general population.
         </p>
-        <h3>Factors That Influence Your Weight</h3>
-        <p>
-          Many factors can influence your weight, including your genetics, age, gender, activity level, and diet. It's important to focus on healthy habits rather than just the number on the scale.
-        </p>
-        <h3>Tips for Maintaining a Healthy Weight</h3>
-        <ul>
-          <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean protein.</li>
-          <li>Engage in regular physical activity, aiming for at least 150 minutes of moderate-intensity exercise per week.</li>
-          <li>Get enough sleep, as lack of sleep can disrupt your metabolism and lead to weight gain.</li>
-          <li>Manage your stress levels, as chronic stress can also contribute to weight gain.</li>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
+        <div className="space-y-4">
+          <div>
+            <p className="font-bold text-slate-900">Is BMI accurate for athletes?</p>
+            <p>BMI often categorizes athletes with high muscle mass as "overweight" because muscle is denser than fat. If you are very muscular, you may want to focus on body fat percentage or waist-to-hip ratio instead of just BMI.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">What if I am outside the range?</p>
+            <p>Being slightly above or below the range doesn't necessarily mean you are unhealthy. It's best to discuss your specific body composition and health markers (like blood pressure and cholesterol) with a healthcare professional.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">Does age affect healthy weight?</p>
+            <p>Yes. As we age, our muscle mass tends to decrease and body fat tends to increase. Some research suggests that a slightly higher BMI (around 25-27) may actually be healthier for older adults (65+).</p>
+          </div>
+        </div>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Practical Tips for Weight Management</h3>
+        <ul className="space-y-2">
+          <li><strong>Balanced Nutrition:</strong> Focus on whole, unprocessed foods like vegetables, lean proteins, and healthy fats.</li>
+          <li><strong>Regular Movement:</strong> Aim for a mix of cardiovascular exercise and strength training to maintain muscle mass.</li>
+          <li><strong>Consistency:</strong> Focus on sustainable lifestyle changes rather than "crash diets" that are hard to maintain.</li>
         </ul>
       </div>
     </div>

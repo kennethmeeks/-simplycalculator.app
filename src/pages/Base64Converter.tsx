@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const Base64Converter: React.FC = () => {
@@ -80,20 +81,11 @@ export const Base64Converter: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Base64?</h2>
-        <p>
-          Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's a useful tool for quantifying the uncertainty of an estimate and identifying the range of values for a data set.
-        </p>
-        <h3>How to Use Base64</h3>
-        <p>
-          To use Base64, you simply enter your text and select whether you want to encode or decode it. The calculator will then perform the calculation and display the Base64 representation of your text.
-        </p>
-        <h3>Why Base64 Matters</h3>
-        <p>
-          Base64 is critical for analyzing and interpreting data in a wide range of fields, including computer science, engineering, and telecommunications. It provides a simple and effective way to quantify and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Base64 Converter" 
+        path="/base64-converter" 
+        description="Encode and decode text to Base64 format instantly. Learn about binary-to-text encoding and its uses in data transmission in 2026."
+      />
     </div>
   );
 };

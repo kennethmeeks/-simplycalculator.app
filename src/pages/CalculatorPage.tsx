@@ -215,7 +215,8 @@ export const CalculatorPage: React.FC = () => {
                     1. A dedicated section on "Mathematical Formula" explaining the logic clearly.
                     2. A section on "Unit Conversions" (e.g. Metric to Imperial) if relevant to this tool.
                     3. A section on "Usage & Examples" providing context on when to use this.
-                    Keep the response authoritative yet concise (under 3000 characters total).`,
+                    4. A "Frequently Asked Questions (FAQ)" section with at least 3 high-value questions and answers.
+                    Keep the response authoritative yet concise (under 4000 characters total).`,
                     config: {
                         systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Ensure the 'sections' array contains exactly 3 items addressing: Formula, Units, and Usage Context. Accuracy is paramount.",
                         responseMimeType: "application/json",

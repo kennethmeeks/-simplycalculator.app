@@ -71,21 +71,35 @@ export const FatIntakeCalculator: React.FC = () => {
       </div>
 
       <div className="prose prose-slate max-w-none">
-        <h2>The Role of Fats in Your Diet</h2>
+        <h2 className="text-2xl font-bold text-slate-900">The Role of Fats in Your Diet</h2>
         <p>
-          Fats are an essential part of a healthy diet, providing energy, supporting cell growth, and helping your body absorb certain vitamins. They are found in a wide variety of foods, including nuts, seeds, avocados, and oils.
+          Fats are an essential part of a healthy diet, providing energy, supporting cell growth, and helping your body absorb certain vitamins. Our <strong>fat intake calculator 2026</strong> helps you determine exactly how many grams of fat you should consume to stay within your desired macronutrient range.
         </p>
-        <h3>How Much Fat Do You Need?</h3>
+        
+        <h3 className="text-xl font-bold text-slate-900 mt-8">How Much Fat Do You Need?</h3>
         <p>
-          The Dietary Guidelines for Americans recommend that fats make up 20% to 35% of your total daily calorie intake. For someone on a 2,000-calorie diet, this translates to about 44 to 78 grams of fat per day.
+          The Dietary Guidelines for Americans recommend that fats make up 20% to 35% of your total daily calorie intake. For someone on a 2,000-calorie diet, this translates to about 44 to 78 grams of fat per day. 
         </p>
-        <h3>Types of Fats</h3>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
+        <div className="space-y-4">
+          <div>
+            <p className="font-bold text-slate-900">Will eating fat make me fat?</p>
+            <p>Body fat gain is primarily caused by an overall calorie surplus, not just the intake of dietary fat. In fact, healthy fats help with satiety and hormonal balance, which can actually assist in weight management.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">What are the "best" sources of healthy fat?</p>
+            <p>Monounsaturated and polyunsaturated fats are considered the healthiest. Great sources include avocados, extra virgin olive oil, nuts (like walnuts and almonds), seeds (chia and flax), and fatty fish like salmon.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">How many calories are in a gram of fat?</p>
+            <p>Fat is more energy-dense than other macronutrients. Every gram of fat contains exactly 9 calories, whereas protein and carbohydrates contain only 4 calories per gram.</p>
+          </div>
+        </div>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Types of Fats and Their Impact</h3>
         <p>
-          Not all fats are created equal. It's important to focus on healthy, unsaturated fats, which are found in nuts, seeds, and avocados, as they can help lower your risk of heart disease. Saturated and trans fats, which are found in processed snacks and fried foods, should be limited.
-        </p>
-        <h3>Fats and Weight Management</h3>
-        <p>
-          While fats are high in calories, they are still an essential part of a balanced diet. The key is to choose high-quality, nutrient-dense sources and to manage your overall calorie intake.
+          Focus on replacing saturated fats (found in fatty meats and butter) and trans fats (found in processed snacks) with unsaturated fats. This simple shift can help lower LDL (bad) cholesterol and improve your overall cardiovascular health profile in 2026.
         </p>
       </div>
     </div>

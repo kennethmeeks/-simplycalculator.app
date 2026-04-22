@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BodySurfaceAreaCalculator: React.FC = () => {
@@ -68,28 +69,11 @@ export const BodySurfaceAreaCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Body Surface Area (BSA)?</h2>
-        <p>
-          Body Surface Area (BSA) is a measure of the total surface area of the human body. It's often used in clinical settings to calculate drug dosages, assess the severity of burns, and monitor kidney function.
-        </p>
-        <h3>How BSA is Calculated</h3>
-        <p>
-          The most common way to calculate BSA is by using the Mosteller formula, which is based on your weight and height. Other formulas, such as the Du Bois and Haycock formulas, are also used in certain situations.
-        </p>
-        <h3>Why BSA Matters</h3>
-        <p>
-          BSA is considered a more accurate measure of metabolic rate than body weight alone, as it accounts for the body's total surface area. It's particularly useful in pediatrics and oncology, where precise drug dosages are critical.
-        </p>
-        <h3>Tips for Maintaining a Healthy BSA</h3>
-        <ul>
-          <li>Focus on healthy habits and self-care.</li>
-          <li>Eat a balanced diet rich in fruits, vegetables, and whole grains.</li>
-          <li>Engage in regular physical activity.</li>
-          <li>Get enough sleep and manage your stress levels.</li>
-          <li>Talk to your healthcare provider if you have any concerns about your body surface area or health.</li>
-        </ul>
-      </div>
+      <CalculatorSEO 
+        name="Body Surface Area Calculator" 
+        path="/body-surface-area" 
+        description="Calculate your Body Surface Area (BSA) using standard medical formulas like Mosteller. Essential for clinical assessments and dosage calculations in 2026."
+      />
     </div>
   );
 };

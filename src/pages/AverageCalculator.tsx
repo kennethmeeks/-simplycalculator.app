@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AverageCalculator: React.FC = () => {
@@ -70,30 +71,11 @@ export const AverageCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Averages</h2>
-        <p>
-          Averages are a way of summarizing a set of numbers into a single value. They are commonly used in statistics, science, and everyday life to represent typical values.
-        </p>
-        <p>
-          Our <strong>average calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to calculate the mean of a set of numbers. It sums all the numbers in the set and divides the total by the number of values.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use an Average Calculator?</h3>
-        <p>
-          Average calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Summarization:</strong> They provide a fun and insightful way to summarize a set of numbers into a single value.</li>
-          <li><strong>Comparison:</strong> They can be a great tool for comparing different sets of data.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential for understanding trends and patterns.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Average Calculator" 
+        path="/average-calculator" 
+        description="Calculate the arithmetic mean, median, and mode for any set of numbers with detailed statistical breakdowns."
+      />
     </div>
   );
 };

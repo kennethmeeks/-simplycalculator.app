@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ChildHeightPredictor: React.FC = () => {
@@ -92,30 +93,11 @@ export const ChildHeightPredictor: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Height Prediction</h2>
-        <p>
-          Height prediction is a process of estimating a child's future height based on various factors. It is commonly used for family planning and health awareness to track growth and development.
-        </p>
-        <p>
-          Our <strong>child height predictor 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our predictor uses a simple algorithm to estimate a child's future height based on the Mid-Parental Height formula. It assumes that a child's height is the average of their parents' heights, adjusted for gender.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Child Height Predictor?</h3>
-        <p>
-          Child height predictors are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Family Planning:</strong> They provide a fun and insightful way to estimate your child's future height and plan for growth.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for tracking your child's growth and development.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your child's potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Child Height Predictor" 
+        path="/child-height-predictor" 
+        description="Predict your child's adult height using the mid-parental height method. Factors include genetics, nutrition, and environmental influences."
+      />
     </div>
   );
 };

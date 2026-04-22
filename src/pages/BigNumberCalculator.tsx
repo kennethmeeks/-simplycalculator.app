@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BigNumberCalculator: React.FC = () => {
@@ -91,20 +92,11 @@ export const BigNumberCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What are Big Numbers?</h2>
-        <p>
-          Big numbers are integers that are larger than the maximum value that can be represented by a standard 64-bit floating-point number. In JavaScript, this maximum value is 2^53 - 1.
-        </p>
-        <h3>How to Work with Big Numbers</h3>
-        <p>
-          To work with big numbers in JavaScript, you can use the BigInt data type, which allows you to perform basic arithmetic operations on integers of arbitrary size.
-        </p>
-        <h3>Why Big Numbers Matter</h3>
-        <p>
-          Big numbers are critical for analyzing and interpreting data in a wide range of fields, including cryptography, computer science, and finance. They provide a simple and effective way to manage and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Big Number Calculator" 
+        path="/big-number-calculator" 
+        description="Perform arithmetic on arbitrarily large integers using BigInt technology. Handle astronomical figures and high-precision values easily in 2026."
+      />
     </div>
   );
 };

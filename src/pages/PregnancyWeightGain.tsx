@@ -127,19 +127,21 @@ export const PregnancyWeightGainCalculator: React.FC = () => {
       </div>
 
       <div className="prose prose-slate max-w-none">
-        <h2>Understanding Pregnancy Weight Gain</h2>
+        <h2 className="text-2xl font-bold text-slate-900">Understanding Pregnancy Weight Gain</h2>
         <p>
-          Weight gain during pregnancy is a natural and necessary part of supporting your growing baby. The amount of weight you should gain depends largely on your Body Mass Index (BMI) before you became pregnant.
+          Weight gain during pregnancy is a natural and necessary part of supporting your growing baby. The amount of weight you should gain depends largely on your Body Mass Index (BMI) before you became pregnant. Our <strong>pregnancy weight gain calculator 2026</strong> uses guidelines from the Institute of Medicine (IOM) to help you track your progress.
         </p>
-        <h3>Why Weight Gain Matters</h3>
+        
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Weight Gain Matters</h3>
         <p>
           Gaining the right amount of weight helps reduce the risk of complications for both you and your baby. Gaining too little can lead to low birth weight or premature birth, while gaining too much can increase the risk of gestational diabetes, preeclampsia, and the need for a C-section.
         </p>
-        <h3>Where Does the Weight Go?</h3>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Where Does the Weight Go?</h3>
         <p>
           It's not just fat! The weight you gain is distributed among several areas:
         </p>
-        <ul>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <li><strong>Baby:</strong> ~3.5 kg</li>
           <li><strong>Placenta:</strong> ~0.7 kg</li>
           <li><strong>Amniotic Fluid:</strong> ~0.9 kg</li>
@@ -149,6 +151,22 @@ export const PregnancyWeightGainCalculator: React.FC = () => {
           <li><strong>Fluid in Tissue:</strong> ~1.8 kg</li>
           <li><strong>Fat Stores:</strong> ~3 kg</li>
         </ul>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
+        <div className="space-y-4">
+          <div>
+            <p className="font-bold text-slate-900">When do you gain the most weight during pregnancy?</p>
+            <p>Most women gain the majority of their pregnancy weight during the second and third trimesters. In the first trimester, weight gain is typically minimal (1-2 kg total) as the baby is still very small.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">Is it normal to lose weight in the first trimester?</p>
+            <p>Some women may lose a small amount of weight due to morning sickness or changes in appetite. However, you should always consult your doctor if you are concerned about weight loss during pregnancy.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">How many extra calories do I need?</p>
+            <p>On average, pregnant women need about 340 extra calories per day in the second trimester and about 450 extra calories per day in the third trimester. This is roughly equivalent to a small snack or a glass of milk and a piece of fruit.</p>
+          </div>
+        </div>
       </div>
     </div>
   );

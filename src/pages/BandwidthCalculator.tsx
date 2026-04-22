@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BandwidthCalculator: React.FC = () => {
@@ -68,20 +69,11 @@ export const BandwidthCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Bandwidth?</h2>
-        <p>
-          Bandwidth is a measure of the maximum rate of data transfer across a network. It's a fundamental physical property of matter and is used in a wide range of fields, including computer science, engineering, and telecommunications.
-        </p>
-        <h3>How to Calculate Download Time</h3>
-        <p>
-          To calculate download time, you simply divide the file size by the connection speed. The formula is: T = (S * 8) / V, where T is time, S is file size in MB, and V is connection speed in Mbps.
-        </p>
-        <h3>Why Bandwidth Matters</h3>
-        <p>
-          Bandwidth is critical for analyzing and interpreting data in a wide range of fields, including science, engineering, and technology. It provides a simple and effective way to quantify and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Bandwidth Calculator" 
+        path="/bandwidth-calculator" 
+        description="Estimate file download and upload times based on connection speed. Understand bitrate, network latency, and throughput in 2026."
+      />
     </div>
   );
 };

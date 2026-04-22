@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Thermometer, Home, Wind, Info, BookOpen, HelpCircle } from 'lucide-react';
 
+import { CalculatorSEO } from '../components/CalculatorSEO';
+
 export const BTUCalculator: React.FC = () => {
   const [length, setLength] = useState<string>('20');
   const [width, setWidth] = useState<string>('15');
@@ -160,14 +162,11 @@ export const BTUCalculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-sm">
-            <h3 className="font-bold mb-4">Energy Efficiency</h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              When buying a unit, look for the <strong>EER</strong> (Energy Efficiency Ratio) or <strong>SEER</strong> rating. Higher numbers mean the unit uses less electricity to provide the same amount of cooling.
-            </p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="BTU Calculator" 
+        path="/btu-calculator" 
+        description="Calculate the precise BTU requirements for heating and cooling based on room square footage, insulation quality, and local climate factors in 2026."
+      />
     </div>
   );
 };

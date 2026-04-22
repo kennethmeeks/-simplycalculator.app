@@ -79,25 +79,36 @@ export const PeriodCalculator: React.FC = () => {
       </div>
 
       <div className="prose prose-slate max-w-none">
-        <h2>Understanding Your Menstrual Cycle</h2>
+        <h2 className="text-2xl font-bold text-slate-900">Understanding Your Menstrual Cycle</h2>
         <p>
-          Your menstrual cycle is the time from the first day of one period to the first day of the next. While the average cycle length is 28 days, it's normal for it to range from 21 to 35 days.
+          Your menstrual cycle is the time from the first day of one period to the first day of the next. While the average cycle length is 28 days, it's normal for it to range from 21 to 35 days. Our <strong>period calculator 2026</strong> helps you stay ahead of your body's natural rhythms.
         </p>
-        <h3>Why Track Your Cycle?</h3>
+        
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Track Your Cycle?</h3>
         <p>
           Tracking your cycle can help you understand your body's patterns, predict your next period, and identify your most fertile days if you're trying to conceive. It can also help you identify any irregularities that you may want to discuss with your healthcare provider.
         </p>
-        <h3>Factors That Influence Your Cycle</h3>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
+        <div className="space-y-4">
+          <div>
+            <p className="font-bold text-slate-900">What is considered a "normal" cycle length?</p>
+            <p>While 28 days is the textbook average, a cycle length of 21 to 35 days is considered normal for most adults. For teenagers, cycles can be even longer or more irregular as their bodies adjust.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">When does ovulation typically occur?</p>
+            <p>In a standard 28-day cycle, ovulation usually occurs around day 14. More precisely, it happens about 14 days <em>before</em> your next period starts. If your cycle is 30 days, you likely ovulate on day 16.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">Can stress delay my period?</p>
+            <p>Yes. Stress can impact the hypothalamus, the part of your brain that regulates your hormones. High levels of stress can delay or even temporarily stop your period (amenorrhea).</p>
+          </div>
+        </div>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Factors to Watch For</h3>
         <p>
-          Many factors can influence your menstrual cycle, including stress, diet, exercise, and certain health conditions. It's important to focus on healthy habits and to talk to your doctor if you have any concerns about your cycle.
+          While tracking, pay attention to changes in flow, duration, and pain levels. Significant shifts can sometimes indicate underlying conditions like PCOS or thyroid issues. Always use trackers as a tool for personal awareness rather than medical diagnosis.
         </p>
-        <h3>Tips for Tracking Your Cycle</h3>
-        <ul>
-          <li>Record the first day of your period each month.</li>
-          <li>Note any symptoms you experience, such as cramping, bloating, or mood changes.</li>
-          <li>Use a calendar or a tracking app to help you stay organized.</li>
-          <li>Talk to your healthcare provider if you have any concerns about your cycle.</li>
-        </ul>
       </div>
     </div>
   );

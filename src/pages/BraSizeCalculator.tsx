@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BraSizeCalculator: React.FC = () => {
@@ -70,20 +71,11 @@ export const BraSizeCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is a Bra Size Calculator?</h2>
-        <p>
-          A bra size calculator is a tool for estimating your bra size based on your band and bust measurements. It's a useful tool for quantifying the uncertainty of an estimate and identifying the range of values for a data set.
-        </p>
-        <h3>How to Use a Bra Size Calculator</h3>
-        <p>
-          To use a bra size calculator, you simply enter your band and bust measurements. The calculator will then perform the calculation and display your estimated bra size.
-        </p>
-        <h3>Why Bra Size Calculators Matter</h3>
-        <p>
-          Bra size calculators are critical for analyzing and interpreting data in a wide range of fields, including fashion, science, and medicine. They provide a simple and effective way to quantify and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Bra Size Calculator" 
+        path="/bra-size-calculator" 
+        description="Find your accurate bra size using professional fitting methods. Learn how to measure band and bust dimensions for the perfect support in 2026."
+      />
     </div>
   );
 };

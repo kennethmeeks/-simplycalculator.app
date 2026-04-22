@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AnniversaryCalculator: React.FC = () => {
@@ -70,30 +71,11 @@ export const AnniversaryCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Anniversaries</h2>
-        <p>
-          Anniversaries are a way of celebrating a special date or event. They are commonly used in health and wellness awareness to track progress and stay motivated.
-        </p>
-        <p>
-          Our <strong>anniversary calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to track your years of celebration based on your start date. It calculates the difference between the current date and your start date in years.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use an Anniversary Calculator?</h3>
-        <p>
-          Anniversary calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Progress Tracking:</strong> They provide a fun and insightful way to track your anniversary progress and stay motivated.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for understanding your recovery and improving health.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Anniversary Calculator" 
+        path="/anniversary-calculator" 
+        description="Calculate years, months, and days since a specific start date for weddings, work, or sobriety anniversaries."
+      />
     </div>
   );
 };

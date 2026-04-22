@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AnorexicBMICalculator: React.FC = () => {
@@ -86,36 +87,11 @@ export const AnorexicBMICalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>Understanding BMI and Underweight Risks</h2>
-        <p>
-          Body Mass Index (BMI) is a simple measure of your body fat based on your weight and height. While it's not a direct measure of body fat, it's a useful tool for identifying potential health risks.
-        </p>
-        <h3>Risks of Being Underweight</h3>
-        <p>
-          Being underweight can lead to several health complications, including:
-        </p>
-        <ul>
-          <li>Nutrient deficiencies, such as anemia and osteoporosis.</li>
-          <li>Weakened immune system, making you more susceptible to infections.</li>
-          <li>Fertility issues and irregular menstrual cycles.</li>
-          <li>Developmental delays in children and adolescents.</li>
-          <li>Increased risk of complications during surgery.</li>
-        </ul>
-        <h3>When to Seek Help</h3>
-        <p>
-          If you have a BMI below 18.5 or if you're concerned about your weight or eating habits, it's important to talk to a healthcare professional. They can help you identify the underlying cause and develop a plan for healthy weight management.
-        </p>
-        <h3>Resources for Support</h3>
-        <p>
-          If you or someone you know is struggling with an eating disorder, there are resources available to help:
-        </p>
-        <ul>
-          <li>National Eating Disorders Association (NEDA): 1-800-931-2237</li>
-          <li>National Association of Anorexia Nervosa and Associated Disorders (ANAD): 1-888-375-7767</li>
-          <li>Talk to your doctor or a mental health professional for personalized support.</li>
-        </ul>
-      </div>
+      <CalculatorSEO 
+        name="Anorexic BMI Calculator" 
+        path="/anorexic-bmi-calculator" 
+        description="A specialized tool to identify severe underweight categories and understand associated health risks and support resources."
+      />
     </div>
   );
 };

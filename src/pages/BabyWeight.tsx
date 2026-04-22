@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BabyWeight: React.FC = () => {
@@ -77,30 +78,11 @@ export const BabyWeight: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Baby Weight</h2>
-        <p>
-          Baby weight is a measure of the weight of a baby at birth. It is commonly used in family planning and health awareness to track growth and development.
-        </p>
-        <p>
-          Our <strong>baby weight calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your baby's birth weight based on your weights. It assumes that a baby's birth weight is proportional to the average weight of their parents.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Baby Weight Calculator?</h3>
-        <p>
-          Baby weight calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Family Planning:</strong> They provide a fun and insightful way to estimate your baby's birth weight and plan for growth.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for tracking your baby's growth and development.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Baby Weight Calculator" 
+        path="/baby-weight" 
+        description="Estimate your baby's birth weight using parental growth patterns and health metrics. Learn about healthy weight ranges for newborns in 2026."
+      />
     </div>
   );
 };

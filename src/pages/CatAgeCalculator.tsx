@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Calculator, Info, Cat, Heart } from 'lucide-react';
 
@@ -98,39 +99,11 @@ export const CatAgeCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Your Cat's Age in 2026</h2>
-        <p>
-          Our <strong>cat age calculator</strong> provides a more accurate estimation of your cat's age in human terms. Unlike the outdated "multiply by 7" rule, we account for the rapid development in early years and the slower aging process that follows.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Science of Cat Aging</h3>
-        <p>
-          Cats age very quickly when they are young and then slow down. A one-year-old cat is physically and mentally more like a 15-year-old human than a 7-year-old.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Aging Stages for Cats</h3>
-        <ul>
-          <li><strong>Kitten (0-6 months):</strong> Equivalent to a human child up to age 10.</li>
-          <li><strong>Junior (7 months - 2 years):</strong> Equivalent to a human teenager up to age 24.</li>
-          <li><strong>Prime (3-6 years):</strong> Equivalent to a human in their 20s and 30s.</li>
-          <li><strong>Mature (7-10 years):</strong> Equivalent to a human in their 40s and 50s.</li>
-          <li><strong>Senior (11-14 years):</strong> Equivalent to a human in their 60s and 70s.</li>
-          <li><strong>Geriatric (15+ years):</strong> Equivalent to a human in their 80s and beyond.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">How long do indoor cats live?</p>
-            <p>Indoor cats typically live 12-18 years, with many reaching their 20s. Outdoor cats have a significantly shorter lifespan due to risks like accidents and diseases.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">When is a cat considered a senior?</p>
-            <p>Generally, a cat is considered a senior when they reach age 11. At this stage, they may begin to show signs of aging like decreased activity or changes in appetite.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Cat Age Calculator" 
+        path="/cat-age-calculator" 
+        description="Convert cat years to human years with precision. Understand developmental stages and dietary needs for every life phase in 2026."
+      />
     </div>
   );
 };

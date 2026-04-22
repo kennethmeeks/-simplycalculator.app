@@ -74,17 +74,35 @@ export const PregnancyConceptionCalculator: React.FC = () => {
       </div>
 
       <div className="prose prose-slate max-w-none">
-        <h2>How Conception is Calculated</h2>
+        <h2 className="text-2xl font-bold text-slate-900">How Conception is Calculated</h2>
         <p>
-          Conception typically occurs about 38 weeks before your baby's due date. This is because a full-term pregnancy is considered to be 40 weeks from the first day of your last menstrual period (LMP), and ovulation (and thus conception) usually happens about two weeks after that.
+          Conception typically occurs about 38 weeks (266 days) before your baby's estimated due date. While many think pregnancy is 9 months, it's actually closer to 10 lunar months or 40 weeks from the first day of your last period. Our <strong>conception date calculator 2026</strong> helps bridge the gap between your provided due date and the moment your journey began.
         </p>
-        <h3>Why the Window Matters</h3>
+        
+        <h3 className="text-xl font-bold text-slate-900 mt-8">The "Conception Window" Explained</h3>
         <p>
-          Sperm can live inside the female reproductive tract for up to five days, and an egg is viable for about 12 to 24 hours after ovulation. This means that intercourse occurring several days before ovulation can still lead to conception.
+          It's rarely a single day. Because sperm can survive for up to five days inside the female reproductive tract, and an egg is viable for up to 24 hours after ovulation, the "conception window" is typically a 6-day period including the day of ovulation and the five days leading up to it. Intercourse on any of these days can lead to pregnancy.
         </p>
-        <h3>Accuracy of the Calculation</h3>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
+        <div className="space-y-4">
+          <div>
+            <p className="font-bold text-slate-900">Can I rely on this for paternity testing?</p>
+            <p>No. While this calculator provides a likely window based on standard averages, it is not evidence for legal or medical paternity. Professional DNA testing is the only definitive method.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">Why does my doctor use my last period for the due date?</p>
+            <p>Most women don't know exactly when they ovulated, but almost everyone knows the first day of their last period. Doctors use the LMP as a reliable starting point for the 40-week count, even though you aren't actually pregnant for the first two weeks of that cycle.</p>
+          </div>
+          <div>
+            <p className="font-bold text-slate-900">How accurate is a due date?</p>
+            <p>Only about 4% of babies are born on their actual due date. Most are born within a window of two weeks before to two weeks after that date.</p>
+          </div>
+        </div>
+
+        <h3 className="text-xl font-bold text-slate-900 mt-8">Why the Window Matters</h3>
         <p>
-          The most accurate way to determine your conception date is through an early ultrasound (usually before 12 weeks), which measures the size of the embryo or fetus. Due dates calculated from the LMP or conception date are always estimates, as every pregnancy is unique.
+          Understanding your conception window can help you date your pregnancy milestones more accurately and provide context for your early prenatal care. Our tool is a starting point for those curious about the timeline of their pregnancy.
         </p>
       </div>
     </div>

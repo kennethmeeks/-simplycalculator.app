@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ArmBodyFat: React.FC = () => {
@@ -77,30 +78,11 @@ export const ArmBodyFat: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Arm Body Fat</h2>
-        <p>
-          Arm body fat is a measure of the fat content in the arms. It is commonly used for health and fitness tracking to manage weight and improve fitness.
-        </p>
-        <p>
-          Our <strong>arm body fat calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your arm body fat percentage based on skinfold measurements. It assumes that the average of your triceps and biceps skinfolds is a good indicator of your arm fat content.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use an Arm Body Fat Calculator?</h3>
-        <p>
-          Arm body fat calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Health:</strong> They provide a fun and insightful way to estimate your arm body fat and stay healthy.</li>
-          <li><strong>Fitness:</strong> They can be a great tool for tracking your body composition and improving fitness.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Arm Body Fat Calculator" 
+        path="/arm-body-fat" 
+        description="Estimate arm body fat percentage using skinfold caliper measurements for triceps and biceps."
+      />
     </div>
   );
 };
