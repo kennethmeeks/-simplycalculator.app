@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { DollarSign, Calendar, Percent, TrendingUp } from 'lucide-react';
 import { parseInput } from '@/src/lib/calculatorUtils';
 import { ResultActions } from '../components/ResultActions';
@@ -200,49 +201,11 @@ export const LoanCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Your Loan: A Comprehensive Guide</h2>
-        <p>
-          Taking out a loan is a major financial decision. Whether it's for a new car, a home renovation, or consolidating debt, understanding the true cost of borrowing is essential. Our <strong>loan calculator</strong> helps you break down the numbers so you can make an informed choice in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How Loan Payments Are Calculated</h3>
-        <p>
-          Most loans use an amortization formula to determine monthly payments. This formula ensures that you pay off the principal and interest over the specified term.
-        </p>
-        <div className="bg-slate-50 p-4 rounded font-mono text-sm border border-slate-200 my-4">
-          Monthly Payment = [P * r * (1 + r)^n] / [(1 + r)^n - 1]
-        </div>
-        <p>Where:</p>
-        <ul>
-          <li><strong>P:</strong> Principal loan amount</li>
-          <li><strong>r:</strong> Monthly interest rate (Annual rate / 12)</li>
-          <li><strong>n:</strong> Total number of payments (Months)</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Factors Influencing Your Loan</h3>
-        <ul>
-          <li><strong>Interest Rate:</strong> Even a small difference in the interest rate can save you thousands of dollars over the life of the loan.</li>
-          <li><strong>Loan Term:</strong> A longer term means lower monthly payments but higher total interest paid. A shorter term saves you money on interest but requires higher monthly payments.</li>
-          <li><strong>Down Payment:</strong> Putting more money down upfront reduces the principal amount, which lowers both your monthly payment and total interest.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is an unsecured vs. secured loan?</p>
-            <p>A secured loan is backed by collateral (like a car or house), which usually results in a lower interest rate. An unsecured loan (like a personal loan) doesn't require collateral but often has a higher rate.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can I pay off my loan early?</p>
-            <p>Most personal loans allow for early repayment without penalty, which can save you a significant amount in interest. Always check your loan agreement for "prepayment penalties."</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How does my credit score affect my loan?</p>
-            <p>Lenders use your credit score to determine your "risk level." A higher score typically qualifies you for lower interest rates and better loan terms.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Loan Calculator" 
+        path="/loan" 
+        description="Calculate monthly payments, total interest, and the true cost of borrowing. Make informed financial decisions with our comprehensive loan tool for 2026."
+      />
     </div>
   );
 };

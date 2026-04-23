@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { motion } from 'motion/react';
 
 import { Calculator as CalcIcon, Info, ShieldCheck, Heart, Home, GraduationCap, AlertCircle } from 'lucide-react';
@@ -187,52 +188,11 @@ export const LifeInsuranceCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">How Much Life Insurance Do I Need in 2026?</h2>
-        <p>
-          Determining the right amount of life insurance is one of the most critical financial decisions you will make for your family. In 2026, with rising costs of living and education, a generic "10 times your salary" rule might not be enough. Our <strong>life insurance calculator</strong> uses the comprehensive DIME method to provide a personalized estimate based on your specific financial obligations.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Understanding the DIME Method</h3>
-        <p>
-          The DIME method is a popular and effective way to calculate life insurance needs because it looks at four key areas of your financial life:
-        </p>
-        <ul>
-          <li><strong>Debt:</strong> This includes everything from credit card balances and personal loans to car payments. Your goal is to ensure your family isn't burdened by these debts if you are no longer there to pay them.</li>
-          <li><strong>Income Replacement:</strong> This is often the largest part of your coverage. Consider how many years your family will need your income to maintain their current standard of living. In 2026, many experts recommend replacing income until your youngest child reaches adulthood or until your spouse reaches retirement age.</li>
-          <li><strong>Mortgage:</strong> For most families, the home is the largest expense. Providing enough coverage to pay off the mortgage entirely can give your family the security of a permanent roof over their heads.</li>
-          <li><strong>Education:</strong> If you have children, you likely want to help them with college or vocational training. Estimate the future cost of tuition and board for each child and include it in your total.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Factors to Consider in 2026</h3>
-        <p>
-          When using our <strong>life insurance coverage calculator 2026</strong>, keep in mind that inflation plays a significant role. A million-dollar policy might sound like a lot, but when spread over 20 years of rising prices, its purchasing power diminishes. It's often wise to round up your estimate or consider a policy with an inflation rider.
-        </p>
-        <p>
-          Additionally, don't forget to subtract your existing assets. If you have significant savings, investments, or a current employer-provided life insurance policy, these can reduce the amount of private coverage you need to purchase. However, be cautious with employer policies, as they usually end if you leave the company.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Term vs. Whole Life Insurance</h3>
-        <p>
-          Once you know how much coverage you need, you'll need to decide on the type of policy. <strong>Term life insurance</strong> is generally the most affordable and provides coverage for a specific period (e.g., 10, 20, or 30 years). It is ideal for covering temporary needs like a mortgage or children's education. <strong>Whole life insurance</strong> provides permanent coverage and includes a cash value component, but it comes with significantly higher premiums.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">When should I re-evaluate my life insurance needs?</p>
-            <p>You should review your coverage whenever you experience a major life event, such as getting married, having a child, buying a new home, or taking on significant new debt. Even without these events, a review every 3-5 years is a good practice.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does a stay-at-home parent need life insurance?</p>
-            <p>Absolutely. While they may not have a traditional salary, the cost of replacing the services they provide (childcare, household management, transportation) is substantial. A life insurance policy can help cover these costs.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Is life insurance taxable?</p>
-            <p>In most cases, life insurance death benefits are paid out to beneficiaries tax-free. However, any interest earned on the benefit before it is paid out may be taxable.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Life Insurance Calculator" 
+        path="/life-insurance" 
+        description="Estimate the life insurance coverage your family needs using the DIME method. Plan for debt, income, mortgage, and education in 2026."
+      />
     </div>
   );
 };

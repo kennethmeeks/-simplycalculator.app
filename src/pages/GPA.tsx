@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { parseInput } from '@/src/lib/calculatorUtils';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { parseInput } from '../lib/calculatorUtils';
 
 interface Course {
   id: number;
@@ -122,62 +123,11 @@ export const GPACalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About GPA Calculation</h2>
-        <p>
-          Your Grade Point Average (GPA) is a numerical representation of your academic performance. In 2026, GPA remains a critical metric for college admissions, scholarship applications, and job opportunities. Our <strong>gpa calculator 4.0 scale with credits</strong> helps you stay on top of your academic progress by providing an easy way to calculate your weighted average for the semester or your entire academic career.
-        </p>
-        <p>
-          A high GPA is often a prerequisite for many competitive programs and honors societies. By tracking your grades regularly, you can identify areas where you need to improve and set realistic goals for your future studies.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the GPA Calculator</h3>
-        <p>
-          To calculate your GPA, follow these simple steps:
-        </p>
-        <ol>
-          <li><strong>Enter Each Course:</strong> For every class you've taken, select the letter grade you received from the dropdown menu.</li>
-          <li><strong>Assign Credits:</strong> Enter the number of credit hours (or units) for each course. Higher credit courses will have a greater impact on your final GPA.</li>
-          <li><strong>Add More Courses:</strong> Use the "Add Course" button to include all your classes for the semester or year.</li>
-          <li><strong>Review Results:</strong> The calculator will instantly display your total credits and your calculated GPA on a 4.0 scale.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The GPA Formula</h3>
-        <p>
-          The formula for calculating a weighted GPA is:
-        </p>
-        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-sm overflow-x-auto">
-          GPA = Σ (Grade Value × Credits) / Σ Credits
-        </div>
-        <p className="mt-4">
-          This means you multiply each grade's numerical value by its credit weight, sum those products, and then divide by the total number of credits earned.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a 4.0 scale?</p>
-            <p>The 4.0 scale is the most common grading system in the United States. An 'A' is worth 4.0 points, a 'B' is worth 3.0, and so on. Some schools use weighted scales (up to 5.0) for honors or AP classes, but the 4.0 scale remains the standard for most applications.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How do credits affect my GPA?</p>
-            <p>GPA is a weighted average. A 4-credit course with an 'A' will boost your GPA more than a 1-credit course with an 'A'. Conversely, a low grade in a high-credit course will have a more significant negative impact.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is a "good" GPA in 2026?</p>
-            <p>A "good" GPA depends on your goals. For many competitive colleges, a 3.5 or higher is often expected. For general graduation requirements, a 2.0 is usually the minimum. Many employers also look for a GPA of 3.0 or higher for entry-level positions.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does this calculator handle plus/minus grades?</p>
-            <p>Yes, our calculator includes standard values for plus and minus grades (e.g., A- = 3.7, B+ = 3.3) to provide a more precise calculation of your academic standing.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          If you take three courses: <strong>Math (3 credits, A)</strong>, <strong>English (3 credits, B)</strong>, and <strong>History (3 credits, C)</strong>. Your total grade points would be (4.0*3) + (3.0*3) + (2.0*3) = 12 + 9 + 6 = 27. Dividing 27 by the total 9 credits gives you a <strong>GPA of 3.00</strong>.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="GPA Calculator" 
+        path="/gpa" 
+        description="Calculate your Grade Point Average (GPA) with our free 4.0 scale tool. Supports multiple courses and credit weights for 2026 academic tracking."
+      />
     </div>
   );
 };

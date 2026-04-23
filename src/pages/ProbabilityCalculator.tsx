@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Calculator, Info, Percent } from 'lucide-react';
 
@@ -101,36 +102,11 @@ export const ProbabilityCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Probability in 2026</h2>
-        <p>
-          Our <strong>probability calculator</strong> is a simple and efficient tool for calculating the likelihood of an event occurring. By entering the favorable and total outcomes, we can reveal the probability as a percentage.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Importance of Probability</h3>
-        <p>
-          Probability is essential for making informed decisions in various fields, including science, finance, and daily life. It's used in everything from weather forecasting to insurance underwriting.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Components of Probability</h3>
-        <ul>
-          <li><strong>Event:</strong> The specific result you're interested in.</li>
-          <li><strong>Sample Space:</strong> The set of all possible outcomes.</li>
-          <li><strong>Complement:</strong> The probability of the event NOT occurring (1 - P(E)).</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">What is the probability of rolling a 6 on a standard die?</p>
-            <p>There is 1 favorable outcome (rolling a 6) and 6 total possible outcomes. The probability is 1/6, or approximately 16.67%.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can probability be greater than 100%?</p>
-            <p>No, probability is always between 0 and 1 (or 0% and 100%). A probability of 0 means the event is impossible, and a probability of 1 means the event is certain.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Probability Calculator" 
+        path="/probability" 
+        description="Calculate the likelihood of an event occurring based on favorable and total outcomes. Understand the basics of probability theory with our free tool for 2026."
+      />
     </div>
   );
 };

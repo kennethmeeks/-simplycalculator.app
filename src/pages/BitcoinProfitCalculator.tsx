@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
 import { DollarSign, Calculator, Info, TrendingUp, BarChart3, Bitcoin } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 export const BitcoinProfitCalculator: React.FC = () => {
   const [investmentAmount, setInvestmentAmount] = useState<number>(1000);
@@ -159,37 +159,11 @@ export const BitcoinProfitCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">How to Use the Bitcoin Profit Calculator</h2>
-        <p>
-          Our <strong>bitcoin profit calculator</strong> is designed to help you understand the true performance of your Bitcoin investments. It accounts for the fees charged by exchanges, which can often eat into your profits.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Importance of Fees</h3>
-        <p>
-          When trading Bitcoin, fees are everywhere. There are trading fees, withdrawal fees, and sometimes even deposit fees. If you're a frequent trader, these small percentages can add up to a significant amount of money over time.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Terms to Know</h3>
-        <ul>
-          <li><strong>HODL:</strong> A popular term in the crypto community meaning "Hold On for Dear Life"—holding onto your coins despite price drops.</li>
-          <li><strong>Market Cap:</strong> The total value of all coins in circulation (Price x Supply).</li>
-          <li><strong>Stablecoin:</strong> A cryptocurrency pegged to a stable asset like the US Dollar (e.g., USDT, USDC).</li>
-          <li><strong>DeFi:</strong> Decentralized Finance, a system of financial tools built on blockchain technology.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">What is the best way to track my Bitcoin portfolio?</p>
-            <p>Using a dedicated portfolio tracker like CoinMarketCap or CoinGecko can help you see all your holdings in one place.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How are Bitcoin profits taxed?</p>
-            <p>In most jurisdictions, Bitcoin is taxed as a capital asset. You'll owe capital gains tax when you sell, trade, or use Bitcoin to buy something.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Bitcoin Profit Calculator" 
+        path="/bitcoin-profit-calculator" 
+        description="Calculate your Bitcoin investment ROI and total profit. Account for exchange fees and stay updated on your crypto portfolio's performance in 2026."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const Ovulation: React.FC = () => {
@@ -80,30 +81,11 @@ export const Ovulation: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Ovulation</h2>
-        <p>
-          Ovulation is a process of releasing an egg from the ovary. It is a key part of the menstrual cycle and is essential for conception.
-        </p>
-        <p>
-          Our <strong>ovulation calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your ovulation date based on the first day of your last period and your average cycle length. It assumes that ovulation occurs 14 days before the start of your next period.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use an Ovulation Calculator?</h3>
-        <p>
-          Ovulation calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Family Planning:</strong> They provide a fun and insightful way to estimate your fertile window and plan for conception.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for tracking your menstrual cycle and understanding your body.</li>
-          <li><strong>Conception:</strong> They offer a unique perspective on your potential for pregnancy.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Ovulation Calculator" 
+        path="/ovulation" 
+        description="Estimate your ovulation date and fertile window based on your menstrual cycle. Plan for conception and track your reproductive health in 2026."
+      />
     </div>
   );
 };

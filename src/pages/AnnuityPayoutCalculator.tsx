@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AnnuityPayoutCalculator: React.FC = () => {
@@ -115,64 +116,11 @@ export const AnnuityPayoutCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is an Annuity Payout?</h2>
-        <p>
-          An annuity payout is the stage of an annuity contract where the insurance company begins to make regular payments to the annuitant. This is often used as a source of guaranteed income for retirees. The amount of the payout depends on the balance in the annuity, the payout period, and the expected rate of return on the remaining funds.
-        </p>
-        
-        <h3>How to Use the Annuity Payout Calculator</h3>
-        <p>
-          To estimate your future annuity payout, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Annuity Balance:</strong> The total amount of money currently in your annuity.</li>
-          <li><strong>Payout Period:</strong> The number of years you want to receive payments.</li>
-          <li><strong>Expected Return:</strong> The annual interest rate or rate of return you expect the annuity to earn during the payout phase.</li>
-          <li><strong>Payout Frequency:</strong> How often you want to receive payments (e.g., monthly, quarterly, or annually).</li>
-        </ul>
-
-        <h3>The Annuity Payout Formula</h3>
-        <p>
-          The periodic payout of an annuity is calculated using the following formula:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm mb-4">
-          P = PV * [r(1+r)^n] / [(1+r)^n - 1]
-        </div>
-        <p>Where:</p>
-        <ul>
-          <li><strong>P</strong> = Periodic payout</li>
-          <li><strong>PV</strong> = Present Value (annuity balance)</li>
-          <li><strong>r</strong> = Rate of return per period</li>
-          <li><strong>n</strong> = Number of periods</li>
-        </ul>
-
-        <h3>Why Annuity Payouts are Popular</h3>
-        <p>
-          Annuity payouts are a popular choice for many retirees because they offer:
-        </p>
-        <ul>
-          <li><strong>Guaranteed Income:</strong> You can choose an annuity that provides a guaranteed stream of income for a specific period of time or for life.</li>
-          <li><strong>Tax-Deferred Growth:</strong> You only pay taxes on the earnings in your annuity as you receive the payments.</li>
-          <li><strong>Peace of Mind:</strong> Knowing that you have a steady source of income can provide peace of mind in retirement.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is the difference between "Period Certain" and "Life Only" payouts?</h4>
-            <p>A "Period Certain" payout provides a guaranteed stream of income for a specific number of years (e.g., 10, 20, or 30 years). A "Life Only" payout provides a guaranteed stream of income for as long as you live, but the payments stop when you die.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is an "Inflation-Adjusted" payout?</h4>
-            <p>An inflation-adjusted payout increases your periodic payments over time to account for inflation. This can help you maintain your purchasing power in retirement, but it usually results in a lower initial payout.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What are the taxes on annuity payouts?</h4>
-            <p>Annuity payouts are typically taxed as ordinary income. If you invested after-tax money into the annuity, a portion of each payout will be considered a return of your principal and will not be taxed.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Annuity Payout Calculator" 
+        path="/annuity-payout" 
+        description="Estimate your monthly or annual annuity income. Plan for 2026 retirement by calculating payouts based on balance, period, and expected returns."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const CommonFactorCalculator: React.FC = () => {
@@ -74,20 +75,11 @@ export const CommonFactorCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What are Common Factors?</h2>
-        <p>
-          Common factors are numbers that can be divided evenly into two or more numbers. For example, the common factors of 12 and 18 are 1, 2, 3, and 6.
-        </p>
-        <h3>Greatest Common Factor (GCF)</h3>
-        <p>
-          The Greatest Common Factor (GCF) is the largest number that is a factor of both numbers. In the example above, the GCF of 12 and 18 is 6.
-        </p>
-        <h3>Why Common Factors Matter</h3>
-        <p>
-          Common factors are a fundamental concept in number theory and are used in a wide range of fields, including algebra, cryptography, and computer science. They provide a simple and effective way to understand the properties of numbers.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Common Factor Calculator" 
+        path="/common-factor" 
+        description="Find all shared divisors and the Greatest Common Factor (GCF) between two or more numbers. Simplify fractions and solve math problems in 2026."
+      />
     </div>
   );
 };

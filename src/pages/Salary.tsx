@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { parseInput } from '@/src/lib/calculatorUtils';
 import { FileDown, RotateCcw, Share2 } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
@@ -235,69 +236,11 @@ export const SalaryCalculator: React.FC = () => {
         </section>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About Salary Conversion</h2>
-        <p>
-          Understanding your true earnings is essential for financial planning, budgeting, and career negotiations. Our <strong>salary calculator hourly to annual</strong> is designed to provide a clear and accurate breakdown of your income across different timeframes. Whether you're considering a new job offer or simply want to know how your hourly rate translates to a yearly salary, this tool provides the answers you need for 2026.
-        </p>
-        <p>
-          Many people focus solely on their hourly rate, but seeing the annual total can be eye-opening. For instance, a small increase in your hourly pay can lead to thousands of dollars in additional income over the course of a year. Conversely, understanding your weekly or monthly take-home potential helps you create a realistic budget for your living expenses.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the Salary Calculator</h3>
-        <p>
-          To calculate your salary, simply follow these steps:
-        </p>
-        <ol>
-          <li><strong>Enter the Pay Amount:</strong> Input the dollar amount you currently earn or expect to earn.</li>
-          <li><strong>Select the Pay Period:</strong> Choose whether the amount entered is hourly, daily, weekly, monthly, or annually.</li>
-          <li><strong>Adjust Hours per Week:</strong> If you work more or less than the standard 40 hours, update this field for a more accurate hourly conversion.</li>
-          <li><strong>Review Your Results:</strong> The calculator will instantly display your equivalent earnings across all major time periods.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Math Behind Salary Calculation</h3>
-        <p>
-          The formulas used in our calculator are straightforward but vital for accuracy:
-        </p>
-        <ul>
-          <li><strong>Weekly Salary:</strong> Hourly Rate × Hours per Week</li>
-          <li><strong>Annual Salary:</strong> Weekly Salary × Weeks per Year (standard is 52)</li>
-          <li><strong>Monthly Salary:</strong> Annual Salary ÷ 12</li>
-        </ul>
-        <p>
-          By using these standard formulas, we ensure that you get a consistent and reliable view of your earnings, regardless of your pay frequency.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Does this include taxes?</p>
-            <p>No, this calculator provides your "gross" income, which is the total amount earned before any taxes, social security, or other deductions are taken out. Your "net" or take-home pay will be lower depending on your local tax laws and personal exemptions.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is a standard work week?</p>
-            <p>In many countries, a standard full-time work week is 40 hours. However, this can vary by industry and employer, with some considering 35 or 37.5 hours as full-time.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How many working days are in a year?</p>
-            <p>Assuming a 5-day work week and 52 weeks per year, there are 260 potential working days. Subtracting holidays and vacation days will give you your actual working days.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Why is knowing my hourly rate important if I'm salaried?</p>
-            <p>Even if you receive a fixed annual salary, knowing your effective hourly rate is crucial for evaluating overtime opportunities, comparing different job offers, and understanding the true value of your time.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          If you earn <strong>$25 per hour</strong> and work a standard <strong>40-hour week</strong> for <strong>52 weeks a year</strong>, your calculations would be:
-        </p>
-        <ul>
-          <li><strong>Weekly:</strong> $25 × 40 = $1,000</li>
-          <li><strong>Annual:</strong> $1,000 × 52 = $52,000</li>
-          <li><strong>Monthly:</strong> $52,000 ÷ 12 = $4,333.33</li>
-        </ul>
-      </div>
+      <CalculatorSEO 
+        name="Salary Calculator (Hourly to Annual)" 
+        path="/salary" 
+        description="Convert your hourly wage to an annual salary and see a full breakdown of your earnings. Useful for budgeting and job offer comparisons in 2026."
+      />
     </div>
   );
 };

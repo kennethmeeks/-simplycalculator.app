@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const SquareRoot: React.FC = () => {
@@ -67,30 +68,11 @@ export const SquareRoot: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Square Roots</h2>
-        <p>
-          Square roots are a way of finding a value that, when multiplied by itself, gives a specified number. They are commonly used in mathematics, science, and engineering.
-        </p>
-        <p>
-          Our <strong>square root calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to find the square root of a number. It uses the standard square root function to provide accurate results.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Square Root Calculator?</h3>
-        <p>
-          Square root calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Problem Solving:</strong> They provide a fun and insightful way to find the square root of any number.</li>
-          <li><strong>Comparison:</strong> They can be a great tool for comparing different values and relationships.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential for understanding mathematics and patterns.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Square Root Calculator" 
+        path="/square-root" 
+        description="Quickly find the square root of any positive number. Ideal for math, science, and engineering problems in 2026."
+      />
     </div>
   );
 };

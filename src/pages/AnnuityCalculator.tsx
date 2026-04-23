@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AnnuityCalculator: React.FC = () => {
@@ -131,66 +132,11 @@ export const AnnuityCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is an Annuity?</h2>
-        <p>
-          An annuity is a financial product that pays out a fixed stream of payments to an individual, typically used as a primary source of income for retirees. Annuities are created and sold by financial institutions, which accept and invest funds from individuals and then, upon annuitization, issue a stream of payments at a later point in time.
-        </p>
-        
-        <h3>How to Use the Annuity Calculator</h3>
-        <p>
-          To estimate the future value of your annuity, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Initial Investment:</strong> The amount of money you are putting into the annuity today.</li>
-          <li><strong>Annual Contribution:</strong> The amount of money you plan to add to the annuity each year.</li>
-          <li><strong>Years to Grow:</strong> The number of years until you plan to start receiving payments.</li>
-          <li><strong>Expected Return:</strong> The annual interest rate or rate of return you expect the annuity to earn.</li>
-          <li><strong>Compounding Frequency:</strong> How often the interest is calculated and added to the principal.</li>
-        </ul>
-
-        <h3>The Future Value of an Annuity Formula</h3>
-        <p>
-          The future value of an annuity is calculated using the following formula:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm mb-4">
-          FV = P * [((1 + r)^n - 1) / r] + PV * (1 + r)^n
-        </div>
-        <p>Where:</p>
-        <ul>
-          <li><strong>FV</strong> = Future Value</li>
-          <li><strong>P</strong> = Periodic payment (contribution)</li>
-          <li><strong>r</strong> = Rate of return per period</li>
-          <li><strong>n</strong> = Number of periods</li>
-          <li><strong>PV</strong> = Present Value (initial investment)</li>
-        </ul>
-
-        <h3>Why Annuities are Popular</h3>
-        <p>
-          Annuities are a popular choice for many retirees because they offer:
-        </p>
-        <ul>
-          <li><strong>Tax-Deferred Growth:</strong> You don't pay taxes on the earnings in your annuity until you start receiving payments.</li>
-          <li><strong>Guaranteed Income:</strong> You can choose an annuity that provides a guaranteed stream of income for life.</li>
-          <li><strong>No Contribution Limits:</strong> Unlike IRAs and 401(k)s, there are no federal limits on how much you can contribute to an annuity.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is the difference between a "Fixed" and a "Variable" annuity?</h4>
-            <p>A fixed annuity provides a guaranteed interest rate for a specific period of time. A variable annuity allows you to invest your contributions in a range of sub-accounts (similar to mutual funds), which can provide higher returns but also carries more risk.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is an "Immediate" annuity?</h4>
-            <p>An immediate annuity starts paying out income right away, usually within a month of your initial investment. This is often used by people who are already retired and want to convert a lump sum of cash into a steady stream of income.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What are the fees associated with annuities?</h4>
-            <p>Annuities can have several types of fees, including surrender charges (for early withdrawal), mortality and expense risk charges, and administrative fees. It's important to understand all the fees before you invest.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Annuity Calculator" 
+        path="/annuity" 
+        description="Estimate the future value of your annuity with our free calculator. Plan for 2026 retirement by factoring in initial investments, contributions, and expected returns."
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FileDown, RotateCcw, Share2 } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -255,59 +256,11 @@ export const AmazonFBACalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Ultimate Amazon FBA Profit Guide</h2>
-        <p>
-          Selling on Amazon in 2026 is a game of margins. With rising fulfillment costs and increased competition, understanding your exact profit per unit is the difference between a thriving business and a failing one. Our <strong>Amazon FBA fee calculator</strong> is designed for serious sellers who need to account for every cent, from referral fees to PPC advertising costs.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Understanding Amazon FBA Fees</h3>
-        <p>
-          Amazon's fee structure can be complex. To calculate your profit accurately, you must understand the two primary fees:
-        </p>
-        <ul>
-          <li><strong>Referral Fee:</strong> This is Amazon's "commission" for bringing you the customer. For most categories, this is 15% of the total sale price. </li>
-          <li><strong>Fulfillment Fee (FBA Fee):</strong> This covers the cost of picking, packing, and shipping your product. This fee is based on the weight and dimensions of your product. </li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Don't Forget the "Hidden" Costs</h3>
-        <p>
-          Many new sellers fail because they only look at the referral and fulfillment fees. To get a true <strong>net profit margin</strong>, you must also include:
-        </p>
-        <p><strong>1. Storage Fees:</strong> Amazon charges you for every cubic foot your inventory occupies in their warehouse. These fees increase significantly during the Q4 holiday season.</p>
-        <p><strong>2. Advertising (PPC):</strong> In 2026, it is nearly impossible to launch a product without Amazon Advertising. You must calculate your "Advertising Cost of Sale" (ACOS) and factor it into your per-unit profit.</p>
-        <p><strong>3. Shipping to Amazon:</strong> Whether you are shipping from China or a local warehouse, the cost of getting your goods into the FBA system must be added to your COGS (Cost of Goods Sold).</p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Margin vs. ROI: Which Matters More?</h3>
-        <p>
-          While both are important, they tell different stories:
-        </p>
-        <ul>
-          <li><strong>Profit Margin:</strong> Tells you how much of every dollar you keep. A 20-30% margin is generally considered healthy for FBA.</li>
-          <li><strong>ROI (Return on Investment):</strong> Tells you how hard your money is working. If you spend $10 to make $5 profit, your ROI is 50%. High ROI allows you to scale your business faster with less capital.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a good profit margin for FBA?</p>
-            <p>Most successful sellers aim for a minimum of 25% net profit margin after all fees and advertising. Anything below 15% leaves very little room for error or price wars.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How often do Amazon fees change?</p>
-            <p>Amazon typically updates its fee structure once a year, usually in the spring. Always check the latest Seller Central announcements to keep your <strong>FBA profit estimates</strong> accurate.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Should I include returns in my calculation?</p>
-            <p>Yes. A "Return Rate" of 3-5% is standard for most categories. You should subtract this from your total projected profits to stay realistic.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Pro Tip for Amazon Sellers</h3>
-        <p>
-          Use our <strong>FBA fee estimator</strong> during your product research phase. Before you even order a sample, run the numbers. If the ROI isn't at least 100% at the current market price, the product might not be worth the risk. Remember, your profit is made when you <em>buy</em>, not just when you sell.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Amazon FBA Fee Calculator" 
+        path="/amazon-fba" 
+        description="Calculate your Amazon FBA profit margins and ROI. Factor in referral fees, fulfillment, storage, and advertising costs for 2026 sales success."
+      />
     </div>
   );
 };

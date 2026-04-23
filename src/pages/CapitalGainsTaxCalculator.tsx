@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { DollarSign, Calculator, Info, TrendingUp } from 'lucide-react';
 
@@ -170,44 +171,11 @@ export const CapitalGainsTaxCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">How Capital Gains Tax Works</h2>
-        <p>
-          A <strong>capital gains tax</strong> is a tax on the profit realized from the sale of a non-inventory asset that was purchased at a lower price. The most common capital gains are realized from the sale of stocks, bonds, precious metals, and real estate.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Long-Term vs. Short-Term Gains</h3>
-        <p>
-          The duration you hold an asset determines the tax rate you pay:
-        </p>
-        <ul>
-          <li><strong>Short-Term:</strong> If you hold the asset for one year or less, the profit is taxed as ordinary income, which can be as high as 37%.</li>
-          <li><strong>Long-Term:</strong> If you hold the asset for more than one year, you qualify for lower tax rates (0%, 15%, or 20%).</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Minimize Capital Gains Tax</h3>
-        <p>
-          Investors use several strategies to lower their tax burden:
-        </p>
-        <ul>
-          <li><strong>Tax-Loss Harvesting:</strong> Selling investments at a loss to offset gains from other investments.</li>
-          <li><strong>Hold for 1+ Year:</strong> Always try to reach the long-term holding period to pay lower rates.</li>
-          <li><strong>Use Tax-Advantaged Accounts:</strong> Investments in a 401(k) or IRA grow tax-free or tax-deferred.</li>
-          <li><strong>Primary Residence Exclusion:</strong> If you sell your home, you may exclude up to $250,000 ($500,000 for married couples) of gain from tax.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">Do I pay capital gains tax if I don't sell?</p>
-            <p>No. You only pay capital gains tax when you "realize" the gain by selling the asset. Unrealized gains are not taxed.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the cost basis?</p>
-            <p>The cost basis is the original value of an asset for tax purposes, usually the purchase price plus any commissions or fees.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Capital Gains Tax Calculator" 
+        path="/capital-gains-tax-calculator" 
+        description="Estimate your capital gains tax liability for 2026. Understand short-term vs. long-term rates and plan your investment sales effectively."
+      />
     </div>
   );
 };

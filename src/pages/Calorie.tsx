@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -307,59 +308,11 @@ export const CalorieCalculator: React.FC = () => {
         </section>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About Calorie Needs</h2>
-        <p>
-          Understanding your daily calorie requirements is the first step toward achieving your health and fitness goals, whether you're looking to lose weight, gain muscle, or maintain your current physique. Our <strong>calorie calculator for weight loss and maintenance</strong> uses the scientifically-backed Mifflin-St Jeor Equation to provide a highly accurate estimate of your energy needs for 2026.
-        </p>
-        <p>
-          Calories are simply a measure of energy. Your body requires a certain amount of energy just to perform basic functions like breathing and circulating blood, and additional energy for every movement you make throughout the day. By knowing your Total Daily Energy Expenditure (TDEE), you can make informed decisions about your diet and exercise routine.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the Calorie Calculator</h3>
-        <p>
-          To get your personalized calorie estimate, please provide the following details:
-        </p>
-        <ol>
-          <li><strong>Age & Gender:</strong> Metabolic rates vary significantly based on these biological factors. Men typically have a higher BMR due to higher muscle mass.</li>
-          <li><strong>Weight & Height:</strong> These determine your body's base energy requirements (BMR). Larger bodies generally require more energy to maintain.</li>
-          <li><strong>Activity Level:</strong> Choose the option that best describes your daily physical activity, from sedentary office work to intense athletic training. This is a crucial factor in determining your TDEE.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Science: Mifflin-St Jeor Equation</h3>
-        <p>
-          Our calculator employs the Mifflin-St Jeor Equation, which is currently the gold standard for estimating Basal Metabolic Rate (BMR) in clinical settings:
-        </p>
-        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-sm overflow-x-auto">
-          For Men: BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5<br/>
-          For Women: BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is BMR vs. TDEE?</p>
-            <p><strong>BMR (Basal Metabolic Rate)</strong> is the number of calories your body burns just to keep your organs functioning while at rest. <strong>TDEE (Total Daily Energy Expenditure)</strong> is your BMR plus the calories burned through physical activity. TDEE is the number you should use for daily meal planning.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How many calories should I eat to lose weight?</p>
-            <p>A common recommendation is to subtract 500 calories from your TDEE to lose about 1 pound (0.5 kg) per week. This creates a "calorie deficit." However, it's important not to drop below your BMR without medical supervision to avoid metabolic slowdown.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Is the Mifflin-St Jeor Equation accurate?</p>
-            <p>Yes, it is currently considered one of the most accurate formulas for predicting BMR in healthy adults. However, it doesn't account for body composition (muscle vs. fat). Highly muscular individuals may find their actual needs are higher than the estimate.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the "Thermic Effect of Food" (TEF)?</p>
-            <p>TEF is the energy your body uses to digest, absorb, and process the nutrients in the food you eat. It typically accounts for about 10% of your total daily energy expenditure.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          A <strong>30-year-old male</strong> who is <strong>180 cm tall</strong>, weighs <strong>85 kg</strong>, and is <strong>moderately active</strong> (3-5 days of exercise per week) has a BMR of approximately <strong>1,850 calories</strong> and a TDEE of about <strong>2,870 calories</strong> per day to maintain his current weight.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Calorie Calculator" 
+        path="/calorie-calculator" 
+        description="Estimate your daily calorie needs based on physical metrics. Plan your weight loss, muscle gain, or maintenance with accurate BMR and TDEE in 2026."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BoatLoanCalculator: React.FC = () => {
@@ -116,64 +117,11 @@ export const BoatLoanCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>How Boat Loans Work</h2>
-        <p>
-          Financing a boat is similar to financing a car or a home. Most boat loans are secured loans, meaning the boat itself serves as collateral. Because boats are considered luxury items, loan terms can be longer than car loans, often ranging from 5 to 20 years.
-        </p>
-        
-        <h3>How to Use the Boat Loan Calculator</h3>
-        <p>
-          To get an accurate estimate of your boat loan payment, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Boat Price:</strong> The total cost of the boat, including any options and accessories.</li>
-          <li><strong>Down Payment:</strong> The amount of cash you pay upfront. Lenders typically require a 10% to 20% down payment for boat loans.</li>
-          <li><strong>Interest Rate:</strong> The annual interest rate offered by the lender.</li>
-          <li><strong>Loan Term:</strong> The number of years you will have to repay the loan.</li>
-        </ul>
-
-        <h3>The Boat Loan Formula</h3>
-        <p>
-          The monthly payment for a boat loan is calculated using the standard amortization formula:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm mb-4">
-          M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ]
-        </div>
-        <p>Where:</p>
-        <ul>
-          <li><strong>M</strong> = Monthly payment</li>
-          <li><strong>P</strong> = Principal loan amount (Boat Price - Down Payment)</li>
-          <li><strong>i</strong> = Monthly interest rate (annual rate / 12)</li>
-          <li><strong>n</strong> = Number of months (years * 12)</li>
-        </ul>
-
-        <h3>Why Boat Loans are Different</h3>
-        <p>
-          Boat loans are unique for several reasons:
-        </p>
-        <ul>
-          <li><strong>Longer Terms:</strong> Because boats can be very expensive and have a long lifespan, lenders often offer terms up to 20 years.</li>
-          <li><strong>Higher Interest Rates:</strong> Interest rates for boat loans are typically higher than mortgage rates but lower than credit card rates.</li>
-          <li><strong>Collateral Requirements:</strong> The boat must be in good condition and meet the lender's age and value requirements.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What credit score do I need for a boat loan?</h4>
-            <p>While requirements vary by lender, you typically need a credit score of at least 680 to qualify for a boat loan. Borrowers with higher credit scores (740+) will generally receive the best interest rates.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Can I finance a used boat?</h4>
-            <p>Yes, many lenders offer financing for used boats. However, the interest rates may be slightly higher, and the loan term may be shorter depending on the age of the boat.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Are boat loan interest payments tax-deductible?</h4>
-            <p>In some cases, yes. If your boat has sleeping, cooking, and toilet facilities, it may qualify as a second home, and the interest on the loan may be tax-deductible. Consult with a tax professional for more information.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Boat Loan Calculator" 
+        path="/boat-loan-calculator" 
+        description="Estimate monthly payments and total interest for your new or used boat. Plan your nautical adventures with accurate financial projections for 2026."
+      />
     </div>
   );
 };

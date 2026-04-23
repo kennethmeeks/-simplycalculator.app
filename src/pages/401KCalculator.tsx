@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
 import { PiggyBank, TrendingUp, DollarSign, Percent } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 export const FourOhOneKCalculator: React.FC = () => {
   const [currentBalance, setCurrentBalance] = useState(50000);
@@ -174,47 +174,11 @@ export const FourOhOneKCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Maximizing Your 401k: A Comprehensive Guide</h2>
-        <p>
-          A 401k is one of the most powerful tools for building long-term wealth. By contributing pre-tax dollars and benefiting from employer matches, you can significantly accelerate your retirement savings. Our <strong>401k calculator</strong> helps you visualize your financial future in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How the 401k Match Works</h3>
-        <p>
-          The employer match is essentially "free money." Most employers will match a percentage of your contributions up to a certain limit. For example, a "50% match up to 6%" means if you contribute 6% of your salary, your employer adds another 3%.
-        </p>
-        <p className="bg-slate-50 p-4 border-l-4 border-[#0066cc] italic">
-          <strong>Tip:</strong> Always aim to contribute at least enough to get the full employer match. It's an immediate 50% or 100% return on your investment.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Power of Compounding</h3>
-        <p>
-          The true magic of a 401k is compound interest. As your investments grow, the earnings themselves start to generate more earnings. Over 20 or 30 years, this compounding effect accounts for the vast majority of your final balance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Traditional vs. Roth 401k</h3>
-        <ul>
-          <li><strong>Traditional 401k:</strong> Contributions are made pre-tax, reducing your taxable income today. You pay taxes on withdrawals in retirement.</li>
-          <li><strong>Roth 401k:</strong> Contributions are made with after-tax dollars. You don't get a tax break now, but all withdrawals in retirement are tax-free.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is the 401k contribution limit for 2026?</p>
-            <p>Contribution limits are adjusted annually by the IRS. For 2026, ensure you check the latest IRS guidelines for both individual and total contribution limits (including employer match).</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What happens if I leave my job?</p>
-            <p>You generally have four options: leave the money in your former employer's plan, roll it over into your new employer's 401k, roll it over into an IRA, or cash it out (which usually incurs taxes and penalties).</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is "Vesting"?</p>
-            <p>Vesting refers to the ownership of employer-contributed funds. While your own contributions are always 100% yours, employer matches may "vest" over several years of service.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="401k Calculator" 
+        path="/401k-calculator" 
+        description="Plan your retirement by estimating your 401k future value. Account for salary growth, employer matching, and investment returns for a secure 2026 financial future."
+      />
     </div>
   );
 };

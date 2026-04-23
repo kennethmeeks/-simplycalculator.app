@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BasicCalculator: React.FC = () => {
@@ -91,20 +92,11 @@ export const BasicCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is a Basic Calculator?</h2>
-        <p>
-          A basic calculator is a simple tool for performing basic arithmetic operations, such as addition, subtraction, multiplication, and division. It's an essential tool for everyday math tasks and is used in a wide range of fields, including finance, science, and education.
-        </p>
-        <h3>How to Use a Basic Calculator</h3>
-        <p>
-          To use a basic calculator, you simply enter the numbers and the operator for your calculation. The calculator will then perform the operation and display the result.
-        </p>
-        <h3>Why Basic Calculators Matter</h3>
-        <p>
-          Basic calculators are a fundamental tool for managing and communicating complex information. They provide a simple and effective way to perform everyday math tasks and are used in a wide range of fields, including finance, science, and education.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Basic Calculator" 
+        path="/basic-calculator" 
+        description="Perform simple arithmetic operations with our easy-to-use basic calculator. Ideal for everyday math, quick additions, subtractions, and more in 2026."
+      />
     </div>
   );
 };

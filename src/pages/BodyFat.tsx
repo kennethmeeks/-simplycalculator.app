@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Activity, User, Info } from 'lucide-react';
 
@@ -165,86 +166,11 @@ export const BodyFatCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Measuring Body Fat: A Comprehensive Guide</h2>
-        <p>
-          Body fat percentage is a much better indicator of health and fitness than weight alone. It represents the proportion of your total body mass that is composed of fat tissue. Our <strong>body fat calculator</strong> uses the US Navy method, which is a reliable and accessible way to estimate these numbers in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The US Navy Method</h3>
-        <p>
-          The US Navy method uses simple circumference measurements to estimate body fat. While not as precise as a DEXA scan or hydrostatic weighing, it is remarkably accurate for most people and requires only a measuring tape.
-        </p>
-        <p>
-          For the most accurate results, take your measurements in the morning before eating or exercising. Ensure the measuring tape is snug but not compressing the skin.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Body Fat Categories</h3>
-        <p>
-          The American Council on Exercise (ACE) provides the following guidelines for body fat percentages:
-        </p>
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="border-b">
-                <th className="text-left py-2">Category</th>
-                <th className="text-left py-2">Women (%)</th>
-                <th className="text-left py-2">Men (%)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b">
-                <td className="py-2">Essential Fat</td>
-                <td className="py-2">10-13%</td>
-                <td className="py-2">2-5%</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2">Athletes</td>
-                <td className="py-2">14-20%</td>
-                <td className="py-2">6-13%</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2">Fitness</td>
-                <td className="py-2">21-24%</td>
-                <td className="py-2">14-17%</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2">Average</td>
-                <td className="py-2">25-31%</td>
-                <td className="py-2">18-24%</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2">Obese</td>
-                <td className="py-2">32%+</td>
-                <td className="py-2">25%+</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Body Fat Matters</h3>
-        <ul>
-          <li><strong>Disease Risk:</strong> High body fat, particularly visceral fat around the organs, is linked to heart disease, type 2 diabetes, and certain cancers.</li>
-          <li><strong>Athletic Performance:</strong> Lower body fat percentages (within healthy limits) often correlate with better speed, agility, and endurance.</li>
-          <li><strong>Metabolic Health:</strong> Lean muscle mass is more metabolically active than fat, meaning it burns more calories even at rest.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">How accurate is this calculator?</p>
-            <p>The US Navy method typically has an error margin of 3-4% compared to clinical methods. It is best used for tracking trends over time rather than as an absolute measurement.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can I target fat loss in specific areas?</p>
-            <p>No. "Spot reduction" is a myth. When you lose body fat, your body decides where it comes from based on genetics and hormones.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the healthiest body fat percentage?</p>
-            <p>For most men, 14-20% is considered healthy. For most women, 21-28% is considered healthy. Essential fat is necessary for hormone production and organ protection.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Body Fat Calculator" 
+        path="/body-fat-calculator" 
+        description="Estimate your body fat percentage using the US Navy method. Track your fitness progress, lean mass, and fat mass with accuracy in 2026."
+      />
     </div>
   );
 };

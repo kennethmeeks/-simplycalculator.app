@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const WaterIntake: React.FC = () => {
@@ -79,30 +80,11 @@ export const WaterIntake: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Hydration</h2>
-        <p>
-          Hydration is a process of maintaining the body's water balance. It is essential for health and wellness, as water is involved in almost every bodily function.
-        </p>
-        <p>
-          Our <strong>water intake calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your daily water needs based on your weight and activity level. It assumes that you need about 0.5 oz of water per pound of body weight, plus an additional 12 oz for every 30 minutes of exercise.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Water Intake Calculator?</h3>
-        <p>
-          Water intake calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Health:</strong> They provide a fun and insightful way to estimate your daily water needs and stay hydrated.</li>
-          <li><strong>Fitness:</strong> They can be a great tool for managing hydration during exercise and improving performance.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Water Intake Calculator" 
+        path="/water-intake" 
+        description="Estimate your ideal daily water intake based on weight and activity levels. Stay hydrated and healthy with our free tool for 2026."
+      />
     </div>
   );
 };

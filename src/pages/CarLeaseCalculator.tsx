@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Car, TrendingDown, DollarSign, Calendar, Info } from 'lucide-react';
 
@@ -170,43 +171,11 @@ export const CarLeaseCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Is Leasing Right for You in 2026?</h2>
-        <p>
-          Leasing a car can be an attractive option for those who want a new vehicle every few years and lower monthly payments. Our <strong>car lease calculator</strong> helps you understand the complex math behind lease agreements.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Leasing vs. Buying</h3>
-        <p>
-          The main difference between leasing and buying is that when you lease, you are only paying for the <strong>depreciation</strong> of the vehicle during the time you drive it, plus interest and fees.
-        </p>
-        <ul>
-          <li><strong>Leasing:</strong> Lower monthly payments, always drive a new car, but you never own the asset.</li>
-          <li><strong>Buying:</strong> Higher monthly payments, but you eventually own the car and can sell it later.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Get the Best Lease Deal</h3>
-        <p>
-          To get the best deal, you need to look at more than just the monthly payment:
-        </p>
-        <ul>
-          <li><strong>Negotiate the Price:</strong> The "Gross Capitalized Cost" is the price of the car. You can and should negotiate this just as if you were buying the car.</li>
-          <li><strong>Check the Money Factor:</strong> This is the interest rate. Ask the dealer for the money factor and multiply it by 2400 to see the equivalent APR.</li>
-          <li><strong>Verify the Residual Value:</strong> A higher residual value means lower monthly payments because the car is expected to be worth more at the end of the lease.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What happens at the end of a lease?</p>
-            <p>You typically have three options: return the car and pay any fees, trade it in for a new lease, or buy the car for the residual value stated in your contract.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Are there hidden fees in a lease?</p>
-            <p>Watch out for acquisition fees, disposition fees (charged when you return the car), and excessive wear-and-tear charges.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Car Lease Calculator" 
+        path="/car-lease-calculator" 
+        description="Estimate monthly payments for your next vehicle lease. Factor in money factor, residual value, and negotiate the best deal in 2026."
+      />
     </div>
   );
 };

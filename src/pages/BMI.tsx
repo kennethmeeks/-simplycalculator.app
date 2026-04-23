@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { motion } from 'motion/react';
 import { parseInput } from '@/src/lib/calculatorUtils';
 import { ResultActions } from '../components/ResultActions';
@@ -329,86 +330,11 @@ export const BMICalculator: React.FC = () => {
         </section>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h3 className="text-2xl font-bold text-slate-900">Understanding the BMI Calculator for Adults with History</h3>
-        <p>
-          Body Mass Index (BMI) is a simple, widely-used index of weight-for-height that is commonly used to classify underweight, overweight, and obesity in adults. Our <strong>free BMI calculator for adults with history 2026</strong> is designed to not only give you an instant snapshot of your current health status but also to help you track your progress over time. By storing your previous calculations, you can see how your lifestyle changes are impacting your body composition.
-        </p>
-        
-        <h4 className="text-xl font-bold text-slate-900 mt-8">The BMI Formula Explained</h4>
-        <p>
-          The calculation for BMI is standardized globally. It is defined as the weight in kilograms divided by the square of the height in metres (kg/m²). The formula used by our calculator is:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-center my-4">
-          BMI = weight (kg) / [height (m)]^2
-        </div>
-        <p>
-          For those using US units (pounds and inches), the formula includes a conversion factor:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-center my-4">
-          BMI = 703 × weight (lbs) / [height (in)]^2
-        </div>
-        <p>
-          Our tool handles all these conversions automatically, allowing you to switch between metric and imperial systems seamlessly.
-        </p>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Why Track Your BMI History?</h4>
-        <p>
-          A single BMI reading is just a data point. However, your BMI <em>trend</em> over time provides much more valuable insight into your long-term health. In 2026, health professionals emphasize the importance of sustainable weight management rather than rapid fluctuations. By using our "Save to History" feature, you can maintain a log of your readings, helping you and your healthcare provider identify patterns and set realistic goals. Whether you are on a fitness journey or managing a health condition, having a history of your BMI is a powerful tool for accountability.
-        </p>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-6">How to Use the BMI Calculator</h4>
-        <p>
-          Our <strong>free BMI calculator 2026</strong> is intuitive and mobile-friendly. Simply enter your details to get started:
-        </p>
-        <ol>
-          <li><strong>Select Your Units:</strong> Choose between "Metric Units" (kg/cm) or "US Units" (lbs/ft/in).</li>
-          <li><strong>Enter Your Weight:</strong> Provide your current weight. Accuracy is key for a precise BMI reading.</li>
-          <li><strong>Enter Your Height:</strong> Provide your height. If using US units, ensure you enter both feet and inches correctly.</li>
-          <li><strong>Review Your Results:</strong> Your BMI and classification will appear instantly.</li>
-          <li><strong>Save Your Progress:</strong> Click "Save to History" to store your reading in your browser's local storage for future reference.</li>
-        </ol>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h4>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Is BMI accurate for everyone?</p>
-            <p>While BMI is a useful screening tool, it does have limitations. It does not directly measure body fat percentage or distribution. For example, athletes with high muscle mass may have a "high" BMI despite having low body fat. Conversely, elderly individuals may have a "normal" BMI but low muscle mass. It should be used as one of many indicators of health.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is a healthy BMI range in 2026?</p>
-            <p>The World Health Organization (WHO) defines a healthy BMI for most adults as being between 18.5 and 24.9. Scores below 18.5 are considered underweight, while scores above 25 are categorized as overweight, and above 30 as obese.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Where is my history stored?</p>
-            <p>Your BMI history is stored locally in your browser's storage. This means your data remains private and is not sent to any external servers. However, if you clear your browser's cache or use a different device, your history will not be visible.</p>
-          </div>
-        </div>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h4>
-        <p>
-          If an individual weighs <strong>70 kg</strong> and is <strong>175 cm</strong> tall, their BMI is calculated as 70 / (1.75 * 1.75) = <strong>22.9</strong>. This score falls within the <strong>Normal weight</strong> category, indicating a healthy weight-to-height ratio according to standard 2026 health guidelines.
-        </p>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          <div className="p-3 bg-blue-50 rounded-lg text-center">
-            <p className="text-xs font-bold text-blue-600">Underweight</p>
-            <p className="text-sm text-slate-600">&lt; 18.5</p>
-          </div>
-          <div className="p-3 bg-emerald-50 rounded-lg text-center">
-            <p className="text-xs font-bold text-emerald-600">Normal</p>
-            <p className="text-sm text-slate-600">18.5 – 24.9</p>
-          </div>
-          <div className="p-3 bg-amber-50 rounded-lg text-center">
-            <p className="text-xs font-bold text-amber-600">Overweight</p>
-            <p className="text-sm text-slate-600">25 – 29.9</p>
-          </div>
-          <div className="p-3 bg-rose-50 rounded-lg text-center">
-            <p className="text-xs font-bold text-rose-600">Obese</p>
-            <p className="text-sm text-slate-600">&gt; 30</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="BMI Calculator" 
+        path="/bmi-calculator" 
+        description="Calculate your Body Mass Index (BMI) and track your health progress with our calculator. Understand health categories and weight management in 2026."
+      />
     </div>
   );
 };

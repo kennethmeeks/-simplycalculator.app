@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DensityCalculator: React.FC = () => {
@@ -66,20 +67,11 @@ export const DensityCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Density?</h2>
-        <p>
-          Density is a measure of how much mass is contained in a given volume. It's a fundamental physical property of matter and is used in a wide range of fields, including physics, chemistry, and engineering.
-        </p>
-        <h3>The Formula</h3>
-        <p>
-          The formula for density is: ρ = m / V, where ρ is density, m is mass, and V is volume.
-        </p>
-        <h3>Why Density Matters</h3>
-        <p>
-          Density is critical for analyzing and interpreting data in a wide range of fields, including science, engineering, and manufacturing. It provides a simple and effective way to quantify and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Density Calculator" 
+        path="/density-calculator" 
+        description="Calculate the density of any substance by entering its mass and volume. Understand the physical properties of materials with instant results in 2026."
+      />
     </div>
   );
 };

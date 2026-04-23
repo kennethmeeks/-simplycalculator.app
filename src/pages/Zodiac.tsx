@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 const zodiacSigns = [
@@ -95,30 +96,11 @@ export const Zodiac: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Zodiac Signs</h2>
-        <p>
-          Zodiac signs are a way of categorizing people based on the position of the sun at the time of their birth. They are commonly used for insight into a person's character and potential.
-        </p>
-        <p>
-          Our <strong>zodiac calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to find your zodiac sign based on your birth date. Each sign is associated with a specific range of dates throughout the year.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Zodiac Calculator?</h3>
-        <p>
-          Zodiac calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Self-Discovery:</strong> They provide a fun and insightful way to learn more about yourself and your character.</li>
-          <li><strong>Personal Growth:</strong> They can be a great tool for personal growth and self-improvement.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential and relationships.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Zodiac / Star Sign Calculator" 
+        path="/zodiac" 
+        description="Discover your zodiac sign based on your birth date. Learn about your personality traits and astrological sign for 2026."
+      />
     </div>
   );
 };

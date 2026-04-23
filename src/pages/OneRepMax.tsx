@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const OneRepMax: React.FC = () => {
@@ -77,30 +78,11 @@ export const OneRepMax: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding One Rep Max</h2>
-        <p>
-          One rep max is a measure of the maximum weight a person can lift for a single repetition of a specific exercise. It is commonly used in strength training to track progress and set training goals.
-        </p>
-        <p>
-          Our <strong>one rep max calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your one rep max based on the Epley formula. It assumes that your maximum lift is proportional to the weight you can lift for a specific number of repetitions.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a One Rep Max Calculator?</h3>
-        <p>
-          One rep max calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Strength Training:</strong> They provide a fun and insightful way to estimate your maximum lift and set training goals.</li>
-          <li><strong>Progress Tracking:</strong> They can be a great tool for tracking your strength progress over time and staying motivated.</li>
-          <li><strong>Performance:</strong> They offer a unique perspective on your potential for strength and power.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="One Rep Max Calculator" 
+        path="/one-rep-max" 
+        description="Estimate your one-repetition maximum lift for any weightlifting exercise. Plan your strength training and track progress with our free tool for 2026."
+      />
     </div>
   );
 };

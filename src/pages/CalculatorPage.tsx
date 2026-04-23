@@ -14,8 +14,8 @@ import html2canvas from 'html2canvas';
 
 // AI Service
 const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
-const MODEL_FLASH = "gemini-3-flash-preview";
-const MODEL_PRO = "gemini-3.1-pro-preview";
+const MODEL_FLASH = "gemini-1.5-flash";
+const MODEL_PRO = "gemini-1.5-pro";
 
 // Helper for parsing JSON from AI strings
 const safeParseAIResponse = (text: string | undefined): any => {
@@ -55,6 +55,7 @@ const callGeminiWithRetry = async (params: any, retries = 2) => {
     let lastError;
     for (let i = 0; i <= retries; i++) {
         try {
+            // @ts-ignore
             return await genAI.models.generateContent(params);
         } catch (err) {
             lastError = err;

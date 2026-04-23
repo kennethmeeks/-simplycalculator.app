@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const PercentageOff: React.FC = () => {
@@ -71,43 +72,11 @@ export const PercentageOff: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">How to Calculate Percentage Off</h2>
-        <p>
-          Calculating a percentage off is a common task when shopping or managing a budget. Whether it's a 20% store-wide sale or a 50% clearance event, knowing your final price helps you make informed decisions.
-        </p>
-        <p>
-          Our <strong>percentage off calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Formula</h3>
-        <p>
-          To calculate the savings and final price manually, use these simple formulas:
-        </p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Savings:</strong> Original Price × (Percent Off / 100)</li>
-          <li><strong>Final Price:</strong> Original Price - Savings</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          If an item is originally priced at <strong>$80</strong> and is on sale for <strong>25% off</strong>:
-        </p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Savings:</strong> $80 × 0.25 = $20</li>
-          <li><strong>Final Price:</strong> $80 - $20 = $60</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Shopping Tips</h3>
-        <p>
-          When shopping during sales, keep these tips in mind:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Compare Prices:</strong> A 50% discount at one store might still be more expensive than the regular price at another.</li>
-          <li><strong>Check for Exclusions:</strong> Many sales exclude certain brands or categories. Always read the fine print.</li>
-          <li><strong>Stack Coupons:</strong> Some stores allow you to use a coupon on top of a sale price for even deeper savings.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Percentage Off Calculator" 
+        path="/percentage-off" 
+        description="Calculate the final price and total savings after a percentage discount. Perfect for shopping sales and budget planning in 2026."
+      />
     </div>
   );
 };

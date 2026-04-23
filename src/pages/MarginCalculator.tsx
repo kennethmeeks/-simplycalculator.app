@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const MarginCalculator: React.FC = () => {
@@ -114,63 +115,11 @@ export const MarginCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>Margin vs. Markup: What's the Difference?</h2>
-        <p>
-          While both margin and markup use the same inputs (cost and revenue) and measure the same thing (profitability), they are calculated differently and provide different perspectives on your business.
-        </p>
-        
-        <h3>1. Gross Profit Margin</h3>
-        <p>
-          Margin is the percentage of the final selling price that is profit. It tells you how much of every dollar of revenue you keep after paying for the cost of goods sold (COGS).
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm mb-4">
-          Margin = [(Revenue - Cost) / Revenue] * 100
-        </div>
-
-        <h3>2. Markup Percentage</h3>
-        <p>
-          Markup is the percentage added to the cost price to arrive at the selling price. It tells you how much more you're charging for a product than what it cost you to buy or produce.
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm mb-4">
-          Markup = [(Revenue - Cost) / Cost] * 100
-        </div>
-
-        <h3>How to Use the Margin Calculator</h3>
-        <p>
-          You can use this calculator in several ways:
-        </p>
-        <ul>
-          <li><strong>Calculate Margin/Markup:</strong> Enter your cost and revenue to see your current profitability.</li>
-          <li><strong>Set a Price:</strong> Enter your cost and your *target* margin or markup to see what you should charge for your product.</li>
-        </ul>
-
-        <h3>Common Business Benchmarks</h3>
-        <p>
-          What constitutes a "good" margin varies wildly by industry:
-        </p>
-        <ul>
-          <li><strong>Retail:</strong> Often aims for a 50% markup (known as "keystone pricing"), which results in a 33% margin.</li>
-          <li><strong>Software (SaaS):</strong> Often has very high gross margins (80%+) because the cost of delivering the software to an additional user is very low.</li>
-          <li><strong>Restaurants:</strong> Typically aim for food margins around 60-70% to cover high labor and overhead costs.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">Can margin be higher than 100%?</h4>
-            <p>No, gross profit margin can never exceed 100%. If you have zero cost, your margin is exactly 100%. Markup, however, can be much higher than 100% (e.g., if you buy something for $1 and sell it for $10, your markup is 900%).</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Why is margin more important than markup?</h4>
-            <p>Most businesses prefer to track margin because it directly relates to the bottom line. If you know your margin is 20%, you know that 20 cents of every dollar you make is profit. Markup doesn't give you that direct relationship to revenue.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is "Contribution Margin"?</h4>
-            <p>Contribution margin is a more advanced metric that subtracts variable costs from revenue. It tells you how much each sale contributes to covering your fixed costs (like rent and salaries).</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Margin Calculator" 
+        path="/margin-calculator" 
+        description="Calculate gross profit margin, markup, and selling price. Understand the key differences between margin and markup to optimize your business pricing in 2026."
+      />
     </div>
   );
 };

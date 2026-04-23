@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AverageReturnCalculator: React.FC = () => {
@@ -95,48 +96,11 @@ export const AverageReturnCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>Arithmetic vs. Geometric Mean: Which One Matters?</h2>
-        <p>
-          When evaluating investment performance, there are two ways to calculate the "average" return. While the arithmetic mean is easier to calculate, the geometric mean is the only accurate way to measure the actual growth of your money over time.
-        </p>
-        
-        <h3>1. Arithmetic Mean (Simple Average)</h3>
-        <p>
-          The arithmetic mean is simply the sum of all returns divided by the number of periods. It's useful for estimating the expected return for a single future period, but it overstates the actual growth of a portfolio over multiple periods.
-        </p>
-
-        <h3>2. Geometric Mean (Time-Weighted Return)</h3>
-        <p>
-          The geometric mean, also known as the Compound Annual Growth Rate (CAGR), accounts for the effects of compounding. It tells you the steady rate of return that would have produced the same final result as the actual fluctuating returns.
-        </p>
-
-        <h3>Why the Geometric Mean is Always Lower</h3>
-        <p>
-          The geometric mean is always less than or equal to the arithmetic mean. This is because of **volatility**. Large negative returns have a disproportionate impact on your portfolio. For example, if you lose 50% one year, you need a 100% gain the next year just to get back to even. The arithmetic mean would be 25%, but the geometric mean would be 0%.
-        </p>
-
-        <h3>How to Use the Average Return Calculator</h3>
-        <p>
-          Simply enter your returns for each period (year, quarter, or month) separated by commas. For example, if your portfolio returned 10% in year one, lost 5% in year two, and gained 15% in year three, you would enter: `10, -5, 15`.
-        </p>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">Which average should I use for retirement planning?</h4>
-            <p>You should always use the geometric mean (CAGR) for long-term planning. Using the arithmetic mean will lead you to overestimate your future savings.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is the "Volatility Drag"?</h4>
-            <p>Volatility drag is the reduction in the compound growth rate caused by the variance in returns. The more volatile an investment is, the larger the gap between its arithmetic and geometric average returns.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Can the geometric mean be negative?</h4>
-            <p>Yes, if your total investment value at the end of the period is less than what you started with, the geometric mean will be negative, indicating an overall loss.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Average Return Calculator" 
+        path="/average-return" 
+        description="Calculate arithmetic and geometric average returns for your portfolio. Understand the impact of volatility and compounding on your 2026 investment goals."
+      />
     </div>
   );
 };

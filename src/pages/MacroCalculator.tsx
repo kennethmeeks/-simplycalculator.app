@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Activity, Utensils, Info } from 'lucide-react';
 
@@ -117,45 +118,11 @@ export const MacroCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Mastering Your Macros: A Nutritional Guide</h2>
-        <p>
-          "Macros" is short for macronutrients—the three main components of every diet: protein, carbohydrates, and fats. While calories determine whether you gain or lose weight, your macro ratio determines the <em>quality</em> of that weight change. Our <strong>macro calculator</strong> helps you optimize your nutrition for your specific goals in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Three Pillars of Nutrition</h3>
-        <ul>
-          <li><strong>Protein (4 calories per gram):</strong> Essential for muscle repair, immune function, and satiety. High-protein diets are often preferred for fat loss (cutting) to preserve lean muscle mass.</li>
-          <li><strong>Carbohydrates (4 calories per gram):</strong> Your body's primary energy source. Carbs fuel your brain and your workouts. Higher carb ratios are often used for muscle building (bulking).</li>
-          <li><strong>Fats (9 calories per gram):</strong> Crucial for hormone production, brain health, and nutrient absorption. Fats are energy-dense and keep you full for longer.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Choosing Your Macro Ratio</h3>
-        <p>
-          There is no "perfect" ratio, but common starting points include:
-        </p>
-        <ul>
-          <li><strong>Maintenance:</strong> 30% Protein, 40% Carbs, 30% Fat. A balanced approach for general health.</li>
-          <li><strong>Cutting (Fat Loss):</strong> 40% Protein, 30% Carbs, 30% Fat. Higher protein helps maintain muscle while in a calorie deficit.</li>
-          <li><strong>Bulking (Muscle Gain):</strong> 25% Protein, 50% Carbs, 25% Fat. Higher carbs provide the energy needed for intense training and recovery.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Do I have to hit my macros exactly?</p>
-            <p>No. Think of these as targets. If you're within 5-10 grams of each target, you're doing great. Consistency over time is more important than daily perfection.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What about fiber?</p>
-            <p>Fiber is a type of carbohydrate that your body doesn't fully digest. Aim for 25-35 grams of fiber per day for digestive health and satiety.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Should I track "Net Carbs"?</p>
-            <p>Net carbs are total carbs minus fiber and sugar alcohols. Many people find tracking net carbs useful for keto or low-carb diets, but for general fitness, tracking total carbs is usually sufficient.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Macro Calculator" 
+        path="/macro-calculator" 
+        description="Calculate your ideal macronutrient ratios for weight loss, maintenance, or muscle gain. Optimize your protein, fat, and carb intake for 2026."
+      />
     </div>
   );
 };

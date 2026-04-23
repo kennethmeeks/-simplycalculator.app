@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ConceptionCalculator: React.FC = () => {
@@ -78,20 +79,11 @@ export const ConceptionCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>How Conception is Calculated</h2>
-        <p>
-          Conception typically occurs during ovulation, which is the point in your menstrual cycle when an egg is released from the ovary. For most women with a 28-day cycle, ovulation happens around day 14.
-        </p>
-        <h3>Why the Window Matters</h3>
-        <p>
-          Sperm can live inside the female reproductive tract for up to five days, and an egg is viable for about 12 to 24 hours after ovulation. This means that intercourse occurring several days before ovulation can still lead to conception.
-        </p>
-        <h3>Accuracy of the Calculation</h3>
-        <p>
-          The most accurate way to determine your conception date is through an early ultrasound (usually before 12 weeks), which measures the size of the embryo or fetus. Due dates calculated from the LMP or conception date are always estimates, as every pregnancy is unique.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Conception Calculator" 
+        path="/conception" 
+        description="Estimate your conception date based on menstrual cycle patterns. Understand your fertile window and pregnancy milestones for 2026."
+      />
     </div>
   );
 };

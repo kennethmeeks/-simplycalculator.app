@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { TrendingUp, DollarSign, Percent, BarChart, FileDown, Share2, RotateCcw } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
@@ -178,48 +179,11 @@ export const ROICalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Measuring Success: An ROI Guide</h2>
-        <p>
-          Return on Investment (ROI) is a popular profitability metric used to evaluate how well an investment has performed. Whether it's a stock purchase, a business project, or a marketing campaign, our <strong>ROI calculator</strong> helps you quantify your success in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How ROI Is Calculated</h3>
-        <p>
-          The basic ROI formula is simple:
-        </p>
-        <div className="bg-slate-50 p-4 rounded font-mono text-sm border border-slate-200 my-4">
-          ROI = [(Current Value - Cost of Investment) / Cost of Investment] * 100
-        </div>
-        
-        <h4 className="font-bold text-slate-900">Why Annualized ROI Matters</h4>
-        <p>
-          Total ROI can be misleading if you don't consider the time factor. A 50% return over 10 years is very different from a 50% return over 1 year. Annualized ROI allows you to compare investments of different durations on an apples-to-apples basis.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Limitations of ROI</h3>
-        <ul>
-          <li><strong>Ignores Risk:</strong> A high ROI might come with high risk. ROI doesn't tell you how likely you were to lose your money.</li>
-          <li><strong>Doesn't Account for Cash Flow:</strong> ROI only looks at the start and end values, ignoring any income (like dividends or rent) or expenses that occurred in between.</li>
-          <li><strong>Time Sensitivity:</strong> As mentioned, basic ROI doesn't account for the time value of money unless you use the annualized version.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a "good" ROI?</p>
-            <p>A "good" ROI depends on the asset class and your risk tolerance. For stocks, 7-10% annually is often considered good. For a business project, you might look for 15-20% or more.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can ROI be negative?</p>
-            <p>Yes. A negative ROI means you lost money on the investment. For example, if you invest $1,000 and get back $800, your ROI is -20%.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How is ROI different from Profit Margin?</p>
-            <p>ROI measures the return on the money you put in. Profit Margin measures how much of every dollar of sales the company keeps as profit.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="ROI Calculator (Return on Investment)" 
+        path="/roi-calculator" 
+        description="Measure the profitability of your investments. Calculate total ROI and annualized ROI for stocks, business projects, or any financial venture in 2026."
+      />
     </div>
   );
 };

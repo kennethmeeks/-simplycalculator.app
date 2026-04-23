@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 const activities = [
@@ -100,30 +101,11 @@ export const CaloriesBurned: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Calories Burned</h2>
-        <p>
-          Calories burned are a way of measuring the energy expended during physical activity. They are commonly used for health and fitness tracking to manage weight and improve fitness.
-        </p>
-        <p>
-          Our <strong>calories burned calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate calories burned based on your weight, duration, and activity. It uses MET (Metabolic Equivalent of Task) values to represent the intensity of each activity.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Calories Burned Calculator?</h3>
-        <p>
-          Calories burned calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Weight Management:</strong> They provide a fun and insightful way to estimate calories burned and manage weight.</li>
-          <li><strong>Fitness Tracking:</strong> They can be a great tool for tracking your physical activity and improving fitness.</li>
-          <li><strong>Health:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Calories Burned Calculator" 
+        path="/calories-burned" 
+        description="Estimate the amount of energy burned during physical activity. Track your exercise and improve your fitness with our easy-to-use tool for 2026."
+      />
     </div>
   );
 };

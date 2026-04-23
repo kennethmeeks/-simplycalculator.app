@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { parseInput } from '@/src/lib/calculatorUtils';
 import { ResultActions } from '../components/ResultActions';
 import { FileDown, RotateCcw, Share2 } from 'lucide-react';
@@ -216,69 +217,11 @@ export const CompoundInterestCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">What is Compound Interest?</h2>
-        <p>
-          Compound interest is often described as the "eighth wonder of the world" because of its incredible power to build wealth over time. Unlike simple interest, which is only calculated on the initial principal, compound interest is calculated on both the initial principal and the accumulated interest from previous periods. In 2026, understanding this concept is more important than ever for anyone looking to build long-term financial security. Our <strong>compound interest calculator with monthly contributions</strong> helps you visualize how small, regular additions to your savings can grow into a significant nest egg.
-        </p>
-        <p>
-          The true magic of compounding happens over long durations. The earlier you start, the more time your money has to grow. Even modest monthly contributions can lead to substantial results when given decades to compound at a steady rate of return.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the Compound Interest Calculator</h3>
-        <p>
-          To see your potential investment growth, simply fill in the following fields:
-        </p>
-        <ol>
-          <li><strong>Initial Investment:</strong> The starting amount of money you have to invest today.</li>
-          <li><strong>Monthly Contribution:</strong> The amount you plan to add to your investment every month. Consistency is key here!</li>
-          <li><strong>Interest Rate:</strong> The expected annual percentage rate (APR) of your investment. This is often based on historical stock market or bond returns.</li>
-          <li><strong>Years:</strong> The total length of time you plan to keep the money invested before you need to withdraw it.</li>
-          <li><strong>Compounding Frequency:</strong> How often the interest is calculated and added back to your balance. Most savings accounts compound monthly or daily.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Compound Interest Formula</h3>
-        <p>
-          Our calculator uses the standard formula for compound interest with regular contributions:
-        </p>
-        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-sm overflow-x-auto">
-          A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)]
-        </div>
-        <p className="mt-4">Where:</p>
-        <ul>
-          <li><strong>A:</strong> The future value of the investment</li>
-          <li><strong>P:</strong> The initial principal balance</li>
-          <li><strong>r:</strong> The annual interest rate (decimal)</li>
-          <li><strong>n:</strong> The number of times interest is compounded per year</li>
-          <li><strong>t:</strong> The number of years the money is invested</li>
-          <li><strong>PMT:</strong> The monthly contribution amount</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is the "Rule of 72"?</p>
-            <p>The Rule of 72 is a quick way to estimate how long it will take for your money to double at a given interest rate. Simply divide 72 by your annual interest rate. For example, at a 6% rate, your money will double in approximately 12 years.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How does compounding frequency affect growth?</p>
-            <p>The more frequently interest is compounded, the faster your investment grows. Daily compounding will result in a slightly higher future value than monthly or annual compounding, even with the same interest rate, because interest starts earning interest sooner.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Is a 7% interest rate realistic in 2026?</p>
-            <p>Historically, the S&P 500 has returned an average of about 7-10% annually before inflation. However, actual returns can vary significantly from year to year, and past performance is no guarantee of future results. It's always wise to test different scenarios in the calculator.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the difference between simple and compound interest?</p>
-            <p>Simple interest is calculated only on the principal amount of a loan or deposit. Compound interest is calculated on the principal amount and also on the accumulated interest of previous periods, leading to exponential growth.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          If you start with <strong>$10,000</strong> and contribute <strong>$200 per month</strong> for <strong>20 years</strong> at an average annual return of <strong>8%</strong> compounded monthly, your future value would be approximately <strong>$165,000</strong>. Of that total, your contributions only account for $58,000, meaning over <strong>$107,000</strong> was generated purely from interest earned!
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Compound Interest Calculator" 
+        path="/compound-interest" 
+        description="Calculate the power of compound interest with regular contributions. Plan your financial future and build long-term wealth with our compound interest tool for 2026."
+      />
     </div>
   );
 };

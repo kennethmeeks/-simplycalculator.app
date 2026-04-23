@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { CreditCard, DollarSign, Calendar, AlertCircle } from 'lucide-react';
 
@@ -116,41 +117,11 @@ export const CreditCardCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Breaking the Cycle of Debt: A Credit Card Guide</h2>
-        <p>
-          Credit cards are powerful tools, but high interest rates can make them a dangerous trap. Understanding how your payments impact your balance is the first step toward financial freedom. Our <strong>credit card calculator</strong> helps you visualize your path out of debt in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Danger of Minimum Payments</h3>
-        <p>
-          Credit card companies often set minimum payments at just 2-3% of the total balance. If you only pay the minimum, most of your money goes toward interest, and it can take decades to pay off even a small balance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Strategies for Paying Off Debt</h3>
-        <ul>
-          <li><strong>Debt Avalanche:</strong> Pay off the card with the highest interest rate first while making minimum payments on others. This saves the most money on interest.</li>
-          <li><strong>Debt Snowball:</strong> Pay off the smallest balance first to build momentum and psychological wins.</li>
-          <li><strong>Balance Transfers:</strong> Move high-interest debt to a card with a 0% introductory APR to save on interest while you pay down the principal.</li>
-          <li><strong>Personal Loans:</strong> Consolidate high-interest credit card debt into a lower-interest personal loan with a fixed payoff date.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">How is credit card interest calculated?</p>
-            <p>Most cards use the "Average Daily Balance" method. They take your APR, divide it by 365 to get a daily rate, and multiply that by your balance every day.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is a good APR?</p>
-            <p>In 2026, the average credit card APR is around 20%. "Good" rates for those with excellent credit might be 15-18%, while "bad" rates can exceed 25-30%.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Will paying off my card help my credit score?</p>
-            <p>Yes! Your "credit utilization ratio" (how much of your available credit you're using) is a major factor in your credit score. Lowering this ratio usually results in a score boost.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Credit Card Calculator" 
+        path="/credit-card" 
+        description="Plan your debt payoff strategy with our free credit card tool. See how your monthly payments impact interest and payoff time for 2026."
+      />
     </div>
   );
 };

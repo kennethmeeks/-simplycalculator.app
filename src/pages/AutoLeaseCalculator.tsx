@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const AutoLeaseCalculator: React.FC = () => {
@@ -158,56 +159,11 @@ export const AutoLeaseCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>How Auto Leasing Works</h2>
-        <p>
-          Leasing a car is essentially renting it for a long period (usually 2 to 4 years). Instead of paying for the entire value of the car, you only pay for the **depreciation** that occurs during the time you have the vehicle, plus interest and fees.
-        </p>
-        
-        <h3>How to Use the Auto Lease Calculator</h3>
-        <p>
-          To get an accurate estimate of your lease payment, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Vehicle Price:</strong> The negotiated price of the car (also known as the "Gross Capitalized Cost").</li>
-          <li><strong>Down Payment:</strong> The amount of cash you pay upfront to reduce the monthly payment.</li>
-          <li><strong>Trade-In:</strong> The value of your current car if you are trading it in.</li>
-          <li><strong>Lease Term:</strong> The length of the lease in months.</li>
-          <li><strong>Money Factor:</strong> The interest rate on the lease. To convert a standard APR to a money factor, divide by 2400.</li>
-          <li><strong>Residual Value:</strong> The estimated value of the car at the end of the lease. This is usually set by the manufacturer.</li>
-        </ul>
-
-        <h3>The Lease Payment Formula</h3>
-        <p>
-          A lease payment consists of two main parts:
-        </p>
-        <ol>
-          <li><strong>Depreciation Fee:</strong> (Net Capitalized Cost - Residual Value) / Term</li>
-          <li><strong>Finance Fee:</strong> (Net Capitalized Cost + Residual Value) * Money Factor</li>
-        </ol>
-        <p>The sum of these two fees, plus sales tax, equals your total monthly payment.</p>
-
-        <h3>Leasing vs. Buying</h3>
-        <p>
-          Leasing is a good option if you like to drive a new car every few years and want lower monthly payments. However, you don't build any equity in the vehicle, and you may face mileage limits and wear-and-tear charges at the end of the lease. Buying is better if you plan to keep the car for a long time and want to eventually own it outright.
-        </p>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is a "good" money factor?</h4>
-            <p>A good money factor depends on current interest rates and your credit score. For example, a money factor of 0.0025 is roughly equivalent to a 6% APR (0.0025 * 2400 = 6).</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Can I negotiate the residual value?</h4>
-            <p>No, the residual value is typically set by the leasing company (the "lessor") and is not negotiable. However, you can negotiate the vehicle's price (capitalized cost) and sometimes the money factor.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What happens if I go over the mileage limit?</h4>
-            <p>Most leases have a limit of 10,000 to 15,000 miles per year. If you exceed this limit, you will be charged a fee for every extra mile (usually $0.15 to $0.25 per mile) when you return the car.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Auto Lease Calculator" 
+        path="/auto-lease" 
+        description="Estimate your monthly car lease payments with our free calculator. Factory in depreciation, money factors, and residual values for 2026 vehicle planning."
+      />
     </div>
   );
 };

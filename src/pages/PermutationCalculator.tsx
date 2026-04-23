@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Calculator, Info, Hash } from 'lucide-react';
 
@@ -115,36 +116,11 @@ export const PermutationCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Permutations in 2026</h2>
-        <p>
-          Our <strong>permutation calculator</strong> is a powerful tool for calculating the number of ways to arrange objects in a specific order. By entering n and r, we can reveal the total number of permutations.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Importance of Permutations</h3>
-        <p>
-          Permutations are essential for solving problems in probability, statistics, and combinatorics. They're used in everything from password security to genetic research.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Components of Permutations</h3>
-        <ul>
-          <li><strong>Set:</strong> The collection of objects being arranged.</li>
-          <li><strong>Arrangement:</strong> The specific order of the objects.</li>
-          <li><strong>Factorial:</strong> The product of all positive integers up to that number.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">What is the difference between a permutation and a combination?</p>
-            <p>In a permutation, the order of the objects matters. In a combination, the order does not matter.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How do I calculate permutations with repetition?</p>
-            <p>If objects can be repeated, the number of permutations is n^r. For example, there are 10^3 = 1000 ways to create a 3-digit code using the numbers 0-9.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Permutation Calculator" 
+        path="/permutation" 
+        description="Calculate the number of ways to arrange a set of objects in a specific order. Useful for math, statistics, and probability problems in 2026."
+      />
     </div>
   );
 };

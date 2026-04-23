@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BACCalculator: React.FC = () => {
@@ -92,28 +93,11 @@ export const BACCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Blood Alcohol Content (BAC)?</h2>
-        <p>
-          Blood Alcohol Content (BAC) is a measure of the amount of alcohol in your bloodstream. It's often used by law enforcement to determine if a person is legally impaired while driving.
-        </p>
-        <h3>How BAC is Calculated</h3>
-        <p>
-          The most common way to calculate BAC is by using the Widmark formula, which is based on your weight, gender, and the amount of alcohol you've consumed. Other factors, such as the time since your first drink, also play a role.
-        </p>
-        <h3>Why BAC Matters</h3>
-        <p>
-          BAC is a critical measure of impairment, as it affects your reaction time, coordination, and judgment. It's important to understand your BAC and to make safe choices when consuming alcohol.
-        </p>
-        <h3>Tips for Staying Safe</h3>
-        <ul>
-          <li>Never drink and drive. Always have a designated driver or use a ride-sharing service.</li>
-          <li>Drink in moderation and pace yourself.</li>
-          <li>Eat a meal before and while consuming alcohol.</li>
-          <li>Stay hydrated by drinking plenty of water.</li>
-          <li>Know your limits and listen to your body.</li>
-        </ul>
-      </div>
+      <CalculatorSEO 
+        name="BAC Calculator" 
+        path="/bac-calculator" 
+        description="Estimate your Blood Alcohol Content (BAC) based on weight, gender, and consumption. Understand impairment levels and impairment factors for safety in 2026."
+      />
     </div>
   );
 };

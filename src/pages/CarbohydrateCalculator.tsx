@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const CarbohydrateCalculator: React.FC = () => {
@@ -70,38 +71,11 @@ export const CarbohydrateCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Role of Carbohydrates in Your Diet</h2>
-        <p>
-          Carbohydrates are the body's primary source of energy, providing fuel for your brain, muscles, and organs. Our <strong>carb calculator 2026</strong> helps you determine the precise amount of grams you need to meet your specific macronutrient goals.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How Many Carbs Do You Need?</h3>
-        <p>
-          The Dietary Guidelines for Americans recommend that carbohydrates make up 45% to 65% of your total daily calorie intake. For someone on a 2,000-calorie diet, this translates to about 225 to 325 grams of carbs per day. 
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Are low carb diets better for weight loss?</p>
-            <p>Low carb diets can be effective for weight loss, but the most important factor is a consistent calorie deficit. Many people find success with moderate carb intakes (40-50%) combined with high fiber and protein.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the difference between simple and complex carbs?</p>
-            <p>Simple carbs (sugars) are digested quickly and provide immediate energy but can lead to blood sugar spikes. Complex carbs (starches and fiber) are digested more slowly, providing sustained energy and better satiety.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How many calories are in a gram of carbs?</p>
-            <p>Every gram of carbohydrate contains exactly 4 calories. This is the same as protein, while fat contains 9 calories per gram.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Carbs and Weight Management</h3>
-        <p>
-          While carbohydrates are often blamed for weight gain, they are an essential part of a balanced diet. The key is to choose high-quality, nutrient-dense sources like vegetables, fruits, and whole grains, rather than refined sugars and processed snacks.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Carbohydrate Calculator" 
+        path="/carbohydrate-calculator" 
+        description="Estimate your daily carbohydrate requirements based on dietary goals. Learn about simple vs. complex carbs and their role in a balanced diet in 2026."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const CollegeCostCalculator: React.FC = () => {
@@ -127,63 +128,11 @@ export const CollegeCostCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is the Cost of College?</h2>
-        <p>
-          The cost of college is the total amount of money you will need to pay for a post-secondary education. This typically includes tuition and fees, room and board, books and supplies, and other personal expenses.
-        </p>
-        
-        <h3>How to Use the College Cost Calculator</h3>
-        <p>
-          To estimate the total cost of a college education, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Tuition & Fees:</strong> The annual cost of tuition and other required fees.</li>
-          <li><strong>Room & Board:</strong> The annual cost of housing and meals.</li>
-          <li><strong>Books & Supplies:</strong> The annual cost of textbooks and other required supplies.</li>
-          <li><strong>Other Expenses:</strong> The annual cost of personal expenses, such as transportation and entertainment.</li>
-          <li><strong>Years to Graduate:</strong> The number of years you plan to take to graduate.</li>
-          <li><strong>Inflation Rate:</strong> The annual rate of increase in college costs.</li>
-        </ul>
-
-        <h3>Ways to Pay for College</h3>
-        <p>
-          There are several ways to pay for college:
-        </p>
-        <ul>
-          <li><strong>Scholarships and Grants:</strong> These are awards that do not need to be paid back.</li>
-          <li><strong>Student Loans:</strong> These are loans that must be paid back with interest.</li>
-          <li><strong>Work-Study:</strong> This is a program that allows students to work part-time while in school.</li>
-          <li><strong>Savings:</strong> This is money that you or your family have saved for college.</li>
-        </ul>
-
-        <h3>Tips for Reducing College Costs</h3>
-        <p>
-          Reducing the cost of college can help you avoid excessive student loan debt:
-        </p>
-        <ul>
-          <li><strong>Consider a Community College:</strong> Starting at a community college and then transferring to a four-year university can save you thousands of dollars.</li>
-          <li><strong>Apply for Scholarships and Grants:</strong> Be sure to apply for as many scholarships and grants as possible.</li>
-          <li><strong>Live at Home:</strong> Living at home can save you a significant amount of money on room and board.</li>
-          <li><strong>Work Part-Time:</strong> Working part-time while in school can help you pay for your expenses.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is the "Net Price" of college?</h4>
-            <p>The net price of college is the total cost of attendance minus any scholarships and grants you receive.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is a "529 Plan"?</h4>
-            <p>A 529 plan is a tax-advantaged savings plan designed to help families save for future education costs.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">How can I increase my chances of getting financial aid?</h4>
-            <p>Be sure to complete the Free Application for Federal Student Aid (FAFSA) as early as possible each year.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="College Cost Calculator" 
+        path="/college-cost" 
+        description="Estimate the total cost of a college degree. Account for tuition, living expenses, and inflation to plan your 2026 education budget."
+      />
     </div>
   );
 };

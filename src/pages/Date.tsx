@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DateCalculator: React.FC = () => {
@@ -156,59 +157,11 @@ export const DateCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Ultimate Guide to Date Calculations</h2>
-        <p>
-          Calculating the duration between two dates or determining a future date is a common task in project management, legal proceedings, and personal planning. Our <strong>date calculator</strong> is a versatile tool designed to provide precise results for any date-related query in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Date Calculator?</h3>
-        <p>
-          While it might seem simple to count days on a calendar, manual calculations are prone to errors, especially when dealing with leap years, varying month lengths, and long durations. A digital calculator ensures accuracy and saves time.
-        </p>
-        <ul>
-          <li><strong>Project Deadlines:</strong> Calculate how many working days or weeks are left until a milestone.</li>
-          <li><strong>Legal and Contractual:</strong> Determine the exact date a contract expires or a notice period ends.</li>
-          <li><strong>Personal Milestones:</strong> Find out exactly how many days until your next vacation or how many weeks since a special event.</li>
-          <li><strong>Age and Anniversary:</strong> Calculate precise ages or durations for anniversaries.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Understanding Date Math</h3>
-        <p>
-          Date math involves adding or subtracting units of time (days, weeks, months, years) from a starting point. Our calculator handles the complexities of the Gregorian calendar automatically.
-        </p>
-        
-        <h4 className="font-bold text-slate-900">Leap Years</h4>
-        <p>
-          A leap year occurs every four years (with some exceptions) and adds an extra day to February. This affects any calculation that spans across the end of February in a leap year. Our tool accounts for these variations to ensure your results are always correct.
-        </p>
-
-        <h4 className="font-bold text-slate-900">Month Lengths</h4>
-        <p>
-          Since months vary from 28 to 31 days, adding "one month" can be ambiguous. Our calculator uses standard calendar logic to move to the same day in the following month, adjusting for shorter months if necessary.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">How many days are in a year?</p>
-            <p>A standard year has 365 days, while a leap year has 366 days. For long-term averages, 365.25 days is often used.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does this calculator include the end date?</p>
-            <p>By default, most date duration calculations count the number of full days between the two dates. If you need to include the end date as a "day of work," simply add one to the result.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the Gregorian calendar?</p>
-            <p>The Gregorian calendar is the most widely used civil calendar in the world today. It was introduced in 1582 to replace the Julian calendar and improve the accuracy of leap year calculations.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Pro Tip: Working Days</h3>
-        <p>
-          If you are using this for business, remember that the total number of days includes weekends and holidays. To find "business days," you typically subtract 2 days for every 7-day period, though specific holidays will vary by region.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Date Calculator" 
+        path="/date" 
+        description="Calculate days between dates or add/subtract time from any date. Precise duration and target date calculations for 2026 planning."
+      />
     </div>
   );
 };

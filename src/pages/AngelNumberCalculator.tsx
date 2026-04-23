@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Calculator, Info, Sparkles, Star } from 'lucide-react';
 
@@ -113,38 +114,11 @@ export const AngelNumberCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Angel Numbers in 2026</h2>
-        <p>
-          Our <strong>angel number calculator</strong> uses the principles of numerology to help you discover the spiritual message hidden in your birth date. By reducing your birth date to a single digit (or a master number), we can reveal your core vibration and life purpose.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Meaning of Master Numbers</h3>
-        <p>
-          In numerology, the numbers 11, 22, and 33 are considered "master numbers" and are not reduced to a single digit. They carry a higher vibration and represent a more significant spiritual mission.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Common Angel Number Meanings</h3>
-        <ul>
-          <li><strong>111:</strong> Manifestation and new beginnings. Your thoughts are becoming reality.</li>
-          <li><strong>222:</strong> Balance and trust. You are on the right path.</li>
-          <li><strong>333:</strong> Creative expression and spiritual growth. Your angels are with you.</li>
-          <li><strong>444:</strong> Protection and stability. You are safe and supported.</li>
-          <li><strong>555:</strong> Significant change and transformation. Embrace the new.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">How do I know if a number is an angel number?</p>
-            <p>If you see a specific number sequence repeatedly in your daily life (on clocks, license plates, receipts, etc.), it is likely an angel number intended for you.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What should I do when I see an angel number?</p>
-            <p>Take a moment to pause, breathe, and reflect on your thoughts and feelings at that moment. The angel number is a sign to pay attention and trust your intuition.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Angel Number Calculator" 
+        path="/angel-number" 
+        description="Discover your unique angel number and its spiritual meaning. Calculate your core vibration in 2026 and reveal messages from the divine realm."
+      />
     </div>
   );
 };

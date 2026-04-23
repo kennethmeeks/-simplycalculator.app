@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { GraduationCap, Plus, Trash2 } from 'lucide-react';
 
@@ -184,59 +185,11 @@ export const GradeCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Mastering Your Academic Success with a Grade Calculator</h2>
-        <p>
-          Understanding where you stand in a course is essential for academic success. Whether you are a high school student or in university, our <strong>grade calculator</strong> helps you take the guesswork out of your final results. By inputting your current assignments and their weights, you can see exactly what you need to achieve on your final exam to reach your target grade in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How Weighted Grades Work</h3>
-        <p>
-          Most modern courses use a weighted grading system. This means that different types of assignments contribute differently to your final grade. For example:
-        </p>
-        <ul>
-          <li><strong>Homework:</strong> 20%</li>
-          <li><strong>Quizzes:</strong> 15%</li>
-          <li><strong>Midterm Exam:</strong> 25%</li>
-          <li><strong>Final Project:</strong> 15%</li>
-          <li><strong>Final Exam:</strong> 25%</li>
-        </ul>
-        <p>
-          In this system, a 90% on your midterm is worth much more than a 90% on a single homework assignment. Our calculator handles this math by multiplying each grade by its weight and summing the results.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Calculating Your Needed Final Exam Score</h3>
-        <p>
-          The most common question students ask is: "What do I need on the final to get an A?" The formula used by our tool is:
-        </p>
-        <div className="bg-slate-50 p-4 rounded font-mono text-sm border border-slate-200 my-4">
-          Needed Score = [Desired Grade - (Current Grade * (100% - Final Weight))] / Final Weight
-        </div>
-        <p>
-          This calculation tells you the minimum percentage you must earn on your final exam to reach your overall goal for the course.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What if my weights don't add up to 100%?</p>
-            <p>Our calculator will still find your current average based on the weights you've provided. However, for a final grade calculation to be accurate, the total weight of all assignments plus the final exam should equal 100%.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can I calculate my GPA here?</p>
-            <p>This tool is for individual course grades. To calculate your overall Grade Point Average across multiple classes, please use our dedicated <strong>GPA Calculator</strong>.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What does it mean if I need over 100% on the final?</p>
-            <p>If the calculator shows you need more than 100%, it means that even with a perfect score on the final exam, your desired grade is mathematically impossible based on your current performance. You may need to adjust your goal or talk to your instructor about extra credit.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Tips for Improving Your Grade</h3>
-        <p>
-          If your current grade isn't where you want it to be, don't panic. Use the results from this calculator to prioritize your study time. Focus on upcoming assignments with high weights, and consider asking for feedback on previous work to understand where you can improve. Consistent effort and strategic planning are the keys to academic excellence.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Grade Calculator" 
+        path="/grade-calculator" 
+        description="Calculate your current class grade and determine what you need on your final exam. Track weighted assignments and reach your academic goals in 2026."
+      />
     </div>
   );
 };

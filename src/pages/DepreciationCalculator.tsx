@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DepreciationCalculator: React.FC = () => {
@@ -144,58 +145,11 @@ export const DepreciationCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Depreciation?</h2>
-        <p>
-          Depreciation is the process of allocating the cost of a tangible asset over its useful life. It represents the reduction in the value of an asset due to wear and tear, obsolescence, or age. Depreciation is an important concept in accounting and finance, as it allows businesses to match the cost of an asset with the revenue it generates.
-        </p>
-        
-        <h3>How to Use the Depreciation Calculator</h3>
-        <p>
-          To calculate the depreciation of an asset, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Asset Cost:</strong> The total amount you paid for the asset, including any shipping or installation costs.</li>
-          <li><strong>Salvage Value:</strong> The estimated value of the asset at the end of its useful life.</li>
-          <li><strong>Useful Life:</strong> The number of years you expect to use the asset.</li>
-          <li><strong>Depreciation Method:</strong> The method you want to use to calculate the annual depreciation.</li>
-        </ul>
-
-        <h3>Common Depreciation Methods</h3>
-        <p>
-          There are several methods for calculating depreciation:
-        </p>
-        <ul>
-          <li><strong>Straight-Line Method:</strong> This is the simplest method, where the annual depreciation is the same each year. It's calculated as (Asset Cost - Salvage Value) / Useful Life.</li>
-          <li><strong>Double-Declining Balance Method:</strong> This is an accelerated depreciation method, where the annual depreciation is higher in the early years of the asset's life. It's calculated as (2 / Useful Life) * Book Value at the beginning of the year.</li>
-        </ul>
-
-        <h3>Why Depreciation is Important</h3>
-        <p>
-          Depreciation is important for several reasons:
-        </p>
-        <ul>
-          <li><strong>Tax Benefits:</strong> Depreciation is a tax-deductible expense, which can lower a business's taxable income and tax bill.</li>
-          <li><strong>Asset Valuation:</strong> Depreciation helps businesses accurately value their assets on their balance sheets.</li>
-          <li><strong>Replacement Planning:</strong> Tracking depreciation can help businesses plan for the eventual replacement of their assets.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is "Accumulated Depreciation"?</h4>
-            <p>Accumulated depreciation is the total amount of depreciation that has been recorded for an asset since it was acquired.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is "Book Value"?</h4>
-            <p>Book value is the original cost of an asset minus its accumulated depreciation. It represents the value of the asset as recorded on a business's balance sheet.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Can I change the depreciation method for an asset?</h4>
-            <p>Generally, businesses must use the same depreciation method for an asset throughout its useful life. However, there may be certain circumstances where a change is allowed.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Depreciation Calculator" 
+        path="/depreciation-calculator" 
+        description="Calculate asset depreciation using straight-line and declining balance methods. Track book value and accumulated depreciation for tax and accounting purposes in 2026."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const WordCounter: React.FC = () => {
@@ -77,30 +78,11 @@ export const WordCounter: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Word Counting</h2>
-        <p>
-          Word counting is a process of counting the number of words in a text. It is commonly used by writers, students, and professionals to meet length requirements and track progress.
-        </p>
-        <p>
-          Our <strong>word counter 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our counter uses a simple algorithm to split text into words based on whitespace characters. It also counts characters, sentences, and paragraphs to provide a comprehensive overview of your text.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Word Counter?</h3>
-        <p>
-          Word counters are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Length Requirements:</strong> They ensure that your text meets specific length requirements for essays, articles, and social media posts.</li>
-          <li><strong>Progress Tracking:</strong> They allow you to track your writing progress over time and stay motivated.</li>
-          <li><strong>Clarity:</strong> They help you identify overly long sentences and paragraphs that may be difficult to read.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Word Counter" 
+        path="/word-counter" 
+        description="Count words, characters, sentences, and paragraphs in real-time. A powerful writing tool for students and professionals in 2026."
+      />
     </div>
   );
 };

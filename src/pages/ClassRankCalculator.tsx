@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Users, TrendingUp, Award } from 'lucide-react';
 
@@ -112,34 +113,11 @@ export const ClassRankCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Importance of Class Rank in 2026</h2>
-        <p>
-          While many schools are moving toward holistic admissions, <strong>class rank</strong> remains a key metric for understanding a student's academic standing relative to their peers. Our calculator helps you translate your raw rank into a more meaningful percentile.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Percentile vs. Percentage</h3>
-        <p>
-          It's easy to confuse these two terms. A <strong>percentage</strong> tells you how many people are below you (e.g., being in the top 10%). A <strong>percentile</strong> tells you the same thing but in a different way (e.g., being in the 90th percentile means you performed better than 90% of your class).
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Improve Your Rank</h3>
-        <p>
-          Since class rank is usually tied to GPA, the best way to improve your rank is to focus on your grades. However, some schools use <strong>weighted GPA</strong>, which means taking more challenging courses (like AP or IB) can give your rank a significant boost even if your raw grades are slightly lower.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a "good" class rank?</p>
-            <p>Generally, being in the top 10% or 25% of your class is considered very strong for college admissions. However, "good" depends entirely on the competitiveness of your specific school.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does my rank include transfer students?</p>
-            <p>Usually, yes. Most schools update their class size and rankings at the end of each semester to include any new students who have joined the grade level.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Class Rank Calculator" 
+        path="/class-rank" 
+        description="Calculate your class rank percentile and top percentage standing. Understand your academic performance relative to your peers in 2026."
+      />
     </div>
   );
 };

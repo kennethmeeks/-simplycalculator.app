@@ -161,6 +161,8 @@ export const BTUCalculator: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
       <CalculatorSEO 
         name="BTU Calculator" 

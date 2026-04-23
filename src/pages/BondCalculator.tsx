@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BondCalculator: React.FC = () => {
@@ -127,55 +128,11 @@ export const BondCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is a Bond?</h2>
-        <p>
-          A bond is a type of investment that represents a loan from an investor to a borrower, such as a corporation or a government. The borrower agrees to pay the investor a fixed rate of interest (the coupon rate) over a specific period of time and to return the original amount borrowed (the face value) at the end of the term (the maturity date).
-        </p>
-        
-        <h3>How to Use the Bond Calculator</h3>
-        <p>
-          To estimate the current price and yield of a bond, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Face Value:</strong> The total amount of money the borrower will pay the investor at maturity.</li>
-          <li><strong>Coupon Rate:</strong> The annual interest rate paid by the borrower.</li>
-          <li><strong>Market Rate:</strong> The current annual interest rate for similar bonds in the market.</li>
-          <li><strong>Years to Maturity:</strong> The number of years until the bond reaches its maturity date.</li>
-          <li><strong>Payment Frequency:</strong> How often the borrower pays interest to the investor.</li>
-        </ul>
-
-        <h3>The Relationship Between Bond Prices and Interest Rates</h3>
-        <p>
-          Bond prices and interest rates have an inverse relationship. When interest rates in the market increase, the price of existing bonds decreases. When interest rates in the market decrease, the price of existing bonds increases.
-        </p>
-
-        <h3>Types of Bonds</h3>
-        <p>
-          There are several types of bonds:
-        </p>
-        <ul>
-          <li><strong>Government Bonds:</strong> These bonds are issued by federal, state, or local governments and are typically considered to be very safe investments.</li>
-          <li><strong>Corporate Bonds:</strong> These bonds are issued by corporations and typically offer higher interest rates than government bonds but also carry more risk.</li>
-          <li><strong>Municipal Bonds:</strong> These bonds are issued by state or local governments and are typically exempt from federal income tax.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is a "Zero-Coupon Bond"?</h4>
-            <p>A zero-coupon bond is a bond that does not pay regular interest. Instead, it is sold at a deep discount to its face value and the investor receives the full face value at maturity.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is "Yield to Maturity" (YTM)?</h4>
-            <p>Yield to maturity is the total return an investor can expect to receive if they hold a bond until its maturity date, accounting for both interest payments and any gain or loss in the bond's price.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">How does credit risk affect bond prices?</h4>
-            <p>Bonds issued by borrowers with higher credit risk typically offer higher interest rates to compensate investors for the increased risk of default.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Bond Calculator" 
+        path="/bond" 
+        description="Estimate current bond prices and yields based on face value, coupon rates, and market conditions. Plan your 2026 fixed-income investments with precision."
+      />
     </div>
   );
 };

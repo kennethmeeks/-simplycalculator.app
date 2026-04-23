@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ScientificCalculator: React.FC = () => {
@@ -138,43 +139,11 @@ export const ScientificCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About Scientific Calculators</h2>
-        <p>
-          A scientific calculator is a type of electronic calculator, usually but not always handheld, designed to calculate problems in science, engineering, and mathematics. In 2026, online scientific calculators have become indispensable tools for students and professionals alike, offering advanced functionality without the need for physical hardware. Our <strong>free scientific calculator 2026</strong> provides a reliable platform for your most complex math needs.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the Scientific Calculator</h3>
-        <p>
-          To perform advanced calculations, simply follow these steps:
-        </p>
-        <ol>
-          <li><strong>Basic Arithmetic:</strong> Use the number pad and operators (+, -, ×, ÷) for standard math.</li>
-          <li><strong>Advanced Functions:</strong> For trigonometry or logarithms, enter the number first, then press the function button (e.g., enter 90, then press 'sin').</li>
-          <li><strong>Clearing:</strong> Use the 'C' button to reset the calculator at any time.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Are results in degrees or radians?</p>
-            <p>By default, our trigonometric functions (sin, cos, tan) use radians. To convert degrees to radians, multiply the degree value by π/180.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the difference between log and ln?</p>
-            <p>'log' refers to the common logarithm (base 10), while 'ln' refers to the natural logarithm (base e, where e is approximately 2.718).</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can I use this for my exams?</p>
-            <p>While our calculator is highly accurate, always check with your instructor or testing center to see if online calculators are permitted during official exams.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          To find the <strong>square root of 144</strong>, enter 144 and press 'sqrt' to get <strong>12</strong>. To find the <strong>sine of 1 radian</strong>, enter 1 and press 'sin' to get approximately <strong>0.841</strong>.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Scientific Calculator" 
+        path="/scientific" 
+        description="Perform advanced mathematical operations including trigonometry, logarithms, and powers. A free online scientific calculator for 2026."
+      />
     </div>
   );
 };

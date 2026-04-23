@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
 import { Binary, Hash, Info } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 export const BinaryCalculator: React.FC = () => {
   const [binary, setBinary] = useState('1010');
@@ -103,58 +103,11 @@ export const BinaryCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Language of Machines: A Binary Guide</h2>
-        <p>
-          Binary is a base-2 numbering system that uses only two symbols: 0 and 1. It is the fundamental language of all modern digital computers, representing the "on" and "off" states of transistors. Our <strong>binary calculator</strong> helps you bridge the gap between human and machine language in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How Binary Works</h3>
-        <p>
-          In our standard decimal system, each position represents a power of 10. In binary, each position represents a power of 2.
-        </p>
-        <p>Example: <strong>1011</strong> in binary</p>
-        <ul>
-          <li>1 * 2⁰ = 1</li>
-          <li>1 * 2¹ = 2</li>
-          <li>0 * 2² = 0</li>
-          <li>1 * 2³ = 8</li>
-          <li>Total = 8 + 0 + 2 + 1 = <strong>11</strong> in decimal</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Bits and Bytes</h3>
-        <ul>
-          <li><strong>Bit:</strong> A single binary digit (0 or 1). The smallest unit of data.</li>
-          <li><strong>Nibble:</strong> A group of 4 bits.</li>
-          <li><strong>Byte:</strong> A group of 8 bits. A byte can represent 256 unique values (0-255).</li>
-          <li><strong>Kilobyte (KB):</strong> 1,024 bytes (2¹⁰).</li>
-          <li><strong>Megabyte (MB):</strong> 1,024 kilobytes (2²⁰).</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Applications of Binary</h3>
-        <ul>
-          <li><strong>Data Storage:</strong> All files (images, videos, text) are stored as binary data.</li>
-          <li><strong>Networking:</strong> IP addresses and data packets are processed in binary.</li>
-          <li><strong>Logic Gates:</strong> Computers use binary to perform logical operations (AND, OR, NOT).</li>
-          <li><strong>Cryptography:</strong> Encryption algorithms rely on complex binary manipulations.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Why do computers use binary instead of decimal?</p>
-            <p>Binary is much easier to implement in hardware. A transistor can be either "on" (1) or "off" (0). Representing ten different states reliably would be much more complex and prone to errors.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is "Two's Complement"?</p>
-            <p>Two's complement is a mathematical operation on binary numbers used to represent signed (positive and negative) integers in computing.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How do I convert binary to hex?</p>
-            <p>Group the binary digits into sets of four (starting from the right) and convert each set into its corresponding hex digit. For example, 1010 1111 becomes AF.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Binary Calculator" 
+        path="/binary-calculator" 
+        description="Convert, add, subtract, multiply, and divide binary numbers. Learn about base-2 logic, bits, and bytes with our comprehensive binary tool in 2026."
+      />
     </div>
   );
 };

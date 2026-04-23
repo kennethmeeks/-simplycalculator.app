@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { DollarSign, Calculator, Info, TrendingUp, Briefcase, Home, Car, CreditCard } from 'lucide-react';
 
@@ -208,42 +209,11 @@ export const NetWorthCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">What is Net Worth?</h2>
-        <p>
-          Your <strong>net worth</strong> is the single most important number in personal finance. It is the total value of everything you own (assets) minus everything you owe (liabilities).
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Assets vs. Liabilities</h3>
-        <p>
-          To calculate your net worth accurately, you need to categorize your finances:
-        </p>
-        <ul>
-          <li><strong>Assets:</strong> Cash, savings accounts, retirement accounts (401k, IRA), brokerage accounts, real estate equity, vehicles, and valuable personal property.</li>
-          <li><strong>Liabilities:</strong> Mortgages, student loans, car loans, credit card balances, personal loans, and any other outstanding debts.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Increase Your Net Worth</h3>
-        <p>
-          There are only two ways to increase your net worth:
-        </p>
-        <ol>
-          <li><strong>Increase Assets:</strong> Save more money, invest in the stock market, or buy real estate that appreciates in value.</li>
-          <li><strong>Decrease Liabilities:</strong> Pay down your debts. Every dollar of debt you pay off increases your net worth by exactly one dollar.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">What is a "good" net worth for my age?</p>
-            <p>Net worth varies wildly by age and location. A common benchmark is the "Millionaire Next Door" formula: (Age x Pre-tax Annual Income) / 10.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can I have a negative net worth?</p>
-            <p>Yes. Many young adults have a negative net worth due to student loans or starting their careers. The goal is to trend toward a positive number over time.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Net Worth Calculator" 
+        path="/net-worth" 
+        description="Track your financial progress by calculating your total net worth. Subtract your liabilities from your assets and see where you stand in 2026."
+      />
     </div>
   );
 };

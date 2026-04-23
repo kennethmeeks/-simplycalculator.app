@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { motion } from 'motion/react';
 import { FileDown, AlertCircle, Share2, RotateCcw } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
@@ -313,72 +314,11 @@ export const MortgageCalculator: React.FC = () => {
         </section>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h3 className="text-2xl font-bold text-slate-900">About this Mortgage Calculator with Taxes and Insurance</h3>
-        <p>
-          Our <strong>free Mortgage Calculator with Taxes and Insurance 2026</strong> is designed to provide home buyers with a clear, comprehensive picture of their future housing costs. Unlike basic calculators that only show principal and interest, our tool factors in property taxes and homeowners insurance, giving you a more realistic estimate of your total monthly "PITI" (Principal, Interest, Taxes, and Insurance) payment. This tool is essential for anyone looking to buy a home in 2026, as interest rates and property values continue to evolve in a dynamic real estate market.
-        </p>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Understanding the Mortgage Formula</h4>
-        <p>
-          The core of any mortgage calculation is the standard amortization formula. To calculate the monthly principal and interest (P&I) payment, we use the following equation:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-center my-4">
-          M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ]
-        </div>
-        <p>Where:</p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>M</strong> is the total monthly principal and interest payment.</li>
-          <li><strong>P</strong> is the principal loan amount (Home Price minus Down Payment).</li>
-          <li><strong>i</strong> is the monthly interest rate (Annual Interest Rate divided by 12 months).</li>
-          <li><strong>n</strong> is the number of months in the loan term (e.g., 360 months for a 30-year mortgage).</li>
-        </ul>
-        <p>
-          After calculating the P&I, our calculator adds the monthly property tax (Annual Tax / 12) and the monthly insurance premium (Annual Insurance / 12) to arrive at your final total monthly payment.
-        </p>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Why Taxes and Insurance Matter</h4>
-        <p>
-          Many first-time home buyers make the mistake of only budgeting for the principal and interest. However, property taxes and insurance can easily add hundreds of dollars to your monthly bill. In 2026, property taxes vary significantly by location, often ranging from 0.5% to over 2.5% of the home's assessed value. Similarly, homeowners insurance rates are influenced by the home's location, age, and replacement cost. By including these in your calculation, you avoid "sticker shock" when you receive your final closing disclosure.
-        </p>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-6">How to Use This Calculator</h4>
-        <p>
-          To get the most accurate results for your 2026 home purchase, follow these simple steps:
-        </p>
-        <ol>
-          <li><strong>Enter the Home Price:</strong> This is the total purchase price of the property you're interested in.</li>
-          <li><strong>Input Your Down Payment:</strong> Enter the amount you plan to pay upfront. A higher down payment reduces your loan amount and monthly interest.</li>
-          <li><strong>Set the Interest Rate:</strong> Enter the annual interest rate offered by your lender. Even a small change in this rate can significantly impact your monthly payment.</li>
-          <li><strong>Choose Your Loan Term:</strong> Select the length of the mortgage, typically 15, 20, or 30 years.</li>
-          <li><strong>Include Taxes and Insurance:</strong> Don't forget to enter your estimated annual property tax rate and homeowners insurance premium for a complete financial picture.</li>
-        </ol>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h4>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a good down payment in 2026?</p>
-            <p>While 20% is the traditional benchmark to avoid private mortgage insurance (PMI), many buyers in 2026 are successful with as little as 3-5% down. However, a larger down payment will always result in lower monthly costs and less interest paid over time.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How does the loan term affect my payment?</p>
-            <p>A shorter term (like 15 years) will have higher monthly payments but will save you thousands of dollars in interest over the life of the loan. A longer term (30 years) offers lower monthly payments but higher total interest costs.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Are property taxes included in the monthly payment?</p>
-            <p>Yes, our calculator includes property taxes and insurance in the final monthly estimate, as most lenders collect these monthly through an escrow account to ensure they are paid on time.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does this calculator include PMI?</p>
-            <p>Currently, this calculator does not automatically calculate Private Mortgage Insurance (PMI). If your down payment is less than 20%, you should add the estimated monthly PMI cost to your insurance field for a more accurate total.</p>
-          </div>
-        </div>
-
-        <h4 className="text-xl font-bold text-slate-900 mt-8">Example Usage</h4>
-        <p>
-          Imagine you're buying a home for <strong>$450,000</strong> with a <strong>$90,000</strong> (20%) down payment. At a <strong>6.5%</strong> interest rate for <strong>30 years</strong>, with <strong>1.2%</strong> property tax and <strong>$1,200</strong> annual insurance, your estimated monthly payment would be approximately <strong>$2,825</strong>. This breakdown helps you budget effectively before you even talk to a lender.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Mortgage Calculator with Taxes and Insurance" 
+        path="/mortgage" 
+        description="Calculate your total monthly house payment including principal, interest, taxes, and insurance. Plan your home purchase for 2026 with confidence."
+      />
     </div>
   );
 };

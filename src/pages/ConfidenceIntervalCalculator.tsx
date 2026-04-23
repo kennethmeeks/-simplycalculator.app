@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Calculator, Info, BookOpen, HelpCircle } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ConfidenceIntervalCalculator: React.FC = () => {
@@ -144,73 +145,11 @@ export const ConfidenceIntervalCalculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="prose prose-slate max-w-none">
-            <h2 className="flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-[#0066cc]" />
-              Understanding Confidence Interval
-            </h2>
-            <p>
-              A confidence interval is a range of values that is likely to contain the true population parameter with a certain level of confidence. For example, a 95% confidence interval means that if you were to repeat the study many times, 95% of the calculated intervals would contain the true population mean.
-            </p>
-
-            <h3>The Confidence Interval Formula</h3>
-            <div className="bg-slate-100 p-4 rounded-lg font-mono text-center mb-4">
-              CI = x̄ ± Z * (s / √n)
-            </div>
-            <p>Where:</p>
-            <ul>
-              <li><strong>x̄:</strong> The sample mean</li>
-              <li><strong>Z:</strong> The Z-score for the chosen confidence level</li>
-              <li><strong>s:</strong> The sample standard deviation</li>
-              <li><strong>n:</strong> The sample size</li>
-            </ul>
-
-            <h2 className="flex items-center gap-2 mt-8">
-              <HelpCircle className="w-6 h-6 text-[#0066cc]" />
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-4">
-              <div className="bg-slate-50 rounded-xl p-4">
-                <h4 className="font-semibold text-slate-900">What is a 95% confidence interval?</h4>
-                <p className="text-slate-600 text-sm">It means we are 95% confident that the true population mean falls within the calculated range.</p>
-              </div>
-              <div className="bg-slate-50 rounded-xl p-4">
-                <h4 className="font-semibold text-slate-900">How does sample size affect the interval?</h4>
-                <p className="text-slate-600 text-sm">A larger sample size reduces the margin of error, resulting in a narrower (more precise) confidence interval.</p>
-              </div>
-              <div className="bg-slate-50 rounded-xl p-4">
-                <h4 className="font-semibold text-slate-900">What is the margin of error?</h4>
-                <p className="text-slate-600 text-sm">The margin of error is the range of values above and below the sample mean in a confidence interval.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          
-          
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-            <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
-              <Info className="w-5 h-5 text-[#0066cc]" />
-              Quick Tips
-            </h3>
-            <ul className="space-y-3 text-sm text-slate-600">
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5"></span>
-                Higher confidence levels (e.g., 99%) result in wider intervals.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5"></span>
-                Use a larger sample size if you need a more precise estimate.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5"></span>
-                The confidence interval is centered around the sample mean.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Confidence Interval Calculator" 
+        path="/confidence-interval" 
+        description="Calculate statistical confidence intervals for sample means. Understand margins of error and Z-scores for precise data analysis in 2026."
+      />
     </div>
   );
 };

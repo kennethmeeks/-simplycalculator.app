@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const IdealWeightCalculator: React.FC = () => {
@@ -150,62 +151,11 @@ export const IdealWeightCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About Ideal Body Weight</h2>
-        <p>
-          Ideal body weight (IBW) is an estimate of what a person should weigh based on their height and gender. In 2026, health professionals continue to use these estimates as a starting point for discussions about health and fitness. Our <strong>ideal weight calculator based on height and gender</strong> uses the widely recognized Devine formula to provide you with a reliable estimate for your fitness journey.
-        </p>
-        <p>
-          While "ideal weight" is a useful benchmark, it's important to remember that it is just one piece of the puzzle. Factors like muscle mass, bone density, and overall body composition play a significant role in determining what a healthy weight is for any individual.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the Ideal Weight Calculator</h3>
-        <p>
-          To get your personalized ideal weight estimate, please provide the following details:
-        </p>
-        <ol>
-          <li><strong>Select Gender:</strong> Choose between male and female, as the formulas differ for each to account for biological differences in body composition.</li>
-          <li><strong>Enter Height:</strong> Provide your height in either centimeters or feet and inches. Accuracy is important for the most reliable result.</li>
-          <li><strong>View Results:</strong> The calculator will instantly show your estimated ideal weight in your preferred unit system (kilograms or pounds).</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Devine Formula Explained</h3>
-        <p>
-          The Devine formula is the most common method for calculating ideal body weight. It was originally developed in 1974 by Dr. Ben J. Devine to help determine the correct dosage of certain medications.
-        </p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>For Men:</strong> 50.0 kg + 2.3 kg for every inch over 5 feet.</li>
-          <li><strong>For Women:</strong> 45.5 kg + 2.3 kg for every inch over 5 feet.</li>
-        </ul>
-        <p className="mt-4">
-          While other formulas like Robinson, Miller, and Hamwi exist, the Devine formula remains the clinical standard for most medical applications in 2026.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Is this the same as BMI?</p>
-            <p>No. BMI (Body Mass Index) is a ratio of weight to height used to categorize weight status (e.g., underweight, normal, overweight). Ideal weight is a specific target weight based solely on height and gender, regardless of your current weight.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Is this accurate for everyone?</p>
-            <p>No. These formulas do not account for muscle mass, bone density, or body composition. For example, a highly muscular athlete may weigh much more than their "ideal" weight but still be in excellent health. Similarly, it may not be accurate for very tall or very short individuals.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What should I do if I'm over my ideal weight?</p>
-            <p>Don't panic! The ideal weight is a statistical average, not a strict requirement. Consult with a healthcare professional or a registered dietitian to determine a healthy weight range and lifestyle plan that works for you.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does age affect ideal weight?</p>
-            <p>The standard Devine formula does not include age as a variable. However, as we age, our body composition naturally changes, and a slightly higher weight may be acceptable or even beneficial for some older adults.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          A <strong>male</strong> who is <strong>180 cm tall</strong> (approx. 5'11") has an estimated ideal weight of <strong>75.0 kg</strong> (approx. 165.3 lbs). A <strong>female</strong> of the same height has an estimated ideal weight of <strong>70.5 kg</strong> (approx. 155.4 lbs).
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Ideal Weight Calculator" 
+        path="/ideal-weight" 
+        description="Estimate your ideal body weight based on height and gender using the clinical Devine formula. Set realistic health goals for 2026."
+      />
     </div>
   );
 };

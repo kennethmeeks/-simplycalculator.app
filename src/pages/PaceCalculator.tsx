@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Timer, Footprints, Info } from 'lucide-react';
 
@@ -108,49 +109,11 @@ export const PaceCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Running for Results: A Pace Guide</h2>
-        <p>
-          Whether you're a beginner runner or an experienced marathoner, understanding your pace is key to effective training and race planning. Our <strong>pace calculator</strong> helps you break down your performance metrics in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Pace Matters</h3>
-        <p>
-          Pace is the amount of time it takes to cover a specific distance (usually minutes per mile or kilometer). Unlike speed (miles or kilometers per hour), pace is the standard metric used by runners to gauge their effort and predict race times.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Common Race Distances</h3>
-        <ul>
-          <li><strong>5K:</strong> 3.1 miles or 5 kilometers. A popular distance for beginners and speed training.</li>
-          <li><strong>10K:</strong> 6.2 miles or 10 kilometers. A great endurance test for intermediate runners.</li>
-          <li><strong>Half Marathon:</strong> 13.1 miles or 21.1 kilometers. Requires significant endurance training.</li>
-          <li><strong>Marathon:</strong> 26.2 miles or 42.2 kilometers. The ultimate endurance challenge.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Training with Pace Zones</h3>
-        <p>Effective training involves running at different paces to target different energy systems:</p>
-        <ul>
-          <li><strong>Easy Pace:</strong> 60-90 seconds slower than marathon pace. Used for recovery and building base mileage.</li>
-          <li><strong>Tempo Pace:</strong> "Comfortably hard." Used to improve your lactate threshold.</li>
-          <li><strong>Interval Pace:</strong> Fast bursts followed by rest. Used to improve VO2 max and top-end speed.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">How do I convert km pace to mile pace?</p>
-            <p>To convert min/km to min/mile, multiply the total minutes by 1.609. For example, a 5:00 min/km pace is approximately an 8:03 min/mile pace.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is a "good" 5K pace?</p>
-            <p>A "good" pace is relative to your age and experience. For many recreational runners, a sub-30 minute 5K (6:00 min/km pace) is an excellent goal.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How can I improve my pace?</p>
-            <p>Consistent mileage, strength training, and incorporating "speed work" (intervals and hill repeats) once or twice a week are the most effective ways to get faster.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Pace Calculator" 
+        path="/pace-calculator" 
+        description="Calculate your running pace, time, or distance for your next race or training session. Benchmarks and race goal setting for 2026."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ChronologicalAge: React.FC = () => {
@@ -84,30 +85,11 @@ export const ChronologicalAge: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Chronological Age</h2>
-        <p>
-          Chronological age is a measure of the time elapsed since a person's birth. It is commonly used in health and wellness awareness to track growth and development.
-        </p>
-        <p>
-          Our <strong>chronological age calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to calculate your exact age in years, months, and days based on your birth date. It calculates the difference between the current date and your birth date.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Chronological Age Calculator?</h3>
-        <p>
-          Chronological age calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Health Awareness:</strong> They provide a fun and insightful way to calculate your exact age and stay healthy.</li>
-          <li><strong>Growth Tracking:</strong> They can be a great tool for tracking your growth and development over time.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Chronological Age Calculator" 
+        path="/chronological-age" 
+        description="Calculate your exact age in years, months, and days. Ideal for legal documents, clinical use, and personal tracking in 2026."
+      />
     </div>
   );
 };

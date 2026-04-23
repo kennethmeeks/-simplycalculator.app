@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { TrendingUp, DollarSign, Calendar, PieChart } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
@@ -198,44 +199,11 @@ export const InvestmentCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Power of Compounding: An Investment Guide</h2>
-        <p>
-          Investing is the key to building long-term wealth. By putting your money to work in the stock market, real estate, or other assets, you can benefit from the "eighth wonder of the world"—compound interest. Our <strong>investment calculator</strong> helps you visualize your financial future in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How Compounding Works</h3>
-        <p>
-          Compound interest is interest calculated on the initial principal, which also includes all of the accumulated interest from previous periods on a deposit or loan.
-        </p>
-        <p>
-          The difference between simple interest and compound interest is that compound interest allows your wealth to grow exponentially rather than linearly. The longer you stay invested, the more powerful the effect becomes.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Investment Principles</h3>
-        <ul>
-          <li><strong>Start Early:</strong> Time is your greatest asset. Even small amounts invested in your 20s can grow to massive sums by retirement.</li>
-          <li><strong>Consistency:</strong> Regular monthly contributions (Dollar Cost Averaging) reduce the impact of market volatility and build a strong habit.</li>
-          <li><strong>Diversification:</strong> Spreading your investments across different asset classes (stocks, bonds, real estate) helps manage risk.</li>
-          <li><strong>Reinvest Dividends:</strong> Automatically reinvesting dividends allows you to buy more shares, further accelerating the compounding process.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a realistic return rate?</p>
-            <p>Historically, the S&P 500 has returned about 10% annually before inflation. Many investors use 7-8% as a more conservative estimate for long-term planning.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How does inflation affect my investments?</p>
-            <p>Inflation reduces the purchasing power of your money over time. If inflation is 3% and your return is 7%, your "real" return is 4%.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Should I pay off debt or invest?</p>
-            <p>Generally, if your debt interest rate (like a credit card at 20%) is higher than your expected investment return (7-10%), it's better to pay off the debt first.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Investment Calculator" 
+        path="/investment" 
+        description="Visualize your financial future with our investment growth calculator. Plan regular contributions and leverage the power of compounding in 2026."
+      />
     </div>
   );
 };

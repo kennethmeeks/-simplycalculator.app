@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Percent, DollarSign, Calendar, Info } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -212,43 +213,11 @@ export const APRCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Interest vs. APR: A True Cost Guide</h2>
-        <p>
-          When shopping for a loan, you'll often see two different numbers: the interest rate and the APR. Understanding the difference is critical to finding the best deal. Our <strong>APR calculator</strong> helps you uncover the hidden costs of borrowing in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">What is APR?</h3>
-        <p>
-          APR stands for Annual Percentage Rate. While the interest rate tells you the cost of the principal, the APR includes the interest rate PLUS any additional fees or costs associated with the loan (like origination fees, points, or insurance).
-        </p>
-        <p>
-          Because it includes these extra costs, the APR is almost always higher than the base interest rate. It provides a more accurate "bottom line" for comparing different loan offers.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why APR is Important</h3>
-        <ul>
-          <li><strong>Apples-to-Apples Comparison:</strong> One lender might offer a low interest rate but high fees, while another has a higher rate but no fees. Comparing their APRs tells you which one is actually cheaper.</li>
-          <li><strong>Transparency:</strong> Lenders are legally required to disclose the APR so consumers aren't misled by "teaser" interest rates.</li>
-          <li><strong>Total Cost Awareness:</strong> It helps you understand exactly how much you are paying for every dollar you borrow.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">Is APR the same as APY?</p>
-            <p>No. APR is used for loans (what you pay), while APY (Annual Percentage Yield) is used for savings (what you earn). APY accounts for compound interest, while APR typically does not.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Can APR change?</p>
-            <p>Yes, if you have a variable-rate loan (like many credit cards or ARMs), the APR can fluctuate based on market conditions.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Does APR include all fees?</p>
-            <p>Most standard loan fees are included, but some (like late fees or appraisal fees) might not be. Always read the fine print of your loan disclosure.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="APR Calculator" 
+        path="/apr-calculator" 
+        description="Calculate the True Annual Percentage Rate (APR) of your loan. Uncover hidden fees and compare loan offers for better financial decisions in 2026."
+      />
     </div>
   );
 };

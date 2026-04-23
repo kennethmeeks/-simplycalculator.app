@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Calculator, Info, BookOpen, HelpCircle } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const CircleCalculator: React.FC = () => {
@@ -131,69 +132,11 @@ export const CircleCalculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="prose prose-slate max-w-none">
-            <h2 className="flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-[#0066cc]" />
-              Understanding Circle Geometry
-            </h2>
-            <p>
-              A circle is a perfectly round shape where all points on the boundary are at an equal distance from the center. This distance is called the radius.
-            </p>
-
-            <h3>Key Formulas</h3>
-            <ul>
-              <li><strong>Diameter (d):</strong> d = 2 * r</li>
-              <li><strong>Circumference (C):</strong> C = 2 * π * r</li>
-              <li><strong>Area (A):</strong> A = π * r²</li>
-            </ul>
-            <p>Where π (pi) is approximately 3.14159.</p>
-
-            <h2 className="flex items-center gap-2 mt-8">
-              <HelpCircle className="w-6 h-6 text-[#0066cc]" />
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-4">
-              <div className="bg-slate-50 rounded-xl p-4">
-                <h4 className="font-semibold text-slate-900">What is Pi (π)?</h4>
-                <p className="text-slate-600 text-sm">Pi is the ratio of a circle's circumference to its diameter. It's an irrational number, meaning it has infinite non-repeating decimals.</p>
-              </div>
-              <div className="bg-slate-50 rounded-xl p-4">
-                <h4 className="font-semibold text-slate-900">How do I find the radius from the area?</h4>
-                <p className="text-slate-600 text-sm">Divide the area by π, then take the square root of the result: r = √(A / π).</p>
-              </div>
-              <div className="bg-slate-50 rounded-xl p-4">
-                <h4 className="font-semibold text-slate-900">What is the difference between circumference and perimeter?</h4>
-                <p className="text-slate-600 text-sm">Circumference is the specific term for the perimeter (the distance around the boundary) of a circle.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          
-          
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-            <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
-              <Info className="w-5 h-5 text-[#0066cc]" />
-              Quick Tips
-            </h3>
-            <ul className="space-y-3 text-sm text-slate-600">
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5"></span>
-                The area is always in square units (e.g., cm², in²).
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5"></span>
-                The diameter is always exactly twice the radius.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5"></span>
-                Circumference is the distance you would travel if you walked around the circle.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Circle Calculator" 
+        path="/circle" 
+        description="Calculate circle area, circumference, radius, and diameter. Solve geometry problems instantly with any single dimension in 2026."
+      />
     </div>
   );
 };

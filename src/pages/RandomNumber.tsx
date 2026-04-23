@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const RandomNumber: React.FC = () => {
@@ -90,30 +91,11 @@ export const RandomNumber: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Random Number Generation</h2>
-        <p>
-          Random number generation is a process of generating a sequence of numbers that cannot be reasonably predicted better than by random chance. It is commonly used in statistics, computer science, and gaming.
-        </p>
-        <p>
-          Our <strong>random number generator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our generator uses a pseudo-random number generator (PRNG) to produce numbers within a specified range. While not truly random, PRNGs are sufficient for most everyday purposes.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Random Number Generator?</h3>
-        <p>
-          Random number generators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Fairness:</strong> They ensure that every number in a range has an equal chance of being selected.</li>
-          <li><strong>Simplicity:</strong> They make it easy to generate large quantities of random data.</li>
-          <li><strong>Versatility:</strong> They can be used for a wide range of purposes, from choosing a winner in a contest to generating test data for software.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Random Number Generator" 
+        path="/random-number" 
+        description="Generate random integers within a specific range instantly. Perfect for games, research, or any situation requiring randomness in 2026."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const CDCalculator: React.FC = () => {
@@ -98,54 +99,11 @@ export const CDCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is a Certificate of Deposit (CD)?</h2>
-        <p>
-          A Certificate of Deposit (CD) is a type of savings account offered by banks and credit unions. In exchange for leaving your money in the account for a fixed period of time (the "term"), the bank pays you a higher interest rate than a standard savings account.
-        </p>
-        
-        <h3>How to Use the CD Calculator</h3>
-        <p>
-          To calculate the future value of your CD, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Initial Deposit:</strong> The amount of money you are putting into the CD.</li>
-          <li><strong>APY:</strong> The Annual Percentage Yield, which represents the total amount of interest you'll earn in a year, including compounding.</li>
-          <li><strong>Term:</strong> The length of time you agree to leave your money in the CD.</li>
-          <li><strong>Compounding Frequency:</strong> How often the interest is calculated and added to the principal.</li>
-        </ul>
-
-        <h3>The Power of Compounding in CDs</h3>
-        <p>
-          Most CDs compound interest daily or monthly. This means you earn interest on your initial deposit AND on the interest that has already been added to your account. This compounding effect is what makes CDs a powerful tool for growing your savings over time.
-        </p>
-
-        <h3>Why Choose a CD?</h3>
-        <p>
-          CDs are a popular choice for many savers because they offer:
-        </p>
-        <ul>
-          <li><strong>Guaranteed Returns:</strong> Your interest rate is fixed for the entire term of the CD.</li>
-          <li><strong>Safety:</strong> CDs are typically insured by the FDIC (for banks) or NCUA (for credit unions) up to $250,000 per depositor.</li>
-          <li><strong>Discipline:</strong> Because there are penalties for early withdrawal, CDs can help you avoid the temptation to spend your savings.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is an "Early Withdrawal Penalty"?</h4>
-            <p>If you need to access your money before the CD term is up, the bank will charge you a penalty. This penalty is often equal to several months of interest and can even eat into your original principal.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is a "CD Ladder"?</h4>
-            <p>A CD ladder is a strategy where you divide your savings into several CDs with different maturity dates (e.g., 1-year, 2-year, 3-year). This provides you with regular access to your money while still earning higher interest rates on the longer-term CDs.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What happens when my CD matures?</h4>
-            <p>When your CD reaches the end of its term, you typically have a "grace period" (usually 7 to 10 days) to withdraw your money or roll it over into a new CD. If you do nothing, the bank will often automatically renew the CD for the same term at the current interest rate.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="CD Calculator" 
+        path="/cd-calculator" 
+        description="Calculate the interest and maturity value of your Certificate of Deposit (CD). Compare compounding frequencies and term lengths for maximum returns in 2026."
+      />
     </div>
   );
 };

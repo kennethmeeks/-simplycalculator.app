@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Calculator, Info, Hash } from 'lucide-react';
 
@@ -109,36 +110,11 @@ export const StandardDeviationCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Standard Deviation in 2026</h2>
-        <p>
-          Our <strong>standard deviation calculator</strong> is a simple and efficient tool for calculating the mean, variance, and standard deviation of a set of numbers. By entering the numbers, we can reveal the distribution and dispersion of your data.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Importance of Standard Deviation</h3>
-        <p>
-          Standard deviation is essential for analyzing and interpreting data in various fields, including science, finance, and daily life. It's used in everything from quality control to investment risk assessment.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Components of Standard Deviation</h3>
-        <ul>
-          <li><strong>Mean:</strong> The average of all the numbers in the set.</li>
-          <li><strong>Variance:</strong> The average of the squared differences from the mean.</li>
-          <li><strong>Standard Deviation:</strong> The square root of the variance.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">What is the difference between population and sample standard deviation?</p>
-            <p>Population standard deviation is used when you have data for the entire group. Sample standard deviation is used when you have data for a subset of the group.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How do I interpret a high standard deviation?</p>
-            <p>A high standard deviation indicates that the values are spread out over a wider range, suggesting more variability and less consistency in the data.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Standard Deviation Calculator" 
+        path="/standard-deviation" 
+        description="Calculate the mean, variance, and standard deviation for a set of data. Understand data dispersion and variation with our free tool for 2026."
+      />
     </div>
   );
 };

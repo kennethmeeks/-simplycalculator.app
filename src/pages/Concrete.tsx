@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const ConcreteCalculator: React.FC = () => {
@@ -213,62 +214,11 @@ export const ConcreteCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">The Ultimate Concrete Calculation Guide</h2>
-        <p>
-          Calculating the exact amount of concrete for a project is one of the most critical steps in any construction job. Whether you are a professional contractor or a DIY homeowner, ordering too little concrete can lead to cold joints and structural weaknesses, while ordering too much is a waste of money and resources. Our <strong>concrete calculator for slabs and footings</strong> is designed to provide precision for on-site use in 2026.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Calculate Concrete Volume</h3>
-        <p>
-          Concrete is typically sold by the cubic yard. To find the volume manually, you first calculate the cubic footage and then divide by 27 (since there are 27 cubic feet in a cubic yard).
-        </p>
-        <p><strong>The Formula for Slabs:</strong></p>
-        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-sm overflow-x-auto">
-          Volume (Cubic Yards) = [Length (ft) × Width (ft) × Thickness (ft)] / 27
-        </div>
-        <p className="mt-4">
-          Remember to convert your thickness from inches to feet by dividing by 12. For example, a 4-inch slab is 0.33 feet thick.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why You Need a Waste Factor</h3>
-        <p>
-          In the real world, forms bulge, subgrades are uneven, and some concrete is always left in the pump or the truck. We recommend adding a <strong>10% waste factor</strong> to every order. For complex footings or uneven ground, you might even increase this to 15%. It is much cheaper to have a little extra than to have the truck leave while you are three wheelbarrows short.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Bags vs. Ready-Mix</h3>
-        <p>
-          For small projects like post holes or small equipment pads, buying pre-mixed bags (like Quikrete) is often more practical. 
-        </p>
-        <ul>
-          <li>An <strong>80lb bag</strong> yields approximately 0.6 cubic feet.</li>
-          <li>A <strong>60lb bag</strong> yields approximately 0.45 cubic feet.</li>
-        </ul>
-        <p>
-          If your project requires more than 1 cubic yard (about 45 of the 80lb bags), it is usually time to call a ready-mix truck. The labor saved in mixing by hand far outweighs the delivery fee for larger volumes.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">How deep should a concrete slab be?</p>
-            <p>For most residential walkways and patios, 4 inches is standard. For driveways that will hold heavy vehicles, 5 to 6 inches is recommended with rebar reinforcement.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How many 80lb bags are in a cubic yard?</p>
-            <p>There are 45 bags of 80lb concrete in one cubic yard. If you are using 60lb bags, you will need 60 bags to equal one cubic yard.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is the "standard" concrete mix ratio?</p>
-            <p>A common "recipe" for concrete is 1 part cement, 2 parts sand, and 3 parts gravel. However, for structural work, always use a pre-engineered mix design from a reputable supplier.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Pro Tip for Contractors</h3>
-        <p>
-          Always measure your forms <em>after</em> they are braced. Bracing can slightly change the interior dimensions, and those fractions of an inch add up over a large pour. Use our <strong>on-site concrete estimator</strong> to double-check your math right before you pick up the phone to order the truck.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Concrete Calculator" 
+        path="/concrete" 
+        description="Calculate concrete volume and bag counts for slabs, footings, and columns. Estimate cubic yards with waste factors for 2026 construction projects."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const BusinessLoanCalculator: React.FC = () => {
@@ -125,55 +126,11 @@ export const BusinessLoanCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>Planning Your Small Business Loan</h2>
-        <p>
-          Taking out a business loan is a major decision that can fuel growth, cover operational expenses, or help you manage cash flow. However, it's essential to understand the true cost of borrowing before signing any agreement.
-        </p>
-        
-        <h3>How to Use the Business Loan Calculator</h3>
-        <p>
-          To get an accurate picture of your loan's cost, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Loan Amount:</strong> The total amount of money you are borrowing.</li>
-          <li><strong>Annual Interest Rate:</strong> The base interest rate charged by the lender.</li>
-          <li><strong>Loan Term:</strong> How many years you have to pay back the loan.</li>
-          <li><strong>Origination Fee:</strong> A one-time fee charged by the lender for processing the loan, usually expressed as a percentage of the loan amount.</li>
-        </ul>
-
-        <h3>Interest Rate vs. APR</h3>
-        <p>
-          The **interest rate** is the cost of borrowing the principal amount. The **APR (Annual Percentage Rate)** is a broader measure of the cost of the loan, as it includes both the interest rate and any fees (like origination fees). When comparing loans from different lenders, the APR is the most accurate metric to use.
-        </p>
-
-        <h3>Common Types of Business Loans</h3>
-        <p>
-          Depending on your needs, you might consider:
-        </p>
-        <ul>
-          <li><strong>SBA Loans:</strong> Government-backed loans with competitive rates and long terms.</li>
-          <li><strong>Term Loans:</strong> A lump sum of cash that you pay back over a fixed period.</li>
-          <li><strong>Lines of Credit:</strong> Flexible financing that allows you to draw funds as needed, up to a certain limit.</li>
-          <li><strong>Equipment Financing:</strong> A loan specifically used to purchase business equipment, where the equipment itself serves as collateral.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is an origination fee?</h4>
-            <p>An origination fee is a one-time upfront fee charged by a lender for processing a new loan application. It is usually deducted from the loan proceeds, meaning if you borrow $100,000 with a 2% fee, you will only receive $98,000.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">How do I qualify for a lower interest rate?</h4>
-            <p>Lenders typically look at your personal and business credit scores, your time in business, your annual revenue, and your debt-to-income ratio. The stronger your financial profile, the lower the interest rate you'll be offered.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">What is collateral?</h4>
-            <p>Collateral is an asset (like real estate, equipment, or inventory) that a borrower offers to a lender to secure a loan. If the borrower defaults on the loan, the lender can seize the collateral to recover their losses.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Business Loan Calculator" 
+        path="/business-loan-calculator" 
+        description="Estimate monthly payments, total interest, and APR for your business financing. Plan your company's growth with accurate loan projections in 2026."
+      />
     </div>
   );
 };

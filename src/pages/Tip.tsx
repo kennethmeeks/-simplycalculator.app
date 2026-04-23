@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { parseInput } from '@/src/lib/calculatorUtils';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { parseInput } from '../lib/calculatorUtils';
 
 export const TipCalculator: React.FC = () => {
   const [bill, setBill] = useState<number | string>(50);
@@ -108,72 +109,11 @@ export const TipCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About the Tip Calculator with Bill Split</h2>
-        <p>
-          A tip or gratuity is a sum of money customarily given by a client or customer to certain service sector workers for the service they have performed, in addition to the basic price of the service. Our <strong>free tip calculator with bill split 2026</strong> is designed to take the stress out of group dining and service interactions. Whether you are at a high-end restaurant, a local cafe, or using a delivery service, knowing how much to tip and how to divide the cost fairly is essential for a smooth social experience.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Math Behind Tipping</h3>
-        <p>
-          Calculating a tip is a straightforward percentage-based math problem, but it can be tricky when you're in a hurry or in a large group. The basic formula for the tip amount is:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-center my-4">
-          Tip Amount = Bill Subtotal × (Tip Percentage / 100)
-        </div>
-        <p>
-          Once the tip is determined, the total bill is calculated as:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-center my-4">
-          Total Bill = Bill Subtotal + Tip Amount
-        </div>
-        <p>
-          Finally, if you are splitting the bill, the amount per person is:
-        </p>
-        <div className="bg-slate-100 p-4 rounded-lg font-mono text-center my-4">
-          Amount Per Person = Total Bill / Number of People
-        </div>
-        <p>
-          Our calculator automates all these steps, ensuring that everyone pays their fair share down to the last cent.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Tipping Etiquette in 2026</h3>
-        <p>
-          Tipping customs continue to evolve. In 2026, the standard for good service in many regions has shifted towards the 18-20% range. While 15% was once the baseline, it is now often reserved for adequate but not exceptional service. For outstanding experiences, many customers now choose to tip 22% or 25%. It's also important to remember that tipping isn't just for restaurants; it applies to hair stylists, taxi and rideshare drivers, and hotel staff. Using a calculator ensures you are being fair to the service provider while staying within your budget.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use the Tip Calculator</h3>
-        <p>
-          Our <strong>free tip calculator 2026</strong> makes it easy to determine the right amount to leave and how to split the bill among friends.
-        </p>
-        <ol>
-          <li><strong>Enter the Bill Amount:</strong> Input the total amount of your bill before any tips are added.</li>
-          <li><strong>Select or Enter a Tip Percentage:</strong> Choose from common percentages (10%, 15%, 18%, 20%) or enter a custom amount based on the quality of service.</li>
-          <li><strong>Specify the Number of People:</strong> If you're dining with a group, enter the number of people splitting the bill.</li>
-          <li><strong>View the Results:</strong> The calculator will instantly show the total tip amount, the final bill total, and the exact amount each person needs to pay.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions (FAQ)</h3>
-        <div className="space-y-4">
-          <div>
-            <p className="font-bold text-slate-900">What is a standard tip in 2026?</p>
-            <p>In the United States and many other countries, a standard tip for sit-down restaurant service is typically between 18% and 20%. For exceptional service, 22% or more is often appreciated. For quick-service or coffee shops, $1-$2 or a smaller percentage is common.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">Should I tip on the total before or after tax?</p>
-            <p>Traditionally, tips are calculated on the pre-tax subtotal. However, many modern point-of-sale systems calculate tips on the post-tax total. Either method is acceptable, but tipping on the pre-tax amount is the standard baseline.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How do I handle splitting a bill fairly?</p>
-            <p>Our calculator splits the total bill (including tip) equally among all participants. This is the simplest way to handle group dining. If individuals ordered significantly different amounts, you might want to calculate their tips separately, but equal splitting is the most common social practice.</p>
-          </div>
-        </div>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Example Calculation</h3>
-        <p>
-          Suppose your dinner bill is <strong>$120.00</strong> and you want to leave an <strong>18%</strong> tip for a group of <strong>4 people</strong>. The tip would be <strong>$21.60</strong>, making the total bill <strong>$141.60</strong>. Each person would then contribute <strong>$35.40</strong>. This ensures the server is tipped correctly and the group knows exactly what to pay.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Tip Calculator & Bill Splitter" 
+        path="/tip" 
+        description="Quickly calculate the correct tip and split the bill among friends. Perfect for restaurants, cafes, and group outings in 2026."
+      />
     </div>
   );
 };
