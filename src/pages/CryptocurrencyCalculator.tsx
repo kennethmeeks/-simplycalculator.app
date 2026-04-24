@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { DollarSign, Calculator, Info, TrendingUp, BarChart3, Coins } from 'lucide-react';
 
@@ -158,37 +159,11 @@ export const CryptocurrencyCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">How to Use the Cryptocurrency Calculator</h2>
-        <p>
-          Our <strong>cryptocurrency calculator</strong> is designed to help you understand the true performance of your crypto investments. It accounts for the fees charged by exchanges, which can often eat into your profits.
-        </p>
-        
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Importance of Fees</h3>
-        <p>
-          When trading crypto, fees are everywhere. There are trading fees, withdrawal fees, and sometimes even deposit fees. If you're a frequent trader, these small percentages can add up to a significant amount of money over time.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Key Terms to Know</h3>
-        <ul>
-          <li><strong>HODL:</strong> A popular term in the crypto community meaning "Hold On for Dear Life"—holding onto your coins despite price drops.</li>
-          <li><strong>Market Cap:</strong> The total value of all coins in circulation (Price x Supply).</li>
-          <li><strong>Stablecoin:</strong> A cryptocurrency pegged to a stable asset like the US Dollar (e.g., USDT, USDC).</li>
-          <li><strong>DeFi:</strong> Decentralized Finance, a system of financial tools built on blockchain technology.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">What is the best way to track my crypto portfolio?</p>
-            <p>Using a dedicated portfolio tracker like CoinMarketCap or CoinGecko can help you see all your holdings in one place.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How are crypto profits taxed?</p>
-            <p>In most jurisdictions, crypto is taxed as a capital asset. You'll owe capital gains tax when you sell, trade, or use crypto to buy something.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Cryptocurrency Calculator" 
+        path="/cryptocurrency" 
+        description="Calculate potential profits or losses on crypto investments. Account for exchange fees and ROI for any digital asset in 2026."
+      />
     </div>
   );
 };

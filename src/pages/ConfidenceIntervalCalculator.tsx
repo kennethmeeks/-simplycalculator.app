@@ -144,6 +144,8 @@ export const ConfidenceIntervalCalculator: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
       <CalculatorSEO 
         name="Confidence Interval Calculator" 

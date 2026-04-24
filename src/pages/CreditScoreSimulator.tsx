@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { CreditCard, TrendingUp, AlertCircle, CheckCircle2, Info, ShieldCheck, History, Landmark } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -229,54 +230,11 @@ export const CreditScoreSimulator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Your Credit Score in 2026</h2>
-        <p>
-          Your credit score is a three-digit number that tells lenders how likely you are to repay borrowed money. In 2026, credit scores remain the primary tool for determining interest rates on mortgages, car loans, and credit cards.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">What Factors Make Up Your Score?</h3>
-        <p>Most credit scoring models, including FICO, use five main categories to calculate your score:</p>
-        <ul>
-          <li><strong>Payment History (35%):</strong> The most important factor. Even one late payment can significantly drop your score.</li>
-          <li><strong>Credit Utilization (30%):</strong> How much of your available credit you are using. Aim to keep this below 30%, and ideally below 10%.</li>
-          <li><strong>Length of Credit History (15%):</strong> The age of your oldest account and the average age of all accounts.</li>
-          <li><strong>Credit Mix (10%):</strong> Having a variety of account types (credit cards, auto loans, mortgages).</li>
-          <li><strong>New Credit (10%):</strong> Frequent "hard inquiries" from applying for new credit can temporarily lower your score.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">How to Use This Simulator</h3>
-        <p>
-          Our <strong>credit score simulator</strong> allows you to test "what-if" scenarios without actually impacting your real credit report. By toggling actions like paying off balances or opening new accounts, you can see the potential ripple effect on your score.
-        </p>
-        <p>
-          For example, <strong>paying off a large credit card balance</strong> often has the most immediate positive impact because it drastically lowers your utilization ratio. Conversely, <strong>missing a payment</strong> is usually the most damaging action, as it affects the largest portion of your score (payment history).
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Tips for Improving Your Score</h3>
-        <ol>
-          <li><strong>Set up autopay:</strong> Never miss a payment again.</li>
-          <li><strong>Keep old accounts open:</strong> Even if you don't use them, they help your "age of credit."</li>
-          <li><strong>Ask for a limit increase:</strong> This can lower your utilization instantly, provided you don't spend more.</li>
-          <li><strong>Check for errors:</strong> Regularly review your credit report from the three major bureaus (Equifax, Experian, TransUnion) for inaccuracies.</li>
-        </ol>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Frequently Asked Questions</h3>
-        <div className="space-y-4 pb-12">
-          <div>
-            <p className="font-bold text-slate-900">Does checking my own score lower it?</p>
-            <p>No. Checking your own score is a "soft inquiry" and has zero impact on your credit score.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">How long do negative marks stay on my report?</p>
-            <p>Most negative information, like late payments or collections, stays on your credit report for seven years. Bankruptcies can stay for up to ten years.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-900">What is considered a "good" score?</p>
-            <p>Generally, a score of 670 or higher is considered "Good," while 740+ is "Very Good" and 800+ is "Exceptional."</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Credit Score Simulator" 
+        path="/credit-score-simulator" 
+        description="Estimate how financial actions impact your credit score. Simulate paying off debt, new accounts, and payment history for 2026."
+      />
     </div>
   );
 };

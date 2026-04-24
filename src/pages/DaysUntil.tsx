@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DaysUntil: React.FC = () => {
@@ -70,30 +71,11 @@ export const DaysUntil: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Countdown</h2>
-        <p>
-          Countdown is a process of counting down to a specific date or event. It is commonly used for planning and anticipation.
-        </p>
-        <p>
-          Our <strong>days until calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to count down to a specific date based on the current date. It calculates the difference between the target date and the current date in days.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Days Until Calculator?</h3>
-        <p>
-          Days until calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Planning:</strong> They provide a fun and insightful way to count down to any date and plan for events.</li>
-          <li><strong>Anticipation:</strong> They can be a great tool for building anticipation and excitement for special occasions.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Days Until Calculator" 
+        path="/days-until" 
+        description="Count down the exact number of days until any date. Perfect for planning weddings, vacations, and 2026 events."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 const currencies = [
@@ -121,36 +122,11 @@ export const CurrencyConverter: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">About Currency Conversion</h2>
-        <p>
-          Currency conversion is the process of exchanging one currency for another at a specific rate, known as the exchange rate. These rates fluctuate constantly due to economic factors, market demand, and geopolitical events.
-        </p>
-        <p>
-          Our <strong>currency converter 2026</strong> uses real-time data to provide you with the most accurate estimates for your travel planning, international shopping, or business needs.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Exchange Rates Change</h3>
-        <p>
-          Several factors influence the value of a currency:
-        </p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Interest Rates:</strong> Higher interest rates often attract foreign investment, increasing the demand for that currency.</li>
-          <li><strong>Inflation:</strong> Countries with lower inflation rates typically see their currency's value increase relative to others.</li>
-          <li><strong>Economic Stability:</strong> Strong economic performance and political stability make a currency more attractive to investors.</li>
-          <li><strong>Trade Balance:</strong> A country that exports more than it imports will generally have a stronger currency.</li>
-        </ul>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Tips for International Travelers</h3>
-        <p>
-          When traveling abroad, keep these tips in mind to get the best value for your money:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Avoid Airport Exchanges:</strong> Kiosks at airports often have the least favorable rates and high fees.</li>
-          <li><strong>Use Local ATMs:</strong> Withdrawing local currency from an ATM often provides a better rate than a currency exchange booth.</li>
-          <li><strong>Pay in Local Currency:</strong> If a merchant offers to charge your card in your home currency, decline. This is called "Dynamic Currency Conversion" and usually includes hidden fees.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Currency Converter" 
+        path="/currency-converter" 
+        description="Convert between major global currencies with real-time 2026 exchange rates. Ideal for travel, business, and international shopping."
+      />
     </div>
   );
 };

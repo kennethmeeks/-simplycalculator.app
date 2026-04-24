@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DebtConsolidationCalculator: React.FC = () => {
@@ -164,58 +165,11 @@ export const DebtConsolidationCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is Debt Consolidation?</h2>
-        <p>
-          Debt consolidation is the process of taking out a new loan to pay off multiple existing debts. This is typically done to secure a lower interest rate, reduce monthly payments, or simplify finances by having only one monthly payment to manage.
-        </p>
-        
-        <h3>How to Use the Debt Consolidation Calculator</h3>
-        <p>
-          To compare your current debt with a new consolidation loan, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Current Debt Details:</strong> Your total debt balance, current monthly payment, and average interest rate.</li>
-          <li><strong>New Loan Details:</strong> The interest rate and term (in months) of the consolidation loan you are considering.</li>
-        </ul>
-
-        <h3>Benefits of Debt Consolidation</h3>
-        <p>
-          Consolidating your debt can offer several advantages:
-        </p>
-        <ul>
-          <li><strong>Lower Interest Rate:</strong> If you can secure a loan with a lower rate than your current average, you'll save money on interest.</li>
-          <li><strong>Lower Monthly Payment:</strong> Extending the loan term can reduce your monthly payment, improving your cash flow.</li>
-          <li><strong>Simplified Finances:</strong> Managing one monthly payment is easier than tracking multiple due dates and amounts.</li>
-          <li><strong>Fixed Payoff Date:</strong> Unlike credit cards, consolidation loans have a fixed term, giving you a clear end date for your debt.</li>
-        </ul>
-
-        <h3>Potential Drawbacks to Consider</h3>
-        <p>
-          While consolidation can be helpful, it's not always the best choice:
-        </p>
-        <ul>
-          <li><strong>Longer Loan Term:</strong> Extending your term may lower your monthly payment but could increase the total interest you pay over time.</li>
-          <li><strong>Loan Fees:</strong> Some consolidation loans come with origination fees or other costs that can offset your savings.</li>
-          <li><strong>Risk of More Debt:</strong> If you don't address the spending habits that led to the debt, you may end up with a consolidation loan AND new credit card balances.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is a "Personal Loan" for consolidation?</h4>
-            <p>A personal loan is a common tool for debt consolidation. It's an unsecured loan with a fixed interest rate and term, making it ideal for paying off high-interest credit card debt.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">How does consolidation affect my credit score?</h4>
-            <p>Initially, your score may dip slightly due to the hard inquiry and new account. However, over time, consolidation can improve your score by lowering your credit utilization ratio and establishing a history of on-time payments.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Can I consolidate student loans?</h4>
-            <p>Yes, you can consolidate both federal and private student loans. However, consolidating federal loans into a private loan will cause you to lose access to federal benefits like income-driven repayment and loan forgiveness.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Debt Consolidation Calculator" 
+        path="/debt-consolidation" 
+        description="Compare your current debt with a consolidation loan. Calculate monthly savings and interest reduction for your 2026 financial planning."
+      />
     </div>
   );
 };

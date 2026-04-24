@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const CreditCardPayoffCalculator: React.FC = () => {
@@ -95,53 +96,11 @@ export const CreditCardPayoffCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>How to Pay Off Your Credit Card Faster</h2>
-        <p>
-          Paying off credit card debt can be a daunting task, but having a clear plan can make it much more manageable. By setting a specific payoff goal, you can determine exactly how much you need to pay each month to become debt-free.
-        </p>
-        
-        <h3>How to Use the Credit Card Payoff Calculator</h3>
-        <p>
-          To calculate the monthly payment needed to reach your payoff goal, you need to provide:
-        </p>
-        <ul>
-          <li><strong>Current Balance:</strong> The total amount you currently owe on your credit card.</li>
-          <li><strong>Interest Rate (APR):</strong> The annual interest rate charged by your credit card issuer.</li>
-          <li><strong>Months to Pay Off:</strong> The number of months you want to take to pay off your balance.</li>
-        </ul>
-
-        <h3>The Impact of Interest Rates</h3>
-        <p>
-          Credit card interest rates are typically much higher than other types of loans, such as mortgages or car loans. This means that a large portion of your monthly payment goes toward interest, rather than reducing your principal balance. By paying more than the minimum, you can significantly reduce the total interest you pay and become debt-free much faster.
-        </p>
-
-        <h3>Strategies for Successful Debt Payoff</h3>
-        <p>
-          If you have multiple credit cards with balances, consider these popular strategies:
-        </p>
-        <ul>
-          <li><strong>The Debt Avalanche:</strong> Focus on paying off the card with the highest interest rate first while making minimum payments on the others. This saves you the most money in interest.</li>
-          <li><strong>The Debt Snowball:</strong> Focus on paying off the card with the smallest balance first. This provides a psychological boost and helps you stay motivated.</li>
-          <li><strong>Debt Consolidation:</strong> Consider taking out a personal loan with a lower interest rate to pay off all your credit card balances.</li>
-        </ul>
-
-        <h3>Frequently Asked Questions</h3>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold">What is a "Balance Transfer"?</h4>
-            <p>A balance transfer allows you to move your balance from one credit card to another, often with a 0% introductory APR for a certain period (e.g., 12 to 18 months). This can be a great way to save on interest while you pay down your debt.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">How does my credit score affect my payoff plan?</h4>
-            <p>Borrowers with higher credit scores (700+) typically qualify for credit cards with much lower interest rates and better rewards programs, which can make it easier to pay off their debt.</p>
-          </div>
-          <div>
-            <h4 className="font-bold">Should I prioritize saving or paying off debt?</h4>
-            <p>It depends on the interest rate of your debt. Generally, it's a good idea to pay off high-interest debt (like credit cards) first while still building a small emergency fund.</p>
-          </div>
-        </div>
-      </div>
+      <CalculatorSEO 
+        name="Credit Card Payoff Calculator" 
+        path="/credit-card-payoff" 
+        description="Calculate the monthly payment needed to pay off your credit card balance by a specific goal date. Plan your 2026 debt-free journey."
+      />
     </div>
   );
 };

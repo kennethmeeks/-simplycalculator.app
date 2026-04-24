@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DayCounter: React.FC = () => {
@@ -71,20 +72,11 @@ export const DayCounter: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is a Day Counter?</h2>
-        <p>
-          A day counter is a tool for calculating the number of days between two dates. It's a useful tool for quantifying the uncertainty of an estimate and identifying the range of values for a data set.
-        </p>
-        <h3>How to Use a Day Counter</h3>
-        <p>
-          To use a day counter, you simply enter the start and end dates for your project or event. The calculator will then perform the calculation and display the total number of days.
-        </p>
-        <h3>Why Day Counters Matter</h3>
-        <p>
-          Day counters are critical for analyzing and interpreting data in a wide range of fields, including project management, science, and business. They provide a simple and effective way to quantify and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Day Counter" 
+        path="/day-counter" 
+        description="Calculate the number of days between two dates. Quick results for weeks, months, and total days in 2026."
+      />
     </div>
   );
 };

@@ -131,6 +131,8 @@ export const CircleCalculator: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
       <CalculatorSEO 
         name="Circle Calculator" 

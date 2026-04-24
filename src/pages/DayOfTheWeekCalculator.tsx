@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 
 export const DayOfTheWeekCalculator: React.FC = () => {
@@ -58,20 +59,11 @@ export const DayOfTheWeekCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>What is a Day of the Week Calculator?</h2>
-        <p>
-          A day of the week calculator is a tool for finding the day of the week for any given date. It's a useful tool for quantifying the uncertainty of an estimate and identifying the range of values for a data set.
-        </p>
-        <h3>How to Use a Day of the Week Calculator</h3>
-        <p>
-          To use a day of the week calculator, you simply enter the date you're interested in. The calculator will then perform the calculation and display the day of the week for that date.
-        </p>
-        <h3>Why Day of the Week Calculators Matter</h3>
-        <p>
-          Day of the week calculators are critical for analyzing and interpreting data in a wide range of fields, including history, science, and business. They provide a simple and effective way to quantify and communicate complex information.
-        </p>
-      </div>
+      <CalculatorSEO 
+        name="Day of the Week Calculator" 
+        path="/day-of-the-week" 
+        description="Find the day of the week for any date. Discover what day you were born or plan future 2026 events instantly."
+      />
     </div>
   );
 };
