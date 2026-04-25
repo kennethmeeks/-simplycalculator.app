@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Calculator, Info, BookOpen, HelpCircle } from 'lucide-react';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CircleCalculator: React.FC = () => {
@@ -120,6 +121,21 @@ export const CircleCalculator: React.FC = () => {
                     <div className="flex justify-between">
                       <span className="text-slate-500">Circumference</span>
                       <span className="font-bold text-slate-900">{circumference}</span>
+                    </div>
+                    <div className="pt-6 border-t border-slate-200">
+                      <ResultActions 
+                        onReset={() => {
+                          setRadius('');
+                          setDiameter('');
+                          setArea('');
+                          setCircumference('');
+                          setLastChanged(null);
+                        }}
+                        onCopy={() => {
+                          const text = `Circle Results:\nRadius: ${radius}\nDiameter: ${diameter}\nArea: ${area}\nCircumference: ${circumference}\nCalculated at simplycalculator.app`;
+                          navigator.clipboard.writeText(text);
+                        }}
+                      />
                     </div>
                   </div>
                 ) : (

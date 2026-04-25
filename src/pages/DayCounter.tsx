@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const DayCounter: React.FC = () => {
@@ -64,7 +65,17 @@ export const DayCounter: React.FC = () => {
               <p className="text-lg font-semibold text-slate-900">{(days / 30.44).toFixed(1)} months</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setStartDate('2026-01-01');
+                  setEndDate('2026-12-31');
+                }}
+                onCopy={() => {
+                  const text = `Day Counter Results:\nTotal Days: ${days}\nWeeks: ${(days / 7).toFixed(1)}\nMonths: ${(days / 30.44).toFixed(1)}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation uses the absolute difference between the two dates.
               </p>
             </div>

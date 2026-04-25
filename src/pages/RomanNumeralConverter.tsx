@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 const romanMap: [string, number][] = [
@@ -98,33 +100,26 @@ export const RomanNumeralConverter: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setNumber('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result) {
+                const text = `${number} converted is ${result}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Roman Numerals</h2>
-        <p>
-          Roman numerals are a way of representing numbers using letters from the Latin alphabet. They were used in ancient Rome and are still used today for decorative purposes and in some contexts.
-        </p>
-        <p>
-          Our <strong>roman numeral converter 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our converter uses a simple algorithm to convert between Arabic and Roman numerals. It uses a mapping of Roman letters to Arabic values to provide accurate results.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Roman Numeral Converter?</h3>
-        <p>
-          Roman numeral converters are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>History:</strong> They provide a fun and insightful way to learn about ancient numerical systems.</li>
-          <li><strong>Design:</strong> They can be a great tool for designers and artists who want to use Roman numerals in their work.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential for understanding different numerical systems and patterns.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Roman Numeral Converter"
+        path="/roman-numeral-converter"
+        description="Convert Arabic numbers to Roman numerals and vice versa instantly."
+      />
     </div>
   );
 };

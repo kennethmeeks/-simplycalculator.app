@@ -684,5 +684,101 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'width', label: 'Wall Width', type: 'number', unit: 'ft' },
     { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
     { id: 'boardWidth', label: 'Board Width', type: 'number', unit: 'in', defaultValue: '5.25' }
+  ],
+  '/529-plan': [
+    { id: 'initial', label: 'Initial Balance', type: 'number', unit: '$' },
+    { id: 'monthly', label: 'Monthly Contribution', type: 'number', unit: '$' },
+    { id: 'return', label: 'Expected Annual Return', type: 'number', unit: '%' },
+    { id: 'years', label: 'Years Until College', type: 'number' }
+  ],
+  '/70-20-10-rule': [
+    { id: 'income', label: 'Monthly Take-Home Pay', type: 'number', unit: '$' }
+  ],
+  '/28-36-rule': [
+    { id: 'income', label: 'Gross Monthly Income', type: 'number', unit: '$' },
+    { id: 'housing', label: 'Monthly Housing Payment', type: 'number', unit: '$' },
+    { id: 'debt', label: 'Total Monthly Debt', type: 'number', unit: '$' }
+  ],
+  '/balance-transfer': [
+    { id: 'balance', label: 'Credit Card Balance', type: 'number', unit: '$' },
+    { id: 'newApr', label: 'New Card Intro APR', type: 'number', unit: '%' },
+    { id: 'fee', label: 'Balance Transfer Fee', type: 'number', unit: '%' }
+  ],
+  '/credit-card-interest': [
+    { id: 'balance', label: 'Current Balance', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Annual Interest Rate (APR)', type: 'number', unit: '%' },
+    { id: 'payment', label: 'Monthly Payment', type: 'number', unit: '$' }
+  ],
+  '/credit-card-minimum-payment': [
+    { id: 'balance', label: 'Credit Card Balance', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Interest Rate (APR)', type: 'number', unit: '%' },
+    { id: 'minPercent', label: 'Minimum Payment Percentage', type: 'number', unit: '%' }
+  ],
+  '/credit-card-payment': [
+    { id: 'balance', label: 'Total Debt Balance', type: 'number', unit: '$' },
+    { id: 'term', label: 'Desired Payoff Time', type: 'number', unit: 'months' },
+    { id: 'rate', label: 'Interest Rate (APR)', type: 'number', unit: '%' }
+  ],
+  '/credit-utilization': [
+    { id: 'balances', label: 'Total Credit Balances', type: 'number', unit: '$' },
+    { id: 'limits', label: 'Total Credit Limits', type: 'number', unit: '$' }
+  ],
+  '/debt-calculator': [
+    { id: 'cards', label: 'Total Credit Card Debt', type: 'number', unit: '$' },
+    { id: 'loans', label: 'Total Loan Debt', type: 'number', unit: '$' },
+    { id: 'other', label: 'Other Liabilities', type: 'number', unit: '$' }
+  ],
+  '/debt-avalanche': [
+    { id: 'total', label: 'Total Debt Balance', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Highest Interest Rate', type: 'number', unit: '%' },
+    { id: 'overpayment', label: 'Monthly Overpayment', type: 'number', unit: '$' }
+  ],
+  '/debt-snowball': [
+    { id: 'total', label: 'Total Debt Balance', type: 'number', unit: '$' },
+    { id: 'smallest', label: 'Smallest Debt Amount', type: 'number', unit: '$' },
+    { id: 'overpayment', label: 'Monthly Overpayment', type: 'number', unit: '$' }
+  ],
+  '/deferred-payment-loan': [
+    { id: 'principal', label: 'Loan Principal', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%' },
+    { id: 'months', label: 'Deferment Period', type: 'number', unit: 'months' }
+  ],
+  '/eidl-advance': [
+    { id: 'employees', label: 'Number of Employees', type: 'number' },
+    { id: 'requested', label: 'Loan Amount Requested', type: 'number', unit: '$' }
+  ],
+  '/finance-charge': [
+    { id: 'amount', label: 'Loan Amount', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Interest Rate (APR)', type: 'number', unit: '%' },
+    { id: 'term', label: 'Loan Term', type: 'number', unit: 'months' }
+  ],
+  '/agi-calculator': [
+    { id: 'income', label: 'Gross Annual Income', type: 'number', unit: '$' },
+    { id: 'retirement', label: 'Retirement Contributions', type: 'number', unit: '$' },
+    { id: 'adjustments', label: 'Other Tax Adjustments', type: 'number', unit: '$' }
+  ],
+  '/annualized-return': [
+    { id: 'initial', label: 'Initial Investment Value', type: 'number', unit: '$' },
+    { id: 'final', label: 'Final Investment Value', type: 'number', unit: '$' },
+    { id: 'years', label: 'Time Period', type: 'number', unit: 'years' }
+  ],
+  '/appreciation-calculator': [
+    { id: 'value', label: 'Initial Asset Value', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Appreciation Rate', type: 'number', unit: '%' },
+    { id: 'years', label: 'Time Period', type: 'number', unit: 'years' }
+  ],
+  '/basis-point-calculator': [
+    { id: 'rate', label: 'Initial Rate', type: 'number', unit: '%' },
+    { id: 'bps', label: 'Basis Points (BPS)', type: 'number' },
+    { id: 'op', label: 'Operation', type: 'select', options: [{label: 'Add', value: 'add'}, {label: 'Subtract', value: 'sub'}]}
+  ],
+  '/capital-gains-yield': [
+    { id: 'buy', label: 'Purchase Price', type: 'number', unit: '$' },
+    { id: 'sell', label: 'Sale Price', type: 'number', unit: '$' }
+  ],
+  '/compound-growth': [
+    { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },
+    { id: 'rate', label: 'Annual Growth Rate', type: 'number', unit: '%' },
+    { id: 'years', label: 'Years', type: 'number' }
   ]
 };

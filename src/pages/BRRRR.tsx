@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 export const BRRRRCalculator: React.FC = () => {
   // Buy & Rehab
@@ -178,6 +178,12 @@ export const BRRRRCalculator: React.FC = () => {
           
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="BRRRR Method Calculator" 
+        path="/brrrr" 
+        description="Analyze your BRRRR real estate deals with our advanced calculator. Calculate cash-out amounts, equity created, and cash flow for 2026 investors."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">The Advanced Guide to the BRRRR Method</h2>

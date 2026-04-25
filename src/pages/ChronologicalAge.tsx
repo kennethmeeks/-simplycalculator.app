@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const ChronologicalAge: React.FC = () => {
@@ -82,6 +83,18 @@ export const ChronologicalAge: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setBirthDate('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Exactly Age: ${result.years} Years, ${result.months} Months, ${result.days} Days\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

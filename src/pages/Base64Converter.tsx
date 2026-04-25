@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const Base64Converter: React.FC = () => {
@@ -73,7 +74,16 @@ export const Base64Converter: React.FC = () => {
               className="w-full h-40 px-4 py-2 border border-slate-300 rounded-lg bg-white outline-none font-mono"
             />
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setInput('');
+                  setOutput('');
+                }}
+                onCopy={() => {
+                  navigator.clipboard.writeText(output);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format.
               </p>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 import { parseInput } from '../lib/calculatorUtils';
 
 interface Course {
@@ -120,6 +121,19 @@ export const GPACalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setCourses([
+                { id: 1, grade: 'A', credits: 3 },
+                { id: 2, grade: 'B', credits: 3 },
+                { id: 3, grade: 'C', credits: 3 },
+              ]);
+            }}
+            onCopy={() => {
+              const text = `GPA Results:\nGPA: ${gpa.toFixed(2)}\nTotal Credits: ${totalCredits}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

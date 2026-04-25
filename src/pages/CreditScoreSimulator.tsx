@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { CreditCard, TrendingUp, AlertCircle, CheckCircle2, Info, ShieldCheck, History, Landmark } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -212,6 +213,26 @@ export const CreditScoreSimulator: React.FC = () => {
                 <span className={`font-bold text-lg ${scoreChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
                   {scoreChange >= 0 ? '+' : ''}{scoreChange} Points
                 </span>
+              </div>
+              <div className="mt-8 pt-6 border-t border-slate-800">
+                <ResultActions 
+                  onReset={() => {
+                    setCurrentScore(700);
+                    setActions({
+                      payOffBalance: false,
+                      openNewCard: false,
+                      closeOldAccount: false,
+                      missPayment: false,
+                      increaseLimit: false,
+                      newLoan: false,
+                    });
+                  }}
+                  onCopy={() => {
+                    const text = `Credit Score Simulation:\nInitial Score: ${currentScore}\nSimulated Score: ${simulatedScore}\nChange: ${scoreChange >= 0 ? '+' : ''}${scoreChange} Points\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                  dark
+                />
               </div>
             </div>
           </div>

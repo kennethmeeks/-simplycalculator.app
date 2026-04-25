@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AnorexicBMICalculator: React.FC = () => {
@@ -83,6 +84,18 @@ export const AnorexicBMICalculator: React.FC = () => {
                 </p>
               </div>
             )}
+            <div className="pt-4 border-t border-slate-200">
+              <ResultActions 
+                onReset={() => {
+                  setWeight(50);
+                  setHeight(170);
+                }}
+                onCopy={() => {
+                  const text = `BMI Results:\nBMI: ${bmi.toFixed(1)}\nCategory: ${category}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

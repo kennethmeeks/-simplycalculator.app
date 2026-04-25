@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Home, DollarSign, Percent, Calculator, Info } from 'lucide-react';
 
@@ -141,6 +142,12 @@ export const HouseAffordabilityCalculator: React.FC = () => {
           
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="House Affordability Calculator" 
+        path="/house-affordability" 
+        description="Find out how much house you can actually afford based on your income and debts. Get a realistic 2026 home price estimate."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">How Much House Can You Afford? A Guide</h2>

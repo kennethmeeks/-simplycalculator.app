@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BandwidthCalculator: React.FC = () => {
@@ -61,7 +62,17 @@ export const BandwidthCalculator: React.FC = () => {
               <p className="text-lg font-semibold text-slate-900">{(time / 60).toFixed(2)} minutes</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setFileSize(1000);
+                  setSpeed(100);
+                }}
+                onCopy={() => {
+                  const text = `Bandwidth Results:\nDownload Time: ${time.toFixed(2)} seconds (${(time / 60).toFixed(2)} mins)\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation assumes a constant connection speed and no overhead.
               </p>
             </div>

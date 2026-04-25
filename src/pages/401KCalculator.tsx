@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { PiggyBank, TrendingUp, DollarSign, Percent } from 'lucide-react';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const FourOhOneKCalculator: React.FC = () => {
   const [currentBalance, setCurrentBalance] = useState(50000);
@@ -171,6 +172,22 @@ export const FourOhOneKCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setCurrentBalance(50000);
+              setAnnualSalary(75000);
+              setContributionRate(6);
+              setEmployerMatch(50);
+              setMatchLimit(6);
+              setYearsToRetirement(30);
+              setExpectedReturn(7);
+              setSalaryIncrease(3);
+            }}
+            onCopy={() => {
+              const text = `401(k) Projection:\nEstimated Balance: $${futureBalance.toLocaleString()}\nYour Contributions: $${totalContributions.toLocaleString()}\nEmployer Match: $${totalMatch.toLocaleString()}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

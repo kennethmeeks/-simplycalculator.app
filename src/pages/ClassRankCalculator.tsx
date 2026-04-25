@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { Users, TrendingUp, Award } from 'lucide-react';
 
@@ -85,6 +86,19 @@ export const ClassRankCalculator: React.FC = () => {
               <div className="text-center py-4">
                 <div className="text-4xl font-bold mb-1">Top {topPercentage}%</div>
                 <div className="text-xs font-medium text-emerald-100 uppercase tracking-wider">of your class</div>
+              </div>
+              <div className="pt-6 border-t border-emerald-500/30">
+                <ResultActions 
+                  onReset={() => {
+                    setRank(25);
+                    setClassSize(500);
+                  }}
+                  onCopy={() => {
+                    const text = `Class Rank Results:\nRank: ${rank}\nClass Size: ${classSize}\nPercentile: ${percentile}th\nTop Percentage: ${topPercentage}%\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                  dark
+                />
               </div>
             </div>
           </div>

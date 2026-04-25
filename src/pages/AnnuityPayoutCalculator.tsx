@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AnnuityPayoutCalculator: React.FC = () => {
@@ -108,7 +109,19 @@ export const AnnuityPayoutCalculator: React.FC = () => {
               </div>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setAnnuityBalance(500000);
+                  setPayoutYears(25);
+                  setExpectedReturn(4);
+                  setPayoutFrequency(12);
+                }}
+                onCopy={() => {
+                  const text = `Annuity Payout Projection:\nPayout: $${monthlyPayout.toLocaleString(undefined, { maximumFractionDigits: 0 })} (${payoutFrequency === 12 ? 'Monthly' : payoutFrequency === 4 ? 'Quarterly' : 'Annual'})\nTotal Payouts: $${totalPayout.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation provides an estimate. Actual payouts may vary based on market conditions and annuity fees.
               </p>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { Calculator, Info, Cat, Heart } from 'lucide-react';
 
@@ -82,6 +83,16 @@ export const CatAgeCalculator: React.FC = () => {
               <div className="text-center py-8">
                 <div className="text-6xl font-bold mb-2 text-[#0066cc]">{humanAge}</div>
                 <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Human Years Old</div>
+              </div>
+              <div className="pt-6 border-t border-slate-800">
+                <ResultActions 
+                  onReset={() => setCatAge(3)}
+                  onCopy={() => {
+                    const text = `Cat Age Results:\nCat: ${catAge} years\nHuman: ${humanAge} years\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                  dark
+                />
               </div>
             </div>
           </div>

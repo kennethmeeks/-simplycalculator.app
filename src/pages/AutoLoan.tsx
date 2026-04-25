@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AutoLoanCalculator: React.FC = () => {
@@ -118,6 +119,19 @@ export const AutoLoanCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setPrice(30000);
+              setDownPayment(5000);
+              setTradeIn(0);
+              setInterestRate(5.5);
+              setLoanTerm(60);
+            }}
+            onCopy={() => {
+              const text = `Auto Loan Results:\nMonthly Payment: $${monthlyPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\nTotal Interest: $${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

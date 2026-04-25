@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CashBackLowInterestCalculator: React.FC = () => {
@@ -154,6 +155,21 @@ export const CashBackLowInterestCalculator: React.FC = () => {
                 <p className="text-sm mt-1">
                   Saves you <strong>${Math.abs(cashBackTotal - lowInterestTotal).toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong> in total cost.
                 </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-slate-200">
+                <ResultActions 
+                  onReset={() => {
+                    setPurchasePrice(30000);
+                    setLoanTerm(60);
+                    setCashBackAmount(3000);
+                    setCashBackRate(6);
+                    setLowInterestRate(0.9);
+                  }}
+                  onCopy={() => {
+                    const text = `Financing Comparison:\nCash Back Total: $${cashBackTotal.toFixed(0)}\nLow Interest Total: $${lowInterestTotal.toFixed(0)}\nWinner: ${cashBackTotal < lowInterestTotal ? 'Cash Back' : 'Low Interest'}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                />
               </div>
             </div>
           </div>

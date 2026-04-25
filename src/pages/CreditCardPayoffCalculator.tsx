@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CreditCardPayoffCalculator: React.FC = () => {
@@ -91,6 +92,19 @@ export const CreditCardPayoffCalculator: React.FC = () => {
                 <p className="text-sm text-slate-500 mb-1">Total Payment</p>
                 <p className="text-xl font-semibold text-slate-900">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
               </div>
+            </div>
+            <div className="pt-6 border-t border-slate-200 w-full">
+              <ResultActions 
+                onReset={() => {
+                  setBalance(5000);
+                  setInterestRate(18);
+                  setMonthsToPayOff(24);
+                }}
+                onCopy={() => {
+                  const text = `Credit Card Payoff Goal:\nMonthly Payment: $${monthlyPayment.toFixed(2)}\nMonths to Pay Off: ${monthsToPayOff}\nTotal Interest: $${totalInterest.toFixed(2)}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
             </div>
           </div>
         </div>

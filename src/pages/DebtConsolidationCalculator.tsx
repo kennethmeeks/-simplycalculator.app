@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const DebtConsolidationCalculator: React.FC = () => {
@@ -161,6 +162,21 @@ export const DebtConsolidationCalculator: React.FC = () => {
                 Consolidating could save you <strong>${totalSavings.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong> in total interest costs!
               </div>
             )}
+            <div className="pt-6 border-t border-slate-200 w-full">
+              <ResultActions 
+                onReset={() => {
+                  setTotalDebt(25000);
+                  setCurrentMonthlyPayment(1200);
+                  setCurrentAverageRate(18);
+                  setNewLoanRate(10);
+                  setNewLoanTerm(36);
+                }}
+                onCopy={() => {
+                  const text = `Debt Consolidation Results:\nNew Monthly Payment: $${newMonthlyPayment.toFixed(2)}\nMonthly Savings: $${monthlySavings.toFixed(2)}\nTotal Interest Savings: $${totalSavings.toFixed(2)}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

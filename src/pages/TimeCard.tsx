@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const TimeCard: React.FC = () => {
@@ -70,33 +72,26 @@ export const TimeCard: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setHours([8, 8, 8, 8, 8, 0, 0]);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Total Weekly Hours: ${result.toFixed(1)}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Time Cards</h2>
-        <p>
-          Time cards are a way of tracking working hours over a period of time. They are commonly used in work tracking and payroll awareness to coordinate activities and meet deadlines.
-        </p>
-        <p>
-          Our <strong>time card calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to calculate total weekly working hours across multiple days. It sums all the hours in the week to provide a total value.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Time Card Calculator?</h3>
-        <p>
-          Time card calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Tracking:</strong> They provide a fun and insightful way to track your weekly work hours and stay organized.</li>
-          <li><strong>Payroll:</strong> They can be a great tool for understanding your payroll and meeting deadlines.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Time Card Calculator"
+        path="/time-card"
+        description="Effortlessly calculate your weekly work hours for payroll and shift tracking."
+      />
     </div>
   );
 };

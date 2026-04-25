@@ -6,67 +6,12 @@ import { POPULAR_SCHEMAS, CalculatorField } from '../constants/schemas';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calculator, ChevronLeft, ChevronRight, ChevronDown, Info, Settings2, CheckCircle2, RotateCcw, Loader2, Share2, FileDown } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
-import { GoogleGenAI, Type } from "@google/genai";
 import { standardCalculations } from '../lib/math-engine';
 import { InteractiveCalculator } from '../components/InteractiveCalculator';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { callGeminiWithRetry, safeParseAIResponse, MODEL_FLASH, MODEL_PRO, Type } from '../lib/gemini';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-
-// AI Service
-const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
-const MODEL_FLASH = "gemini-1.5-flash";
-const MODEL_PRO = "gemini-1.5-pro";
-
-// Helper for parsing JSON from AI strings
-const safeParseAIResponse = (text: string | undefined): any => {
-    if (!text) throw new Error("Empty AI response");
-    
-    // Remove markdown code blocks if present
-    let cleaned = text.trim();
-    if (cleaned.startsWith('```')) {
-        cleaned = cleaned.replace(/^```json\n?/, '').replace(/```$/, '').trim();
-    }
-    
-    try {
-        return JSON.parse(cleaned);
-    } catch (e) {
-        // Basic recovery for minor truncation (unclosed object)
-        if (!cleaned.endsWith('}') && cleaned.includes('{')) {
-            try {
-                return JSON.parse(cleaned + '}');
-            } catch (e2) {
-                // Try recovery for missing array/object combo if nested
-                try {
-                    return JSON.parse(cleaned + ']}');
-                } catch (e3) {
-                    throw new Error("Malformed or incomplete JSON response from AI");
-                }
-            }
-        }
-        throw new Error("Malformed JSON response from AI");
-    }
-};
-
-// Helper for retries
-const callGeminiWithRetry = async (params: any, retries = 2) => {
-    if (!process.env.GEMINI_API_KEY) {
-        throw new Error("AI services are currently unavailable. Please verify API configuration.");
-    }
-    let lastError;
-    for (let i = 0; i <= retries; i++) {
-        try {
-            // @ts-ignore
-            return await genAI.models.generateContent(params);
-        } catch (err) {
-            lastError = err;
-            if (i < retries) {
-                // Wait before retrying (exponential backoff-ish)
-                await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
-            }
-        }
-    }
-    throw lastError;
-};
 
 // Component
 export const CalculatorPage: React.FC = () => {
@@ -77,10 +22,10 @@ export const CalculatorPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isSchemaLoading, setIsSchemaLoading] = useState(false);
     const [dynamicFields, setDynamicFields] = useState<CalculatorField[] | null>(null);
-    const [guideContent, setGuideContent] = useState<{ sections: {title: string, body: string}[], faq: {q: string, a: string}[] } | null>(null);
-    const [isGuideLoading, setIsGuideLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [discoveryFailed, setDiscoveryFailed] = useState(false);
+    const [guideContent, setGuideContent] = useState<any>(null);
+    const [isGuideLoading, setIsGuideLoading] = useState(false);
 
     const CACHE_KEY_SCHEMA = (path: string) => `sc_schema_${path}`;
     const CACHE_KEY_GUIDE = (path: string) => `sc_guide_${path}`;
@@ -158,11 +103,45 @@ export const CalculatorPage: React.FC = () => {
         } catch (err: any) {
             console.error("Schema discovery error:", err);
             setDiscoveryFailed(true);
-            setDynamicFields([
-              { id: 'input1', label: `${foundItem.name} Input 1`, type: 'number' },
-              { id: 'input2', label: `${foundItem.name} Input 2`, type: 'number' },
-              { id: 'input3', label: `${foundItem.name} Input 3`, type: 'number' }
-            ]);
+            
+            // Professional Fallback Logic
+            const getFallbackFields = (name: string): CalculatorField[] => {
+                const n = name.toLowerCase();
+                if (n.includes('loan') || n.includes('mortgage') || n.includes('finance')) {
+                    return [
+                        { id: 'amount', label: 'Principal Amount', type: 'number', unit: '$' },
+                        { id: 'rate', label: 'Annual Interest Rate', type: 'number', unit: '%' },
+                        { id: 'term', label: 'Term Duration', type: 'number', unit: 'years' }
+                    ];
+                }
+                if (n.includes('investment') || n.includes('roi') || n.includes('profit')) {
+                    return [
+                        { id: 'initial', label: 'Initial Investment', type: 'number', unit: '$' },
+                        { id: 'return', label: 'Expected Return', type: 'number', unit: '%' },
+                        { id: 'years', label: 'Time Horizon', type: 'number', unit: 'years' }
+                    ];
+                }
+                if (n.includes('body') || n.includes('health') || n.includes('weight')) {
+                    return [
+                        { id: 'weight', label: 'Weight', type: 'number', unit: 'kg' },
+                        { id: 'height', label: 'Height', type: 'number', unit: 'cm' },
+                        { id: 'age', label: 'Current Age', type: 'number' }
+                    ];
+                }
+                if (n.includes('conversion') || n.includes('to') || n.includes('converter')) {
+                    return [
+                        { id: 'value', label: 'Value to Convert', type: 'number' }
+                    ];
+                }
+                // Global fallback
+                return [
+                    { id: 'input1', label: `${name} Principal Value`, type: 'number' },
+                    { id: 'input2', label: 'Secondary Adjustment', type: 'number' },
+                    { id: 'input3', label: 'Optimization Factor', type: 'number' }
+                ];
+            };
+
+            setDynamicFields(getFallbackFields(foundItem.name));
             // Suppress loud error for better UX, just provide a discreet retry if needed
             setError(null); 
         } finally {
@@ -443,22 +422,6 @@ export const CalculatorPage: React.FC = () => {
                 <title>{foundItem.name} | Free Professional Calculator | simplycalculator.app</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
                 <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
-                {guideContent && (
-                    <script type="application/ld+json">
-                        {JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "FAQPage",
-                            "mainEntity": guideContent.faq.map(item => ({
-                                "@type": "Question",
-                                "name": item.q,
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": item.a
-                                }
-                            }))
-                        })}
-                    </script>
-                )}
             </Helmet>
 
             <div className="w-full">
@@ -587,10 +550,13 @@ export const CalculatorPage: React.FC = () => {
                                                     <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">
                                                         {foundItem.name.includes('Mortgage') ? 'Monthly Payment' : 
                                                          foundItem.name.includes('Salary') ? 'Estimated Take-Home' :
-                                                         foundItem.name.includes('ROI') ? 'Estimated ROI' :
+                                                         foundItem.name.includes('ROI') || foundItem.name.includes('Return') ? 'Estimated ROI' :
                                                          foundItem.name.includes('BAC') ? 'Estimated BAC' :
-                                                         foundItem.name.includes('BMI') ? 'Calculated BMI' : 'Estimated Result'}
-                                                    </p>
+                                                         foundItem.name.includes('BMI') ? 'Calculated BMI' : 
+                                                         foundItem.name.includes('Debt') ? 'Liquidation Projection' :
+                                                         foundItem.name.includes('Tax') ? 'Tax Estimation' : 
+                                                         foundItem.name.includes('Budget') || foundItem.name.includes('Rule') ? 'Allocation Target' : 'Estimated Result'}
+                                                     </p>
                                                     <div className="text-[#0066cc] text-5xl sm:text-7xl font-black tracking-tight">
                                                         {result.value}
                                                     </div>
@@ -653,75 +619,27 @@ export const CalculatorPage: React.FC = () => {
                         )}
 
                         {/* SEO Educational Guide Section */}
-                        <div className="mt-24 space-y-16 border-t-2 border-[#eee] pt-20">
-                            {isGuideLoading ? (
-                                <div className="space-y-12 animate-pulse">
-                                    <div className="h-10 bg-[#eee] w-1/3"></div>
-                                    <div className="space-y-4">
-                                        <div className="h-4 bg-[#f8f8f8] w-full"></div>
-                                        <div className="h-4 bg-[#f8f8f8] w-5/6"></div>
-                                        <div className="h-4 bg-[#f8f8f8] w-4/6"></div>
-                                    </div>
-                                </div>
-                            ) : (
-                                guideContent && (
-                                    <>
-                                        <section className="max-w-4xl">
-                                            <h2 className="text-3xl font-black text-[#111] uppercase tracking-tighter mb-12 flex items-center gap-4">
-                                                <div className="w-2 h-10 bg-blue-600"></div>
-                                                Comprehensive Guide to {foundItem.name}
-                                            </h2>
-                                            <div className="space-y-16">
-                                                {guideContent.sections.map((section, idx) => (
-                                                    <div key={idx} className="group">
-                                                        <h3 className="text-xl font-black text-[#111] mb-4 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
-                                                            {section.title}
-                                                        </h3>
-                                                        <p className="text-[#555] leading-relaxed font-medium text-[15px]">
-                                                            {section.body}
-                                                        </p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </section>
+                        <CalculatorSEO 
+                            name={foundItem.name}
+                            path={foundItem.path}
+                            description={foundItem.desc}
+                        />
 
-                                        <section className="bg-white border-4 border-[#111] p-10 sm:p-16 shadow-[24px_24px_0px_0px_rgba(240,240,240,1)]">
-                                            <h2 className="text-3xl font-black text-[#111] uppercase tracking-tighter mb-12 text-center underline decoration-blue-600 decoration-8 underline-offset-8">
-                                                Frequently Asked Questions
-                                            </h2>
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                                                {guideContent.faq.map((item, idx) => (
-                                                    <div key={idx} className="space-y-3">
-                                                        <h4 className="text-[15px] font-black text-[#111] uppercase tracking-tight leading-snug">
-                                                            {item.q}
-                                                        </h4>
-                                                        <p className="text-[13px] text-[#666] leading-relaxed font-medium">
-                                                            {item.a}
-                                                        </p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </section>
-                                        
-                                        <section className="pt-20 border-t border-[#eee]">
-                                            <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8 italic">// Related Mathematical Hubs</h3>
-                                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                                {foundCategory.items.filter(i => i.path !== `/${calculatorPath}`).slice(0, 4).map((related, idx) => (
-                                                    <Link 
-                                                        key={idx}
-                                                        to={related.path}
-                                                        className="p-4 border-2 border-[#eee] hover:border-[#111] transition-all group"
-                                                    >
-                                                        <span className="block text-[11px] font-black text-[#111] uppercase tracking-tight mb-2 group-hover:text-blue-600">{related.name}</span>
-                                                        <span className="block text-[9px] text-[#999] font-medium leading-tight">{related.desc}</span>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </section>
-                                    </>
-                                )
-                            )}
-                        </div>
+                        <section className="pt-20 border-t border-[#eee]">
+                            <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8 italic">// Related Mathematical Hubs</h3>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                {foundCategory.items.filter(i => i.path !== `/${calculatorPath}`).slice(0, 4).map((related, idx) => (
+                                    <Link 
+                                        key={idx}
+                                        to={related.path}
+                                        className="p-4 border-2 border-[#eee] hover:border-[#111] transition-all group"
+                                    >
+                                        <span className="block text-[11px] font-black text-[#111] uppercase tracking-tight mb-2 group-hover:text-blue-600">{related.name}</span>
+                                        <span className="block text-[9px] text-[#999] font-medium leading-tight">{related.desc}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

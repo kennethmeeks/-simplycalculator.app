@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -182,6 +183,12 @@ export const VATCalculator: React.FC = () => {
           />
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="VAT Calculator" 
+        path="/vat" 
+        description="Add or remove Value Added Tax easily from any amount. Perfect for global tax calculations in 2026."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">About VAT Calculation</h2>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const ArmBodyFat: React.FC = () => {
@@ -75,6 +76,19 @@ export const ArmBodyFat: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setTriceps(10);
+              setBiceps(5);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Estimated Arm Body Fat: ${result.toFixed(1)}%\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

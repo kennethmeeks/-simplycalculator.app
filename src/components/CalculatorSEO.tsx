@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI, Type } from "@google/genai";
 import { Loader2 } from 'lucide-react';
-
-const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
-const MODEL_PRO = "gemini-1.5-pro";
-const MODEL_FLASH = "gemini-1.5-flash";
+import { callGeminiWithRetry, safeParseAIResponse, MODEL_PRO, Type } from '../lib/gemini';
 
 interface GuideContent {
     sections: {title: string, body: string}[];
@@ -37,8 +33,7 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
             if (!process.env.GEMINI_API_KEY) return;
             setIsLoading(true);
             try {
-                // @ts-ignore - The library type definitions might be legacy or custom
-                const response = await genAI.models.generateContent({
+                const response = await callGeminiWithRetry({
                     model: MODEL_PRO,
                     contents: `Generate a professional, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
                     You MUST include:
@@ -79,12 +74,11 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                     }
                 });
 
-                const data = JSON.parse(response.text);
+                const data = safeParseAIResponse(response.text);
                 setGuideContent(data);
                 localStorage.setItem(CACHE_KEY(path), JSON.stringify(data));
             } catch (err) {
                 console.error("SEO Guide fetch error:", err);
-                // Fallback to null to prevent crash
                 setGuideContent(null);
             } finally {
                 setIsLoading(false);

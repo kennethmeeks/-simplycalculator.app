@@ -27,13 +27,13 @@ export const Sitemap: React.FC = () => {
         {CATEGORIES.map((cat) => (
           <div key={cat.slug} className="space-y-6">
             <div className="flex items-center gap-3 border-b-2 border-[#0066cc] pb-2 mb-4">
-                <Link to={`/${cat.slug}`} className="text-lg font-black text-[#111] uppercase tracking-wide hover:text-[#0066cc]">
+                <Link to={`/category/${cat.slug}`} className="text-lg font-black text-[#111] uppercase tracking-wide hover:text-[#0066cc]">
                     {cat.title}
                 </Link>
             </div>
-            <div className="grid grid-cols-1 gap-y-3 pl-2">
+            <ul className="grid grid-cols-1 gap-y-3 pl-2">
               {cat.items.map((item, idx) => (
-                <div key={`${item.name}-${idx}`} className="group relative pl-4 border-l border-[#eee] hover:border-[#0066cc] transition-colors">
+                <li key={`${item.name}-${idx}`} className="group relative pl-4 border-l border-[#eee] hover:border-[#0066cc] transition-colors list-none">
                   <Link 
                     to={item.path} 
                     className="text-[#333] hover:text-[#0066cc] font-bold text-[13px] flex items-center justify-between"
@@ -41,9 +41,9 @@ export const Sitemap: React.FC = () => {
                     {item.name}
                     <span className="text-[9px] text-[#ccc] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">link &rarr;</span>
                   </Link>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>

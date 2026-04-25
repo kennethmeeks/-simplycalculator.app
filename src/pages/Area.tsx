@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 type Shape = 'rectangle' | 'circle' | 'triangle' | 'trapezoid' | 'ellipse';
@@ -145,6 +146,22 @@ export const AreaCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setShape('rectangle');
+              setLength(10);
+              setWidth(5);
+              setRadius(5);
+              setBase(10);
+              setHeight(5);
+              setBase2(8);
+              setRadius2(3);
+            }}
+            onCopy={() => {
+              const text = `Area Results (${shape}):\nArea: ${area} square units\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

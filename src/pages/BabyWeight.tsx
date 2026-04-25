@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BabyWeight: React.FC = () => {
@@ -75,6 +76,19 @@ export const BabyWeight: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setFatherWeight(180);
+              setMotherWeight(140);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Estimated Baby Weight: ${result.toFixed(1)} lbs\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { DollarSign, Calculator, Info, TrendingUp } from 'lucide-react';
 
@@ -154,6 +155,21 @@ export const CapitalGainsTaxCalculator: React.FC = () => {
               <div className="text-center py-4 border-t border-[#0066cc]/10">
                 <div className="text-2xl font-bold text-[#0066cc]">${netProfit.toLocaleString()}</div>
                 <div className="text-[10px] text-slate-500 uppercase font-bold">Net Profit After Tax</div>
+              </div>
+              <div className="pt-4 border-t border-[#0066cc]/10">
+                <ResultActions 
+                  onReset={() => {
+                    setPurchasePrice(10000);
+                    setSellingPrice(15000);
+                    setHoldingPeriod('long');
+                    setAnnualIncome(50000);
+                    setFilingStatus('single');
+                  }}
+                  onCopy={() => {
+                    const text = `Capital Gains Results:\nGain: $${capitalGain.toLocaleString()}\nTax Owed: $${taxAmount.toLocaleString()}\nNet Profit: $${netProfit.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                />
               </div>
             </div>
           </div>

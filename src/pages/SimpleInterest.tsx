@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Percent, DollarSign, Calendar, Info } from 'lucide-react';
 
@@ -103,6 +104,12 @@ export const SimpleInterestCalculator: React.FC = () => {
           
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="Simple Interest Calculator" 
+        path="/simple-interest" 
+        description="Calculate basic interest on any amount without compounding. Ideal for short-term loans and 2026 budgeting."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">Simple Interest: A Basic Finance Guide</h2>

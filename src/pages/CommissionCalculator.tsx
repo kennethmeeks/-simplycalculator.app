@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CommissionCalculator: React.FC = () => {
@@ -69,7 +70,17 @@ export const CommissionCalculator: React.FC = () => {
               <p className="text-2xl font-semibold text-slate-900">${netSales.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setSalesAmount(50000);
+                  setCommissionRate(5);
+                }}
+                onCopy={() => {
+                  const text = `Commission Results:\nSales: $${salesAmount}\nCommission ($): $${commissionAmount.toFixed(2)}\nNet Sales: $${netSales.toFixed(2)}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This is a simple commission calculation. Complex tiered structures are not included.
               </p>
             </div>

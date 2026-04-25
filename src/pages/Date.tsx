@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const DateCalculator: React.FC = () => {
@@ -151,6 +152,22 @@ export const DateCalculator: React.FC = () => {
             <div className="result-box py-6">
               <div className="text-sm text-slate-500 uppercase font-bold mb-2">Calculated Date</div>
               <div className="text-xl font-bold text-[#0066cc]">{targetDate}</div>
+            </div>
+            <div className="mt-8 border-t border-slate-100 pt-6">
+              <ResultActions 
+                onReset={() => {
+                  setStartDate(new Date().toISOString().split('T')[0]);
+                  setEndDate(new Date().toISOString().split('T')[0]);
+                  setAddDays(0);
+                  setAddWeeks(0);
+                  setAddMonths(0);
+                  setAddYears(0);
+                }}
+                onCopy={() => {
+                  const text = `Date Results:\nDays Between: ${diffDays}\nTarget Date: ${targetDate}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
             </div>
           </div>
           

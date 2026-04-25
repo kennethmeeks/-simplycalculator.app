@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const ChildHeightPredictor: React.FC = () => {
@@ -90,6 +91,20 @@ export const ChildHeightPredictor: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setFatherHeight(70);
+              setMotherHeight(64);
+              setGender('boy');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Predicted Child Height: ${result.toFixed(1)} inches (${Math.floor(result / 12)}' ${Math.round(result % 12)}")\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

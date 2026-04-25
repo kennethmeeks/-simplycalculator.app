@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const ConcreteCalculator: React.FC = () => {
@@ -210,7 +211,25 @@ export const ConcreteCalculator: React.FC = () => {
               </div>
             </div>
           </div>
-          
+          <div className="mt-8">
+            <ResultActions 
+              onReset={() => {
+                setUnitSystem('imperial');
+                setShape('slab');
+                setLength(10);
+                setWidth(10);
+                setThickness(4);
+                setDiameter(12);
+                setHeight(8);
+                setQuantity(1);
+                setWaste(10);
+              }}
+              onCopy={() => {
+                const text = `Concrete Results:\nVolume: ${(volume / 27).toFixed(2)} Cubic Yards\n80lb Bags: ${bags80lb}\n60lb Bags: ${bags60lb}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }}
+            />
+          </div>
         </div>
       </div>
 

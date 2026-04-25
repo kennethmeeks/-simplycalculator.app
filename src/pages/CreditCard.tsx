@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { CreditCard, DollarSign, Calendar, AlertCircle } from 'lucide-react';
 
@@ -112,6 +113,21 @@ export const CreditCardCalculator: React.FC = () => {
                 </div>
               </div>
             )}
+            <div className="mt-8 border-t border-slate-100 pt-6">
+              <ResultActions 
+                onReset={() => {
+                  setBalance(5000);
+                  setInterestRate(19.99);
+                  setMonthlyPayment(200);
+                }}
+                onCopy={() => {
+                  if (!isImpossible) {
+                    const text = `Credit Card Payoff:\nMonths: ${monthsToPayOff}\nTotal Interest: $${totalInterest}\nTotal Cost: $${totalCost}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }
+                }}
+              />
+            </div>
           </div>
           
         </div>

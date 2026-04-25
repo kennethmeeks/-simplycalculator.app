@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const RetirementDate: React.FC = () => {
@@ -77,33 +79,27 @@ export const RetirementDate: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setBirthDate('');
+              setRetirementAge(65);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Estimated Retirement Date: ${result}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Retirement</h2>
-        <p>
-          Retirement is a process of leaving work and starting a new phase of life. It is a key part of financial planning and is essential for health and wellness.
-        </p>
-        <p>
-          Our <strong>retirement date calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your retirement date based on your birth date and retirement age. It adds your retirement age to your birth year to provide a total value.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Retirement Date Calculator?</h3>
-        <p>
-          Retirement date calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Financial Planning:</strong> They provide a fun and insightful way to estimate your retirement date and plan for growth.</li>
-          <li><strong>Wellness:</strong> They can be a great tool for understanding your health and improving wellness.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Retirement Date Calculator"
+        path="/retirement-date"
+        description="Calculate your projected retirement date based on your birth date and target retirement age."
+      />
     </div>
   );
 };

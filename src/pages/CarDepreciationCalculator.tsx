@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
-import { Car, TrendingDown, DollarSign, Calendar } from 'lucide-react';
+import { Car, TrendingDown, Calendar } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const CarDepreciationCalculator: React.FC = () => {
   const [purchasePrice, setPurchasePrice] = useState<number>(35000);
@@ -104,6 +105,20 @@ export const CarDepreciationCalculator: React.FC = () => {
                 <div className="text-4xl font-bold mb-1">${totalDepreciation.toLocaleString()}</div>
                 <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">Total Value Lost</div>
               </div>
+              <div className="pt-6 border-t border-slate-800">
+                <ResultActions 
+                  onReset={() => {
+                    setPurchasePrice(35000);
+                    setYears(5);
+                    setDepreciationRate(15);
+                  }}
+                  onCopy={() => {
+                    const text = `Car Depreciation Results:\nFuture Value: $${futureValue}\nTotal Loss: $${totalDepreciation}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                  dark
+                />
+              </div>
             </div>
           </div>
           
@@ -170,6 +185,11 @@ export const CarDepreciationCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+      <CalculatorSEO 
+        name="Car Depreciation Calculator" 
+        path="/car-depreciation-calculator" 
+        description="Estimate your vehicle's future resale value and total depreciation cost. Plan your next car purchase or sale with accurate 2026 projections."
+      />
     </div>
   );
 };

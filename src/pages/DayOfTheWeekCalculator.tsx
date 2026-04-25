@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const DayOfTheWeekCalculator: React.FC = () => {
@@ -51,7 +52,14 @@ export const DayOfTheWeekCalculator: React.FC = () => {
               <p className="text-4xl font-bold text-[#0066cc]">{dayName}</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => setDate('2026-01-01')}
+                onCopy={() => {
+                  const text = `Day of the Week: ${dayName} (${date})\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation uses the UTC day of the week for the selected date.
               </p>
             </div>

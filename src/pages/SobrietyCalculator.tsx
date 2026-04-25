@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const SobrietyCalculator: React.FC = () => {
@@ -67,33 +69,26 @@ export const SobrietyCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setStartDate('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Sober Days: ${result}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Sobriety</h2>
-        <p>
-          Sobriety is a process of maintaining abstinence from addictive substances. It is a key part of recovery and is essential for health and wellness.
-        </p>
-        <p>
-          Our <strong>sobriety calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to track your days of sobriety based on your start date. It calculates the difference between the current date and your start date in days.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Sobriety Calculator?</h3>
-        <p>
-          Sobriety calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Progress Tracking:</strong> They provide a fun and insightful way to track your sobriety progress and stay motivated.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for understanding your recovery and improving health.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Sobriety Calculator"
+        path="/sobriety-calculator"
+        description="Track your journey with our sobriety counter. Calculate days, months, and years of abstinence."
+      />
     </div>
   );
 };

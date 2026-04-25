@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const DaysUntil: React.FC = () => {
@@ -68,6 +69,18 @@ export const DaysUntil: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setTargetDate('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Days Until: ${result} Days\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const RatioCalculator: React.FC = () => {
@@ -96,33 +98,28 @@ export const RatioCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setA(1);
+              setB(2);
+              setC(3);
+              setD(null);
+            }}
+            onCopy={() => {
+              if (d !== null) {
+                const text = `Ratio Results: ${a}:${b} = ${c}:${d.toFixed(2)}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Ratios</h2>
-        <p>
-          Ratios are a way of comparing two quantities. They are commonly used in mathematics, science, and everyday life to represent proportions and relationships.
-        </p>
-        <p>
-          Our <strong>ratio calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to solve proportions and ratios. It uses the cross-multiplication method to find the missing value in a proportion.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Ratio Calculator?</h3>
-        <p>
-          Ratio calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Problem Solving:</strong> They provide a fun and insightful way to solve proportions and ratios.</li>
-          <li><strong>Comparison:</strong> They can be a great tool for comparing different quantities and relationships.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential for understanding proportions and patterns.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Ratio Calculator"
+        path="/ratio-calculator"
+        description="Solve ratios and proportions easily. Find the missing value (D) in A:B = C:D."
+      />
     </div>
   );
 };

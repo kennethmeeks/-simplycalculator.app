@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const DueDate: React.FC = () => {
@@ -67,33 +69,25 @@ export const DueDate: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setLastPeriod('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result) {
+                navigator.clipboard.writeText(`Estimated Due Date: ${result}\nCalculated at simplycalculator.app`);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Due Dates</h2>
-        <p>
-          Due dates are a way of estimating when a baby will be born. They are commonly used in family planning and health awareness to track pregnancy and development.
-        </p>
-        <p>
-          Our <strong>due date calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your baby's due date based on the first day of your last period. It assumes a 40-week gestation period from that date.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Due Date Calculator?</h3>
-        <p>
-          Due date calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Family Planning:</strong> They provide a fun and insightful way to estimate your baby's due date and plan for growth.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for tracking your pregnancy and development.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Due Date Calculator"
+        path="/due-date"
+        description="Estimate your pregnancy due date based on LMP or conception date."
+      />
     </div>
   );
 };

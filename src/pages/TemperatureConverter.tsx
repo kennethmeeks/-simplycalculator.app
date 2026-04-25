@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const TemperatureConverter: React.FC = () => {
@@ -102,33 +104,26 @@ export const TemperatureConverter: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setValue(0);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `${value} ${from.toUpperCase()} is ${result.toFixed(2)} ${to.toUpperCase()}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Temperature Scales</h2>
-        <p>
-          Temperature scales are a way of measuring thermal energy. They are commonly used in science, meteorology, and everyday life to represent heat and cold.
-        </p>
-        <p>
-          Our <strong>temperature converter 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our converter uses a simple algorithm to convert between Celsius, Fahrenheit, and Kelvin. It uses standard conversion formulas to provide accurate results.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Temperature Converter?</h3>
-        <p>
-          Temperature converters are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Science:</strong> They provide a fun and insightful way to convert between different temperature scales.</li>
-          <li><strong>Travel:</strong> They can be a great tool for understanding weather forecasts in different countries.</li>
-          <li><strong>Insight:</strong> They offer a unique perspective on your potential for understanding thermal energy and patterns.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Temperature Converter"
+        path="/temperature-converter"
+        description="Convert Celsius, Fahrenheit, and Kelvin instantly."
+      />
     </div>
   );
 };

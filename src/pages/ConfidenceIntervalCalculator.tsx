@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Calculator, Info, BookOpen, HelpCircle } from 'lucide-react';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const ConfidenceIntervalCalculator: React.FC = () => {
@@ -133,6 +134,21 @@ export const ConfidenceIntervalCalculator: React.FC = () => {
                     <div>
                       <p className="text-sm text-slate-500">Margin of Error</p>
                       <p className="text-xl font-bold text-slate-900">±{result.marginOfError.toLocaleString(undefined, { maximumFractionDigits: 4 })}</p>
+                    </div>
+                    <div className="pt-6 border-t border-slate-200 w-full">
+                      <ResultActions 
+                        onReset={() => {
+                          setSampleMean('');
+                          setSampleSize('');
+                          setStdDev('');
+                          setConfidenceLevel('95');
+                          setResult(null);
+                        }}
+                        onCopy={() => {
+                          const text = `Confidence Interval (${confidenceLevel}%):\nRange: ${result.lower.toFixed(4)} to ${result.upper.toFixed(4)}\nMargin of Error: ±${result.marginOfError.toFixed(4)}\nCalculated at simplycalculator.app`;
+                          navigator.clipboard.writeText(text);
+                        }}
+                      />
                     </div>
                   </div>
                 ) : (

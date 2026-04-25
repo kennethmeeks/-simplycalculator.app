@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { DollarSign, Calculator, Info, TrendingUp, BarChart3, Coins } from 'lucide-react';
 
@@ -142,6 +143,21 @@ export const CryptocurrencyCalculator: React.FC = () => {
               <div className="text-center py-4 border-t border-[#0066cc]/10">
                 <div className="text-2xl font-bold text-[#0066cc]">${totalValue.toLocaleString()}</div>
                 <div className="text-[10px] text-slate-500 uppercase font-bold">Final Value</div>
+              </div>
+              <div className="pt-4 border-t border-[#0066cc]/10">
+                <ResultActions 
+                  onReset={() => {
+                    setInvestmentAmount(1000);
+                    setBuyPrice(50000);
+                    setSellPrice(60000);
+                    setInvestmentFee(0.5);
+                    setExitFee(0.5);
+                  }}
+                  onCopy={() => {
+                    const text = `Crypto Results:\nProfit: $${totalProfit}\nROI: ${percentageReturn}%\nTotal Value: $${totalValue}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                />
               </div>
             </div>
           </div>

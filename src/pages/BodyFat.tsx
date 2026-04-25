@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { Activity, User, Info } from 'lucide-react';
 
@@ -163,6 +164,20 @@ export const BodyFatCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setGender('male');
+              setWeight(70);
+              setHeight(175);
+              setWaist(80);
+              setNeck(38);
+              setHip(90);
+            }}
+            onCopy={() => {
+              const text = `Body Fat Summary:\nBody Fat: ${bodyFat}%\nCategory: ${category}\nFat Mass: ${fatMass}kg\nLean Mass: ${leanMass}kg\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

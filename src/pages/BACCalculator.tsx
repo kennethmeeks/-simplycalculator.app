@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BACCalculator: React.FC = () => {
@@ -85,7 +86,19 @@ export const BACCalculator: React.FC = () => {
               <p className="text-4xl font-bold text-[#0066cc]">{bac.toFixed(3)} %</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setWeight(70);
+                  setGender('male');
+                  setDrinks(2);
+                  setHours(2);
+                }}
+                onCopy={() => {
+                  const text = `Estimated BAC: ${bac.toFixed(3)}%\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This is an estimate. Individual factors like metabolism and food intake are not considered. Never drink and drive.
               </p>
             </div>

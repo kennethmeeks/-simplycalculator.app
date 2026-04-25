@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { DollarSign, Calculator, Info, TrendingUp, BarChart3, Bitcoin } from 'lucide-react';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const BitcoinProfitCalculator: React.FC = () => {
   const [investmentAmount, setInvestmentAmount] = useState<number>(1000);
@@ -155,7 +156,20 @@ export const BitcoinProfitCalculator: React.FC = () => {
               Never invest more than you can afford to lose. The Bitcoin market is highly speculative and can drop significantly in value.
             </p>
           </div>
-          
+
+          <ResultActions 
+            onReset={() => {
+              setInvestmentAmount(1000);
+              setBuyPrice(50000);
+              setSellPrice(60000);
+              setInvestmentFee(0.5);
+              setExitFee(0.5);
+            }}
+            onCopy={() => {
+              const text = `Bitcoin Results:\nProfit: $${totalProfit.toLocaleString()}\nROI: ${percentageReturn}%\nBTC Owned: ${btcOwned}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

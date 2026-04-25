@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Home, DollarSign, Percent, Info, BookOpen, HelpCircle, Calculator } from 'lucide-react';
+import { Calculator, BookOpen, HelpCircle } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CanadianMortgageCalculator: React.FC = () => {
@@ -142,6 +144,22 @@ export const CanadianMortgageCalculator: React.FC = () => {
                   <p className="text-xl font-bold">${totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
                 </div>
               </div>
+              <div className="mt-8 pt-6 border-t border-blue-400/30">
+                <ResultActions 
+                  onReset={() => {
+                    setHomePrice(500000);
+                    setDownPayment(100000);
+                    setInterestRate(4.5);
+                    setAmortization(25);
+                    setPaymentFrequency('monthly');
+                  }}
+                  onCopy={() => {
+                    const text = `Canadian Mortgage Projection:\n${paymentFrequency.charAt(0).toUpperCase() + paymentFrequency.slice(1)} Payment: $${monthlyPayment.toFixed(2)}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                  dark
+                />
+              </div>
             </div>
           </div>
 
@@ -216,6 +234,11 @@ export const CanadianMortgageCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+      <CalculatorSEO 
+        name="Canadian Mortgage Calculator" 
+        path="/canadian-mortgage-calculator" 
+        description="Calculate your Canadian mortgage payments using semi-annual compounding rules. Plan for down payments, CMHC insurance, and stress tests for 2026."
+      />
     </div>
   );
 };

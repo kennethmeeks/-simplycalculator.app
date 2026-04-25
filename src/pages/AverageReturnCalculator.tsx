@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AverageReturnCalculator: React.FC = () => {
@@ -91,6 +92,17 @@ export const AverageReturnCalculator: React.FC = () => {
               <p className="text-sm text-slate-500 mb-1">Geometric Mean (Time-Weighted Average)</p>
               <p className="text-4xl font-bold text-[#0066cc]">{geometricMean.toFixed(2)}%</p>
               <p className="text-xs text-slate-500 mt-1">The actual compounded annual growth rate (CAGR).</p>
+            </div>
+            <div className="pt-4 border-t border-slate-200">
+              <ResultActions 
+                onReset={() => {
+                  setReturns('10, -5, 15, 8, -2');
+                }}
+                onCopy={() => {
+                  const text = `Investment Returns:\nArithmetic Mean: ${arithmeticMean.toFixed(2)}%\nGeometric Mean: ${geometricMean.toFixed(2)}%\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
             </div>
           </div>
         </div>

@@ -124,7 +124,7 @@ export const RoofingCalculator: React.FC = () => {
             </div>
           )}
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
             <div className="flex items-center gap-2 mb-4">
               <BookOpen className="w-6 h-6 text-[#0066cc]" />
               <h2 className="text-2xl font-bold m-0">Roofing Material Estimation</h2>
@@ -148,7 +148,7 @@ export const RoofingCalculator: React.FC = () => {
             </p>
 
             <h3>Waste and Overlap</h3>
-            <p>
+            <div>
               You should always order more material than the exact square footage of your roof. This accounts for:
               <ul>
                 <li><strong>Cutting:</strong> Shingles must be cut at edges, valleys, and ridges.</li>
@@ -156,7 +156,7 @@ export const RoofingCalculator: React.FC = () => {
                 <li><strong>Mistakes:</strong> A small buffer for errors during installation.</li>
               </ul>
               A standard waste factor is 10% for simple roofs and up to 15-20% for complex roofs with many valleys and hips.
-            </p>
+            </div>
 
             <h3>Bundles per Square</h3>
             <p>

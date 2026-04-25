@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CarbohydrateCalculator: React.FC = () => {
@@ -63,7 +64,17 @@ export const CarbohydrateCalculator: React.FC = () => {
               <p className="text-4xl font-bold text-[#0066cc]">{carbGrams.toFixed(1)} g</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setCalories(2000);
+                  setCarbPercentage(50);
+                }}
+                onCopy={() => {
+                  const text = `Daily Carbs: ${carbGrams.toFixed(1)}g\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: These are general guidelines. Individual needs may vary based on activity level and health goals.
               </p>
             </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const LeanBodyMass: React.FC = () => {
@@ -74,33 +76,27 @@ export const LeanBodyMass: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setWeight(150);
+              setBodyFat(20);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Lean Body Mass: ${result.toFixed(1)} lbs\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Lean Body Mass</h2>
-        <p>
-          Lean body mass is a measure of the weight of the body's non-fat components. It is commonly used in health and fitness tracking to manage weight and improve fitness.
-        </p>
-        <p>
-          Our <strong>lean body mass calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your lean body mass based on your weight and body fat percentage. It subtracts the weight of your body fat from your total weight.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Lean Body Mass Calculator?</h3>
-        <p>
-          Lean body mass calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Health:</strong> They provide a fun and insightful way to estimate your lean body mass and stay healthy.</li>
-          <li><strong>Fitness:</strong> They can be a great tool for tracking your body composition and improving fitness.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Lean Body Mass Calculator"
+        path="/lean-body-mass"
+        description="Estimate your lean body mass (LBM) to better understand your body composition and fitness progress."
+      />
     </div>
   );
 };

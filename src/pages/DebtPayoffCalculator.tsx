@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const DebtPayoffCalculator: React.FC = () => {
   const [totalDebt, setTotalDebt] = useState<number>(25000);
@@ -118,11 +119,30 @@ export const DebtPayoffCalculator: React.FC = () => {
                     <p className="text-xl font-semibold text-slate-900">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
                   </div>
                 </div>
+                <div className="pt-6 border-t border-slate-200">
+                  <ResultActions 
+                    onReset={() => {
+                      setTotalDebt(25000);
+                      setAverageInterestRate(12);
+                      setMonthlyPayment(1000);
+                    }}
+                    onCopy={() => {
+                      const text = `Debt Payoff Results:\nMonths to Pay Off: ${monthsToPayOff}\nTotal Interest: $${totalInterest.toFixed(2)}\nTotal Payment: $${totalPayment.toFixed(2)}\nCalculated at simplycalculator.app`;
+                      navigator.clipboard.writeText(text);
+                    }}
+                  />
+                </div>
               </>
             )}
           </div>
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="Debt Payoff Calculator" 
+        path="/debt-payoff" 
+        description="Calculate how long it will take to be debt-free. Plan your payoff strategy for 2026 with our free calculator."
+      />
 
       <div className="prose prose-slate max-w-none">
         <h2>How to Pay Off Your Debt Faster</h2>

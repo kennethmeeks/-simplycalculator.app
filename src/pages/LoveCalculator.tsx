@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const LoveCalculator: React.FC = () => {
@@ -81,33 +83,27 @@ export const LoveCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setName1('');
+              setName2('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Love Compatibility between ${name1} and ${name2}: ${result}%\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Love Compatibility</h2>
-        <p>
-          Love compatibility is a process of determining the compatibility between two people based on various factors. It is commonly used for fun and entertainment to see how well two people might get along.
-        </p>
-        <p>
-          Our <strong>love calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to calculate compatibility based on the characters in each name. While not scientifically proven, it is a fun way to see how well two people might match.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Love Calculator?</h3>
-        <p>
-          Love calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Fun:</strong> They provide a fun and entertaining way to see how well two people might match.</li>
-          <li><strong>Conversation Starter:</strong> They can be a great conversation starter for couples and friends.</li>
-          <li><strong>Entertainment:</strong> They offer a lighthearted way to explore relationships and compatibility.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Love Calculator"
+        path="/love-calculator"
+        description="Just for fun: calculate the compatibility score between two names with our love meter."
+      />
     </div>
   );
 };

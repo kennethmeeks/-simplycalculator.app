@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 export const PersonalLoanCalculator: React.FC = () => {
   const [loanAmount, setLoanAmount] = useState<number>(10000);
@@ -119,6 +119,12 @@ export const PersonalLoanCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="Personal Loan Calculator" 
+        path="/personal-loan" 
+        description="Estimate your monthly personal loan payments and total interest. Plan your borrowing for 2026 with confidence."
+      />
 
       <div className="prose prose-slate max-w-none">
         <h2>What is a Personal Loan?</h2>

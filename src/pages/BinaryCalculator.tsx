@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Binary, Hash, Info } from 'lucide-react';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const BinaryCalculator: React.FC = () => {
   const [binary, setBinary] = useState('1010');
@@ -100,6 +101,17 @@ export const BinaryCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setBinary('1010');
+              setDecimal('10');
+              setHex('A');
+            }}
+            onCopy={() => {
+              const text = `Binary: ${binary}\nDecimal: ${decimal}\nHex: ${hex}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

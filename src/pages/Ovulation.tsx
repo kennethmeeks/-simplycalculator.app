@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const Ovulation: React.FC = () => {
@@ -78,6 +79,19 @@ export const Ovulation: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setLastPeriod('');
+              setCycleLength(28);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result) {
+                const text = `Estimated Ovulation Date: ${result}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

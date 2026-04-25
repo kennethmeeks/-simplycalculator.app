@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BudgetCalculator: React.FC = () => {
@@ -159,6 +160,24 @@ export const BudgetCalculator: React.FC = () => {
                   * Financial experts recommend spending no more than 30% of your income on housing.
                 </p>
               </div>
+            </div>
+            <div className="pt-8 border-t border-slate-200">
+              <ResultActions 
+                onReset={() => {
+                  setMonthlyIncome(5000);
+                  setHousing(1500);
+                  setUtilities(300);
+                  setFood(600);
+                  setTransportation(400);
+                  setInsurance(200);
+                  setEntertainment(200);
+                  setOther(300);
+                }}
+                onCopy={() => {
+                  const text = `Monthly Budget Summary:\nIncome: $${monthlyIncome}\nExpenses: $${totalExpenses}\nSavings: $${remainingBalance}\nSavings Rate: ${savingsRate.toFixed(1)}%\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
             </div>
           </div>
         </div>

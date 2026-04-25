@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { Calculator, Info, Sparkles, Star } from 'lucide-react';
 
@@ -111,6 +112,15 @@ export const AngelNumberCalculator: React.FC = () => {
             </p>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setBirthDate('1990-01-01');
+            }}
+            onCopy={() => {
+              const text = `My Angel Number: ${angelNumber}\nMeaning: ${meaning}\nCalculated at simplycalculator.app`;
+              navigator.clipboard.writeText(text);
+            }}
+          />
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Thermometer, Home, Wind, Info, BookOpen, HelpCircle } from 'lucide-react';
 
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const BTUCalculator: React.FC = () => {
   const [length, setLength] = useState<string>('20');
@@ -96,6 +97,20 @@ export const BTUCalculator: React.FC = () => {
                 <p className="text-blue-100 mb-2 uppercase tracking-wider font-semibold text-sm">Estimated Capacity Needed</p>
                 <h3 className="text-5xl font-bold mb-2">{btu.toLocaleString()} BTU</h3>
                 <p className="text-blue-100 text-sm">Approximately {(btu / 12000).toFixed(1)} Tons</p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/20">
+                <ResultActions 
+                  onReset={() => {
+                    setLength('20');
+                    setWidth('15');
+                    setInsulation('average');
+                  }}
+                  onCopy={() => {
+                    const text = `BTU Requirement: ${btu.toLocaleString()} BTU\nRoom Size: ${length}x${width} ft\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                  dark
+                />
               </div>
             </div>
           )}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CollegeCostCalculator: React.FC = () => {
@@ -120,7 +121,21 @@ export const CollegeCostCalculator: React.FC = () => {
               <p className="text-xl font-semibold text-slate-900">${annualCost.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setTuition(25000);
+                  setRoomAndBoard(12000);
+                  setBooksAndSupplies(1200);
+                  setOtherExpenses(2500);
+                  setYears(4);
+                  setInflationRate(3);
+                }}
+                onCopy={() => {
+                  const text = `College Cost Projection:\nTotal Cost: $${totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nAnnual Cost: $${annualCost.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation provides an estimate. Actual costs may vary based on financial aid, scholarships, and specific college fees.
               </p>
             </div>

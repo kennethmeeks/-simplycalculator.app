@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BondCalculator: React.FC = () => {
@@ -120,7 +121,20 @@ export const BondCalculator: React.FC = () => {
               <p className="text-xl font-semibold text-slate-900">{currentYield.toFixed(2)}%</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setFaceValue(1000);
+                  setCouponRate(5);
+                  setMarketRate(4);
+                  setYearsToMaturity(10);
+                  setPaymentFrequency(2);
+                }}
+                onCopy={() => {
+                  const text = `Bond Results:\nPrice: $${bondPrice.toFixed(2)}\nCurrent Yield: ${currentYield.toFixed(2)}%\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation provides an estimate. Actual bond prices may vary based on credit risk and market liquidity.
               </p>
             </div>

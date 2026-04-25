@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const WaistToHip: React.FC = () => {
@@ -75,33 +77,27 @@ export const WaistToHip: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setWaist(30);
+              setHip(36);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Waist to Hip Ratio: ${result.toFixed(2)}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Waist to Hip Ratio</h2>
-        <p>
-          Waist to hip ratio is a measure of the distribution of body fat. It is commonly used in health and wellness awareness to assess the risk of chronic diseases.
-        </p>
-        <p>
-          Our <strong>waist to hip ratio calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your waist-to-hip ratio based on your waist and hip circumferences. It divides your waist measurement by your hip measurement.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Waist to Hip Ratio Calculator?</h3>
-        <p>
-          Waist to hip ratio calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Health:</strong> They provide a fun and insightful way to estimate your waist-to-hip ratio and stay healthy.</li>
-          <li><strong>Risk Assessment:</strong> They can be a great tool for assessing your risk of chronic diseases and improving wellness.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Waist to Hip Ratio Calculator"
+        path="/waist-to-hip-ratio"
+        description="Assess your health risk based on fat distribution with our Waist to Hip Ratio (WHR) calculator."
+      />
     </div>
   );
 };

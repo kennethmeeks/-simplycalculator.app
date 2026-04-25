@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const CDCalculator: React.FC = () => {
@@ -95,6 +96,20 @@ export const CDCalculator: React.FC = () => {
               <p className="text-sm text-slate-500 mb-1">Total Interest Earned</p>
               <p className="text-2xl font-semibold text-slate-900">${totalInterest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
             </div>
+          </div>
+          <div className="mt-8 pt-6 border-t border-slate-200 w-full">
+            <ResultActions 
+              onReset={() => {
+                setInitialDeposit(10000);
+                setApy(5.0);
+                setTermMonths(12);
+                setCompounding(12);
+              }}
+              onCopy={() => {
+                const text = `CD Results:\nMaturity Value: $${futureValue.toFixed(2)}\nInterest Earned: $${totalInterest.toFixed(2)}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }}
+            />
           </div>
         </div>
       </div>

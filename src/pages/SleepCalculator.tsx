@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const SleepCalculator: React.FC = () => {
@@ -74,33 +76,26 @@ export const SleepCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setWakeTime('07:00');
+              setResults([]);
+            }}
+            onCopy={() => {
+              if (results.length > 0) {
+                const text = `Recommended Bedtimes for ${wakeTime} wake up:\n${results.join(', ')}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Sleep Cycles</h2>
-        <p>
-          Sleep cycles are a way of dividing sleep into distinct stages. Each cycle lasts about 90 minutes and consists of light sleep, deep sleep, and REM sleep.
-        </p>
-        <p>
-          Our <strong>sleep calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to find the best time to go to bed based on your wake time. It assumes that each sleep cycle lasts 90 minutes and that it takes about 15 minutes to fall asleep.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Sleep Calculator?</h3>
-        <p>
-          Sleep calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Energy:</strong> They help you wake up feeling refreshed and energized by avoiding waking up during deep sleep.</li>
-          <li><strong>Health:</strong> They can be a great tool for improving sleep quality and overall health.</li>
-          <li><strong>Productivity:</strong> They offer a unique perspective on your potential for productivity and focus.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Sleep Calculator"
+        path="/sleep-calculator"
+        description="Optimize your sleep cycles by finding the perfect time to fall asleep or wake up refreshed."
+      />
     </div>
   );
 };

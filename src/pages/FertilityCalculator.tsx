@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const FertilityCalculator: React.FC = () => {
@@ -78,33 +80,27 @@ export const FertilityCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setLastPeriod('');
+              setCycleLength(28);
+              setResults([]);
+            }}
+            onCopy={() => {
+              if (results.length > 0) {
+                const text = `Fertility Results:\nFertile Window: ${results[0]} - ${results[1]}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Fertility</h2>
-        <p>
-          Fertility is a process of being able to conceive and bear children. It is a key part of reproductive health and is essential for family planning.
-        </p>
-        <p>
-          Our <strong>fertility calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your fertile window based on the first day of your last period and your average cycle length. It assumes that your most fertile window is between 11 and 18 days before your next period.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Fertility Calculator?</h3>
-        <p>
-          Fertility calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Family Planning:</strong> They provide a fun and insightful way to estimate your fertile window and plan for conception.</li>
-          <li><strong>Health Awareness:</strong> They can be a great tool for tracking your menstrual cycle and understanding your body.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Fertility Calculator"
+        path="/fertility-calculator"
+        description="Calculate your most fertile days based on your menstrual cycle history."
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { Percent, TrendingUp, DollarSign, Calculator } from 'lucide-react';
 
@@ -132,6 +133,12 @@ export const InterestRateCalculator: React.FC = () => {
           
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="Interest Rate Calculator" 
+        path="/interest-rate" 
+        description="Calculate the true interest rate for any loan or investment. Find simple and compound rates for 2026."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">Understanding Interest Rates: A Guide</h2>

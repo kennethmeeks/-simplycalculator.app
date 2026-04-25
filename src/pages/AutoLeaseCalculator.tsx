@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AutoLeaseCalculator: React.FC = () => {
@@ -151,7 +152,22 @@ export const AutoLeaseCalculator: React.FC = () => {
               <p className="text-2xl font-semibold text-slate-900">${totalCost.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setVehiclePrice(35000);
+                  setDownPayment(3000);
+                  setTradeInValue(0);
+                  setLeaseTerm(36);
+                  setMoneyFactor(0.0025);
+                  setResidualValue(20000);
+                  setSalesTax(7);
+                }}
+                onCopy={() => {
+                  const text = `Auto Lease Projection:\nMonthly Payment: $${monthlyPayment.toFixed(2)}\nTotal Cost: $${totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation provides an estimate. Dealership fees and local taxes may vary.
               </p>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AnnuityCalculator: React.FC = () => {
@@ -124,7 +125,20 @@ export const AnnuityCalculator: React.FC = () => {
               </div>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setInitialInvestment(100000);
+                  setAnnualContribution(5000);
+                  setYears(20);
+                  setExpectedReturn(6);
+                  setCompounding(1);
+                }}
+                onCopy={() => {
+                  const text = `Annuity Projection:\nFuture Value: $${futureValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nTotal Contributions: $${totalContributions.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nTotal Earnings: $${totalEarnings.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation provides an estimate. Actual returns may vary based on market conditions and annuity fees.
               </p>
             </div>

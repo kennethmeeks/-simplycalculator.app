@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BasicCalculator: React.FC = () => {
@@ -89,6 +90,15 @@ export const BasicCalculator: React.FC = () => {
 
           <button onClick={() => handleNumber('0')} className="col-span-2 bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">0</button>
           <button onClick={() => handleNumber('.')} className="bg-white text-slate-700 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 font-bold">.</button>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-[#0066cc]/10">
+          <ResultActions 
+            onReset={handleClear}
+            onCopy={() => {
+              navigator.clipboard.writeText(display);
+            }}
+          />
         </div>
       </div>
 

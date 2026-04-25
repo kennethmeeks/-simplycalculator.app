@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BigNumberCalculator: React.FC = () => {
@@ -84,7 +85,17 @@ export const BigNumberCalculator: React.FC = () => {
               <p className="text-2xl font-mono font-bold text-[#0066cc] break-all">{result}</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setNum1('12345678901234567890');
+                  setNum2('98765432109876543210');
+                  setOperation('+');
+                }}
+                onCopy={() => {
+                  navigator.clipboard.writeText(result);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculator uses BigInt to handle integers larger than 2^53 - 1.
               </p>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 import { ShoppingCart, DollarSign, Percent, Tag } from 'lucide-react';
 
@@ -75,6 +76,12 @@ export const SalesTaxCalculator: React.FC = () => {
           
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="Sales Tax Calculator" 
+        path="/sales-tax" 
+        description="Calculate sales tax for any purchase based on your local tax rate. Plan your 2026 expense budgeting with accuracy."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">Shopping Smart: A Sales Tax Guide</h2>

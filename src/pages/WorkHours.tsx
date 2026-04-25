@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const WorkHours: React.FC = () => {
@@ -90,33 +92,28 @@ export const WorkHours: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setStartTime('09:00');
+              setEndTime('17:00');
+              setBreakTime(60);
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Work Hours Results:\nTotal Hours: ${result.toFixed(2)}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Work Hours</h2>
-        <p>
-          Work hours are a way of measuring time spent on work activities. They are commonly used in work tracking and payroll awareness to coordinate activities and meet deadlines.
-        </p>
-        <p>
-          Our <strong>work hours calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to calculate total working hours between start and end times. It calculates the difference between the two times and subtracts break time.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Work Hours Calculator?</h3>
-        <p>
-          Work hours calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Tracking:</strong> They provide a fun and insightful way to track your work hours and stay organized.</li>
-          <li><strong>Payroll:</strong> They can be a great tool for understanding your payroll and meeting deadlines.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Work Hours Calculator"
+        path="/work-hours"
+        description="Calculate total working hours between shift start and end times, including break deductions."
+      />
     </div>
   );
 };

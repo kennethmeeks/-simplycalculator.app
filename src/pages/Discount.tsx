@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { CalculatorSEO } from '../components/CalculatorSEO';
 
 export const DiscountCalculator: React.FC = () => {
   const [price, setPrice] = useState(100);
@@ -83,6 +83,12 @@ export const DiscountCalculator: React.FC = () => {
           
         </div>
       </div>
+
+      <CalculatorSEO 
+        name="Discount Calculator" 
+        path="/discount" 
+        description="Calculate the final price of items after discounts and sales tax. Save money on 2026 sales with our free tool."
+      />
 
       <div className="mt-12 prose prose-slate max-w-none">
         <h2 className="text-2xl font-bold text-slate-900">About Discount Calculations</h2>

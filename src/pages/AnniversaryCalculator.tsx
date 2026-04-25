@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const AnniversaryCalculator: React.FC = () => {
@@ -22,7 +23,7 @@ export const AnniversaryCalculator: React.FC = () => {
       </Helmet>
 
       <h1>Anniversary Calculator</h1>
-      <p>Quickly track your years of celebration from a specific start date for health and wellness awareness.</p>
+      <p>Quickly track your years of celebration from a specific start date.</p>
 
       
 
@@ -68,6 +69,18 @@ export const AnniversaryCalculator: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setStartDate('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result !== null) {
+                const text = `Years of Celebration: ${result}\nCalculated at simplycalculator.app`;
+                navigator.clipboard.writeText(text);
+              }
+            }}
+          />
         </div>
       </div>
 

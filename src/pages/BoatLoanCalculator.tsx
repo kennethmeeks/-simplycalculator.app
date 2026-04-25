@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const BoatLoanCalculator: React.FC = () => {
@@ -109,7 +110,19 @@ export const BoatLoanCalculator: React.FC = () => {
               <p className="text-2xl font-semibold text-slate-900">${totalCost.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</p>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <p className="text-xs text-slate-500 italic">
+              <ResultActions 
+                onReset={() => {
+                  setBoatPrice(50000);
+                  setDownPayment(5000);
+                  setInterestRate(6.5);
+                  setLoanTerm(10);
+                }}
+                onCopy={() => {
+                  const text = `Boat Loan Results:\nMonthly Payment: $${monthlyPayment.toFixed(2)}\nTotal Cost: $${totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 })}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+              />
+              <p className="text-xs text-slate-500 italic mt-4">
                 Note: This calculation provides an estimate. Taxes, registration, and insurance are not included.
               </p>
             </div>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-
-import { Calculator as CalcIcon, Car, Shield, AlertTriangle, User, MapPin, Gauge } from 'lucide-react';
+import { Car, User, Shield, AlertTriangle } from 'lucide-react';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 export const CarInsuranceCalculator: React.FC = () => {
   const [age, setAge] = useState<number>(30);
@@ -178,6 +179,24 @@ export const CarInsuranceCalculator: React.FC = () => {
               <p className="text-xs text-blue-200 uppercase tracking-wide">Monthly Installment</p>
               <p className="text-xl font-bold">{formatCurrency(monthlyPayment)}</p>
             </div>
+            <div className="mt-8 pt-6 border-t border-blue-500">
+              <ResultActions 
+                onReset={() => {
+                  setAge(30);
+                  setGender('male');
+                  setLocation('suburban');
+                  setVehicleValue(25000);
+                  setAnnualMileage(12000);
+                  setDrivingRecord('clean');
+                  setCoverageLevel('standard');
+                }}
+                onCopy={() => {
+                  const text = `Car Insurance Estimate:\nAnnual Premium: ${formatCurrency(estimatedPremium)}\nMonthly: ${formatCurrency(monthlyPayment)}\nCalculated at simplycalculator.app`;
+                  navigator.clipboard.writeText(text);
+                }}
+                dark
+              />
+            </div>
           </motion.div>
 
           <div className="calculator-container bg-amber-50 border-amber-200 p-4">
@@ -246,6 +265,11 @@ export const CarInsuranceCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+      <CalculatorSEO 
+        name="Car Insurance Calculator" 
+        path="/car-insurance-calculator" 
+        description="Estimate your auto insurance premiums for 2026. Compare rates based on age, vehicle value, location, and driving history to find the best policy."
+      />
     </div>
   );
 };

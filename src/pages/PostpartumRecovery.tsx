@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 
 export const PostpartumRecovery: React.FC = () => {
@@ -67,33 +69,25 @@ export const PostpartumRecovery: React.FC = () => {
             </div>
           </div>
           
+          <ResultActions 
+            onReset={() => {
+              setDeliveryDate('');
+              setResult(null);
+            }}
+            onCopy={() => {
+              if (result) {
+                navigator.clipboard.writeText(`Estimated Postpartum Recovery Date: ${result}\nCalculated at simplycalculator.app`);
+              }
+            }}
+          />
         </div>
       </div>
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2 className="text-2xl font-bold text-slate-900">Understanding Postpartum Recovery</h2>
-        <p>
-          Postpartum recovery is a process of healing and adjustment after childbirth. It is a key part of the postpartum period and is essential for health and wellness.
-        </p>
-        <p>
-          Our <strong>postpartum recovery calculator 2026</strong> is designed to provide instant results, so you can see your total savings and the final cost at a glance.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">The Method</h3>
-        <p>
-          Our calculator uses a simple algorithm to estimate your postpartum recovery timeline based on your delivery date. It assumes that the initial recovery period lasts about 6 weeks.
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900 mt-8">Why Use a Postpartum Recovery Calculator?</h3>
-        <p>
-          Postpartum recovery calculators are useful for several reasons:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li><strong>Health:</strong> They provide a fun and insightful way to estimate your recovery timeline and stay healthy.</li>
-          <li><strong>Adjustment:</strong> They can be a great tool for understanding your body and adjusting to life after childbirth.</li>
-          <li><strong>Wellness:</strong> They offer a unique perspective on your potential for health and wellness.</li>
-        </ol>
-      </div>
+      <CalculatorSEO 
+        name="Postpartum Recovery Calculator"
+        path="/postpartum-recovery"
+        description="Estimate your postpartum recovery timeline and physical healing milestones."
+      />
     </div>
   );
 };

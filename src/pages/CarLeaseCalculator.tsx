@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
+import { ResultActions } from '../components/ResultActions';
 
 import { Car, TrendingDown, DollarSign, Calendar, Info } from 'lucide-react';
 
@@ -143,6 +144,23 @@ export const CarLeaseCalculator: React.FC = () => {
               <div className="text-center py-4">
                 <div className="text-4xl font-bold mb-1 text-[#0066cc]">${totalCost.toLocaleString()}</div>
                 <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Cost of Lease</div>
+              </div>
+              <div className="pt-4 border-t border-[#0066cc]/10">
+                <ResultActions 
+                  onReset={() => {
+                    setMsrp(35000);
+                    setNegotiatedPrice(32000);
+                    setDownPayment(3000);
+                    setResidualValue(60);
+                    setLeaseTerm(36);
+                    setMoneyFactor(0.0025);
+                    setSalesTax(7);
+                  }}
+                  onCopy={() => {
+                    const text = `Car Lease Results:\nMonthly Payment: $${monthlyPayment}\nTotal Cost: $${totalCost.toLocaleString()}\nCalculated at simplycalculator.app`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                />
               </div>
             </div>
           </div>
