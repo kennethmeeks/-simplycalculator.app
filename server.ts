@@ -73,8 +73,8 @@ async function startDevServer() {
     });
   }
 
-  // SSR for / and /sitemap to ensure crawlers see links without JS
-  app.get(["/", "/sitemap"], async (req, res, next) => {
+  // SSR for /, /sitemap, and category pages to ensure crawlers see links without JS
+  app.get(["/", "/sitemap", "/category/:slug"], async (req, res, next) => {
     try {
       const url = req.originalUrl;
       if (url.includes('.') || url.startsWith('/api')) {
@@ -90,19 +90,29 @@ async function startDevServer() {
       }
       
       const isSitemap = url === "/sitemap";
-      const title = isSitemap 
-        ? "Sitemap | All Online Calculators 2026 | simplycalculator.app"
-        : "All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app";
-      const description = isSitemap
-        ? "Browse our complete list of over 1600+ free online calculators. Find tools for finance, fitness, health, math, and more in our comprehensive sitemap."
-        : "Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces.";
+      const isCategory = url.startsWith("/category/");
+      const categorySlug = isCategory ? req.params.slug : null;
+      const category = categorySlug ? CATEGORIES.find(c => c.slug === categorySlug) : null;
+
+      let title = "All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app";
+      let description = "Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces.";
+
+      if (isSitemap) {
+        title = "Sitemap | All Online Calculators 2026 | simplycalculator.app";
+        description = "Browse our complete list of over 1600+ free online calculators. Find tools for finance, fitness, health, math, and more in our comprehensive sitemap.";
+      } else if (category) {
+        title = `${category.title} Calculators | 2026 Online Suite | simplycalculator.app`;
+        description = category.description;
+      }
       
+      const targetCategories = category ? [category] : CATEGORIES;
+
       const contentHtml = `
         <div id="root">
           <div class="max-w-6xl mx-auto py-8 px-4">
-            <h1 class="text-4xl font-black mb-12 border-b-4 border-black pb-4">${isSitemap ? 'Site Directory (SSR)' : 'All Professional Calculators (SSR)'}</h1>
+            <h1 class="text-4xl font-black mb-12 border-b-4 border-black pb-4">${category ? category.title : (isSitemap ? 'Site Directory (SSR)' : 'All Professional Calculators (SSR)')}</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              ${CATEGORIES.map(cat => `
+              ${targetCategories.map(cat => `
                 <div class="mb-8">
                   <h2 class="text-xl font-bold border-b-2 border-blue-600 pb-2 mb-4 uppercase tracking-wider text-slate-900">${cat.title}</h2>
                   <ul class="space-y-3">
@@ -132,15 +142,30 @@ async function startDevServer() {
       }
       
       // Inject some schema for better SEO on SSR
-      const schema = `<script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "url": "https://simplycalculator.app/",
-          "name": "simplycalculator.app",
-          "description": "${description}"
+      const schemaData = isCategory && category ? {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": category.title,
+        "description": category.description,
+        "url": `https://simplycalculator.app${url}`,
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": category.items.slice(0, 20).map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://simplycalculator.app${item.path}`,
+            "name": item.name
+          }))
         }
-      </script>`;
+      } : {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://simplycalculator.app/",
+        "name": "simplycalculator.app",
+        "description": description
+      };
+
+      const schema = `<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`;
       html = html.replace('</head>', `${schema}\n  </head>`);
       
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
