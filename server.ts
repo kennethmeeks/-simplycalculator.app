@@ -44,6 +44,19 @@ async function startDevServer() {
     console.log(`[Sitemap] Request for sitemap.xml from ${req.ip}`);
     
     if (!cachedSitemap) {
+        const escapeXml = (unsafe: string) => {
+            return unsafe.replace(/[<>&'"]/g, (c) => {
+                switch (c) {
+                    case '<': return '&lt;';
+                    case '>': return '&gt;';
+                    case '&': return '&amp;';
+                    case '\'': return '&apos;';
+                    case '"': return '&quot;';
+                    default: return c;
+                }
+            });
+        };
+
         let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
         xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
         
@@ -55,11 +68,11 @@ async function startDevServer() {
         
         // Add categories and items
         CATEGORIES.forEach(cat => {
-            xml += `  <url>\n    <loc>https://simplycalculator.app/category/${cat.slug}</loc>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+            xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
             
             if (cat.items && Array.isArray(cat.items)) {
                 cat.items.forEach(item => {
-                    xml += `  <url>\n    <loc>https://simplycalculator.app${item.path}</loc>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+                    xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
                 });
             }
         });
@@ -68,9 +81,9 @@ async function startDevServer() {
         cachedSitemap = xml;
     }
 
-    res.set('Content-Type', 'application/xml');
+    res.header('Content-Type', 'text/xml; charset=utf-8');
     res.set('X-Content-Type-Options', 'nosniff');
-    res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
+    res.set('Cache-Control', 'public, max-age=3600');
     res.status(200).send(cachedSitemap);
   });
 
