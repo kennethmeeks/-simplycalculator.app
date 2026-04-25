@@ -35,35 +35,43 @@ async function startDevServer() {
   // Robots.txt
   app.get("/robots.txt", (req, res) => {
     res.type('text/plain');
-    res.send("User-agent: *\nAllow: /\n\nSitemap: https://simplycalculator.app/sitemap.xml");
+    res.status(200).send("User-agent: *\nAllow: /\n\nSitemap: https://simplycalculator.app/sitemap.xml");
   });
 
-  // Sitemap.xml
+  // Sitemap.xml - Pre-generated and cached for performance
+  let cachedSitemap: string | null = null;
   app.get("/sitemap.xml", (req, res) => {
-    console.log(`[Sitemap] XML requested at ${new Date().toISOString()}`);
-    res.header('Content-Type', 'application/xml');
+    console.log(`[Sitemap] Request for sitemap.xml from ${req.ip}`);
     
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-    
-    // Core pages
-    const corePages = ["/", "/sitemap"];
-    corePages.forEach(p => {
-      xml += `  <url>\n    <loc>https://simplycalculator.app${p}</loc>\n    <priority>${p === '/' ? '1.0' : '0.8'}</priority>\n    <changefreq>daily</changefreq>\n  </url>\n`;
-    });
-
-    CATEGORIES.forEach(cat => {
-      // Category pages
-      xml += `  <url>\n    <loc>https://simplycalculator.app/category/${cat.slug}</loc>\n    <priority>0.7</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
-      
-      // Individual tool pages
-      if (cat.items && Array.isArray(cat.items)) {
-        cat.items.forEach(item => {
-          xml += `  <url>\n    <loc>https://simplycalculator.app${item.path}</loc>\n    <priority>0.5</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+    if (!cachedSitemap) {
+        let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+        
+        // Add home page
+        xml += '  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n';
+        
+        // Add visual sitemap
+        xml += '  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n';
+        
+        // Add categories and items
+        CATEGORIES.forEach(cat => {
+            xml += `  <url>\n    <loc>https://simplycalculator.app/category/${cat.slug}</loc>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+            
+            if (cat.items && Array.isArray(cat.items)) {
+                cat.items.forEach(item => {
+                    xml += `  <url>\n    <loc>https://simplycalculator.app${item.path}</loc>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+                });
+            }
         });
-      }
-    });
-    xml += `</urlset>`;
-    res.send(xml);
+        
+        xml += '</urlset>';
+        cachedSitemap = xml;
+    }
+
+    res.set('Content-Type', 'application/xml');
+    res.set('X-Content-Type-Options', 'nosniff');
+    res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
+    res.status(200).send(cachedSitemap);
   });
 
   const isProd = process.env.NODE_ENV === "production";
