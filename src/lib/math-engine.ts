@@ -1274,6 +1274,204 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const amt = Math.min(10000, emp * 1000);
     return { value: `$${amt.toLocaleString()}`, explanation: `The EIDL Advance provides $1,000 per employee, capped at $10,000.` };
   },
+  '/car-lease': (inputs) => {
+    const msrp = parseFloat(inputs.price);
+    const resVal = parseFloat(inputs.residual) / 100;
+    const mf = parseFloat(inputs.moneyFactor);
+    const term = 36;
+    if (isNaN(msrp) || isNaN(resVal) || isNaN(mf)) return { value: 'Invalid input' };
+    const capCost = msrp * 0.95; // Assume some discount
+    const residual = msrp * resVal;
+    const depreciation = (capCost - residual) / term;
+    const financeCharge = (capCost + residual) * mf;
+    const total = depreciation + financeCharge;
+    return { value: `$${total.toFixed(2)}/mo`, explanation: `Estimated payment based on a $${capCost.toLocaleString()} net cap cost and 3-year term.` };
+  },
+  '/time-calculator': (inputs) => {
+    const h1 = parseInt(inputs.h1) || 0;
+    const m1 = parseInt(inputs.m1) || 0;
+    const h2 = parseInt(inputs.h2) || 0;
+    const m2 = parseInt(inputs.m2) || 0;
+    let totalMins = (h1 * 60 + m1) + (h2 * 60 + m2);
+    const hours = Math.floor(totalMins / 60);
+    const mins = totalMins % 60;
+    return { value: `${hours}h ${mins}m`, explanation: `The total time duration is ${hours} hours and ${mins} minutes.` };
+  },
+  '/grout': (inputs) => {
+    const area = parseFloat(inputs.area);
+    const tw = parseFloat(inputs.tileW);
+    const tl = parseFloat(inputs.tileL);
+    const jw = parseFloat(inputs.jointW);
+    if (isNaN(area) || isNaN(tw) || isNaN(tl) || isNaN(jw)) return { value: 'Invalid input' };
+    // Very rough grout coverage estimation
+    const lbs = (area * 0.15); 
+    return { value: `${Math.ceil(lbs)} lbs`, explanation: `Estimated grout needed for ${area} sq ft based on standard tile spacing.` };
+  },
+  '/bitcoin-profit-loss': (inputs) => {
+    const buy = parseFloat(inputs.buyPrice);
+    const sell = parseFloat(inputs.sellPrice);
+    const amt = parseFloat(inputs.amount);
+    if (isNaN(buy) || isNaN(sell) || isNaN(amt)) return { value: 'Invalid input' };
+    const profit = (sell - buy) * amt;
+    return { value: `$${profit.toLocaleString()}`, explanation: `${profit >= 0 ? 'Profit' : 'Loss'} of $${Math.abs(profit).toLocaleString()} on ${amt} BTC.` };
+  },
+  '/concrete-block': (inputs) => {
+    const l = parseFloat(inputs.length);
+    const h = parseFloat(inputs.height);
+    if (isNaN(l) || isNaN(h)) return { value: 'Invalid input' };
+    const count = Math.ceil((l * 12 / 16) * (h * 12 / 8));
+    return { value: `${count} Blocks`, explanation: `Based on standard 8x16" blocks, you need approximately ${count} blocks for a ${l}x${h} wall.` };
+  },
+  '/concrete-column': (inputs) => {
+    const d = parseFloat(inputs.diameter) / 12; // in to ft
+    const h = parseFloat(inputs.height);
+    if (isNaN(d) || isNaN(h)) return { value: 'Invalid input' };
+    const vol = Math.PI * Math.pow(d / 2, 2) * h;
+    const yards = vol / 27;
+    return { value: `${yards.toFixed(2)} Yards`, explanation: `A column with ${inputs.diameter}" diameter and ${h}' height requires ${yards.toFixed(2)} cubic yards of concrete.` };
+  },
+  '/0-60-time': (inputs) => {
+    const hp = parseFloat(inputs.power);
+    const lb = parseFloat(inputs.weight);
+    if (isNaN(hp) || isNaN(lb)) return { value: 'Invalid input' };
+    const time = 2.0 * Math.pow(lb / hp, 0.33); 
+    return { value: `${time.toFixed(1)}s`, explanation: `Estimated 0-60 acceleration time based on power-to-weight ratio.` };
+  },
+  '/diabetes-risk': (inputs) => {
+    const age = parseFloat(inputs.age);
+    const bmi = parseFloat(inputs.bmi);
+    if (isNaN(age) || isNaN(bmi)) return { value: 'Invalid input' };
+    let score = 0;
+    if (age > 45) score += 2;
+    if (bmi > 25) score += 3;
+    return { value: score > 3 ? 'High' : 'Low', explanation: 'This is a simplified screening based on age and weight. Please consult a doctor.' };
+  },
+  '/insulin-dosage': (inputs) => {
+    const carbs = parseFloat(inputs.carbs);
+    const ratio = parseFloat(inputs.ratio);
+    if (isNaN(carbs) || isNaN(ratio) || ratio === 0) return { value: 'Invalid input' };
+    const units = carbs / ratio;
+    return { value: `${units.toFixed(1)} Units`, explanation: `Based on a 1:${ratio} ratio, you need ${units.toFixed(1)} units of insulin for ${carbs}g of carbs.` };
+  },
+  '/subnet-mask': (inputs) => {
+    const mask = parseInt(inputs.mask);
+    if (isNaN(mask) || mask < 0 || mask > 32) return { value: 'Invalid' };
+    const subnets = Math.pow(2, 32 - mask);
+    return { value: `/ ${mask}`, explanation: `A /${mask} subnet provides ${subnets.toLocaleString()} usable IP addresses.` };
+  },
+  '/unix-time': (inputs) => {
+    const ts = parseInt(inputs.timestamp);
+    if (isNaN(ts)) return { value: 'Invalid' };
+    const date = new Date(ts * 1000);
+    return { value: date.toLocaleString(), explanation: `Unix timestamp ${ts} converted to local time.` };
+  },
+  '/color-converter': (inputs) => {
+    // Basic hex/rgb detection
+    const color = inputs.color;
+    if (color.startsWith('#')) return standardCalculations['/hex-to-rgb']({ hex: color });
+    return { value: 'Parsed', explanation: 'Current system supports hex-to-rgb conversion.' };
+  },
+  '/break-even': (inputs) => {
+    const fixed = parseFloat(inputs.fixedCosts);
+    const price = parseFloat(inputs.pricePerUnit);
+    const variable = parseFloat(inputs.variableCostPerUnit);
+    if (isNaN(fixed) || isNaN(price) || isNaN(variable) || price <= variable) return { value: 'Inf' };
+    const units = fixed / (price - variable);
+    return { value: `${Math.ceil(units)} Units`, explanation: `You need to sell ${Math.ceil(units)} units at $${price} each to cover your $${fixed.toLocaleString()} fixed costs.` };
+  },
+  '/cac': (inputs) => {
+    const cost = parseFloat(inputs.salesMarketingCosts);
+    const customers = parseFloat(inputs.newCustomers);
+    if (isNaN(cost) || isNaN(customers) || customers === 0) return { value: 'Invalid input' };
+    const cac = cost / customers;
+    return { value: `$${cac.toFixed(2)}`, explanation: `The average cost to acquire one new customer is $${cac.toFixed(2)}.` };
+  },
+  '/website-ad-revenue': (inputs) => {
+    const views = parseFloat(inputs.pageviews);
+    const rpm = parseFloat(inputs.rpm);
+    if (isNaN(views) || isNaN(rpm)) return { value: 'Invalid input' };
+    const rev = (views / 1000) * rpm;
+    return { value: `$${rev.toLocaleString()}`, explanation: `With ${views.toLocaleString()} pageviews and a $${rpm} RPM, you generate approximately $${rev.toLocaleString()} per month.` };
+  },
+  '/dog-food': (inputs) => {
+    const weight = parseFloat(inputs.weight);
+    const act = parseFloat(inputs.activity) || 1.5;
+    if (isNaN(weight)) return { value: 'Invalid input' };
+    // RER = 70 * (weight_kg)^0.75
+    const rer = 70 * Math.pow(weight * 0.453592, 0.75);
+    const kcal = rer * act;
+    return { value: `${Math.round(kcal)} kcal`, explanation: `Your dog needs about ${Math.round(kcal)} calories per day based on their weight and activity level.` };
+  },
+  '/carbon-footprint': (inputs) => {
+    const miles = parseFloat(inputs.milesPerMonth) || 0;
+    const mpg = parseFloat(inputs.avgMpg) || 25;
+    const bill = parseFloat(inputs.electricBill) || 0;
+    const milesFootprint = (miles / mpg) * 19.6 * 12; // lbs CO2 per year
+    const electricFootprint = (bill / 0.13) * 0.9 * 12; // lbs CO2 per year
+    const total = (milesFootprint + electricFootprint) / 2204; // Metric tons
+    return { value: `${total.toFixed(1)} Tons/yr`, explanation: `Estimated annual carbon footprint is ${total.toFixed(1)} metric tons of CO2 based on driving and electricity usage.` };
+  },
+  '/dog-pregnancy': (inputs) => {
+    const mating = new Date(inputs.matingDate);
+    if (isNaN(mating.getTime())) return { value: 'Invalid' };
+    const due = new Date(mating);
+    due.setDate(due.getDate() + 63);
+    return { value: due.toLocaleDateString(), explanation: `Estimated whelping date (63 days from mating).` };
+  },
+  '/anniversary': (inputs) => {
+    const start = new Date(inputs.startDate);
+    if (isNaN(start.getTime())) return { value: 'Invalid' };
+    const now = new Date();
+    const diff = now.getTime() - start.getTime();
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    return { value: `${years} Years`, explanation: `You have been together for ${years} years.` };
+  },
+  '/bakers-percentage': (inputs) => {
+    const flour = parseFloat(inputs.flour);
+    const water = parseFloat(inputs.water);
+    const salt = parseFloat(inputs.salt);
+    if (isNaN(flour) || flour === 0) return { value: 'Invalid' };
+    const hydration = (water / flour) * 100;
+    const saltPct = (salt / flour) * 100;
+    return { value: `${hydration.toFixed(1)}% Hydration`, explanation: `Baker's Percentages: Water (${hydration.toFixed(1)}%), Salt (${saltPct.toFixed(1)}%).` };
+  },
+  '/gpa': (inputs) => {
+    const grades = [parseFloat(inputs.grade1), parseFloat(inputs.grade2), parseFloat(inputs.grade3)].filter(g => !isNaN(g));
+    if (grades.length === 0) return { value: 'Invalid' };
+    const sum = grades.reduce((a, b) => a + b, 0);
+    const gpa = sum / grades.length;
+    return { value: gpa.toFixed(2), explanation: `Average GPA across ${grades.length} courses.` };
+  },
+  '/gpa-advanced': (inputs) => {
+    // Simplified: expects 0-4 scale
+    return standardCalculations['/gpa'](inputs);
+  },
+  '/million-to-billion': (inputs) => {
+    const val = parseFloat(inputs.value);
+    if (isNaN(val)) return { value: 'Invalid' };
+    return { value: `${(val / 1000).toFixed(3)} Billion`, explanation: `${val.toLocaleString()} million is equal to ${(val / 1000).toFixed(3)} billion.` };
+  },
+  'crore-to-lakh': (inputs) => {
+    const val = parseFloat(inputs.value);
+    if (isNaN(val)) return { value: 'Invalid' };
+    return { value: `${(val * 100).toLocaleString()} Lakh`, explanation: `${val} Crore is equal to ${val * 100} Lakh.` };
+  },
+  '/crore-to-lakh': (inputs) => {
+    return standardCalculations['crore-to-lakh'](inputs);
+  },
+  '/nm-to-ft-lbs': (inputs) => {
+    const val = parseFloat(inputs.value);
+    if (isNaN(val)) return { value: 'Invalid' };
+    const ftlbs = val * 0.737562149;
+    return { value: `${ftlbs.toFixed(2)} ft-lbs`, explanation: `${val} Newton-meters is approximately ${ftlbs.toFixed(2)} foot-pounds.` };
+  },
+  '/unit-converter': (inputs) => {
+    const val = parseFloat(inputs.value);
+    const type = inputs.type;
+    if (isNaN(val)) return { value: 'Invalid' };
+    if (type === 'length') return { value: `${(val * 3.28).toFixed(2)} ft`, explanation: `${val}m is approx ${(val * 3.28).toFixed(2)} feet.` };
+    return { value: String(val), explanation: 'Feature under construction.' };
+  },
   '/scientific': (inputs) => {
     try {
       const expression = inputs.expression;
