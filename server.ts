@@ -15,6 +15,52 @@ const PORT = 3000;
 async function startDevServer() {
   const app = express();
 
+  // robots.txt and sitemap.xml at the top to avoid any middleware issues
+  app.get("/robots.txt", (req, res) => {
+    res.type('text/plain').status(200).send("User-agent: *\nAllow: /\nSitemap: https://simplycalculator.app/sitemap.xml");
+  });
+
+  let cachedSitemap: string | null = null;
+  app.get("/sitemap.xml", (req, res) => {
+    res.header('Content-Type', 'application/xml; charset=utf-8');
+    res.header('X-Content-Type-Options', 'nosniff');
+    
+    if (cachedSitemap) {
+        return res.status(200).send(cachedSitemap);
+    }
+
+    const escapeXml = (unsafe: string) => {
+        return unsafe.replace(/[<>&'"]/g, (c) => {
+            switch (c) {
+                case '<': return '&lt;';
+                case '>': return '&gt;';
+                case '&': return '&amp;';
+                case '\'': return '&apos;';
+                case '"': return '&quot;';
+                default: return c;
+            }
+        });
+    };
+
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+    xml += '  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n';
+    xml += '  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n';
+
+    CATEGORIES.forEach(cat => {
+        xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+        if (cat.items && Array.isArray(cat.items)) {
+            cat.items.forEach(item => {
+                xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+            });
+        }
+    });
+
+    xml += '</urlset>';
+    cachedSitemap = xml;
+    res.status(200).send(xml);
+  });
+
   app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
@@ -30,61 +76,6 @@ async function startDevServer() {
   // API Health Check
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", mode: "development" });
-  });
-
-  // Robots.txt
-  app.get("/robots.txt", (req, res) => {
-    res.type('text/plain');
-    res.status(200).send("User-agent: *\nAllow: /\n\nSitemap: https://simplycalculator.app/sitemap.xml");
-  });
-
-  // Sitemap.xml - Pre-generated and cached for performance
-  let cachedSitemap: string | null = null;
-  app.get("/sitemap.xml", (req, res) => {
-    console.log(`[Sitemap] Request for sitemap.xml from ${req.ip}`);
-    
-    if (!cachedSitemap) {
-        const escapeXml = (unsafe: string) => {
-            return unsafe.replace(/[<>&'"]/g, (c) => {
-                switch (c) {
-                    case '<': return '&lt;';
-                    case '>': return '&gt;';
-                    case '&': return '&amp;';
-                    case '\'': return '&apos;';
-                    case '"': return '&quot;';
-                    default: return c;
-                }
-            });
-        };
-
-        let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-        xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-        
-        // Add home page
-        xml += '  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n';
-        
-        // Add visual sitemap
-        xml += '  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n';
-        
-        // Add categories and items
-        CATEGORIES.forEach(cat => {
-            xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
-            
-            if (cat.items && Array.isArray(cat.items)) {
-                cat.items.forEach(item => {
-                    xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
-                });
-            }
-        });
-        
-        xml += '</urlset>';
-        cachedSitemap = xml;
-    }
-
-    res.header('Content-Type', 'text/xml; charset=utf-8');
-    res.set('X-Content-Type-Options', 'nosniff');
-    res.set('Cache-Control', 'public, max-age=3600');
-    res.status(200).send(cachedSitemap);
   });
 
   const isProd = process.env.NODE_ENV === "production";
