@@ -187,7 +187,7 @@ export const GradeCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Grade Calculator" 
-        path="/grade-calculator" 
+        path="/grade" 
         description="Calculate your current class grade and determine what you need on your final exam. Track weighted assignments and reach your academic goals in 2026."
       />
     </div>

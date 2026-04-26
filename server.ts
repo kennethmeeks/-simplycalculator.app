@@ -20,16 +20,25 @@ async function startDevServer() {
   
   // 1. CRAWLER ROUTES (Highest Priority)
   app.get("/robots.txt", (req, res) => {
-    res.type('text/plain').send("User-agent: *\nAllow: /\nSitemap: https://simplycalculator.app/sitemap.xml");
+    res.type('text/plain');
+    res.send("User-agent: *\nAllow: /\nSitemap: https://simplycalculator.app/sitemap.xml");
   });
 
   app.get("/sitemap.xml", (req, res) => {
-    const sitemapPath = path.resolve(process.cwd(), "public/sitemap.xml");
-    if (fs.existsSync(sitemapPath)) {
-      res.header('Content-Type', 'application/xml; charset=utf-8');
-      return res.sendFile(sitemapPath);
+    // Check multiple possible locations for the sitemap
+    const paths = [
+      path.resolve(process.cwd(), "public/sitemap.xml"),
+      path.resolve(process.cwd(), "dist/sitemap.xml"),
+      path.resolve(process.cwd(), "sitemap.xml")
+    ];
+    
+    for (const p of paths) {
+      if (fs.existsSync(p)) {
+        res.header('Content-Type', 'application/xml; charset=utf-8');
+        return res.sendFile(p);
+      }
     }
-    res.status(404).send('Sitemap not found');
+    res.status(404).type('text/plain').send('Sitemap not found');
   });
 
   // 2. MIDDLEWARE

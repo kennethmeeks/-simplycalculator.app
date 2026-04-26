@@ -227,7 +227,7 @@ export const PercentageCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Percentage Calculator" 
-        path="/percentage" 
+        path="/math/percentage" 
         description="Solve common percentage problems instantly. Find the percentage of a value or the ratio between two numbers with our straightforward calculator for 2026."
       />
     </div>

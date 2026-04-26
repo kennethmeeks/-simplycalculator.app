@@ -562,6 +562,13 @@ export default function App() {
             <Route path="/entertainment" element={<CategoryPage />} />
             <Route path="/home-improvement" element={<CategoryPage />} />
             <Route path="/engineering" element={<CategoryPage />} />
+            <Route path="/linguistics" element={<CategoryPage />} />
+            <Route path="/formal-logic" element={<CategoryPage />} />
+            <Route path="/sociology" element={<CategoryPage />} />
+            <Route path="/urban-planning" element={<CategoryPage />} />
+            <Route path="/eco-legal" element={<CategoryPage />} />
+            <Route path="/disaster-prep" element={<CategoryPage />} />
+            <Route path="/esports-pro" element={<CategoryPage />} />
             <Route path="/category/:categoryKey" element={<CategoryPage />} />
             <Route path="/:calculatorPath" element={<CalculatorPage />} />
           </Routes>

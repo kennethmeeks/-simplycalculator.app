@@ -175,6 +175,17 @@ export const CalculatorPage: React.FC = () => {
     useEffect(() => {
         if (!foundItem) return;
 
+        // Reset inputs and results when the calculator changes
+        setResult(null);
+        setError(null);
+        
+        // Populate initial inputs from schema
+        const initialInputs: Record<string, string> = {};
+        currentFields.forEach(field => {
+            initialInputs[field.id] = field.defaultValue || '';
+        });
+        setInputs(initialInputs);
+
         const cached = localStorage.getItem(CACHE_KEY_GUIDE(foundItem.path));
         if (cached) {
             try {
@@ -309,7 +320,11 @@ export const CalculatorPage: React.FC = () => {
     };
 
     const handleReset = () => {
-        setInputs({});
+        const initialInputs: Record<string, string> = {};
+        currentFields.forEach(field => {
+            initialInputs[field.id] = field.defaultValue || '';
+        });
+        setInputs(initialInputs);
         setResult(null);
         setError(null);
     };

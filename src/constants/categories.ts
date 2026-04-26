@@ -1208,6 +1208,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Study Session Timer', path: '/study-timer', desc: 'Optimize focus with Pomodoro and interval math.' },
       { name: 'Forgetting Curve', path: '/forgetting-curve', desc: 'Schedule review sessions for maximum retention.' },
       { name: 'Bibliography Check', path: '/bibliography-check', desc: 'Verify citation count and source diversity.' },
+      { name: 'Grade Calculator', path: '/grade', desc: 'Find the score needed to reach your target grade.' },
       { name: 'Final Exam Grade', path: '/final-exam-grade', desc: 'Find the score needed to reach your target grade.' },
       { name: 'Academic Bibliography', path: '/academic-bibliography', desc: 'Standardize source tracking.' },
     ]

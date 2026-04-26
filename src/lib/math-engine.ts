@@ -61,9 +61,24 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
       age--;
     }
-    return { 
+    return {
       value: `${age} years`,
       explanation: `Calculated based on today's date (${today.toLocaleDateString()}).`
+    };
+  },
+  '/chronological-age': (inputs) => {
+    const birth = new Date(inputs.birthDate);
+    const target = new Date(inputs.targetDate || new Date());
+    if (isNaN(birth.getTime()) || isNaN(target.getTime())) return { value: 'Invalid date' };
+    
+    let age = target.getFullYear() - birth.getFullYear();
+    const m = target.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && target.getDate() < birth.getDate())) {
+      age--;
+    }
+    return {
+      value: `${age} years`,
+      explanation: `On ${target.toLocaleDateString()}, you will be ${age} years old.`
     };
   },
   '/salary': (inputs) => {
@@ -118,7 +133,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     }
     return { value: 'Select operation' };
   },
-  '/tip-calculator': (inputs) => {
+  '/tip': (inputs) => {
     const bill = parseFloat(inputs.billAmount);
     const tip = parseFloat(inputs.tipPercent);
     const people = parseFloat(inputs.numPeople) || 1;
@@ -130,7 +145,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Total bill: $${total.toLocaleString()}. Tip amount: $${totalTip.toLocaleString()}.`
     };
   },
-  '/fuel-cost-calculator': (inputs) => {
+  '/fuel-cost': (inputs) => {
     const dist = parseFloat(inputs.distance);
     const mpg = parseFloat(inputs.efficiency);
     const price = parseFloat(inputs.pricePerUnit);
@@ -141,7 +156,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Estimated cost for a ${dist.toLocaleString()} mile trip.`
     };
   },
-  '/grade-calculator': (inputs) => {
+  '/grade': (inputs) => {
     const current = parseFloat(inputs.currentGrade);
     const target = parseFloat(inputs.targetGrade);
     const weight = parseFloat(inputs.finalWeight);
@@ -151,6 +166,21 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       value: `${needed.toFixed(2)}%`,
       explanation: `You need a ${needed.toFixed(2)}% on your final exam to achieve a ${target}% overall.`
     };
+  },
+  '/simple-interest': (inputs) => {
+    const p = parseFloat(inputs.principal);
+    const r = parseFloat(inputs.rate);
+    const t_val = parseFloat(inputs.time);
+    const unit = inputs.timeUnit || 'years';
+    if (isNaN(p) || isNaN(r) || isNaN(t_val)) return { value: 'Invalid input' };
+    
+    let t = t_val;
+    if (unit === 'months') t = t_val / 12;
+    else if (unit === 'days') t = t_val / 365;
+    
+    const interest = p * (r / 100) * t;
+    const total = p + interest;
+    return { value: `$${total.toLocaleString(undefined, {minimumFractionDigits: 2})}`, explanation: `Total interest: $${interest.toLocaleString(undefined, {minimumFractionDigits: 2})}. Total balance: $${total.toLocaleString(undefined, {minimumFractionDigits: 2})}.` };
   },
   '/bmr': (inputs) => {
     const w = parseFloat(inputs.weight);
@@ -169,9 +199,10 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Resting metabolic rate: ${bmr.toFixed(0)} calories burned at rest.`
     };
   },
-  '/pressure-conversion': (inputs) => {
+  '/pressure': (inputs) => {
     const val = parseFloat(inputs.value);
     const from = inputs.fromUnit;
+    const to = inputs.toUnit;
     if (isNaN(val)) return { value: 'Invalid input' };
     
     // Base is Pascal
@@ -180,9 +211,15 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     if (from === 'bar') pa = val * 100000;
     if (from === 'atm') pa = val * 101325;
     
+    let result = pa;
+    if (to === 'psi') result = pa / 6894.76;
+    if (to === 'bar') result = pa / 100000;
+    if (to === 'atm') result = pa / 101325;
+    if (to === 'pa') result = pa;
+    
     return {
-      value: `${pa.toLocaleString()} Pa`,
-      explanation: `Conversion results: ${(pa/100000).toFixed(4)} bar | ${(pa/6894.76).toFixed(2)} psi | ${(pa/101325).toFixed(4)} atm`
+      value: `${result.toLocaleString()} ${to?.toUpperCase() || 'Pa'}`,
+      explanation: `Conversion result: ${val} ${from?.toUpperCase()} is equal to ${result.toFixed(4)} ${to?.toUpperCase()}.`
     };
   },
   '/math/percent-error': (inputs) => {
@@ -222,6 +259,70 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return {
       value: `${lat.toFixed(6)}, ${lon.toFixed(6)}`,
       explanation: 'Decimal Degree format (standard GPS).'
+    };
+  },
+  '/roi': (inputs) => {
+    const invested = parseFloat(inputs.invested);
+    const returned = parseFloat(inputs.returned);
+    const years = parseFloat(inputs.years);
+    if (isNaN(invested) || isNaN(returned)) return { value: 'Invalid input' };
+    
+    const roi = ((returned - invested) / invested) * 100;
+    let explanation = `Your return on investment is ${roi.toFixed(2)}%. Profit: $${(returned - invested).toLocaleString()}.`;
+    
+    if (!isNaN(years) && years > 0) {
+      const annualized = (Math.pow(returned / invested, 1 / years) - 1) * 100;
+      explanation += ` Annualized ROI: ${annualized.toFixed(2)}% per year.`;
+    }
+    
+    return {
+      value: `${roi.toFixed(2)}%`,
+      explanation
+    };
+  },
+  '/mpg': (inputs) => {
+    const miles = parseFloat(inputs.miles);
+    const gallons = parseFloat(inputs.gallons);
+    if (isNaN(miles) || isNaN(gallons) || gallons === 0) return { value: 'Invalid input' };
+    const mpg = miles / gallons;
+    return {
+      value: `${mpg.toFixed(2)} MPG`,
+      explanation: `Your vehicle efficiency is ${mpg.toFixed(2)} miles per gallon.`
+    };
+  },
+  '/car-depreciation': (inputs) => {
+    const price = parseFloat(inputs.price);
+    const age = parseFloat(inputs.age);
+    if (isNaN(price) || isNaN(age)) return { value: 'Invalid input' };
+    
+    // Simple 15% annual depreciation model
+    const current = price * Math.pow(0.85, age);
+    return {
+      value: `$${current.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+      explanation: `At a 15% annual depreciation rate, a $${price.toLocaleString()} car is worth approx. $${current.toLocaleString()} after ${age} years.`
+    };
+  },
+  '/auto-loan': (inputs) => {
+    const price = parseFloat(inputs.price);
+    const down = parseFloat(inputs.downPayment) || 0;
+    const rate = parseFloat(inputs.rate);
+    const term = parseFloat(inputs.term);
+    if (isNaN(price) || isNaN(rate) || isNaN(term)) return { value: 'Invalid input' };
+
+    const p = price - down;
+    const r = rate / 100 / 12;
+    const n = term;
+    
+    let payment = 0;
+    if (r === 0) {
+      payment = p / n;
+    } else {
+      payment = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    }
+    
+    return {
+      value: `$${payment.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} /mo`,
+      explanation: `Monthly payment for a $${p.toLocaleString()} loan over ${n} months.`
     };
   },
   '/3x-rent-calculator': (inputs) => {
@@ -798,5 +899,63 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     // wall - stile = n*(panel + stile)
     const n = Math.floor((wall - stile) / (panel + stile));
     return { value: `${n} Panels`, explanation: `Based on your wall length and desired widths, you can fit ${n} panels perfectly.` };
+  },
+  '/dog-age': (inputs) => {
+    const age = parseFloat(inputs.age);
+    const size = inputs.size || 'medium';
+    if (isNaN(age)) return { value: 'Invalid input' };
+    
+    let humanAge = 0;
+    if (age === 1) humanAge = 15;
+    else if (age === 2) humanAge = 24;
+    else {
+      let factor = 4;
+      if (size === 'small') factor = 4;
+      else if (size === 'medium') factor = 5;
+      else if (size === 'large') factor = 6;
+      else if (size === 'giant') factor = 7;
+      humanAge = 24 + (age - 2) * factor;
+    }
+    return { value: `${humanAge} Years`, explanation: `A ${age} year old ${size} dog is approximately ${humanAge} years old in human years.` };
+  },
+  '/in-lbs-to-nm': (inputs) => {
+    const val = parseFloat(inputs.value);
+    if (isNaN(val)) return { value: 'Invalid input' };
+    const nm = val * 0.112984829;
+    return { value: `${nm.toFixed(2)} Nm`, explanation: `${val} in-lbs is equal to ${nm.toFixed(2)} Newton-meters.` };
+  },
+  '/billion-to-trillion': (inputs) => {
+    const val = parseFloat(inputs.value);
+    if (isNaN(val)) return { value: 'Invalid input' };
+    const tri = val / 1000;
+    return { value: `${tri.toLocaleString()} Trillion`, explanation: `${val.toLocaleString()} billion is equal to ${tri.toLocaleString()} trillion.` };
+  },
+  '/payback-period': (inputs) => {
+    const invest = parseFloat(inputs.investment);
+    const flow = parseFloat(inputs.cashFlow);
+    if (isNaN(invest) || isNaN(flow) || flow <= 0) return { value: 'Invalid input' };
+    const pp = invest / flow;
+    return { value: `${pp.toFixed(1)} Years`, explanation: `It will take ${pp.toFixed(1)} years to recover the initial investment of $${invest.toLocaleString()}.` };
+  },
+  '/one-rep-max': (inputs) => {
+    const w = parseFloat(inputs.weight);
+    const r = parseFloat(inputs.reps);
+    if (isNaN(w) || isNaN(r)) return { value: 'Invalid input' };
+    // Brzycki Formula
+    const orm = w / (1.0278 - (0.0278 * r));
+    return { value: `${Math.round(orm)}`, explanation: `Based on the Brzycki Formula, your estimated 1RM is ${Math.round(orm)}.` };
+  },
+  '/scientific': (inputs) => {
+    try {
+      const expression = inputs.expression;
+      if (!expression) return { value: 'Enter expression' };
+      // Basic math evaluation for scientific calculator
+      // Note: In real app we might use mathjs, but for simplicity:
+      const clean = expression.replace(/[^0-9+\-*/(). ^sqrt]/g, '').replace('sqrt', 'Math.sqrt').replace('^', '**');
+      const result = eval(clean);
+      return { value: String(result), explanation: `Result of: ${expression}` };
+    } catch (e) {
+      return { value: 'Error', explanation: 'Invalid mathematical expression.' };
+    }
   }
 };

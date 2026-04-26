@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
 import { ResultActions } from '../components/ResultActions';
 import { parseInput } from '../lib/calculatorUtils';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 interface Course {
   id: number;
@@ -23,6 +25,72 @@ export const GPACalculator: React.FC = () => {
 
   const [gpa, setGpa] = useState(0);
   const [totalCredits, setTotalCredits] = useState(0);
+  const resultsRef = React.useRef<HTMLDivElement>(null);
+
+  const handleDownloadPDF = async () => {
+    if (!resultsRef.current) return;
+    try {
+      const element = resultsRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
+      });
+      
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.setFillColor(0, 102, 204);
+      pdf.rect(0, 0, pdfWidth, 40, 'F');
+      
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(24);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text('PROFESSIONAL ACADEMIC REPORT // 2026', 15, 33);
+      
+      pdf.setTextColor(50, 50, 50);
+      pdf.setFontSize(14);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('GPA PERFORMANCE ANALYSIS', 15, 55);
+      
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
+      
+      pdf.setDrawColor(230, 230, 230);
+      pdf.line(15, 75, pdfWidth - 15, 75);
+      
+      const imgProps = pdf.getImageProperties(imgData);
+      const displayWidth = pdfWidth - 30;
+      const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
+      
+      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
+      pdf.setFontSize(8);
+      pdf.setTextColor(180, 180, 180);
+      pdf.text('DISCLAIMER: This report is an estimate based on academic grading standards.', 15, footerY);
+      
+      pdf.setTextColor(0, 102, 204);
+      pdf.setFontSize(9);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
+      
+      pdf.save('GPA_Report.pdf');
+    } catch (error) {
+      console.error('PDF Export failed:', error);
+    }
+  };
 
   useEffect(() => {
     let totalPoints = 0;
@@ -105,7 +173,7 @@ export const GPACalculator: React.FC = () => {
         </div>
 
         <div>
-          <div className="calculator-container">
+          <div className="calculator-container" id="result-panel" ref={resultsRef}>
             <div className="section-title">Results</div>
             <div className="result-box">
               <div className="space-y-3">
@@ -129,6 +197,7 @@ export const GPACalculator: React.FC = () => {
                 { id: 3, grade: 'C', credits: 3 },
               ]);
             }}
+            onDownloadPDF={handleDownloadPDF}
             onCopy={() => {
               const text = `GPA Results:\nGPA: ${gpa.toFixed(2)}\nTotal Credits: ${totalCredits}\nCalculated at simplycalculator.app`;
               navigator.clipboard.writeText(text);

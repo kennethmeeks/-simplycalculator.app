@@ -181,7 +181,7 @@ export const ROICalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="ROI Calculator (Return on Investment)" 
-        path="/roi-calculator" 
+        path="/roi" 
         description="Measure the profitability of your investments. Calculate total ROI and annualized ROI for stocks, business projects, or any financial venture in 2026."
       />
     </div>
