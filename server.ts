@@ -15,21 +15,18 @@ const PORT = 3000;
 async function startDevServer() {
   const app = express();
 
-  // robots.txt and sitemap.xml at the top to avoid any middleware issues
+  // 1. CRAWLER ROUTES (Highest Priority - Before ANY middleware)
   app.get("/robots.txt", (req, res) => {
     res.type('text/plain').status(200).send("User-agent: *\nAllow: /\nSitemap: https://simplycalculator.app/sitemap.xml");
   });
 
   let cachedSitemap: string | null = null;
-  const sitemapHandler = (req: express.Request, res: express.Response) => {
+  app.get("/sitemap.xml", (req, res) => {
     try {
-      const today = new Date().toISOString(); // Full ISO for better compatibility
-      const dateOnly = today.split('T')[0];
+      const today = new Date().toISOString().split('T')[0];
       
       if (cachedSitemap && process.env.NODE_ENV === 'production') {
-        res.header('Content-Type', 'application/xml; charset=utf-8');
-        res.header('X-Content-Type-Options', 'nosniff');
-        res.header('Cache-Control', 'public, max-age=3600');
+        res.set('Content-Type', 'application/xml; charset=utf-8');
         return res.status(200).send(cachedSitemap);
       }
 
@@ -47,21 +44,16 @@ async function startDevServer() {
       };
 
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-      xml += '<urlset\n';
-      xml += '      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
-      xml += '      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n';
-      xml += '      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9\n';
-      xml += '            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n';
+      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n';
       
-      // Core pages
-      xml += `  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n`;
-      xml += `  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+      xml += `  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n`;
+      xml += `  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
 
       CATEGORIES.forEach(cat => {
-        xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+        xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
         if (cat.items && Array.isArray(cat.items)) {
           cat.items.forEach(item => {
-            xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+            xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
           });
         }
       });
@@ -69,24 +61,20 @@ async function startDevServer() {
       xml += '</urlset>';
       cachedSitemap = xml;
       
-      res.header('Content-Type', 'application/xml; charset=utf-8');
-      res.header('X-Content-Type-Options', 'nosniff');
-      res.header('Cache-Control', 'public, max-age=3600');
+      res.set('Content-Type', 'application/xml; charset=utf-8');
       res.status(200).send(xml);
     } catch (error) {
-      console.error('[Sitemap] Error generating sitemap:', error);
-      res.status(500).send('Error generating sitemap');
+      console.error('[Sitemap] Error:', error);
+      res.status(500).type('text/plain').send('Error generating sitemap');
     }
-  };
+  });
 
-  app.get("/sitemap.xml", sitemapHandler);
-  app.head("/sitemap.xml", sitemapHandler);
-
+  // 2. MIDDLEWARE
   app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
   }));
-  
+
   app.use(cors({
      origin: true,
      credentials: true
@@ -94,9 +82,9 @@ async function startDevServer() {
 
   app.use(express.json());
 
-  // API Health Check
+  // 3. API ROUTES
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", mode: "development" });
+    res.json({ status: "ok", mode: isProd ? "production" : "development" });
   });
 
   const isProd = process.env.NODE_ENV === "production";
