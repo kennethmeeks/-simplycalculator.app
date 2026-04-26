@@ -6,29 +6,30 @@ export interface CalculatorField {
   unit?: string;
   options?: { label: string; value: string }[];
   defaultValue?: string;
+  description?: string;
 }
 
 export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/bmi': [
-    { id: 'weight', label: 'Weight', type: 'number', unit: 'kg', placeholder: 'e.g. 70' },
-    { id: 'height', label: 'Height', type: 'number', unit: 'cm', placeholder: 'e.g. 175' }
+    { id: 'weight', label: 'Weight', type: 'number', unit: 'kg', placeholder: 'e.g. 70', description: 'Used to determine weight category.' },
+    { id: 'height', label: 'Height', type: 'number', unit: 'cm', placeholder: 'e.g. 175', description: 'Used alongside weight for the BMI ratio.' }
   ],
   '/bmr': [
-    { id: 'weight', label: 'Weight', type: 'number', unit: 'kg' },
-    { id: 'height', label: 'Height', type: 'number', unit: 'cm' },
-    { id: 'age', label: 'Age', type: 'number' },
-    { id: 'gender', label: 'Gender', type: 'select', options: [{ label: 'Male', value: 'male' }, { label: 'Female', value: 'female' }] }
+    { id: 'weight', label: 'Weight', type: 'number', unit: 'kg', description: 'Base weight for metabolic energy calculation.' },
+    { id: 'height', label: 'Height', type: 'number', unit: 'cm', description: 'Vertical height in centimeters.' },
+    { id: 'age', label: 'Age', type: 'number', description: 'Metabolism typically slows as age increases.' },
+    { id: 'gender', label: 'Gender', type: 'select', options: [{ label: 'Male', value: 'male' }, { label: 'Female', value: 'female' }], description: 'Biological gender impacts caloric needs.' }
   ],
   '/mortgage': [
-    { id: 'principal', label: 'Home Price', type: 'number', unit: '$' },
-    { id: 'downPayment', label: 'Down Payment', type: 'number', unit: '$' },
-    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%' },
-    { id: 'term', label: 'Loan Term', type: 'number', unit: 'years' }
+    { id: 'principal', label: 'Home Price', type: 'number', unit: '$', placeholder: 'e.g. 450000', description: 'Total purchase price of the home.' },
+    { id: 'downPayment', label: 'Down Payment', type: 'number', unit: '$', placeholder: 'e.g. 90000', description: 'Initial cash payment towards the purchase.' },
+    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%', placeholder: 'e.g. 6.5', description: 'Annual interest rate for the loan.' },
+    { id: 'term', label: 'Loan Term', type: 'number', unit: 'years', placeholder: 'e.g. 30', description: 'Number of years to repay the loan.' }
   ],
   '/loan': [
-    { id: 'amount', label: 'Loan Amount', type: 'number', unit: '$' },
-    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%' },
-    { id: 'term', label: 'Term', type: 'number', unit: 'months' }
+    { id: 'amount', label: 'Loan Amount', type: 'number', unit: '$', placeholder: 'e.g. 25000', description: 'The total amount you are borrowing.' },
+    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%', placeholder: 'e.g. 7.9', description: 'Annual interest rate for this loan.' },
+    { id: 'term', label: 'Term', type: 'number', unit: 'months', placeholder: 'e.g. 60', description: 'Repayment period in months.' }
   ],
   '/mpg': [
     { id: 'miles', label: 'Miles Driven', type: 'number' },
@@ -43,25 +44,25 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'birthDate', label: 'Birth Date', type: 'date' }
   ],
   '/compound-interest': [
-    { id: 'principal', label: 'Initial Investment', type: 'number', unit: '$' },
-    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%' },
-    { id: 'term', label: 'Time Period', type: 'number', unit: 'years' },
+    { id: 'principal', label: 'Initial Investment', type: 'number', unit: '$', placeholder: 'e.g. 1000', description: 'The starting amount of your investment.' },
+    { id: 'rate', label: 'Interest Rate', type: 'number', unit: '%', placeholder: 'e.g. 5', description: 'The annual interest percentage.' },
+    { id: 'term', label: 'Time Period', type: 'number', unit: 'years', placeholder: 'e.g. 10', description: 'How long you plan to keep the money invested.' },
     { id: 'compounding', label: 'Compounding Frequency', type: 'select', options: [
       { label: 'Monthly', value: '12' },
       { label: 'Quarterly', value: '4' },
       { label: 'Semi-Annually', value: '2' },
       { label: 'Annually', value: '1' }
-    ]}
+    ], description: 'How often interest is added back to the principal.'}
   ],
   '/salary': [
-    { id: 'amount', label: 'Amount', type: 'number', unit: '$' },
+    { id: 'amount', label: 'Amount', type: 'number', unit: '$', placeholder: 'e.g. 50000', description: 'The gross amount earned.' },
     { id: 'frequency', label: 'Pay Frequency', type: 'select', options: [
       { label: 'Hourly (40h/week)', value: 'hourly' },
       { label: 'Weekly', value: 'weekly' },
       { label: 'Bi-Weekly', value: 'biweekly' },
       { label: 'Monthly', value: 'monthly' },
       { label: 'Annually', value: 'annual' }
-    ]}
+    ], description: 'Select how often you receive this payment.'}
   ],
   '/chronological-age': [
      { id: 'birthDate', label: 'Birth Date', type: 'date' },
@@ -779,8 +780,8 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'op', label: 'Operation', type: 'select', options: [{label: 'Add', value: 'add'}, {label: 'Subtract', value: 'sub'}]}
   ],
   '/capital-gains-yield': [
-    { id: 'buy', label: 'Purchase Price', type: 'number', unit: '$' },
-    { id: 'sell', label: 'Sale Price', type: 'number', unit: '$' }
+    { id: 'buy', label: 'Purchase Price', type: 'number', unit: '$', placeholder: 'e.g. 45000', description: 'The price at which you bought the asset.' },
+    { id: 'sell', label: 'Sale Price', type: 'number', unit: '$', placeholder: 'e.g. 105000', description: 'The price at which you sold the asset.' }
   ],
   '/compound-growth': [
     { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },

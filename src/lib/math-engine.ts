@@ -122,14 +122,19 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     if (isNaN(x) || isNaN(y)) return { value: 'Invalid input' };
     
     if (op === 'of') {
-      return { value: `${(x / 100 * y).toFixed(2)}`, explanation: `${x}% of ${y} is ${(x / 100 * y).toFixed(2)}` };
+      const res = (x / 100 * y);
+      return { value: `${res.toFixed(2)}`, explanation: `${x}% of ${y} is ${res.toFixed(2)}` };
     }
     if (op === 'is') {
-      return { value: `${((x / y) * 100).toFixed(2)}%`, explanation: `${x} is ${((x / y) * 100).toFixed(2)}% of ${y}` };
+      if (y === 0) return { value: 'Invalid', explanation: 'Cannot calculate percentage of zero.' };
+      const res = (x / y) * 100;
+      return { value: `${res.toFixed(2)}%`, explanation: `${x} is ${res.toFixed(2)}% of ${y}` };
     }
     if (op === 'diff') {
+      if (x === 0) return { value: 'Invalid', explanation: 'Original value cannot be zero for percentage change.' };
       const diff = ((y - x) / x) * 100;
-      return { value: `${diff.toFixed(2)}%`, explanation: `Percentage change from ${x} to ${y} is ${diff.toFixed(2)}%` };
+      const type = diff >= 0 ? 'increase' : 'decrease';
+      return { value: `${diff.toFixed(2)}%`, explanation: `Percentage ${type} from ${x} to ${y} is ${Math.abs(diff).toFixed(2)}%` };
     }
     return { value: 'Select operation' };
   },
@@ -266,18 +271,22 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const returned = parseFloat(inputs.returned);
     const years = parseFloat(inputs.years);
     if (isNaN(invested) || isNaN(returned)) return { value: 'Invalid input' };
+    if (invested === 0) return { value: '0%', explanation: 'Cannot calculate ROI for a $0 investment.' };
     
     const roi = ((returned - invested) / invested) * 100;
-    let explanation = `Your return on investment is ${roi.toFixed(2)}%. Profit: $${(returned - invested).toLocaleString()}.`;
+    let explanationList = [
+      `Total Profit: $${(returned - invested).toLocaleString()}`,
+      `Total Growth: ${roi.toFixed(2)}%`
+    ];
     
-    if (!isNaN(years) && years > 0) {
+    if (!isNaN(years) && years > 0 && returned > 0) {
       const annualized = (Math.pow(returned / invested, 1 / years) - 1) * 100;
-      explanation += ` Annualized ROI: ${annualized.toFixed(2)}% per year.`;
+      explanationList.push(`Annualized ROI: ${annualized.toFixed(2)}% per year`);
     }
     
     return {
       value: `${roi.toFixed(2)}%`,
-      explanation
+      explanation: explanationList.join('\n')
     };
   },
   '/mpg': (inputs) => {
@@ -949,10 +958,12 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const buy = parseFloat(inputs.buy);
     const sell = parseFloat(inputs.sell);
     if (isNaN(buy) || isNaN(sell)) return { value: 'Invalid input' };
+    if (buy === 0) return { value: '0%', explanation: 'Purchase price cannot be zero.' };
+    
     const yield_val = ((sell - buy) / buy) * 100;
     return { 
       value: `${yield_val.toFixed(2)}%`, 
-      explanation: `The return from price appreciation is ${yield_val.toFixed(2)}%.` 
+      explanation: `Calculated as the change in price (($${sell} - $${buy}) / $${buy}). This measures the percentage increase or decrease in the asset's value excluding dividends.` 
     };
   },
   '/compound-growth': (inputs) => {
@@ -1436,11 +1447,11 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return { value: `${hydration.toFixed(1)}% Hydration`, explanation: `Baker's Percentages: Water (${hydration.toFixed(1)}%), Salt (${saltPct.toFixed(1)}%).` };
   },
   '/gpa': (inputs) => {
-    const grades = [parseFloat(inputs.grade1), parseFloat(inputs.grade2), parseFloat(inputs.grade3)].filter(g => !isNaN(g));
-    if (grades.length === 0) return { value: 'Invalid' };
+    const grades = [parseFloat(inputs.grade1), parseFloat(inputs.grade2), parseFloat(inputs.grade3), parseFloat(inputs.grade4), parseFloat(inputs.grade5)].filter(g => !isNaN(g));
+    if (grades.length === 0) return { value: 'Invalid', explanation: 'Please enter at least one valid grade.' };
     const sum = grades.reduce((a, b) => a + b, 0);
     const gpa = sum / grades.length;
-    return { value: gpa.toFixed(2), explanation: `Average GPA across ${grades.length} courses.` };
+    return { value: gpa.toFixed(2), explanation: `Your average GPA is ${gpa.toFixed(2)} across ${grades.length} courses.` };
   },
   '/gpa-advanced': (inputs) => {
     // Simplified: expects 0-4 scale
