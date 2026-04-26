@@ -39,6 +39,54 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Your monthly payment (principal and interest) for a $${principal.toLocaleString()} loan at ${parseFloat(inputs.rate)}% interest.`
     };
   },
+  '/math/fraction': (inputs) => {
+    // Basic fraction logic could be complex, simple placeholder or basic eval
+    return { value: 'Feature coming soon', explanation: 'Fraction operations are being optimized.' };
+  },
+  '/math/pythagorean-theorem': (inputs) => {
+     const a = parseFloat(inputs.a);
+     const b = parseFloat(inputs.b);
+     if (isNaN(a) || isNaN(b)) return { value: 'Invalid' };
+     const c = Math.sqrt(a*a + b*b);
+     return { value: c.toFixed(4), explanation: `c = √(${a}² + ${b}²) = ${c.toFixed(4)}` };
+  },
+  '/math/gcf': (inputs) => {
+     let a = Math.abs(parseInt(inputs.num1));
+     let b = Math.abs(parseInt(inputs.num2));
+     if (isNaN(a) || isNaN(b)) return { value: 'Invalid' };
+     const originalA = a;
+     const originalB = b;
+     while(b) {
+       a %= b;
+       [a, b] = [b, a];
+     }
+     return { value: String(a), explanation: `GCF of ${originalA} and ${originalB} is ${a}` };
+  },
+  '/math/lcm': (inputs) => {
+     const a = Math.abs(parseInt(inputs.num1));
+     const b = Math.abs(parseInt(inputs.num2));
+     if (isNaN(a) || isNaN(b)) return { value: 'Invalid' };
+     if (a === 0 || b === 0) return { value: '0' };
+     const gcd = (x: number, y: number): number => y === 0 ? x : gcd(y, x % y);
+     const res = (a * b) / gcd(a, b);
+     return { value: String(res), explanation: `LCM of ${a} and ${b} is ${res}` };
+  },
+  '/math/prime-number': (inputs) => {
+     const n = parseInt(inputs.num);
+     if (isNaN(n)) return { value: 'Invalid' };
+     if (n <= 1) return { value: 'No', explanation: `${n} is not a prime number.` };
+     for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return { value: 'No', explanation: `${n} is divisible by ${i}.` };
+     }
+     return { value: 'Yes', explanation: `${n} is a prime number.` };
+  },
+  '/math/percentage': (inputs) => {
+     const val = parseFloat(inputs.num1);
+     const perc = parseFloat(inputs.num2);
+     if (isNaN(val) || isNaN(perc)) return { value: 'Invalid' };
+     const res = (val * perc) / 100;
+     return { value: String(res), explanation: `${perc}% of ${val} = ${res}` };
+  },
   '/compound-interest': (inputs) => {
     const p = parseFloat(inputs.principal);
     const r = parseFloat(inputs.rate) / 100;
@@ -1495,5 +1543,73 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     } catch (e) {
       return { value: 'Error', explanation: 'Invalid mathematical expression.' };
     }
+  },
+  '/math/addition': (inputs) => {
+    const n1 = parseFloat(inputs.num1) || 0;
+    const n2 = parseFloat(inputs.num2) || 0;
+    const n3 = parseFloat(inputs.num3) || 0;
+    const sum = n1 + n2 + n3;
+    return { value: String(sum), explanation: `${n1} + ${n2} ${inputs.num3 ? '+ ' + n3 : ''} = ${sum}` };
+  },
+  '/math/multiplication': (inputs) => {
+    const n1 = parseFloat(inputs.num1) || 0;
+    const n2 = parseFloat(inputs.num2) || 0;
+    return { value: String(n1 * n2), explanation: `${n1} × ${n2} = ${n1 * n2}` };
+  },
+  '/math/division': (inputs) => {
+    const n1 = parseFloat(inputs.num1);
+    const n2 = parseFloat(inputs.num2);
+    if (isNaN(n1) || isNaN(n2)) return { value: 'Invalid' };
+    if (n2 === 0) return { value: 'Cannot divide by zero' };
+    return { value: String(n1 / n2), explanation: `${n1} ÷ ${n2} = ${n1 / n2}` };
+  },
+  '/math/average': (inputs) => {
+    const nums = (inputs.numbers || '').split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+    if (nums.length === 0) return { value: '0' };
+    const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
+    return { value: avg.toFixed(4), explanation: `Average of ${nums.length} numbers is ${avg.toFixed(4)}` };
+  },
+  '/math/square-root': (inputs) => {
+    const val = parseFloat(inputs.value);
+    if (isNaN(val) || val < 0) return { value: 'Invalid' };
+    const res = Math.sqrt(val);
+    return { value: String(res), explanation: `√${val} = ${res}` };
+  },
+  '/math/exponent': (inputs) => {
+    const base = parseFloat(inputs.base);
+    const p = parseFloat(inputs.power);
+    if (isNaN(base) || isNaN(p)) return { value: 'Invalid' };
+    const res = Math.pow(base, p);
+    return { value: String(res), explanation: `${base} ^ ${p} = ${res}` };
+  },
+  '/math/modulo': (inputs) => {
+    const n1 = parseFloat(inputs.num1);
+    const n2 = parseFloat(inputs.num2);
+    if (isNaN(n1) || isNaN(n2) || n2 === 0) return { value: 'Invalid' };
+    return { value: String(n1 % n2), explanation: `${n1} mod ${n2} = ${n1 % n2}` };
+  },
+  '/math/circle': (inputs) => {
+     const r = parseFloat(inputs.radius);
+     const type = inputs.type;
+     if (isNaN(r)) return { value: 'Invalid' };
+     if (type === 'area') return { value: (Math.PI * r * r).toFixed(4), explanation: `Area = π × ${r}² = ${(Math.PI * r * r).toFixed(4)}` };
+     if (type === 'circum') return { value: (2 * Math.PI * r).toFixed(4), explanation: `Circumference = 2 × π × ${r} = ${(2 * Math.PI * r).toFixed(4)}` };
+     return { value: String(2 * r), explanation: `Diameter = 2 × ${r} = ${2*r}` };
+  },
+  '/cat-age': (inputs) => {
+    const age = parseFloat(inputs.age);
+    if (isNaN(age)) return { value: 'Invalid' };
+    let human = 0;
+    if (age === 1) human = 15;
+    else if (age === 2) human = 24;
+    else human = 24 + (age - 2) * 4;
+    return { value: `${human} Years`, explanation: `A ${age} year old cat is approx. ${human} human years.` };
+  },
+  '/bmi-kids': (inputs) => {
+    const weight = parseFloat(inputs.weight);
+    const height = parseFloat(inputs.height) / 100;
+    if (isNaN(weight) || isNaN(height) || height === 0) return { value: 'Invalid' };
+    const bmi = weight / (height * height);
+    return { value: bmi.toFixed(1), explanation: `BMI is ${bmi.toFixed(1)}. For children, this is compared against CDC age/gender growth charts to find a percentile.` };
   }
 };

@@ -783,6 +783,87 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'buy', label: 'Purchase Price', type: 'number', unit: '$', placeholder: 'e.g. 45000', description: 'The price at which you bought the asset.' },
     { id: 'sell', label: 'Sale Price', type: 'number', unit: '$', placeholder: 'e.g. 105000', description: 'The price at which you sold the asset.' }
   ],
+  '/cat-age': [
+    { id: 'age', label: 'Cat Age', type: 'number', unit: 'years' }
+  ],
+  '/bmi-kids': [
+    { id: 'weight', label: 'Weight', type: 'number', unit: 'kg' },
+    { id: 'height', label: 'Height', type: 'number', unit: 'cm' },
+    { id: 'age', label: 'Age', type: 'number', unit: 'years' },
+    { id: 'gender', label: 'Gender', type: 'select', options: [{ label: 'Male', value: 'male' }, { label: 'Female', value: 'female' }] }
+  ],
+  '/math/addition': [
+    { id: 'num1', label: 'First Number', type: 'number' },
+    { id: 'num2', label: 'Second Number', type: 'number' },
+    { id: 'num3', label: 'Third Number (Optional)', type: 'number' }
+  ],
+  '/math/multiplication': [
+    { id: 'num1', label: 'First Number', type: 'number' },
+    { id: 'num2', label: 'Second Number', type: 'number' }
+  ],
+  '/math/division': [
+    { id: 'num1', label: 'Dividend', type: 'number' },
+    { id: 'num2', label: 'Divisor', type: 'number' }
+  ],
+  '/math/average': [
+    { id: 'numbers', label: 'Numbers (comma separated)', type: 'text', placeholder: 'e.g. 10, 20, 30' }
+  ],
+  '/math/square-root': [
+    { id: 'value', label: 'Number', type: 'number' }
+  ],
+  '/math/exponent': [
+    { id: 'base', label: 'Base', type: 'number' },
+    { id: 'power', label: 'Exponent', type: 'number' }
+  ],
+  '/math/log': [
+    { id: 'value', label: 'Number', type: 'number' },
+    { id: 'base', label: 'Base (default 10)', type: 'number', defaultValue: '10' }
+  ],
+  '/math/modulo': [
+    { id: 'num1', label: 'Dividend', type: 'number' },
+    { id: 'num2', label: 'Divisor', type: 'number' }
+  ],
+  '/math/circle': [
+    { id: 'radius', label: 'Radius', type: 'number' },
+    { id: 'type', label: 'Calculate', type: 'select', options: [
+      { label: 'Area', value: 'area' },
+      { label: 'Circumference', value: 'circum' },
+      { label: 'Diameter', value: 'diam' }
+    ]}
+  ],
+  '/math/triangle': [
+    { id: 'base', label: 'Base', type: 'number' },
+    { id: 'height', label: 'Height', type: 'number' }
+  ],
+  '/math/pythagorean-theorem': [
+    { id: 'a', label: 'Side A', type: 'number' },
+    { id: 'b', label: 'Side B', type: 'number' }
+  ],
+  '/math/gcf': [
+    { id: 'num1', label: 'First Number', type: 'number' },
+    { id: 'num2', label: 'Second Number', type: 'number' }
+  ],
+  '/math/lcm': [
+    { id: 'num1', label: 'First Number', type: 'number' },
+    { id: 'num2', label: 'Second Number', type: 'number' }
+  ],
+  '/math/prime-number': [
+    { id: 'num', label: 'Target Number', type: 'number' }
+  ],
+  '/math/fraction': [
+    { id: 'num1', label: 'First Fraction', type: 'text', placeholder: 'e.g. 1/2' },
+    { id: 'num2', label: 'Second Fraction', type: 'text', placeholder: 'e.g. 1/4' },
+    { id: 'op', label: 'Operation', type: 'select', options: [
+      { label: 'Add', value: '+' },
+      { label: 'Subtract', value: '-' },
+      { label: 'Multiply', value: '*' },
+      { label: 'Divide', value: '/' }
+    ]}
+  ],
+  '/math/percentage': [
+    { id: 'num1', label: 'Value', type: 'number' },
+    { id: 'num2', label: 'Percentage', type: 'number', unit: '%' }
+  ],
   '/compound-growth': [
     { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },
     { id: 'rate', label: 'Annual Growth Rate', type: 'number', unit: '%' },

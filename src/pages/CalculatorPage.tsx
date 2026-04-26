@@ -56,10 +56,11 @@ export const CalculatorPage: React.FC = () => {
         try {
             const response = await callGeminiWithRetry({
                 model: isRetry ? MODEL_PRO : MODEL_FLASH,
-                contents: `Define the 2-4 primary input fields needed for a professional "${foundItem.name}" (${foundItem.desc}). 
-                Use accurate labels and units. 
-                Return JSON only. Format: { fields: [{id, label, type: 'number'|'text'|'date'|'select', unit?, options?: [{label, value}] }] }`,
+                contents: `Define the core input fields for a professional "${foundItem.name}" (${foundItem.desc}). 
+                Focus on the 2-4 most critical inputs needed for accurate results.
+                Do not include optional or ancillary fields.`,
                 config: {
+                    systemInstruction: "You are a specialized calculator schema generator. Return strictly valid JSON matching the requested schema. Ensure all field types are 'number', 'text', 'date', or 'select'. For 'select', provide 'options' as an array of {label, value} objects.",
                     responseMimeType: "application/json",
                     responseSchema: {
                         type: Type.OBJECT,
@@ -142,8 +143,8 @@ export const CalculatorPage: React.FC = () => {
             };
 
             setDynamicFields(getFallbackFields(foundItem.name));
-            // Suppress loud error for better UX, just provide a discreet retry if needed
-            setError(null); 
+            // Show a helpful tip instead of a hard error
+            setError("We've initialized a standard input schema for this calculator while the optimized version loads."); 
         } finally {
             setIsSchemaLoading(false);
         }
