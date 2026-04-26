@@ -945,6 +945,335 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const orm = w / (1.0278 - (0.0278 * r));
     return { value: `${Math.round(orm)}`, explanation: `Based on the Brzycki Formula, your estimated 1RM is ${Math.round(orm)}.` };
   },
+  '/capital-gains-yield': (inputs) => {
+    const buy = parseFloat(inputs.buy);
+    const sell = parseFloat(inputs.sell);
+    if (isNaN(buy) || isNaN(sell)) return { value: 'Invalid input' };
+    const yield_val = ((sell - buy) / buy) * 100;
+    return { 
+      value: `${yield_val.toFixed(2)}%`, 
+      explanation: `The return from price appreciation is ${yield_val.toFixed(2)}%.` 
+    };
+  },
+  '/compound-growth': (inputs) => {
+    const p = parseFloat(inputs.principal);
+    const r = parseFloat(inputs.rate) / 100;
+    const t = parseFloat(inputs.years);
+    if (isNaN(p) || isNaN(r) || isNaN(t)) return { value: 'Invalid input' };
+    const amount = p * Math.pow(1 + r, t);
+    return {
+      value: `$${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+      explanation: `At ${parseFloat(inputs.rate)}% annual growth, $${p.toLocaleString()} grows to $${amount.toLocaleString()} in ${t} years.`
+    };
+  },
+  '/annualized-return': (inputs) => {
+    const initial = parseFloat(inputs.initial);
+    const final = parseFloat(inputs.final);
+    const years = parseFloat(inputs.years);
+    if (isNaN(initial) || isNaN(final) || isNaN(years) || years === 0) return { value: 'Invalid input' };
+    const annualized = (Math.pow(final / initial, 1 / years) - 1) * 100;
+    return {
+      value: `${annualized.toFixed(2)}%`,
+      explanation: `The smoothed annual return over ${years} years is ${annualized.toFixed(2)}%.`
+    };
+  },
+  '/appreciation-calculator': (inputs) => {
+    return standardCalculations['/compound-growth']({ 
+      principal: inputs.value, 
+      rate: inputs.rate, 
+      years: inputs.years 
+    });
+  },
+  '/basis-point-calculator': (inputs) => {
+    const rate = parseFloat(inputs.rate);
+    const bps = parseFloat(inputs.bps);
+    const op = inputs.op;
+    if (isNaN(rate) || isNaN(bps)) return { value: 'Invalid input' };
+    const change = bps / 10000 * 100; // 1 bps = 0.01%
+    const final = op === 'add' ? rate + change : rate - change;
+    return {
+      value: `${final.toFixed(4)}%`,
+      explanation: `${rate}% ${op === 'add' ? '+' : '-'} ${bps} basis points (${change.toFixed(2)}%) equals ${final.toFixed(4)}%.`
+    };
+  },
+  '/pe-ratio': (inputs) => {
+    const price = parseFloat(inputs.price);
+    const eps = parseFloat(inputs.eps);
+    if (isNaN(price) || isNaN(eps) || eps === 0) return { value: 'Invalid input' };
+    const pe = price / eps;
+    return { value: `${pe.toFixed(2)}`, explanation: `The Price-to-Earnings ratio is ${pe.toFixed(2)}x.` };
+  },
+  '/eps-calculator': (inputs) => {
+    const income = parseFloat(inputs.netIncome);
+    const div = parseFloat(inputs.preferredDividends) || 0;
+    const shares = parseFloat(inputs.shares);
+    if (isNaN(income) || isNaN(shares) || shares === 0) return { value: 'Invalid input' };
+    const eps = (income - div) / shares;
+    return { value: `$${eps.toFixed(2)}`, explanation: `Earnings Per Share is $${eps.toFixed(2)} based on ${shares.toLocaleString()} shares.` };
+  },
+  '/roe-calculator': (inputs) => {
+    const income = parseFloat(inputs.netIncome);
+    const equity = parseFloat(inputs.equity);
+    if (isNaN(income) || isNaN(equity) || equity === 0) return { value: 'Invalid input' };
+    const roe = (income / equity) * 100;
+    return { value: `${roe.toFixed(2)}%`, explanation: `Return on Equity is ${roe.toFixed(2)}% (Net Income / Shareholder Equity).` };
+  },
+  '/market-cap': (inputs) => {
+    const price = parseFloat(inputs.price);
+    const shares = parseFloat(inputs.shares);
+    if (isNaN(price) || isNaN(shares)) return { value: 'Invalid input' };
+    const cap = price * shares;
+    return { value: `$${cap.toLocaleString()}`, explanation: `Market Capitalization is $${cap.toLocaleString()} based on ${shares.toLocaleString()} shares.` };
+  },
+  '/dividend-yield': (inputs) => {
+    const div = parseFloat(inputs.dividend);
+    const price = parseFloat(inputs.price);
+    if (isNaN(div) || isNaN(price) || price === 0) return { value: 'Invalid input' };
+    const yield_val = (div / price) * 100;
+    return { value: `${yield_val.toFixed(2)}%`, explanation: `The annual dividend yield is ${yield_val.toFixed(2)}%.` };
+  },
+  '/pb-ratio': (inputs) => {
+    const price = parseFloat(inputs.price);
+    const book = parseFloat(inputs.bookValue);
+    if (isNaN(price) || isNaN(book) || book === 0) return { value: 'Invalid input' };
+    const pb = price / book;
+    return { value: `${pb.toFixed(2)}`, explanation: `The Price-to-Book ratio is ${pb.toFixed(2)}x.` };
+  },
+  '/debt-to-equity': (inputs) => {
+    const debt = parseFloat(inputs.totalDebt);
+    const equity = parseFloat(inputs.totalEquity);
+    if (isNaN(debt) || isNaN(equity) || equity === 0) return { value: 'Invalid input' };
+    const ratio = debt / equity;
+    return { value: `${ratio.toFixed(2)}`, explanation: `The Debt-to-Equity ratio is ${ratio.toFixed(2)}.` };
+  },
+  '/quick-ratio': (inputs) => {
+    const cash = parseFloat(inputs.cash) || 0;
+    const rec = parseFloat(inputs.receivables) || 0;
+    const liab = parseFloat(inputs.liabilities);
+    if (isNaN(liab) || liab === 0) return { value: 'Invalid input' };
+    const ratio = (cash + rec) / liab;
+    return { value: `${ratio.toFixed(2)}`, explanation: `The Quick Ratio (Acid-Test) is ${ratio.toFixed(2)}.` };
+  },
+  '/70-20-10-rule': (inputs) => {
+    const income = parseFloat(inputs.income);
+    if (isNaN(income)) return { value: 'Invalid input' };
+    const live = income * 0.7;
+    const save = income * 0.2;
+    const give = income * 0.1;
+    return {
+      value: `Live: $${live.toLocaleString()}`,
+      explanation: `Budget breakdown: $${live.toLocaleString()} for living expenses (70%), $${save.toLocaleString()} for savings/debt (20%), and $${give.toLocaleString()} for giving (10%).`
+    };
+  },
+  '/28-36-rule': (inputs) => {
+    const income = parseFloat(inputs.income);
+    const housing = parseFloat(inputs.housing);
+    const debt = parseFloat(inputs.debt);
+    if (isNaN(income)) return { value: 'Invalid input' };
+    const frontRatio = (housing / income) * 100;
+    const backRatio = (debt / income) * 100;
+    const frontPass = frontRatio <= 28;
+    const backPass = backRatio <= 36;
+    return {
+      value: frontPass && backPass ? 'Healthy Levels' : 'Above Guidelines',
+      explanation: `Front-end ratio (Housing): ${frontRatio.toFixed(1)}% (max 28%). Back-end ratio (Total Debt): ${backRatio.toFixed(1)}% (max 36%). Your debt levels are ${frontPass && backPass ? 'within' : 'above'} standard bank guidelines.`
+    };
+  },
+  '/balance-transfer': (inputs) => {
+    const bal = parseFloat(inputs.balance);
+    const feePercent = parseFloat(inputs.fee) || 0;
+    const newApr = parseFloat(inputs.newApr) || 0;
+    if (isNaN(bal)) return { value: 'Invalid input' };
+    const fee = bal * (feePercent / 100);
+    const total = bal + fee;
+    return {
+      value: `$${total.toLocaleString()}`,
+      explanation: `Transfer fee: $${fee.toLocaleString()} (${feePercent}%). Total balance on new card: $${total.toLocaleString()} at ${newApr}% APR.`
+    };
+  },
+  '/credit-card-interest': (inputs) => {
+    const bal = parseFloat(inputs.balance);
+    const rate = parseFloat(inputs.rate);
+    if (isNaN(bal) || isNaN(rate)) return { value: 'Invalid input' };
+    const monthlyRate = rate / 100 / 12;
+    const interest = bal * monthlyRate;
+    return {
+      value: `$${interest.toFixed(2)}`,
+      explanation: `This month you will be charged approximately $${interest.toFixed(2)} in interest based on a ${rate}% APR.`
+    };
+  },
+  '/credit-card-minimum-payment': (inputs) => {
+    const bal = parseFloat(inputs.balance);
+    const rate = parseFloat(inputs.rate) || 0;
+    const percent = parseFloat(inputs.minPercent) || 2;
+    if (isNaN(bal)) return { value: 'Invalid input' };
+    const monthlyInterest = (bal * (rate / 100)) / 12;
+    const principalPart = bal * (percent / 100);
+    const min = Math.max(25, principalPart + monthlyInterest);
+    return {
+      value: `$${min.toLocaleString(undefined, {minimumFractionDigits: 2})}`,
+      explanation: `Estimated minimum payment is ${percent}% of balance plus interest, but typically no less than $25.`
+    };
+  },
+  '/credit-card-payment': (inputs) => {
+    const bal = parseFloat(inputs.balance);
+    const term = parseFloat(inputs.term);
+    const rate = parseFloat(inputs.rate) / 100 / 12;
+    if (isNaN(bal) || isNaN(term) || isNaN(rate)) return { value: 'Invalid input' };
+    let payment = 0;
+    if (rate === 0) payment = bal / term;
+    else payment = (bal * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+    return {
+      value: `$${payment.toLocaleString(undefined, {minimumFractionDigits: 2})}/mo`,
+      explanation: `To pay off $${bal.toLocaleString()} in ${term} months at ${parseFloat(inputs.rate)}% APR, you need to pay $${payment.toFixed(2)} per month.`
+    };
+  },
+  '/credit-utilization': (inputs) => {
+    const bal = parseFloat(inputs.balances);
+    const limit = parseFloat(inputs.limits);
+    if (isNaN(bal) || isNaN(limit) || limit === 0) return { value: 'Invalid input' };
+    const util = (bal / limit) * 100;
+    return {
+      value: `${util.toFixed(1)}%`,
+      explanation: `Your credit utilization is ${util.toFixed(1)}%. Experts recommend keeping this below 30% for a better credit score.`
+    };
+  },
+  '/debt-calculator': (inputs) => {
+    const cards = parseFloat(inputs.cards) || 0;
+    const loans = parseFloat(inputs.loans) || 0;
+    const other = parseFloat(inputs.other) || 0;
+    const total = cards + loans + other;
+    return {
+      value: `$${total.toLocaleString()}`,
+      explanation: `Total liabilities: Credit Cards ($${cards.toLocaleString()}), Loans ($${loans.toLocaleString()}), Other ($${other.toLocaleString()}).`
+    };
+  },
+  '/debt-avalanche': (inputs) => {
+    const total = parseFloat(inputs.total);
+    const rate = parseFloat(inputs.rate);
+    const over = parseFloat(inputs.overpayment) || 0;
+    if (isNaN(total)) return { value: 'Invalid input' };
+    return {
+      value: `Focus: High Rate`,
+      explanation: `In the Avalanche method, you pay your minimums on everything but put the extra $${over} toward your ${rate}% debt first to save the most on interest over time.`
+    };
+  },
+  '/debt-snowball': (inputs) => {
+    const total = parseFloat(inputs.total);
+    const small = parseFloat(inputs.smallest);
+    const over = parseFloat(inputs.overpayment) || 0;
+    if (isNaN(total)) return { value: 'Invalid input' };
+    return {
+      value: `Focus: Small Balance`,
+      explanation: `In the Snowball method, you pay extra $${over} toward your smallest debt ($${small}) first to gain psychological momentum by eliminating accounts quickly.`
+    };
+  },
+  '/deferred-payment-loan': (inputs) => {
+    const p = parseFloat(inputs.principal);
+    const r = parseFloat(inputs.rate) / 100 / 12;
+    const m = parseFloat(inputs.months);
+    if (isNaN(p) || isNaN(r) || isNaN(m)) return { value: 'Invalid input' };
+    const interest = p * r * m;
+    const total = p + interest;
+    return {
+      value: `$${total.toLocaleString()}`,
+      explanation: `After ${m} months of deferment at ${parseFloat(inputs.rate)}% interest, your new balance will be $${total.toLocaleString()} (including $${interest.toLocaleString()} accrued interest).`
+    };
+  },
+  '/agi-calculator': (inputs) => {
+    const inc = parseFloat(inputs.income);
+    const ret = parseFloat(inputs.retirement) || 0;
+    const adj = parseFloat(inputs.adjustments) || 0;
+    if (isNaN(inc)) return { value: 'Invalid input' };
+    const agi = inc - ret - adj;
+    return { value: `$${agi.toLocaleString()}`, explanation: `Adjusted Gross Income: $${inc.toLocaleString()} Gross - $${(ret + adj).toLocaleString()} adjustments = $${agi.toLocaleString()}.` };
+  },
+  '/529-plan': (inputs) => {
+    const p = parseFloat(inputs.initial);
+    const m = parseFloat(inputs.monthly);
+    const r = parseFloat(inputs.return) / 100 / 12;
+    const t = parseFloat(inputs.years) * 12;
+    if (isNaN(p) || isNaN(m) || isNaN(t)) return { value: 'Invalid input' };
+    let balance = p;
+    for (let i = 0; i < t; i++) {
+      balance = (balance + m) * (1 + r);
+    }
+    return { value: `$${Math.round(balance).toLocaleString()}`, explanation: `At a ${parseFloat(inputs.return)}% annual return, your 529 balance will be approximately $${Math.round(balance).toLocaleString()} in ${inputs.years} years.` };
+  },
+  '/shiplap': (inputs) => {
+    const w = parseFloat(inputs.width);
+    const h = parseFloat(inputs.height);
+    const bw = parseFloat(inputs.boardWidth) / 12; // in to ft
+    if (isNaN(w) || isNaN(h) || isNaN(bw)) return { value: 'Invalid input' };
+    const area = w * h;
+    const boards = Math.ceil(area / (bw * 8)); // Assuming 8-foot boards
+    return { value: `${boards} Boards (8ft)`, explanation: `To cover ${area} sq ft, you'll need approx. ${boards} boards (8ft length).` };
+  },
+  '/stair-carpet': (inputs) => {
+    const steps = parseFloat(inputs.steps);
+    const w = parseFloat(inputs.width);
+    const run = parseFloat(inputs.run);
+    const rise = parseFloat(inputs.rise);
+    if (isNaN(steps) || isNaN(w) || isNaN(run) || isNaN(rise)) return { value: 'Invalid input' };
+    const stepLength = run + rise;
+    const totalSqIn = steps * stepLength * w;
+    const sqft = totalSqIn / 144;
+    return { value: `${Math.ceil(sqft * 1.1)} sq ft`, explanation: `Including 10% waste, you need about ${Math.ceil(sqft * 1.1)} sq ft of carpet for ${steps} steps.` };
+  },
+  '/bench-press-1rm': (inputs) => {
+    return standardCalculations['/one-rep-max'](inputs);
+  },
+  '/batting-average': (inputs) => {
+    const hits = parseFloat(inputs.hits);
+    const ab = parseFloat(inputs.atBats);
+    if (isNaN(hits) || isNaN(ab) || ab === 0) return { value: 'Invalid input' };
+    const avg = hits / ab;
+    return { value: avg.toFixed(3).substring(1), explanation: `Batting average is .${avg.toFixed(3).split('.')[1]}` };
+  },
+  '/era-calculator': (inputs) => {
+    const runs = parseFloat(inputs.earnedRuns);
+    const ip = parseFloat(inputs.inningsPitched);
+    if (isNaN(runs) || isNaN(ip) || ip === 0) return { value: 'Invalid input' };
+    const era = (runs / ip) * 9;
+    return { value: era.toFixed(2), explanation: `Earned Run Average (ERA) is ${era.toFixed(2)}.` };
+  },
+  '/cricket-strike-rate': (inputs) => {
+    const runs = parseFloat(inputs.runs);
+    const balls = parseFloat(inputs.balls);
+    if (isNaN(runs) || isNaN(balls) || balls === 0) return { value: 'Invalid input' };
+    const sr = (runs / balls) * 100;
+    return { value: sr.toFixed(1), explanation: `Strike rate is ${sr.toFixed(1)} runs per 100 balls.` };
+  },
+  '/steps-to-calories': (inputs) => {
+    const steps = parseFloat(inputs.steps);
+    const weight = parseFloat(inputs.weight);
+    if (isNaN(steps) || isNaN(weight)) return { value: 'Invalid input' };
+    // Very rough estimate: 0.04 calories per step for average person
+    const cal = steps * 0.04 * (weight / 70); 
+    return { value: `${Math.round(cal)} kcal`, explanation: `Approx ${Math.round(cal)} calories burned over ${steps.toLocaleString()} steps for a ${weight}kg person.` };
+  },
+  '/finance-charge': (inputs) => {
+    const amt = parseFloat(inputs.amount);
+    const r = parseFloat(inputs.rate) / 100 / 12;
+    const n = parseFloat(inputs.term);
+    if (isNaN(amt) || isNaN(r) || isNaN(n)) return { value: 'Invalid input' };
+    const payment = (amt * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    const charge = (payment * n) - amt;
+    return { value: `$${charge.toLocaleString(undefined, {minimumFractionDigits: 2})}`, explanation: `Total interest (finance charge) over ${n} months is $${charge.toLocaleString()}.` };
+  },
+  '/recipe-scaling': (inputs) => {
+    const current = parseFloat(inputs.originalYield);
+    const desired = parseFloat(inputs.desiredYield);
+    if (isNaN(current) || isNaN(desired) || current === 0) return { value: 'Invalid input' };
+    const factor = desired / current;
+    return { value: `${factor.toFixed(2)}x`, explanation: `Multiply all ingredients by ${factor.toFixed(2)} to scale the recipe.` };
+  },
+  '/eidl-advance': (inputs) => {
+    const emp = parseFloat(inputs.employees);
+    if (isNaN(emp)) return { value: 'Invalid input' };
+    const amt = Math.min(10000, emp * 1000);
+    return { value: `$${amt.toLocaleString()}`, explanation: `The EIDL Advance provides $1,000 per employee, capped at $10,000.` };
+  },
   '/scientific': (inputs) => {
     try {
       const expression = inputs.expression;
