@@ -22,55 +22,64 @@ async function startDevServer() {
 
   let cachedSitemap: string | null = null;
   const sitemapHandler = (req: express.Request, res: express.Response) => {
-    const today = new Date().toISOString().split('T')[0];
-    
-    if (cachedSitemap && process.env.NODE_ENV === 'production') {
-      res.header('Content-Type', 'text/xml; charset=utf-8');
-      res.header('X-Content-Type-Options', 'nosniff');
-      res.header('Cache-Control', 'public, max-age=3600');
-      return res.status(200).send(cachedSitemap);
-    }
+    try {
+      const today = new Date().toISOString(); // Full ISO for better compatibility
+      const dateOnly = today.split('T')[0];
+      
+      if (cachedSitemap && process.env.NODE_ENV === 'production') {
+        res.header('Content-Type', 'application/xml; charset=utf-8');
+        res.header('X-Content-Type-Options', 'nosniff');
+        res.header('Cache-Control', 'public, max-age=3600');
+        return res.status(200).send(cachedSitemap);
+      }
 
-    const escapeXml = (unsafe: string) => {
-      return unsafe.replace(/[<>&'"]/g, (c) => {
-        switch (c) {
-          case '<': return '&lt;';
-          case '>': return '&gt;';
-          case '&': return '&amp;';
-          case '\'': return '&apos;';
-          case '"': return '&quot;';
-          default: return c;
+      const escapeXml = (unsafe: string) => {
+        return unsafe.replace(/[<>&'"]/g, (c) => {
+          switch (c) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
+            default: return c;
+          }
+        });
+      };
+
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<urlset\n';
+      xml += '      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
+      xml += '      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n';
+      xml += '      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9\n';
+      xml += '            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n';
+      
+      // Core pages
+      xml += `  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n`;
+      xml += `  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+
+      CATEGORIES.forEach(cat => {
+        xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
+        if (cat.items && Array.isArray(cat.items)) {
+          cat.items.forEach(item => {
+            xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <lastmod>${dateOnly}</lastmod>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+          });
         }
       });
-    };
 
-    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-    
-    // Core pages
-    xml += `  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n`;
-    xml += `  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
-
-    CATEGORIES.forEach(cat => {
-      xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
-      if (cat.items && Array.isArray(cat.items)) {
-        cat.items.forEach(item => {
-          xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
-        });
-      }
-    });
-
-    xml += '</urlset>';
-    cachedSitemap = xml;
-    
-    res.header('Content-Type', 'text/xml; charset=utf-8');
-    res.header('X-Content-Type-Options', 'nosniff');
-    res.header('Cache-Control', 'public, max-age=3600');
-    res.status(200).send(xml);
+      xml += '</urlset>';
+      cachedSitemap = xml;
+      
+      res.header('Content-Type', 'application/xml; charset=utf-8');
+      res.header('X-Content-Type-Options', 'nosniff');
+      res.header('Cache-Control', 'public, max-age=3600');
+      res.status(200).send(xml);
+    } catch (error) {
+      console.error('[Sitemap] Error generating sitemap:', error);
+      res.status(500).send('Error generating sitemap');
+    }
   };
 
   app.get("/sitemap.xml", sitemapHandler);
-  app.get("/sitemap.xml/", sitemapHandler);
   app.head("/sitemap.xml", sitemapHandler);
 
   app.use(helmet({
