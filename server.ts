@@ -15,58 +15,21 @@ const PORT = 3000;
 async function startDevServer() {
   const app = express();
 
-  // 1. CRAWLER ROUTES (Highest Priority - Before ANY middleware)
+  // robots.txt and sitemap.xml are served as static files from the public directory
+  // but we keep the routes for legacy support or to ensure they are served correctly
+  
+  // 1. CRAWLER ROUTES (Highest Priority)
   app.get("/robots.txt", (req, res) => {
-    res.type('text/plain').status(200).send("User-agent: *\nAllow: /\nSitemap: https://simplycalculator.app/sitemap.xml");
+    res.type('text/plain').send("User-agent: *\nAllow: /\nSitemap: https://simplycalculator.app/sitemap.xml");
   });
 
-  let cachedSitemap: string | null = null;
   app.get("/sitemap.xml", (req, res) => {
-    try {
-      const today = new Date().toISOString().split('T')[0];
-      
-      if (cachedSitemap && process.env.NODE_ENV === 'production') {
-        res.set('Content-Type', 'application/xml; charset=utf-8');
-        return res.status(200).send(cachedSitemap);
-      }
-
-      const escapeXml = (unsafe: string) => {
-        return unsafe.replace(/[<>&'"]/g, (c) => {
-          switch (c) {
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '&': return '&amp;';
-            case '\'': return '&apos;';
-            case '"': return '&quot;';
-            default: return c;
-          }
-        });
-      };
-
-      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n';
-      
-      xml += `  <url>\n    <loc>https://simplycalculator.app/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n    <changefreq>daily</changefreq>\n  </url>\n`;
-      xml += `  <url>\n    <loc>https://simplycalculator.app/sitemap</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
-
-      CATEGORIES.forEach(cat => {
-        xml += `  <url>\n    <loc>https://simplycalculator.app/category/${escapeXml(cat.slug)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n    <changefreq>weekly</changefreq>\n  </url>\n`;
-        if (cat.items && Array.isArray(cat.items)) {
-          cat.items.forEach(item => {
-            xml += `  <url>\n    <loc>https://simplycalculator.app${escapeXml(item.path)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.6</priority>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
-          });
-        }
-      });
-
-      xml += '</urlset>';
-      cachedSitemap = xml;
-      
-      res.set('Content-Type', 'application/xml; charset=utf-8');
-      res.status(200).send(xml);
-    } catch (error) {
-      console.error('[Sitemap] Error:', error);
-      res.status(500).type('text/plain').send('Error generating sitemap');
+    const sitemapPath = path.resolve(process.cwd(), "public/sitemap.xml");
+    if (fs.existsSync(sitemapPath)) {
+      res.header('Content-Type', 'application/xml; charset=utf-8');
+      return res.sendFile(sitemapPath);
     }
+    res.status(404).send('Sitemap not found');
   });
 
   // 2. MIDDLEWARE
