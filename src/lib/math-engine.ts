@@ -40,8 +40,47 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/math/fraction': (inputs) => {
-    // Basic fraction logic could be complex, simple placeholder or basic eval
-    return { value: 'Feature coming soon', explanation: 'Fraction operations are being optimized.' };
+    const n1 = parseInt(inputs.num1 || '0');
+    const d1 = parseInt(inputs.den1 || '1');
+    const n2 = parseInt(inputs.num2 || '0');
+    const d2 = parseInt(inputs.den2 || '1');
+    const op = inputs.operation || 'add';
+
+    if (d1 === 0 || d2 === 0) return { value: 'Error', explanation: 'Denominator cannot be zero.' };
+
+    let resN = 0;
+    let resD = 1;
+
+    switch (op) {
+      case 'add':
+        resN = n1 * d2 + n2 * d1;
+        resD = d1 * d2;
+        break;
+      case 'subtract':
+        resN = n1 * d2 - n2 * d1;
+        resD = d1 * d2;
+        break;
+      case 'multiply':
+        resN = n1 * n2;
+        resD = d1 * d2;
+        break;
+      case 'divide':
+        if (n2 === 0) return { value: 'Error', explanation: 'Cannot divide by zero.' };
+        resN = n1 * d2;
+        resD = d1 * n2;
+        break;
+    }
+
+    const gcd = (a: number, b: number): number => b === 0 ? a : gcd(b, a % b);
+    const common = Math.abs(gcd(resN, resD));
+    resN /= common;
+    resD /= common;
+
+    const opSymbol = op === 'add' ? '+' : op === 'subtract' ? '-' : op === 'multiply' ? '×' : '÷';
+    return { 
+      value: `${resN}/${resD}`, 
+      explanation: `${n1}/${d1} ${opSymbol} ${n2}/${d2} = ${resN}/${resD}` 
+    };
   },
   '/math/pythagorean-theorem': (inputs) => {
      const a = parseFloat(inputs.a);
@@ -79,13 +118,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
         if (n % i === 0) return { value: 'No', explanation: `${n} is divisible by ${i}.` };
      }
      return { value: 'Yes', explanation: `${n} is a prime number.` };
-  },
-  '/math/percentage': (inputs) => {
-     const val = parseFloat(inputs.num1);
-     const perc = parseFloat(inputs.num2);
-     if (isNaN(val) || isNaN(perc)) return { value: 'Invalid' };
-     const res = (val * perc) / 100;
-     return { value: String(res), explanation: `${perc}% of ${val} = ${res}` };
   },
   '/compound-interest': (inputs) => {
     const p = parseFloat(inputs.principal);

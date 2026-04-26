@@ -860,10 +860,6 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
       { label: 'Divide', value: '/' }
     ]}
   ],
-  '/math/percentage': [
-    { id: 'num1', label: 'Value', type: 'number' },
-    { id: 'num2', label: 'Percentage', type: 'number', unit: '%' }
-  ],
   '/compound-growth': [
     { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },
     { id: 'rate', label: 'Annual Growth Rate', type: 'number', unit: '%' },

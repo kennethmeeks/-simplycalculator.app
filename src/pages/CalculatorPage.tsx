@@ -57,40 +57,10 @@ export const CalculatorPage: React.FC = () => {
             const response = await callGeminiWithRetry({
                 model: isRetry ? MODEL_PRO : MODEL_FLASH,
                 contents: `Define the core input fields for a professional "${foundItem.name}" (${foundItem.desc}). 
-                Focus on the 2-4 most critical inputs needed for accurate results.
-                Do not include optional or ancillary fields.`,
+                Focus on the 2-4 most critical inputs. Return ONLY a JSON object with a 'fields' array of objects: {id, label, type, unit?, placeholder?}.`,
                 config: {
-                    systemInstruction: "You are a specialized calculator schema generator. Return strictly valid JSON matching the requested schema. Ensure all field types are 'number', 'text', 'date', or 'select'. For 'select', provide 'options' as an array of {label, value} objects.",
+                    systemInstruction: "You are a specialized calculator schema generator. Return strictly valid JSON. Ensure all field types are 'number', 'text', or 'select'.",
                     responseMimeType: "application/json",
-                    responseSchema: {
-                        type: Type.OBJECT,
-                        properties: {
-                            fields: {
-                                type: Type.ARRAY,
-                                items: {
-                                    type: Type.OBJECT,
-                                    properties: {
-                                        id: { type: Type.STRING },
-                                        label: { type: Type.STRING },
-                                        type: { type: Type.STRING },
-                                        unit: { type: Type.STRING },
-                                        options: {
-                                            type: Type.ARRAY,
-                                            items: {
-                                                type: Type.OBJECT,
-                                                properties: {
-                                                    label: { type: Type.STRING },
-                                                    value: { type: Type.STRING }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    required: ['id', 'label', 'type']
-                                }
-                            }
-                        },
-                        required: ['fields']
-                    }
                 }
             });
             
@@ -136,15 +106,13 @@ export const CalculatorPage: React.FC = () => {
                 }
                 // Global fallback
                 return [
-                    { id: 'input1', label: `${name} Principal Value`, type: 'number' },
-                    { id: 'input2', label: 'Secondary Adjustment', type: 'number' },
-                    { id: 'input3', label: 'Optimization Factor', type: 'number' }
+                    { id: 'input1', label: `${name} Value`, type: 'number' },
+                    { id: 'input2', label: 'Adjustment', type: 'number' },
                 ];
             };
 
             setDynamicFields(getFallbackFields(foundItem.name));
-            // Show a helpful tip instead of a hard error
-            setError("We've initialized a standard input schema for this calculator while the optimized version loads."); 
+            setError(`Automated schema setup paused. Using standard fallback fields. (Report: ${err.message})`); 
         } finally {
             setIsSchemaLoading(false);
         }
@@ -467,7 +435,32 @@ export const CalculatorPage: React.FC = () => {
                             <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">
                                 {foundItem.desc}
                             </p>
+                            
+                            <div className="flex flex-wrap justify-center gap-3 mt-6">
+                                <div className="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-black uppercase rounded-full border border-blue-100 flex items-center gap-1.5">
+                                    <CheckCircle2 className="w-3 h-3" />
+                                    Verified Math
+                                </div>
+                                <div className="px-3 py-1 bg-green-50 text-green-700 text-[10px] font-black uppercase rounded-full border border-green-100 flex items-center gap-1.5">
+                                    <RotateCcw className="w-3 h-3" />
+                                    Real-time Updates
+                                </div>
+                                <div className="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase rounded-full border border-slate-200 flex items-center gap-1.5">
+                                    <Info className="w-3 h-3" />
+                                    Easy to Use
+                                </div>
+                            </div>
                         </header>
+
+                        <div className="bg-white border-l-4 border-blue-600 p-4 mb-8 rounded shadow-sm">
+                            <h3 className="text-sm font-bold text-slate-800 mb-1 flex items-center gap-2">
+                                <Info className="w-4 h-4 text-blue-600" />
+                                How to use
+                            </h3>
+                            <p className="text-xs text-slate-500 leading-relaxed italic">
+                                Fill in the details in the "Your Details" section below. As you enter information, our mathematics engine calculates the result instantly for 2026. Reach out if you have questions!
+                            </p>
+                        </div>
 
                         {foundItem.path === '/math/basic-calculator' ? (
                             <div className="py-12">

@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
 // Use recommended stable models from gemini-api skill
-export const MODEL_FLASH = 'gemini-3-flash-preview';
+export const MODEL_FLASH = 'gemini-flash-latest';
 export const MODEL_PRO = 'gemini-3.1-pro-preview';
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
