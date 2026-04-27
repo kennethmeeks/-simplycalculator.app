@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Loader2, BookOpen, Calculator, Lightbulb, HelpCircle, Info } from 'lucide-react';
-import { callGeminiWithRetry, safeParseAIResponse, MODEL_PRO, Type } from '../lib/gemini';
+import { fetchAIGuide, safeParseAIResponse, MODEL_PRO } from '../lib/gemini';
 import ReactMarkdown from 'react-markdown';
 
 interface GuideContent {
@@ -39,53 +39,14 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
         }
 
         const fetchGuide = async () => {
-            if (!process.env.GEMINI_API_KEY) return;
             setIsLoading(true);
             try {
-                const response = await callGeminiWithRetry({
-                    model: MODEL_PRO,
-                    contents: `Generate a professional, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
-                    You MUST include exactly these 3 sections in the 'sections' array:
-                    1. "How to Use This Calculator": A short, step-by-step guide for users.
-                    2. "The Mathematical Formula": A detailed explanation of the math behind the logic.
-                    3. "Common Examples": Real-world scenarios or example calculations.
-                    
-                    Additionally, provide a "Frequently Asked Questions (FAQ)" section in the 'faq' array with 3-4 common questions about these types of calculations.
-                    
-                    Keep the response authoritative yet concise (under 4000 characters total). Use Markdown-style formatting in the body text where helpful (bullet points, bolding).`,
-                    config: {
-                        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. Ensure the 'sections' array contains exactly 3 items addressing: How to Use, Math Formula, and Common Examples. The FAQ should be in its own 'faq' array.",
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: Type.OBJECT,
-                            properties: {
-                                sections: {
-                                    type: Type.ARRAY,
-                                    items: {
-                                        type: Type.OBJECT,
-                                        properties: {
-                                            title: { type: Type.STRING },
-                                            body: { type: Type.STRING }
-                                        }
-                                    }
-                                },
-                                faq: {
-                                    type: Type.ARRAY,
-                                    items: {
-                                        type: Type.OBJECT,
-                                        properties: {
-                                            q: { type: Type.STRING },
-                                            a: { type: Type.STRING }
-                                        }
-                                    }
-                                }
-                            },
-                            required: ["sections", "faq"]
-                        }
-                    }
+                const dataResponse = await fetchAIGuide({
+                    name,
+                    description
                 });
 
-                const data = safeParseAIResponse(response.text);
+                const data = safeParseAIResponse(dataResponse.text);
                 setGuideContent(data);
                 localStorage.setItem(CACHE_KEY(path), JSON.stringify(data));
             } catch (err) {

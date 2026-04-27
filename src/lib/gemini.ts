@@ -1,10 +1,6 @@
-import { GoogleGenAI, Type } from "@google/genai";
-
-// Use recommended stable models from gemini-api skill
-export const MODEL_FLASH = 'gemini-flash-latest';
-export const MODEL_PRO = 'gemini-3.1-pro-preview';
-
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Client-side wrappers for AI operations that proxy through the server
+export const MODEL_FLASH = 'gemini-1.5-flash';
+export const MODEL_PRO = 'gemini-1.5-pro';
 
 // Helper for parsing JSON from AI strings with legacy cleanup and robust object extraction
 export const safeParseAIResponse = (text: string | undefined): any => {
@@ -64,24 +60,63 @@ export const safeParseAIResponse = (text: string | undefined): any => {
     }
 };
 
-// Common retry logic for Gemini
-export const callGeminiWithRetry = async (params: any, retries = 2) => {
-    if (!process.env.GEMINI_API_KEY) {
-        throw new Error("AI services are currently unavailable. Please verify API configuration.");
+interface AISchemaRequest {
+    name: string;
+    desc: string;
+    isRetry?: boolean;
+}
+
+interface AICalculateRequest {
+    name: string;
+    inputs: Record<string, string>;
+}
+
+interface AIGuideRequest {
+    name: string;
+    description?: string;
+}
+
+export const fetchAISchema = async (params: AISchemaRequest) => {
+    const response = await fetch('/api/ai/schema', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+    });
+    
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server responded with ${response.status}`);
     }
-    let lastError;
-    for (let i = 0; i <= retries; i++) {
-        try {
-            return await ai.models.generateContent(params);
-        } catch (err) {
-            lastError = err;
-            if (i < retries) {
-                // Wait before retrying (exponential backoff)
-                await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
-            }
-        }
-    }
-    throw lastError;
+    
+    return await response.json();
 };
 
-export { ai, Type };
+export const fetchAICalculation = async (params: AICalculateRequest) => {
+    const response = await fetch('/api/ai/calculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+    });
+    
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server responded with ${response.status}`);
+    }
+    
+    return await response.json();
+};
+
+export const fetchAIGuide = async (params: AIGuideRequest) => {
+    const response = await fetch('/api/ai/guide', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+    });
+    
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server responded with ${response.status}`);
+    }
+    
+    return await response.json();
+};
