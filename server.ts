@@ -150,10 +150,16 @@ async function startDevServer() {
       html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
       
       const metaDescription = `<meta name="description" content="${description}">`;
+      const canonicalTag = `<link rel="canonical" href="https://simplycalculator.app${url === '/' ? '' : url.replace(/\/$/, '')}">`;
+      
       if (html.includes('<meta name="description"')) {
         html = html.replace(/<meta name="description".*?>/, metaDescription);
       } else {
-        html = html.replace('</head>', `  ${metaDescription}\n  </head>`);
+        html = html.replace('</head>', `  ${metaDescription}\n  ${canonicalTag}\n  </head>`);
+      }
+      
+      if (!html.includes(canonicalTag) && html.includes('</head>')) {
+        html = html.replace('</head>', `  ${canonicalTag}\n  </head>`);
       }
       
       // Inject schema

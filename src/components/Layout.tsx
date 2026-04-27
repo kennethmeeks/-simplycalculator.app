@@ -10,6 +10,7 @@ import {
   Star
 } from 'lucide-react';
 import { CATEGORIES } from '../constants/categories';
+import { CanonicalSEO } from './CanonicalSEO';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -48,6 +49,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8f9fa] font-sans">
+      <CanonicalSEO />
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-[1400px] mx-auto px-4 h-16 flex justify-between items-center">

@@ -22,13 +22,10 @@ export const CalculatorPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isSchemaLoading, setIsSchemaLoading] = useState(false);
     const [dynamicFields, setDynamicFields] = useState<CalculatorField[] | null>(null);
-    const [error, setError] = useState<string | null>(null);
     const [discoveryFailed, setDiscoveryFailed] = useState(false);
-    const [guideContent, setGuideContent] = useState<any>(null);
-    const [isGuideLoading, setIsGuideLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const CACHE_KEY_SCHEMA = (path: string) => `sc_schema_${path}`;
-    const CACHE_KEY_GUIDE = (path: string) => `sc_guide_${path}`;
 
     // Find the item
     const { foundItem, foundCategory } = useMemo(() => {
@@ -140,7 +137,7 @@ export const CalculatorPage: React.FC = () => {
         fetchSchema();
     }, [foundItem, fetchSchema]);
 
-    // Fetch SEO Guide Content
+    // Initial inputs populate
     useEffect(() => {
         if (!foundItem) return;
 
@@ -154,73 +151,7 @@ export const CalculatorPage: React.FC = () => {
             initialInputs[field.id] = field.defaultValue || '';
         });
         setInputs(initialInputs);
-
-        const cached = localStorage.getItem(CACHE_KEY_GUIDE(foundItem.path));
-        if (cached) {
-            try {
-                setGuideContent(JSON.parse(cached));
-                return;
-            } catch (e) {
-                localStorage.removeItem(CACHE_KEY_GUIDE(foundItem.path));
-            }
-        }
-
-        const fetchGuide = async () => {
-            setIsGuideLoading(true);
-            try {
-                const response = await callGeminiWithRetry({
-                    model: MODEL_PRO,
-                    contents: `Generate a professional, SEO-optimized technical guide for the "${foundItem.name}" calculator.
-                    You MUST include:
-                    1. A dedicated section on "Mathematical Formula" explaining the logic clearly.
-                    2. A section on "Unit Conversions" (e.g. Metric to Imperial) if relevant to this tool.
-                    3. A section on "Usage & Examples" providing context on when to use this.
-                    4. A "Frequently Asked Questions (FAQ)" section with at least 3 high-value questions and answers.
-                    Keep the response authoritative yet concise (under 4000 characters total).`,
-                    config: {
-                        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Ensure the 'sections' array contains exactly 3 items addressing: Formula, Units, and Usage Context. Accuracy is paramount.",
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: Type.OBJECT,
-                            properties: {
-                                sections: {
-                                    type: Type.ARRAY,
-                                    items: {
-                                        type: Type.OBJECT,
-                                        properties: {
-                                            title: { type: Type.STRING },
-                                            body: { type: Type.STRING }
-                                        }
-                                    }
-                                },
-                                faq: {
-                                    type: Type.ARRAY,
-                                    items: {
-                                        type: Type.OBJECT,
-                                        properties: {
-                                            q: { type: Type.STRING },
-                                            a: { type: Type.STRING }
-                                        }
-                                    }
-                                }
-                            },
-                            required: ["sections", "faq"]
-                        }
-                    }
-                });
-
-                const data = safeParseAIResponse(response.text);
-                setGuideContent(data);
-                localStorage.setItem(CACHE_KEY_GUIDE(foundItem.path), JSON.stringify(data));
-            } catch (err) {
-                console.error("Guide generation error:", err);
-            } finally {
-                setIsGuideLoading(false);
-            }
-        };
-
-        fetchGuide();
-    }, [calculatorPath, foundItem]);
+    }, [foundItem, currentFields]);
 
     if (!foundItem) {
         return <Navigate to="/" replace />;
