@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
 import { motion } from 'motion/react';
-import { parseInput } from '@/src/lib/calculatorUtils';
+import { parseInput } from '../lib/calculatorUtils';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';

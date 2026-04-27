@@ -6,7 +6,7 @@ import { FileDown, AlertCircle, Share2, RotateCcw } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { parseInput } from '@/src/lib/calculatorUtils';
+import { parseInput } from '../lib/calculatorUtils';
 
 export const MortgageCalculator: React.FC = () => {
   const [homePrice, setHomePrice] = useState<number | string>(400000);
@@ -20,7 +20,6 @@ export const MortgageCalculator: React.FC = () => {
   const [totalPayment, setTotalPayment] = useState(0);
   const [totalInterest, setTotalInterest] = useState(0);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isExporting, setIsExporting] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleReset = () => {
@@ -83,67 +82,28 @@ export const MortgageCalculator: React.FC = () => {
     try {
       const element = resultsRef.current;
       const canvas = await html2canvas(element, {
-        scale: 3,
+        scale: 2,
         useCORS: true,
         backgroundColor: '#ffffff',
-        logging: false,
-        windowWidth: element.scrollWidth,
-        windowHeight: element.scrollHeight
       });
       
-      const imgData = canvas.toDataURL('image/png', 1.0);
+      const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
       
-      // Branding Header
-      pdf.setFillColor(0, 102, 204); // #0066cc
+      pdf.setFillColor(0, 102, 204);
       pdf.rect(0, 0, pdfWidth, 40, 'F');
       
       pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(24);
-      pdf.setFont('helvetica', 'bold');
       pdf.text('SIMPLYCALCULATOR.APP', 15, 25);
       
-      pdf.setFontSize(10);
-      pdf.setFont('helvetica', 'normal');
-      pdf.text('PROFESSIONAL MORTGAGE REPORT // 2026', 15, 33);
-      
-      // Machine Info
-      pdf.setTextColor(50, 50, 50);
-      pdf.setFontSize(14);
-      pdf.setFont('helvetica', 'bold');
-      pdf.text('MORTGAGE CALCULATION ANALYSIS', 15, 55);
-      
-      pdf.setFontSize(9);
-      pdf.setFont('helvetica', 'normal');
-      pdf.setTextColor(150, 150, 150);
-      pdf.text(`TIMESTAMP: ${new Date().toLocaleString()}`, 15, 62);
-      
-      // Horizontal Line
-      pdf.setDrawColor(230, 230, 230);
-      pdf.line(15, 75, pdfWidth - 15, 75);
-      
-      // Image Placement
       const imgProps = pdf.getImageProperties(imgData);
       const displayWidth = pdfWidth - 30;
       const displayHeight = (imgProps.height * displayWidth) / imgProps.width;
       
-      pdf.addImage(imgData, 'PNG', 15, 85, displayWidth, displayHeight);
-      
-      // Disclaimer/Footer
-      const footerY = Math.max(85 + displayHeight + 20, pdfHeight - 30);
-      pdf.setFontSize(8);
-      pdf.setTextColor(180, 180, 180);
-      pdf.text('DISCLAIMER: This report is an estimate based on mathematical models and verified formulas.', 15, footerY);
-      pdf.text('simplycalculator.app assumes no liability for critical financial or medical decisions.', 15, footerY + 4);
-      
-      pdf.setTextColor(0, 102, 204);
-      pdf.setFontSize(9);
-      pdf.setFont('helvetica', 'bold');
-      pdf.text('WWW.SIMPLYCALCULATOR.APP', pdfWidth / 2, pdfHeight - 10, { align: 'center' });
-      
-      pdf.save('Mortgage_Calculator_Report.pdf');
+      pdf.addImage(imgData, 'PNG', 15, 50, displayWidth, displayHeight);
+      pdf.save('Mortgage_Report.pdf');
     } catch (error) {
       console.error('PDF Export failed:', error);
     }
@@ -153,171 +113,96 @@ export const MortgageCalculator: React.FC = () => {
     <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
         <title>Mortgage Calculator with Taxes and Insurance 2026 | simplycalculator.app</title>
-        <meta name="description" content="Calculate your total monthly house payment with our free mortgage calculator with taxes and insurance. Estimate principal, interest, property tax, and homeowners insurance for 2026." />
+        <meta name="description" content="Free mortgage calculator with taxes and insurance. Estimate your total monthly payment." />
       </Helmet>
 
       <header className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Mortgage Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Estimate your monthly housing costs for 2026 with full precision.</p>
+        <h1 className="text-4xl font-bold text-slate-900 uppercase">Mortgage Calculator</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Estimate your monthly housing costs for 2026.</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        {/* Left: Inputs */}
         <div className="lg:col-span-2 space-y-6">
           <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-            <div className="mb-8">
-              <h2 className="text-blue-600 font-bold text-2xl">Mortgage Parameters</h2>
-            </div>
-
+            <h2 className="text-blue-600 font-bold text-2xl mb-6">Mortgage Parameters</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-1.5">
                 <label className="text-sm font-bold text-slate-600">Home Price</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.homePrice ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
-                  <span className="text-sm text-slate-400">$</span>
-                  <input 
-                    type="number" 
-                    value={homePrice} 
-                    onChange={(e) => setHomePrice(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
-                  />
-                </div>
-                {errors.homePrice && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.homePrice}</p>}
+                <input 
+                  type="number" 
+                  value={homePrice} 
+                  onChange={(e) => setHomePrice(e.target.value)}
+                  className="w-full h-12 px-3 border border-slate-200 rounded-lg outline-none focus:border-blue-600 font-medium"
+                />
               </div>
-
               <div className="space-y-1.5">
                 <label className="text-sm font-bold text-slate-600">Down Payment</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.downPayment ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
-                  <span className="text-sm text-slate-400">$</span>
-                  <input 
-                    type="number" 
-                    value={downPayment} 
-                    onChange={(e) => setDownPayment(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
-                  />
-                </div>
-                {errors.downPayment && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.downPayment}</p>}
+                <input 
+                  type="number" 
+                  value={downPayment} 
+                  onChange={(e) => setDownPayment(e.target.value)}
+                  className="w-full h-12 px-3 border border-slate-200 rounded-lg outline-none focus:border-blue-600 font-medium"
+                />
               </div>
-
               <div className="space-y-1.5">
-                <label className="text-sm font-bold text-slate-600">Interest Rate</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.interestRate ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
-                  <input 
-                    type="number" 
-                    step="0.1"
-                    value={interestRate} 
-                    onChange={(e) => setInterestRate(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
-                  />
-                  <span className="text-sm text-slate-400">%</span>
-                </div>
-                {errors.interestRate && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.interestRate}</p>}
+                <label className="text-sm font-bold text-slate-600">Interest Rate (%)</label>
+                <input 
+                  type="number" 
+                  step="0.1"
+                  value={interestRate} 
+                  onChange={(e) => setInterestRate(e.target.value)}
+                  className="w-full h-12 px-3 border border-slate-200 rounded-lg outline-none focus:border-blue-600 font-medium"
+                />
               </div>
-
               <div className="space-y-1.5">
                 <label className="text-sm font-bold text-slate-600">Loan Term (Years)</label>
                 <select 
                   value={loanTerm} 
                   onChange={(e) => setLoanTerm(Number(e.target.value))}
-                  className="w-full h-12 px-3 bg-white border border-slate-200 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none font-medium text-slate-700 transition-all"
+                  className="w-full h-12 px-3 border border-slate-200 rounded-lg outline-none focus:border-blue-600 font-medium"
                 >
                   <option value={15}>15 Years</option>
                   <option value={20}>20 Years</option>
                   <option value={30}>30 Years</option>
                 </select>
               </div>
-
-              <div className="space-y-1.5">
-                <label className="text-sm font-bold text-slate-600">Property Tax</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.propertyTax ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
-                  <input 
-                    type="number" 
-                    step="0.01"
-                    value={propertyTax} 
-                    onChange={(e) => setPropertyTax(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
-                  />
-                  <span className="text-sm text-slate-400">%</span>
-                </div>
-                {errors.propertyTax && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.propertyTax}</p>}
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-sm font-bold text-slate-600">Annual Insurance</label>
-                <div className={`flex items-center gap-2 border rounded-lg px-3 h-12 transition-colors ${errors.insurance ? 'border-red-500 bg-red-50' : 'border-slate-200 focus-within:border-blue-600'}`}>
-                  <span className="text-sm text-slate-400">$</span>
-                  <input 
-                    type="number" 
-                    value={insurance} 
-                    onChange={(e) => setInsurance(e.target.value)}
-                    className="bg-transparent border-none outline-none flex-1 text-slate-700 font-medium"
-                  />
-                </div>
-                {errors.insurance && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.insurance}</p>}
-              </div>
             </div>
           </section>
-
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
-            <h2 className="text-xl font-bold text-slate-900">Payment Breakdown</h2>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Your monthly mortgage payment is typically made up of several key components: Principal, Interest, Property Taxes, and Homeowners Insurance (PITI).
-            </p>
-          </div>
         </div>
 
-        {/* Right: Results */}
-        <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm flex flex-col h-full relative overflow-hidden" ref={resultsRef}>
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          
-          <h2 className="text-blue-600 font-bold text-2xl mb-8 relative z-10">Your Results</h2>
-          
-          <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
-            <div className="space-y-4 w-full">
-              <div>
-                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-1">Monthly Payment</p>
-                <div className="text-blue-600 text-6xl font-bold tracking-tight">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+        <section className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm" ref={resultsRef}>
+          <h2 className="text-blue-600 font-bold text-2xl mb-8">Results</h2>
+          <div className="text-center space-y-6">
+            <div>
+              <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">Monthly Payment</p>
+              <div className="text-blue-600 text-6xl font-bold">${monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+            </div>
+            <div className="pt-6 border-t border-slate-100 space-y-3">
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-500">Total Interest:</span>
+                <span className="font-bold">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
               </div>
-              
-              <div className="pt-8 border-t border-slate-100 w-full space-y-3">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-slate-500 font-medium">Total Interest:</span>
-                  <span className="font-bold text-slate-700">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-slate-500 font-medium">Total Cost:</span>
-                  <span className="font-bold text-slate-700">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-slate-500 font-medium">Loan Amount:</span>
-                  <span className="font-bold text-slate-700">${(Number(homePrice) - Number(downPayment)).toLocaleString()}</span>
-                </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-500">Total Cost:</span>
+                <span className="font-bold">${totalPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
               </div>
             </div>
-
-            <div className="mt-12 w-full">
-              <ResultActions 
-                  onReset={handleReset}
-                  onDownloadPDF={handleDownloadPDF}
-                  onCopy={() => {
-                      const text = `Mortgage Calculator Results:\nMonthly Payment: $${monthlyPayment.toLocaleString()}\nTotal Interest: $${totalInterest.toLocaleString()}\nCalculated at simplycalculator.app`;
-                      navigator.clipboard.writeText(text);
-                  }}
-              />
-            </div>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-slate-100 relative z-10">
-            <p className="text-slate-400 text-[11px] font-medium leading-relaxed italic">
-              Note: This report is an estimate based on mathematical models and verified formulas.
-            </p>
+            <ResultActions 
+                onReset={handleReset}
+                onDownloadPDF={handleDownloadPDF}
+                onCopy={() => {
+                    const text = `Mortgage: $${monthlyPayment.toFixed(0)}/mo`;
+                    navigator.clipboard.writeText(text);
+                }}
+            />
           </div>
         </section>
       </div>
 
       <CalculatorSEO 
-        name="Mortgage Calculator with Taxes and Insurance" 
+        name="Mortgage Calculator" 
         path="/mortgage" 
-        description="Calculate your total monthly house payment including principal, interest, taxes, and insurance. Plan your home purchase for 2026 with confidence."
+        description="Calculate your monthly mortgage payments with taxes and insurance."
       />
     </div>
   );
