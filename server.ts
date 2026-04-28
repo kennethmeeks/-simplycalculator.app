@@ -26,20 +26,50 @@ async function startDevServer() {
   });
 
   app.get("/sitemap.xml", (req, res) => {
-    // Check multiple possible locations for the sitemap
-    const paths = [
-      path.resolve(process.cwd(), "public/sitemap.xml"),
-      path.resolve(process.cwd(), "dist/sitemap.xml"),
-      path.resolve(process.cwd(), "sitemap.xml")
-    ];
+    const domain = 'https://simplycalculator.app';
+    const lastmod = new Date().toISOString().split('T')[0];
     
-    for (const p of paths) {
-      if (fs.existsSync(p)) {
-        res.header('Content-Type', 'application/xml; charset=utf-8');
-        return res.sendFile(p);
-      }
-    }
-    res.status(404).type('text/plain').send('Sitemap not found');
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${domain}/</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${domain}/sitemap</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+
+    // Add category pages
+    CATEGORIES.forEach(cat => {
+      xml += `
+  <url>
+    <loc>${domain}/category/${cat.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+      
+      // Add individual calculators
+      cat.items.forEach(item => {
+        xml += `
+  <url>
+    <loc>${domain}${item.path.startsWith('/') ? item.path : '/' + item.path}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+      });
+    });
+
+    xml += '\n</urlset>';
+    
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
   });
 
   // 2. MIDDLEWARE
