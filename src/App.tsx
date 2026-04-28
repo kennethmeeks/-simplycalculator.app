@@ -265,11 +265,13 @@ const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms }
 const CategoryPage = lazy(() => import('./pages/CategoryPage').then(m => ({ default: m.CategoryPage })));
 
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { CanonicalSEO } from './components/CanonicalSEO';
 
 export default function App() {
   return (
     <HelmetProvider>
       <Router>
+        <CanonicalSEO />
         <Layout>
           <ErrorBoundary>
             <Suspense fallback={
