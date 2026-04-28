@@ -60,15 +60,22 @@ async function startDevServer() {
     res.json({ status: "ok", mode: isProd ? "production" : "development" });
   });
 
-  // AI API Proxy Routes
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+  // AI API Proxy Client (Lazy Loaded)
+  let genAIInstance: GoogleGenerativeAI | null = null;
+  const getGenAI = () => {
+    const key = process.env.GEMINI_API_KEY;
+    if (!key) {
+      throw new Error("GEMINI_API_KEY environment variable is missing.");
+    }
+    if (!genAIInstance) {
+      genAIInstance = new GoogleGenerativeAI(key);
+    }
+    return genAIInstance;
+  };
 
   app.post("/api/ai/schema", async (req, res) => {
     try {
-      if (!process.env.GEMINI_API_KEY) {
-        return res.status(503).json({ error: "AI services are currently unavailable. Please verify API configuration." });
-      }
-
+      const genAI = getGenAI();
       const { name, desc, isRetry } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: isRetry ? "gemini-1.5-pro" : "gemini-1.5-flash",
@@ -82,16 +89,13 @@ async function startDevServer() {
       res.json({ text: result.response.text() });
     } catch (error: any) {
       console.error("AI Schema Error:", error);
-      res.status(500).json({ error: error.message });
+      res.status(error.message?.includes("GEMINI_API_KEY") ? 503 : 500).json({ error: error.message });
     }
   });
 
   app.post("/api/ai/calculate", async (req, res) => {
     try {
-      if (!process.env.GEMINI_API_KEY) {
-        return res.status(503).json({ error: "AI services are currently unavailable. Please verify API configuration." });
-      }
-
+      const genAI = getGenAI();
       const { name, inputs } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-flash",
@@ -113,16 +117,13 @@ async function startDevServer() {
       res.json({ text: result.response.text() });
     } catch (error: any) {
       console.error("AI Calculation Error:", error);
-      res.status(500).json({ error: error.message });
+      res.status(error.message?.includes("GEMINI_API_KEY") ? 503 : 500).json({ error: error.message });
     }
   });
 
   app.post("/api/ai/guide", async (req, res) => {
     try {
-      if (!process.env.GEMINI_API_KEY) {
-        return res.status(503).json({ error: "AI services are currently unavailable. Please verify API configuration." });
-      }
-
+      const genAI = getGenAI();
       const { name, description } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-pro",
@@ -146,7 +147,7 @@ async function startDevServer() {
       res.json({ text: result.response.text() });
     } catch (error: any) {
       console.error("AI Guide Error:", error);
-      res.status(500).json({ error: error.message });
+      res.status(error.message?.includes("GEMINI_API_KEY") ? 503 : 500).json({ error: error.message });
     }
   });
 
