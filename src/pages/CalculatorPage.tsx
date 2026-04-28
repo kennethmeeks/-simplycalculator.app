@@ -319,7 +319,6 @@ export const CalculatorPage: React.FC = () => {
             <Helmet>
                 <title>{foundItem.name} | Free Professional Calculator | simplycalculator.app</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
-                <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
             </Helmet>
 
             <div className="w-full">

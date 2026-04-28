@@ -11,7 +11,6 @@ export const Home: React.FC = () => {
       <Helmet>
         <title>All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app</title>
         <meta name="description" content="Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces." />
-        <link rel="canonical" href="https://simplycalculator.app" />
         <script type="application/ld+json">
           {`
             {
