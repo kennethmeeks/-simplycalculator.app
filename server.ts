@@ -89,7 +89,13 @@ async function startDevServer() {
       res.json({ text: result.response.text() });
     } catch (error: any) {
       console.error("AI Schema Error:", error);
-      res.status(error.message?.includes("GEMINI_API_KEY") ? 503 : 500).json({ error: error.message });
+      const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
+                         error.message?.includes("API key not valid") ||
+                         error.message?.includes("key invalid") ||
+                         error.message?.includes("400 Bad Request");
+      res.status(isAuthError ? 503 : 500).json({ 
+        error: isAuthError ? "AI services are currently unavailable. Please verify your Gemini API key in the application settings." : error.message 
+      });
     }
   });
 
@@ -117,7 +123,13 @@ async function startDevServer() {
       res.json({ text: result.response.text() });
     } catch (error: any) {
       console.error("AI Calculation Error:", error);
-      res.status(error.message?.includes("GEMINI_API_KEY") ? 503 : 500).json({ error: error.message });
+      const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
+                         error.message?.includes("API key not valid") ||
+                         error.message?.includes("key invalid") ||
+                         error.message?.includes("400 Bad Request");
+      res.status(isAuthError ? 503 : 500).json({ 
+        error: isAuthError ? "AI services are currently unavailable. Please verify your Gemini API key in the application settings." : error.message 
+      });
     }
   });
 
@@ -147,7 +159,13 @@ async function startDevServer() {
       res.json({ text: result.response.text() });
     } catch (error: any) {
       console.error("AI Guide Error:", error);
-      res.status(error.message?.includes("GEMINI_API_KEY") ? 503 : 500).json({ error: error.message });
+      const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
+                         error.message?.includes("API key not valid") ||
+                         error.message?.includes("key invalid") ||
+                         error.message?.includes("400 Bad Request");
+      res.status(isAuthError ? 503 : 500).json({ 
+        error: isAuthError ? "AI services are currently unavailable. Please verify your Gemini API key in the application settings." : error.message 
+      });
     }
   });
 
