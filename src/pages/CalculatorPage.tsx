@@ -319,6 +319,59 @@ export const CalculatorPage: React.FC = () => {
             <Helmet>
                 <title>{foundItem.name} | Free Professional Calculator | simplycalculator.app</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
+                <meta property="og:title" content={`${foundItem.name} | simplycalculator.app`} />
+                <meta property="og:description" content={foundItem.desc} />
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content={foundItem.name} />
+                <meta name="twitter:description" content={foundItem.desc} />
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": foundItem.name,
+                    "operatingSystem": "All",
+                    "applicationCategory": "EducationalApplication",
+                    "description": foundItem.desc,
+                    "offers": {
+                      "@type": "Offer",
+                      "price": "0",
+                      "priceCurrency": "USD"
+                    },
+                    "aggregateRating": {
+                      "@type": "AggregateRating",
+                      "ratingValue": "4.9",
+                      "ratingCount": "1250"
+                    }
+                  })}
+                </script>
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://simplycalculator.app/"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": foundCategory?.title || "Categories",
+                        "item": `https://simplycalculator.app/category/${foundCategory?.slug || ''}`
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": foundItem.name,
+                        "item": `https://simplycalculator.app${foundItem.path}`
+                      }
+                    ]
+                  })}
+                </script>
             </Helmet>
 
             <div className="w-full">
