@@ -93,7 +93,11 @@ async function startDevServer() {
   const getGenAI = () => {
     const key = process.env.GEMINI_API_KEY;
     if (!key) {
+      console.error("[CRITICAL] GEMINI_API_KEY is missing from environment variables.");
       throw new Error("GEMINI_API_KEY environment variable is missing.");
+    }
+    if (key.length < 10) {
+      console.error("[CRITICAL] GEMINI_API_KEY exists but is suspiciously short.");
     }
     if (!genAIInstance) {
       genAIInstance = new GoogleGenerativeAI(key);
@@ -105,9 +109,9 @@ async function startDevServer() {
     try {
       console.log("[API] /api/ai/schema request", req.body?.name);
       const genAI = getGenAI();
-      const { name, desc, isRetry } = req.body;
+      const { name, desc } = req.body;
       const model = genAI.getGenerativeModel({ 
-        model: isRetry ? "gemini-1.5-pro" : "gemini-1.5-flash",
+        model: "gemini-1.5-flash",
         systemInstruction: "You are a specialized calculator schema generator. Return strictly valid JSON. Ensure all field types are 'number', 'text', or 'select'."
       });
 
@@ -171,8 +175,8 @@ async function startDevServer() {
       const genAI = getGenAI();
       const { name, description } = req.body;
       const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-pro",
-        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. Ensure the 'sections' array contains at least 4 detailed items. Each section's body MUST be comprehensive (at least 150 words per section). The FAQ should be in its own 'faq' array with at least 5 items.",
+        model: "gemini-1.5-flash",
+        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. Ensure the 'sections' array contains at least 4 detailed items. Each section's body MUST be comprehensive (at least 200 words per section to ensure depth). The FAQ should be in its own 'faq' array with at least 5 items.",
         generationConfig: {
           responseMimeType: "application/json",
         }

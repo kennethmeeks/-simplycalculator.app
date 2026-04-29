@@ -3,6 +3,7 @@ import { Loader2, BookOpen, Calculator, Lightbulb, HelpCircle, Info, ShieldCheck
 import { fetchAIGuide, safeParseAIResponse } from '../lib/gemini';
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'motion/react';
 
 interface GuideContent {
     sections: {title: string, body: string}[];
