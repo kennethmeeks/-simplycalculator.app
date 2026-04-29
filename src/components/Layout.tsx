@@ -19,6 +19,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     'finance': true,
   });
   const location = useLocation();
+  const isEmbed = new URLSearchParams(location.search).get('embed') === 'true';
 
   const toggleCategory = (slug: string) => {
     setExpandedCategories(prev => ({
@@ -51,34 +52,36 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     <div className="min-h-screen flex flex-col bg-[#f8f9fa] font-sans">
       <CanonicalSEO />
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-[1400px] mx-auto px-4 h-16 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3 font-bold text-xl tracking-tight group">
-            <div className="w-8 h-8 bg-blue-600 flex items-center justify-center rounded-lg">
-              <Calculator className="w-5 h-5 text-white" />
+      {!isEmbed && (
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+          <div className="max-w-[1400px] mx-auto px-4 h-16 flex justify-between items-center">
+            <Link to="/" className="flex items-center gap-3 font-bold text-xl tracking-tight group">
+              <div className="w-8 h-8 bg-blue-600 flex items-center justify-center rounded-lg">
+                <Calculator className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-slate-900">simplycalculator<span className="text-blue-600">.app</span></span>
+            </Link>
+
+            <div className="hidden md:flex gap-8 text-[12px] font-bold uppercase tracking-wider items-center text-slate-600">
+              <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+              <Link to="/finance" className="hover:text-blue-600 transition-colors">Finance</Link>
+              <Link to="/health" className="hover:text-blue-600 transition-colors">Health</Link>
+              <div className="h-4 w-[1px] bg-slate-200 mx-2"></div>
+              <Link to="/about" className="hover:text-blue-600 transition-colors text-slate-400">Info</Link>
             </div>
-            <span className="text-slate-900">simplycalculator<span className="text-blue-600">.app</span></span>
-          </Link>
 
-          <div className="hidden md:flex gap-8 text-[12px] font-bold uppercase tracking-wider items-center text-slate-600">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/finance" className="hover:text-blue-600 transition-colors">Finance</Link>
-            <Link to="/health" className="hover:text-blue-600 transition-colors">Health</Link>
-            <div className="h-4 w-[1px] bg-slate-200 mx-2"></div>
-            <Link to="/about" className="hover:text-blue-600 transition-colors text-slate-400">Info</Link>
+            <button
+              className="md:hidden p-2 text-slate-600"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button>
           </div>
-
-          <button
-            className="md:hidden p-2 text-slate-600"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </header>
+        </header>
+      )}
 
       {/* Mobile Nav */}
-      {isMenuOpen && (
+      {!isEmbed && isMenuOpen && (
         <div className="md:hidden bg-white border-b border-[#ccc] px-4 py-6 flex flex-col gap-6 overflow-y-auto max-h-[70vh]">
           {CATEGORIES.map((cat) => (
             <div key={cat.slug} className="space-y-2">
@@ -107,9 +110,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       )}
 
       {/* Main Content Area */}
-      <div className="max-w-[1400px] mx-auto w-full flex flex-col md:flex-row gap-8 lg:gap-12 px-6 py-6 lg:py-12 flex-1">
+      <div className={`max-w-[1400px] mx-auto w-full flex flex-col md:flex-row flex-1 ${isEmbed ? 'p-0' : 'gap-8 lg:gap-12 px-6 py-6 lg:py-12'}`}>
         {/* Sidebar */}
-        <aside className="hidden md:block w-72 shrink-0 h-[calc(100vh-120px)] sticky top-24 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
+        {!isEmbed && (
+          <aside className="hidden md:block w-72 shrink-0 h-[calc(100vh-120px)] sticky top-24 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
           <div className="space-y-8">
             {/* Search Box */}
             <div className="bg-white border border-slate-200 rounded-lg">
@@ -182,6 +186,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </div>
           </div>
         </aside>
+        )}
 
         {/* Content Area */}
         <div className="flex-1 flex flex-col xl:flex-row gap-8 lg:gap-12 min-w-0">
@@ -194,7 +199,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </div>
 
-      <footer className="bg-[#333] text-white py-8 mt-auto">
+      {!isEmbed && (
+        <footer className="bg-[#333] text-white py-8 mt-auto">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2 font-bold text-xl">
@@ -225,6 +231,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           </div>
         </div>
       </footer>
+      )}
     </div>
   );
 };

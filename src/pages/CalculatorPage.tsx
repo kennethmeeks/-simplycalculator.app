@@ -6,6 +6,7 @@ import { POPULAR_SCHEMAS, CalculatorField } from '../constants/schemas';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calculator, ChevronLeft, ChevronRight, ChevronDown, Info, Settings2, CheckCircle2, RotateCcw, Loader2, Share2, FileDown } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
+import { CalculatorVisualizer } from '../components/CalculatorVisualizer';
 import { standardCalculations } from '../lib/math-engine';
 import { InteractiveCalculator } from '../components/InteractiveCalculator';
 import { CalculatorSEO } from '../components/CalculatorSEO';
@@ -557,6 +558,12 @@ export const CalculatorPage: React.FC = () => {
                                                         </p>
                                                     </div>
                                                 )}
+
+                                                <CalculatorVisualizer 
+                                                    name={foundItem.name} 
+                                                    category={foundCategory.slug}
+                                                    result={result}
+                                                />
                                                 
                                                 <div className="flex justify-center mt-6">
                                                     <ResultActions 
@@ -622,17 +629,38 @@ export const CalculatorPage: React.FC = () => {
                             description={foundItem.desc}
                         />
 
-                        <section className="pt-20 border-t border-[#eee]">
-                            <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8 italic">// Related Mathematical Hubs</h3>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                {foundCategory.items.filter(i => i.path !== `/${calculatorPath}`).slice(0, 4).map((related, idx) => (
+                        <section className="pt-24 border-t border-slate-100">
+                            <div className="flex items-center justify-between mb-10">
+                                <div>
+                                    <h3 className="text-lg font-bold text-slate-900 mb-1">More {foundCategory.title} Tools</h3>
+                                    <p className="text-xs text-slate-500 font-medium">Explore related expert-verified calculators.</p>
+                                </div>
+                                <Link 
+                                    to={`/category/${foundCategory.slug}`}
+                                    className="text-[10px] font-black uppercase tracking-widest text-[#0066cc] hover:underline"
+                                >
+                                    Browse Category
+                                </Link>
+                            </div>
+                            
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {foundCategory.items.filter(i => i.path !== foundItem.path).slice(0, 4).map((related, idx) => (
                                     <Link 
                                         key={idx}
                                         to={related.path}
-                                        className="p-4 border-2 border-[#eee] hover:border-[#111] transition-all group"
+                                        className="group p-6 bg-white border border-slate-100 rounded-2xl hover:border-blue-600 hover:shadow-xl hover:shadow-blue-900/5 transition-all relative overflow-hidden"
                                     >
-                                        <span className="block text-[11px] font-black text-[#111] uppercase tracking-tight mb-2 group-hover:text-blue-600">{related.name}</span>
-                                        <span className="block text-[9px] text-[#999] font-medium leading-tight">{related.desc}</span>
+                                        <div className="absolute -right-4 -top-4 w-16 h-16 bg-blue-50/50 rounded-full group-hover:bg-blue-600 group-hover:scale-150 transition-all duration-500"></div>
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white transition-colors">
+                                                    <Calculator className="w-4 h-4" />
+                                                </div>
+                                                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-200 transition-colors">Free Tool</span>
+                                            </div>
+                                            <h4 className="text-sm font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors uppercase tracking-tight">{related.name}</h4>
+                                            <p className="text-[10px] text-slate-500 font-medium leading-relaxed line-clamp-2">{related.desc}</p>
+                                        </div>
                                     </Link>
                                 ))}
                             </div>

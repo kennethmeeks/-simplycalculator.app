@@ -126,9 +126,10 @@ async function startDevServer() {
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
-                         error.message?.includes("400 Bad Request");
-      res.status(isAuthError ? 503 : 500).json({ 
-        error: isAuthError ? "AI services are currently unavailable. Please verify your Gemini API key in the application settings." : error.message 
+                         error.message?.includes("400") ||
+                         error.message?.includes("401");
+      res.status(isAuthError ? 401 : 503).json({ 
+        error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
       });
     }
   });
@@ -162,9 +163,10 @@ async function startDevServer() {
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
-                         error.message?.includes("400 Bad Request");
-      res.status(isAuthError ? 503 : 500).json({ 
-        error: isAuthError ? "AI services are currently unavailable. Please verify your Gemini API key in the application settings." : error.message 
+                         error.message?.includes("400") ||
+                         error.message?.includes("401");
+      res.status(isAuthError ? 401 : 503).json({ 
+        error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
       });
     }
   });
@@ -176,7 +178,7 @@ async function startDevServer() {
       const { name, description } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-flash",
-        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. Ensure the 'sections' array contains at least 4 detailed items. Each section's body MUST be comprehensive (at least 200 words per section to ensure depth). The FAQ should be in its own 'faq' array with at least 5 items.",
+        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. You MUST provide a 'howAndWhy' string (at least 500 words) and a 'faq' array. The 'howAndWhy' should be structured with headers for 'How to use' and 'Why it works'.",
         generationConfig: {
           responseMimeType: "application/json",
         }
@@ -184,20 +186,17 @@ async function startDevServer() {
 
       const prompt = `Generate an exhaustive, expert-level, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
       
-      You MUST provide a comprehensive response as a JSON object with:
-      1. "sections": An array of at least 4 detailed sections:
-         - "How to Use This Calculator": Professional guide for users.
-         - "Mathematical Formula & Logic": Deep dive into verified 2026 formulas. Explain EVERY variable and the logic behind it.
-         - "Real-World Examples": Detailed calculation scenarios where this tool is used.
-         - "Expert Advice & Limitations": Professional tips for accuracy and edge cases.
-      2. "faq": An array of at least 6 Frequently Asked Questions (FAQ).
+      You MUST provide a response as a JSON object with:
+      1. "howAndWhy": A comprehensive, long-form narrative section (at least 400 words) titled "How and Why it Works". This must cover:
+         - A step-by-step "How to use" guide.
+         - A deep-dive into "Why" the underlying mathematics and logic are used.
+      2. "faq": An array of at least 8 Frequently Asked Questions (FAQ) with detailed, expert-level answers.
       
-      CRITICAL CONTENT REQUIREMENTS:
-      - Total word count MUST be between 500 and 800 words.
-      - Each section body MUST be meaty, authoritative, and provide high value.
-      - Use professional Markdown (bolding, lists, code blocks for formulas) within section bodies.
-      - Ensure the math is 100% accurate for 2026 standards.
-      - Signal high EEAT (Expertise, Authoritativeness, and Trustworthiness).`;
+      CRITICAL REQUIREMENTS:
+      - Total word count MUST be between 600 and 1000 words.
+      - Each FAQ answer must be substantial (at least 2-3 sentences).
+      - Use professional Markdown (bolding, lists, code blocks for formulas) within the bodies.
+      - Signal extremely high EEAT (Experience, Expertise, Authoritativeness, and Trustworthiness).`;
 
       const result = await model.generateContent(prompt);
       const text = result.response.text();
@@ -207,9 +206,10 @@ async function startDevServer() {
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
-                         error.message?.includes("400 Bad Request");
-      res.status(isAuthError ? 503 : 500).json({ 
-        error: isAuthError ? "AI services are currently unavailable. Please verify your Gemini API key in the application settings." : error.message 
+                         error.message?.includes("400") ||
+                         error.message?.includes("401");
+      res.status(isAuthError ? 401 : 503).json({ 
+        error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
       });
     }
   });

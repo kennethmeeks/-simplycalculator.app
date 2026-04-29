@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 
 interface GuideContent {
-    sections: {title: string, body: string}[];
+    howAndWhy: string;
     faq: {q: string, a: string}[];
 }
 
@@ -19,17 +19,8 @@ interface CalculatorSEOProps {
 export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, description }) => {
     const [guideContent, setGuideContent] = useState<GuideContent | null>(null);
     const [isLoading, setIsLoading] = useState(false);
-    const CACHE_KEY = (p: string) => `sc_guide_v3_${p}`; // Bumped version to v3 for forced content refresh
+    const CACHE_KEY = (p: string) => `sc_guide_v4_${p}`; // Bumped version to v4 for new schema
     const [error, setError] = useState<string | null>(null);
-
-    const getIconForSection = (title: string) => {
-        const t = title.toLowerCase();
-        if (t.includes('how to use')) return <BookOpen className="w-5 h-5 text-blue-600" />;
-        if (t.includes('formula')) return <Calculator className="w-5 h-5 text-blue-600" />;
-        if (t.includes('example')) return <Lightbulb className="w-5 h-5 text-blue-600" />;
-        if (t.includes('mistake') || t.includes('tip') || t.includes('advice')) return <AlertTriangle className="w-5 h-5 text-amber-500" />;
-        return <Info className="w-5 h-5 text-blue-600" />;
-    };
 
     useEffect(() => {
         const cached = localStorage.getItem(CACHE_KEY(path));
@@ -58,8 +49,8 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                 const data = safeParseAIResponse(dataResponse.text);
                 
                 // Content validation
-                if (!data.sections || !Array.isArray(data.sections) || data.sections.length === 0) {
-                    throw new Error("AI failed to generate valid sections");
+                if (!data.howAndWhy || typeof data.howAndWhy !== 'string') {
+                    throw new Error("AI failed to generate a valid How & Why section");
                 }
 
                 setGuideContent(data);
@@ -88,7 +79,11 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
     }
 
     if (error) {
-        const isAIUnavailable = error.includes("Gemini API key") || error.includes("AI services");
+        const isAIUnavailable = error.includes("GEMINI_API_KEY") || 
+                              error.includes("API key not valid") || 
+                              error.includes("AI services") ||
+                              error.includes("401") ||
+                              error.includes("403");
         return (
             <div className="mt-12 p-10 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-4">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
@@ -98,17 +93,24 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                     <p className="text-slate-900 font-bold text-sm mb-1">Documentation Sync</p>
                     <p className="text-slate-500 text-xs max-w-sm mx-auto leading-relaxed">
                         {isAIUnavailable 
-                            ? "AI services are currently updating. Please ensure your Gemini API key is correctly configured."
+                            ? "AI documentation requires a valid Gemini API key. Please check your application settings and try again."
                             : "Our team is currently updating this guide. Please check back in a few moments."}
                     </p>
                 </div>
-                <button 
-                    onClick={() => window.location.reload()}
-                    className="inline-flex items-center gap-2 px-6 py-2 bg-white border border-slate-200 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-900 hover:bg-slate-50 transition-all shadow-sm"
-                >
-                    <RotateCcw className="w-3 h-3" />
-                    Retry Load
-                </button>
+                <div className="flex flex-col items-center gap-3">
+                    <button 
+                        onClick={() => window.location.reload()}
+                        className="inline-flex items-center gap-2 px-6 py-2 bg-white border border-slate-200 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-900 hover:bg-slate-50 transition-all shadow-sm"
+                    >
+                        <RotateCcw className="w-3 h-3" />
+                        Retry Load
+                    </button>
+                    {isAIUnavailable && (
+                        <p className="text-[9px] text-slate-400 uppercase tracking-tighter">
+                            Check Settings &gt; Environment Variables
+                        </p>
+                    )}
+                </div>
             </div>
         );
     }
@@ -144,18 +146,16 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                     </h2>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                    {guideContent.sections.map((section, idx) => (
-                        <div key={idx} className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-900 flex items-center gap-2 uppercase tracking-widest border-b border-slate-100 pb-3">
-                                {getIconForSection(section.title)}
-                                {section.title}
-                            </h3>
-                            <div className="text-slate-600 leading-relaxed prose prose-sm prose-slate max-w-none text-[13px] font-medium">
-                                <ReactMarkdown>{section.body}</ReactMarkdown>
-                            </div>
+                <div className="space-y-8">
+                    <div className="space-y-4">
+                        <h3 className="text-[11px] font-bold text-slate-900 flex items-center gap-2 uppercase tracking-widest border-b border-slate-100 pb-3">
+                            <BookOpen className="w-5 h-5 text-blue-600" />
+                            How and Why it Works
+                        </h3>
+                        <div className="text-slate-600 leading-relaxed prose prose-slate max-w-none text-[14px]">
+                            <ReactMarkdown>{guideContent.howAndWhy}</ReactMarkdown>
                         </div>
-                    ))}
+                    </div>
                 </div>
 
                 {guideContent.faq.length > 0 && (
