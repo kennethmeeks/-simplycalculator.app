@@ -187,14 +187,17 @@ async function startDevServer() {
       You MUST provide a comprehensive response as a JSON object with:
       1. "sections": An array of at least 4 detailed sections:
          - "How to Use This Calculator": Professional guide for users.
-         - "Mathematical Formula & Logic": Deep dive into verified 2026 formulas.
-         - "Real-World Examples": Detailed calculation scenarios.
-         - "Expert Advice & Limitations": Professional tips for accuracy.
-      2. "faq": An array of at least 5 Frequently Asked Questions (FAQ).
+         - "Mathematical Formula & Logic": Deep dive into verified 2026 formulas. Explain EVERY variable and the logic behind it.
+         - "Real-World Examples": Detailed calculation scenarios where this tool is used.
+         - "Expert Advice & Limitations": Professional tips for accuracy and edge cases.
+      2. "faq": An array of at least 6 Frequently Asked Questions (FAQ).
       
-      CRITICAL: Total guide length MUST exceed 500 words. Each section body must be meaty and authoritative.
-      Use professional Markdown for formatting within section bodies. 
-      The content must reflect high EEAT standards.`;
+      CRITICAL CONTENT REQUIREMENTS:
+      - Total word count MUST be between 500 and 800 words.
+      - Each section body MUST be meaty, authoritative, and provide high value.
+      - Use professional Markdown (bolding, lists, code blocks for formulas) within section bodies.
+      - Ensure the math is 100% accurate for 2026 standards.
+      - Signal high EEAT (Expertise, Authoritativeness, and Trustworthiness).`;
 
       const result = await model.generateContent(prompt);
       const text = result.response.text();
