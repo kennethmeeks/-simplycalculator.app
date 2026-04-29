@@ -76,19 +76,29 @@ interface AIGuideRequest {
     description?: string;
 }
 
+const handleAIResponse = async (response: Response) => {
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server responded with ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error("Non-JSON Response received:", text.slice(0, 200));
+        throw new Error("Invalid server response format. The server might be restarting or misconfigured. Please try again in a few seconds.");
+    }
+    
+    return await response.json();
+};
+
 export const fetchAISchema = async (params: AISchemaRequest) => {
     const response = await fetch('/api/ai/schema', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
     });
-    
-    if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || `Server responded with ${response.status}`);
-    }
-    
-    return await response.json();
+    return handleAIResponse(response);
 };
 
 export const fetchAICalculation = async (params: AICalculateRequest) => {
@@ -97,13 +107,7 @@ export const fetchAICalculation = async (params: AICalculateRequest) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
     });
-    
-    if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || `Server responded with ${response.status}`);
-    }
-    
-    return await response.json();
+    return handleAIResponse(response);
 };
 
 export const fetchAIGuide = async (params: AIGuideRequest) => {
@@ -112,11 +116,5 @@ export const fetchAIGuide = async (params: AIGuideRequest) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
     });
-    
-    if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || `Server responded with ${response.status}`);
-    }
-    
-    return await response.json();
+    return handleAIResponse(response);
 };

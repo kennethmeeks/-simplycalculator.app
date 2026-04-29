@@ -12,13 +12,11 @@ import { CATEGORIES } from "./src/constants/categories";
 dotenv.config();
 
 const PORT = 3000;
+const isProd = process.env.NODE_ENV === "production";
 
 async function startDevServer() {
   const app = express();
 
-  // robots.txt and sitemap.xml are served as static files from the public directory
-  // but we keep the routes for legacy support or to ensure they are served correctly
-  
   // 1. CRAWLER ROUTES (Highest Priority)
   app.get("/robots.txt", (req, res) => {
     res.type('text/plain');
@@ -72,7 +70,7 @@ async function startDevServer() {
     res.send(xml);
   });
 
-  // 2. MIDDLEWARE
+  // 3. MIDDLEWARE & VITE DEVELOPMENT (Early stage)
   app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
@@ -85,7 +83,7 @@ async function startDevServer() {
 
   app.use(express.json());
 
-  // 3. API ROUTES
+  // 4. API ROUTES
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", mode: isProd ? "production" : "development" });
   });
@@ -105,6 +103,7 @@ async function startDevServer() {
 
   app.post("/api/ai/schema", async (req, res) => {
     try {
+      console.log("[API] /api/ai/schema request", req.body?.name);
       const genAI = getGenAI();
       const { name, desc, isRetry } = req.body;
       const model = genAI.getGenerativeModel({ 
@@ -116,9 +115,10 @@ async function startDevServer() {
       Focus on the 2-4 most critical inputs. Return ONLY a JSON object with a 'fields' array of objects: {id, label, type, unit?, placeholder?}.`;
 
       const result = await model.generateContent(prompt);
-      res.json({ text: result.response.text() });
+      const text = result.response.text();
+      res.json({ text });
     } catch (error: any) {
-      console.error("AI Schema Error:", error);
+      console.error("[API ERROR] Schema:", error);
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
@@ -131,6 +131,7 @@ async function startDevServer() {
 
   app.post("/api/ai/calculate", async (req, res) => {
     try {
+      console.log("[API] /api/ai/calculate request", req.body?.name);
       const genAI = getGenAI();
       const { name, inputs } = req.body;
       const model = genAI.getGenerativeModel({ 
@@ -150,9 +151,10 @@ async function startDevServer() {
       INPUT DATA: ${inputStr}`;
 
       const result = await model.generateContent(prompt);
-      res.json({ text: result.response.text() });
+      const text = result.response.text();
+      res.json({ text });
     } catch (error: any) {
-      console.error("AI Calculation Error:", error);
+      console.error("[API ERROR] Calculate:", error);
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
@@ -165,6 +167,7 @@ async function startDevServer() {
 
   app.post("/api/ai/guide", async (req, res) => {
     try {
+      console.log("[API] /api/ai/guide request", req.body?.name);
       const genAI = getGenAI();
       const { name, description } = req.body;
       const model = genAI.getGenerativeModel({ 
@@ -188,9 +191,10 @@ async function startDevServer() {
       The content must be authoritative, data-driven, and signal high EEAT (Experience, Expertise, Authoritativeness, and Trustworthiness). Limit the total character count to ~5000 characters. Use professional Markdown (bullet points, bolding) in the body text.`;
 
       const result = await model.generateContent(prompt);
-      res.json({ text: result.response.text() });
+      const text = result.response.text();
+      res.json({ text });
     } catch (error: any) {
-      console.error("AI Guide Error:", error);
+      console.error("[API ERROR] Guide:", error);
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
@@ -201,7 +205,7 @@ async function startDevServer() {
     }
   });
 
-  const isProd = process.env.NODE_ENV === "production";
+  // 5. SSR & FALLBACK ROUTES (Lower Priority)
   
   let vite: any;
   if (!isProd) {
@@ -209,14 +213,13 @@ async function startDevServer() {
       server: { middlewareMode: true },
       appType: "spa",
     });
+    console.log("[Vite] Server instance created.");
   }
 
-  // SSR for /, /sitemap, and category pages to ensure crawlers see links without JS
+  // SSR for /, /sitemap, and category pages
   app.get(["/", "/sitemap", "/category/:slug"], async (req, res, next) => {
     try {
-      const url = req.path; // Use path instead of originalUrl to avoid query string issues
-      console.log(`[SSR] Handling request for: ${url}`);
-      
+      const url = req.path;
       if (url.includes('.') || url.startsWith('/api')) {
         return next();
       }
@@ -279,18 +282,13 @@ async function startDevServer() {
       `;
 
       let html = template;
-      
-      // Inject content safely
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', contentHtml);
       } else {
-        // Fallback for different builds if root ID is missing or has attributes
         html = html.replace(/<div id="root".*?><\/div>/, contentHtml);
       }
 
-      // Clean up existing tags accurately
       html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
-      
       const metaDescription = `<meta name="description" content="${description}">`;
       const canonicalTag = `<link rel="canonical" href="https://simplycalculator.app${url === '/' ? '' : url.replace(/\/$/, '')}">`;
       
@@ -304,7 +302,6 @@ async function startDevServer() {
         html = html.replace('</head>', `  ${canonicalTag}\n  </head>`);
       }
       
-      // Inject schema
       const schemaData = isCategory && category ? {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -331,10 +328,9 @@ async function startDevServer() {
       const schema = `<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`;
       html = html.replace('</head>', `  ${schema}\n  </head>`);
       
-      console.log(`[SSR] Successfully generated content for ${url} (${html.length} bytes)`);
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e: any) {
-      console.error(`[SSR] Error handling ${req.path}:`, e);
+      console.error(`[SSR ERROR] ${req.path}:`, e);
       if (!isProd && vite) {
         vite.ssrFixStacktrace(e);
       }
@@ -342,16 +338,27 @@ async function startDevServer() {
     }
   });
 
-  if (!isProd) {
-    app.use(vite.middlewares);
-  } else {
+  if (isProd) {
     app.use(express.static(path.resolve(process.cwd(), "dist"), {
       index: false
     }));
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(process.cwd(), "dist/index.html"));
     });
+  } else {
+    // In dev, Vite handles assets and SPA fallback
+    app.use(vite.middlewares);
+    console.log("[Vite] Middleware mounted in development mode.");
   }
+
+  // 6. FINAL ERROR HANDLER
+  app.use((err: any, req: any, res: any, next: any) => {
+    console.error("[GLOBAL ERROR]", err);
+    if (req.url && req.url.startsWith('/api')) {
+      return res.status(500).json({ error: "Internal server error" });
+    }
+    next(err);
+  });
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Development server running on http://localhost:${PORT}`);
