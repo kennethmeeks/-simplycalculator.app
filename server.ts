@@ -172,23 +172,25 @@ async function startDevServer() {
       const { name, description } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-pro",
-        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. Ensure the 'sections' array contains exactly 3 items addressing: How to Use, Math Formula, and Common Examples. The FAQ should be in its own 'faq' array.",
+        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. Ensure the 'sections' array contains at least 4 detailed items. Each section's body MUST be comprehensive (at least 150 words per section). The FAQ should be in its own 'faq' array with at least 5 items.",
         generationConfig: {
           responseMimeType: "application/json",
         }
       });
 
-      const prompt = `Generate an expert-level, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
+      const prompt = `Generate an exhaustive, expert-level, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
       
       You MUST provide a comprehensive response as a JSON object with:
       1. "sections": An array of at least 4 detailed sections:
-         - "How to Use This Calculator": Clear, professional steps.
-         - "Mathematical Formula & Logic": A deep dive into the verified 2026 formula used. Explain the variables and logic clearly.
-         - "Real-World Examples": Detailed scenarios where this calculation is critical.
-         - "Common Mistakes & Expert Tips": High-value advice to improve accuracy and avoid calculation errors.
-      2. "faq": An array of at least 5 Frequently Asked Questions (FAQ) with comprehensive answers.
+         - "How to Use This Calculator": Professional guide for users.
+         - "Mathematical Formula & Logic": Deep dive into verified 2026 formulas.
+         - "Real-World Examples": Detailed calculation scenarios.
+         - "Expert Advice & Limitations": Professional tips for accuracy.
+      2. "faq": An array of at least 5 Frequently Asked Questions (FAQ).
       
-      The content must be authoritative, data-driven, and signal high EEAT (Experience, Expertise, Authoritativeness, and Trustworthiness). Limit the total character count to ~5000 characters. Use professional Markdown (bullet points, bolding) in the body text.`;
+      CRITICAL: Total guide length MUST exceed 500 words. Each section body must be meaty and authoritative.
+      Use professional Markdown for formatting within section bodies. 
+      The content must reflect high EEAT standards.`;
 
       const result = await model.generateContent(prompt);
       const text = result.response.text();
