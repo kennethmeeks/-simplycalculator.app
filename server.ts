@@ -175,15 +175,17 @@ async function startDevServer() {
         }
       });
 
-      const prompt = `Generate a professional, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
-      You MUST include exactly these 3 sections in the 'sections' array:
-      1. "How to Use This Calculator": A short, step-by-step guide for users.
-      2. "The Mathematical Formula": A detailed explanation of the math behind the logic.
-      3. "Common Examples": Real-world scenarios or example calculations.
+      const prompt = `Generate an expert-level, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
       
-      Additionally, provide a "Frequently Asked Questions (FAQ)" section in the 'faq' array with 3-4 common questions about these types of calculations.
+      You MUST provide a comprehensive response as a JSON object with:
+      1. "sections": An array of at least 4 detailed sections:
+         - "How to Use This Calculator": Clear, professional steps.
+         - "Mathematical Formula & Logic": A deep dive into the verified 2026 formula used. Explain the variables and logic clearly.
+         - "Real-World Examples": Detailed scenarios where this calculation is critical.
+         - "Common Mistakes & Expert Tips": High-value advice to improve accuracy and avoid calculation errors.
+      2. "faq": An array of at least 5 Frequently Asked Questions (FAQ) with comprehensive answers.
       
-      Keep the response authoritative yet concise (under 4000 characters total). Use Markdown-style formatting in the body text where helpful (bullet points, bolding).`;
+      The content must be authoritative, data-driven, and signal high EEAT (Experience, Expertise, Authoritativeness, and Trustworthiness). Limit the total character count to ~5000 characters. Use professional Markdown (bullet points, bolding) in the body text.`;
 
       const result = await model.generateContent(prompt);
       res.json({ text: result.response.text() });
