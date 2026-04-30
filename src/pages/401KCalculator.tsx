@@ -193,7 +193,7 @@ export const FourOhOneKCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="401k Calculator" 
-        path="/401k-calculator" 
+        path="/401k" 
         description="Plan your retirement by estimating your 401k future value. Account for salary growth, employer matching, and investment returns for a secure 2026 financial future."
       />
     </div>

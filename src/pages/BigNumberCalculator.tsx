@@ -105,7 +105,7 @@ export const BigNumberCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Big Number Calculator" 
-        path="/big-number-calculator" 
+        path="/math/big-number" 
         description="Perform arithmetic on arbitrarily large integers using BigInt technology. Handle astronomical figures and high-precision values easily in 2026."
       />
     </div>

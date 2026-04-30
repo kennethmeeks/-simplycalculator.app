@@ -332,7 +332,7 @@ export const BMICalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="BMI Calculator" 
-        path="/bmi-calculator" 
+        path="/bmi" 
         description="Calculate your Body Mass Index (BMI) and track your health progress with our calculator. Understand health categories and weight management in 2026."
       />
     </div>

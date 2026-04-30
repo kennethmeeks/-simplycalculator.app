@@ -82,7 +82,7 @@ export const BandwidthCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Bandwidth Calculator" 
-        path="/bandwidth-calculator" 
+        path="/bandwidth" 
         description="Estimate file download and upload times based on connection speed. Understand bitrate, network latency, and throughput in 2026."
       />
     </div>

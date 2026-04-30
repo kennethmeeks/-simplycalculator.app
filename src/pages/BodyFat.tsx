@@ -183,7 +183,7 @@ export const BodyFatCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Body Fat Calculator" 
-        path="/body-fat-calculator" 
+        path="/body-fat" 
         description="Estimate your body fat percentage using the US Navy method. Track your fitness progress, lean mass, and fat mass with accuracy in 2026."
       />
     </div>

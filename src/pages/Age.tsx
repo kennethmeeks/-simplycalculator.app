@@ -164,7 +164,7 @@ export const AgeCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Age Calculator" 
-        path="/age-calculator" 
+        path="/age" 
         description="Calculate your exact age in years, months, and days. Determine time intervals between dates and learn about age calculation methods in 2026."
       />
     </div>

@@ -326,10 +326,12 @@ async function startDevServer() {
       let edu = DEFAULT_EDUCATION;
       if (matchedCalculator && calculatorCategory) {
         let eduSlug = calculatorCategory.slug;
-        if (['roofing', 'masonry', 'home-improvement'].includes(eduSlug)) eduSlug = 'construction';
-        if (['real-estate', 'insurance'].includes(eduSlug)) eduSlug = 'finance';
-        if (['hydraulics'].includes(eduSlug)) eduSlug = 'science';
+        
+        // Use mapping only as a fallback for high-level groupings if missing
         edu = CATEGORY_EDUCATION[eduSlug] || DEFAULT_EDUCATION;
+
+        // If it's still default but we know it's a construction-like thing, we could fallback,
+        // but now we have most categories covered in CATEGORY_EDUCATION.
       }
 
       const contentHtml = `

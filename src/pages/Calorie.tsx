@@ -310,7 +310,7 @@ export const CalorieCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="Calorie Calculator" 
-        path="/calorie-calculator" 
+        path="/calorie" 
         description="Estimate your daily calorie needs based on physical metrics. Plan your weight loss, muscle gain, or maintenance with accurate BMR and TDEE in 2026."
       />
     </div>

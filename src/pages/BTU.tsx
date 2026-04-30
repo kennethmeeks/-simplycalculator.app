@@ -181,7 +181,7 @@ export const BTUCalculator: React.FC = () => {
 
       <CalculatorSEO 
         name="BTU Calculator" 
-        path="/btu-calculator" 
+        path="/btu" 
         description="Calculate the precise BTU requirements for heating and cooling based on room square footage, insulation quality, and local climate factors in 2026."
       />
     </div>

@@ -414,7 +414,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Monthly payment for a $${p.toLocaleString()} loan over ${n} months.`
     };
   },
-  '/3x-rent-calculator': (inputs) => {
+  '/3x-rent': (inputs) => {
     const rent = parseFloat(inputs.monthlyRent);
     const income = parseFloat(inputs.annualIncome);
     if (isNaN(rent) || isNaN(income)) return { value: 'Invalid input' };
@@ -445,7 +445,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `With a ${hours}-hour shift and ${shifts} shifts/week, including a $${diff} differential, your annual gross is $${annualPay.toLocaleString()}.`
     };
   },
-  '/overtime-calculator': (inputs) => {
+  '/overtime': (inputs) => {
     const rate = parseFloat(inputs.hourlyRate);
     const regHours = parseFloat(inputs.regularHours) || 40;
     const otHours = parseFloat(inputs.overtimeHours) || 0;
@@ -492,7 +492,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Estimated due date based on LMP + 280 days. You are approximately ${weeks} weeks pregnant.`
     };
   },
-  '/bitcoin-etf-calculator': (inputs) => {
+  '/bitcoin-etf': (inputs) => {
     const investment = parseFloat(inputs.investment);
     const btcPrice = parseFloat(inputs.btcPrice);
     const currentPrice = parseFloat(inputs.currentPrice);
@@ -553,7 +553,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       return { value: `${Math.round(mgdl)} mg/dL`, explanation: `${val} mmol/L is equal to ${Math.round(mgdl)} mg/dL.` };
     }
   },
-  '/a1c-calculator': (inputs) => {
+  '/a1c': (inputs) => {
     const a1c = parseFloat(inputs.a1c);
     if (isNaN(a1c)) return { value: 'Invalid input' };
 
@@ -930,7 +930,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const pages = words / wordsPerPage;
     return { value: `${pages.toFixed(1)} Pages`, explanation: `Approximately ${pages.toFixed(1)} pages based on standard formatting.` };
   },
-  '/bac-calculator': (inputs) => {
+  '/bac': (inputs) => {
     const drinks = parseFloat(inputs.drinks);
     const weight = parseFloat(inputs.weight);
     const gender = inputs.gender;
@@ -1068,14 +1068,14 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `The smoothed annual return over ${years} years is ${annualized.toFixed(2)}%.`
     };
   },
-  '/appreciation-calculator': (inputs) => {
+  '/appreciation': (inputs) => {
     return standardCalculations['/compound-growth']({ 
       principal: inputs.value, 
       rate: inputs.rate, 
       years: inputs.years 
     });
   },
-  '/basis-point-calculator': (inputs) => {
+  '/basis-point': (inputs) => {
     const rate = parseFloat(inputs.rate);
     const bps = parseFloat(inputs.bps);
     const op = inputs.op;
@@ -1094,7 +1094,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const pe = price / eps;
     return { value: `${pe.toFixed(2)}`, explanation: `The Price-to-Earnings ratio is ${pe.toFixed(2)}x.` };
   },
-  '/eps-calculator': (inputs) => {
+  '/eps': (inputs) => {
     const income = parseFloat(inputs.netIncome);
     const div = parseFloat(inputs.preferredDividends) || 0;
     const shares = parseFloat(inputs.shares);
@@ -1102,7 +1102,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const eps = (income - div) / shares;
     return { value: `$${eps.toFixed(2)}`, explanation: `Earnings Per Share is $${eps.toFixed(2)} based on ${shares.toLocaleString()} shares.` };
   },
-  '/roe-calculator': (inputs) => {
+  '/roe': (inputs) => {
     const income = parseFloat(inputs.netIncome);
     const equity = parseFloat(inputs.equity);
     if (isNaN(income) || isNaN(equity) || equity === 0) return { value: 'Invalid input' };
@@ -1229,7 +1229,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Your credit utilization is ${util.toFixed(1)}%. Experts recommend keeping this below 30% for a better credit score.`
     };
   },
-  '/debt-calculator': (inputs) => {
+  '/debt': (inputs) => {
     const cards = parseFloat(inputs.cards) || 0;
     const loans = parseFloat(inputs.loans) || 0;
     const other = parseFloat(inputs.other) || 0;
@@ -1271,7 +1271,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `After ${m} months of deferment at ${parseFloat(inputs.rate)}% interest, your new balance will be $${total.toLocaleString()} (including $${interest.toLocaleString()} accrued interest).`
     };
   },
-  '/agi-calculator': (inputs) => {
+  '/agi': (inputs) => {
     const inc = parseFloat(inputs.income);
     const ret = parseFloat(inputs.retirement) || 0;
     const adj = parseFloat(inputs.adjustments) || 0;
@@ -1321,7 +1321,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const avg = hits / ab;
     return { value: avg.toFixed(3).substring(1), explanation: `Batting average is .${avg.toFixed(3).split('.')[1]}` };
   },
-  '/era-calculator': (inputs) => {
+  '/era': (inputs) => {
     const runs = parseFloat(inputs.earnedRuns);
     const ip = parseFloat(inputs.inningsPitched);
     if (isNaN(runs) || isNaN(ip) || ip === 0) return { value: 'Invalid input' };
@@ -1378,7 +1378,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const total = depreciation + financeCharge;
     return { value: `$${total.toFixed(2)}/mo`, explanation: `Estimated payment based on a $${capCost.toLocaleString()} net cap cost and 3-year term.` };
   },
-  '/time-calculator': (inputs) => {
+  '/time': (inputs) => {
     const h1 = parseInt(inputs.h1) || 0;
     const m1 = parseInt(inputs.m1) || 0;
     const h2 = parseInt(inputs.h2) || 0;

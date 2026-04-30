@@ -129,12 +129,12 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'price', label: 'Stock Price', type: 'number', unit: '$' },
     { id: 'eps', label: 'Earnings Per Share (EPS)', type: 'number', unit: '$' }
   ],
-  '/eps-calculator': [
+  '/eps': [
     { id: 'netIncome', label: 'Net Income', type: 'number', unit: '$' },
     { id: 'preferredDividends', label: 'Preferred Dividends', type: 'number', unit: '$' },
     { id: 'shares', label: 'Weighted Avg Shares', type: 'number' }
   ],
-  '/roe-calculator': [
+  '/roe': [
     { id: 'netIncome', label: 'Net Income', type: 'number', unit: '$' },
     { id: 'equity', label: 'Shareholder Equity', type: 'number', unit: '$' }
   ],
@@ -163,7 +163,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'hits', label: 'Hits', type: 'number' },
     { id: 'atBats', label: 'At Bats', type: 'number' }
   ],
-  '/era-calculator': [
+  '/era': [
     { id: 'earnedRuns', label: 'Earned Runs', type: 'number' },
     { id: 'inningsPitched', label: 'Innings Pitched', type: 'number' }
   ],
@@ -219,7 +219,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'hoursPerShift', label: 'Hours per Shift', type: 'number', defaultValue: '12' },
     { id: 'shiftsPerWeek', label: 'Shifts per Week', type: 'number', defaultValue: '3' }
   ],
-  '/3x-rent-calculator': [
+  '/3x-rent': [
     { id: 'monthlyRent', label: 'Monthly Rent', type: 'number', unit: '$' },
     { id: 'annualIncome', label: 'Your Annual Gross Income', type: 'number', unit: '$' }
   ],
@@ -237,7 +237,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'match', label: 'Employer Match', type: 'number', unit: '%' },
     { id: 'years', label: 'Years to Retirement', type: 'number' }
   ],
-  '/overtime-calculator': [
+  '/overtime': [
     { id: 'hourlyRate', label: 'Regular Hourly Rate', type: 'number', unit: '$' },
     { id: 'regularHours', label: 'Regular Hours Worked', type: 'number', defaultValue: '40' },
     { id: 'overtimeHours', label: 'Overtime Hours Worked', type: 'number' },
@@ -284,7 +284,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'startYear', label: 'Start Year', type: 'number', defaultValue: '2000' },
     { id: 'endYear', label: 'End Year', type: 'number', defaultValue: new Date().getFullYear().toString() }
   ],
-  '/bitcoin-etf-calculator': [
+  '/bitcoin-etf': [
     { id: 'investment', label: 'Investment Amount', type: 'number', unit: '$' },
     { id: 'btcPrice', label: 'Bitcoin Price at Purchase', type: 'number', unit: '$' },
     { id: 'expenseRatio', label: 'ETF Expense Ratio (Annual)', type: 'number', unit: '%', defaultValue: '0.2' },
@@ -304,7 +304,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/50-30-20-rule': [
     { id: 'income', label: 'Monthly Take-Home Pay', type: 'number', unit: '$' }
   ],
-  '/apy-calculator': [
+  '/apy': [
     { id: 'rate', label: 'Nominal Interest Rate', type: 'number', unit: '%' },
     { id: 'compounding', label: 'Compounding Frequency', type: 'select', options: [
       { label: 'Daily', value: '365' },
@@ -314,12 +314,12 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
       { label: 'Annually', value: '1' }
     ]}
   ],
-  '/cagr-calculator': [
+  '/cagr': [
     { id: 'beginningValue', label: 'Beginning Value', type: 'number', unit: '$' },
     { id: 'endingValue', label: 'Ending Value', type: 'number', unit: '$' },
     { id: 'periods', label: 'Number of Periods', type: 'number', unit: 'years' }
   ],
-  '/dti-calculator': [
+  '/dti': [
     { id: 'monthlyDebt', label: 'Total Monthly Debt Payments', type: 'number', unit: '$' },
     { id: 'grossMonthlyIncome', label: 'Gross Monthly Income', type: 'number', unit: '$' }
   ],
@@ -330,7 +330,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
       { label: 'mmol/L (Intl)', value: 'mmoll' }
     ]}
   ],
-  '/a1c-calculator': [
+  '/a1c': [
     { id: 'a1c', label: 'A1c Level', type: 'number', unit: '%' }
   ],
   '/tdee': [
@@ -350,7 +350,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/sleep': [
     { id: 'wakeTime', label: 'I want to wake up at', type: 'text', placeholder: 'e.g. 07:00 AM' }
   ],
-  '/acft-calculator': [
+  '/acft': [
     { id: 'deadlift', label: '3-Rep Max Deadlift', type: 'number', unit: 'lbs' },
     { id: 'powerThrow', label: 'Standing Power Throw', type: 'number', unit: 'm' },
     { id: 'pushups', label: 'Hand-Release Push-ups', type: 'number' },
@@ -620,7 +620,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'grade2', label: 'Grade 2', type: 'number' },
     { id: 'grade3', label: 'Grade 3', type: 'number' }
   ],
-  '/bac-calculator': [
+  '/bac': [
     { id: 'drinks', label: 'Number of Drinks', type: 'number' },
     { id: 'weight', label: 'Body Weight', type: 'number', unit: 'lbs' },
     { id: 'gender', label: 'Gender', type: 'select', options: [{label: 'Male', value: 'male'}, {label: 'Female', value: 'female'}]},
@@ -657,7 +657,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'height', label: 'Wall Height', type: 'number', unit: 'ft' },
     { id: 'rollSize', label: 'Roll Coverage', type: 'number', unit: 'sq ft', defaultValue: '56' }
   ],
-  '/freelance-hourly-rate': [
+  '/hourly-rate': [
     { id: 'targetIncome', label: 'Annual Target Income', type: 'number', unit: '$' },
     { id: 'overhead', label: 'Monthly Overhead', type: 'number', unit: '$' },
     { id: 'billableHours', label: 'Weekly Billable Hours', type: 'number', defaultValue: '30' }
@@ -730,7 +730,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'balances', label: 'Total Credit Balances', type: 'number', unit: '$' },
     { id: 'limits', label: 'Total Credit Limits', type: 'number', unit: '$' }
   ],
-  '/debt-calculator': [
+  '/debt': [
     { id: 'cards', label: 'Total Credit Card Debt', type: 'number', unit: '$' },
     { id: 'loans', label: 'Total Loan Debt', type: 'number', unit: '$' },
     { id: 'other', label: 'Other Liabilities', type: 'number', unit: '$' }
@@ -759,7 +759,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'rate', label: 'Interest Rate (APR)', type: 'number', unit: '%' },
     { id: 'term', label: 'Loan Term', type: 'number', unit: 'months' }
   ],
-  '/agi-calculator': [
+  '/agi': [
     { id: 'income', label: 'Gross Annual Income', type: 'number', unit: '$' },
     { id: 'retirement', label: 'Retirement Contributions', type: 'number', unit: '$' },
     { id: 'adjustments', label: 'Other Tax Adjustments', type: 'number', unit: '$' }
@@ -769,12 +769,12 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'final', label: 'Final Investment Value', type: 'number', unit: '$' },
     { id: 'years', label: 'Time Period', type: 'number', unit: 'years' }
   ],
-  '/appreciation-calculator': [
+  '/appreciation': [
     { id: 'value', label: 'Initial Asset Value', type: 'number', unit: '$' },
     { id: 'rate', label: 'Appreciation Rate', type: 'number', unit: '%' },
     { id: 'years', label: 'Time Period', type: 'number', unit: 'years' }
   ],
-  '/basis-point-calculator': [
+  '/basis-point': [
     { id: 'rate', label: 'Initial Rate', type: 'number', unit: '%' },
     { id: 'bps', label: 'Basis Points (BPS)', type: 'number' },
     { id: 'op', label: 'Operation', type: 'select', options: [{label: 'Add', value: 'add'}, {label: 'Subtract', value: 'sub'}]}
