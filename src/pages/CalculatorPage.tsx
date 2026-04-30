@@ -156,6 +156,30 @@ export const CalculatorPage: React.FC = () => {
         setInputs(initialInputs);
     }, [foundItem, currentFields]);
 
+    const showPDFButton = useMemo(() => {
+        return true; // Enable for all calculators as requested
+    }, []);
+
+    const isHealthRelated = useMemo(() => {
+        if (!foundCategory) return false;
+        const slug = foundCategory.slug;
+        const title = foundCategory.title.toLowerCase();
+        
+        // Exclude pet-related categories from human medical disclaimer
+        if (slug.includes('pet')) return false;
+
+        return slug === 'health' || 
+               slug === 'medical' || 
+               slug === 'mental-health' || 
+               slug === 'biology' ||
+               slug === 'food-science' ||
+               title.includes('health') || 
+               title.includes('medical') || 
+               title.includes('fitness') ||
+               title.includes('wellbeing') ||
+               title.includes('wellness');
+    }, [foundCategory]);
+
     if (!foundItem) {
         return <Navigate to="/" replace />;
     }
@@ -304,29 +328,6 @@ export const CalculatorPage: React.FC = () => {
         }
     };
 
-    const showPDFButton = useMemo(() => {
-        return true; // Enable for all calculators as requested
-    }, []);
-
-    const isHealthRelated = useMemo(() => {
-        if (!foundCategory) return false;
-        const slug = foundCategory.slug;
-        const title = foundCategory.title.toLowerCase();
-        
-        // Exclude pet-related categories from human medical disclaimer
-        if (slug.includes('pet')) return false;
-
-        return slug === 'health' || 
-               slug === 'medical' || 
-               slug === 'mental-health' || 
-               slug === 'biology' ||
-               slug === 'food-science' ||
-               title.includes('health') || 
-               title.includes('medical') || 
-               title.includes('fitness') ||
-               title.includes('wellbeing') ||
-               title.includes('wellness');
-    }, [foundCategory]);
 
     return (
         <>
