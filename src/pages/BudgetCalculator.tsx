@@ -157,7 +157,7 @@ export const BudgetCalculator: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-xs text-slate-500 italic">
-                  * Financial experts recommend spending no more than 30% of your income on housing.
+                  * Professionals recommend spending no more than 30% of your income on housing.
                 </p>
               </div>
             </div>

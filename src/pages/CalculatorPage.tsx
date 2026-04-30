@@ -105,8 +105,12 @@ export const CalculatorPage: React.FC = () => {
                 ];
             };
 
-            setDynamicFields(getFallbackFields(foundItem.name));
-            setError(`Automated schema setup paused. Using standard fallback fields. (Report: ${err.message})`); 
+            // Professional Fallback Logic
+            const fields = getFallbackFields(foundItem.name);
+            setDynamicFields(fields);
+            
+            // Log for diagnostics, but don't show UI error since we have a fallback
+            console.log(`Using fallback fields for ${foundItem.name}:`, fields);
         } finally {
             setIsSchemaLoading(false);
         }
@@ -191,7 +195,10 @@ export const CalculatorPage: React.FC = () => {
             setResult(data);
         } catch (err: any) {
             console.error("Calculation error:", err);
-            setError(err.message || "The calculator encountered an error. Please verify the input values.");
+            const friendlyError = err.message === 'GEMINI_API_KEY_INVALID' 
+                ? "This specific calculator requires an active AI engine configuration to process your unique values. Please try another tool or contact support."
+                : (err.message || "The calculator encountered an error. Please verify the input values.");
+            setError(friendlyError);
         } finally {
             setIsLoading(false);
         }
@@ -491,15 +498,6 @@ export const CalculatorPage: React.FC = () => {
                                                 <p className="text-xs text-red-600 leading-relaxed font-medium">
                                                     {error}
                                                 </p>
-                                                {discoveryFailed && (
-                                                    <button 
-                                                        onClick={() => fetchSchema(true)}
-                                                        className="text-[10px] bg-red-600 text-white px-3 py-1.5 rounded font-black uppercase tracking-widest hover:bg-red-700 transition-colors flex items-center gap-2"
-                                                    >
-                                                        <RotateCcw className="w-3 h-3" />
-                                                        Retry Discovery
-                                                    </button>
-                                                )}
                                             </div>
                                         )}
 
@@ -617,10 +615,10 @@ export const CalculatorPage: React.FC = () => {
                         <div className="mt-20 flex items-center justify-between border-b border-slate-100 pb-4">
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Expert Review: April 2026</span>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Verified Calculation</span>
                             </div>
                             <div className="text-[10px] font-bold text-slate-300 uppercase tracking-tight">
-                                SimplyCalculator Verified Logic
+                                SimplyCalculator Logic
                             </div>
                         </div>
                         <CalculatorSEO 
@@ -633,7 +631,7 @@ export const CalculatorPage: React.FC = () => {
                             <div className="flex items-center justify-between mb-10">
                                 <div>
                                     <h3 className="text-lg font-bold text-slate-900 mb-1">More {foundCategory.title} Tools</h3>
-                                    <p className="text-xs text-slate-500 font-medium">Explore related expert-verified calculators.</p>
+                                    <p className="text-xs text-slate-500 font-medium">Explore related calculation tools.</p>
                                 </div>
                                 <Link 
                                     to={`/category/${foundCategory.slug}`}

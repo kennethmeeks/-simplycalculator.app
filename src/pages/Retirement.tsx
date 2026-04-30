@@ -182,7 +182,7 @@ export const RetirementCalculator: React.FC = () => {
           </div>
           <div>
             <p className="font-bold text-slate-900">How much should I be saving?</p>
-            <p>Most experts recommend saving at least 15% of your gross income for retirement. If you're starting late, you may need to save more.</p>
+            <p>Most industry standards recommend saving at least 15% of your gross income for retirement. If you're starting late, you may need to save more.</p>
           </div>
         </div>
       </div>

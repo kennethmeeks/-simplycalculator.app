@@ -5,7 +5,6 @@ import fs from "fs";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import cors from "cors";
-import { rateLimit } from "express-rate-limit";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { CATEGORIES } from "./src/constants/categories";
 
@@ -90,29 +89,44 @@ async function startDevServer() {
 
   // AI API Proxy Client (Lazy Loaded)
   let genAIInstance: GoogleGenerativeAI | null = null;
+  let lastUsedKey: string | null = null;
+
   const getGenAI = () => {
-    const key = process.env.GEMINI_API_KEY;
+    let key = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+    
     if (!key) {
-      console.error("[CRITICAL] GEMINI_API_KEY is missing from environment variables.");
-      throw new Error("GEMINI_API_KEY environment variable is missing.");
+      throw new Error("GEMINI_API_KEY is missing. Please add it to Settings > Environment Variables.");
     }
-    if (key.length < 10) {
-      console.error("[CRITICAL] GEMINI_API_KEY exists but is suspiciously short.");
+
+    // Thorough cleanup of the key
+    key = key.trim().replace(/^["']|["']$/g, '');
+    
+    if (key.length < 20) {
+      console.error(`[DIAGNOSTIC] Key is too short (${key.length} chars). Expected ~39 chars.`);
     }
+
+    // If key changed, reset instance
+    if (key !== lastUsedKey) {
+      genAIInstance = new GoogleGenerativeAI(key);
+      lastUsedKey = key;
+      console.log(`[AI] Initialized with key (length: ${key.length})`);
+    }
+
     if (!genAIInstance) {
       genAIInstance = new GoogleGenerativeAI(key);
+      lastUsedKey = key;
     }
+    
     return genAIInstance;
   };
 
   app.post("/api/ai/schema", async (req, res) => {
     try {
-      console.log("[API] /api/ai/schema request", req.body?.name);
       const genAI = getGenAI();
       const { name, desc } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-flash",
-        systemInstruction: "You are a specialized calculator schema generator. Return strictly valid JSON. Ensure all field types are 'number', 'text', or 'select'."
+        systemInstruction: "You are a specialized calculator schema generator. Return strictly valid JSON. Ensure all field types are 'number', 'text', or 'select'. DO NOT use any LaTeX or KaTeX math notation (like $, $$, or \\( ) in your text responses."
       });
 
       const prompt = `Define the core input fields for a professional "${name}" (${desc}). 
@@ -128,6 +142,7 @@ async function startDevServer() {
                          error.message?.includes("key invalid") ||
                          error.message?.includes("400") ||
                          error.message?.includes("401");
+      
       res.status(isAuthError ? 401 : 503).json({ 
         error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
       });
@@ -136,12 +151,11 @@ async function startDevServer() {
 
   app.post("/api/ai/calculate", async (req, res) => {
     try {
-      console.log("[API] /api/ai/calculate request", req.body?.name);
       const genAI = getGenAI();
       const { name, inputs } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-flash",
-        systemInstruction: "You are a high-precision calculation engine. Return result in JSON only.",
+        systemInstruction: "You are a high-precision calculation engine. Return result in JSON only. IMPORTANT: DO NOT use any LaTeX or KaTeX math notation (like $, $$, or \\( ) in your text responses or explanations. Use standard text representation for formulas (e.g. E = mc^2 instead of LaTeX).",
         generationConfig: {
           responseMimeType: "application/json",
         }
@@ -165,6 +179,7 @@ async function startDevServer() {
                          error.message?.includes("key invalid") ||
                          error.message?.includes("400") ||
                          error.message?.includes("401");
+      
       res.status(isAuthError ? 401 : 503).json({ 
         error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
       });
@@ -173,30 +188,27 @@ async function startDevServer() {
 
   app.post("/api/ai/guide", async (req, res) => {
     try {
-      console.log("[API] /api/ai/guide request", req.body?.name);
       const genAI = getGenAI();
       const { name, description } = req.body;
       const model = genAI.getGenerativeModel({ 
         model: "gemini-1.5-flash",
-        systemInstruction: "You are a technical documentation and SEO expert. Return strictly JSON. Accuracy is paramount. You MUST provide a 'howAndWhy' string (at least 500 words) and a 'faq' array. The 'howAndWhy' should be structured with headers for 'How to use' and 'Why it works'.",
+        systemInstruction: "You are a calculator documentation assistant. Return strictly JSON. You MUST provide a 'howAndWhy' string and a 'faq' array. The 'howAndWhy' should be structured with headers for 'How to use' and 'Why it works'. IMPORTANT: DO NOT use any LaTeX or KaTeX math notation (like $, $$, or \\( ) in your text. Use plain text or standard markdown for formulas (e.g. x^2 instead of complex LaTeX).",
         generationConfig: {
           responseMimeType: "application/json",
         }
       });
 
-      const prompt = `Generate an exhaustive, expert-level, SEO-optimized technical guide for the "${name}" calculator (${description || ''}).
+      const prompt = `Generate a standard, easy-to-read user guide for the "${name}" calculator (${description || ''}).
       
       You MUST provide a response as a JSON object with:
-      1. "howAndWhy": A comprehensive, long-form narrative section (at least 400 words) titled "How and Why it Works". This must cover:
-         - A step-by-step "How to use" guide.
-         - A deep-dive into "Why" the underlying mathematics and logic are used.
-      2. "faq": An array of at least 8 Frequently Asked Questions (FAQ) with detailed, expert-level answers.
+      1. "howAndWhy": A narrative section (about 300-400 words) titled "How and Why it Works". This must cover:
+         - A simple "How to use" guide.
+         - A clear explanation of "Why" this calculation is used.
+      2. "faq": An array of at least 5 standard Frequently Asked Questions (FAQ) with clear, helpful answers.
       
       CRITICAL REQUIREMENTS:
-      - Total word count MUST be between 600 and 1000 words.
-      - Each FAQ answer must be substantial (at least 2-3 sentences).
-      - Use professional Markdown (bolding, lists, code blocks for formulas) within the bodies.
-      - Signal extremely high EEAT (Experience, Expertise, Authoritativeness, and Trustworthiness).`;
+      - Use professional yet simple Markdown (bolding, lists) within the bodies.
+      - Total word count should be around 500-700 words.`;
 
       const result = await model.generateContent(prompt);
       const text = result.response.text();
@@ -208,6 +220,7 @@ async function startDevServer() {
                          error.message?.includes("key invalid") ||
                          error.message?.includes("400") ||
                          error.message?.includes("401");
+      
       res.status(isAuthError ? 401 : 503).json({ 
         error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
       });
@@ -225,11 +238,13 @@ async function startDevServer() {
     console.log("[Vite] Server instance created.");
   }
 
-  // SSR for /, /sitemap, and category pages
-  app.get(["/", "/sitemap", "/category/:slug"], async (req, res, next) => {
+  // SSR for /, /sitemap, category pages, and ALL individual calculator pages
+  app.get("*", async (req, res, next) => {
     try {
       const url = req.path;
-      if (url.includes('.') || url.startsWith('/api')) {
+      
+      // Skip API and assets
+      if (url.startsWith('/api') || url.includes('.')) {
         return next();
       }
 
@@ -243,49 +258,115 @@ async function startDevServer() {
       
       const isSitemap = url === "/sitemap";
       const isCategory = url.startsWith("/category/");
-      const categorySlug = isCategory ? req.params.slug : null;
+      const categorySlug = isCategory ? url.split("/category/")[1] : null;
+      
+      // Look for individual calculator matches
+      let matchedCalculator = null;
+      let calculatorCategory = null;
+      const normalizedPath = url === "/" ? "/" : url.replace(/\/$/, "");
+
+      for (const cat of CATEGORIES) {
+        const found = cat.items.find(i => i.path === normalizedPath || i.path === url);
+        if (found) {
+          matchedCalculator = found;
+          calculatorCategory = cat;
+          break;
+        }
+      }
+
       const category = categorySlug ? CATEGORIES.find(c => c.slug === categorySlug) : null;
 
       let title = "All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app";
       let description = "Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces.";
+      let pageHeader = "All Professional Calculators";
+      let targetCategories = CATEGORIES;
+      let breadcrumbs = "";
 
       if (isSitemap) {
         title = "Sitemap | All Online Calculators 2026 | simplycalculator.app";
         description = "Browse our complete list of over 1600+ free online calculators. Find tools for finance, fitness, health, math, and more in our comprehensive sitemap.";
+        pageHeader = "Site Directory";
       } else if (category) {
         title = `${category.title} Calculators | 2026 Online Suite | simplycalculator.app`;
         description = category.description || description;
+        pageHeader = category.title;
+        targetCategories = [category];
+        breadcrumbs = `
+          <nav class="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+            <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+          </nav>
+        `;
+      } else if (matchedCalculator && calculatorCategory) {
+        title = `${matchedCalculator.name} | Free Online Calculator 2026 | simplycalculator.app`;
+        description = matchedCalculator.desc || description;
+        pageHeader = matchedCalculator.name;
+        breadcrumbs = `
+          <nav class="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+            <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+            <span class="mx-2">/</span>
+            <a href="/category/${calculatorCategory.slug}" class="hover:text-blue-600 transition-colors">${calculatorCategory.title}</a>
+          </nav>
+        `;
+      } else if (url !== "/" && !isSitemap && !isCategory) {
+        // If it's not a known route, let Vite/Static handle it (might be a 404 in SPA)
+        return next();
       }
-      
-      const targetCategories = category ? [category] : CATEGORIES;
 
       const contentHtml = `
         <div id="root">
-          <main class="max-w-6xl mx-auto py-12 px-6">
+          <main class="max-w-7xl mx-auto px-4 py-12">
+            ${breadcrumbs}
             <header class="mb-12 border-b-2 border-slate-200 pb-6">
-                <h1 class="text-5xl font-black mb-4 text-slate-900">${category ? category.title : (isSitemap ? 'Site Directory' : 'All Professional Calculators')}</h1>
+                <h1 class="text-4xl md:text-5xl font-black mb-4 text-slate-900">${pageHeader}</h1>
                 <p class="text-lg text-slate-600 max-w-3xl">${description}</p>
             </header>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              ${targetCategories.map(cat => `
-                <section class="mb-10">
-                  <h2 class="text-xl font-black border-l-4 border-blue-600 pl-4 py-1 mb-6 uppercase tracking-widest text-slate-800 bg-slate-50">${cat.title}</h2>
-                  <nav>
-                    <ul class="space-y-4">
-                      ${cat.items.map(item => `
-                        <li class="group">
-                          <a href="${item.path}" class="text-blue-600 hover:text-blue-800 font-bold text-base transition-colors duration-200 decoration-blue-200 decoration-2 underline-offset-4 hover:underline">
-                            ${item.name}
-                          </a>
-                          ${item.desc ? `<p class="text-[13px] text-slate-500 mt-1 leading-relaxed line-clamp-2">${item.desc}</p>` : ''}
-                        </li>
-                      `).join('')}
-                    </ul>
-                  </nav>
-                </section>
-              `).join('')}
-            </div>
+            ${matchedCalculator && calculatorCategory ? `
+              <div class="bg-white p-8 border-4 border-slate-900 shadow-[10px_10px_0px_0px_rgba(15,23,42,0.1)] mb-12">
+                <p class="text-slate-500 italic mb-6">Interactive calculator loading center-stage...</p>
+                <div class="h-64 bg-slate-50 border-2 border-dashed border-slate-200 flex items-center justify-center rounded-lg">
+                  <div class="text-center">
+                    <div class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Initializing Mathematics Engine</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 bg-slate-50 p-8 rounded-xl border border-slate-200">
+                <div>
+                  <h2 class="text-2xl font-black mb-4">About ${matchedCalculator.name}</h2>
+                  <p class="text-slate-600 leading-relaxed">${matchedCalculator.desc}</p>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-black mb-4">Related in ${calculatorCategory.title}</h2>
+                  <ul class="space-y-2">
+                    ${calculatorCategory.items.slice(0, 8).filter(i => i.path !== matchedCalculator.path).map(i => `
+                      <li><a href="${i.path}" class="text-blue-600 hover:underline font-bold">${i.name}</a></li>
+                    `).join('')}
+                  </ul>
+                </div>
+              </div>
+            ` : `
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                ${targetCategories.map(cat => `
+                  <section class="mb-10">
+                    <h2 class="text-xl font-black border-l-4 border-blue-600 pl-4 py-1 mb-6 uppercase tracking-widest text-slate-800 bg-slate-50">${cat.title}</h2>
+                    <nav>
+                      <ul class="space-y-4">
+                        ${cat.items.map(item => `
+                          <li class="group">
+                            <a href="${item.path}" class="text-blue-600 hover:text-blue-800 font-bold text-base transition-colors duration-200 decoration-blue-200 decoration-2 underline-offset-4 hover:underline">
+                              ${item.name}
+                            </a>
+                            ${item.desc ? `<p class="text-[13px] text-slate-500 mt-1 leading-relaxed line-clamp-2">${item.desc}</p>` : ''}
+                          </li>
+                        `).join('')}
+                      </ul>
+                    </nav>
+                  </section>
+                `).join('')}
+              </div>
+            `}
           </main>
         </div>
       `;
@@ -293,13 +374,14 @@ async function startDevServer() {
       let html = template;
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', contentHtml);
-      } else {
+      } else if (html.includes('<div id="root">')) {
         html = html.replace(/<div id="root".*?><\/div>/, contentHtml);
       }
 
       html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
-      const metaDescription = `<meta name="description" content="${description}">`;
-      const canonicalTag = `<link rel="canonical" href="https://simplycalculator.app${url === '/' ? '' : url.replace(/\/$/, '')}">`;
+      
+      const metaDescription = `<meta name="description" content="${description.replace(/"/g, '&quot;')}">`;
+      const canonicalTag = `<link rel="canonical" href="https://simplycalculator.app${normalizedPath}">`;
       
       if (html.includes('<meta name="description"')) {
         html = html.replace(/<meta name="description".*?>/, metaDescription);
@@ -311,33 +393,53 @@ async function startDevServer() {
         html = html.replace('</head>', `  ${canonicalTag}\n  </head>`);
       }
       
-      const schemaData = isCategory && category ? {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": category.title,
-        "description": category.description,
-        "url": `https://simplycalculator.app${url}`,
-        "mainEntity": {
-          "@type": "ItemList",
-          "itemListElement": category.items.slice(0, 50).map((item, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "url": `https://simplycalculator.app${item.path}`,
-            "name": item.name
-          }))
-        }
-      } : {
+      // Determine schema type
+      let schemaData: any = {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "url": "https://simplycalculator.app/",
         "name": "simplycalculator.app",
         "description": description
       };
+      
+      if (matchedCalculator) {
+        schemaData = {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": matchedCalculator.name,
+          "description": matchedCalculator.desc,
+          "url": `https://simplycalculator.app${matchedCalculator.path}`,
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        };
+      } else if (category) {
+        schemaData = {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": category.title,
+          "description": category.description,
+          "url": `https://simplycalculator.app${url}`,
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": category.items.slice(0, 50).map((item, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "url": `https://simplycalculator.app${item.path}`,
+              "name": item.name
+            }))
+          }
+        };
+      }
 
       const schema = `<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`;
       html = html.replace('</head>', `  ${schema}\n  </head>`);
-      
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+
+      res.status(200).set({ "Content-Type": "text/html" }).end(html);
     } catch (e: any) {
       console.error(`[SSR ERROR] ${req.path}:`, e);
       if (!isProd && vite) {

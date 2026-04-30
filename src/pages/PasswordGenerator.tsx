@@ -180,7 +180,7 @@ export const PasswordGenerator: React.FC = () => {
         
         <h3 className="text-xl font-bold text-slate-900 mt-8">What Makes a Password "Strong"?</h3>
         <p>
-          Security experts generally agree on several key factors that contribute to password strength:
+          Security professionals generally agree on several key factors that contribute to password strength:
         </p>
         <ul>
           <li><strong>Length:</strong> Longer is almost always better. A 16-character password is exponentially harder to crack than an 8-character one.</li>

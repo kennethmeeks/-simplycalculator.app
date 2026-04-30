@@ -77,6 +77,13 @@ interface AIGuideRequest {
 }
 
 const handleAIResponse = async (response: Response) => {
+    if (response.status === 401 || response.status === 403) {
+        const errorData = await response.json().catch(() => ({}));
+        if (errorData.error === "GEMINI_API_KEY_INVALID") {
+            throw new Error("GEMINI_API_KEY_INVALID");
+        }
+    }
+
     if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.error || `Server responded with ${response.status}`);
@@ -85,6 +92,9 @@ const handleAIResponse = async (response: Response) => {
     const contentType = response.headers.get('content-type');
     if (!contentType || !contentType.includes('application/json')) {
         const text = await response.text();
+        if (text.includes("Starting Server") || text.includes("<!doctype html>")) {
+            throw new Error("SERVER_RESTARTING");
+        }
         console.error("Non-JSON Response received:", text.slice(0, 200));
         throw new Error("Invalid server response format. The server might be restarting or misconfigured. Please try again in a few seconds.");
     }
