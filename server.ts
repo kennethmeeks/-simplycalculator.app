@@ -7,6 +7,7 @@ import helmet from "helmet";
 import cors from "cors";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { CATEGORIES } from "./src/constants/categories";
+import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from "./src/constants/educational";
 
 dotenv.config();
 
@@ -136,15 +137,18 @@ async function startDevServer() {
       const text = result.response.text();
       res.json({ text });
     } catch (error: any) {
-      console.error("[API ERROR] Schema:", error);
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
                          error.message?.includes("400") ||
                          error.message?.includes("401");
       
-      res.status(isAuthError ? 401 : 503).json({ 
-        error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
+      if (!isAuthError) {
+        console.error("[API ERROR] Schema:", error);
+      }
+      
+      res.status(isAuthError ? 401 : 500).json({ 
+        error: isAuthError ? "GEMINI_API_KEY_INVALID" : "INTERNAL_ERROR" 
       });
     }
   });
@@ -173,15 +177,18 @@ async function startDevServer() {
       const text = result.response.text();
       res.json({ text });
     } catch (error: any) {
-      console.error("[API ERROR] Calculate:", error);
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
                          error.message?.includes("400") ||
                          error.message?.includes("401");
       
-      res.status(isAuthError ? 401 : 503).json({ 
-        error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
+      if (!isAuthError) {
+        console.error("[API ERROR] Calculate:", error);
+      }
+      
+      res.status(isAuthError ? 401 : 500).json({ 
+        error: isAuthError ? "GEMINI_API_KEY_INVALID" : "INTERNAL_ERROR" 
       });
     }
   });
@@ -214,15 +221,18 @@ async function startDevServer() {
       const text = result.response.text();
       res.json({ text });
     } catch (error: any) {
-      console.error("[API ERROR] Guide:", error);
       const isAuthError = error.message?.includes("GEMINI_API_KEY") || 
                          error.message?.includes("API key not valid") ||
                          error.message?.includes("key invalid") ||
                          error.message?.includes("400") ||
                          error.message?.includes("401");
       
-      res.status(isAuthError ? 401 : 503).json({ 
-        error: isAuthError ? "GEMINI_API_KEY_INVALID" : error.message 
+      if (!isAuthError) {
+        console.error("[API ERROR] Guide:", error);
+      }
+      
+      res.status(isAuthError ? 401 : 500).json({ 
+        error: isAuthError ? "GEMINI_API_KEY_INVALID" : "INTERNAL_ERROR" 
       });
     }
   });
@@ -312,6 +322,16 @@ async function startDevServer() {
         return next();
       }
 
+      // Determine educational content for SSR
+      let edu = DEFAULT_EDUCATION;
+      if (matchedCalculator && calculatorCategory) {
+        let eduSlug = calculatorCategory.slug;
+        if (['roofing', 'masonry', 'home-improvement'].includes(eduSlug)) eduSlug = 'construction';
+        if (['real-estate', 'insurance'].includes(eduSlug)) eduSlug = 'finance';
+        if (['hydraulics'].includes(eduSlug)) eduSlug = 'science';
+        edu = CATEGORY_EDUCATION[eduSlug] || DEFAULT_EDUCATION;
+      }
+
       const contentHtml = `
         <div id="root">
           <main class="max-w-7xl mx-auto px-4 py-12">
@@ -335,15 +355,38 @@ async function startDevServer() {
               <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 bg-slate-50 p-8 rounded-xl border border-slate-200">
                 <div>
                   <h2 class="text-2xl font-black mb-4">About ${matchedCalculator.name}</h2>
-                  <p class="text-slate-600 leading-relaxed">${matchedCalculator.desc}</p>
+                  <p class="text-slate-600 leading-relaxed font-medium mb-6">${matchedCalculator.desc}</p>
+                  
+                  <div class="mt-8 pt-8 border-t border-slate-200">
+                    <h3 class="text-lg font-bold mb-3 text-slate-800">${edu.title}</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                      ${edu.whyItWorks}
+                    </p>
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">How to Use</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                      ${edu.howToUse}
+                    </p>
+                  </div>
                 </div>
                 <div>
-                  <h2 class="text-2xl font-black mb-4">Related in ${calculatorCategory.title}</h2>
-                  <ul class="space-y-2">
-                    ${calculatorCategory.items.slice(0, 8).filter(i => i.path !== matchedCalculator.path).map(i => `
-                      <li><a href="${i.path}" class="text-blue-600 hover:underline font-bold">${i.name}</a></li>
+                  <h3 class="text-2xl font-black mb-4">Common Questions</h3>
+                  <div class="space-y-6">
+                    ${edu.faq.map(f => `
+                      <div class="border-l-2 border-blue-600 pl-4 py-1">
+                        <p class="font-bold text-slate-900 text-sm mb-1">${f.q}</p>
+                        <p class="text-slate-600 text-xs leading-relaxed">${f.a}</p>
+                      </div>
                     `).join('')}
-                  </ul>
+                  </div>
+
+                  <div class="mt-8 pt-8 border-t border-slate-200">
+                    <h4 class="text-lg font-black mb-4 text-slate-800">Related Tools</h4>
+                    <ul class="space-y-2">
+                      ${calculatorCategory.items.slice(0, 8).filter(i => i.path !== matchedCalculator.path).map(i => `
+                        <li><a href="${i.path}" class="text-blue-600 hover:underline font-bold text-sm">${i.name}</a></li>
+                      `).join('')}
+                    </ul>
+                  </div>
                 </div>
               </div>
             ` : `

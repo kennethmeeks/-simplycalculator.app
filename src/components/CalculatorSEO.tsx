@@ -4,6 +4,8 @@ import { fetchAIGuide, safeParseAIResponse } from '../lib/gemini';
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
+import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from '../constants/educational';
+import { CATEGORIES } from '../constants/categories';
 
 interface GuideContent {
     howAndWhy: string;
@@ -21,6 +23,12 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
     const [isLoading, setIsLoading] = useState(false);
     const CACHE_KEY = (p: string) => `sc_guide_v5_${p}`; // Bumped to v5 to clear old LaTeX documentation
     const [error, setError] = useState<string | null>(null);
+
+    // Find the category for fallback
+    const category = CATEGORIES.find(cat => 
+        cat.items.some(item => item.path === path || item.path === (path === '/' ? '/' : path.replace(/\/$/, '')))
+    );
+    const fallback = category ? CATEGORY_EDUCATION[category.slug] : DEFAULT_EDUCATION;
 
     useEffect(() => {
         const cached = localStorage.getItem(CACHE_KEY(path));
@@ -56,16 +64,24 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                 setGuideContent(data);
                 localStorage.setItem(CACHE_KEY(path), JSON.stringify(data));
             } catch (err: any) {
-                console.error("SEO Guide fetch error:", err);
-                setError(err.message || "Failed to load documentation");
-                setGuideContent(null);
+                // Use fallback on error
+                if (err.message !== "GEMINI_API_KEY_INVALID") {
+                    console.error("SEO Guide fetch error:", err);
+                }
+                
+                // Construct a better fallback based on category
+                const fallbackData: GuideContent = {
+                    howAndWhy: `### How to use ${name}\n\n${fallback.howToUse}\n\n### Why ${name} matters\n\n${fallback.whyItWorks}`,
+                    faq: fallback.faq
+                };
+                setGuideContent(fallbackData);
             } finally {
                 setIsLoading(false);
             }
         };
 
         fetchGuide();
-    }, [name, path, description]);
+    }, [name, path, description, fallback]);
 
     if (isLoading) {
         return null;

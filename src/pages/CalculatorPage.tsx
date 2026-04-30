@@ -66,7 +66,9 @@ export const CalculatorPage: React.FC = () => {
                 throw new Error("Invalid schema received from AI");
             }
         } catch (err: any) {
-            console.error("Schema discovery error:", err);
+            if (err.message !== "GEMINI_API_KEY_INVALID") {
+                console.error("Schema discovery error:", err);
+            }
             setDiscoveryFailed(true);
             
             // Professional Fallback Logic
@@ -194,9 +196,13 @@ export const CalculatorPage: React.FC = () => {
             if (!data || !data.value) throw new Error("Our engine couldn't process these specific values. Please try adjusting them.");
             setResult(data);
         } catch (err: any) {
-            console.error("Calculation error:", err);
+            // Log real errors, but keep auth errors handled properly
+            if (err.message !== 'GEMINI_API_KEY_INVALID') {
+                console.error("Calculation error:", err);
+            }
+            
             const friendlyError = err.message === 'GEMINI_API_KEY_INVALID' 
-                ? "This specific calculator requires an active AI engine configuration to process your unique values. Please try another tool or contact support."
+                ? "This calculator requires an active AI engine configuration. For now, please try other tools or check back later."
                 : (err.message || "The calculator encountered an error. Please verify the input values.");
             setError(friendlyError);
         } finally {
