@@ -205,17 +205,23 @@ async function startDevServer() {
         }
       });
 
-      const prompt = `Generate a standard, easy-to-read user guide for the "${name}" calculator (${description || ''}).
-      
+      const prompt = `Generate an authoritative, expert-level guide for the "${name}" calculator. 
+      The description of this tool is: "${description || ''}".
+
       You MUST provide a response as a JSON object with:
-      1. "howAndWhy": A narrative section (about 300-400 words) titled "How and Why it Works". This must cover:
-         - A simple "How to use" guide.
-         - A clear explanation of "Why" this calculation is used.
-      2. "faq": An array of at least 5 standard Frequently Asked Questions (FAQ) with clear, helpful answers.
-      
+      1. "howAndWhy": A comprehensive narrative section (400-600 words) titled "The Expert Guide to ${name}". 
+         This section should be formatted in Markdown and MUST include:
+         - "Practical Applications": Describe 2-3 real-world scenarios where this calculator is essential.
+         - "The Underlying Logic": Briefly explain the core variables and how they mathematically interact (avoid deep jargon, but explain the 'levers').
+         - "Pro Tips & Edge Cases": Provide advanced advice that a professional (e.g., a CPA, doctor, or engineer) would give.
+         - "Common Mistakes to Avoid": List 3-4 typical errors people make when interpreting these figures.
+      2. "faq": An array of 6-8 deep-dive Frequently Asked Questions. Avoid generic questions like "Is it free?". Instead, focus on nuanced queries like "How does [Variable X] impact the outcome in high-inflation environments?" or "When should I choose [Method A] over [Method B]?".
+
       CRITICAL REQUIREMENTS:
-      - Use professional yet simple Markdown (bolding, lists) within the bodies.
-      - Total word count should be around 500-700 words.`;
+      - Use professional, authoritative, but accessible language.
+      - Use Markdown for hierarchy (h3, h4, bolding, bullet points).
+      - Maintain a word count of 700-1000 words for the entire response.
+      - DO NOT use any LaTeX notation. Use plain text for formulas.`;
 
       const result = await model.generateContent(prompt);
       const text = result.response.text();

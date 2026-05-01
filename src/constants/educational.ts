@@ -8,32 +8,75 @@ export interface CategoryEducation {
 
 export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
     finance: {
-        title: "Finance & Investment Principles",
-        howToUse: "Enter your primary financial variables such as principal, interest rate, or time period. Our algorithms apply standard financial formulas (like TVM, CAGR, or ROI) to project your results. Adjust inputs to see how small changes impact your long-term wealth.",
-        whyItWorks: "Financial planning relies on the time value of money. Whether you're calculating retirement growth or loan interest, understanding the mathematical relationship between time and capital is the key to building sound financial strategies. Our calculators use verified industry formulas to ensure accuracy.",
+        title: "The Financial Decision Engine",
+        howToUse: "Input your core financial variables: principal amount, interest rates, and the time horizon. Our engine utilizes standard time-value-of-money (TVM) formulas to provide instant projections. For 2026, we recommend using conservative interest rate estimates to account for potential market volatility.",
+        whyItWorks: "Professional financial planning is built on the mathematical relationship between capital, time, and compounding. Whether you are calculating the future value of a 401(k) or the total cost of a mortgage, accuracy is paramount. Our tools apply verified legislative and actuarial constants to ensure your long-term wealth strategies are grounded in reality.",
         faq: [
-            { q: "How accurate are these financial projections?", a: "These tools provide estimates based on mathematical formulas. Real-world results may vary due to market fluctuations, tax changes, and fees." },
-            { q: "Should I use these for professional tax advice?", a: "No, these are educational tools. Always consult with a certified financial planner or tax professional for critical decisions." },
-            { q: "What is the 'Rule of 72'?", a: "A quick way to estimate how many years it will take for your investment to double, calculated by dividing 72 by your annual rate of return." }
+            { q: "What is the most critical variable in wealth compounding?", a: "While interest rates are important, 'Time' is technically the most explosive variable in the compounding formula. Starting even 5 years earlier can result in nearly double the final portfolio value due to jurisdictional time-weighting." },
+            { q: "How should I account for inflation in my 2026 projections?", a: "We recommend subtracting a standard 2-3% from your expected annual return to find your 'Real Return'. This accounts for the purchasing power erosion typical in modern economies." },
+            { q: "What is the difference between simple and compound interest?", a: "Simple interest is calculated only on the principal. Compound interest is calculated on the principal plus the accumulated interest of previous periods, creating a 'snowball' effect." },
+            { q: "How accurate are the tax-advantaged account projections?", a: "These estimates follow current 2026 IRS contribution limits and standard growth models. They do not account for state-specific tax nuances or future legislative shifts." },
+            { q: "Should I prioritize debt payoff or investing?", a: "A common expert rule of thumb is to pay off any debt with an interest rate higher than your expected investment return (usually anything above 7-8%), then prioritize investing the surplus." }
         ]
     },
     health: {
-        title: "Health & Fitness Science",
-        howToUse: "Input your physical measurements like height, weight, age, and activity level. Use the toggle buttons for Metric or Imperial units. The engine calculates your biological markers based on established medical formulas like BMI or Mifflin-St Jeor.",
-        whyItWorks: "Metabolic and physical tracking allows you to make data-driven decisions about your health. By understanding your Basal Metabolic Rate (BMR) or Body Mass Index (BMI), you can better manage your nutritional intake and fitness goals. These formulas are standardized tools used by healthcare professionals globally.",
+        title: "Clinical Biometrics & Metabolic Analysis",
+        howToUse: "Input your precise physical biometrics: height, current weight, age, and biological sex. Select your activity level based on weekly metabolic output. Our engine applies high-precision clinical formulas (such as the Cunningham or Mifflin-St Jeor equations) to provide your baseline metabolic markers.",
+        whyItWorks: "Evidence-based health management requires moving beyond guesswork. By quantifying your Basal Metabolic Rate (BMR) or Body Mass Index (BMI), you establish a scientific baseline for nutritional and fitness planning. These formulas are the gold standard for clinical practitioners to estimate energy requirements and body composition risk factors.",
         faq: [
-            { q: "Is BMI an accurate measure of health?", a: "BMI is a screening tool that correlates weight and height. It does not directly measure body fat or muscle mass, which are also critical health markers." },
-            { q: "What is BMR?", a: "Basal Metabolic Rate is the number of calories your body needs to perform basic life-sustaining functions while at rest." },
-            { q: "How often should I recalculate my stats?", a: "Recalculating every 4-8 weeks is recommended as your weight and activity levels change." }
+            { q: "Why do different calculators give different BMR results?", a: "Different formulas (Mifflin-St Jeor, Harris-Benedict, etc.) weigh variables like age and muscle mass differently. Our engine defaults to the Mifflin-St Jeor equation, which clinical studies suggest is the most accurate for modern populations." },
+            { q: "How does activity level (PAL) affect my daily calorie needs?", a: "The Physical Activity Level (PAL) multiplier accounts for the 'Thermal Effect of Activity'. Selecting 'Moderately Active' for someone who is sedentary can result in a 300-500 calorie discrepancy, leading to unintended weight fluctuations." },
+            { q: "Is BMI a diagnostic tool?", a: "BMI is a screening metric, not a diagnostic one. It does not distinguish between lean muscle and adipose tissue. Athletes with high muscle mass may be classified as 'overweight' despite having very low body fat percentages." },
+            { q: "What is 'Basal' vs 'Total' Metabolic Rate?", a: "BMR is the energy required for autonomic survival (organ function). TDEE (Total Daily Energy Expenditure) includes BMR plus the energy used for digestion and physical movement." },
+            { q: "How accurate are these for professional athletes?", a: "Athletes with extreme muscle mass or high-intensity training schedules may require specialized metabolic testing, as standard formulas often underestimate their caloric requirements." }
         ]
     },
     math: {
-        title: "Mathematical Foundations",
-        howToUse: "Input your variables into the specified fields. Our math engine handles both basic arithmetic and advanced algebraic or geometric functions. Results are calculated instantly with high precision.",
-        whyItWorks: "Mathematics is the language of the universe. From solving the Pythagorean theorem to complex statistics, our tools are built on fundamental geometric and algebraic laws that provide consistent, verifiable outcomes for students and professionals alike.",
+        title: "Mathematical Foundations & Logic",
+        howToUse: "Enter your numeric expressions or variables into the input fields. Use standard decimal notation. For complex calculators (like geometry or statistics), ensure you are selecting the correct units of measure. Our calculation engine utilizes the 2026 Math Standard library for high-precision floating-point arithmetic.",
+        whyItWorks: "Mathematics is the universal language of architecture, engineering, and logic. From calculating the hypotenuse of a triangle to determining the standard deviation of a dataset, these tools apply immutable geometric and algebraic axioms. Using these tools reduces human error in calculation, ensuring that your theoretical models are backed by exact numeric results.",
         faq: [
-            { q: "Does the calculator support order of operations?", a: "Yes, all internal calculations follow standard PEMDAS/BODMAS rules to ensure mathematical integrity." },
-            { q: "Are the geometric formulas verified?", a: "Yes, we use standard Euclidean geometry constants (like Pi) and formulas for all shape-based calculations." }
+            { q: "What level of precision do these calculators offer?", a: "Most calculators provide precision up to 10-12 decimal places, sufficient for most engineering and architectural applications, though highly sensitive scientific work should use dedicated symbolic software." },
+            { q: "Why use a calculator instead of mental shortcuts?", a: "While 'back-of-the-envelope' math is great for estimation, the risk of 'carrying the one' errors in multi-step operations is high. Digital calculation ensures consistency in every operation." },
+            { q: "How are geometric volumes calculated?", a: "We apply the standard integral-derived volume formulas (e.g., 4/3 * pi * r^3 for spheres). Users must simply provide the radius or dimensional constraints." },
+            { q: "Does the calculator follow Order of Operations (BODMAS/PEMDAS)?", a: "Yes, our engine strictly adheres to standard mathematical hierarchy: Brackets, Exponents, Multiplication/Division, and Addition/Subtraction." },
+            { q: "Can I use variables other than numbers?", a: "Most of our standard tools require numeric inputs. For symbolic algebraic solver tools, please refer to our Advanced Math category." }
+        ]
+    },
+    'real-estate': {
+        title: "The Real Estate Acquisition Framework",
+        howToUse: "Input the property value, loan terms, and estimated closing costs. For investment analysis, include projected rental income and vacancy rates. Our engine applies professional real estate arithmetic, including PITI, Cap Rate, and Cash-on-Cash return models, to provide a 2026 snapshot of property performance.",
+        whyItWorks: "Real estate is a capital-intensive asset class where small margin errors can lead to massive financial liabilities. By quantifying the relationship between debt service, operating expenses, and yield, you can stripped away emotional bias from your home-buying or investment decisions. These calculations are the standard for professional underwriters and savvy property investors.",
+        faq: [
+            { q: "What is PITI and why does it matter?", a: "PITI stands for Principal, Interest, Taxes, and Insurance. It represents your true monthly housing cost. Ignoring taxes and insurance in your budget is a common error that leads to 'house-poor' financial strain." },
+            { q: "How much should I realistically budget for maintenance?", a: "A standard expert rule is the '1% Rule'—budget 1% of the property's value annually for maintenance and repairs. High-exposure or older properties may require 2-3%." },
+            { q: "Is a higher Cap Rate always better?", a: "Not necessarily. A high Cap Rate often reflects higher risk or lower property appreciation potential. Professional investors balance Cap Rate against 'Class' and location quality." },
+            { q: "How do interest rates impact my buying power?", a: "A 1% increase in mortgage rates typically reduces your buying power by approximately 10%. This inverse relationship is critical when planning a purchase in fluctuating rate environments." },
+            { q: "What are 'Mortgage Points'?", a: "Points are up-front fees paid to the lender to 'buy down' your interest rate. Use our Points Calculator to find the 'break-even' point where the monthly savings outweigh the initial cost." }
+        ]
+    },
+    science: {
+        title: "Empirical Analysis & Physical Laws",
+        howToUse: "Select your target scientific domain (Chemistry, Physics, or Engineering) and input your known constants and variables. Ensure your units (Metric vs. Imperial) are consistent across the calculation. Our calculators utilize verified physical constants (like Avogadro's number or the Speed of Light) updated for 2026 precision standards.",
+        whyItWorks: "Scientific progress relies on repeatable, accurate measurement. Whether you are balancing a chemical equation or calculating the force of an object in motion, moving from theoretical theory to numeric certainty is the key. These tools apply the underlying laws of thermodynamics, kinetics, and electromagnetics to provide instant, verified results for students and researchers.",
+        faq: [
+            { q: "What is the margin of error in these scientific tools?", a: "We utilize standard IEEE-754 double-precision arithmetic. While sufficient for most lab work and engineering, extreme theoretical physics requiring 50+ decimal places should use specialized symbolic computation." },
+            { q: "How are chemical yields calculated?", a: "We utilize stoichiometry based on molar mass and balanced equations. 'Percent Yield' accounts for the discrepancy between theoretical maximums and actual lab outcomes." },
+            { q: "Are the physical constants up to date?", a: "Yes, we utilize the latest CODATA recommended values for all fundamental physical constants." },
+            { q: "Can I convert between SI and US Customary units?", a: "Yes, all our science tools include integrated unit conversion logic to ensure cross-border compatibility." },
+            { q: "What is the difference between mass and weight in these tools?", a: "Mass is an intrinsic property (measured in kg), while weight is the force exerted by gravity (measured in Newtons). Our tools explicitly distinguish between the two based on the formula being applied." }
+        ]
+    },
+    automotive: {
+        title: "Automotive Engineering & Cost Analysis",
+        howToUse: "Input your vehicle's performance data, fuel costs, or loan terms. For performance tools (like HP or Compression), ensure your engine specs are accurate to the manufacturer's data. Our tools provide professional-grade estimates for both casual owners and automotive tuning enthusiasts.",
+        whyItWorks: "Vehicles are complex mechanical systems where physics and finance intersect. From calculating the aerodynamic drag on a trip to the long-term depreciation of a luxury asset, data-driven ownership saves money and improves performance. These formulas are used by engineers to optimize engine output and by savvy consumers to minimize TCO (Total Cost of Ownership).",
+        faq: [
+            { q: "How is 'True Cost of Ownership' calculated?", a: "TCO includes fuel, insurance, maintenance, repairs, and—most importantly—depreciation. For new cars, depreciation is often 50% of the cost over the first 5 years." },
+            { q: "What impacts fuel efficiency the most?", a: "While engine type matters, driver behavior (speed and acceleration) and tire pressure are the most significant variables users can control to improve MPG." },
+            { q: "How accurate are performance estimates like 0-60 or HP?", a: "These are mathematical models. Real-world variables like tire grip, air density (altitude), and reaction time will cause minor deviations from theoretical maximums." },
+            { q: "Why should I track my vehicle's depreciation?", a: "Understanding your 'equity' in a vehicle is critical for deciding when to sell or trade-in. Negative equity (owing more than the car is worth) is a common financial trap." },
+            { q: "What is the 'Rule of Thumb' for car maintenance?", a: "Budgeting 5-10 cents per mile driven for maintenance and repairs is a standard practice for managing long-term vehicle health." }
         ]
     },
     construction: {

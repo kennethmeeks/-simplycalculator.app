@@ -116,9 +116,13 @@ export const MortgageCalculator: React.FC = () => {
         <meta name="description" content="Free mortgage calculator with taxes and insurance. Estimate your total monthly payment." />
       </Helmet>
 
-      <header className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 uppercase">Mortgage Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Estimate your monthly housing costs for 2026.</p>
+      <header className="text-center space-y-4 mb-16">
+        <h1 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tight">
+          Mortgage <span className="text-blue-600">Decision</span> Engine
+        </h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-base">
+          Analyze home affordability for 2026 with precise calculations for PITI (Principal, Interest, Taxes, and Insurance).
+        </p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">

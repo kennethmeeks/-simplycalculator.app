@@ -114,10 +114,13 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
             </Helmet>
 
             <div className="max-w-none">
-                <header className="mb-12">
-                    <h2 className="text-2xl font-bold text-slate-900 tracking-tight leading-none">
-                        Documentation & <span className="text-blue-600">Guides</span>
+                <header className="mb-12 flex items-center justify-between border-b-2 border-slate-900 pb-4">
+                    <h2 className="text-2xl font-black text-slate-900 tracking-tight uppercase">
+                        Expert <span className="text-blue-600">Insights</span> & Methodology
                     </h2>
+                    <div className="hidden md:block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                        Last Updated: 2026 Edition
+                    </div>
                 </header>
 
                 <div className="space-y-8">

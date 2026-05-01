@@ -428,14 +428,21 @@ export const CalculatorPage: React.FC = () => {
                             </div>
                         </header>
 
-                        <div className="bg-white border-l-4 border-blue-600 p-4 mb-8 rounded shadow-sm">
-                            <h3 className="text-sm font-bold text-slate-800 mb-1 flex items-center gap-2">
+                        <div className="bg-white border-l-4 border-blue-600 p-6 mb-8 rounded-xl shadow-sm bg-gradient-to-r from-blue-50/30 to-transparent">
+                            <h3 className="text-sm font-black text-slate-900 mb-2 flex items-center gap-2 uppercase tracking-widest">
                                 <Info className="w-4 h-4 text-blue-600" />
-                                How to use
+                                Professional Guidance
                             </h3>
-                            <p className="text-xs text-slate-500 leading-relaxed italic">
-                                Fill in the details in the "Your Details" section below. As you enter information, our mathematics engine calculates the result instantly for 2026. Reach out if you have questions!
-                            </p>
+                            <div className="text-xs text-slate-600 leading-relaxed font-medium">
+                                <p className="mb-2">
+                                    To get the most accurate results from the <strong className="text-blue-700">{foundItem.name}</strong>, please ensure you have your latest data points ready. 
+                                </p>
+                                <ul className="list-disc pl-4 space-y-1 text-slate-500 italic">
+                                    <li>Enter your values in the <strong>"Your Details"</strong> panel.</li>
+                                    <li>Results update in real-time using our 2026 mathematics engine.</li>
+                                    <li>Review the <strong>Expert Insights</strong> below for professional tips on this specific calculation.</li>
+                                </ul>
+                            </div>
                         </div>
 
                         {foundItem.path === '/math/basic-calculator' ? (
