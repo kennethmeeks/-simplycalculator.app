@@ -321,6 +321,9 @@ export default function App() {
             <Route path="/investment" element={<InvestmentCalculator />} />
             <Route path="/retirement" element={<RetirementCalculator />} />
             <Route path="/savings" element={<SavingsCalculator />} />
+            <Route path="/life-insurance" element={<LifeInsuranceCalculator />} />
+            <Route path="/health-insurance" element={<HealthInsuranceCalculator />} />
+            <Route path="/car-insurance" element={<CarInsuranceCalculator />} />
             <Route path="/income-tax" element={<IncomeTaxCalculator />} />
             <Route path="/cd" element={<CDCalculator />} />
             <Route path="/interest-rate" element={<InterestRateCalculator />} />

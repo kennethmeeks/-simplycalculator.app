@@ -69,9 +69,9 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
      { id: 'targetDate', label: 'Age at Date', type: 'date', defaultValue: new Date().toISOString().split('T')[0] }
   ],
   '/math/percentage': [
-    { id: 'num1', label: 'Value X', type: 'number' },
-    { id: 'num2', label: 'Value Y', type: 'number' },
-    { id: 'operation', label: 'Operation', type: 'select', options: [
+    { id: 'num1', label: 'Reference Value (X)', type: 'number' },
+    { id: 'num2', label: 'Total Value (Y)', type: 'number' },
+    { id: 'operation', label: 'Percentage Operation', type: 'select', options: [
         { label: 'What is X% of Y?', value: 'of' },
         { label: 'X is what % of Y?', value: 'is' },
         { label: 'Percentage increase/decrease', value: 'diff' }
@@ -762,7 +762,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/agi': [
     { id: 'income', label: 'Gross Annual Income', type: 'number', unit: '$' },
     { id: 'retirement', label: 'Retirement Contributions', type: 'number', unit: '$' },
-    { id: 'adjustments', label: 'Other Tax Adjustments', type: 'number', unit: '$' }
+    { id: 'adjustments', label: 'Additional Itemized Adjustments', type: 'number', unit: '$' }
   ],
   '/annualized-return': [
     { id: 'initial', label: 'Initial Investment Value', type: 'number', unit: '$' },
@@ -793,17 +793,17 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'gender', label: 'Gender', type: 'select', options: [{ label: 'Male', value: 'male' }, { label: 'Female', value: 'female' }] }
   ],
   '/math/addition': [
-    { id: 'num1', label: 'First Number', type: 'number' },
-    { id: 'num2', label: 'Second Number', type: 'number' },
-    { id: 'num3', label: 'Third Number (Optional)', type: 'number' }
+    { id: 'num1', label: 'First Addend', type: 'number' },
+    { id: 'num2', label: 'Second Addend', type: 'number' },
+    { id: 'num3', label: 'Third Addend (Optional)', type: 'number' }
   ],
   '/math/multiplication': [
-    { id: 'num1', label: 'First Number', type: 'number' },
-    { id: 'num2', label: 'Second Number', type: 'number' }
+    { id: 'num1', label: 'Multiplicand', type: 'number' },
+    { id: 'num2', label: 'Multiplier', type: 'number' }
   ],
   '/math/division': [
-    { id: 'num1', label: 'Dividend', type: 'number' },
-    { id: 'num2', label: 'Divisor', type: 'number' }
+    { id: 'num1', label: 'Dividend Amount', type: 'number' },
+    { id: 'num2', label: 'Divisor Value', type: 'number' }
   ],
   '/math/average': [
     { id: 'numbers', label: 'Numbers (comma separated)', type: 'text', placeholder: 'e.g. 10, 20, 30' }
@@ -816,12 +816,12 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'power', label: 'Exponent', type: 'number' }
   ],
   '/math/log': [
-    { id: 'value', label: 'Logarithm Value', type: 'number' },
-    { id: 'base', label: 'Base (default 10)', type: 'number', defaultValue: '10' }
+    { id: 'value', label: 'Logarithm Argument Value', type: 'number' },
+    { id: 'base', label: 'Logarithmic Base (default 10)', type: 'number', defaultValue: '10' }
   ],
   '/math/modulo': [
-    { id: 'num1', label: 'Dividend', type: 'number' },
-    { id: 'num2', label: 'Divisor', type: 'number' }
+    { id: 'num1', label: 'Dividend (Number to Divide)', type: 'number' },
+    { id: 'num2', label: 'Divisor (Modulo)', type: 'number' }
   ],
   '/math/circle': [
     { id: 'radius', label: 'Radius', type: 'number' },
@@ -864,5 +864,32 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },
     { id: 'rate', label: 'Annual Growth Rate', type: 'number', unit: '%' },
     { id: 'years', label: 'Years', type: 'number' }
+  ],
+  '/health-insurance': [
+    { id: 'zipCode', label: 'Zip Code', type: 'text', placeholder: 'e.g. 90210', description: 'Used to determine regional benchmark rates.' },
+    { id: 'age', label: 'Applicant Age', type: 'number', description: 'Premiums are age-rated in most states.' },
+    { id: 'coverageLevel', label: 'Coverage Type', type: 'select', options: [
+      { label: 'Individual', value: 'individual' },
+      { label: 'Individual + Spouse', value: 'employee_plus_one' },
+      { label: 'Family', value: 'family' }
+    ]},
+    { id: 'tobaccoUse', label: 'Tobacco Use', type: 'select', options: [{ label: 'No', value: 'no' }, { label: 'Yes', value: 'yes' }] },
+    { id: 'householdIncome', label: 'Annual Household Income', type: 'number', unit: '$', description: 'Used for calculating Advance Premium Tax Credits (APTC).' }
+  ],
+  '/life-insurance': [
+    { id: 'age', label: 'Current Age', type: 'number' },
+    { id: 'tobaccoUse', label: 'Tobacco Use', type: 'select', options: [{ label: 'No', value: 'no' }, { label: 'Yes', value: 'yes' }] },
+    { id: 'deathBenefit', label: 'Desired Death Benefit (Coverage)', type: 'number', unit: '$', placeholder: 'e.g. 500000' },
+    { id: 'term', label: 'Policy Term', type: 'number', unit: 'years', placeholder: 'e.g. 20' }
+  ],
+  '/car-insurance': [
+    { id: 'zipCode', label: 'Zip Code', type: 'text' },
+    { id: 'age', label: 'Primary Driver Age', type: 'number' },
+    { id: 'vehicleValue', label: 'Vehicle Market Value', type: 'number', unit: '$' },
+    { id: 'drivingHistory', label: 'Driving Record', type: 'select', options: [
+      { label: 'Clean', value: 'clean' },
+      { label: 'Minor Violations', value: 'minor' },
+      { label: 'Major Violations', value: 'major' }
+    ]}
   ]
 };

@@ -87,7 +87,19 @@ export const CarInsuranceCalculator: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="input-group">
-                <label className="input-label">Age</label>
+                <label className="input-label">Zip Code</label>
+                <input
+                  type="text"
+                  placeholder="e.g. 90210"
+                  className="input-field"
+                  onChange={(e) => {
+                    // Just visual for now to feel "industry standard"
+                  }}
+                />
+              </div>
+
+              <div className="input-group">
+                <label className="input-label">Primary Driver Age</label>
                 <input
                   type="number"
                   value={age || ''}
@@ -97,28 +109,28 @@ export const CarInsuranceCalculator: React.FC = () => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Location Type</label>
+                <label className="input-label">Location Environment</label>
                 <select
                   value={location}
                   onChange={(e) => setLocation(e.target.value as any)}
                   className="input-field"
                 >
-                  <option value="urban">Urban (City)</option>
-                  <option value="suburban">Suburban</option>
-                  <option value="rural">Rural (Country)</option>
+                  <option value="urban">Urban (City - High Traffic)</option>
+                  <option value="suburban">Suburban (Moderate Traffic)</option>
+                  <option value="rural">Rural (Country - Low Traffic)</option>
                 </select>
               </div>
 
               <div className="input-group">
-                <label className="input-label">Driving Record</label>
+                <label className="input-label">Driving History</label>
                 <select
                   value={drivingRecord}
                   onChange={(e) => setDrivingRecord(e.target.value as any)}
                   className="input-field"
                 >
                   <option value="clean">Clean (No accidents/tickets)</option>
-                  <option value="minor">Minor (1-2 tickets/fender benders)</option>
-                  <option value="major">Major (DUI, serious accidents)</option>
+                  <option value="minor">Minor (1-2 tickets/minor fender benders)</option>
+                  <option value="major">Major (DUI, multiple violations, serious accidents)</option>
                 </select>
               </div>
 

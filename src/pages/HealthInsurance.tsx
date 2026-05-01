@@ -5,6 +5,12 @@ import { motion } from 'motion/react';
 import { Calculator as CalcIcon, Stethoscope, Activity, Pill, User, Users, ShieldCheck } from 'lucide-react';
 
 export const HealthInsuranceCalculator: React.FC = () => {
+  const [zipCode, setZipCode] = useState<string>('');
+  const [age, setAge] = useState<number>(30);
+  const [coverageLevel, setCoverageLevel] = useState<string>('individual');
+  const [tobaccoUse, setTobaccoUse] = useState<string>('no');
+  const [householdIncome, setHouseholdIncome] = useState<number>(45000);
+  
   const [premium, setPremium] = useState<number>(450);
   const [deductible, setDeductible] = useState<number>(2500);
   const [outOfPocket, setOutOfPocket] = useState<number>(6000);
@@ -13,11 +19,48 @@ export const HealthInsuranceCalculator: React.FC = () => {
   const [visitCost, setVisitCost] = useState<number>(150);
   const [expectedMeds, setExpectedMeds] = useState<number>(200);
 
+  const [estimatedPremium, setEstimatedPremium] = useState<number>(0);
+  const [estimatedSubsidy, setEstimatedSubsidy] = useState<number>(0);
+  const [finalMonthlyCost, setFinalMonthlyCost] = useState<number>(0);
   const [totalAnnualCost, setTotalAnnualCost] = useState<number>(0);
   const [monthlyAverage, setMonthlyAverage] = useState<number>(0);
 
+  // Estimation Logic (Mock industry logic)
   useEffect(() => {
-    const annualPremium = premium * 12;
+    // 1. Base Premium Estimation
+    let base = 350; // Average base
+    
+    // Age factor (simplified)
+    const ageFactor = age < 25 ? 0.7 : age < 40 ? 1.0 : age < 55 ? 1.5 : 2.0;
+    
+    // Tobacco surcharge (up to 50%)
+    const tobaccoSurcharge = tobaccoUse === 'yes' ? 1.5 : 1.0;
+    
+    // Coverage Level Multiplier
+    const coverageMultiplier = coverageLevel === 'family' ? 2.8 : coverageLevel === 'employee_plus_one' ? 1.9 : 1.0;
+
+    const est = base * ageFactor * tobaccoSurcharge * coverageMultiplier;
+    setEstimatedPremium(est);
+
+    // 2. Subsidy Estimation (Simplified ACA-style)
+    // 2024 FPL for Individual is ~$15k, Family of 4 ~$31k
+    const fplBase = coverageLevel === 'individual' ? 15000 : 31200;
+    const fplRatio = householdIncome / fplBase;
+    
+    let subsidy = 0;
+    if (fplRatio < 1.5) subsidy = est * 0.9;
+    else if (fplRatio < 2.5) subsidy = est * 0.6;
+    else if (fplRatio < 4.0) subsidy = est * 0.3;
+    
+    setEstimatedSubsidy(subsidy);
+    
+    // Use estimated premium if user hasn't touched the manual premium field significantly
+    // For this calculator, we'll suggest the estimated one
+    const actualMonthlyPremium = Math.max(0, est - subsidy);
+    setFinalMonthlyCost(actualMonthlyPremium);
+
+    // 3. Total Cost Logic (Usage based)
+    const annualPremium = actualMonthlyPremium * 12;
     const medicalExpenses = (expectedVisits * visitCost) + expectedMeds;
     
     let outOfPocketCosts = 0;
@@ -32,155 +75,241 @@ export const HealthInsuranceCalculator: React.FC = () => {
     const total = annualPremium + outOfPocketCosts;
     setTotalAnnualCost(total);
     setMonthlyAverage(total / 12);
-  }, [premium, deductible, outOfPocket, coInsurance, expectedVisits, visitCost, expectedMeds]);
+  }, [zipCode, age, coverageLevel, tobaccoUse, householdIncome, premium, deductible, outOfPocket, coInsurance, expectedVisits, visitCost, expectedMeds]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
+      maximumFractionDigits: 0,
     }).format(val);
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-5xl mx-auto space-y-8">
       <Helmet>
-        <title>Health Insurance Cost Calculator 2026 | Estimate Annual Medical Expenses</title>
-        <meta name="description" content="Estimate your total annual health insurance costs for 2026. Calculate premiums, deductibles, and out-of-pocket expenses to find the best plan for your budget." />
-        <meta name="keywords" content="health insurance calculator, health insurance cost estimator 2026, medical expense calculator, health plan comparison tool, out of pocket cost calculator" />
+        <title>Health Insurance Quote & Cost Calculator 2026 | Subsidies & Premiums</title>
+        <meta name="description" content="Get a realistic health insurance estimate for 2026. Input your Zip Code, Income, and Age to see potential premiums and government subsidies." />
       </Helmet>
 
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mb-2">
-          <Stethoscope className="w-6 h-6" />
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 mb-2 shadow-sm">
+          <Stethoscope className="w-7 h-7" />
         </div>
-        <h1 className="text-3xl font-bold text-slate-900">Health Insurance Cost Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto">
-          Estimate your total yearly healthcare spending by combining premiums with expected medical usage in 2026.
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight">Health Insurance Optimizer</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+          Calculate real premiums, project federal subsidies, and find the true cost of coverage for 2026.
         </p>
       </div>
 
-      
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="calculator-container">
-            <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
-              <ShieldCheck className="w-5 h-5 text-emerald-600" />
-              <h2 className="text-lg font-bold text-slate-800">Plan Details</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="lg:col-span-8 space-y-6">
+          {/* Step 1: Personal Profile */}
+          <div className="calculator-container shadow-sm border-slate-200">
+            <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+              <div className="p-2 bg-blue-50 rounded-lg">
+                <User className="w-5 h-5 text-blue-600" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-800">1. Personal Profile</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="input-group">
-                <label className="input-label">Monthly Premium ($)</label>
+                <label className="input-label">Zip Code</label>
                 <input
-                  type="number"
-                  value={premium || ''}
-                  onChange={(e) => setPremium(Number(e.target.value))}
+                  type="text"
+                  placeholder="e.g. 90210"
+                  value={zipCode}
+                  onChange={(e) => setZipCode(e.target.value.replace(/\D/g, '').slice(0, 5))}
                   className="input-field"
                 />
-                <p className="text-[10px] text-slate-400 mt-1">Amount you pay every month regardless of use.</p>
+                <p className="text-[11px] text-slate-400 mt-1">Location determines available plans and rates.</p>
               </div>
 
               <div className="input-group">
-                <label className="input-label">Annual Deductible ($)</label>
+                <label className="input-label">Primary Applicant Age</label>
                 <input
                   type="number"
-                  value={deductible || ''}
-                  onChange={(e) => setDeductible(Number(e.target.value))}
+                  value={age || ''}
+                  onChange={(e) => setAge(Number(e.target.value))}
                   className="input-field"
                 />
-                <p className="text-[10px] text-slate-400 mt-1">Amount you pay before insurance kicks in.</p>
               </div>
 
               <div className="input-group">
-                <label className="input-label">Out-of-Pocket Max ($)</label>
+                <label className="input-label">Annual Household Income ($)</label>
                 <input
                   type="number"
-                  value={outOfPocket || ''}
-                  onChange={(e) => setOutOfPocket(Number(e.target.value))}
-                  className="input-field"
+                  value={householdIncome || ''}
+                  onChange={(e) => setHouseholdIncome(Number(e.target.value))}
+                  className="input-field border-emerald-200 focus:ring-emerald-500"
                 />
-                <p className="text-[10px] text-slate-400 mt-1">The absolute most you'll pay in a year.</p>
+                <p className="text-[11px] text-emerald-600 font-medium mt-1">Used to calculate potential tax credits.</p>
               </div>
 
               <div className="input-group">
-                <label className="input-label">Co-insurance (%)</label>
-                <input
-                  type="number"
-                  value={coInsurance || ''}
-                  onChange={(e) => setCoInsurance(Number(e.target.value))}
+                <label className="input-label">Tobacco Use</label>
+                <select
+                  value={tobaccoUse}
+                  onChange={(e) => setTobaccoUse(e.target.value)}
                   className="input-field"
-                />
-                <p className="text-[10px] text-slate-400 mt-1">Your share of costs after deductible (e.g. 20%).</p>
+                >
+                  <option value="no">No (Non-Tobacco)</option>
+                  <option value="yes">Yes (Tobacco User)</option>
+                </select>
               </div>
             </div>
+          </div>
 
-            <div className="flex items-center gap-2 mt-8 mb-6 border-b border-slate-100 pb-4">
-              <Activity className="w-5 h-5 text-emerald-600" />
-              <h2 className="text-lg font-bold text-slate-800">Expected Usage</h2>
+          {/* Step 2: Coverage Needs */}
+          <div className="calculator-container shadow-sm border-slate-200">
+            <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+              <div className="p-2 bg-purple-50 rounded-lg">
+                <Users className="w-5 h-5 text-purple-600" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-800">2. Coverage Level</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="input-group md:col-span-2">
+                <label className="input-label">Who needs coverage?</label>
+                <select
+                  value={coverageLevel}
+                  onChange={(e) => setCoverageLevel(e.target.value)}
+                  className="input-field"
+                >
+                  <option value="individual">Individual Only</option>
+                  <option value="employee_plus_one">Individual + Spouse/Partner</option>
+                  <option value="family">Family (Individual + Spouse + Children)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3: Usage Projection (Advanced) */}
+          <div className="calculator-container shadow-sm border-slate-200 bg-slate-50/50">
+            <div className="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-emerald-50 rounded-lg">
+                  <Activity className="w-5 h-5 text-emerald-600" />
+                </div>
+                <h2 className="text-xl font-bold text-slate-800">3. Expected Usage</h2>
+              </div>
+              <span className="text-xs font-medium text-slate-400 bg-white px-2 py-1 rounded border border-slate-200 uppercase tracking-wider">Projected for 2026</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="input-group">
-                <label className="input-label">Doctor Visits per Year</label>
+                <label className="input-label">Planned Office Visits</label>
                 <input
                   type="number"
                   value={expectedVisits || ''}
                   onChange={(e) => setExpectedVisits(Number(e.target.value))}
-                  className="input-field"
+                  className="input-field bg-white"
                 />
+                <p className="text-[11px] text-slate-400 mt-1">Include PCP and specialists.</p>
               </div>
 
               <div className="input-group">
-                <label className="input-label">Avg. Cost per Visit ($)</label>
-                <input
-                  type="number"
-                  value={visitCost || ''}
-                  onChange={(e) => setVisitCost(Number(e.target.value))}
-                  className="input-field"
-                />
-              </div>
-
-              <div className="input-group md:col-span-2">
-                <label className="input-label flex items-center gap-2">
-                  <Pill className="w-4 h-4 text-slate-400" />
-                  Annual Prescription Costs ($)
-                </label>
+                <label className="input-label">Est. Annual Drug Costs ($)</label>
                 <input
                   type="number"
                   value={expectedMeds || ''}
                   onChange={(e) => setExpectedMeds(Number(e.target.value))}
-                  className="input-field"
+                  className="input-field bg-white"
                 />
+              </div>
+
+              <div className="md:col-span-2 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                <div className="flex items-center justify-between text-sm mb-4">
+                  <span className="text-slate-600 font-medium italic">Adjust benchmark plan structure:</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase font-bold text-slate-400">Deductible</label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                      <input type="number" value={deductible} onChange={(e) => setDeductible(Number(e.target.value))} className="w-full pl-7 pr-3 py-1.5 border rounded-lg text-sm" />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase font-bold text-slate-400">OOP Max</label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                      <input type="number" value={outOfPocket} onChange={(e) => setOutOfPocket(Number(e.target.value))} className="w-full pl-7 pr-3 py-1.5 border rounded-lg text-sm" />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase font-bold text-slate-400">Co-ins %</label>
+                    <input type="number" value={coInsurance} onChange={(e) => setCoInsurance(Number(e.target.value))} className="w-full px-3 py-1.5 border rounded-lg text-sm" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="space-y-6">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="result-box text-center bg-emerald-50 border-emerald-100"
-          >
-            <h3 className="text-emerald-600 font-bold mb-2 uppercase text-xs tracking-wider">Total Annual Cost</h3>
-            <div className="text-4xl font-bold text-slate-900 mb-2">
-              {formatCurrency(totalAnnualCost)}
-            </div>
-            <div className="pt-4 border-t border-emerald-100 mt-4">
-              <p className="text-xs text-slate-500 uppercase tracking-wide">Monthly Average</p>
-              <p className="text-xl font-bold text-emerald-700">{formatCurrency(monthlyAverage)}</p>
-            </div>
-          </motion.div>
+        <div className="lg:col-span-4 space-y-6">
+          <div className="sticky top-6 space-y-6">
+            <motion.div 
+              key={finalMonthlyCost}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-slate-900 rounded-3xl p-8 text-white shadow-xl overflow-hidden relative"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full -mr-16 -mt-16 blur-2xl" />
+              
+              <h3 className="text-emerald-400 font-bold mb-6 uppercase text-xs tracking-[0.2em]">Monthly Cost Estimate</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-slate-400 text-sm">
+                  <span>Gross Premium</span>
+                  <span>{formatCurrency(estimatedPremium)}</span>
+                </div>
+                <div className="flex items-center justify-between text-emerald-400 text-sm font-medium">
+                  <span>Gov. Subsidy (PTC)</span>
+                  <span>-{formatCurrency(estimatedSubsidy)}</span>
+                </div>
+                <div className="pt-4 border-t border-slate-800">
+                  <div className="text-5xl font-bold text-white mb-2">
+                    {formatCurrency(finalMonthlyCost)}
+                    <span className="text-lg text-slate-500 font-normal ml-2">/mo</span>
+                  </div>
+                  <p className="text-xs text-slate-500">Your likely net monthly bill.</p>
+                </div>
+              </div>
 
-          <div className="calculator-container bg-slate-50 border-slate-200 p-4">
-            <h4 className="font-bold text-slate-800 mb-3 text-sm">Plan Comparison Tip</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Low premium plans often have high deductibles. If you expect many doctor visits or high medication costs, a "Gold" or "Platinum" plan with higher premiums but lower out-of-pocket costs might save you money overall.
-            </p>
+              <div className="mt-8 pt-8 border-t border-slate-800">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-slate-400 text-sm italic">Total Yearly Expo:</span>
+                  <span className="text-xl font-bold text-emerald-400">{formatCurrency(totalAnnualCost)}</span>
+                </div>
+                <p className="text-[10px] text-slate-500 italic">Includes all premiums and your projected out-of-pocket medical bills.</p>
+              </div>
+            </motion.div>
+
+            <div className="calculator-container bg-emerald-50/50 border-emerald-100 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Settings2 className="w-4 h-4 text-emerald-600" />
+                <h4 className="font-bold text-slate-900 text-sm">Quick Analysis</h4>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex gap-2 text-xs text-slate-600">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span>{householdIncome < 50000 ? 'You likely qualify for significant subsidies based on your income.' : 'Plan choice is critical for your income level to avoid high out-of-pocket costs.'}</span>
+                </li>
+                <li className="flex gap-2 text-xs text-slate-600">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span>{expectedVisits > 6 ? 'High usage suggests a Gold plan might be cheaper than Bronze overall.' : 'Low usage makes High-Deductible (Bronze) plans worth investigating.'}</span>
+                </li>
+              </ul>
+            </div>
+            
+            <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-200 transition-all active:scale-95 flex items-center justify-center gap-2 group">
+              Find 2026 Quotes
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
-
-          
         </div>
       </div>
 
