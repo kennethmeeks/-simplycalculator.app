@@ -117,7 +117,7 @@ export const VATCalculator: React.FC = () => {
           <div className="section-title">Input</div>
           <div className="space-y-4">
             <div className="input-group">
-              <label className="input-label">Amount ($)</label>
+              <label className="input-label">Item or Total Amount ($)</label>
               <input 
                 type="number" 
                 value={amount} 

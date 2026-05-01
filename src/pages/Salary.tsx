@@ -138,7 +138,7 @@ export const SalaryCalculator: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-1.5">
-                <label className="text-sm font-bold text-slate-600">Amount</label>
+                <label className="text-sm font-bold text-slate-600">Current Income Amount</label>
                 <div className="flex items-center gap-2 border border-slate-200 rounded-lg px-3 h-12 focus-within:border-blue-600 transition-colors">
                   <span className="text-sm text-slate-400">$</span>
                   <input 
@@ -166,7 +166,7 @@ export const SalaryCalculator: React.FC = () => {
               </div>
 
               <div className="space-y-1.5 sm:col-span-2">
-                <label className="text-sm font-bold text-slate-600">Hours per Week</label>
+                <label className="text-sm font-bold text-slate-600">Standard Weekly Hours</label>
                 <input 
                   type="number" 
                   value={hoursPerWeek} 

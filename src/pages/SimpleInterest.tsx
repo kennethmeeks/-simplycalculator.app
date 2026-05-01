@@ -118,7 +118,7 @@ export const SimpleInterestCalculator: React.FC = () => {
           <div className="section-title">Interest Details</div>
           <div className="space-y-6">
             <div>
-              <label className="input-label">Principal Amount ($)</label>
+              <label className="input-label">Initial Principal Amount ($)</label>
               <input 
                 type="number" 
                 value={principal} 
@@ -138,7 +138,7 @@ export const SimpleInterestCalculator: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="input-label">Time Period</label>
+                <label className="input-label">Loan or Investment Time</label>
                 <input 
                   type="number" 
                   value={time} 

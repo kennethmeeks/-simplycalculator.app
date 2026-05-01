@@ -103,7 +103,7 @@ export const CalculatorPage: React.FC = () => {
                 // Global fallback
                 return [
                     { id: 'input1', label: `${name} Value`, type: 'number' },
-                    { id: 'input2', label: 'Adjustment', type: 'number' },
+                    { id: 'input2', label: 'Adjustment Factor', type: 'number' },
                 ];
             };
 

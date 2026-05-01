@@ -56,7 +56,7 @@ export const SignificantFiguresCalculator: React.FC = () => {
           <div className="calculator-container">
             <div className="grid grid-cols-1 gap-6">
               <div>
-                <label className="input-label">Enter a Number</label>
+                <label className="input-label">Measurement or Quantity to Analyze</label>
                 <input 
                   type="text" 
                   value={number} 

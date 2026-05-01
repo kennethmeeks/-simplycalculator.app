@@ -117,7 +117,7 @@ export const ROICalculator: React.FC = () => {
           <div className="section-title">Investment Data</div>
           <div className="space-y-6">
             <div>
-              <label className="input-label">Amount Invested ($)</label>
+              <label className="input-label">Initial Investment Capital ($)</label>
               <input 
                 type="number" 
                 value={amountInvested} 
@@ -126,7 +126,7 @@ export const ROICalculator: React.FC = () => {
               />
             </div>
             <div>
-              <label className="input-label">Amount Returned ($)</label>
+              <label className="input-label">Final Investment Value ($)</label>
               <input 
                 type="number" 
                 value={amountReturned} 
