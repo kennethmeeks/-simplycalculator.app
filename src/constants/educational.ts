@@ -16,8 +16,7 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "What is compound interest with example?", a: "Imagine you have $100 and earn 10% interest. After year one, you have $110. In year two, you earn 10% on $110 (which is $11), giving you $121. You earned interest on your interest!" },
             { q: "How do I calculate compound interest?", a: "To find your future value, multiply your initial principal by (1 + the interest rate) raised to the power of the number of years. Or, just use this calculator to see it instantly with monthly additions!" },
             { q: "What is the compound interest formula?", a: "The standard formula is A = P(1 + r/n)^(nt), where A is the final amount, P is the principal, r is the interest rate, n is compounding frequency, and t is time in years." },
-            { q: "How long does it take to double money with compound interest?", a: "A quick trick is the 'Rule of 72.' Divide 72 by your interest rate. For example, at a 10% return, your money will double roughly every 7.2 years." },
-            { q: "Does compounding monthly make a big difference?", a: "Yes. The more often interest is calculated (daily vs. monthly vs. annually), the more interest 'snowballs' onto itself, leading to a higher final balance." }
+            { q: "How long does it take to double money with compound interest?", a: "A quick trick is the 'Rule of 72.' Divide 72 by your interest rate. For example, at a 10% return, your money will double roughly every 7.2 years." }
         ]
     },
     finance: {
@@ -25,11 +24,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Input your core numbers: how much you're starting with, your interest rate, and how many years you're planning for. Our engine shows you exactly how your money can grow. For 2026, it's smart to use conservative rates (like 5-7%) to see a more realistic picture of your future wealth.",
         whyItWorks: "Sound financial planning is about understanding the relationship between time and money. Whether you're saving for retirement or calculating a house payment, small changes today lead to massive results later. Our tools use the same math banks use, but simplified so you can make choices without a finance degree.",
         faq: [
-            { q: "How much should I save for retirement?", a: "A common goal is to save 15% of your gross income. However, the exact amount depends on your current age, your desired lifestyle in retirement, and how many years you have until you plan to stop working." },
-            { q: "What is the rule of 72 in finance?", a: "The Rule of 72 is a quick way to estimate how long it will take to double your money. Divide 72 by your annual interest rate. For example, at 8% interest, your money doubles in about 9 years." },
-            { q: "Is a 7% return on investment good?", a: "Yes. Historically, the stock market (S&P 500) has returned about 7-10% annually after inflation. A 7% return is a solid, realistic benchmark for long-term wealth building." },
-            { q: "How do I calculate interest on savings?", a: "Use the formula: Principal x (1 + Rate)^Time. Or, just use our calculators to see the breakdown of your monthly growth and interest earned over time!" },
-            { q: "Should I pay off debt or invest?", a: "If your debt interest rate (like 20% on a credit card) is higher than your expected investment return (like 7%), always pay off the debt first. It's a guaranteed 'return' on your money." }
+            { q: "Does starting to invest earlier really matter?", a: "Yes, immensely. Starting in your 20s instead of your 30s can result in twice as much money by retirement, even if you save the exact same amount total. Time is the most powerful tool for growing money." },
+            { q: "How much should I save for retirement?", a: "A common goal is 15% of your gross income. However, the exact amount depends on your current age and your desired lifestyle. Use our retirement calculators to find your specific number." },
+            { q: "Is a 7% return on investment good?", a: "Yes. Historically, the stock market has returned about 7-10% annually before inflation. A 7% return is a solid, realistic benchmark for long-term planning in 2026." },
+            { q: "Should I pay off debt or invest?", a: "If your debt interest (like a 20% credit card) is higher than your expected investment return (like 7%), always pay off the debt first. It's a guaranteed win for your wallet." },
+            { q: "What is the quickest way to double my money?", a: "The 'Rule of 72' is your best friend. Divide 72 by your interest rate. If you earn 10%, your money doubles in about 7.2 years." }
         ]
     },
     health: {
@@ -37,11 +36,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your basic stats: height, weight, age, and activity level. Be honest about your activity—if you sit at a desk most of the day, choose 'Sedentary' for the most accurate result. Our engine uses the newest 2026 standards to see how your body is performing.",
         whyItWorks: "Good health starts with good data. By calculating numbers like your BMR (calories burned at rest) or BMI, you get a scientific baseline. This helps you move past guessing at your diet and instead gives you a clear target based on your unique body type.",
         faq: [
-            { q: "How many calories should I eat a day?", a: "The average adult needs about 2,000 to 2,500 calories to maintain weight, but your specific 'TDEE' depends on your age, height, weight, and how much you move. Use this calculator to find your exact personal target." },
-            { q: "What is my BMR?", a: "Your Basal Metabolic Rate (BMR) is the number of calories your body burns just to stay alive while at rest (breathing, heart beating, etc.). It's the absolute minimum your body needs to function." },
-            { q: "How many calories do I need to lose weight?", a: "To lose about 1lb a week, you generally need to eat 500 calories less than your daily maintenance level (TDEE). Most experts recommend avoiding any diet that drops below 1,200 calories without medical supervision." },
-            { q: "What is the difference between BMR and TDEE?", a: "BMR is your resting metabolism. TDEE (Total Daily Energy Expenditure) is your BMR plus all the calories you burn from walking, working, and exercising." },
-            { q: "Why do different calculators give me different results?", a: "We use the Mifflin-St Jeor formula, which is considered the 'gold standard' for accuracy in 2026. Other sites might use older formulas (like Harris-Benedict) which can sometimes overestimate calorie needs." }
+            { q: "How many calories does my body burn if I just stay in bed?", a: "This is called your BMR. It's the energy your body needs just to keep your heart beating and lungs breathing. Most adults burn between 1,400 and 1,800 calories a day doing absolutely nothing." },
+            { q: "How many calories should I eat to lose weight safely?", a: "To lose about a pound a week, aim for 500 calories below your 'maintenance' level. For most, this means staying above 1,200 calories (women) or 1,500 calories (men) to stay healthy." },
+            { q: "What is the difference between my 'resting' and 'active' calories?", a: "Resting calories (BMR) are what you burn just existing. Active calories are what you burn walking, working, and exercising. Together, they make up your Total Daily Energy Expenditure (TDEE)." },
+            { q: "Why do different sites give me different calorie targets?", a: "We use the Mifflin-St Jeor formula, which is the 2026 medical gold standard. Other sites might use older formulas that over-count how much you need, which can stall your progress." },
+            { q: "Does drinking water actually help with weight loss?", a: "Yes. Water helps your metabolism run at peak speed and can help you feel full. We recommend at least 8-10 glasses a day for active adults in 2026." }
         ]
     },
     math: {
@@ -49,23 +48,23 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your numbers into the fields provided. Our engine handles everything from simple plus/minus to advanced calculus and geometry. We use high-precision 2026 standards to ensure your results are exact every time.",
         whyItWorks: "Math is the 'rulebook' for physics, building, and logic. Whether you're measuring a triangle for a DIY project or finding the average of a huge data set, using a digital tool removes 'human error.' This gives you a verifiable answer you can trust for school or professional work.",
         faq: [
-            { q: "How precise are these calculations?", a: "Our engine calculates to about 12 decimal places. For almost any real-world job—like building a house or doing your taxes—that is way more precision than you'll ever need." },
-            { q: "Why use this instead of just doing it in my head?", a: "Mental math is fine for small things, but 'carrying the one' errors are incredibly common in multi-step problems. A calculator ensures that your 10th step is just as accurate as your 1st." },
-            { q: "How do the geometry tools figure out shapes?", a: "We use standard mathematical constants (like Pi) and formulas that have been proven for thousands of years. You just provide the measurements; we handle the complex formulas." },
-            { q: "Does this follow the standard 'Order of Operations'?", a: "Yes. Our engine strictly follows PEMDAS/BODMAS rules (Parentheses, Exponents, Multiplication, Division, etc.), so the math is always 'legal'." },
-            { q: "Can I use this for my engineering homework?", a: "Yes! These tools are built to handle structural and statistical math that meets 2026 academic standards." }
+            { q: "Can I trust these numbers for my building or school project?", a: "Yes. Our engine calculates to 12 decimal places, which is more precision than required for construction, engineering, or higher education standards in 2026." },
+            { q: "Why use this instead of a phone calculator?", a: "Standard calculators often hide the 'steps' or make it hard to handle complex formulas like square roots and percentages. Our tools show you the logic so you can verify the results." },
+            { q: "How does the 'Order of Operations' work?", a: "We follow PEMDAS (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction). It's the universal law of math that ensures everyone gets the same answer to the same problem." },
+            { q: "Is Pi really accurate here?", a: "Yes, we use the high-precision constant for Pi (3.1415926535...) so your circles and spheres are exact down to the millimeter." },
+            { q: "Can this help me with my engineering homework?", a: "Absolutely. These tools are built to handle structural and statistical math that meets 2026 academic standards." }
         ]
     },
     'real-estate': {
-        title: "Real Estate & Mortgage Economics",
-        howToUse: "Enter your home's value, down payment, and expected interest rate. Our engine calculates your monthly 'PITI' (Principal, Interest, Taxes, and Insurance) to give you the most accurate 2026 home-buying budget.",
-        whyItWorks: "Buying property is the largest financial move most people ever make. By calculating the all-in monthly cost before you shop, you avoid the 'house-poor' trap where your mortgage eats too much of your monthly income.",
+        title: "Home Buying & Mortgage Math",
+        howToUse: "Enter the home's price, your down payment, and the interest rate. We'll calculate your total monthly bank draft (PITI) using 2026 market standards, so you know exactly what you can afford before you start shopping.",
+        whyItWorks: "Buying a home is a long-term math problem. By looking at your monthly payment instead of just the total price, you can see how things like taxes and insurance change your budget. Our tools help you find a 'safe' monthly payment that won't leave you house-poor.",
         faq: [
-            { q: "What credit score do I need for a mortgage?", a: "Minimum scores by loan type in 2026: FHA loan: 580 (3.5% down) or 500 (10% down); Conventional loan: 620 minimum; VA loan: 620 recommended (veterans only); Jumbo loan: 700-720 minimum. The difference between a 620 and 760 score on a $300,000 mortgage saves you roughly $200 per month." },
-            { q: "How much down payment do I need to buy a house?", a: "Minimum down payments in 2026 range from 0% (VA/USDA) to 3% (Conventional) or 3.5% (FHA). Putting less than 20% down typically adds Private Mortgage Insurance (PMI) costing $100-$300 extra per month." },
-            { q: "What is the monthly payment on a $400,000 mortgage?", a: "At current 2026 rates around 7%, a 30-year fixed payment is roughly $2,661 per month for principal and interest. Total costs including taxes and insurance are usually closer to $3,200." },
-            { q: "What is a good mortgage rate right now?", a: "In 2026, rates between 6.5% and 7% are considered standard for excellent credit. Always compare the APR, which includes both the interest rate and lender fees, to see your true cost." },
-            { q: "How much house can I afford?", a: "A common bank rule is the 28/36 rule: housing costs should stay under 28% of your gross income, and total debt under 36%. Our affordability calculator helps you find your specific safe buying zone." }
+            { q: "What credit score do I need for a mortgage?", a: "In 2026, minimum scores vary by loan type: FHA loans typically require 580 (for 3.5% down), while Conventional loans usually start at 620. VA loans (for veterans) often recommend a 620 minimum. Improving your score from 620 to 760 can save you roughly $200 per month on a $300k mortgage." },
+            { q: "How much down payment do I need to buy a house?", a: "Minimum options in 2026 include 3% for First-Time Buyer Conventional loans, 3.5% for FHA, and 0% for VA (military) or USDA (rural) loans. Putting less than 20% down usually adds PMI insurance, costing $100-$300 extra per month." },
+            { q: "What is the monthly payment on a $400,000 mortgage?", a: "At 2026 rates around 7%, a 30-year fixed principal and interest payment is approximately $2,661. After adding estimated property taxes ($400) and insurance ($150), your total estimated monthly payment would be roughly $3,211." },
+            { q: "Is it better to get a 15 or 30 year mortgage?", a: "A 30-year mortgage offers lower monthly payments and more flexibility. A 15-year mortgage has a higher payment but saves you massive amounts in interest—often over $230,000 on a $300k home—and allows you to be debt-free in half the time." },
+            { q: "What happens if I pay an extra $200 a month on my mortgage?", a: "On a $300,000 mortgage at 7%, adding $200 extra per month allows you to pay off the loan 5 years and 8 months early, saving you roughly $63,000 in total interest." }
         ]
     },
     science: {
@@ -73,23 +72,23 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Select your input units and provide your measurements. Use the scientific notation toggles for very large or small numbers. The tool converts using standard international constants for 2026 laboratory accuracy.",
         whyItWorks: "Science is about precision. Whether you're a student balancing a chemical equation or a professional engineer checking the force of a moving object, using a dedicated calculator stops small rounding errors from ruining your work. We use the same constants and formulas used in modern research labs.",
         faq: [
-            { q: "How accurate is the 'Scientific Notation'?", a: "Extremely. We follow the 2026 IEEE standards for math, which means we can handle incredibly tiny (like the weight of an atom) or massive numbers (like distances between stars) without losing precision." },
-            { q: "Can I use this for my school projects?", a: "Yes. Our formulas are the exact same ones found in standard chemistry and physics textbooks. We've just made them faster and more precise for modern engineering and research." },
-            { q: "What is the difference between 'Mass' and 'Weight'?", a: "In everyday life, we use them the same way, but in science, they're different. 'Mass' is how much stuff is in you (kilograms), and 'Weight' is how hard gravity is pulling on you (Newtons)." },
-            { q: "Do the unit converters handle both Metric and US units?", a: "Yes! You can instantly switch between feet and meters, or pounds and grams, ensuring your projects work across the world." },
-            { q: "Are the physical constants (like the Speed of Light) correct?", a: "Yes, we use the most recent 2026 'CODATA' measurements for all scientific and physical constants used in the engine." }
+            { q: "Why are some numbers written with 'x10' instead of zeroes?", a: "This is Scientific Notation. It's a shorthand for very big numbers (like the distance to the moon) or very tiny ones (like the width of a cell) so they're easier to read and calculate." },
+            { q: "Are the physical constants like the 'Speed of Light' current?", a: "Yes, we use the most recent 2026 CODATA measurements. This ensures your physics and chemistry projects match the most up-to-date scientific data." },
+            { q: "Can I use this for my college lab reports?", a: "Definitely. Our formulas are the exact ones used in modern research and academia. We provide the high-precision results required for professional science." },
+            { q: "What is the difference between 'Mass' and 'Weight'?", a: "In simple terms: Mass is how much 'stuff' makes you up (doesn't change), and Weight is how hard gravity pulls on that stuff (changes if you're on the moon!)." },
+            { q: "How do I convert between Metric and US units?", a: "Just select your 'From' and 'To' units. Our engine handles the complex math (like 2.54 cm per inch) automatically and precisely." }
         ]
     },
     automotive: {
-        title: "Automotive Engineering & Performance",
-        howToUse: "Enter your vehicle's technical data—distance, fuel consumption, tire size, or engine specs. The calculator applies mechanical engineering principles to estimate performance and efficiency.",
-        whyItWorks: "Cars are expensive machines where physics and finance intersect. From calculating how much 'real' power your engine makes to realizing how much your commute is actually costing you per mile, data helps you be a smarter owner and a better driver.",
+        title: "Car Performance & Running Costs",
+        howToUse: "Enter your vehicle's stats—like fuel used, miles driven, or engine specs. Our engine uses standard car math to show you how your vehicle actually performs on the road and what it costs to keep it running.",
+        whyItWorks: "Vehicle costs go far beyond the gas tank. By calculating things like your 'True MPG' or how much value your car loses every year (depreciation), you can see the real impact of your driving habits and make smarter choices at the dealership.",
         faq: [
-            { q: "What is the 'True Cost' of owning a car?", a: "It's not just your car payment. It includes gas, insurance, maintenance, and—the big one—depreciation. For many new cars, the loss in value is actually more expensive than the gas you buy." },
-            { q: "How can I actually improve my gas mileage?", a: "The biggest factors you can control are your speed and your tire pressure. Driving 5-10 mph slower and keeping your tires properly inflated can save you hundreds of dollars a year in fuel." },
-            { q: "How accurate are the 'Horsepower' estimates?", a: "They are based on standard automotive physics. While a real 'dyno' is the gold standard, our formulas give you a very accurate ballpark figure based on your torque and RPM." },
-            { q: "Why should I care about 'Depreciation'?", a: "Because it's money leaving your pocket every month. Knowing how fast your car loses value helps you decide the perfect time to sell before the value drops through the floor." },
-            { q: "How much should I set aside for car maintenance?", a: "A safe bet is to save roughly 10 cents for every mile you drive. If you drive 10,000 miles a year, having $1,000 set aside will cover most tires, brakes, and oil changes." }
+            { q: "How much does it really cost to own a car?", a: "It's not just your car payment. When you add gas, insurance, maintenance, and 'depreciation' (value loss), the average 2026 car costs about $800 to $1,000 a month to operate." },
+            { q: "Why is 'Depreciation' such a big deal?", a: "It's usually your biggest hidden cost. Most new cars lose 20% of their value in the first year alone. Our tools help you see which cars hold their value better so you don't lose money when you sell." },
+            { q: "Does my tire size affect my gas mileage?", a: "Yes. Larger, heavier tires increase rolling resistance and can lower your MPG. We help you calculate the performance trade-offs for different wheel and tire setups." },
+            { q: "What is a 'Good' MPG in 2026?", a: "For gas cars, 30+ MPG is the standard. For hybrids, aim for 45-50+. We help you convert between Metric and US units so you can compare efficiency accurately." },
+            { q: "How much horsepower does my car actually have?", a: "Manufacturers measure at the engine, but you usually lose 15% of that power before it hits the wheels. We help you calculate your 'True' performance numbers based on real-world data." }
         ]
     },
     construction: {
@@ -640,12 +639,15 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     aviation: {
-        title: "Aeronautical Principles & Flight Math",
-        howToUse: "Enter altitude, air temperature, and weight/balance data. The engine calculates density altitude, climb rates, and center-of-gravity (CG) limits.",
-        whyItWorks: "Flight safety depends on the laws of aerodynamics. By calculating how air density affects lift and ensuring the aircraft's weight is within the structural center-of-gravity envelope, pilots can ensure safe takeoffs and landings.",
+        title: "Aviation & Flight Math",
+        howToUse: "Enter your altitude, air temperature, and weight. Our engine calculates how the 'thinness' of the air (density altitude) and your plane's balance (center of gravity) will affect your flight in 2026.",
+        whyItWorks: "Safe flying is about managing physics. By calculating how temperature affects lift and ensuring your cargo is balanced correctly, you can predict exactly how long your takeoff roll will be and how safely the plane will handle in the air.",
         faq: [
-            { q: "What is Density Altitude?", a: "Pressure altitude corrected for non-standard temperature; it represents the 'altitude' the airplane 'feels' it is flying at." },
-            { q: "Why is Center of Gravity (CG) critical?", a: "If the CG is too far forward or aft, the pilot may lose control of the aircraft's pitch, leading to a stall or inability to flare for landing." }
+            { q: "Why does hot weather make it harder to take off?", a: "Hot air is less dense ('thinner'), which means your wings get less lift and your engine makes less power. This is called high 'Density Altitude,' and it's critical for summer flight safety." },
+            { q: "What happens if a plane is poorly balanced?", a: "If too much weight is in the back (aft CG), the plane might tip up and stall. If it's too far forward, you might not be able to pull the nose up to land. Correct balance is a life-saving calculation." },
+            { q: "Can I use this for real flight planning?", a: "While these tools use standard 2026 aerodynamic formulas, always cross-check results with your specific aircraft's Pilot Operating Handbook (POH) before flying." },
+            { q: "How does altitude affect fuel use?", a: "Generally, the higher you fly, the less fuel you use because the air is thinner, provided you lean your engine correctly. Our tools help estimate these efficiency gains." },
+            { q: "What is 'True Airspeed'?", a: "It's how fast you're actually moving through the air, which can be much faster than what your dashboard says when you're flying high." }
         ]
     },
     "space-tech": {
@@ -793,12 +795,15 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     mixology: {
-        title: "Molecular Mixology & Liquid Density",
-        howToUse: "Input alcohol percentages, sugar content (Brix), and volumes. The engine calculates the overall ABV of a cocktail and models liquid layering based on specific gravity.",
-        whyItWorks: "Cocktail crafting relies on density and dilution. By calculating the specific gravity of different liqueurs, bartenders can create perfectly layered drinks while ensuring the final alcohol-by-volume (ABV) meets legal and flavor standards.",
+        title: "Craft Cocktails & Liquid Math",
+        howToUse: "Input your alcohol percentages, sugar levels, and liquid volumes. Our engine calculates the final strength (ABV) and shows you how to layer drinks perfectly using liquid weight (density).",
+        whyItWorks: "A great cocktail is a balance of flavor and physics. By calculating the exact alcohol-by-volume and understanding which syrups are 'heavier' than spirits, you can create professional tiered drinks and perfectly balanced recipes every time.",
         faq: [
-            { q: "What is Specific Gravity?", a: "The ratio of the density of a substance to the density of water, which determines whether a liquid will float or sink in a glass." },
-            { q: "How is ABV calculated in a mixed drink?", a: "Sum the alcohol volume of all components and divide by the total volume of the finished drink (including juice/syrups)." }
+            { q: "How do I make a layered 'Rainbow' drink?", a: "It's all about density. Liquids with more sugar (like grenadine) are heavier and sink to the bottom, while high-proof spirits are lighter and float. We calculate these 'Specific Gravity' weights for you." },
+            { q: "How strong is my homemade punch?", a: "Add up the total alcohol from your spirits and divide it by the total volume of all juices and mixers. For a party standard, aim for 10-15% ABV to keep things safe and enjoyable." },
+            { q: "What is 'Brix' and why does it matter?", a: "Brix is just a fancy word for sugar content. Knowing your Brix helps you balance sweetness against the 'bite' of the alcohol for a professional-tasting drink." },
+            { q: "Does ice dilution change the math?", a: "Yes. Stirring or shaking adds water, usually diluting your drink by about 20-25%. Our advanced tools factor this in for expert-level accuracy." },
+            { q: "What is a 'Standard Drink'?", a: "Usually 1.5oz of spirits, 5oz of wine, or 12oz of beer. Each contains roughly 14 grams of pure alcohol." }
         ]
     },
     "baking-pro": {
@@ -838,21 +843,27 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     horology: {
-        title: "Horological Science & Timepiece Math",
-        howToUse: "Enter gear counts (teeth), balance wheel frequencies, or time-drift data. The engine calculates beats-per-hour (BPH) and accuracy variances.",
-        whyItWorks: "Watchmaking is the ultimate mechanical math. By calculating the exact 'train' ratio from the mainspring to the escapement, horologists can measure and adjust the micro-seconds of drift that define a chronometer's quality.",
+        title: "Watchmaking & Timekeeping Science",
+        howToUse: "Enter your watch's gear counts or its 'beat' frequency. Our engine calculates how many times it ticks per hour (BPH) and helps you track if it's gaining or losing time.",
+        whyItWorks: "Mechanical watches are tiny machines governed by strict math. By calculating the exact ratio of the gears, we can help you understand the health of your timepiece and measure the micro-seconds of drift that define a high-quality chronometer.",
         faq: [
-            { q: "What is BPH (Beats Per Hour)?", a: "The frequency at which a watch's balance wheel oscillates, common rates are 21,600 or 28,800 BPH." },
-            { q: "How many seconds gain/loss is 'COSC' standard?", a: "To be a certified chronometer, a watch must be accurate to within -4 to +6 seconds per day." }
+            { q: "What does 'BPH' mean in a watch?", a: "It stands for Beats Per Hour. It's how many times the watch 'ticks' in an hour. High-end watches usually tick 28,800 times per hour, which makes the second hand look very smooth." },
+            { q: "Is it normal for my watch to lose 10 seconds a day?", a: "For a standard mechanical watch, yes. However, 'Chronometer' grade watches (like Rolex or Omega) are built to stay within -4 to +6 seconds per day. Use our tools to track your own watch's drift." },
+            { q: "How many hours of 'Power Reserve' do I need?", a: "Most modern watches last 40-70 hours. If you take your watch off on Friday night and want it to still be running Monday morning, you need a 60-hour reserve." },
+            { q: "Why does my watch tick faster than others?", a: "Different 'movements' use different frequencies. A faster tick usually means better accuracy because it's less affected by your wrist movements." },
+            { q: "What is a 'Tourbillon'?", a: "A complex mechanical feature designed to cancel out the effects of gravity on a watch's accuracy. It's one of the highest expressions of watchmaking math." }
         ]
     },
     linguistics: {
-        title: "Linguistic Analytics & Phonetic Math",
-        howToUse: "Input text samples or phonetic counts. The engine calculates lexical diversity, reading ease (Flesch-Kincaid), and translation expansion ratios.",
-        whyItWorks: "Language has hidden statistical structures. By analyzing word frequency distributions (Zipf's Law) and measuring the complexity of sentence structures, we can objectively quantify readability and the evolution of dialects.",
+        title: "Language Analytics & Writing Density",
+        howToUse: "Paste your text or enter word counts. Our engine calculates how easy your writing is to read (Flesch-Kincaid) and analyzes your vocabulary variety and sentence structure.",
+        whyItWorks: "All language has a hidden mathematical rhythm. By measuring things like 'Lexical Diversity' (how many unique words you use), we can help you tune your writing for a specific audience—whether that's a professional journal or a simple social media post.",
         faq: [
-            { q: "What is Zipf's Law?", a: "The observation that the most frequent word in a language occurs twice as often as the second most frequent, three times as often as the third, and so on." },
-            { q: "What is a 'Translation Expansion' ratio?", a: "When translating from English to German, text typically grows by 20-30% in length, which is critical for UI design and layout." }
+            { q: "How do I make my writing easier to read?", a: "Use shorter sentences and simpler words. Our engine provides a 'Reading Grade Level' which helps you target the right complexity for your audience." },
+            { q: "What is a good 'Reading Grade Level' for the web?", a: "Aim for a 7th to 9th-grade level. Even for smart audiences, writing that is easy to scan is more effective and ranks better on 2026 search engines." },
+            { q: "Does my vocabulary variety matter?", a: "Yes. Too much repetition can be boring, but too much variety (high lexical diversity) can make text hard to understand. The best writing finds a balance of clear, core terms." },
+            { q: "How much does text grow when translated?", a: "If translating English to German or Spanish, expect the text to grow by 20-30%. This is critical for knowing if your text will still fit on a page or button." },
+            { q: "Can math really analyze my speaking style?", a: "Yes. By using 'Zipf's Law' (the math of word frequency), we can identify unique speech patterns and the evolution of different dialects." }
         ]
     },
     "formal-logic": {
@@ -912,11 +923,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
 };
 
 export const DEFAULT_EDUCATION: CategoryEducation = {
-    title: "Expert Insight & Methodology",
-    howToUse: "Follow the on-screen prompts to input your specific data. Our interactive engine translates your unique inputs into verified mathematical results using 2026 industry-standard algorithms in real-time.",
-    whyItWorks: "Every calculation here is built on established logic and mathematical principles designed to remove human error from complex data processing. By standardizing inputs and applying verified formulas, we ensure consistent and reliable outcomes for every scenario.",
+    title: "Simple Answers & Expert Logic",
+    howToUse: "Just follow the simple prompts to enter your numbers. Our engine does the hard work, turning your unique inputs into clear, accurate results using the latest 2026 standards in real-time.",
+    whyItWorks: "We believe that complex math should be accessible to everyone. Our tools are built on the same formulas used by scientists, banks, and engineers, but we've simplified the inputs so you can get the answers you need without a specialized degree.",
     faq: [
-        { q: "Is my data stored or private?", a: "Your privacy is our priority. All calculations are performed instantly in your browser or through ephemeral API calls. we never store or track your personal financial or health inputs." },
-        { q: "How accurate are these calculators?", a: "Extremely. Our team cross-references every tool against current 2026 industry benchmarks and scientific standards to ensure high-grade precision for professional or personal use." }
+        { q: "is my data safe and private?", a: "Absolutely. We don't store your personal info or track your calculations. Everything happens right in your browser (or secretly via our secure engine), and it vanishes as soon as you close the page." },
+        { q: "Are these calculators accurate for 2026?", a: "Yes. We update our constants and formulas constantly to match the current 2026 industry standards and real-world benchmarks, ensuring you get pro-level precision every time." }
     ]
 };
