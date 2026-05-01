@@ -12,11 +12,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your starting amount, how much you'll add each month, and your interest rate. We'll show you exactly how 'money makes money' over time. For the best 2026 planning, we suggest looking at a 10 to 20-year window to see the true impact of compounding.",
         whyItWorks: "Compound interest is often called the 'eighth wonder of the world.' It works by paying interest not just on your original deposit, but also on the interest you've already earned. This creates a 'snowball effect' where your wealth grows faster and faster the longer you leave it alone.",
         faq: [
-            { q: "How much will $1,000 grow with compound interest?", a: "If you start with $1,000 and earn a 7% return, after 20 years you'll have nearly $4,000—even if you never add another penny. Compound interest turns small savings into significant wealth over time." },
-            { q: "What is compound interest with example?", a: "Imagine you have $100 and earn 10% interest. After year one, you have $110. In year two, you earn 10% on $110 (which is $11), giving you $121. You earned interest on your interest!" },
-            { q: "How do I calculate compound interest?", a: "To find your future value, multiply your initial principal by (1 + the interest rate) raised to the power of the number of years. Or, just use this calculator to see it instantly with monthly additions!" },
-            { q: "What is the compound interest formula?", a: "The standard formula is A = P(1 + r/n)^(nt), where A is the final amount, P is the principal, r is the interest rate, n is compounding frequency, and t is time in years." },
-            { q: "How long does it take to double money with compound interest?", a: "A quick trick is the 'Rule of 72.' Divide 72 by your interest rate. For example, at a 10% return, your money will double roughly every 7.2 years." }
+            { q: "How much will $1,000 grow with 7% compound interest?", a: "With a 7% return, $1,000 becomes nearly $4,000 in 20 years. If you add $100 a month, that same $1,000 grows to over $52,000! This 'snowball effect' is the key to building 2026 wealth." },
+            { q: "What is the Rule of 72?", a: "It's a quick way to see how fast your money doubles. Divide 72 by your interest rate. At 10%, your money doubles in 7.2 years. At 6%, it takes 12 years. Our calculator handles the exact decimals for you." },
+            { q: "Is monthly or yearly compounding better?", a: "Monthly is better! The more often interest is calculated, the faster your balance grows. While the difference seems small at first, it can add up to thousands of dollars over a 20-year period." },
+            { q: "How much do I need to invest to become a millionaire?", a: "If you start at age 25 and earn 7%, saving about $400 a month will get you to $1,000,000 by age 65. The earlier you start, the less 'heavy lifting' your wallet has to do." },
+            { q: "What is the compound interest formula?", a: "The math is A = P(1 + r/n)^(nt). But don't worry about the algebra—our engine handles the complex exponents and monthly additions automatically so you can focus on your goals." }
         ]
     },
     finance: {
@@ -24,11 +24,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Input your core numbers: how much you're starting with, your interest rate, and how many years you're planning for. Our engine shows you exactly how your money can grow. For 2026, it's smart to use conservative rates (like 5-7%) to see a more realistic picture of your future wealth.",
         whyItWorks: "Sound financial planning is about understanding the relationship between time and money. Whether you're saving for retirement or calculating a house payment, small changes today lead to massive results later. Our tools use the same math banks use, but simplified so you can make choices without a finance degree.",
         faq: [
-            { q: "Does starting to invest earlier really matter?", a: "Yes, immensely. Starting in your 20s instead of your 30s can result in twice as much money by retirement, even if you save the exact same amount total. Time is the most powerful tool for growing money." },
-            { q: "How much should I save for retirement?", a: "A common goal is 15% of your gross income. However, the exact amount depends on your current age and your desired lifestyle. Use our retirement calculators to find your specific number." },
-            { q: "Is a 7% return on investment good?", a: "Yes. Historically, the stock market has returned about 7-10% annually before inflation. A 7% return is a solid, realistic benchmark for long-term planning in 2026." },
-            { q: "Should I pay off debt or invest?", a: "If your debt interest (like a 20% credit card) is higher than your expected investment return (like 7%), always pay off the debt first. It's a guaranteed win for your wallet." },
-            { q: "What is the quickest way to double my money?", a: "The 'Rule of 72' is your best friend. Divide 72 by your interest rate. If you earn 10%, your money doubles in about 7.2 years." }
+            { q: "How much should I have in my emergency fund?", a: "Most experts recommend 3 to 6 months of essential living expenses. For 2026, many families aim for a 'high-yield' savings account to ensure their emergency cash also grows at 4-5%." },
+            { q: "What is the 50/30/20 rule?", a: "It's a simple budget blueprint: 50% for Needs (rent/food), 30% for Wants (fun/hobbies), and 20% for Savings and Debt. It's the gold standard for balancing your life and your future." },
+            { q: "How do I calculate my net worth?", a: "Assets (what you own, like cash and house value) minus Liabilities (what you owe, like loans). Tracking this once a month is the best way to see if your overall financial health is improving." },
+            { q: "Should I pay off debt or invest my extra cash?", a: "Check the interest rates! If your debt (like a credit card) costs 20% but your investment earns 8%, pay the debt first. If your debt is only 3% (like an old mortgage), it's often better to invest." },
+            { q: "How much of my paycheck should I save?", a: "Aiming for 15-20% is ideal, but even 1% is a win. The most important habit in 2026 is 'automated savings'—moving the money before you have a chance to spend it." }
         ]
     },
     health: {
@@ -60,11 +60,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the home's price, your down payment, and the interest rate. We'll calculate your total monthly bank draft (PITI) using 2026 market standards, so you know exactly what you can afford before you start shopping.",
         whyItWorks: "Buying a home is a long-term math problem. By looking at your monthly payment instead of just the total price, you can see how things like taxes and insurance change your budget. Our tools help you find a 'safe' monthly payment that won't leave you house-poor.",
         faq: [
-            { q: "What credit score do I need for a mortgage?", a: "In 2026, minimum scores vary by loan type: FHA loans typically require 580 (for 3.5% down), while Conventional loans usually start at 620. VA loans (for veterans) often recommend a 620 minimum. Improving your score from 620 to 760 can save you roughly $200 per month on a $300k mortgage." },
-            { q: "How much down payment do I need to buy a house?", a: "Minimum options in 2026 include 3% for First-Time Buyer Conventional loans, 3.5% for FHA, and 0% for VA (military) or USDA (rural) loans. Putting less than 20% down usually adds PMI insurance, costing $100-$300 extra per month." },
-            { q: "What is the monthly payment on a $400,000 mortgage?", a: "At 2026 rates around 7%, a 30-year fixed principal and interest payment is approximately $2,661. After adding estimated property taxes ($400) and insurance ($150), your total estimated monthly payment would be roughly $3,211." },
-            { q: "Is it better to get a 15 or 30 year mortgage?", a: "A 30-year mortgage offers lower monthly payments and more flexibility. A 15-year mortgage has a higher payment but saves you massive amounts in interest—often over $230,000 on a $300k home—and allows you to be debt-free in half the time." },
-            { q: "What happens if I pay an extra $200 a month on my mortgage?", a: "On a $300,000 mortgage at 7%, adding $200 extra per month allows you to pay off the loan 5 years and 8 months early, saving you roughly $63,000 in total interest." }
+            { q: "How much home can I afford based on my salary?", a: "A common rule is the '28/36' rule: your mortgage shouldn't exceed 28% of your gross monthly income, and total debt shouldn't exceed 36%. Use our affordability tool to see your max house price." },
+            { q: "What is the monthly payment on a $400,000 house?", a: "At 7% interest with 10% down, your principal and interest is roughly $2,395. After adding average 2026 taxes and insurance, your total monthly bank draft is likely around $3,000." },
+            { q: "Is it better to rent or buy in 2026?", a: "Buying build equity, while renting offers flexibility. If you plan to stay in a city for more than 5 years, buying is usually the winner. We help you calculate the 'Break Even' point for your specific zip code." },
+            { q: "How do I avoid paying PMI?", a: "Put at least 20% down. If you can't, look at 'Lender Paid' options or aim to reach 20% equity through extra payments, which allows you to cancel the insurance and save $100-$300 a month." },
+            { q: "How much are closing costs on a home?", a: "Typically 2% to 5% of the purchase price. On a $300k home, expect to pay $6,000 to $15,000 at the signing table for things like title fees, appraisals, and prepaid taxes." }
         ]
     },
     science: {
@@ -107,10 +107,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Tell us about what you're insuring (like your home, car, or life). We'll help you see how different coverage levels and deductibles change your monthly bill and your 'true' financial risk.",
         whyItWorks: "Insurance is basically a bet against 'what if.' Our tools help you see the math behind that bet. By looking at your deductible vs. your monthly payment, you can decide if it's smarter to pay a little more now or a lot more later if something goes wrong.",
         faq: [
-            { q: "What is a 'Deductible' exactly?", a: "It's the amount of money you have to pay yourself before the insurance company pays a dime. If you have a $1,000 deductible and a $3,000 repair, you pay $1,000 and they pay $2,000." },
-            { q: "Is a high deductible always a bad thing?", a: "Not necessarily. Higher deductibles usually mean lower monthly payments. If you have an emergency fund saved up, a higher deductible can save you thousands of dollars over a few years." },
-            { q: "Does this give me a real insurance quote?", a: "No. Only a licensed insurance agent can give you a binding quote. These tools help you understand the *math* they use so you can shop around with confidence." },
-            { q: "How much life insurance do I actually need?", a: "A common expert tip is '10 times your annual salary.' This ensures your family is taken care of if you're no longer there to provide for them." }
+            { q: "How can I lower my car insurance premium?", a: "In 2026, the best ways are increasing your deductible, bundling with home insurance, or asking for 'Low Mileage' discounts if you work from home. Improving your credit score can also slash your rate by up to 40%." },
+            { q: "How much life insurance do I really need?", a: "A common 'high-search' rule is 10 to 12 times your annual income. This ensures your family can replace your salary and pay off the mortgage if the worst happens. Use our coverage tool to find your exact number." },
+            { q: "What is the difference between Term and Whole Life?", a: "Term life is like renting: you're covered for a set time (10-30 years) for a very low price. Whole life is like buying: it lasts forever and builds cash value, but costs 10-20 times more. For most, Term is the smarter choice." },
+            { q: "Is a higher deductible always better?", a: "It saves you money on your monthly bill, but only if you have the cash (like $1,000) saved in an emergency fund to cover it. If you're living paycheck to paycheck, a lower deductible is often safer." },
+            { q: "Does home insurance cover floods?", a: "Usually NO. Standard policies cover fires and storms, but flood insurance is almost always a separate policy through FEMA or a private company. Always check your 'Flood Zone' status before buying." }
         ]
     },
     everyday: {
@@ -167,13 +168,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the home price, your down payment, the interest rate, and the loan term (usually 15 or 30 years). Don't forget to add your annual property taxes and insurance to see your true monthly bank draft.",
         whyItWorks: "A mortgage is a 'declining balance' loan. Every month, part of your payment covers the interest, and the rest goes toward the house (the principal). Our engine uses standard amortization math to show you exactly how much you're paying in total over the life of the loan.",
         faq: [
-            { q: "What credit score do I need for a mortgage?", a: "In 2026, minimum scores vary by loan type: FHA loans typically require 580 (for 3.5% down), while Conventional loans usually start at 620. VA loans (for veterans) often recommend a 620 minimum. Improving your score from 620 to 760 can save you roughly $200 per month on a $300k mortgage." },
-            { q: "How much down payment do I need to buy a house?", a: "Minimum options in 2026 include 3% for First-Time Buyer Conventional loans, 3.5% for FHA, and 0% for VA (military) or USDA (rural) loans. Putting less than 20% down usually adds PMI insurance, costing $100-$300 extra per month." },
-            { q: "What is the monthly payment on a $400,000 mortgage?", a: "At 2026 rates around 7%, a 30-year fixed principal and interest payment is approximately $2,661. After adding estimated property taxes ($400) and insurance ($150), your total estimated monthly payment would be roughly $3,211." },
-            { q: "What is the monthly payment on a $500,000 mortgage?", a: "For a $500k loan at 7% interest, the 30-year fixed payment is $3,327 for principal/interest. Including average 2026 taxes and insurance, your total monthly bank draft will be approximately $3,877 to $4,894 depending on your local tax rate." },
-            { q: "Is it better to get a 15 or 30 year mortgage?", a: "A 30-year mortgage offers lower monthly payments and more flexibility. A 15-year mortgage has a higher payment but saves you massive amounts in interest—often over $230,000 on a $300k home—and allows you to be debt-free in half the time." },
-            { q: "What happens if I pay an extra $200 a month on my mortgage?", a: "On a $300,000 mortgage at 7%, adding $200 extra per month allows you to pay off the loan 5 years and 8 months early, saving you roughly $63,000 in total interest. Even $100 extra per month can shave 3 years off your term." },
-            { q: "Should I refinance my mortgage in 2026?", a: "Refinancing makes sense if current rates are at least 1% lower than your current rate, or if your credit score has improved enough to secure a better deal. A good rule is to calculate your 'break-even' point: divide your closing costs by your monthly savings to see how many months it takes to profit." }
+            { q: "What is the monthly payment on a $300,000 mortgage?", a: "At a 7% interest rate, your principal and interest is about $1,996 for a 30-year loan. When you add taxes and insurance, your total monthly bank draft will likely be between $2,400 and $2,700 depending on your local tax rate." },
+            { q: "Is a 15-year or 30-year mortgage better?", a: "A 30-year loan has lower monthly payments, which is safer for your budget. However, a 15-year loan has much lower interest rates and can save you over $200,000 in interest over the life of the house. Most in 2026 choose the 30-year for flexibility." },
+            { q: "How much down payment do I really need?", a: "While 20% stops you from paying PMI insurance, many 2026 buyers use 3.5% (FHA) or 3% (Conventional) loans. If you're a veteran, you can even get a $0 down VA loan with great rates." },
+            { q: "What is the 'Rule of Thumb' for house prices?", a: "A good conservative guide is '3 times your annual gross salary.' If you make $100k, look at houses around $300k. This ensures you have money left over for life, travel, and emergencies." },
+            { q: "Should I buy points to lower my interest rate?", a: "Buying 'points' means paying cash upfront to lower your monthly rate. It's a great deal if you plan to stay in the house for 7+ years, but if you might move sooner, it's often better to keep your cash." }
         ]
     },
     'auto-loan': {
@@ -181,11 +180,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the car price, any trade-in value, and the interest rate. We recommend checking 48, 60, and 72-month terms to see how much extra interest you pay for the 'smaller' monthly payment.",
         whyItWorks: "Car loans compound interest differently than mortgages. By calculating your monthly payment across different terms, you can see the 'total cost to own.' A lower monthly payment on a 7-year loan often costs you thousands more than a slightly higher payment on a 5-year loan.",
         faq: [
-            { q: "What is my car payment on a $30k loan?", a: "For a $30,000 loan at 6% interest for 60 months (5 years), your monthly payment would be about $580. Over the life of the loan, you'll pay about $4,800 in total interest." },
-            { q: "How much car can I afford?", a: "A good rule of thumb is the 20/4/10 rule: put down 20%, finance for no more than 4 years, and keep your total car costs (payment + insurance) under 10% of your gross income." },
-            { q: "What is a good car loan interest rate?", a: "For buyers with excellent credit, 4-6% is considered a strong rate in 2026. If you're being quoted over 10%, it's worth shopping around or working on your credit for a few months." },
-            { q: "How do I calculate auto loan payments?", a: "Auto loans use a simple interest formula but are amortized. The formula is M = P [ r(1 + r)^n ] / [ (1 + r)^n – 1 ], where r is your monthly interest rate." },
-            { q: "Is a 72-month car loan a bad idea?", a: "While it lowers your monthly payment, a 72-month (6-year) loan often keeps you 'upside down' (owing more than the car is worth) for years and significantly increases the total interest you pay." }
+            { q: "What is my car payment on a $40,000 loan?", a: "For a 60-month (5 year) loan at 6% interest, your monthly payment is about $773. You'll pay around $6,400 in total interest over the life of the car." },
+            { q: "What is the 20/4/10 rule for car buying?", a: "Put 20% down, finance for no more than 4 years (48 months), and keep total car costs (payment + insurance) under 10% of your take-home pay. It's the best way to avoid being 'upside down' on a loan." },
+            { q: "Is a 72-month or 84-month car loan bad?", a: "Yes, usually. While the monthly payment is lower, you pay thousands more in interest and will likely owe more than the car is worth for the first 4 years. Stick to 60 months or less if possible in 2026." },
+            { q: "How much does my credit score affect my car rate?", a: "A lot! Someone with a 750 score might get a 5% rate, while someone with a 600 score might get 15%. On a $30k car, that's a difference of over $150 a month!" },
+            { q: "Should I lease or buy a car in 2026?", a: "Leasing is better if you want a new car every 3 years and drive less than 12k miles a year. Buying is much cheaper in the long run (6-10 years) because you eventually stop making payments." }
         ]
     },
     masonry: {
@@ -229,8 +228,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your business numbers—like total sales, costs, ad spend, or staff count. We'll show you if you're making a profit and how efficiently your company is running.",
         whyItWorks: "Business success is built on clear data. By looking at how much it costs to get a new customer vs. how much they spend, these tools help you make smarter choices for growth and profitability.",
         faq: [
-            { q: "What is CAC?", a: "Customer Acquisition Cost—the total expense of sales and marketing efforts divided by the number of new customers acquired." },
-            { q: "How do I calculate Break-Even?", a: "Divide your total fixed costs by the contribution margin per unit (Price minus Variable Cost)." }
+            { q: "How do I calculate my business break-even point?", a: "Divide your fixed costs (rent/salaries) by your 'Contribution Margin' (Sale Price minus Variable Cost per unit). This shows you exactly how many sales you need each month to stop losing money." },
+            { q: "What is a healthy profit margin for a small business?", a: "It varies by industry: restaurants often aim for 5-10%, while software (SaaS) can be 20-40%. Our tools help you see your 'Net Margin' so you can compare your performance to 2026 benchmarks." },
+            { q: "What is the difference between ROI and ROAS?", a: "ROI (Return on Investment) looks at your total profit vs total cost. ROAS (Return on Ad Spend) looks specifically at how much revenue you got for every $1 spent on marketing." },
+            { q: "How much should a small business owner pay themselves?", a: "A common starting point is a reasonable 'market' salary for your role, ensuring the business still has profit left over. Don't forget that as an owner, you can also take 'Distributions' from the profits." },
+            { q: "What is CAC and why does it matter?", a: "Customer Acquisition Cost. It's the total cost of your marketing divided by the number of new customers. If your CAC is higher than the profit from a customer, your business model isn't sustainable yet." }
         ]
     },
     sales: {
@@ -238,8 +240,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your product costs, selling prices, and any discount percentages. We'll calculate your final price and exactly how much profit you're making on every sale.",
         whyItWorks: "Retail math is about finding the right price for success. By understanding 'Markup' and 'Margin,' business owners can keep profits high while shoppers can find the absolute best deals.",
         faq: [
-            { q: "Markup vs. Margin: what's the difference?", a: "Markup is the percentage added to cost to reach a selling price. Margin is the percentage of the selling price that is profit." },
-            { q: "Can I stack discounts here?", a: "Yes, our multi-discount tools apply reductions sequentially to show the true final price." }
+            { q: "Markup vs. Margin: what's the difference?", a: "Markup is how much you add to the cost (Cost + 50% = Price). Margin is how much of the selling price is profit (Price - Cost / Price). Knowing both is critical for 2026 retail success." },
+            { q: "How do I calculate a 'Sales Velocity'?", a: "Divide the total number of units sold by the number of days in the period. This helps you predict when you'll run out of stock and how much money you're making per day." },
+            { q: "Can I stack multiple discounts in this calculator?", a: "Yes! Our tool applies discounts one after another (sequentially), which is how most stores handle 'extra 20% off already reduced' sales." },
+            { q: "What is a good 'Conversion Rate' for an online shop?", a: "The 2026 average is about 2% to 3%. If your site is lower than this, you might need better photos or faster loading times. Our web-dev tools can help you find those bottlenecks." },
+            { q: "How do I calculate 'Volume Discounts'?", a: "Our sales tools help you find the 'Break Even' point where offering a lower price for bulk orders actually makes you more total profit through increased volume." }
         ]
     },
     engineering: {
@@ -436,8 +441,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter how many tokens you have, what you paid for them, and any network fees. We'll calculate your true profit/loss and show you the impact of 'Gas' fees.",
         whyItWorks: "Digital money is volatile. By looking at your fees and using strategies like DCA (Dollar-Cost Averaging), you can manage your digital coins without the stress of confusing spreadsheet math.",
         faq: [
-            { q: "What is DCA?", a: "Dollar-Cost Averaging—investing a fixed amount of money into a particular asset at regular intervals, regardless of price." },
-            { q: "How is 'Gas' calculated?", a: "Gas refers to the unit that measures the amount of computational effort required to execute specific operations on a blockchain network." }
+            { q: "How do I calculate profit from my crypto trades?", a: "Subtract your 'Cost Basis' (what you paid plus fees) from the 'Sell Price.' Don't forget that if you swap one coin for another, it's usually treated as a taxable sale in 2026." },
+            { q: "What is DCA (Dollar-Cost Averaging)?", a: "It's the strategy of buying a fixed dollar amount (like $50) of a coin every week, regardless of price. This lowers your average cost over time and removes the stress of trying to 'time the market'." },
+            { q: "How do 'Gas Fees' work?", a: "Gas is the 'toll' you pay the network to process your transaction. Fees spike when the network is busy. Use our calculator to check the best times to move your coins to save on fees." },
+            { q: "How much tax do I pay on crypto gains?", a: "In most places, gains are taxed at your 'Capital Gains' rate. If you hold for more than a year, you usually pay a much lower rate (0-20%) than if you sell in less than a year." },
+            { q: "Is 2026 a good time to start in crypto?", a: "With institutional adoption growing, 2026 is a mature phase for digital assets. The best approach is to start small, use a secure wallet, and focus on long-term value over 'get-rich-quick' tokens." }
         ]
     },
     freelance: {
@@ -445,8 +453,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your hourly rate, the hours you worked, and any platform fees or taxes. We'll show you exactly how much money lands in your bank account.",
         whyItWorks: "Being your own boss means being your own accountant. By subtracting taxes and fees automatically, these tools help you pick a rate that actually pays your bills and supports your life.",
         faq: [
-            { q: "How much should I set aside for taxes?", a: "A common rule of thumb is 25-30% of gross income, but this varies significantly based on your location and total annual earnings." },
-            { q: "What is Billable vs. Non-Billable time?", a: "Billable time is work performed directly for a client. Non-billable time includes admin, marketing, and learning that you must fund through your billable rate." }
+            { q: "How much should I save for self-employment taxes?", a: "A safe rule is to set aside 25-30% of every check. This covers your standard income tax plus the 15.3% Self-Employment (FICA) tax that employers usually handle for staff." },
+            { q: "What hourly rate is equal to a $100k salary?", a: "To make $100k, you need a $50/hour rate—but as a freelancer with no benefits and higher taxes, you should aim for $75 to $100 per hour to maintain the same 'lifestyle' as an employee." },
+            { q: "How do I calculate my take-home pay after fees?", a: "Enter your gross rate into our engine, subtract platform fees (like Upwork's 10%) and estimated taxes. We'll show you the exact 'bottom line' that actually hits your bank account." },
+            { q: "What business expenses can I write off?", a: "Common 2026 deductions include your home office (square foot method), software subscriptions, hardware (like laptops), and professional education. Every $1 you write off saves you roughly $0.25 to $0.35 in taxes." },
+            { q: "Should I charge by the hour or by the project?", a: "Hourly is safest for unpredictable tasks. Project-based (Value-Based) is better if you're very fast and experienced, as it decouples your income from your time and rewards your expertise." }
         ]
     },
     "self-improvement": {
@@ -517,8 +528,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your staff costs, how fast you're selling products, and your marketing results. We'll show you your 'Runway' and when to hire your next team member.",
         whyItWorks: "Small businesses live and die by cash flow. By calculating your daily 'Burn Rate,' you can make proactive choices about inventory and growth before you run out of funds.",
         faq: [
-            { q: "What is 'Runway'?", a: "The amount of time a company can continue to operate before it runs out of money, calculated as total cash divided by monthly burn rate." },
-            { q: "How is employee churn calculated?", a: "The number of employees who left during a period divided by the average number of employees during that same period." }
+            { q: "What is my business 'Runway'?", a: "Runway is how many months your business can survive if you make zero additional sales. Total Cash divided by your 'Monthly Burn' (expenses). A safe runway for 2026 is 6 to 12 months." },
+            { q: "What is the difference between 'Cash Flow' and 'Profit'?", a: "Profit is what's left after all bills are paid on paper. Cash Flow is the actual money moving in and out of your bank. You can be 'profitable' but still go out of business if your cash is tied up in inventory or unpaid invoices." },
+            { q: "How do I calculate 'Customer Lifetime Value' (CLV)?", a: "Average purchase value x number of times they buy per year x average customer relationship years. Knowing this helps you decide how much you can afford to spend on marketing to get one new customer." },
+            { q: "When is the right time to hire my first employee?", a: "When you have 3-6 months of their salary saved up AND the work you're falling behind on would generate more revenue than their cost. Our calculator helps you find that 'sweet spot' for growth." },
+            { q: "How much inventory should I keep on hand?", a: "Aim for a 2-4 week supply for fast-moving items. Too much inventory 'traps' your cash on the shelf, while too little leads to lost sales. This balance is the secret to high-performing 2026 businesses." }
         ]
     },
     "sustainability-pro": {
@@ -535,8 +549,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your property income, expenses, and loan details. We'll calculate high-level pros—like 'Cap Rate' and 'IRR'—so you can pick the best investment.",
         whyItWorks: "Professional investing is about more than just a mortgage. By looking at long-term cash flow and return rates, these tools help you compare different buildings to find the best deal.",
         faq: [
-            { q: "What is Cap Rate?", a: "Capitalization Rate—the ratio of Net Operating Income to property asset value, used to estimate the investor's potential return." },
-            { q: "How is NOI calculated?", a: "Net Operating Income = (Total Income from the property) - (All necessary operating expenses)." }
+            { q: "What is a 'Good' Cap Rate in 2026?", a: "It depends on the risk. A safe apartment building might have a 4-5% Cap Rate, while a riskier warehouse or retail space might be 7-9%. Generally, a higher Cap Rate means more potential profit but more risk." },
+            { q: "What is the difference between NOI and Cash Flow?", a: "NOI (Net Operating Income) looks at the property's performance before the mortgage. Cash Flow is what's left after you pay the bank. A property can have a great NOI but still have 'Negative Cash Flow' if your loan is too expensive." },
+            { q: "How is IRR (Internal Rate of Return) used?", a: "IRR is the 'Master Number' for investors. it calculates your total profit over the entire time you own the building, including the final sale. It's the best way to compare a real estate deal to a stock market investment." },
+            { q: "What is 'Debt Service Coverage Ratio' (DSCR)?", a: "It's your NOI divided by your annual mortgage payments. Banks usually want this to be at least 1.2 to 1.25, meaning the property makes 25% more than it needs to pay the loan." },
+            { q: "Should I focus on 'Cash-on-Cash' return?", a: "Yes! This is your annual cash flow divided by the actual cash you put into the deal. In 2026, most pros look for at least 8-10% Cash-on-Cash to justify the work of managing a property." }
         ]
     },
     "productivity-pro": {
