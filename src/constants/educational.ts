@@ -10,7 +10,7 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
     'compound-interest': {
         title: "The Power of Compound Interest",
         howToUse: "Enter your starting amount, how much you'll add each month, and your interest rate. We'll show you exactly how 'money makes money' over time. For the best 2026 planning, we suggest looking at a 10 to 20-year window to see the true impact of compounding.",
-        whyItWorks: "Compound interest is often called the 'eighth wonder of the world.' It works by paying interest not just on your original deposit, but also on the interest you've already earned. This creates an exponential curve where your wealth grows faster and faster the longer you leave it alone.",
+        whyItWorks: "Compound interest is often called the 'eighth wonder of the world.' It works by paying interest not just on your original deposit, but also on the interest you've already earned. This creates a 'snowball effect' where your wealth grows faster and faster the longer you leave it alone.",
         faq: [
             { q: "How much will $1,000 grow with compound interest?", a: "If you start with $1,000 and earn a 7% return, after 20 years you'll have nearly $4,000—even if you never add another penny. Compound interest turns small savings into significant wealth over time." },
             { q: "What is compound interest with example?", a: "Imagine you have $100 and earn 10% interest. After year one, you have $110. In year two, you earn 10% on $110 (which is $11), giving you $121. You earned interest on your interest!" },
@@ -125,26 +125,26 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
     },
     personal: {
         title: "Personal Life Metrics",
-        howToUse: "Provide your birth date, names, or specific life milestones. Our tools use chronological calculations and established algorithms to provide unique insights into your personal history and future.",
-        whyItWorks: "Personal tracking and compatibility tools help contextualize our lives within time and interpersonal connections. By applying exact date math and traditional logic systems, we quantify the intangible parts of our daily existence.",
+        howToUse: "Provide your birth date, names, or special milestones. Our tools use simple date math to show you interesting facts about your personal history and future.",
+        whyItWorks: "Tracking life milestones helps us see the patterns in our daily existence. By using exact calendars and traditional systems, we turn personal dates into meaningful insights.",
         faq: [
             { q: "How is chronological age calculated?", a: "We calculate the exact time elapsed between your birth date and the current moment, accounting for leap years and month lengths." },
             { q: "Is compatibility math based on science?", a: "Compatibility tools are based on traditional systems and name-matching algorithms intended for entertainment and personal reflection." }
         ]
     },
     roofing: {
-        title: "Structural Roofing & Pitch Analysis",
-        howToUse: "Input the base dimensions and the desired pitch or slope of your roof. The engine calculates the total area, ridge lengths, and material requirements (like bundles of shingles or metal panels).",
-        whyItWorks: "Roofing requires precise geometry to ensure proper drainage and structural integrity. By using trigonometric functions on the slope and plan area, we determine the exact 'unfolded' surface area of your roof, preventing costly material errors.",
+        title: "Roofing & Material Estimator",
+        howToUse: "Enter the base size of your building and the 'pitch' or steepness of your roof. Our engine calculates exactly how many shingles or panels you need to buy.",
+        whyItWorks: "Roofing requires precise math to make sure water drains well and your house stays dry. By calculating the actual 'unfolded' surface area of your roof, we help you avoid buying too much or too little material.",
         faq: [
             { q: "What is 'Roof Pitch'?", a: "Pitch is the vertical rise for every 12 inches of horizontal run. A '6/12 pitch' means the roof rises 6 inches for every foot of run." },
             { q: "Should I include dormers in my calculations?", a: "Yes, add the surface area of dormers separately or ensure they are accounted for in your total square footage inputs." }
         ]
     },
     hydraulics: {
-        title: "Fluid Dynamics & Hydraulics",
-        howToUse: "Provide pipe dimensions, flow rates, and pressure data. Our hydraulics engine applies physics laws to calculate volumes, pressures, and flow speeds for liquids.",
-        whyItWorks: "Managing fluids requires understanding the relationship between pressure, volume, and gravity. These calculators use standard formulas (like the Poiseuille law or tank volume geometry) to ensure your plumbing or industrial projects are sized correctly.",
+        title: "Plumbing & Flow Calculations",
+        howToUse: "Enter your pipe sizes, water flow speed, and pressure. Our engine calculates volumes and speeds to make sure your plumbing or tank project works perfectly.",
+        whyItWorks: "Managing liquids is all about understanding pressure and volume. These calculators use standard physics rules to ensure your home or industrial project stays leak-free and flows smoothly.",
         faq: [
             { q: "How is tank volume calculated?", a: "Volume is determined by the geometric shape (cylindrical, rectangular, etc.) and its vertical or horizontal orientation." },
             { q: "What does GPM mean?", a: "Gallons Per Minute—a standard measure of flow rate in plumbing and industrial systems." }
@@ -198,288 +198,288 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     "home-improvement": {
-        title: "Home Renovation & HVAC Planning",
-        howToUse: "Input room dimensions for flooring or paint, or specify windows and insulation types for HVAC sizing. The calculators apply material coverage and thermal load formulas to your home project.",
-        whyItWorks: "Efficient home improvement balances comfort with cost. Understanding the BTU requirements for a room or the square footage of a floor allows you to purchase materials precisely and select appliances that won't overwork or waste energy.",
+        title: "Renovation & Heating Planning",
+        howToUse: "Enter your room sizes for flooring and paint, or details about your windows and insulation for heating (HVAC) needs. We'll show you exactly what materials you need to get the job done.",
+        whyItWorks: "Good home improvement saves you money on energy and materials. By calculating the exact 'thermal load' or square footage, you can pick the right size unit or paint amount without guesswork.",
         faq: [
             { q: "How do I calculate paint coverage?", a: "Divide the total wall surface area by the 'feet per gallon' rating on the paint (usually 350-400 sq ft)." },
             { q: "What size AC do I need?", a: "Heating and cooling are measured in BTUs or Tons. 20 BTUs per square foot of living space is a common rule of thumb." }
         ]
     },
     medical: {
-        title: "Medical Informatics & Clinical Indicators",
-        howToUse: "Enter patient markers like glucose levels, lipid profiles, or breathing patterns. The tools apply clinical algorithms standardized by organizations like the ADA, AHA, or CDC to provide situational assessments.",
-        whyItWorks: "Clinical decision support tools assist in interpreting biological data. By standardizing blood sugar conversions, heart risk ratios, and sleep apnea scores, we help bridge the gap between laboratory results and actionable health insights.",
+        title: "Health Markers & Clinical Logic",
+        howToUse: "Enter your test results—like blood sugar, cholesterol, or sleep patterns. Our tools use medical standards from the CDC and ADA to help you understand what your numbers mean.",
+        whyItWorks: "Health tools help you see the story behind your lab results. By using 2026 clinical standards, we bridge the gap between complex biology and clear, actionable health insights.",
         faq: [
             { q: "Are these results a medical diagnosis?", a: "No. These tools are for educational screening. All results must be reviewed by a licensed healthcare provider." },
             { q: "What is A1c to EAG?", a: "It converts your 3-month average blood sugar percentage (A1c) into an Estimated Average Glucose (mG/dL) for daily tracking comparison." }
         ]
     },
     military: {
-        title: "Military Readiness & Recruitment Standards",
-        howToUse: "Select your branch and enter your physical test totals (pushups, runs, etc.) or body measurements. The calculator applies current branch-specific grading scales (like ACFT or Navy PRT).",
-        whyItWorks: "Physical readiness is a core pillar of military service. These tools apply the exact algebraic grading tables and body-fat tape formulas used by military personnel to ensure compliance with service standards.",
+        title: "Military Fitness & Body Standards",
+        howToUse: "Select your branch and enter your physical test scores (like pushups or run times). We'll show you how you grade out against 2026 military standards.",
+        whyItWorks: "Military fitness is about readiness and compliance. These tools use the exact grading tables and body-fat formulas used by the US military to help you track your progress.",
         faq: [
             { q: "Do these reflect the 2024 standards?", a: "Yes, we prioritize the latest available grading tables for the ACFT and other branch-specific physical tests." },
             { q: "What is the 'Tape Test'?", a: "The standard military method for estimating body fat percentage using circumference measurements of the neck, waist, and hips." }
         ]
     },
     business: {
-        title: "Corporate Finance & Marketing Analytics",
-        howToUse: "Input operational data such as gross revenue, variable costs, ad spend, or employee counts. The engine calculates key performance indicators (KPIs) like ROI, ROAS, and CAC.",
-        whyItWorks: "Business success is driven by unit economics. By analyzing the relationship between acquisition costs and customer lifetime value, or fixed versus variable costs, these tools help optimize profitability and operational efficiency.",
+        title: "Company Finance & Marketing Math",
+        howToUse: "Enter your business numbers—like total sales, costs, ad spend, or staff count. We'll show you if you're making a profit and how efficiently your company is running.",
+        whyItWorks: "Business success is built on clear data. By looking at how much it costs to get a new customer vs. how much they spend, these tools help you make smarter choices for growth and profitability.",
         faq: [
             { q: "What is CAC?", a: "Customer Acquisition Cost—the total expense of sales and marketing efforts divided by the number of new customers acquired." },
             { q: "How do I calculate Break-Even?", a: "Divide your total fixed costs by the contribution margin per unit (Price minus Variable Cost)." }
         ]
     },
     sales: {
-        title: "Retail Logic & Sales Strategy",
-        howToUse: "Enter product costs, list prices, and discount percentages. The tool calculates your final price, markups, and profit margins, accounting for stacked discounts if needed.",
-        whyItWorks: "Retail mathematics allows for strategic pricing and smart shopping. Understanding the math of percentage reductions and margin-on-cost ensures that business owners remain profitable and shoppers find the best value.",
+        title: "Shop Logic & Sales Strategy",
+        howToUse: "Enter your product costs, selling prices, and any discount percentages. We'll calculate your final price and exactly how much profit you're making on every sale.",
+        whyItWorks: "Retail math is about finding the right price for success. By understanding 'Markup' and 'Margin,' business owners can keep profits high while shoppers can find the absolute best deals.",
         faq: [
             { q: "Markup vs. Margin: what's the difference?", a: "Markup is the percentage added to cost to reach a selling price. Margin is the percentage of the selling price that is profit." },
             { q: "Can I stack discounts here?", a: "Yes, our multi-discount tools apply reductions sequentially to show the true final price." }
         ]
     },
     engineering: {
-        title: "Mechanical & Industrial Engineering",
-        howToUse: "Provide mechanical specs like gear counts, spring dimensions, or flow rates. The engine applies classic physics and engineering laws like Hooke's Law or Reynolds Number math.",
-        whyItWorks: "Engineering design requires precision at the component level. By simulating forces, tolerances, and throughputs using verified CAD-level math, we help technicians and students verify structural and mechanical integrity.",
+        title: "Engineering & Machine Math",
+        howToUse: "Enter your machine specs—like gear counts, spring sizes, or water flow. Our engine uses standard laws of physics to help you verify your design or school project.",
+        whyItWorks: "Engineering requires tiny details to be exactly right. By checking forces and tolerances with verified math, we help you spot issues before they become expensive problems.",
         faq: [
             { q: "What is a Reynolds Number?", a: "A dimensionless value used in fluid mechanics to predict flow patterns, distinguishing between laminar and turbulent flow." },
             { q: "Are these results suitable for manufacturing?", a: "These are for early-stage estimation and verification. Final designs should be validated in professional engineering software." }
         ]
     },
     sports: {
-        title: "Athletic Performance & Statistics",
-        howToUse: "Enter game stats (hits, at-bats), race times, or strength totals (one-rep max). The engine calculates performance metrics like OBP, pace splits, or Wilks scores.",
-        whyItWorks: "Sports analytics turns performance into progress. Whether using sabermetrics in baseball or metabolic equivalents (METs) for fitness, quantifying effort allows athletes to track improvement and set data-backed goals.",
+        title: "Athletic Stats & Projections",
+        howToUse: "Enter game stats (like hits or at-bats), race times, or your heaviest lifts. We'll calculate your performance scores (like OBP or PACE) to track how you're improving.",
+        whyItWorks: "Sports math helps you turn sweat into progress. Whether you're tracking your baseball stats or figuring out your 10k race pace, having real data helps you set and reach higher goals.",
         faq: [
             { q: "What is a 1-Rep Max?", a: "The maximum amount of weight you can lift for a single repetition, used as a benchmark for strength levels." },
             { q: "How are race split times calculated?", a: "By dividing the total distance by your goal time, we determine the exact pace required for every mile or kilometer." }
         ]
     },
     environment: {
-        title: "Sustainability & Ecological Impact",
-        howToUse: "Input your consumption data like kilowatt hours, miles driven, or waste volume. The tool uses standard emission factors to estimate your carbon or water footprint.",
-        whyItWorks: "Environmental awareness starts with measurement. By translating daily habits into ecological units like CO2-equivalents or gallons of water, we help users visualize their impact and plan for sustainable lifestyle changes.",
+        title: "Carbon Footprint & Eco Math",
+        howToUse: "Enter your usage data—like how much electricity you use or miles you drive. We'll show you your 'Carbon Footprint' and the impact you're having on the environment.",
+        whyItWorks: "Saving the planet starts with knowing where you stand. By measuring your habits in real numbers, you can see where small changes will make the biggest difference for our future.",
         faq: [
             { q: "What is a Carbon Footprint?", a: "The total amount of greenhouse gases (including carbon dioxide and methane) produced by our actions." },
             { q: "How can I lower my Solar ROI?", a: "ROI is improved by maximizing self-consumption of generated power and utilizing local tax incentives or rebates." }
         ]
     },
     culinary: {
-        title: "Culinary Science & Kitchen Math",
-        howToUse: "Enter ingredient weights or volumes and your desired serving count or hydration level. The tool scales ratios, such as Baker's Percentages, for consistent cooking results.",
-        whyItWorks: "Great cooking is as much about ratios as it is about taste. By using weight-based scaling rather than volume-only measures, chefs can ensure the same results every time, regardless of the batch size.",
+        title: "Kitchen Math & Pro Ratios",
+        howToUse: "Enter your ingredient weights and how many people you want to feed. We'll scale your recipe perfectly so it tastes the same whether you're feeding 2 or 20.",
+        whyItWorks: "Great cooking is all about ratios. By using weight (like grams) instead of volume (like cups), you can ensure perfect consistency every time you step into the kitchen.",
         faq: [
             { q: "Why use weight instead of volume?", a: "Weight is far more accurate, especially for ingredients like flour which can be packed differently in a cup." },
             { q: "What is Baker's Percentage?", a: "A notation method where the mass of each ingredient is expressed as a percentage of the total flour weight (which is always 100%)." }
         ]
     },
     academic: {
-        title: "Academic Metrics & Study Optimization",
-        howToUse: "Input your grades, word counts, or reading speed. The engine calculates GPAs, reading times, or the scores needed on final exams to reach your target.",
-        whyItWorks: "Success in education thrives on objective benchmarks. Whether estimating study workloads or tracking GPA trends, quantifying academic data helps students manage their time and prioritize their efforts effectively.",
+        title: "Grades & Study Math",
+        howToUse: "Enter your grades, word counts, or reading speed. We'll calculate your GPA or how long it will actually take you to finish that study assignment.",
+        whyItWorks: "Success in school is easier when you know the numbers. Whether tracking your GPA or planning your study time for a final exam, data helps you manage your stress and your schedule.",
         faq: [
             { q: "How is weighted GPA calculated?", a: "Weighted GPA gives more 'points' to honors or AP classes (e.g., 5.0 instead of 4.0), reflecting the difficulty of the curriculum." },
             { q: "What is a standard reading speed?", a: "The average adult reads at about 200-250 words per minute. Our tools allow you to adjust this based on your personal pace." }
         ]
     },
     hobbies: {
-        title: "Creative Pursuits & Maker Math",
-        howToUse: "Input technical parameters such as photography aperture, 3D printing filament weight, or RPG experience points. The engine applies specific domain logic to your hobby.",
-        whyItWorks: "Every hobby has a hidden layer of math. From the physics of light in a lens to the cost-per-gram of a 3D model, understanding the numbers allows creators to focus on their art while maintaining technical precision.",
+        title: "Maker Math & Creative Data",
+        howToUse: "Enter your project details—like camera settings, 3D printing filament weight, or RPG stats. We'll handle the technical math for your favorite pursuit.",
+        whyItWorks: "Every hobby has a layer of math hidden inside. Understanding the technical side allows you to spend more time on the fun part—creating—while knowing your gear and settings are spot on.",
         faq: [
             { q: "How is 3D print cost determined?", a: "By multiplying the weight of material used (plus electricity and failure allowance) by your cost per roll or kilowatt hour." },
             { q: "What is Depth of Field?", a: "The distance between the nearest and furthest objects in an image that appear acceptably sharp." }
         ]
     },
     tech: {
-        title: "IT Infrastructure & Digital Math",
-        howToUse: "Provide network addresses, data sizes, or code strings. Our tech engine handles subnetting, byte conversions, and security hashing calculations.",
-        whyItWorks: "Computing is built on specific scales and logical structures. From binary conversions to bandwidth estimations, these tools help developers and administrators manage digital environments with clinical accuracy.",
+        title: "IT Infrastructure & Data Math",
+        howToUse: "Enter details like network IP addresses, file sizes, or code strings. Our tech engine handles simple bit-math, subnetting, and data conversions instantly.",
+        whyItWorks: "Modern technology is built on logic and scales. From figuring out how many 'bits' are in a 'byte' to planning a network, these tools help tech pros and students work with 100% accuracy.",
         faq: [
             { q: "What is the difference between bits and bytes?", a: "A byte is 8 bits. Network speeds are usually measured in bits (Mbps), while file sizes are measured in bytes (MB)." },
             { q: "What is a Subnet Mask?", a: "A 32-bit number used to divide an IP address into network and host components for routing." }
         ]
     },
     lifestyle: {
-        title: "Lifestyle Logistics & Life Milestones",
-        howToUse: "Enter travel data, household expenses, or habit tracking dates. The algorithms organize these data points into clear timelines or financial splits.",
-        whyItWorks: "Modern living requires balancing time, space, and shared resources. By quantifying habits or dividing roommate expenses mathematically, these tools reduce interpersonal friction and help track personal growth milestones.",
+        title: "Life Logistics & Habit Tracking",
+        howToUse: "Enter your travel dates, household expenses, or habit streaks. We'll organize your life data into clear schedules or fair bill splits.",
+        whyItWorks: "Modern life is busy. By mathematically splitting bills or tracking your daily habits, you can reduce stress and stay on track with your personal growth and financial goals.",
         faq: [
             { q: "How should we split roommate bills?", a: "Common methods include equal splits, income-weighted splits, or per-square-foot ratios for bedroom size." },
             { q: "What is a habit streak?", a: "A measure of consistency defined by the number of consecutive days you have performed a specific task or behavior." }
         ]
     },
     biology: {
-        title: "Bio-Molecular Math & Lab Protocols",
-        howToUse: "Enter molecular samples, primer sequences, or cell counts. The engine calculates PCR temperatures, dilution factors, and genetic frequencies.",
-        whyItWorks: "Laboratory work requires high-precision mass and volume management. By applying standard biotech formulas for things like C1V1 dilutions or Hardy-Weinberg equilibrium, we help researchers minimize experimental error.",
+        title: "Biology & Lab Calculations",
+        howToUse: "Enter your lab samples—like cell counts or DNA primer numbers. Our engine calculates things like 'C1V1' dilutions so your experiments are always exact.",
+        whyItWorks: "Lab work leaves no room for error. By using the same formulas scientists use for dilutions and genetic math (like Hardy-Weinberg), we help you avoid mistakes and focus on your research.",
         faq: [
             { q: "What is C1V1?", a: "The standard formula for dilution: Initial Concentration x Initial Volume = Final Concentration x Final Volume." },
             { q: "Why is annealing temperature important?", a: "It determines the specificity of DNA primer binding in PCR; too high or too low can result in no product or incorrect amplification." }
         ]
     },
     pets: {
-        title: "Veterinary Science & Pet Care",
-        howToUse: "Input your pet's weight, age, or species-specific markers. The tools apply metabolic formulas (like RER for dogs) or gestation timelines for animal health management.",
-        whyItWorks: "Pet care is increasingly data-driven. By calculating caloric needs based on lifecycle stage or tracking livestock gestation, owners can provide scientifically-backed care that promotes longevity and health for their animals.",
+        title: "Pet Care & Health Math",
+        howToUse: "Enter your pet's weight, age, and type. We'll show you how much to feed them and what life stage they're in based on professional vet math.",
+        whyItWorks: "Pets can't tell us how they're feeling, so data helps. By calculating their daily calorie needs (RER) and tracking growth curves, you can keep your furry friends healthy and happy for years to many.",
         faq: [
             { q: "How much should I feed my dog?", a: "Feeding depends on Restricted Energy Requirements (RER), which considers weight, activity level, and whether the animal is neutered." },
             { q: "How long is a dog's pregnancy?", a: "The average gestation period for dogs is about 63 days from the time of ovulation." }
         ]
     },
     gardening: {
-        title: "Horticultural Math & Agriculture",
-        howToUse: "Enter garden bed dimensions, plant spacings, or fertilizer NPK ratios. The tool calculates soil volumes, plant counts, and nutrient requirements.",
-        whyItWorks: "Successful gardening relies on resource optimization. Understanding the volume of soil needed for a raised bed or the correct spacing to prevent plant competition ensures a healthy, high-yield harvest for both home and farm.",
+        title: "Garden Bed & Soil Math",
+        howToUse: "Enter the size of your garden or raised bed and how deep your soil needs to be. We'll show you exactly how many yards of soil to buy.",
+        whyItWorks: "Gardening is better with a plan. By calculating the exact volume of soil or the right space between plants, you save money at the nursery and grow a healthier, bigger harvest.",
         faq: [
             { q: "How do I calculate soil volume?", a: "Multiply length x width x depth (in feet) and divide by 27 to find the total cubic yards of soil needed." },
             { q: "What does NPK stand for?", a: "Nitrogen (N), Phosphorus (P), and Potassium (K)—the three primary nutrients found in commercial fertilizers." }
         ]
     },
     "time-date": {
-        title: "Chronological Precision & Timekeeping",
-        howToUse: "Provide start and end dates/times, or enter a duration to add or subtract. Our engine accounts for complex calendar rules like leap years and month lengths.",
-        whyItWorks: "Measuring time correctly is essential for both legacy planning and daily organization. By applying astronomical and calendar-based logic, we help users visualize spans, meet deadlines, and coordinate across global zones.",
+        title: "Time Gaps & Duration Math",
+        howToUse: "Enter two dates or a period of time. Our engine handles all the complex rules (like leap years and month lengths) to give you the exact answer.",
+        whyItWorks: "Time math is tricky to do in your head. Our tools use established calendar rules to help you meet deadlines, count the days to a big event, or plan across different time zones.",
         faq: [
             { q: "How many business days are in a year?", a: "Typically around 260-262, depending on how specific holidays fall and whether it is a leap year." },
             { q: "Does the age calculator include leap years?", a: "Yes, our algorithm accounts for every leap day to ensure to-the-day accuracy since your birth." }
         ]
     },
     geography: {
-        title: "Geospatial Analysis & Cartography",
-        howToUse: "Input GPS coordinates in decimal or DMS format, or provide map scales. The tool converts between systems or calculates real-world travel distances.",
-        whyItWorks: "Mapping requires translating the earth's curvature into flat coordinates or scales. By using standard projection math and unit conversions, we provide the precision needed for navigation, surveying, and GIS study.",
+        title: "Maps, Distance & GPS Math",
+        howToUse: "Enter your GPS coordinates or a map scale. We'll help you convert between different systems or figure out real-world travel distances.",
+        whyItWorks: "Mapping the earth requires translating a round world onto flat screens and maps. By using standard geography formulas and unit scaling, we help you navigate with 100% confidence.",
         faq: [
             { q: "What is DMS?", a: "Degrees, Minutes, and Seconds—a traditional way of expressing geographic coordinates for navigation." },
             { q: "How does map scale work?", a: "A scale like 1:50,000 means that one unit of measurement on the map represents 50,000 of the same units in the real world." }
         ]
     },
     fashion: {
-        title: "Textile Math & Fashion Engineering",
-        howToUse: "Enter body measurements or textile specs (stich count, fabric width). The engine calculates yardage requirements, international sizes, and pattern geometry.",
-        whyItWorks: "Fashion is a marriage of art and geometry. Whether calculating the radius for a circle skirt or translating shoe sizes across continents, precision measurements ensure a perfect fit and professional-grade construction.",
+        title: "Fashion Sizes & Sewing Math",
+        howToUse: "Enter your body measurements or fabric details (like length and width). We'll help you find your size or calculate exactly how much fabric your project needs.",
+        whyItWorks: "Great fashion is all about geometry and fit. Whether you're sewing a circle skirt or buying shoes from across the world, precision math ensures you always get the perfect fit.",
         faq: [
             { q: "How do I measure for a ring?", a: "Measure the inner circumference or diameter of a well-fitting ring in millimeters and compare to international charts." },
             { q: "What is fabric 'fullness'?", a: "In drapery and skirts, fullness describes how many times the finished width is compared to the flat fabric width (usually 2x or 3x)." }
         ]
     },
     chemistry: {
-        title: "Chemical Analysis & Stoichiometry",
-        howToUse: "Enter molecular formulas or reaction components. Our chemistry engine calculates molar masses, balances equations, and handles complex thermodynamic states.",
-        whyItWorks: "Molecular science is strictly quantitative. By applying the laws of conservation of mass and thermodynamics, we provide the backbone for theoretical study and practical laboratory preparation.",
+        title: "Chemistry & Lab Math",
+        howToUse: "Enter your chemical formula or sample details. Our engine handles molar mass and balanced equations so you get the results you need for school or the lab.",
+        whyItWorks: "Chemistry is an exact science. By using the laws of mass and energy, we provide the backbone for your experiments, helping you prep materials and understand reactions without rounding errors.",
         faq: [
             { q: "What is a Mole?", a: "A standard scientific unit for measuring large quantities of very small entities such as atoms, molecules, or particles (6.022 x 10^23)." },
             { q: "Why is Stoichiometry useful?", a: "It allows you to calculate the exact amount of reactants needed to produce a specific amount of product with zero waste." }
         ]
     },
     entertainment: {
-        title: "Pop Culture Metrics & Fun Analysis",
-        howToUse: "Provide media data like binge lists, fiction currencies, or decision points. The tool applies algorithmic fun to analyze your entertainment habits.",
-        whyItWorks: "Quantifying fiction adds a new layer to our fandoms. From calculating the real-world value of wizarding currency to estimating how many years you've spent binge-watching, we turn popular data into personal insights.",
+        title: "Pop Culture & Gaming Math",
+        howToUse: "Enter details like your binge-watch lists or fictional currency amounts. We turn your favorite fandom data into fun, interesting insights.",
+        whyItWorks: "We believe math should be fun. From figuring out how many days you've spent watching a show to converting 'wizard gold' into dollars, these tools help you explore your favorite stories in a new way.",
         faq: [
             { q: "How is 'watch time' calculated?", a: "We multiply the total number of episodes in a series by the average runtime (excluding commercials) to find the total life span of the show." },
             { q: "Is the Harry Potter currency converter accurate?", a: "It's based on the established canon rates (17 Sickles to a Galleon, 29 Knuts to a Sickle) adjusted for inflation-estimated USD values." }
         ]
     },
     converters: {
-        title: "Unit Transformation & Scaling",
-        howToUse: "Select your input and output systems. Provide your value and use the precision sliders if needed. Our engine converts across thousands of potential unit pairings.",
-        whyItWorks: "Global systems use varied scales (Metric vs. Imperial, Technical vs. Common). Standardization tools use exact conversion coefficients to ensure that data remains consistent across different regions and industries.",
+        title: "Unit & Dimension Converters",
+        howToUse: "Pick the units you're starting with (like 'Feet') and what you want to change them to (like 'Meters'). Enter your number and we'll do the rest.",
+        whyItWorks: "The world uses many different scales. We use 2026 international standards to ensure that when you convert weight, length, or money, your data remains 100% accurate across any border.",
         faq: [
             { q: "Are these SI-standard conversions?", a: "Yes, we prioritize international standards (NIST) for all physical and engineering unit transformations." },
             { q: "How performant are currency conversions?", a: "Currency tools rely on mid-market exchange rates that are periodically updated to reflect global markets." }
         ]
     },
     "mental-health": {
-        title: "Psychological Analytics & Self-Reflection",
-        howToUse: "Input frequency markers for specific feelings or sleep patterns. The tool uses standard psychological screening models like the PHQ-9 or GAD-7 to provide objective markers.",
-        whyItWorks: "Mental health tracking helps bridge the gap between subjective experience and clinical observation. By quantifying emotional and behavioral trends, users can have more productive conversations with their therapists and healthcare providers.",
+        title: "Self-Reflection & Mood Tracking",
+        howToUse: "Enter how often you feel specific emotions or track your daily sleep patterns. We use established screening tools (like the PHQ-9) to help you see patterns in your well-being.",
+        whyItWorks: "Tracking your feelings helps you see trends over time. This makes it easier to have productive, clear conversations with your doctor or therapist about the progress of your mental health journey.",
         faq: [
             { q: "Is this a clinical diagnosis?", a: "No. These are screening indicators. Only a licensed mental health professional can provide a diagnosis." },
             { q: "What is a GAD-7 score?", a: "A validated tool used to screen for and measure the severity of generalized anxiety disorder." }
         ]
     },
     gaming: {
-        title: "Interactive Gaming & Performance Math",
-        howToUse: "Enter game settings such as DPI, sensitivity, frame rates, or win/loss records. The engine calculates ELO gains, sensitivity conversions, or frame latency.",
-        whyItWorks: "Competitive gaming relies on consistent technical settings and progress tracking. By using ELO rating systems and 1:1 mouse movement math, we help players optimize their hardware and understand their competitive trajectory.",
+        title: "Gaming & Performance Math",
+        howToUse: "Enter your game settings—like mouse speed (DPI), frame rates, or your win/loss record. We'll calculate your rank (ELO) or show you how to match your aim across different games.",
+        whyItWorks: "Competitive gaming is about being consistent. By using real rank math and mouse-movement logic, we help you get your hardware set up perfectly so you can focus on winning.",
         faq: [
             { q: "What is ELO?", a: "A rating system used for calculating the relative skill levels of players in zero-sum games like Chess or Esports." },
             { q: "How does sensitivity conversion work?", a: "It calculates the exact 'real-world' distance (cm/360) your mouse travels to ensure your aim feels consistent across different games." }
         ]
     },
     parenting: {
-        title: "Child Development & Parenting Logistics",
-        howToUse: "Enter birth dates, percentiles, or feeding volumes. The engine tracks developmental milestones against WHO or CDC growth charts.",
-        whyItWorks: "Pediatric tracking provides peace of mind through data. By comparing weight, height, and head circumference to peer averages, parents can monitor their child's unique growth curve with clinical-grade context.",
+        title: "Child Growth & Milestone Math",
+        howToUse: "Enter your child's birth date, height, or weight. We'll show you their developmental milestones using current 2026 WHO and CDC growth charts.",
+        whyItWorks: "Every child is unique. By looking at real data from millions of other children, we help you see your child's growth curve in a clear, clinical way that gives you peace of mind.",
         faq: [
             { q: "What does '50th percentile' mean?", a: "It means that compared to a group of 100 children of the same age and gender, 50 are larger and 50 are smaller." },
             { q: "How is a due date calculated?", a: "Most calculators add 280 days (40 weeks) to the first day of your last menstrual period (LMP) using Naegele's rule." }
         ]
     },
     legal: {
-        title: "Legal Calculations & Regulatory Timelines",
-        howToUse: "Input dates, settlement amounts, or fee structures. The tool calculates statute of limitations, interest on awards, or attorney fee splits based on standard legal arithmetic.",
-        whyItWorks: "Legal procedures are governed by strict timelines and financial formulas. Providing accurate date-math and contingency fee breakdowns helps individuals understand their potential outcomes and obligations before entering formal arbitration.",
+        title: "Legal Dates & Award Forecasts",
+        howToUse: "Enter your case dates, settlement amounts, or fee details. We'll calculate the 'Statute of Limitations' or show you how attorney fees are split.",
+        whyItWorks: "Legal rules use very specific timelines. By providing exact date-math and fee breakdowns, we help you understand your legal rights and financial obligations before you step into a courtroom.",
         faq: [
             { q: "What is Pre-judgment Interest?", a: "Interest that accrues on the amount of a legal judgment from the time the injury occurred until the date of the court's award." },
             { q: "How is a statute of limitations calculated?", a: "It is the maximum time after an event within which legal proceedings may be initiated, often calculated using exact date offsets." }
         ]
     },
     crypto: {
-        title: "Cryptocurrency & Blockchain Economics",
-        howToUse: "Enter token amounts, entry prices, and guestimated network fees (Gas). The engine calculates profit/loss, dollar-cost averaging (DCA), and hardware hashing rates.",
-        whyItWorks: "Blockchain investment requires understanding volatility and transactional friction. By calculating the impact of fees versus price movement and simulating DCA strategies, investors can manage their digital assets with greater mathematical rigor.",
+        title: "Crypto & Blockchain Economics",
+        howToUse: "Enter how many tokens you have, what you paid for them, and any network fees. We'll calculate your true profit/loss and show you the impact of 'Gas' fees.",
+        whyItWorks: "Digital money is volatile. By looking at your fees and using strategies like DCA (Dollar-Cost Averaging), you can manage your digital coins without the stress of confusing spreadsheet math.",
         faq: [
             { q: "What is DCA?", a: "Dollar-Cost Averaging—investing a fixed amount of money into a particular asset at regular intervals, regardless of price." },
             { q: "How is 'Gas' calculated?", a: "Gas refers to the unit that measures the amount of computational effort required to execute specific operations on a blockchain network." }
         ]
     },
     freelance: {
-        title: "Freelance Economy & Gig Analytics",
-        howToUse: "Input your hourly rate, billable hours, tax reserves, and platform fees. The tool calculates your true take-home pay and suggests optimal project pricing.",
-        whyItWorks: "Freelancing requires acting as your own CFO. By accounting for self-employment tax, unbillable time, and overhead, these tools help independent workers set rates that ensure long-term sustainability and profit.",
+        title: "Freelance Rates & Take-Home Pay",
+        howToUse: "Enter your hourly rate, the hours you worked, and any platform fees or taxes. We'll show you exactly how much money lands in your bank account.",
+        whyItWorks: "Being your own boss means being your own accountant. By subtracting taxes and fees automatically, these tools help you pick a rate that actually pays your bills and supports your life.",
         faq: [
             { q: "How much should I set aside for taxes?", a: "A common rule of thumb is 25-30% of gross income, but this varies significantly based on your location and total annual earnings." },
             { q: "What is Billable vs. Non-Billable time?", a: "Billable time is work performed directly for a client. Non-billable time includes admin, marketing, and learning that you must fund through your billable rate." }
         ]
     },
     "self-improvement": {
-        title: "Personal Development & Growth Tracking",
-        howToUse: "Enter your reading times, habit frequency, or goal progress percentages. The engine visualizes your trajectory and estimates time-to-mastery.",
-        whyItWorks: "Self-improvement is an iterative process. By measuring incremental gains and applying the '1% better every day' compounding principle, users can turn abstract goals into concrete, data-backed habits.",
+        title: "Habit Streaks & Progress Tracking",
+        howToUse: "Enter how often you stick to a habit, how long you read, or your goal progress. We'll show you a clear path to reaching your 2026 milestones.",
+        whyItWorks: "Success is about getting 1% better every day. By measuring your gains in real numbers, you turn abstract dreams into concrete habits that actually stick.",
         faq: [
             { q: "What is the 10,000-hour rule?", a: "The idea that it takes approximately 10,000 hours of deliberate practice to master a complex skill." },
             { q: "How do I track progress on non-binary goals?", a: "Use a percentage-based scale (0-100) to mark subjective progress toward a major milestone." }
         ]
     },
     logistics: {
-        title: "Supply Chain & Logistics Management",
-        howToUse: "Enter cargo dimensions, weights, and distances. The engine calculates volumetric weight, shipping costs, and estimated delivery windows.",
-        whyItWorks: "Logistics efficiency is built on the optimization of space and time. By calculating pallet layouts and freight classes using industry-standard volumetric formulas, we help businesses reduce shipping waste and improve delivery reliability.",
+        title: "Shipping & Cargo Estimator",
+        howToUse: "Enter the size and weight of your packages and where they're going. We'll calculate the 'Volumetric Weight' and true shipping costs.",
+        whyItWorks: "Shipping is about more than just weight. By calculating how much space your cargo takes up (CBM), we help you find the most efficient way to move products across the country or the world.",
         faq: [
             { q: "What is Volumetric Weight?", a: "A pricing technique for commercial freight transport which uses a fixed factor to calculate 'weight' from the volume of a package." },
             { q: "How is CBM calculated?", a: "Cubic Meters—Length x Width x Height (in meters). It is the standard measure of volume in international shipping." }
         ]
     },
     "home-tech": {
-        title: "Smart Home & IT Optimization",
-        howToUse: "Input device power ratings, Wi-Fi signal strengths, or storage capacities. The engine calculates energy costs, network throughputs, and backup requirements.",
-        whyItWorks: "The modern home is a mini-datacenter. Understanding the power consumption of 'always-on' smart devices and the bandwidth needs of 4K streaming ensures your home infrastructure is both efficient and capable.",
+        title: "Home Power & Data Usage",
+        howToUse: "Enter your devices' power usage or your current Wi-Fi strength. We'll show you your monthly energy cost and if your network can handle 4K streaming.",
+        whyItWorks: "Modern homes are powered by data and electricity. Understanding which 'always-on' gadgets are eating your budget helps you run a smarter, faster, and cheaper home.",
         faq: [
             { q: "How much data does 4K streaming use?", a: "Approximately 7GB to 15GB per hour, depending on the bit-rate and compression used by the service." },
             { q: "What is 'Phantom Power'?", a: "The electricity consumed by electronic devices while they are switched off or in standby mode." }
         ]
     },
     "food-science": {
-        title: "Nutrition Science & Food Chemistry",
-        howToUse: "Enter ingredient weights and nutritional density data. The tool calculates macro splits, glycemic loads, and fermentation timelines.",
-        whyItWorks: "Food science applies chemical principles to our diet. By calculating the ratio of acidity to sugar in pickling or the precise macro-nutrient balance of a meal, we help users understand the biological impact of what they eat.",
+        title: "Food Math & Macro Splits",
+        howToUse: "Enter the weight of your ingredients and their nutrition details. We'll calculate your 'Macro Splits' (protein, carbs, fat) and how much sugar is in every bite.",
+        whyItWorks: "Healthy eating is a math problem for your metabolism. By looking at 'Glycemic Load' and nutrition density, you can plan meals that give you the most energy and best health.",
         faq: [
             { q: "What is Glycemic Load?", a: "A measure that takes into account the amount of carbohydrate in a portion of food together with how quickly it raises blood glucose levels." },
             { q: "How is a macro split determined?", a: "Based on your total daily calorie goal and the percentage of those calories coming from Protein, Fats, and Carbs." }
@@ -487,152 +487,152 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
     },
     "ancient-math": {
         title: "Historical Math & Ancient Systems",
-        howToUse: "Input modern decimals to convert to Roman numerals, Mayan vigesimal, or Abacus positions. The engine applies the logic of historical civilizations.",
-        whyItWorks: "Mathematics has a rich cultural history. By exploring non-base-10 systems and ancient geometry, users can gain a deeper appreciation for how different cultures solved the universal problems of counting and measuring.",
+        howToUse: "Enter modern numbers to see how they look in Roman numerals, ancient Mayan symbols, or on a traditional Abacus. We show you exactly how people from history solved the same math problems we have today.",
+        whyItWorks: "Math is a universal language with many dialects. By exploring how non-base-10 systems work, you can gain a deeper appreciation for the logic and history behind the numbers we use every day.",
         faq: [
             { q: "Why did the Mayans use Base-20?", a: "Likely because it accounted for both fingers and toes on a human body, creating a complete biological counting system." },
             { q: "Are Roman numerals still used in math?", a: "Rarely for calculation, but they remain essential for outlines, clock faces, and historical dating systems." }
         ]
     },
     space: {
-        title: "Celestial Mechanics & Astronomy",
-        howToUse: "Enter orbital data, planet masses, or distances in Light Years. The engine applies Kepler's Laws and General Relativity to calculate cosmic events.",
-        whyItWorks: "Space is governed by the laws of physics on a massive scale. By calculating orbital periods and gravitational time dilation, we help enthusiasts explore the mechanics of our solar system and beyond with scientific accuracy.",
+        title: "Astronomy & Gravity Math",
+        howToUse: "Enter planet details, weights, or distances in Light Years. We'll show you exactly how the laws of gravity and motion work on a massive, cosmic scale.",
+        whyItWorks: "Space follows very strict rules of physics. By calculating orbits and how light travels, we help you explore the mechanics of our solar system with pro-level scientific accuracy.",
         faq: [
             { q: "What is an AU?", a: "Astronomical Unit—the average distance from the Earth to the Sun, approximately 93 million miles." },
             { q: "How is Light Year distance calculated?", a: "The distance light travels in a vacuum in one Earth year, about 5.88 trillion miles." }
         ]
     },
     "intl-travel": {
-        title: "International Travel & Coordination",
-        howToUse: "Input flight times, visa durations, and budget estimates in local and foreign currencies. The tool calculates real travel costs and time zone offsets.",
-        whyItWorks: "Cross-border logistics involve complex variables. Coordinating visa expiry dates against travel itineraries and managing currency fluctuations ensures a smooth, stress-free international experience.",
+        title: "Travel Budget & Time Sync",
+        howToUse: "Enter your flight times, how long your visa lasts, and your budget in any currency. We'll handle the time zones and money conversions for your trip.",
+        whyItWorks: "International travel has a lot of moving parts. By syncing your budget and timeline ahead of time, you can focus on the adventure and stop worrying about confusing exchange rates.",
         faq: [
             { q: "How is 'Jet Lag' time calculated?", a: "A common rule of thumb is that it takes one day to recover for every time zone crossed." },
             { q: "What should I include in a travel budget?", a: "Account for fixed costs (flights, hotels) and variable costs (food, local transit) plus a 15% 'contingency fund' for emergencies." }
         ]
     },
     "small-biz": {
-        title: "Small Business Operations & Growth",
-        howToUse: "Input staff costs, inventory turnover, and marketing ROI. The engine calculates burn rates and provides projections for payroll and scaling.",
-        whyItWorks: "Small business management is the art of cash flow. By calculating the cost-of-goods-sold (COGS) and understanding your runway, owners can make informed decisions about hiring, inventory, and expansion.",
+        title: "Small Business Cash Flow",
+        howToUse: "Enter your staff costs, how fast you're selling products, and your marketing results. We'll show you your 'Runway' and when to hire your next team member.",
+        whyItWorks: "Small businesses live and die by cash flow. By calculating your daily 'Burn Rate,' you can make proactive choices about inventory and growth before you run out of funds.",
         faq: [
             { q: "What is 'Runway'?", a: "The amount of time a company can continue to operate before it runs out of money, calculated as total cash divided by monthly burn rate." },
             { q: "How is employee churn calculated?", a: "The number of employees who left during a period divided by the average number of employees during that same period." }
         ]
     },
     "sustainability-pro": {
-        title: "Professional Sustainability & ESG",
-        howToUse: "Enter corporate resource usage, fleet data, and supply chain emissions. The engine calculates Scope 1, 2, and 3 emissions for professional reporting.",
-        whyItWorks: "ESG (Environmental, Social, and Governance) compliance requires granular data. By applying GHG Protocol standards to operational data, sustainability officers can create verifiable reports for stakeholders and regulatory bodies.",
+        title: "Green Reporting & Eco Metrics",
+        howToUse: "Enter your company's usage—like fuel, energy, and supply chain data. We'll calculate your 'Scope 1, 2, and 3' emissions for your 2026 sustainability report.",
+        whyItWorks: "Helping the planet means tracking every detail. By using the same standards pros use (like the GHG Protocol), we turn complex resource data into a clear map of your environmental impact.",
         faq: [
             { q: "What are Scope 1, 2, and 3 Emissions?", a: "Scope 1: Direct emissions from owned sources. Scope 2: Indirect emissions from purchased energy. Scope 3: All other indirect emissions in the value chain." },
             { q: "What is Net Zero?", a: "A state in which the greenhouse gases going into the atmosphere are balanced by removal out of the atmosphere." }
         ]
     },
     "real-estate-pro": {
-        title: "Advanced Real Estate & Commercial Analysis",
-        howToUse: "Input market capitalization rates, net operating income (NOI), and debt coverage ratios. The engine performs high-level commercial valuations and IRR projections.",
-        whyItWorks: "Professional real estate investment relies on multi-year cash flow modeling. By calculating Internal Rate of Return (IRR) and Cash-on-Cash yields, professionals can objectively compare complex commercial opportunities.",
+        title: "Commercial Real Estate Math",
+        howToUse: "Enter your property income, expenses, and loan details. We'll calculate high-level pros—like 'Cap Rate' and 'IRR'—so you can pick the best investment.",
+        whyItWorks: "Professional investing is about more than just a mortgage. By looking at long-term cash flow and return rates, these tools help you compare different buildings to find the best deal.",
         faq: [
             { q: "What is Cap Rate?", a: "Capitalization Rate—the ratio of Net Operating Income to property asset value, used to estimate the investor's potential return." },
             { q: "How is NOI calculated?", a: "Net Operating Income = (Total Income from the property) - (All necessary operating expenses)." }
         ]
     },
     "productivity-pro": {
-        title: "High-Performance Productivity Metrics",
-        howToUse: "Enter project timelines, task estimates, and actual time spent. The tool calculates velocity, efficiency ratios, and predicted completion dates.",
-        whyItWorks: "Professional productivity is a function of flow and focus. By measuring throughput and applying Agile-style velocity tracking, knowledge workers can set realistic deadlines and identify systemic bottlenecks in their workflow.",
+        title: "Deep Work & Timing Stats",
+        howToUse: "Enter your project dates and how long your tasks are taking. We'll show you your true 'Velocity' and when you'll actually finish your project.",
+        whyItWorks: "Great productivity is about finding your rhythm. By tracking how fast you actually work (Agile Velocity), you can set deadlines that you can actually hit without burning out.",
         faq: [
             { q: "What is Velocity in project management?", a: "The amount of work (expressed in units like story points or hours) a team or individual can complete in a set period." },
             { q: "How does the 'Eisenhower Matrix' help?", a: "It categorizes tasks by urgency and importance to help you prioritize work that moves long-term goals forward." }
         ]
     },
     "util-hacks": {
-        title: "Utility Optimization & Cost Hacking",
-        howToUse: "Input utility rates, appliance efficiency ratings, and usage patterns. The tool calculates potential savings from behavioral changes or equipment upgrades.",
-        whyItWorks: "Small changes in utility usage compound significantly over time. By modeling the cost-benefit of things like LED transitions or smart thermostat schedules, users can 'hack' their household budget for maximum efficiency.",
+        title: "Utility Hacks & Energy Savings",
+        howToUse: "Enter your electricity rates and how much power your appliances use. We'll show you how much you can save by switching to LEDs or changing your AC schedule.",
+        whyItWorks: "Little changes in your power use add up to hundreds of dollars a year. By modeling your usage, we help you 'hack' your home budget and lower your bills automatically.",
         faq: [
             { q: "What is Time-of-Use (TOU) pricing?", a: "A utility billing method where the price of energy varies based on the time of day it is consumed." },
             { q: "How much does a leaking faucet cost?", a: "A slow drip (one per second) can waste over 3,000 gallons of water a year—enough to take more than 180 showers." }
         ]
     },
     "pet-wellness": {
-        title: "Holistic Pet Health & Vitality",
-        howToUse: "Enter pet activity levels, body condition scores, and biometric data. The engine provides wellness indicators and dietary optimization paths.",
-        whyItWorks: "Pet wellness is more than just vet visits; it's a daily balance of nutrition and activity. By tracking body condition and metabolic rates, owners can proactively manage their pet's health and increase their quality of life.",
+        title: "Pet Health & Weight Tracking",
+        howToUse: "Enter how active your pet is and their current weight. We'll show you their 'Body Condition Score' (BCS) and help you plan a healthy diet.",
+        whyItWorks: "A healthy pet is a happy pet. By tracking their weight and metabolic stats, you can proactively manage their health and help them live a long, energetic life.",
         faq: [
             { q: "What is a Body Condition Score (BCS)?", a: "A numeric scale used to estimate the body fat of an animal, similar to BMI in humans but visually assessed." },
             { q: "How do I calculate 'Dog Years'?", a: "While the '7-year' rule is common, modern science suggests a more complex logarithmic curve based on the pet's size and breed." }
         ]
     },
     "creative-arts": {
-        title: "Artistic Theory & Technical Design",
-        howToUse: "Input color hex codes, canvas dimensions, or musical scales. The engine applies color theory, the golden ratio, and harmonic principles to your artistic project.",
-        whyItWorks: "Art relies on underlying mathematical structures. Whether using the Rule of Thirds in photography or calculating complementary color harmonies, technical tools help artists achieve aesthetic balance and structural resonance.",
+        title: "Art Theory & Design Tools",
+        howToUse: "Enter color codes (like #FFFFFF) or the size of your canvas. We'll help you use the 'Golden Ratio' and color theory to make your art look professional.",
+        whyItWorks: "Most great art has a hidden layer of math inside. Whether using the Rule of Thirds or matching colors, these tools provide the technical skeleton for your creative vision.",
         faq: [
             { q: "What is the Golden Ratio?", a: "A mathematical ratio (approximately 1.618) often found in nature and used in art and architecture to create pleasing compositions." },
             { q: "How are complementary colors chosen?", a: "They are colors located directly opposite each other on the color wheel, creating the highest possible contrast." }
         ]
     },
     "survival-bushcraft": {
-        title: "Survival Logistics & Wilderness Math",
-        howToUse: "Enter estimated traverse speeds, water requirements, and solar angles. The engine calculates survival timelines and directional data based on natural markers.",
-        whyItWorks: "Survival in the wild is a game of resource management. By calculating water loss rates and navigation offsets, adventurers can make objective decisions that significantly increase safety in off-grid environments.",
+        title: "Survival & Wilderness Skills",
+        howToUse: "Enter how fast you walk and how much water you have. We'll calculate how long your supplies will last and help you stay on track in the wild.",
+        whyItWorks: "Survival is about knowing your limits. By calculating your water use and travel speed accurately, you can make life-saving choices and return home safely from your adventure.",
         faq: [
             { q: "How much water do I need per day in the wild?", a: "A baseline of 3-4 liters for an active adult, but this can double in extreme heat or at high altitudes." },
             { q: "What is a 'True North' offset?", a: "The difference between magnetic north (where a compass points) and the geographic North Pole, also known as magnetic declination." }
         ]
     },
     "event-master": {
-        title: "Event Coordination & Strategic Planning",
-        howToUse: "Input guest counts, venue capacities, and catering ratios. The tool calculates logistics requirements from staffing levels to beverage quantities.",
-        whyItWorks: "Successful events are built on precise ratios. By standardizing guest-to-server ratios and calculating square footage per attendee, planners can ensure guest comfort and operational efficiency for any gathering size.",
+        title: "Event Planning & Party Math",
+        howToUse: "Enter how many guests are coming and how big the venue is. We'll calculate exactly how much food, drink, and space you need for a perfect party.",
+        whyItWorks: "Great events are built on balance. By calculating guest-to-server ratios and square footage per person, you ensure everyone is comfortable and the party flows perfectly.",
         faq: [
             { q: "How much space is needed per guest?", a: "Between 7 and 15 square feet per person for a cocktail party, increasing to 15-20 for a seated dinner." },
             { q: "What is a standard 'No-Show' rate?", a: "For large events, a 15-25% 'no-show' rate is typical, though this varies by event type and RSVP method." }
         ]
     },
     "auto-tune": {
-        title: "Advanced Automotive Tuning & Mods",
-        howToUse: "Enter engine displacement, turbo boost pressures, or suspension geometry. The tool calculates performance changes and ensures mechanical compatibility.",
-        whyItWorks: "Tuning is the science of pushing mechanical limits safely. By calculating air-fuel ratios and gear ratios, enthusiasts can optimize their vehicle's power delivery and handling without risking engine or drivetrain failure.",
+        title: "Car Tuning & Performance Mods",
+        howToUse: "Enter your car's engine size and any performance parts you've added (like a turbo). We'll show you how your power and handling will change.",
+        whyItWorks: "Tuning is about pushing limits safely. By calculating your air-fuel and gear ratios, you can get the most power possible out of your engine without risking a breakdown.",
         faq: [
             { q: "What is AFR (Air-Fuel Ratio)?", a: "The mass ratio of air to a solid, liquid, or gaseous fuel present in a combustion process." },
             { q: "How does turbo boost affect horsepower?", a: "In general, every pound of boost increases horsepower by about 7%, though thermal efficiency limits this at high pressures." }
         ]
     },
     "garden-agri": {
-        title: "Agricultural Yield & Farm Management",
-        howToUse: "Enter field acreage, seed density, and historical yield data. The tool provides projections for harvest volume and fertilizer ROI.",
-        whyItWorks: "Modern agriculture is a data-driven enterprise. By calculating plant density and nutrient application rates with precision, farmers can maximize their yield per acre while minimizing environmental runoff and cost.",
+        title: "Farm Yield & Field Management",
+        howToUse: "Enter your field size, how many seeds you're planting, and your past results. We'll calculate your expected harvest and how much fertilizer you need.",
+        whyItWorks: "Modern farming is built on data. By calculating exactly how many plants fit on an acre, you can maximize your harvest while wasting less money and effort on products you don't need.",
         faq: [
             { q: "What is 'Yield per Acre'?", a: "The measure of the amount of crop harvested per unit of land area, a key indicator of agricultural productivity." },
             { q: "How do I calculate seed requirements?", a: "Multiply the target plant population by the area, and adjust for the expected germination rate of the seed lot." }
         ]
     },
     "audio-pro": {
-        title: "Professional Audio & Acoustic Engineering",
-        howToUse: "Input room dimensions, speaker sensitivities, or gain stages. The tool calculates room modes, delay offsets, and sound pressure levels (SPL).",
-        whyItWorks: "Audio quality is determined by the physics of sound waves. By calculating standing waves and phase alignments, engineers can create balanced acoustic environments and optimized live sound systems with surgical precision.",
+        title: "Pro Audio & Room Acoustics",
+        howToUse: "Enter your room size or speaker and microphone specs. We'll help you calculate the best sound levels and speaker placement for perfect audio.",
+        whyItWorks: "Great sound is all about the physics of waves. By calculating how sound bounces off your walls, we help you fix echo issues and create a pro-level listening environment.",
         faq: [
             { q: "What are Room Modes?", a: "Standing waves that occur in a room when the distance between walls matches a multiple of the wavelength of a specific frequency." },
             { q: "How is decibel (dB) gain calculated?", a: "A logarithmic unit used to express the ratio of two values of a physical quantity, such as power or intensity." }
         ]
     },
     "social-content": {
-        title: "Social Media Metrics & Content Strategy",
-        howToUse: "Enter follower counts, engagement numbers, and content runtimes. The tool calculates virality coefficients and provides insights into optimal posting schedules.",
-        whyItWorks: "Digital growth is driven by engagement ratios. By analyzing which formats and times drive the highest reach-to-follow conversion, creators can optimize their creative output for maximum platform impact.",
+        title: "Social Media Growth & Stats",
+        howToUse: "Enter your follower count, your total likes and comments, and how long your videos are. We'll show you how likely your content is to go viral.",
+        whyItWorks: "Digital growth is about engagement. By look at the ratio of views to likes, these tools help you see what really resonates with your audience so you can grow your following faster.",
         faq: [
             { q: "What is Engagement Rate?", a: "Total interactions (likes, comments, shares) divided by total followers or total reach." },
             { q: "How does the 'Hook' affect watch time?", a: "The first 3 seconds are critical; drop-off in this window often determines whether a platform's algorithm will continue to push the content." }
         ]
     },
     "hobby-crafts": {
-        title: "Craft Engineering & Material Estimation",
-        howToUse: "Input project dimensions, yarn weights, or wood species data. The tool calculates yardage, cut lists, and material costs.",
-        whyItWorks: "Crafting at scale requires precision inventory management. By calculating the exact amount of resin, wool, or timber needed for a design, makers can price their work accurately and minimize expensive material waste.",
+        title: "Craft & Material Estimator",
+        howToUse: "Enter the size of your project and the weight of your yarn or type of wood. We'll show you exactly how much material to buy and what it will cost.",
+        whyItWorks: "Crafting can be expensive if you buy too much. By calculating the exact yards of wool or feet of lumber you need, you can price your work correctly and save money on your next DIY project.",
         faq: [
             { q: "How do I calculate yarn for a project?", a: "By measuring the area of your pattern and dividing by the 'gauge' (stitches per inch) and the length of your specific yarn weight." },
             { q: "What is a 'Cut List'?", a: "A detailed list of every piece of wood needed for a project, including dimensions and quantities, to optimize the use of raw lumber." }
@@ -651,144 +651,144 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     "space-tech": {
-        title: "Aerospace Engineering & Orbital Design",
-        howToUse: "Input delta-v requirements, mass fractions, and propulsion data. The engine calculates Tsiolkovsky rocket equations and orbital trajectories.",
-        whyItWorks: "Reaching orbit is a game of mass management. By calculating the required fuel-to-payload ratios (the 'Tyranny of the Rocket Equation'), engineers determine if a mission is physically possible with current propulsion technology.",
+        title: "Rocket Science & Space Flight",
+        howToUse: "Enter your rocket's fuel weight and where you're trying to go. Our engine calculates exactly how much power (Delta-V) you need to reach orbit or travel to another planet.",
+        whyItWorks: "Reaching space is all about weight and power. By calculating the 'Tyranny of the Rocket Equation,' we help you see if your design is light enough and powerful enough to break free of Earth's gravity.",
         faq: [
             { q: "What is Delta-V?", a: "The change in velocity required to perform a space maneuver, such as reaching orbit or changing trajectory." },
             { q: "How is the Rocket Equation used?", a: "It relates the delta-v of a rocket to its exhaust velocity and the ratio of its initial and final mass (fuel vs. structure)." }
         ]
     },
     "solar-energy": {
-        title: "Photovoltaic Physics & Solar ROI",
-        howToUse: "Enter your roof orientation, panel efficiency, and local peak sun hours. The engine calculates annual energy production and financial payback periods.",
-        whyItWorks: "Solar power is a long-term financial and physical hedge. By modeling the sun's path relative to your specific location and calculating the degradation of panels over 25 years, homeowners can see the true value of renewable energy.",
+        title: "Solar Power & Savings",
+        howToUse: "Enter which way your roof faces, how much sun you get, and your panel details. We'll show you exactly how much energy you'll make and when the panels will pay for themselves.",
+        whyItWorks: "Solar is a long-term investment in your home. By looking at 25 years of sun data and the way panels lose power over time, we help you see the real financial value of going green.",
         faq: [
             { q: "What are 'Peak Sun Hours'?", a: "The amount of solar radiation at a location that is equivalent to 1,000 watts per square meter for 1 hour." },
             { q: "What is a Solar Inverter?", a: "The device that converts the Direct Current (DC) electricity generated by panels into useable Alternating Current (AC) for your home." }
         ]
     },
     "data-science": {
-        title: "Statistical Modeling & Data Analytics",
-        howToUse: "Input your data samples or probability variables. Our statistical engine handles regressions, standard deviations, and Bayesian probability distributions.",
-        whyItWorks: "Data science turns noise into signal. By applying rigorous mathematical tests (like p-values or Z-scores) to raw data, analysts can determine whether a trend is a meaningful discovery or just a random occurrence.",
+        title: "Data Magic & Stats",
+        howToUse: "Enter your numbers or probabilities. Our engine handles the complex statistics—like averages and standard deviations—to help you find the real story in your data.",
+        whyItWorks: "Numbers can be messy. By using exact statistical tests (like p-values), we help you figure out if a trend is a meaningful discovery or just a random lucky guess.",
         faq: [
             { q: "What is Standard Deviation?", a: "A measure of the amount of variation or dispersion of a set of values; a low deviation indicates the values tend to be close to the mean." },
             { q: "What is a p-value?", a: "The probability of obtaining test results at least as extreme as the results actually observed, assuming the null hypothesis is correct." }
         ]
     },
     "web-dev": {
-        title: "Web Engineering & Design Performance",
-        howToUse: "Enter viewport sizes, image dimensions, or asset weights. The engine calculates aspect ratios, loading times, and responsive break-point math.",
-        whyItWorks: "The modern web is built on fluid geometry. By calculating how images scale across devices and measuring the impact of asset sizes on 'Core Web Vitals,' developers can build faster, more accessible digital experiences.",
+        title: "Web Design & Screen Sizes",
+        howToUse: "Enter the size of your screen or the weight of your images. Our engine helps you calculate the best aspect ratios and loading speeds so your website looks great on every device.",
+        whyItWorks: "The web needs to look good on phones and giant monitors. By calculating exactly how images scale and measuring 'Core Web Vitals,' we help you build a faster, better, and more professional digital world.",
         faq: [
             { q: "What is an Aspect Ratio?", a: "The proportional relationship between its width and its height (e.g., 16:9 for widescreen video)." },
             { q: "What are 'Cumulative Layout Shift' (CLS) issues?", a: "When web elements move unexpectedly as the page loads, often caused by images without defined height/width attributes." }
         ]
     },
     "cyber-sec": {
-        title: "Cybersecurity & Cryptographic Math",
-        howToUse: "Input password lengths, encryption types, or bit-entropy data. The engine calculates crack-times, hash strengths, and risk scores.",
-        whyItWorks: "Security is a math problem where the 'cost to break' must exceed the 'value of data.' By calculating the numerical entropy of a key or the probability of a brute-force success, security pros can implement robust defenses.",
+        title: "Security & Password Strength",
+        howToUse: "Enter your password length or the type of security you're using. We'll show you exactly how long it would take for a computer to crack your code.",
+        whyItWorks: "Security is a math game. By calculating the 'Entropy' (the randomness) of your password, we help you understand the real-world risk and build better defenses for your digital life.",
         faq: [
             { q: "What is Entropy in passwords?", a: "A measure of how unpredictable a password is; higher entropy means a password is much harder for a computer to guess." },
             { q: "How long does a 256-bit key take to crack?", a: "With current technology, it is mathematically impossible—taking billions of years even with the world's most powerful computers." }
         ]
     },
     geology: {
-        title: "Earth Science & Geological Metrics",
-        howToUse: "Enter rock densities, pressure depths, or seismic wave speeds. The engine calculates plate movements, mineral compositions, and pressure-volume-temperature (PVT) states.",
-        whyItWorks: "Geology explores the physics of the earth over deep time. By calculating the rates of erosion or the pressure needed for mineral crystallization, scientists can reconstruct the earth's history and predict future physical shifts.",
+        title: "Earth, Rocks & Seismic Math",
+        howToUse: "Enter rock details or seismic (earthquake) speeds. Our engine calculates how the earth moves and what's deep beneath our feet.",
+        whyItWorks: "Geology is the physics of our planet over millions of years. By calculating how fast plates move or how much pressure turns rock into diamonds, we help you explore the incredible history of the Earth.",
         faq: [
             { q: "What is the Mohs Scale?", a: "A qualitative scale (1 to 10) characterizing the scratch resistance of various minerals through the ability of harder material to scratch softer material." },
             { q: "How is seismic magnitude calculated?", a: "The Moment Magnitude Scale measures the total energy released by an earthquake based on the area of the fault that slipped." }
         ]
     },
     "weather-pro": {
-        title: "Meteorological Analytics & Atmospheric Physics",
-        howToUse: "Enter barometric pressure, dew point, and wind speed. The engine calculates heat indices, wind chills, and storm severity probabilities.",
-        whyItWorks: "Weather is a complex system of thermodynamics. By calculating the relationships between moisture, temperature, and pressure, we can predict how the 'feels-like' temperature shifts and identify the energy potential of atmospheric events.",
+        title: "Weather Stats & Air Science",
+        howToUse: "Enter the air pressure, humidity (dew point), and wind speed. We'll show you exactly how 'thick' the air feels and what the storm risk is.",
+        whyItWorks: "Weather is a giant balancing act of air and water. By calculating the heat index and wind chill, we turn raw barometer and sensor data into clear, easy-to-understand forecasts for your comfort.",
         faq: [
             { q: "What is Dew Point?", a: "The temperature at which air must be cooled to become saturated with water vapor, a key indicator of how 'humid' the air feels." },
             { q: "How is Wind Chill calculated?", a: "A formula that estimates the rate of heat loss from exposed skin caused by the combination of low temperature and wind." }
         ]
     },
     "retail-pro": {
-        title: "High-Volume Retail Performance",
-        howToUse: "Input foot traffic, conversion rates, and average transaction values. The tool calculates GMROI and provides inventory aging analysis.",
-        whyItWorks: "Professional retail management is about maximizing the 'yield' of every square foot. By analyzing the relationship between inventory investment and gross margin, retailers can optimize their stock levels for maximum profitability.",
+        title: "Store Sales & Shopper Math",
+        howToUse: "Enter how many people came into your store and how many bought something. We'll show you how much every visitor is worth to your bottom line.",
+        whyItWorks: "Professional retail is about making the most of every visitor. By help you see your 'Conversion Rate' and inventory turnover, you can pick the right products and staff to grow your shop.",
         faq: [
             { q: "What is GMROI?", a: "Gross Margin Return on Investment—a ratio that measures a retailer's ability to turn inventory into cash above the cost of the inventory." },
             { q: "How is Conversion Rate calculated?", a: "The percentage of total visitors to a store who make a purchase." }
         ]
     },
     manufacturing: {
-        title: "Industrial Manufacturing & Lean Six Sigma",
-        howToUse: "Enter cycle times, defect rates, and total uptime. The engine calculates OEE (Overall Equipment Effectiveness) and provides sigma-level insights.",
-        whyItWorks: "Manufacturing excellence is driven by the reduction of waste and variation. By calculating OEE, plant managers can identify whether losses are due to availability, performance, or quality, allowing for targeted process improvements.",
+        title: "Factory Efficiency & Output",
+        howToUse: "Enter how long a job takes and how often your machines are running. We'll calculate your 'OEE' score to show you if your factory is working at its best.",
+        whyItWorks: "Great manufacturing is about finding and fixing waste. By looking at your machine uptime and defect rates, we help you spot exactly where to improve to increase your output.",
         faq: [
             { q: "What is OEE?", a: "Overall Equipment Effectiveness—the gold standard for measuring manufacturing productivity, calculated as Availability x Performance x Quality." },
             { q: "What is a 'Lean' process?", a: "A methodology focused on minimizing waste within manufacturing systems while simultaneously maximizing productivity." }
         ]
     },
     "marine-science": {
-        title: "Oceanography & Marine Biology",
-        howToUse: "Input salinity levels, water depths, and tide data. The engine calculates buoyancy, light attenuation, and tidal pressures.",
-        whyItWorks: "The marine environment is governed by fluid dynamics and chemical gradients. By calculating how light fades with depth or how salinity affects the density of seawater, we can better understand the biological constraints of ocean life.",
+        title: "Ocean, Tides & Salt Math",
+        howToUse: "Enter salt levels (salinity) and how deep the water is. We'll calculate the water pressure and how fast light fades as you go deeper.",
+        whyItWorks: "The ocean is a world of pressure and gradients. By calculating how salt affects weight and how heat moves through the deep, we help you understand the amazing biology of life under the sea.",
         faq: [
             { q: "How does salinity affect buoyancy?", a: "Higher salinity increases the density of water, which in turn increases the buoyant force acting on submerged objects." },
             { q: "What is 'Light Attenuation'?", a: "The decrease in light intensity as it travels through water, which determines the depth of the 'photic zone' where photosynthesis can occur." }
         ]
     },
     optics: {
-        title: "Optical Physics & Lens Engineering",
-        howToUse: "Enter focal lengths, refractive indices, and object distances. The engine applies Snell's Law and the Thin Lens Equation to simulate light paths.",
-        whyItWorks: "Optics is the study of how light interacts with matter. By calculating the path of photons through various media, we can design everything from simple eyeglasses to complex telescope arrays with extreme mathematical certainty.",
+        title: "Lenses, Light & Focus",
+        howToUse: "Enter lens details or how far away an object is. Our engine uses standard laws of light to show you exactly where an image will focus.",
+        whyItWorks: "Optics is the study of how light bounces and bends. By calculating how photons move through glass and air, we help you design everything from cameras to vision-correcting glasses.",
         faq: [
             { q: "What is Refractive Index?", a: "A dimensionless number that describes how fast light travels through a specific material compared to a vacuum." },
             { q: "How is Focal Length measured?", a: "The distance between the center of a lens or curved mirror and its focus point." }
         ]
     },
     pharmacy: {
-        title: "Pharmaceutical Math & Dosage Logic",
-        howToUse: "Input patient weight, drug concentrations, and desired delivery times. The engine calculates drip rates, BSA-based dosing, and concentration conversions.",
-        whyItWorks: "Clinical pharmacology requires zero-error calculations. By standardizing dosing based on Body Surface Area (BSA) or weight-based protocols, we help healthcare professionals ensure patient safety and therapeutic efficacy.",
+        title: "Health Dosage & Concentration",
+        howToUse: "Enter the patient's weight and the medicine details. Our engine calculates exactly how much to give and how fast should drip.",
+        whyItWorks: "Medicine math must be perfect. By standardizing doses based on body size and metabolism, we help ensures that every patient gets exactly what they need for safe and effective care.",
         faq: [
             { q: "What is BSA?", a: "Body Surface Area—the measured or calculated surface area of a human body, often considered a more accurate indicator of metabolic mass than weight alone." },
             { q: "How is a drip rate calculated?", a: "By dividing the total volume to be infused by the time, and multiplying by the 'drop factor' of the specific IV tubing." }
         ]
     },
     forensics: {
-        title: "Forensic Science & Criminological Math",
-        howToUse: "Enter evidence markers like blood spatter angles, body temperatures (algor mortis), or bullet trajectories. The engine applies physical laws to reconstruct events.",
-        whyItWorks: "Forensics uses the immutable laws of physics to work backward from a crime scene. By calculating the rate of cooling in a body or the arc of a projectile, investigators can establish objective timelines and situational facts.",
+        title: "Forensics & Scene Logic",
+        howToUse: "Enter details from the scene—like temperatures or angles. We'll use the laws of physics to help you reconstruct exactly what happened.",
+        whyItWorks: "Forensics is about working backward from the facts. By calculating things like body cooling or the arc of a projectile, we turn evidence into an objective map of past events.",
         faq: [
             { q: "What is Algor Mortis?", a: "The second stage of death, defined as the change in body temperature post-mortem until the ambient temperature is matched." },
             { q: "How is impact angle determined in blood spatter?", a: "By calculating the ratio of the width to the length of the blood drop and using the arcsine function." }
         ]
     },
     archaeology: {
-        title: "Archaeological Metrics & Radiometric Dating",
-        howToUse: "Input isotope ratios, excavation depths, or artifact dimensions. The tool calculates estimated ages using half-life decay constants or stratigraphy math.",
-        whyItWorks: "Archaeology uses physical constants to map human history. By applying carbon-14 decay rates or measuring the volume of an ancient structure, researchers can place artifacts and sites into a precise chronological and cultural context.",
+        title: "Ancient History & Carbon Dating",
+        howToUse: "Enter your sample's isotope levels or the depth where it was found. We'll calculate the estimated age of your artifact.",
+        whyItWorks: "Archaeology uses the constant rules of nature to map human history. By applying 'Carbon-14' math and looking at earth layers, we help you place ancient finds into their correct cultural context.",
         faq: [
             { q: "What is a Half-Life?", a: "The time taken for the radioactivity of a specified isotope to fall to half its original value." },
             { q: "How does Stratigraphy help in dating?", a: "Based on the Law of Superposition, older layers of earth are typically buried deeper than more recent layers." }
         ]
     },
     "music-theory": {
-        title: "Music Theory & Sonic Mathematical Ratios",
-        howToUse: "Input notes, scales, or BPM (beats per minute). The engine calculates intervals, frequencies (in Hertz), and time-signature divisions.",
-        whyItWorks: "Music is essentially audible mathematics. Sound waves vibrate at specific integer ratios to create harmony. By calculating the frequencies of the chromatic scale or the subdivision of complex rhythms, we map the bridge between math and emotion.",
+        title: "Music Math & Frequencies",
+        howToUse: "Enter your notes, scale, or the speed of the song (BPM). We'll show you your frequencies and how to divide your rhythms perfectly.",
+        whyItWorks: "Music is audible mathematics. By calculating the exact vibration of a string or the subdivision of a beat, we map the bridge between technical numbers and the emotions of a great song.",
         faq: [
             { q: "What is the frequency of 'A440'?", a: "440 Hertz—the standard tuning pitch for the note A above middle C, used as a reference point for western music." },
             { q: "What is an 'interval'?", a: "The difference in pitch between two sounds, calculated as the ratio of their frequencies." }
         ]
     },
     "coffee-craft": {
-        title: "Coffee Science & Brewing Extraction",
-        howToUse: "Enter coffee-to-water ratios, grind sizes, and water temperatures. The tool calculates extraction yields and strength (TDS) percentages.",
-        whyItWorks: "The perfect cup of coffee is a balanced chemical extraction. By understanding the ratio of dissolved solids to total beverage weight, enthusiasts can replicate the exact flavor profiles of world-class baristas.",
+        title: "Coffee Science & Brewing Ratio",
+        howToUse: "Enter how much coffee and water you're using. We'll show you the exact 'Brew Ratio' for a perfect, professional-tasting cup.",
+        whyItWorks: "The perfect cup of coffee is all about extraction. By weighing your coffee and water accurately, you can replicate the exact flavor of a world-class barista every morning.",
         faq: [
             { q: "What is TDS?", a: "Total Dissolved Solids—a measure of the 'strength' of your coffee, usually between 1.2% and 1.5% for standard drip." },
             { q: "What is a 'Standard Brew Ratio'?", a: "Commonly 1:15 to 1:17 (grams of coffee to grams of water) for a balanced extraction." }
@@ -807,36 +807,36 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     "baking-pro": {
-        title: "Professional Baking & Dough Hydration",
-        howToUse: "Enter flour types, hydration percentages, and ambient temperatures. The tool scales commercial recipes and calculates final dough temperatures (FDT).",
-        whyItWorks: "Baking is chemistry where temperature and hydration are the primary variables. By calculating the 'Friction Factor' of a mixer and adjusting water temperature, professional bakers can ensure every loaf ferments at the same rate.",
+        title: "Bread Science & Dough Hydration",
+        howToUse: "Enter the weight of your flour and the temperature of your kitchen. Our engine calculates exactly how much water to add for a perfect crumb.",
+        whyItWorks: "Professional baking is all about controlling chemistry. By managing water ratios and final dough temperature, you can ensure your bread ferments perfectly every single time.",
         faq: [
             { q: "What is Dough Hydration?", a: "The ratio of water to flour by weight. A 70% hydration dough has 70g of water for every 100g of flour." },
             { q: "Why is Final Dough Temperature (FDT) critical?", a: "It controls the speed of yeast activity; inconsistent temperatures lead to inconsistent fermentation and flavor." }
         ]
     },
     "outdoor-elec": {
-        title: "Off-Grid Power & Outdoor Electronics",
-        howToUse: "Input battery capacities (Ah), load requirements (Watts), and solar recharge rates. The tool calculates energy 'runways' for camping or emergency backup.",
-        whyItWorks: "Off-grid living requires strict energy budgeting. By calculating the discharge rate of a battery against your specific electronic loads, you can plan for safety and comfort in environments without traditional grid access.",
+        title: "Camping & Battery Power",
+        howToUse: "Enter your battery's capacity and what you're plugging in. We'll show you exactly how many hours of power you have left for your trip.",
+        whyItWorks: "Off-grid power is about budgeting your energy. By looking at how much 'juice' you have vs. how much your gadgets use, we help you plan for safety and comfort in the great outdoors.",
         faq: [
             { q: "What is Watt-Hour (Wh)?", a: "A unit of energy equivalent to one watt of power sustained for one hour." },
             { q: "Can I fully drain a Lead-Acid battery?", a: "No, typically you should only use 50% of its capacity to avoid permanent damage. Lithium batteries can usually handle 80-95% discharge." }
         ]
     },
     aquarium: {
-        title: "Aquarium Chemistry & Hydro-logistics",
-        howToUse: "Enter tank dimensions, water change volumes, and chemical doses. The engine calculates total volume, stocking densities, and dosing ratios.",
-        whyItWorks: "An aquarium is a closed biological system. Success depends on maintaining exact chemical balances (Nitrogen cycle) and providing enough volume for the bio-load of your fish, preventing toxic ammonia spikes.",
+        title: "Fish Tank & Water Math",
+        howToUse: "Enter your tank's size and how many fish you have. We'll show you exactly how to balance your water and how much oxygen you need.",
+        whyItWorks: "A fish tank is a tiny, closed world. By calculating your water's 'Nitrogen Cycle' and volume, you can keep your fish healthy and prevent toxic spikes that ruin your setup.",
         faq: [
             { q: "How do I calculate tank volume?", a: "Multiply length x width x height (in inches) and divide by 231 to find the total US Gallons." },
             { q: "What is the 'Inch per Gallon' rule?", a: "A rough guideline for stocking fish, suggesting 1 inch of fish per gallon of water, though filtration and species type are more critical factors." }
         ]
     },
     "rocketry-drones": {
-        title: "Unmanned Aerial Performance & Ballistics",
-        howToUse: "Input motor thrust, aircraft weight, and battery voltage. The engine calculates thrust-to-weight ratios and estimated flight times or altitudes.",
-        whyItWorks: "Flight in small-scale craft is a constant battle between weight and power. By calculating the 'Disk Loading' on a drone or the 'Impulse' of a rocket motor, hobbyists can predict performance and ensure structural safety during flight.",
+        title: "Drone Power & Rockets",
+        howToUse: "Enter your drone's weight and motor power. Our engine calculates if you have enough 'lift' to fly and how long your battery will last.",
+        whyItWorks: "Flight is a constant battle between weight and thrust. By calculating your power-to-weight ratio, we help you fly safely and get the best performance out of your aerial gear.",
         faq: [
             { q: "What is a Thrust-to-Weight Ratio?", a: "For a drone, it needs to be at least 2:1 to take off and hover comfortably; racing drones can exceed 10:1." },
             { q: "What is 'C-Rating' on a battery?", a: "A measure of how quickly a battery can be safely discharged (e.g., a 50C battery can discharge at 50 times its capacity)." }
@@ -867,54 +867,54 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ]
     },
     "formal-logic": {
-        title: "Formal Logic & Boolean Truth-Sets",
-        howToUse: "Enter propositional statements or Boolean variables. The tool evaluates truth tables, identifies logical fallacies, and simplifies gate-logic.",
-        whyItWorks: "Logic is the foundational grammar of both philosophy and computer science. By mapping 'If-Then' statements and De Morgan's Laws, we can verify the validity of complex arguments and the efficiency of digital circuits.",
+        title: "Logic Gates & Truth-Set Math",
+        howToUse: "Type in your 'if-then' statements or logic variables. We'll build a truth table to help you find errors in your reasoning or design.",
+        whyItWorks: "Logic is the foundational grammar for computer science. By mapping out every possible 'True' or 'False' combo, you can verify your arguments and build faster, better code.",
         faq: [
             { q: "What is a Truth Table?", a: "A breakdown of all possible truth values for a logical expression based on its inputs." },
             { q: "What is 'Modus Ponens'?", a: "A fundamental rule of logic: if P implies Q, and P is true, then Q must also be true." }
         ]
     },
     sociology: {
-        title: "Demographic Analytics & Social Trends",
-        howToUse: "Input population data, Gini coefficients, or survey counts. The tool calculates growth rates, density markers, and inequality indexes.",
-        whyItWorks: "Sociology uses statistical modeling to understand human groups. By calculating birth rates or the 'median age' of a population, we can project future service needs and understand the underlying dynamics of social change.",
+        title: "Social Trends & Population Data",
+        howToUse: "Enter your population numbers or growth rates. We'll show you how your town or group will change over time.",
+        whyItWorks: "Sociology uses data to understand how groups of people live. By calculating birth rates and age averages, we help project what services people will need in the years to many.",
         faq: [
             { q: "What is the Gini Coefficient?", a: "A statistical measure of distribution intended to represent the income or wealth inequality within a nation or social group." },
             { q: "How is 'Replacement Rate' calculated?", a: "The fertility rate (approx 2.1 children per woman) needed to keep a population stable from one generation to the next." }
         ]
     },
     "urban-planning": {
-        title: "Urban Dynamics & Civil Logistics",
-        howToUse: "Enter zoning densities, traffic counts, and per-capita infrastructure data. The tool calculates 'Walk Scores', parking requirements, and utility throughputs.",
-        whyItWorks: "City design is a balance of human needs and physical constraints. By calculating the 'Floor Area Ratio' (FAR) of a building or the traffic load on a street, planners ensure that cities remain navigable, efficient, and livable.",
+        title: "City Design & Street Logistics",
+        howToUse: "Enter the size of your building and how many people walk by. We'll calculate 'Walk Scores' and if you have enough parking for your project.",
+        whyItWorks: "Good city design balances human needs with space. By calculating exactly how much traffic or power a new building needs, we help ensure your project fits perfectly into the neighborhood.",
         faq: [
             { q: "What is Floor Area Ratio (FAR)?", a: "The ratio of a building's total floor area to the size of the piece of land upon which it is built." },
             { q: "How is 'Walkability' measured?", a: "Based on the proximity of amenities like grocery stores, schools, and parks within a 5-15 minute walk." }
         ]
     },
     "eco-legal": {
-        title: "Environmental Law & Compliance Math",
-        howToUse: "Input emission levels, permit timelines, and land-use ratios. The engine calculates mitigation offsets and regulatory penalty risks.",
-        whyItWorks: "Environmental law is where ecology meets regulation. By quantifying the 'net gain' in biodiversity or calculating the carbon offset required for a project, businesses can ensure they meet both the letter and the spirit of environmental protection acts.",
+        title: "Eco Law & Compliance",
+        howToUse: "Enter your pollution levels or project dates. We'll show you your 'Net Gain' and if you're meeting 2026 environmental standards.",
+        whyItWorks: "Environmental law is where nature meets the rules. By quantifying your 'Carbon Offsets' and impact, we help businesses stay honest and protected while protecting the planet.",
         faq: [
             { q: "What is Biodiversity Net Gain?", a: "An approach to development that leaves biodiversity in a measurably better state than it was before." },
             { q: "How are carbon credits calculated?", a: "Usually represented as one tonne of carbon dioxide (or equivalent) prevented from entering the atmosphere." }
         ]
     },
     "disaster-prep": {
-        title: "Survival Infrastructure & Emergency Logistics",
-        howToUse: "Enter household size, duration targets, and resource burn-rates. The tool calculates water storage, caloric reserves, and energy backup requirements.",
-        whyItWorks: "Resilience starts with objective preparation. By calculating how long 50 gallons of water will actually last a family of four, or how many solar watts are needed to keep a medical fridge running, we turn anxiety into an actionable plan.",
+        title: "Emergency Prep & Supplies",
+        howToUse: "Enter how many people are in your family and how many days you're preparing for. We'll calculate exactly how much water and food you need to stay safe.",
+        whyItWorks: "Safety starts with a plan. By calculating how long your supplies will actually last, we turn worry into a clear, actionable list of what you need for your emergency kit.",
         faq: [
             { q: "How much water is needed per person per day?", a: "FEMA recommends at least 1 gallon per person per day (half for drinking, half for hygiene), for at least two weeks." },
             { q: "What is a 'Bug-Out' Bag?", a: "A portable kit that contains the items one would require to survive for seventy-two hours when evacuating from a disaster." }
         ]
     },
     "esports-pro": {
-        title: "Professional Esports & Team Analytics",
-        howToUse: "Input individual match stats, win-rates, and gold-per-minute (GPM) metrics. The engine calculates 'Effective HP' and provides seasonal performance trajectories.",
-        whyItWorks: "High-level gaming is won on the margins of math. By identifying efficiency gaps in gold income or tracking accuracy trends over thousands of games, professional players and coaches can find the data-backed edges that win championships.",
+        title: "Esports & Team Performance",
+        howToUse: "Enter your match scores, how much gold you're earning, and your accuracy stats. We'll calculate your performance in every game.",
+        whyItWorks: "Pro gaming is won with data. By Identifying gaps in how you earn resources or how well you aim, coaches and players can find the data-backed edge needed to win championships.",
         faq: [
             { q: "What is Effective HP (EHP)?", a: "A calculation of a character's survivability that factors in health, armor, and resistances together." },
             { q: "How is 'Gold Per Minute' (GPM) used?", a: "As a primary indicator of map efficiency and resource priority in MOBAs like League of Legends or Dota 2." }
