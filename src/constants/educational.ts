@@ -129,8 +129,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Provide your birth date, names, or special milestones. Our tools use simple date math to show you interesting facts about your personal history and future.",
         whyItWorks: "Tracking life milestones helps us see the patterns in our daily existence. By using exact calendars and traditional systems, we turn personal dates into meaningful insights.",
         faq: [
-            { q: "How is chronological age calculated?", a: "We calculate the exact time elapsed between your birth date and the current moment, accounting for leap years and month lengths." },
-            { q: "Is compatibility math based on science?", a: "Compatibility tools are based on traditional systems and name-matching algorithms intended for entertainment and personal reflection." }
+            { q: "How is my exact age calculated?", a: "We measure the elapsed time between your birth and today down to the second, accounting for every leap year (like 2024 and 2028) and the varying days in each month." },
+            { q: "Do names actually affect compatibility?", a: "Compatibility tools are based on traditional numerology and Gematria systems. They are intended for fun and reflection rather than scientific personality matching." },
+            { q: "What is a 'Millennial' or 'Gen Z' cutoff?", a: "Cutoffs vary by source, but generally: Millennials (1981-1996), Gen Z (1997-2012), and Gen Alpha (2013-2026). Our calculators help you find your exact generational bracket." },
+            { q: "How many days until my next birthday?", a: "Enter your birth date into our 'Days Until' tool. It accounts for the current date in 2026 and tells you exactly how many sleeps are left until your big day." },
+            { q: "What is my star sign if I was born on a 'Cusp'?", a: "If you were born within 3 days of a sign change, you're on the cusp. Our precise date tool uses your exact birth year to see which constellation the sun was in for your birth." }
         ]
     },
     roofing: {
@@ -138,8 +141,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the base size of your building and the 'pitch' or steepness of your roof. Our engine calculates exactly how many shingles or panels you need to buy.",
         whyItWorks: "Roofing requires precise math to make sure water drains well and your house stays dry. By calculating the actual 'unfolded' surface area of your roof, we help you avoid buying too much or too little material.",
         faq: [
-            { q: "What is 'Roof Pitch'?", a: "Pitch is the vertical rise for every 12 inches of horizontal run. A '6/12 pitch' means the roof rises 6 inches for every foot of run." },
-            { q: "Should I include dormers in my calculations?", a: "Yes, add the surface area of dormers separately or ensure they are accounted for in your total square footage inputs." }
+            { q: "What is 'Roof Pitch'?", a: "Pitch is the vertical rise for every 12 inches of horizontal run. A '6/12 pitch' means the roof rises 6 inches for every foot of run. This is critical for 2026 shingle warranties." },
+            { q: "How many shingles are in a 'Square'?", a: "In roofing, a 'Square' is 100 square feet. Most shingle bundles cover 33.3 square feet, so you need 3 bundles per square. Always add 10% for the starter row and hips." },
+            { q: "Should I include dormers in my calculations?", a: "Yes, add the surface area of dormers separately or ensure they are accounted for in your total square footage inputs. Our tool handles these 'extra' surfaces easily." },
+            { q: "How do I calculate for a metal roof?", a: "Metal roofs use panels rather than shingles. You calculate the total square footage and then divide by the coverage of your specific panel width (usually 36 inches)." },
+            { q: "What is a 'Drip Edge' and how much do I need?", a: "It's the metal flashing at the edge of the roof. You need enough to cover the entire perimeter (eave and rake) of your roof. Standard pieces are 10 feet long." }
         ]
     },
     hydraulics: {
@@ -147,8 +153,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your pipe sizes, water flow speed, and pressure. Our engine calculates volumes and speeds to make sure your plumbing or tank project works perfectly.",
         whyItWorks: "Managing liquids is all about understanding pressure and volume. These calculators use standard physics rules to ensure your home or industrial project stays leak-free and flows smoothly.",
         faq: [
-            { q: "How is tank volume calculated?", a: "Volume is determined by the geometric shape (cylindrical, rectangular, etc.) and its vertical or horizontal orientation." },
-            { q: "What does GPM mean?", a: "Gallons Per Minute—a standard measure of flow rate in plumbing and industrial systems." }
+            { q: "How is tank volume calculated?", a: "Volume is determined by the geometric shape (cylindrical, rectangular, etc.) and its orientation. For a cylinder, it's Pi x Radius² x Height. Our engine handles the Pi decimals for absolute 2026 accuracy." },
+            { q: "What does GPM mean in plumbing?", a: "Gallons Per Minute—a standard measure of flow rate. Knowing your GPM is essential for picking the right size water heater or irrigation pump for your home." },
+            { q: "How much water pressure is normal for a house?", a: "Most 2026 homes should be between 40 and 60 PSI. Anything over 80 PSI can damage your pipes and gaskets, while under 30 PSI leads to weak showers." },
+            { q: "How do I calculate pipe velocity?", a: "Velocity is Flow Rate / Area. Water should ideally move at 5 to 8 feet per second. Moving too fast causes 'Water Hammer' (loud banging pipes), while too slow allows sediment to build up." },
+            { q: "How big of a septic tank do I need?", a: "This is based on the number of bedrooms, not people. A standard 3-bedroom house usually requires a 1,000 to 1,250-gallon tank to meet 2026 building codes." }
         ]
     },
     bmi: {
@@ -192,8 +201,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the length and height of your wall or the surface area of your patio. Select your block or brick sizes. The tool will calculate the exact count and the amount of mortar or sand required.",
         whyItWorks: "Brick, block, and stone work relies on repetitive modular geometry. By calculating the area of a single unit (plus joints) versus the total project area, we provide a precise count that minimizes waste for heavy masonry materials.",
         faq: [
-            { q: "Do I need to account for mortar joints?", a: "Yes, our masonry tools include a standard 3/8\" or 1/2\" mortar joint in the unit size to ensure an accurate count." },
-            { q: "How much mortar do I need per 100 bricks?", a: "Generally, 100 standard bricks require about 5 to 7 bags of pre-mixed mortar, depending on joint thickness." }
+            { q: "Do I need to account for mortar joints?", a: "Yes, our masonry tools include a standard 3/8\" or 1/2\" mortar joint in the unit size. This prevents you from over-ordering bricks by roughly 15%." },
+            { q: "How many bricks are in a square foot of wall?", a: "A standard 'Modular' brick requires roughly 7 bricks per square foot. If you're doing a double-layer (wythe), you'll need 14. Our calculator handles both single and double walls." },
+            { q: "How much mortar do I need per 100 bricks?", a: "Generally, 100 standard bricks require about 5 to 7 bags (80lb each) of pre-mixed mortar, depending on how thick your joints are and how much you waste." },
+            { q: "How many 80lb bags of concrete are in a yard?", a: "It takes 45 bags (80lb) to make one cubic yard (27 cubic feet). For a 10x10 patio that's 4 inches thick, you'll need about 56 bags." },
+            { q: "What is the 'mix ratio' for DIY concrete?", a: "The 2026 standard for high-strength concrete is the '1-2-3' rule: 1 part cement, 2 parts sand, and 3 parts gravel. Add water slowly until it has the consistency of thick peanut butter." }
         ]
     },
     "home-improvement": {
@@ -201,8 +213,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your room sizes for flooring and paint, or details about your windows and insulation for heating (HVAC) needs. We'll show you exactly what materials you need to get the job done.",
         whyItWorks: "Good home improvement saves you money on energy and materials. By calculating the exact 'thermal load' or square footage, you can pick the right size unit or paint amount without guesswork.",
         faq: [
-            { q: "How do I calculate paint coverage?", a: "Divide the total wall surface area by the 'feet per gallon' rating on the paint (usually 350-400 sq ft)." },
-            { q: "What size AC do I need?", a: "Heating and cooling are measured in BTUs or Tons. 20 BTUs per square foot of living space is a common rule of thumb." }
+            { q: "How do I calculate paint coverage for a room?", a: "Measure the wall area (Length x Height) and subtract windows and doors. One gallon of 2026 premium paint covers about 350-400 square feet. Always buy 10% extra for touch-ups." },
+            { q: "What size AC (BTUs) do I need for my room?", a: "A good 2026 rule of thumb is 20-30 BTUs per square foot. A 500 sq ft living room usually needs a 12,000 BTU unit to stay comfortable in the summer heat." },
+            { q: "How many square feet of flooring should I buy?", a: "Calculate the total room area and add 10% for 'waste' (the pieces you cut off). If you're doing a herringbone or 45-degree pattern, you should add 15-20% extra." },
+            { q: "How do I calculate for stairs?", a: "Determine the total 'Rise' (height) and 'Run' (depth). Our stair tool will tell you the exact number of steps and the length of the stringer wood you need to buy." },
+            { q: "How much mulch do I need for my garden?", a: "Measure the area and decide on depth (usually 3 inches). One cubic yard of mulch covers 100 square feet at 3 inches deep. Our tool converts from bags to yards for you." }
         ]
     },
     medical: {
@@ -210,8 +225,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your test results—like blood sugar, cholesterol, or sleep patterns. Our tools use medical standards from the CDC and ADA to help you understand what your numbers mean.",
         whyItWorks: "Health tools help you see the story behind your lab results. By using 2026 clinical standards, we bridge the gap between complex biology and clear, actionable health insights.",
         faq: [
-            { q: "Are these results a medical diagnosis?", a: "No. These tools are for educational screening. All results must be reviewed by a licensed healthcare provider." },
-            { q: "What is A1c to EAG?", a: "It converts your 3-month average blood sugar percentage (A1c) into an Estimated Average Glucose (mG/dL) for daily tracking comparison." }
+            { q: "Are these results a medical diagnosis?", a: "No. These tools are for educational screening and comparison. All results should be reviewed by a licensed 2026 healthcare professional before making health changes." },
+            { q: "How do I calculate my Heart Rate zones?", a: "Subtract your age from 220 to find your 'Max.' Your 'Aerobic' zone is usually 70-80% of that number. Training in the right zone is the fastest way to improve fitness." },
+            { q: "What is A1c to EAG conversion?", a: "It converts your 3-month average blood sugar percentage (A1c) into an Estimated Average Glucose (mG/dL) for daily tracking. It's the standard way 2026 diabetics track long-term health." },
+            { q: "How is my Due Date calculated?", a: "We use Naegele’s Rule: add 7 days to the first day of your last period, then add 9 months. Our tool also accounts for exact cycle lengths for better precision." },
+            { q: "What is a healthy GFR for my age?", a: "Glomerular Filtration Rate (GFR) checks kidney function. A score above 90 is usually normal. It naturally declines as you age, but our tool helps you see if you're in the healthy range for 2026." }
         ]
     },
     military: {
@@ -219,8 +237,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Select your branch and enter your physical test scores (like pushups or run times). We'll show you how you grade out against 2026 military standards.",
         whyItWorks: "Military fitness is about readiness and compliance. These tools use the exact grading tables and body-fat formulas used by the US military to help you track your progress.",
         faq: [
-            { q: "Do these reflect the 2024 standards?", a: "Yes, we prioritize the latest available grading tables for the ACFT and other branch-specific physical tests." },
-            { q: "What is the 'Tape Test'?", a: "The standard military method for estimating body fat percentage using circumference measurements of the neck, waist, and hips." }
+            { q: "What is the PFT for my branch?", a: "Each service has different 2026 standards. Generally, the Marines focus on pull-ups and a 3-mile run, while the Army uses the ACFT with 6 events including deadlifts." },
+            { q: "How is the ASVAB score calculated?", a: "Your AFQT score is based on Word Knowledge, Paragraph Comprehension, Arithmetic Reasoning, and Mathematics Knowledge. It’s a percentile score, not a raw count." },
+            { q: "What is a 'Deployment Clock'?", a: "It's a countdown tool used by service members and families to track the days, weeks, and months until homecoming. It helps manage the psychological load of distance." },
+            { q: "How do I calculate my active duty retirement?", a: "Most 2026 recruits are under the 'Blended Retirement System' (BRS). You get 2% times your years of service, plus your TSP matching. Use our tool to project your pension." },
+            { q: "What is 'Military Time' conversion?", a: "Military time uses a 24-hour clock. 1:00 PM is 1300, and midnight is 0000. It prevents confusion across time zones during global 2026 operations." }
         ]
     },
     business: {
@@ -252,8 +273,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your machine specs—like gear counts, spring sizes, or water flow. Our engine uses standard laws of physics to help you verify your design or school project.",
         whyItWorks: "Engineering requires tiny details to be exactly right. By checking forces and tolerances with verified math, we help you spot issues before they become expensive problems.",
         faq: [
-            { q: "What is a Reynolds Number?", a: "A dimensionless value used in fluid mechanics to predict flow patterns, distinguishing between laminar and turbulent flow." },
-            { q: "Are these results suitable for manufacturing?", a: "These are for early-stage estimation and verification. Final designs should be validated in professional engineering software." }
+            { q: "What is a 'Factor of Safety'?", a: "It is the ratio of a structure's absolute strength to its intended load. A bridge with a FoS of 2.0 can hold twice the expected 2026 weight for maximum safety." },
+            { q: "How do I calculate thermal expansion?", a: "Use the formula: Change in Length = Initial Length x Coefficient x Change in Temp. This is why bridges have gaps and why pipes need expansion loops in 2026." },
+            { q: "What is Ohm’s Law?", a: "Voltage = Current x Resistance (V=IR). It’s the foundational formula for every electrical calculation, from a simple 2026 LED circuit to a massive power grid." },
+            { q: "How do I calculate Torque?", a: "Torque = Force x Distance. If you use a longer wrench, you apply more torque for the same amount of effort. This is essential for mechanical design and automotive work." },
+            { q: "What is the difference between Stress and Strain?", a: "Stress is the internal force applied to an object, while Strain is the physical deformation (stretching or squishing) that happens as a result." }
         ]
     },
     sports: {
@@ -261,8 +285,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter game stats (like hits or at-bats), race times, or your heaviest lifts. We'll calculate your performance scores (like OBP or PACE) to track how you're improving.",
         whyItWorks: "Sports math helps you turn sweat into progress. Whether you're tracking your baseball stats or figuring out your 10k race pace, having real data helps you set and reach higher goals.",
         faq: [
-            { q: "What is a 1-Rep Max?", a: "The maximum amount of weight you can lift for a single repetition, used as a benchmark for strength levels." },
-            { q: "How are race split times calculated?", a: "By dividing the total distance by your goal time, we determine the exact pace required for every mile or kilometer." }
+            { q: "How is my 1-Rep Max calculated?", a: "We use the Brzycki or Epley formulas: (Weight / (1.0278 - (0.0278 x Reps))). This allows you to estimate your max strength in 2026 without the risk of heavy injury." },
+            { q: "What is Run Pace calculation?", a: "Divide your total time by the distance. To run a sub-4 hour marathon in 2026, you need to maintain a pace of exactly 9:09 per mile." },
+            { q: "How do I calculate a golfer's handicap?", a: "It's an average of your best scores relative to the course rating and slope. A lower handicap means a more skilled player. Our tool simplifies the 2026 USGA math." },
+            { q: "What is 'Effective Shooting Percentage' (eFG)?", a: "In basketball, eFG% accounts for the fact that a 3-pointer is worth more than a 2-pointer. It is the gold standard for 2026 sports analytics." },
+            { q: "How do I calculate cycling power (Watts)?", a: "Power depends on speed, weight, and the slope of the hill. In 2026, cyclists use Watts per Kilo (W/kg) to compare their climbing ability fairly." }
         ]
     },
     environment: {
@@ -270,8 +297,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your usage data—like how much electricity you use or miles you drive. We'll show you your 'Carbon Footprint' and the impact you're having on the environment.",
         whyItWorks: "Saving the planet starts with knowing where you stand. By measuring your habits in real numbers, you can see where small changes will make the biggest difference for our future.",
         faq: [
-            { q: "What is a Carbon Footprint?", a: "The total amount of greenhouse gases (including carbon dioxide and methane) produced by our actions." },
-            { q: "How can I lower my Solar ROI?", a: "ROI is improved by maximizing self-consumption of generated power and utilizing local tax incentives or rebates." }
+            { q: "What is a Carbon Footprint?", a: "It is the total greenhouse gas emissions caused by your lifestyle (travel, diet, energy). The average 2026 individual footprint is about 16 tons of CO2 per year." },
+            { q: "How much water can a rain barrel save?", a: "A 1,000 sq ft roof produces 600 gallons of water for every inch of rain. This can provide weeks of garden irrigation for 2026 sustainable homes." },
+            { q: "Can I calculate my recycling impact?", a: "Yes. Recycling one aluminum can saves enough energy to run a 2026 laptop for hours. Our tools help quantify these small but significant daily gains." },
+            { q: "How is the Air Quality Index (AQI) measured?", a: "It's based on five major pollutants, including ozone and particulate matter. An AQI under 50 is 'Good'; over 150 is 'Unhealthy' for 2026 residents." },
+            { q: "How do I calculate solar panel savings?", a: "Compare your current 2026 utility rate to the cost of a solar lease or purchase over 20 years. Most homes see 'payback' in 6 to 9 years." }
         ]
     },
     culinary: {
@@ -279,8 +309,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your ingredient weights and how many people you want to feed. We'll scale your recipe perfectly so it tastes the same whether you're feeding 2 or 20.",
         whyItWorks: "Great cooking is all about ratios. By using weight (like grams) instead of volume (like cups), you can ensure perfect consistency every time you step into the kitchen.",
         faq: [
-            { q: "Why use weight instead of volume?", a: "Weight is far more accurate, especially for ingredients like flour which can be packed differently in a cup." },
-            { q: "What is Baker's Percentage?", a: "A notation method where the mass of each ingredient is expressed as a percentage of the total flour weight (which is always 100%)." }
+            { q: "How do I scale a recipe for 50 people?", a: "Divide the 'New' yield by the 'Old' yield to find your 'Conversion Factor.' Multiply every ingredient by that number. Our tool handles the messy 2026 fractional math." },
+            { q: "How many teaspoons are in a tablespoon?", a: "Exactly 3. There are also 16 tablespoons in a cup. These conversions are the difference between a perfect 2026 bake and a disaster." },
+            { q: "What is the 'Danger Zone' for food?", a: "Between 40°F and 140°F. Bacteria double every 20 minutes in this range. In 2026, safety standards require cooling food to 40°F within two hours." },
+            { q: "How do I calculate cost per portion?", a: "Add the cost of all ingredients and divide by the number of servings. Professional 2026 kitchens aim for a 25-35% food cost percentage." },
+            { q: "What is the difference between a liquid and dry ounce?", a: "A liquid ounce measures volume, while a dry ounce measures weight. They are NOT the same. Always use a scale for 2026 baking precision." }
         ]
     },
     academic: {
@@ -289,7 +322,10 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         whyItWorks: "Success in school is easier when you know the numbers. Whether tracking your GPA or planning your study time for a final exam, data helps you manage your stress and your schedule.",
         faq: [
             { q: "How is weighted GPA calculated?", a: "Weighted GPA gives more 'points' to honors or AP classes (e.g., 5.0 instead of 4.0), reflecting the difficulty of the curriculum." },
-            { q: "What is a standard reading speed?", a: "The average adult reads at about 200-250 words per minute. Our tools allow you to adjust this based on your personal pace." }
+            { q: "What is a standard reading speed?", a: "The average adult reads at about 200-250 words per minute. Our tools allow you to adjust this based on your personal pace." },
+            { q: "How do I calculate 'Study Efficiency'?", a: "Divide your deep study hours by your total study time. Most 2026 students aim for 90% efficiency by removing phone distractions during designated blocks." },
+            { q: "What is the Pomodoro Technique?", a: "A time management method that uses a timer to break work into 25-minute intervals, separated by 5-minute breaks. It is ideal for 2026 exam prep." },
+            { q: "How many pages can I read in an hour?", a: "At 250 WPM, you can read about 30 to 45 pages per hour. Our tool helps you plan exactly when to start your 2026 thesis research." }
         ]
     },
     hobbies: {
@@ -298,7 +334,10 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         whyItWorks: "Every hobby has a layer of math hidden inside. Understanding the technical side allows you to spend more time on the fun part—creating—while knowing your gear and settings are spot on.",
         faq: [
             { q: "How is 3D print cost determined?", a: "By multiplying the weight of material used (plus electricity and failure allowance) by your cost per roll or kilowatt hour." },
-            { q: "What is Depth of Field?", a: "The distance between the nearest and furthest objects in an image that appear acceptably sharp." }
+            { q: "What is Depth of Field?", a: "The distance between the nearest and furthest objects in an image that appear acceptably sharp." },
+            { q: "How do I calculate F-Stop?", a: "It is the ratio of the lens's focal length to the diameter of the entrance pupil. A lower F-stop allows more light in for beautiful 2026 night photography." },
+            { q: "How much filament does a 10-hour print use?", a: "Generally, a standard 2026 nozzle (0.4mm) at 60mm/s uses about 15-20 grams of PLA per hour. A 10-hour print will eat roughly 20% of a 1kg roll." },
+            { q: "What is 'Poly Count' in 3D modeling?", a: "The number of polygons (usually triangles) that make up a 3D model. Higher poly counts look smoother but require more 2026 GPU power to render." }
         ]
     },
     tech: {
@@ -307,7 +346,10 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         whyItWorks: "Modern technology is built on logic and scales. From figuring out how many 'bits' are in a 'byte' to planning a network, these tools help tech pros and students work with 100% accuracy.",
         faq: [
             { q: "What is the difference between bits and bytes?", a: "A byte is 8 bits. Network speeds are usually measured in bits (Mbps), while file sizes are measured in bytes (MB)." },
-            { q: "What is a Subnet Mask?", a: "A 32-bit number used to divide an IP address into network and host components for routing." }
+            { q: "What is a Subnet Mask?", a: "A 32-bit number used to divide an IP address into network and host components for routing." },
+            { q: "How do I calculate Ping (Latency)?", a: "Ping is the round-trip time for data to travel from your 2026 computer to a server and back. Fiber internet usually averages 5-15ms." },
+            { q: "How many devices can my Wi-Fi handle?", a: "A standard 2026 Wi-Fi 6 router can handle up to 50-75 devices, but bandwidth is shared. Our tool helps you see if your speed is enough for a smart home." },
+            { q: "What is the difference between SSD and HDD speed?", a: "SSDs are up to 100x faster than HDDs. A 2026 NVMe drive can reach 7,000 MB/s, while an old spinning drive struggles to hit 150 MB/s." }
         ]
     },
     lifestyle: {
@@ -315,8 +357,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your travel dates, household expenses, or habit streaks. We'll organize your life data into clear schedules or fair bill splits.",
         whyItWorks: "Modern life is busy. By mathematically splitting bills or tracking your daily habits, you can reduce stress and stay on track with your personal growth and financial goals.",
         faq: [
-            { q: "How should we split roommate bills?", a: "Common methods include equal splits, income-weighted splits, or per-square-foot ratios for bedroom size." },
-            { q: "What is a habit streak?", a: "A measure of consistency defined by the number of consecutive days you have performed a specific task or behavior." }
+            { q: "How should we split roommate bills?", a: "Common methods include equal splits, income-weighted splits, or per-square-foot ratios for bedroom size. Our tool in 2026 handles all three for fairness." },
+            { q: "What is a habit streak?", a: "A measure of consistency defined by the number of consecutive days you have performed a task. It takes 66 days on average to form a permanent 2026 habit." },
+            { q: "How do I calculate a 'fair' tip?", a: "In 2026, the standard is 15-20% for good service and 25% for exceptional care. Our tool helps you calculate the tip before or after tax is added." },
+            { q: "What is 'Fuel Efficiency' (MPG)?", a: "Miles Per Gallon. To find yours, fill your tank, reset the trip meter, then divide the miles driven by the gallons needed to refill it." },
+            { q: "How do I split a large dinner bill?", a: "You can split equally, by item, or by 'weighted share' (if someone ordered a $100 steak and others got $20 salads). Our bill splitter handles complex 2026 group math." }
         ]
     },
     biology: {
@@ -324,8 +369,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your lab samples—like cell counts or DNA primer numbers. Our engine calculates things like 'C1V1' dilutions so your experiments are always exact.",
         whyItWorks: "Lab work leaves no room for error. By using the same formulas scientists use for dilutions and genetic math (like Hardy-Weinberg), we help you avoid mistakes and focus on your research.",
         faq: [
-            { q: "What is C1V1?", a: "The standard formula for dilution: Initial Concentration x Initial Volume = Final Concentration x Final Volume." },
-            { q: "Why is annealing temperature important?", a: "It determines the specificity of DNA primer binding in PCR; too high or too low can result in no product or incorrect amplification." }
+            { q: "What is C1V1?", a: "The standard formula for dilution: Initial Concentration x Initial Volume = Final Concentration x Final Volume. It is the gold standard for 2026 precision chemistry." },
+            { q: "Why is annealing temperature important?", a: "It determines the specificity of DNA primer binding in PCR; too high or too low can result in no product or incorrect amplification." },
+            { q: "What is the Hardy-Weinberg Equilibrium?", a: "A principle stating that genetic variation in a population will remain constant from one generation to the next in the absence of disturbing factors." },
+            { q: "How do I calculate 'Generation Time'?", a: "It’s how long it takes for a population to double. For bacteria like E. coli in a 2026 lab, this can be as fast as 20 minutes." },
+            { q: "What is Molarity vs Molality?", a: "Molarity is moles per liter of solution, while Molality is moles per kilogram of solvent. Molarity can change with temperature, but Molality stays constant." }
         ]
     },
     pets: {
@@ -334,7 +382,10 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         whyItWorks: "Pets can't tell us how they're feeling, so data helps. By calculating their daily calorie needs (RER) and tracking growth curves, you can keep your furry friends healthy and happy for years to many.",
         faq: [
             { q: "How much should I feed my dog?", a: "Feeding depends on Restricted Energy Requirements (RER), which considers weight, activity level, and whether the animal is neutered." },
-            { q: "How long is a dog's pregnancy?", a: "The average gestation period for dogs is about 63 days from the time of ovulation." }
+            { q: "How long is a dog's pregnancy?", a: "The average gestation period for dogs is about 63 days from the time of ovulation. Our 2026 count tool helps you prepare." },
+            { q: "What is 'Pet Age' in human years?", a: "It’s not just 'times 7.' Smaller dogs age slower physically than large breeds. Our tool uses the latest 2026 biological aging curves for dogs and cats." },
+            { q: "How many calories does a cat need?", a: "An average 2026 house cat needs about 20-30 calories per pound of body weight to maintain a healthy, active life." },
+            { q: "What are the early signs of pet dehydration?", a: "Loss of skin elasticity, dry gums, and sunken eyes. You can check 'Capillary Refill Time' by pressing their gums; it should turn pink in under 2 seconds." }
         ]
     },
     gardening: {
@@ -342,8 +393,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the size of your garden or raised bed and how deep your soil needs to be. We'll show you exactly how many yards of soil to buy.",
         whyItWorks: "Gardening is better with a plan. By calculating the exact volume of soil or the right space between plants, you save money at the nursery and grow a healthier, bigger harvest.",
         faq: [
-            { q: "How do I calculate soil volume?", a: "Multiply length x width x depth (in feet) and divide by 27 to find the total cubic yards of soil needed." },
-            { q: "What does NPK stand for?", a: "Nitrogen (N), Phosphorus (P), and Potassium (K)—the three primary nutrients found in commercial fertilizers." }
+            { q: "How do I calculate soil volume?", a: "Multiply length x width x depth (in feet) and divide by 27 to find the total cubic yards of soil needed for your 2026 raised beds." },
+            { q: "What does NPK stand for?", a: "Nitrogen (N), Phosphorus (P), and Potassium (K)—the three primary nutrients found in commercial fertilizers. The numbers (like 10-10-10) show the percentage of each." },
+            { q: "How many plants can I fit in a 4x8 bed?", a: "It depends on the 'Square Foot' method. You can fit 1 tomato, 4 chard plants, or 16 carrots per square foot. Our tool helps you map your 2026 harvest." },
+            { q: "How much water does my 2026 garden need?", a: "Most vegetables need 1 to 2 inches of water per week. Our rainfall tool helps you track if your garden is getting enough from nature." },
+            { q: "What is 'Frost Date' and why does it matter?", a: "It's the average date of the last spring frost. Planting too early in 2026 will kill tender plants like peppers and basil." }
         ]
     },
     "time-date": {
@@ -351,8 +405,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter two dates or a period of time. Our engine handles all the complex rules (like leap years and month lengths) to give you the exact answer.",
         whyItWorks: "Time math is tricky to do in your head. Our tools use established calendar rules to help you meet deadlines, count the days to a big event, or plan across different time zones.",
         faq: [
-            { q: "How many business days are in a year?", a: "Typically around 260-262, depending on how specific holidays fall and whether it is a leap year." },
-            { q: "Does the age calculator include leap years?", a: "Yes, our algorithm accounts for every leap day to ensure to-the-day accuracy since your birth." }
+            { q: "How many business days are in a year?", a: "Typically around 260-262, depending on how specific holidays fall and whether it is a leap year (like 2024 and 2028)." },
+            { q: "Does the age calculator include leap years?", a: "Yes, our algorithm accounts for every leap day to ensure to-the-day accuracy since your birth, including those in 2026." },
+            { q: "What is Unix Time?", a: "A system for describing a point in time, defined as the number of seconds that have elapsed since 00:00:00 UTC, January 1, 1970." },
+            { q: "How do I calculate time across time zones?", a: "Identify the UTC offset (e.g., EST is UTC-5). Our 2026 world clock tool does the math instantly for any city on Earth." },
+            { q: "How many weeks are in a year?", a: "There are 52 weeks plus one (or two in a leap year) extra days. In 2026, there are 52 full weeks and 365 total days." }
         ]
     },
     geography: {
@@ -360,8 +417,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your GPS coordinates or a map scale. We'll help you convert between different systems or figure out real-world travel distances.",
         whyItWorks: "Mapping the earth requires translating a round world onto flat screens and maps. By using standard geography formulas and unit scaling, we help you navigate with 100% confidence.",
         faq: [
-            { q: "What is DMS?", a: "Degrees, Minutes, and Seconds—a traditional way of expressing geographic coordinates for navigation." },
-            { q: "How does map scale work?", a: "A scale like 1:50,000 means that one unit of measurement on the map represents 50,000 of the same units in the real world." }
+            { q: "What is DMS?", a: "Degrees, Minutes, and Seconds—a traditional way of expressing geographic coordinates for navigation in 2026 and beyond." },
+            { q: "How does map scale work?", a: "A scale like 1:50,000 means that one unit of measurement on the map represents 50,000 of the same units in the real world." },
+            { q: "How do I calculate distance between two coordinates?", a: "We use the Haversine formula, which accounts for the curvature of the Earth to give the most accurate 2026 point-to-point distance." },
+            { q: "What is the difference between Magnetic and True North?", a: "Magnetic North is where your compass points; True North is the geographic North Pole. The difference (declination) changes based on your 2026 location." },
+            { q: "How fast do time zones change?", a: "On average, every 15 degrees of longitude represents one hour of time change. However, 2026 political borders often make these lines irregular." }
         ]
     },
     fashion: {
@@ -369,8 +429,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your body measurements or fabric details (like length and width). We'll help you find your size or calculate exactly how much fabric your project needs.",
         whyItWorks: "Great fashion is all about geometry and fit. Whether you're sewing a circle skirt or buying shoes from across the world, precision math ensures you always get the perfect fit.",
         faq: [
-            { q: "How do I measure for a ring?", a: "Measure the inner circumference or diameter of a well-fitting ring in millimeters and compare to international charts." },
-            { q: "What is fabric 'fullness'?", a: "In drapery and skirts, fullness describes how many times the finished width is compared to the flat fabric width (usually 2x or 3x)." }
+            { q: "How do I measure for a ring?", a: "Measure the inner circumference or diameter of a well-fitting ring in millimeters and compare to our 2026 international charts." },
+            { q: "What is fabric 'fullness'?", a: "In drapery and skirts, fullness describes how many times the finished width is compared to the flat fabric width (usually 2x or 3x)." },
+            { q: "How do I convert UK to US shoe sizes?", a: "Generally, for men, US is UK + 0.5. For women, US is UK + 2. Our 2026 tool handles all global sizing standards." },
+            { q: "What is 'Grams per Square Meter' (GSM)?", a: "It measures fabric weight. High GSM (over 300) is thick for coats, while low GSM (under 150) is light for 2026 summer shirts." },
+            { q: "How much fabric do I need for a dress?", a: "A standard knee-length dress in 2026 usually requires 2 to 3 yards of 60-inch wide fabric. Always allow an extra 0.5 yards for grain alignment." }
         ]
     },
     chemistry: {
@@ -378,8 +441,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your chemical formula or sample details. Our engine handles molar mass and balanced equations so you get the results you need for school or the lab.",
         whyItWorks: "Chemistry is an exact science. By using the laws of mass and energy, we provide the backbone for your experiments, helping you prep materials and understand reactions without rounding errors.",
         faq: [
-            { q: "What is a Mole?", a: "A standard scientific unit for measuring large quantities of very small entities such as atoms, molecules, or particles (6.022 x 10^23)." },
-            { q: "Why is Stoichiometry useful?", a: "It allows you to calculate the exact amount of reactants needed to produce a specific amount of product with zero waste." }
+            { q: "What is a Mole?", a: "A standard scientific unit for measuring large quantities of atoms (6.022 x 10^23). It’s the metric system's bridge between micro and macro in 2026." },
+            { q: "Why is Stoichiometry useful?", a: "It allows you to calculate the exact amount of reactants needed to produce a specific amount of product with zero waste or leftovers." },
+            { q: "How do I calculate Molar Mass?", a: "Add the atomic weights of all elements in the molecule. For example, H2O has a molar mass of about 18.02 g/mol in every 2026 laboratory." },
+            { q: "What is pH and how is it measured?", a: "It measures the acidity or alkalinity of a solution on a scale of 0 to 14. A pH of 7 is neutral, like pure water in 2026." },
+            { q: "What is the Ideal Gas Law?", a: "PV = nRT. It relates Pressure, Volume, Temperature, and the number of gas molecules. It is essential for understanding atmospheric science in 2026." }
         ]
     },
     entertainment: {
@@ -387,8 +453,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter details like your binge-watch lists or fictional currency amounts. We turn your favorite fandom data into fun, interesting insights.",
         whyItWorks: "We believe math should be fun. From figuring out how many days you've spent watching a show to converting 'wizard gold' into dollars, these tools help you explore your favorite stories in a new way.",
         faq: [
-            { q: "How is 'watch time' calculated?", a: "We multiply the total number of episodes in a series by the average runtime (excluding commercials) to find the total life span of the show." },
-            { q: "Is the Harry Potter currency converter accurate?", a: "It's based on the established canon rates (17 Sickles to a Galleon, 29 Knuts to a Sickle) adjusted for inflation-estimated USD values." }
+            { q: "How is 'watch time' calculated?", a: "We multiply the total episodes in a series by the average runtime (excluding commercials) to find the total time spent in 2026." },
+            { q: "Is the Harry Potter currency converter accurate?", a: "It's based on the established canon rates (17 Sickles to a Galleon, 29 Knuts to a Sickle) adjusted for 2026 gold-to-dollar estimates." },
+            { q: "How do I calculate 'Binge Worthiness'?", a: "Divide the total watch time by the days you have available. If a show takes 20 hours, you need 2 hours a day for 10 days in 2026 to finish it." },
+            { q: "How many books can I read in 2026?", a: "The average adult reads 250 words per minute. If you read for 30 minutes a day, you can finish about one average-sized book every 2-3 weeks." },
+            { q: "What is 'Frame Rate' (FPS) and why does it matter?", a: "Frames Per Second. Movies are usually 24 FPS, while 2026 pro-gaming targets 144-240 FPS for smooth, realistic motion." }
         ]
     },
     converters: {
@@ -396,8 +465,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Pick the units you're starting with (like 'Feet') and what you want to change them to (like 'Meters'). Enter your number and we'll do the rest.",
         whyItWorks: "The world uses many different scales. We use 2026 international standards to ensure that when you convert weight, length, or money, your data remains 100% accurate across any border.",
         faq: [
-            { q: "Are these SI-standard conversions?", a: "Yes, we prioritize international standards (NIST) for all physical and engineering unit transformations." },
-            { q: "How performant are currency conversions?", a: "Currency tools rely on mid-market exchange rates that are periodically updated to reflect global markets." }
+            { q: "Are these SI-standard conversions?", a: "Yes, we prioritize 2026 international standards (NIST) for all physical and engineering unit transformations." },
+            { q: "How performant are currency conversions?", a: "Currency tools rely on mid-market exchange rates that are periodically updated to reflect the 2026 global economy." },
+            { q: "How many centimeters are in an inch?", a: "There are exactly 2.54 centimeters in 1 inch. This is a constant definition that will not change in 2026 or beyond." },
+            { q: "What is the difference between Celsius and Fahrenheit?", a: "Celsius is based on the freezing/boiling points of water (0/100), while Fahrenheit uses 32/212. Our tool handles the 1.8x + 32 conversion for you." },
+            { q: "How do I convert Kilograms to Pounds?", a: "Multiply kilograms by 2.2046. A 2026 adult weighing 70kg is approximately 154lbs." }
         ]
     },
     "mental-health": {
@@ -405,8 +477,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter how often you feel specific emotions or track your daily sleep patterns. We use established screening tools (like the PHQ-9) to help you see patterns in your well-being.",
         whyItWorks: "Tracking your feelings helps you see trends over time. This makes it easier to have productive, clear conversations with your doctor or therapist about the progress of your mental health journey.",
         faq: [
-            { q: "Is this a clinical diagnosis?", a: "No. These are screening indicators. Only a licensed mental health professional can provide a diagnosis." },
-            { q: "What is a GAD-7 score?", a: "A validated tool used to screen for and measure the severity of generalized anxiety disorder." }
+            { q: "Is this a clinical diagnosis?", a: "No. These are screening indicators. Only a licensed 2026 mental health professional can provide a diagnosis or treatment plan." },
+            { q: "What is a GAD-7 score?", a: "A validated tool used to screen for and measure the severity of generalized anxiety disorder in 2026 clinical settings." },
+            { q: "How do I track my 'Mood Baseline'?", a: "Rate your mood from 1-10 daily for 30 days. Our 2026 tool will show you your 'Emotional Average' and any significant shifts." },
+            { q: "What is the 'Rule of 3' in stress management?", a: "Identify 3 things you can control, 3 things you are grateful for, and 3 things to let go of each day in 2026." },
+            { q: "How much sleep do I really need in 2026?", a: "Most adults need 7-9 hours. Our sleep calculator helps you find your ideal bedtime based on 90-minute sleep cycles." }
         ]
     },
     gaming: {
@@ -414,8 +489,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your game settings—like mouse speed (DPI), frame rates, or your win/loss record. We'll calculate your rank (ELO) or show you how to match your aim across different games.",
         whyItWorks: "Competitive gaming is about being consistent. By using real rank math and mouse-movement logic, we help you get your hardware set up perfectly so you can focus on winning.",
         faq: [
-            { q: "What is ELO?", a: "A rating system used for calculating the relative skill levels of players in zero-sum games like Chess or Esports." },
-            { q: "How does sensitivity conversion work?", a: "It calculates the exact 'real-world' distance (cm/360) your mouse travels to ensure your aim feels consistent across different games." }
+            { q: "What is ELO?", a: "A rating system used for calculating skill levels in zero-sum games like Chess or 2026 Esports like League of Legends." },
+            { q: "How does sensitivity conversion work?", a: "It calculates the exact 'real-world' distance (cm/360) your mouse travels to ensure your aim feels consistent across all 2026 titles." },
+            { q: "What is 'K/D Ratio'?", a: "Kills divided by Deaths. A ratio above 1.0 means you are getting more eliminations than times you are defeated in a 2026 match." },
+            { q: "How do I calculate frame time from FPS?", a: "Divide 1,000 by your FPS. 60 FPS means a new frame every 16.6ms, while 144 FPS means 6.9ms for a faster 2026 reactive experience." },
+            { q: "What is 'FOV' in gaming?", a: "Field of View. A higher FOV (like 100-110) lets you see more of the environment but can create a 'fisheye' effect on 2026 monitors." }
         ]
     },
     parenting: {
@@ -423,8 +501,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your child's birth date, height, or weight. We'll show you their developmental milestones using current 2026 WHO and CDC growth charts.",
         whyItWorks: "Every child is unique. By looking at real data from millions of other children, we help you see your child's growth curve in a clear, clinical way that gives you peace of mind.",
         faq: [
-            { q: "What does '50th percentile' mean?", a: "It means that compared to a group of 100 children of the same age and gender, 50 are larger and 50 are smaller." },
-            { q: "How is a due date calculated?", a: "Most calculators add 280 days (40 weeks) to the first day of your last menstrual period (LMP) using Naegele's rule." }
+            { q: "What does '50th percentile' mean?", a: "It means that compared to a group of 100 children of the same age and gender, 50 are larger and 50 are smaller in 2026 studies." },
+            { q: "How is a due date calculated?", a: "Most 2026 calculators add 280 days (40 weeks) to the first day of your last menstrual period (LMP) using Naegele's rule." },
+            { q: "How many diapers will a 2026 newborn use?", a: "Expect 8-12 diapers per day for the first few months. One child will use over 2,500 diapers in their first year of life." },
+            { q: "When do babies start sleeping through the night?", a: "Every child is different, but many start sleeping for 6-8 hour stretches between 4 and 6 months of age in 2026." },
+            { q: "How do I calculate my child's future height?", a: "A common 2026 formula is (Mother's Height + Father's Height + 5 inches for boys / -5 inches for girls) divided by 2." }
         ]
     },
     legal: {
@@ -540,8 +621,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your company's usage—like fuel, energy, and supply chain data. We'll calculate your 'Scope 1, 2, and 3' emissions for your 2026 sustainability report.",
         whyItWorks: "Helping the planet means tracking every detail. By using the same standards pros use (like the GHG Protocol), we turn complex resource data into a clear map of your environmental impact.",
         faq: [
-            { q: "What are Scope 1, 2, and 3 Emissions?", a: "Scope 1: Direct emissions from owned sources. Scope 2: Indirect emissions from purchased energy. Scope 3: All other indirect emissions in the value chain." },
-            { q: "What is Net Zero?", a: "A state in which the greenhouse gases going into the atmosphere are balanced by removal out of the atmosphere." }
+            { q: "What are Scope 1, 2, and 3 Emissions?", a: "Scope 1: Direct emissions from owned sources. Scope 2: Indirect emissions from purchased energy. Scope 3: All other indirect emissions in the value chain. Tracking all three is critical for 2026 ESG compliance." },
+            { q: "What is Net Zero?", a: "A state in which the greenhouse gases going into the atmosphere are balanced by removal out of the atmosphere. Achieving this by 2026 requires aggressive carbon reduction and offset strategies." },
+            { q: "How do I calculate 'Carbon Sequestration'?", a: "It’s the process of capturing and storing atmospheric carbon dioxide. A single 2026 mature tree can absorb about 48 pounds of CO2 per year." },
+            { q: "What is the circular economy?", a: "A model of production and consumption which involves sharing, leasing, reusing, repairing, refurbishing, and recycling existing materials and products as long as possible." },
+            { q: "How is 'Environmental ROI' measured?", a: "Beyond just money, 2026 firms look at 'Natural Capital.' It measures the value of ecosystem services like clean water and air against the cost of preserving them." }
         ]
     },
     "real-estate-pro": {
@@ -561,8 +645,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your project dates and how long your tasks are taking. We'll show you your true 'Velocity' and when you'll actually finish your project.",
         whyItWorks: "Great productivity is about finding your rhythm. By tracking how fast you actually work (Agile Velocity), you can set deadlines that you can actually hit without burning out.",
         faq: [
-            { q: "What is Velocity in project management?", a: "The amount of work (expressed in units like story points or hours) a team or individual can complete in a set period." },
-            { q: "How does the 'Eisenhower Matrix' help?", a: "It categorizes tasks by urgency and importance to help you prioritize work that moves long-term goals forward." }
+            { q: "What is Velocity in project management?", a: "The amount of work (expressed in units like story points or hours) a team or individual can complete in a set period. It helps you set realistic 2026 deadlines." },
+            { q: "How does the 'Eisenhower Matrix' help?", a: "It categorizes tasks by urgency and importance to help you prioritize work that moves long-term 2026 goals forward rather than just putting out daily 'fires'." },
+            { q: "What is 'Deep Work' and how do I time it?", a: "Deep work is distraction-free concentration. Most 2026 experts recommend blocks of 90 to 120 minutes for maximum cognitive output." },
+            { q: "How do I calculate 'Project Burn Rate'?", a: "It is the rate at which your project consumes its budget or time. If you use 10% of your budget in week 1, your project is on track for a 10-week completion." },
+            { q: "What is 'Time Blocking'?", a: "A productivity method where you schedule every minute of your day into specific 2026 time slots, preventing 'choice paralysis' and multitasking." }
         ]
     },
     "util-hacks": {
@@ -570,8 +657,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your electricity rates and how much power your appliances use. We'll show you how much you can save by switching to LEDs or changing your AC schedule.",
         whyItWorks: "Little changes in your power use add up to hundreds of dollars a year. By modeling your usage, we help you 'hack' your home budget and lower your bills automatically.",
         faq: [
-            { q: "What is Time-of-Use (TOU) pricing?", a: "A utility billing method where the price of energy varies based on the time of day it is consumed." },
-            { q: "How much does a leaking faucet cost?", a: "A slow drip (one per second) can waste over 3,000 gallons of water a year—enough to take more than 180 showers." }
+            { q: "What is Time-of-Use (TOU) pricing?", a: "A utility billing method where the price of energy varies based on the time of day. Using appliances at midnight in 2026 can be 3x cheaper than at 5:00 PM." },
+            { q: "How much does a leaking faucet cost?", a: "A slow drip (one per second) can waste over 3,000 gallons of water a year—enough to take more than 180 showers. Our tool shows you the 2026 dollar cost of waste." },
+            { q: "How do I calculate LED bulb savings?", a: "Compare the 'Wattage' of your old bulb (e.g., 60W) to the LED (9W). Multiplying the difference by your 2026 hourly rate shows you the annual ROI." },
+            { q: "What is the 'Thermostat Rule' for 2026?", a: "Every degree you lower your thermostat in winter (or raise it in summer) can save you up to 1-3% on your monthly energy bill." },
+            { q: "How much power does my phone use?", a: "Charging a phone takes very little power, but 'Vampire' chargers that are left plugged in can add up to $5-10 per year across an entire 2026 household." }
         ]
     },
     "pet-wellness": {
@@ -588,8 +678,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter color codes (like #FFFFFF) or the size of your canvas. We'll help you use the 'Golden Ratio' and color theory to make your art look professional.",
         whyItWorks: "Most great art has a hidden layer of math inside. Whether using the Rule of Thirds or matching colors, these tools provide the technical skeleton for your creative vision.",
         faq: [
-            { q: "What is the Golden Ratio?", a: "A mathematical ratio (approximately 1.618) often found in nature and used in art and architecture to create pleasing compositions." },
-            { q: "How are complementary colors chosen?", a: "They are colors located directly opposite each other on the color wheel, creating the highest possible contrast." }
+            { q: "What is the Golden Ratio?", a: "A mathematical ratio (approximately 1.618) often found in nature and used in art and architecture to create pleasing 2026 compositions." },
+            { q: "How are complementary colors chosen?", a: "They are colors located directly opposite each other on the color wheel, creating the highest possible contrast. Essential for 2026 web accessibility." },
+            { q: "What is the 'Rule of Thirds'?", a: "A composition rule that divides an image into nine equal parts. Placing your focal point on the intersections creates the most balanced 2026 visuals." },
+            { q: "How do I calculate 'Visual Balance'?", a: "By weighing the 'visual mass' of elements. Darker, larger, or more complex shapes feel 'heavier'. Our 2026 artist tools help you balance these across the canvas." },
+            { q: "What is 'Kerning' and why does it matter?", a: "It's the space between individual letters. Good kerning ensures text is readable and looks high-end in 2026 brand identity designs." }
         ]
     },
     "survival-bushcraft": {
@@ -606,8 +699,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter how many guests are coming and how big the venue is. We'll calculate exactly how much food, drink, and space you need for a perfect party.",
         whyItWorks: "Great events are built on balance. By calculating guest-to-server ratios and square footage per person, you ensure everyone is comfortable and the party flows perfectly.",
         faq: [
-            { q: "How much space is needed per guest?", a: "Between 7 and 15 square feet per person for a cocktail party, increasing to 15-20 for a seated dinner." },
-            { q: "What is a standard 'No-Show' rate?", a: "For large events, a 15-25% 'no-show' rate is typical, though this varies by event type and RSVP method." }
+            { q: "How much space is needed per guest?", a: "Between 7 and 15 square feet per person for a cocktail party, increasing to 15-20 for a seated dinner. Our 2026 tool handles social distancing metrics, too." },
+            { q: "What is a standard 'No-Show' rate?", a: "For large 2026 events, a 15-25% 'no-show' rate is typical. Don't over-order food—calculate for 80% of your confirmed guest count for the best results." },
+            { q: "How many bartenders do I need for 100 people?", a: "A 2026 pro-standard is 1 bartender per 50 guests for a full bar, or 1 per 75 if you're only serving beer and wine. This prevents long, party-killing lines." },
+            { q: "How do I calculate an event's budget?", a: "Average 2026 parties spend 40% on venue/food, 25% on entertainment, and 15% on marketing/decor. Always add a 10% emergency buffer." },
+            { q: "What is 'Lead Time'?", a: "The time required between planning and the actual event. Major 2026 weddings often require a 12 to 18-month lead time for venue booking." }
         ]
     },
     "auto-tune": {
@@ -624,8 +720,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your field size, how many seeds you're planting, and your past results. We'll calculate your expected harvest and how much fertilizer you need.",
         whyItWorks: "Modern farming is built on data. By calculating exactly how many plants fit on an acre, you can maximize your harvest while wasting less money and effort on products you don't need.",
         faq: [
-            { q: "What is 'Yield per Acre'?", a: "The measure of the amount of crop harvested per unit of land area, a key indicator of agricultural productivity." },
-            { q: "How do I calculate seed requirements?", a: "Multiply the target plant population by the area, and adjust for the expected germination rate of the seed lot." }
+            { q: "What is 'Yield per Acre'?", a: "The measure of the amount of crop harvested per unit of land area, a key indicator of 2026 agricultural productivity." },
+            { q: "How do I calculate seed requirements?", a: "Multiply the target plant population by the area, and adjust for the expected 2026 germination rate. Our tool helps you buy exactly what you need." },
+            { q: "How much fertilizer do I need per row?", a: "This is based on your 'Soil Test' and the nutrient needs of your crop. Our 2026 agri-tools convert lbs/acre into oz/row-foot for you." },
+            { q: "What is 'Crop Rotation' math?", a: "It's the timing of which crops follow others. Keeping a 3-4 year gap between similar families (like nightshades) prevents 2026 soil-borne diseases." },
+            { q: "How do I calculate silage volume?", a: "Measure your bunker or bag and use the density of your specific crop. Standard 2026 corn silage is about 40-50 lbs per cubic foot." }
         ]
     },
     "audio-pro": {
@@ -642,8 +741,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your follower count, your total likes and comments, and how long your videos are. We'll show you how likely your content is to go viral.",
         whyItWorks: "Digital growth is about engagement. By look at the ratio of views to likes, these tools help you see what really resonates with your audience so you can grow your following faster.",
         faq: [
-            { q: "What is Engagement Rate?", a: "Total interactions (likes, comments, shares) divided by total followers or total reach." },
-            { q: "How does the 'Hook' affect watch time?", a: "The first 3 seconds are critical; drop-off in this window often determines whether a platform's algorithm will continue to push the content." }
+            { q: "What is Engagement Rate?", a: "Total interactions (likes, comments, shares) divided by total followers. A 2026 'good' rate for Instagram is 1-3%, while TikTok can reach 5-10%." },
+            { q: "How does the 'Hook' affect watch time?", a: "The first 3 seconds are critical; drop-off in this window often determines whether a platform's algorithm will continue to push the 2026 content." },
+            { q: "What is 'Viral Velocity'?", a: "The speed at which shares and views grow over time. If your 2026 video hits 1,000 views in the first 10 minutes, its velocity is high, signaling the algorithm to boost it." },
+            { q: "When is the best time to post in 2026?", a: "It depends on your audience's timezone. Use our 2026 activity tool to see when your followers are most active. Generally, Tuesday and Wednesday mornings work best." },
+            { q: "How much should I charge for a 'Brand Deal'?", a: "A 2026 baseline is $10 to $50 per 1,000 followers, but your engagement and niche authority are more important than just your count." }
         ]
     },
     "hobby-crafts": {
@@ -828,8 +930,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the weight of your flour and the temperature of your kitchen. Our engine calculates exactly how much water to add for a perfect crumb.",
         whyItWorks: "Professional baking is all about controlling chemistry. By managing water ratios and final dough temperature, you can ensure your bread ferments perfectly every single time.",
         faq: [
-            { q: "What is Dough Hydration?", a: "The ratio of water to flour by weight. A 70% hydration dough has 70g of water for every 100g of flour." },
-            { q: "Why is Final Dough Temperature (FDT) critical?", a: "It controls the speed of yeast activity; inconsistent temperatures lead to inconsistent fermentation and flavor." }
+            { q: "What is Dough Hydration?", a: "The ratio of water to flour by weight. A 70% hydration dough has 70g of water for every 100g of flour. Higher hydration means a more open crumb in your 2026 loaves." },
+            { q: "Why is Final Dough Temperature (FDT) critical?", a: "It controls the speed of yeast activity; inconsistent temperatures lead to inconsistent fermentation and flavor. 2026 pros target 75-78°F." },
+            { q: "How much sourdough starter do I need?", a: "Most 2026 recipes use 20% starter relative to the weight of the flour. For 500g of flour, you'll use 100g of active, bubbly starter." },
+            { q: "What is the 'Autolyse' process?", a: "Mixing just flour and water and letting it rest for 30-60 minutes before adding salt and yeast. It improves the dough's strength and final 2026 crust color." },
+            { q: "How do I calculate 'Volume Increase'?", a: "To know if your dough has 'doubled,' use a straight-sided container and mark the starting level. This is the only way to track 2026 fermentation accurately." }
         ]
     },
     "outdoor-elec": {
@@ -837,8 +942,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your battery's capacity and what you're plugging in. We'll show you exactly how many hours of power you have left for your trip.",
         whyItWorks: "Off-grid power is about budgeting your energy. By looking at how much 'juice' you have vs. how much your gadgets use, we help you plan for safety and comfort in the great outdoors.",
         faq: [
-            { q: "What is Watt-Hour (Wh)?", a: "A unit of energy equivalent to one watt of power sustained for one hour." },
-            { q: "Can I fully drain a Lead-Acid battery?", a: "No, typically you should only use 50% of its capacity to avoid permanent damage. Lithium batteries can usually handle 80-95% discharge." }
+            { q: "What is Watt-Hour (Wh)?", a: "A unit of energy equivalent to one watt of power sustained for one hour. A 500Wh 2026 battery can run a 50W fridge for 10 hours." },
+            { q: "Can I fully drain a Lead-Acid battery?", a: "No, typically you should only use 50% of its capacity to avoid damage. Lithium (LiFePO4) 2026 batteries can usually handle 80-95% discharge safely." },
+            { q: "How much solar power do I need to charge my pack?", a: "To charge a 100Ah battery in one 2026 day (5 peak hours), you need about 250-300W of solar panels to account for efficiency losses." },
+            { q: "What is the difference between Amps and Volts?", a: "Think of Volts as water pressure and Amps as the flow. Volts x Amps = Watts. This is the core formula for all 2026 camping power math." },
+            { q: "How long will my laptop last on a portable station?", a: "A 60Wh laptop battery charged by a 300Wh station will get about 4 full charges, accounting for the 15-20% loss in the 2026 conversion process." }
         ]
     },
     aquarium: {
@@ -846,8 +954,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your tank's size and how many fish you have. We'll show you exactly how to balance your water and how much oxygen you need.",
         whyItWorks: "A fish tank is a tiny, closed world. By calculating your water's 'Nitrogen Cycle' and volume, you can keep your fish healthy and prevent toxic spikes that ruin your setup.",
         faq: [
-            { q: "How do I calculate tank volume?", a: "Multiply length x width x height (in inches) and divide by 231 to find the total US Gallons." },
-            { q: "What is the 'Inch per Gallon' rule?", a: "A rough guideline for stocking fish, suggesting 1 inch of fish per gallon of water, though filtration and species type are more critical factors." }
+            { q: "How do I calculate tank volume?", a: "Multiply length x width x height (in inches) and divide by 231 to find the total US Gallons. Don't forget that 2026 decorations and gravel take up space too!" },
+            { q: "What is the 'Inch per Gallon' rule?", a: "A rough 2026 guideline suggesting 1 inch of fish per gallon. However, for goldfish or cichlids, filtration capacity is much more important than raw volume." },
+            { q: "How often should I change aquarium water?", a: "Most 2026 hobbyists aim for 15-25% every two weeks. This removes nitrates and replenishes minerals without shocking your fish's ecosystem." },
+            { q: "How many watts of heating do I need?", a: "A good 2026 rule is 3 to 5 watts per gallon. A 50-gallon tank needs a 200W heater to stay stable if your room is cool." },
+            { q: "What is the 'Nitrogen Cycle' timing?", a: "It takes 4 to 6 weeks for a new 2026 tank to 'cycle' so it can safely process fish waste. Our tool helps you track the ammonia-to-nitrate conversion." }
         ]
     },
     "rocketry-drones": {
@@ -855,8 +966,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your drone's weight and motor power. Our engine calculates if you have enough 'lift' to fly and how long your battery will last.",
         whyItWorks: "Flight is a constant battle between weight and thrust. By calculating your power-to-weight ratio, we help you fly safely and get the best performance out of your aerial gear.",
         faq: [
-            { q: "What is a Thrust-to-Weight Ratio?", a: "For a drone, it needs to be at least 2:1 to take off and hover comfortably; racing drones can exceed 10:1." },
-            { q: "What is 'C-Rating' on a battery?", a: "A measure of how quickly a battery can be safely discharged (e.g., a 50C battery can discharge at 50 times its capacity)." }
+            { q: "What is a Thrust-to-Weight Ratio?", a: "For a drone, it needs to be at least 2:1 to take off and hover comfortably; racing 2026 drones can exceed 10:1 for insane speed." },
+            { q: "What is 'C-Rating' on a battery?", a: "A measure of how quickly a battery can be safely discharged. A 50C 2026 battery can discharge at 50 times its capacity for short bursts." },
+            { q: "How do I calculate flight time?", a: "Battery Capacity x Discharge / Average Current. If you have a 1,500mAh battery and pull 15A, you'll get about 5-6 minutes of 2026 flight time." },
+            { q: "What is the 'Apogee' of a rocket?", a: "The highest point in the flight path. Our 2026 simulator calculates this based on engine thrust, weight, and air resistance (drag)." },
+            { q: "How do I pick the right motor for my drone?", a: "Check the 'Thrust Table' for the motor with your specific propellers. Aim for a total thrust of 2.5x your 2026 drone's total flying weight." }
         ]
     },
     horology: {
@@ -888,8 +1002,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Type in your 'if-then' statements or logic variables. We'll build a truth table to help you find errors in your reasoning or design.",
         whyItWorks: "Logic is the foundational grammar for computer science. By mapping out every possible 'True' or 'False' combo, you can verify your arguments and build faster, better code.",
         faq: [
-            { q: "What is a Truth Table?", a: "A breakdown of all possible truth values for a logical expression based on its inputs." },
-            { q: "What is 'Modus Ponens'?", a: "A fundamental rule of logic: if P implies Q, and P is true, then Q must also be true." }
+            { q: "How do I use a truth table?", a: "List every possible combination of inputs (True/False) and determine the output for each. It’s the ultimate 2026 tool for finding logic bugs." },
+            { q: "What is the difference between 'AND' and 'OR'?", a: "In 'AND', both inputs must be true for the output to be true. In 'OR', only one needs to be true. This is the 2026 foundation of all computer code." },
+            { q: "What is a 'Truth Table'?", a: "A breakdown of all possible truth values for a logical expression based on its inputs. It helps you see every possible outcome of a 2026 decision or circuit." },
+            { q: "What is 'Modus Ponens'?", a: "A fundamental rule of logic: if P implies Q, and P is true, then Q must also be true. It’s the simplest form of 'valid' reasoning we use in 2026." },
+            { q: "What is a 'De Morgan’s Law'?", a: "A set of rules for simplifying complex logic. For example, 'Not (A and B)' is the same as '(Not A) or (Not B)'. Critical for 2026 systems design." }
         ]
     },
     sociology: {
@@ -897,8 +1014,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your population numbers or growth rates. We'll show you how your town or group will change over time.",
         whyItWorks: "Sociology uses data to understand how groups of people live. By calculating birth rates and age averages, we help project what services people will need in the years to many.",
         faq: [
-            { q: "What is the Gini Coefficient?", a: "A statistical measure of distribution intended to represent the income or wealth inequality within a nation or social group." },
-            { q: "How is 'Replacement Rate' calculated?", a: "The fertility rate (approx 2.1 children per woman) needed to keep a population stable from one generation to the next." }
+            { q: "What is the Gini Coefficient?", a: "A statistical measure of distribution representing income or wealth inequality. A score of 0 means perfect equality, while 1 means total inequality." },
+            { q: "How is 'Replacement Rate' calculated?", a: "The fertility rate (approx 2.1 children per woman) needed to keep a population stable. In 2026, many nations are now below this level, leading to aging populations." },
+            { q: "What is the 'Dependency Ratio'?", a: "The ratio of those not in the labor force (young/old) compared to those who are. A high ratio puts more pressure on the 2026 economy and social services." },
+            { q: "How do I calculate 'Social Mobility'?", a: "By measuring how much an individual's income or status changes compared to their parents. High 2026 mobility means a fairer, more dynamic society." },
+            { q: "What is 'Urbanization' rate?", a: "The percentage of a population living in cities. In 2026, over 55% of the world's population is urban, a trend that continues to accelerate." }
         ]
     },
     "urban-planning": {
@@ -906,8 +1026,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter the size of your building and how many people walk by. We'll calculate 'Walk Scores' and if you have enough parking for your project.",
         whyItWorks: "Good city design balances human needs with space. By calculating exactly how much traffic or power a new building needs, we help ensure your project fits perfectly into the neighborhood.",
         faq: [
-            { q: "What is Floor Area Ratio (FAR)?", a: "The ratio of a building's total floor area to the size of the piece of land upon which it is built." },
-            { q: "How is 'Walkability' measured?", a: "Based on the proximity of amenities like grocery stores, schools, and parks within a 5-15 minute walk." }
+            { q: "What is Floor Area Ratio (FAR)?", a: "The ratio of a building's total floor area to the size of the land. A FAR of 2.0 means you can build twice the land area in total floor space." },
+            { q: "How is 'Walkability' measured?", a: "Based on the proximity of amenities like grocery stores and parks within a 5-15 minute walk. Higher 2026 scores lead to higher property values." },
+            { q: "What is 'Zoning' and how do I calculate for it?", a: "Zoning laws dictate what can be built (Residential, Commercial, Industrial). Our 2026 tool helps you see if your project fits within the local height and density limits." },
+            { q: "How much parking do I need for my building?", a: "Usually based on 'Parking Ratios' (e.g., 2 spots per 1,000 sq ft). Many 2026 'Smart Cities' are now lowering these to encourage public transit." },
+            { q: "What is 'Green Space' ratio?", a: "The percentage of a development that must remain undeveloped or landscaped. 2026 standards often require 10-20% for urban health and cooling." }
         ]
     },
     "eco-legal": {
@@ -915,8 +1038,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your pollution levels or project dates. We'll show you your 'Net Gain' and if you're meeting 2026 environmental standards.",
         whyItWorks: "Environmental law is where nature meets the rules. By quantifying your 'Carbon Offsets' and impact, we help businesses stay honest and protected while protecting the planet.",
         faq: [
-            { q: "What is Biodiversity Net Gain?", a: "An approach to development that leaves biodiversity in a measurably better state than it was before." },
-            { q: "How are carbon credits calculated?", a: "Usually represented as one tonne of carbon dioxide (or equivalent) prevented from entering the atmosphere." }
+            { q: "What is Biodiversity Net Gain?", a: "An approach to development that leaves nature in a measurably better state than it was before. 2026 laws often require a 10% gain for new projects." },
+            { q: "How are carbon credits calculated?", a: "One credit represents one metric tonne of CO2 (or equivalent) prevented from entering the 2026 atmosphere. Our tool helps you estimate these credits based on project scope." },
+            { q: "What is 'EPR' (Extended Producer Responsibility)?", a: "A 2026 legal standard that makes manufacturers responsible for the entire life cycle of their products, including disposal and recycling." },
+            { q: "How do I report for 2026 Environmental Compliance?", a: "Our tool helps you organize your usage data into the standard formats required by local and international 2026 regulatory bodies." },
+            { q: "What is 'Water Rights' math?", a: "In 2026, water is a critical asset. Legal math determines how much water a property owner can use based on seniority and local aquifer health." }
         ]
     },
     "disaster-prep": {
@@ -924,8 +1050,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter how many people are in your family and how many days you're preparing for. We'll calculate exactly how much water and food you need to stay safe.",
         whyItWorks: "Safety starts with a plan. By calculating how long your supplies will actually last, we turn worry into a clear, actionable list of what you need for your emergency kit.",
         faq: [
-            { q: "How much water is needed per person per day?", a: "FEMA recommends at least 1 gallon per person per day (half for drinking, half for hygiene), for at least two weeks." },
-            { q: "What is a 'Bug-Out' Bag?", a: "A portable kit that contains the items one would require to survive for seventy-two hours when evacuating from a disaster." }
+            { q: "How much water is needed per person per day?", a: "FEMA recommends at least 1 gallon per person per day (half for drinking, half for hygiene), for at least two weeks in 2026." },
+            { q: "What is a 'Bug-Out' Bag?", a: "A portable kit that contains the items one would require to survive for seventy-two hours when evacuating from a disaster in 2026." },
+            { q: "How many calories should I store per person?", a: "Most 2026 guidelines suggest 2,000 to 2,500 calories per day. Our tool helps you calculate total 'Family Calories' needed for a 14-day shelter-in-place." },
+            { q: "What is the 'Rule of 3' in survival?", a: "3 minutes without air, 3 hours without shelter (extreme weather), 3 days without water, and 3 weeks without food. This guides 2026 prep priority." },
+            { q: "How often should I rotate my 2026 food supply?", a: "Check your 'Best By' dates every 6 months. Use our rotation tool to create a 'FIFO' (First In, First Out) system so nothing goes to waste." }
         ]
     },
     "esports-pro": {
@@ -933,8 +1062,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         howToUse: "Enter your match scores, how much gold you're earning, and your accuracy stats. We'll calculate your performance in every game.",
         whyItWorks: "Pro gaming is won with data. By Identifying gaps in how you earn resources or how well you aim, coaches and players can find the data-backed edge needed to win championships.",
         faq: [
-            { q: "What is Effective HP (EHP)?", a: "A calculation of a character's survivability that factors in health, armor, and resistances together." },
-            { q: "How is 'Gold Per Minute' (GPM) used?", a: "As a primary indicator of map efficiency and resource priority in MOBAs like League of Legends or Dota 2." }
+            { q: "What is Effective HP (EHP)?", a: "A calculation of survivability that factors in health, armor, and resistances. In 2026, knowing your EHP helps you pick the right items for your hero." },
+            { q: "How is 'Gold Per Minute' (GPM) used?", a: "A primary indicator of map efficiency and resource priority in 2026 MOBAs. A high GPM means you're hitting your 'Item Power Spikes' faster than the enemy." },
+            { q: "How do I calculate 'Kill Participation' (KP)?", a: "Divide (Your Kills + Your Assists) by the team's total kills. In 2026, a 70%+ KP is expected for high-performing mid and support players." },
+            { q: "What is 'Reaction Time' training?", a: "The speed at which you respond to a visual cue. 2026 pro-athletes average 150-200ms. Our tools help you track your progress over weeks of training." },
+            { q: "How much gold does my team lose if I die?", a: "Beyond the bounty given to the enemy, you lose 'Expected Gold' from minions while dead. In a 2026 late-game, one death can cost your team 1,000+ total gold." }
         ]
     },
 };
