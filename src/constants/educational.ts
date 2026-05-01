@@ -7,121 +7,121 @@ export interface CategoryEducation {
 }
 
 export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
+    'compound-interest': {
+        title: "The Power of Compound Interest",
+        howToUse: "Enter your starting amount, how much you'll add each month, and your interest rate. We'll show you exactly how 'money makes money' over time. For the best 2026 planning, we suggest looking at a 10 to 20-year window to see the true impact of compounding.",
+        whyItWorks: "Compound interest is often called the 'eighth wonder of the world.' It works by paying interest not just on your original deposit, but also on the interest you've already earned. This creates an exponential curve where your wealth grows faster and faster the longer you leave it alone.",
+        faq: [
+            { q: "How much will $1,000 grow with compound interest?", a: "If you start with $1,000 and earn a 7% return, after 20 years you'll have nearly $4,000—even if you never add another penny. Compound interest turns small savings into significant wealth over time." },
+            { q: "What is compound interest with example?", a: "Imagine you have $100 and earn 10% interest. After year one, you have $110. In year two, you earn 10% on $110 (which is $11), giving you $121. You earned interest on your interest!" },
+            { q: "How do I calculate compound interest?", a: "To find your future value, multiply your initial principal by (1 + the interest rate) raised to the power of the number of years. Or, just use this calculator to see it instantly with monthly additions!" },
+            { q: "What is the compound interest formula?", a: "The standard formula is A = P(1 + r/n)^(nt), where A is the final amount, P is the principal, r is the interest rate, n is compounding frequency, and t is time in years." },
+            { q: "How long does it take to double money with compound interest?", a: "A quick trick is the 'Rule of 72.' Divide 72 by your interest rate. For example, at a 10% return, your money will double roughly every 7.2 years." },
+            { q: "Does compounding monthly make a big difference?", a: "Yes. The more often interest is calculated (daily vs. monthly vs. annually), the more interest 'snowballs' onto itself, leading to a higher final balance." }
+        ]
+    },
     finance: {
         title: "The Financial Decision Engine",
-        howToUse: "Input your core financial variables: principal amount, interest rates, and the time horizon. Our engine utilizes standard time-value-of-money (TVM) formulas to provide instant projections. For 2026, we recommend using conservative interest rate estimates to account for potential market volatility.",
-        whyItWorks: "Professional financial planning is built on the mathematical relationship between capital, time, and compounding. Whether you are calculating the future value of a 401(k) or the total cost of a mortgage, accuracy is paramount. Our tools apply verified legislative and actuarial constants to ensure your long-term wealth strategies are grounded in reality.",
+        howToUse: "Input your core numbers: how much you're starting with, your interest rate, and how many years you're planning for. Our engine shows you exactly how your money can grow. For 2026, it's smart to use conservative rates (like 5-7%) to see a more realistic picture of your future wealth.",
+        whyItWorks: "Sound financial planning is about understanding the relationship between time and money. Whether you're saving for retirement or calculating a house payment, small changes today lead to massive results later. Our tools use the same math banks use, but simplified so you can make choices without a finance degree.",
         faq: [
-            { q: "What is the most critical variable in wealth compounding?", a: "While interest rates are important, 'Time' is technically the most explosive variable in the compounding formula. Starting even 5 years earlier can result in nearly double the final portfolio value due to jurisdictional time-weighting." },
-            { q: "How should I account for inflation in my 2026 projections?", a: "We recommend subtracting a standard 2-3% from your expected annual return to find your 'Real Return'. This accounts for the purchasing power erosion typical in modern economies." },
-            { q: "What is the difference between simple and compound interest?", a: "Simple interest is calculated only on the principal. Compound interest is calculated on the principal plus the accumulated interest of previous periods, creating a 'snowball' effect." },
-            { q: "How accurate are the tax-advantaged account projections?", a: "These estimates follow current 2026 IRS contribution limits and standard growth models. They do not account for state-specific tax nuances or future legislative shifts." },
-            { q: "Should I prioritize debt payoff or investing?", a: "A common expert rule of thumb is to pay off any debt with an interest rate higher than your expected investment return (usually anything above 7-8%), then prioritize investing the surplus." }
+            { q: "How much should I save for retirement?", a: "A common goal is to save 15% of your gross income. However, the exact amount depends on your current age, your desired lifestyle in retirement, and how many years you have until you plan to stop working." },
+            { q: "What is the rule of 72 in finance?", a: "The Rule of 72 is a quick way to estimate how long it will take to double your money. Divide 72 by your annual interest rate. For example, at 8% interest, your money doubles in about 9 years." },
+            { q: "Is a 7% return on investment good?", a: "Yes. Historically, the stock market (S&P 500) has returned about 7-10% annually after inflation. A 7% return is a solid, realistic benchmark for long-term wealth building." },
+            { q: "How do I calculate interest on savings?", a: "Use the formula: Principal x (1 + Rate)^Time. Or, just use our calculators to see the breakdown of your monthly growth and interest earned over time!" },
+            { q: "Should I pay off debt or invest?", a: "If your debt interest rate (like 20% on a credit card) is higher than your expected investment return (like 7%), always pay off the debt first. It's a guaranteed 'return' on your money." }
         ]
     },
     health: {
-        title: "Clinical Biometrics & Metabolic Analysis",
-        howToUse: "Input your precise physical biometrics: height, current weight, age, and biological sex. Select your activity level based on weekly metabolic output. Our engine applies high-precision clinical formulas (such as the Cunningham or Mifflin-St Jeor equations) to provide your baseline metabolic markers.",
-        whyItWorks: "Evidence-based health management requires moving beyond guesswork. By quantifying your Basal Metabolic Rate (BMR) or Body Mass Index (BMI), you establish a scientific baseline for nutritional and fitness planning. These formulas are the gold standard for clinical practitioners to estimate energy requirements and body composition risk factors.",
+        title: "Body Markers & Metabolism Analysis",
+        howToUse: "Enter your basic stats: height, weight, age, and activity level. Be honest about your activity—if you sit at a desk most of the day, choose 'Sedentary' for the most accurate result. Our engine uses the newest 2026 standards to see how your body is performing.",
+        whyItWorks: "Good health starts with good data. By calculating numbers like your BMR (calories burned at rest) or BMI, you get a scientific baseline. This helps you move past guessing at your diet and instead gives you a clear target based on your unique body type.",
         faq: [
-            { q: "Why do different calculators give different BMR results?", a: "Different formulas (Mifflin-St Jeor, Harris-Benedict, etc.) weigh variables like age and muscle mass differently. Our engine defaults to the Mifflin-St Jeor equation, which clinical studies suggest is the most accurate for modern populations." },
-            { q: "How does activity level (PAL) affect my daily calorie needs?", a: "The Physical Activity Level (PAL) multiplier accounts for the 'Thermal Effect of Activity'. Selecting 'Moderately Active' for someone who is sedentary can result in a 300-500 calorie discrepancy, leading to unintended weight fluctuations." },
-            { q: "Is BMI a diagnostic tool?", a: "BMI is a screening metric, not a diagnostic one. It does not distinguish between lean muscle and adipose tissue. Athletes with high muscle mass may be classified as 'overweight' despite having very low body fat percentages." },
-            { q: "What is 'Basal' vs 'Total' Metabolic Rate?", a: "BMR is the energy required for autonomic survival (organ function). TDEE (Total Daily Energy Expenditure) includes BMR plus the energy used for digestion and physical movement." },
-            { q: "How accurate are these for professional athletes?", a: "Athletes with extreme muscle mass or high-intensity training schedules may require specialized metabolic testing, as standard formulas often underestimate their caloric requirements." }
+            { q: "How many calories should I eat a day?", a: "The average adult needs about 2,000 to 2,500 calories to maintain weight, but your specific 'TDEE' depends on your age, height, weight, and how much you move. Use this calculator to find your exact personal target." },
+            { q: "What is my BMR?", a: "Your Basal Metabolic Rate (BMR) is the number of calories your body burns just to stay alive while at rest (breathing, heart beating, etc.). It's the absolute minimum your body needs to function." },
+            { q: "How many calories do I need to lose weight?", a: "To lose about 1lb a week, you generally need to eat 500 calories less than your daily maintenance level (TDEE). Most experts recommend avoiding any diet that drops below 1,200 calories without medical supervision." },
+            { q: "What is the difference between BMR and TDEE?", a: "BMR is your resting metabolism. TDEE (Total Daily Energy Expenditure) is your BMR plus all the calories you burn from walking, working, and exercising." },
+            { q: "Why do different calculators give me different results?", a: "We use the Mifflin-St Jeor formula, which is considered the 'gold standard' for accuracy in 2026. Other sites might use older formulas (like Harris-Benedict) which can sometimes overestimate calorie needs." }
         ]
     },
     math: {
         title: "Mathematical Foundations & Logic",
-        howToUse: "Enter your numeric expressions or variables into the input fields. Use standard decimal notation. For complex calculators (like geometry or statistics), ensure you are selecting the correct units of measure. Our calculation engine utilizes the 2026 Math Standard library for high-precision floating-point arithmetic.",
-        whyItWorks: "Mathematics is the universal language of architecture, engineering, and logic. From calculating the hypotenuse of a triangle to determining the standard deviation of a dataset, these tools apply immutable geometric and algebraic axioms. Using these tools reduces human error in calculation, ensuring that your theoretical models are backed by exact numeric results.",
+        howToUse: "Enter your numbers into the fields provided. Our engine handles everything from simple plus/minus to advanced calculus and geometry. We use high-precision 2026 standards to ensure your results are exact every time.",
+        whyItWorks: "Math is the 'rulebook' for physics, building, and logic. Whether you're measuring a triangle for a DIY project or finding the average of a huge data set, using a digital tool removes 'human error.' This gives you a verifiable answer you can trust for school or professional work.",
         faq: [
-            { q: "What level of precision do these calculators offer?", a: "Most calculators provide precision up to 10-12 decimal places, sufficient for most engineering and architectural applications, though highly sensitive scientific work should use dedicated symbolic software." },
-            { q: "Why use a calculator instead of mental shortcuts?", a: "While 'back-of-the-envelope' math is great for estimation, the risk of 'carrying the one' errors in multi-step operations is high. Digital calculation ensures consistency in every operation." },
-            { q: "How are geometric volumes calculated?", a: "We apply the standard integral-derived volume formulas (e.g., 4/3 * pi * r^3 for spheres). Users must simply provide the radius or dimensional constraints." },
-            { q: "Does the calculator follow Order of Operations (BODMAS/PEMDAS)?", a: "Yes, our engine strictly adheres to standard mathematical hierarchy: Brackets, Exponents, Multiplication/Division, and Addition/Subtraction." },
-            { q: "Can I use variables other than numbers?", a: "Most of our standard tools require numeric inputs. For symbolic algebraic solver tools, please refer to our Advanced Math category." }
+            { q: "How precise are these calculations?", a: "Our engine calculates to about 12 decimal places. For almost any real-world job—like building a house or doing your taxes—that is way more precision than you'll ever need." },
+            { q: "Why use this instead of just doing it in my head?", a: "Mental math is fine for small things, but 'carrying the one' errors are incredibly common in multi-step problems. A calculator ensures that your 10th step is just as accurate as your 1st." },
+            { q: "How do the geometry tools figure out shapes?", a: "We use standard mathematical constants (like Pi) and formulas that have been proven for thousands of years. You just provide the measurements; we handle the complex formulas." },
+            { q: "Does this follow the standard 'Order of Operations'?", a: "Yes. Our engine strictly follows PEMDAS/BODMAS rules (Parentheses, Exponents, Multiplication, Division, etc.), so the math is always 'legal'." },
+            { q: "Can I use this for my engineering homework?", a: "Yes! These tools are built to handle structural and statistical math that meets 2026 academic standards." }
         ]
     },
     'real-estate': {
-        title: "The Real Estate Acquisition Framework",
-        howToUse: "Input the property value, loan terms, and estimated closing costs. For investment analysis, include projected rental income and vacancy rates. Our engine applies professional real estate arithmetic, including PITI, Cap Rate, and Cash-on-Cash return models, to provide a 2026 snapshot of property performance.",
-        whyItWorks: "Real estate is a capital-intensive asset class where small margin errors can lead to massive financial liabilities. By quantifying the relationship between debt service, operating expenses, and yield, you can stripped away emotional bias from your home-buying or investment decisions. These calculations are the standard for professional underwriters and savvy property investors.",
+        title: "Real Estate & Mortgage Economics",
+        howToUse: "Enter your home's value, down payment, and expected interest rate. Our engine calculates your monthly 'PITI' (Principal, Interest, Taxes, and Insurance) to give you the most accurate 2026 home-buying budget.",
+        whyItWorks: "Buying property is the largest financial move most people ever make. By calculating the all-in monthly cost before you shop, you avoid the 'house-poor' trap where your mortgage eats too much of your monthly income.",
         faq: [
-            { q: "What is PITI and why does it matter?", a: "PITI stands for Principal, Interest, Taxes, and Insurance. It represents your true monthly housing cost. Ignoring taxes and insurance in your budget is a common error that leads to 'house-poor' financial strain." },
-            { q: "How much should I realistically budget for maintenance?", a: "A standard expert rule is the '1% Rule'—budget 1% of the property's value annually for maintenance and repairs. High-exposure or older properties may require 2-3%." },
-            { q: "Is a higher Cap Rate always better?", a: "Not necessarily. A high Cap Rate often reflects higher risk or lower property appreciation potential. Professional investors balance Cap Rate against 'Class' and location quality." },
-            { q: "How do interest rates impact my buying power?", a: "A 1% increase in mortgage rates typically reduces your buying power by approximately 10%. This inverse relationship is critical when planning a purchase in fluctuating rate environments." },
-            { q: "What are 'Mortgage Points'?", a: "Points are up-front fees paid to the lender to 'buy down' your interest rate. Use our Points Calculator to find the 'break-even' point where the monthly savings outweigh the initial cost." }
-        ]
-    },
-    science: {
-        title: "Empirical Analysis & Physical Laws",
-        howToUse: "Select your target scientific domain (Chemistry, Physics, or Engineering) and input your known constants and variables. Ensure your units (Metric vs. Imperial) are consistent across the calculation. Our calculators utilize verified physical constants (like Avogadro's number or the Speed of Light) updated for 2026 precision standards.",
-        whyItWorks: "Scientific progress relies on repeatable, accurate measurement. Whether you are balancing a chemical equation or calculating the force of an object in motion, moving from theoretical theory to numeric certainty is the key. These tools apply the underlying laws of thermodynamics, kinetics, and electromagnetics to provide instant, verified results for students and researchers.",
-        faq: [
-            { q: "What is the margin of error in these scientific tools?", a: "We utilize standard IEEE-754 double-precision arithmetic. While sufficient for most lab work and engineering, extreme theoretical physics requiring 50+ decimal places should use specialized symbolic computation." },
-            { q: "How are chemical yields calculated?", a: "We utilize stoichiometry based on molar mass and balanced equations. 'Percent Yield' accounts for the discrepancy between theoretical maximums and actual lab outcomes." },
-            { q: "Are the physical constants up to date?", a: "Yes, we utilize the latest CODATA recommended values for all fundamental physical constants." },
-            { q: "Can I convert between SI and US Customary units?", a: "Yes, all our science tools include integrated unit conversion logic to ensure cross-border compatibility." },
-            { q: "What is the difference between mass and weight in these tools?", a: "Mass is an intrinsic property (measured in kg), while weight is the force exerted by gravity (measured in Newtons). Our tools explicitly distinguish between the two based on the formula being applied." }
-        ]
-    },
-    automotive: {
-        title: "Automotive Engineering & Cost Analysis",
-        howToUse: "Input your vehicle's performance data, fuel costs, or loan terms. For performance tools (like HP or Compression), ensure your engine specs are accurate to the manufacturer's data. Our tools provide professional-grade estimates for both casual owners and automotive tuning enthusiasts.",
-        whyItWorks: "Vehicles are complex mechanical systems where physics and finance intersect. From calculating the aerodynamic drag on a trip to the long-term depreciation of a luxury asset, data-driven ownership saves money and improves performance. These formulas are used by engineers to optimize engine output and by savvy consumers to minimize TCO (Total Cost of Ownership).",
-        faq: [
-            { q: "How is 'True Cost of Ownership' calculated?", a: "TCO includes fuel, insurance, maintenance, repairs, and—most importantly—depreciation. For new cars, depreciation is often 50% of the cost over the first 5 years." },
-            { q: "What impacts fuel efficiency the most?", a: "While engine type matters, driver behavior (speed and acceleration) and tire pressure are the most significant variables users can control to improve MPG." },
-            { q: "How accurate are performance estimates like 0-60 or HP?", a: "These are mathematical models. Real-world variables like tire grip, air density (altitude), and reaction time will cause minor deviations from theoretical maximums." },
-            { q: "Why should I track my vehicle's depreciation?", a: "Understanding your 'equity' in a vehicle is critical for deciding when to sell or trade-in. Negative equity (owing more than the car is worth) is a common financial trap." },
-            { q: "What is the 'Rule of Thumb' for car maintenance?", a: "Budgeting 5-10 cents per mile driven for maintenance and repairs is a standard practice for managing long-term vehicle health." }
-        ]
-    },
-    construction: {
-        title: "Construction & Engineering Metrics",
-        howToUse: "Enter the dimensions of your project area—length, width, and depth/height. Specify your material types where applicable. The calculator will determine the volume or quantity required, usually adding a standard waste factor.",
-        whyItWorks: "Accurate material estimation prevents waste and ensures structural integrity. By applying geometric volume formulas to construction materials like concrete, lumber, or gravel, you can project costs and requirements with contractor-level precision.",
-        faq: [
-            { q: "Should I add extra for waste?", a: "Yes, most calculators provide the exact mathematical requirement. We recommend adding 5-10% for cuts and transit waste." },
-            { q: "Are these calculations suitable for structural permit applications?", a: "These tools are for estimation. Final structural plans should be verified by a licensed engineer or architect." }
-        ]
-    },
-    insurance: {
-        title: "Risk Management & Insurance Logic",
-        howToUse: "Provide details about your assets, liability requirements, and coverage goals. The engine calculates estimated premiums or coverage gaps based on general actuarial principles.",
-        whyItWorks: "Insurance math is centered around risk mitigation. By calculating the potential cost of losses versus the cost of coverage, you can identify 'optimal risk' for your specific situation. These tools help translate complex policy math into understandable figures.",
-        faq: [
-            { q: "Does this provide official quotes?", a: "No, these are estimates based on generalized models. Official quotes require individual underwriting from a provider." },
-            { q: "What is a deductible?", a: "The amount you pay out-of-pocket before your insurance coverage begins for a specific claim." }
+            { q: "What credit score do I need for a mortgage?", a: "Minimum scores by loan type in 2026: FHA loan: 580 (3.5% down) or 500 (10% down); Conventional loan: 620 minimum; VA loan: 620 recommended (veterans only); Jumbo loan: 700-720 minimum. The difference between a 620 and 760 score on a $300,000 mortgage saves you roughly $200 per month." },
+            { q: "How much down payment do I need to buy a house?", a: "Minimum down payments in 2026 range from 0% (VA/USDA) to 3% (Conventional) or 3.5% (FHA). Putting less than 20% down typically adds Private Mortgage Insurance (PMI) costing $100-$300 extra per month." },
+            { q: "What is the monthly payment on a $400,000 mortgage?", a: "At current 2026 rates around 7%, a 30-year fixed payment is roughly $2,661 per month for principal and interest. Total costs including taxes and insurance are usually closer to $3,200." },
+            { q: "What is a good mortgage rate right now?", a: "In 2026, rates between 6.5% and 7% are considered standard for excellent credit. Always compare the APR, which includes both the interest rate and lender fees, to see your true cost." },
+            { q: "How much house can I afford?", a: "A common bank rule is the 28/36 rule: housing costs should stay under 28% of your gross income, and total debt under 36%. Our affordability calculator helps you find your specific safe buying zone." }
         ]
     },
     science: {
         title: "Scientific Principles & Unit Conversions",
-        howToUse: "Select your input units and provide your measurements. Use the scientific notation toggles for very large or small numbers. The tool converts using standard international constants.",
-        whyItWorks: "Science relies on standardized units and repeatable measurement. Our tools use the latest SI (International System of Units) conversion factors and physical constants (like the speed of light or Avogadro's number) to provide peer-review quality calculations.",
+        howToUse: "Select your input units and provide your measurements. Use the scientific notation toggles for very large or small numbers. The tool converts using standard international constants for 2026 laboratory accuracy.",
+        whyItWorks: "Science is about precision. Whether you're a student balancing a chemical equation or a professional engineer checking the force of a moving object, using a dedicated calculator stops small rounding errors from ruining your work. We use the same constants and formulas used in modern research labs.",
         faq: [
-            { q: "What is Scientific Notation?", a: "A way of expressing numbers that are too large or too small to be conveniently written in decimal form (e.g., 6.022 x 10^23)." },
-            { q: "Are the physical constants up to date?", a: "Yes, we utilize standard consensus values for all fundamental physical and chemical constants." }
-        ]
-    },
-    everyday: {
-        title: "Utility & Lifestyle Optimization",
-        howToUse: "Input the specific data points requested, such as times, dates, or supermarket prices. Our algorithms simplify these common tasks into clear, actionable results.",
-        whyItWorks: "Daily life is full of small mathematical decisions. From comparing unit prices at the grocery store to managing time across zones, efficiency tools help reduce cognitive load and save time and money through basic algebraic optimization.",
-        faq: [
-            { q: "How do I calculate Unit Price?", a: "Divide the total price of the item by the total weight, volume, or count to find the cost per single unit." },
-            { q: "Is time conversion accurate for DST?", a: "Our tools use standard UTC offsets. Always double-check results for specific regions during Daylight Saving transitions." }
+            { q: "How accurate is the 'Scientific Notation'?", a: "Extremely. We follow the 2026 IEEE standards for math, which means we can handle incredibly tiny (like the weight of an atom) or massive numbers (like distances between stars) without losing precision." },
+            { q: "Can I use this for my school projects?", a: "Yes. Our formulas are the exact same ones found in standard chemistry and physics textbooks. We've just made them faster and more precise for modern engineering and research." },
+            { q: "What is the difference between 'Mass' and 'Weight'?", a: "In everyday life, we use them the same way, but in science, they're different. 'Mass' is how much stuff is in you (kilograms), and 'Weight' is how hard gravity is pulling on you (Newtons)." },
+            { q: "Do the unit converters handle both Metric and US units?", a: "Yes! You can instantly switch between feet and meters, or pounds and grams, ensuring your projects work across the world." },
+            { q: "Are the physical constants (like the Speed of Light) correct?", a: "Yes, we use the most recent 2026 'CODATA' measurements for all scientific and physical constants used in the engine." }
         ]
     },
     automotive: {
         title: "Automotive Engineering & Performance",
         howToUse: "Enter your vehicle's technical data—distance, fuel consumption, tire size, or engine specs. The calculator applies mechanical engineering principles to estimate performance and efficiency.",
-        whyItWorks: "Vehicle ownership involves complex trade-offs between speed, cost, and safety. By calculating metrics like MPG, torque, or tire diameter changes, you can better maintain your vehicle and optimize your driving experience using physics-based modeling.",
+        whyItWorks: "Cars are expensive machines where physics and finance intersect. From calculating how much 'real' power your engine makes to realizing how much your commute is actually costing you per mile, data helps you be a smarter owner and a better driver.",
         faq: [
-            { q: "How exact are fuel cost estimates?", a: "Estimates are based on average fuel prices and reported efficiency. Individual driving habits and terrain can cause significant variations." },
-            { q: "Why does tire size affect my speedometer?", a: "A larger or smaller tire circumference changes how many rotations occur per mile. If your speedometer isn't calibrated to the new size, it will show an incorrect speed." }
+            { q: "What is the 'True Cost' of owning a car?", a: "It's not just your car payment. It includes gas, insurance, maintenance, and—the big one—depreciation. For many new cars, the loss in value is actually more expensive than the gas you buy." },
+            { q: "How can I actually improve my gas mileage?", a: "The biggest factors you can control are your speed and your tire pressure. Driving 5-10 mph slower and keeping your tires properly inflated can save you hundreds of dollars a year in fuel." },
+            { q: "How accurate are the 'Horsepower' estimates?", a: "They are based on standard automotive physics. While a real 'dyno' is the gold standard, our formulas give you a very accurate ballpark figure based on your torque and RPM." },
+            { q: "Why should I care about 'Depreciation'?", a: "Because it's money leaving your pocket every month. Knowing how fast your car loses value helps you decide the perfect time to sell before the value drops through the floor." },
+            { q: "How much should I set aside for car maintenance?", a: "A safe bet is to save roughly 10 cents for every mile you drive. If you drive 10,000 miles a year, having $1,000 set aside will cover most tires, brakes, and oil changes." }
+        ]
+    },
+    construction: {
+        title: "DIY & Contractor Material Estimates",
+        howToUse: "Enter the size of your project—length, width, and depth. Select your material (like concrete, wood, or mulch). We'll tell you exactly how much to buy so you don't overspend or run out in the middle of a job.",
+        whyItWorks: "Construction projects always run into 'waste'—boards get cut wrong or concrete gets spilled. Our tools calculate the 'theoretical' amount you need and then suggest a standard 10% safety buffer, which is exactly how professional contractors bid on jobs.",
+        faq: [
+            { q: "How much 'waste' is normal in a project?", a: "Professionals usually add 10% extra. If you have a lot of weird angles or a very complex shape, you might want to bump that up to 15% to be safe." },
+            { q: "Can a calculator replace my contractor's estimate?", a: "This is a perfect starting point for your budget, but always have your actual builder verify the final numbers before you buy $10,000 worth of lumber." },
+            { q: "Do these tools handle both yards and feet?", a: "Yes. We automatically convert everything so you can measure in feet but buy your concrete in cubic yards, just like the delivery trucks expect." },
+            { q: "How do I calculate for circular patios or odd shapes?", a: "A great pro tip is to 'break it into squares.' Calculate each small square and add them together. We also have dedicated tools for circles and triangles!" }
+        ]
+    },
+    insurance: {
+        title: "Insurance Estimates & Risk Analysis",
+        howToUse: "Tell us about what you're insuring (like your home, car, or life). We'll help you see how different coverage levels and deductibles change your monthly bill and your 'true' financial risk.",
+        whyItWorks: "Insurance is basically a bet against 'what if.' Our tools help you see the math behind that bet. By looking at your deductible vs. your monthly payment, you can decide if it's smarter to pay a little more now or a lot more later if something goes wrong.",
+        faq: [
+            { q: "What is a 'Deductible' exactly?", a: "It's the amount of money you have to pay yourself before the insurance company pays a dime. If you have a $1,000 deductible and a $3,000 repair, you pay $1,000 and they pay $2,000." },
+            { q: "Is a high deductible always a bad thing?", a: "Not necessarily. Higher deductibles usually mean lower monthly payments. If you have an emergency fund saved up, a higher deductible can save you thousands of dollars over a few years." },
+            { q: "Does this give me a real insurance quote?", a: "No. Only a licensed insurance agent can give you a binding quote. These tools help you understand the *math* they use so you can shop around with confidence." },
+            { q: "How much life insurance do I actually need?", a: "A common expert tip is '10 times your annual salary.' This ensures your family is taken care of if you're no longer there to provide for them." }
+        ]
+    },
+    everyday: {
+        title: "Smart Life & Savings Tools",
+        howToUse: "Input your everyday numbers—like prices at the grocery store, time zone differences, or sales tax. We turn those quick questions into instant answers that save you time and money.",
+        whyItWorks: "Success in life is often about small efficiencies. Being able to instantly see which cereal box is *actually* cheaper (unit price) or knowing exactly how much you're tip should be helps you keep your budget on track without the stress of doing head-math.",
+        faq: [
+            { q: "How do I know which grocery item is the better deal?", a: "Look at the 'Unit Price.' If a 10oz bag is $5 ($0.50/oz) and a 16oz bag is $7 ($0.43/oz), the 16oz bag is the better deal. Our tools do this math for you in seconds." },
+            { q: "What's the best way to calculate a tip?", a: "A quick pro tip is to move the decimal point over one spot to the left (that's 10%) and then double it (that's 20%). Our tip calculator handles the tax and split-bills perfectly too!" },
+            { q: "Are these tools accurate for 2026 sales tax?", a: "Our tools use the standard percentage you provide. Since tax rates change by city and state, always check your local rate first!" }
         ]
     },
     personal: {
@@ -142,15 +142,6 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "Should I include dormers in my calculations?", a: "Yes, add the surface area of dormers separately or ensure they are accounted for in your total square footage inputs." }
         ]
     },
-    "real-estate": {
-        title: "Real Estate & Mortgage Economics",
-        howToUse: "Enter the property value, down payment, interest rate, and loan term. Adjust the taxes and insurance fields to find your total monthly PITI (Principal, Interest, Taxes, and Insurance) payment.",
-        whyItWorks: "Property investment is built on amortization and equity growth. Understanding how interest compounds over 15 or 30 years allows you to see the real cost of debt and the pace of wealth creation through homeownership.",
-        faq: [
-            { q: "What is amortization?", a: "The process of paying off a debt over time through regular installments. A portion of each payment goes toward the principal and another to interest." },
-            { q: "Is PMI included in calculations?", a: "Most calculators allow you to add Private Mortgage Insurance (PMI) if your down payment is below 20%." }
-        ]
-    },
     hydraulics: {
         title: "Fluid Dynamics & Hydraulics",
         howToUse: "Provide pipe dimensions, flow rates, and pressure data. Our hydraulics engine applies physics laws to calculate volumes, pressures, and flow speeds for liquids.",
@@ -158,6 +149,44 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         faq: [
             { q: "How is tank volume calculated?", a: "Volume is determined by the geometric shape (cylindrical, rectangular, etc.) and its vertical or horizontal orientation." },
             { q: "What does GPM mean?", a: "Gallons Per Minute—a standard measure of flow rate in plumbing and industrial systems." }
+        ]
+    },
+    bmi: {
+        title: "The Health Snapshot: BMI Math",
+        howToUse: "Enter your height and weight. For the best accuracy in 2026, we suggest using the 'Adult' version for anyone over 20. If you are extremely athletic, remember that BMI doesn't see your muscle mass, only your total weight.",
+        whyItWorks: "BMI (Body Mass Index) is a standardized way for health professionals to see if a person's weight is in a healthy range for their height. It's a key screening tool used globally because it's simple, non-invasive, and provides a clear baseline for further health discussions.",
+        faq: [
+            { q: "What is my BMI?", a: "Your Body Mass Index (BMI) is a numeric value of your weight in relation to your height. It's used as a quick indicator to see if your body weight is healthy, underweight, or overweight." },
+            { q: "What is a healthy BMI for my age?", a: "For most adults, the ideal BMI is between 18.5 and 24.9. As people age, especially over 65, studies suggest a slightly higher range (up to 27) might be healthier for overall longevity." },
+            { q: "How do I calculate my BMI?", a: "To calculate it yourself, divide your weight in kilograms by your height in meters squared. Or, just enter your height and weight into our calculator and we'll do the math for you!" },
+            { q: "Is BMI accurate for everyone?", a: "BMI is a reliable 'snapshot' for most people, but it can be misleading for athletes with high muscle mass or elderly people who have lost muscle. It measures weight, not actual body fat percentage." },
+            { q: "What is the BMI formula for women?", a: "The formula is the same for men and women: Weight / Height². While the math is identical, women generally have slightly more body fat than men at the same BMI level." }
+        ]
+    },
+    mortgage: {
+        title: "Mortgage Math & Home Finance",
+        howToUse: "Enter the home price, your down payment, the interest rate, and the loan term (usually 15 or 30 years). Don't forget to add your annual property taxes and insurance to see your true monthly bank draft.",
+        whyItWorks: "A mortgage is a 'declining balance' loan. Every month, part of your payment covers the interest, and the rest goes toward the house (the principal). Our engine uses standard amortization math to show you exactly how much you're paying in total over the life of the loan.",
+        faq: [
+            { q: "What credit score do I need for a mortgage?", a: "In 2026, minimum scores vary by loan type: FHA loans typically require 580 (for 3.5% down), while Conventional loans usually start at 620. VA loans (for veterans) often recommend a 620 minimum. Improving your score from 620 to 760 can save you roughly $200 per month on a $300k mortgage." },
+            { q: "How much down payment do I need to buy a house?", a: "Minimum options in 2026 include 3% for First-Time Buyer Conventional loans, 3.5% for FHA, and 0% for VA (military) or USDA (rural) loans. Putting less than 20% down usually adds PMI insurance, costing $100-$300 extra per month." },
+            { q: "What is the monthly payment on a $400,000 mortgage?", a: "At 2026 rates around 7%, a 30-year fixed principal and interest payment is approximately $2,661. After adding estimated property taxes ($400) and insurance ($150), your total estimated monthly payment would be roughly $3,211." },
+            { q: "What is the monthly payment on a $500,000 mortgage?", a: "For a $500k loan at 7% interest, the 30-year fixed payment is $3,327 for principal/interest. Including average 2026 taxes and insurance, your total monthly bank draft will be approximately $3,877 to $4,894 depending on your local tax rate." },
+            { q: "Is it better to get a 15 or 30 year mortgage?", a: "A 30-year mortgage offers lower monthly payments and more flexibility. A 15-year mortgage has a higher payment but saves you massive amounts in interest—often over $230,000 on a $300k home—and allows you to be debt-free in half the time." },
+            { q: "What happens if I pay an extra $200 a month on my mortgage?", a: "On a $300,000 mortgage at 7%, adding $200 extra per month allows you to pay off the loan 5 years and 8 months early, saving you roughly $63,000 in total interest. Even $100 extra per month can shave 3 years off your term." },
+            { q: "Should I refinance my mortgage in 2026?", a: "Refinancing makes sense if current rates are at least 1% lower than your current rate, or if your credit score has improved enough to secure a better deal. A good rule is to calculate your 'break-even' point: divide your closing costs by your monthly savings to see how many months it takes to profit." }
+        ]
+    },
+    'auto-loan': {
+        title: "Auto Loan & Car Finance Analytics",
+        howToUse: "Enter the car price, any trade-in value, and the interest rate. We recommend checking 48, 60, and 72-month terms to see how much extra interest you pay for the 'smaller' monthly payment.",
+        whyItWorks: "Car loans compound interest differently than mortgages. By calculating your monthly payment across different terms, you can see the 'total cost to own.' A lower monthly payment on a 7-year loan often costs you thousands more than a slightly higher payment on a 5-year loan.",
+        faq: [
+            { q: "What is my car payment on a $30k loan?", a: "For a $30,000 loan at 6% interest for 60 months (5 years), your monthly payment would be about $580. Over the life of the loan, you'll pay about $4,800 in total interest." },
+            { q: "How much car can I afford?", a: "A good rule of thumb is the 20/4/10 rule: put down 20%, finance for no more than 4 years, and keep your total car costs (payment + insurance) under 10% of your gross income." },
+            { q: "What is a good car loan interest rate?", a: "For buyers with excellent credit, 4-6% is considered a strong rate in 2026. If you're being quoted over 10%, it's worth shopping around or working on your credit for a few months." },
+            { q: "How do I calculate auto loan payments?", a: "Auto loans use a simple interest formula but are amortized. The formula is M = P [ r(1 + r)^n ] / [ (1 + r)^n – 1 ], where r is your monthly interest rate." },
+            { q: "Is a 72-month car loan a bad idea?", a: "While it lowers your monthly payment, a 72-month (6-year) loan often keeps you 'upside down' (owing more than the car is worth) for years and significantly increases the total interest you pay." }
         ]
     },
     masonry: {
@@ -883,11 +912,11 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
 };
 
 export const DEFAULT_EDUCATION: CategoryEducation = {
-    title: "Educational Documentation",
-    howToUse: "Follow the on-screen prompts to input your data. Our interactive engine translates your unique inputs into verified mathematical or logical results in real-time.",
-    whyItWorks: "This tool is built on established logic and mathematical principles designed to simplify complex data processing. By standardizing inputs and applying specific formulas, we ensure consistent and reliable outcomes for every user.",
+    title: "Expert Insight & Methodology",
+    howToUse: "Follow the on-screen prompts to input your specific data. Our interactive engine translates your unique inputs into verified mathematical results using 2026 industry-standard algorithms in real-time.",
+    whyItWorks: "Every calculation here is built on established logic and mathematical principles designed to remove human error from complex data processing. By standardizing inputs and applying verified formulas, we ensure consistent and reliable outcomes for every scenario.",
     faq: [
-        { q: "Is my data stored?", a: "No, all calculations are performed in your browser or through ephemeral API calls. We do not store your personal inputs." },
-        { q: "Are the formulas verified?", a: "Yes, our team cross-references every tool against industry standards to ensure high-grade accuracy." }
+        { q: "Is my data stored or private?", a: "Your privacy is our priority. All calculations are performed instantly in your browser or through ephemeral API calls. we never store or track your personal financial or health inputs." },
+        { q: "How accurate are these calculators?", a: "Extremely. Our team cross-references every tool against current 2026 industry benchmarks and scientific standards to ensure high-grade precision for professional or personal use." }
     ]
 };

@@ -205,22 +205,31 @@ async function startDevServer() {
         }
       });
 
-      const prompt = `Generate an authoritative, expert-level guide for the "${name}" calculator. 
+      const prompt = `Generate an authoritative, yet easy-to-understand expert guide for the "${name}" calculator. 
       The description of this tool is: "${description || ''}".
 
       You MUST provide a response as a JSON object with:
-      1. "howAndWhy": A comprehensive narrative section (400-600 words) titled "The Expert Guide to ${name}". 
+      1. "howAndWhy": A detailed educational section (approx 600-800 words).
          This section should be formatted in Markdown and MUST include:
-         - "Practical Applications": Describe 2-3 real-world scenarios where this calculator is essential.
-         - "The Underlying Logic": Briefly explain the core variables and how they mathematically interact (avoid deep jargon, but explain the 'levers').
-         - "Pro Tips & Edge Cases": Provide advanced advice that a professional (e.g., a CPA, doctor, or engineer) would give.
-         - "Common Mistakes to Avoid": List 3-4 typical errors people make when interpreting these figures.
-      2. "faq": An array of 6-8 deep-dive Frequently Asked Questions. Avoid generic questions like "Is it free?". Instead, focus on nuanced queries like "How does [Variable X] impact the outcome in high-inflation environments?" or "When should I choose [Method A] over [Method B]?".
+         - "Why This Matters": Explain why someone would need this in plain, everyday language.
+         - "Practical Applications": Describe 2-3 real-world scenarios.
+         - "The Math Simplified": Explain the logic using analogies. AVOID academic jargon.
+         - "Pro Tips for 2026": Provide advanced advice in simple terms.
+         - "Common Mistakes": List typical errors people make.
+      2. "faq": An array of 6-8 Frequently Asked Questions.
+         CRITICAL: These MUST be phrased exactly how people type them into Google.
+         Examples of high-intent phrases to prioritize:
+         - "How much will $X grow..."
+         - "How do I calculate..."
+         - "What is the formula for..."
+         - "How long does it take to..."
+         - "Is it worth it to..."
+         AVOID passive or academic phrasing like "Regarding the methodology of...". Use direct, first-person queries.
 
       CRITICAL REQUIREMENTS:
-      - Use professional, authoritative, but accessible language.
+      - Use human-first language. NEVER use terms like "jurisdictional time-weighting" or "amortization schedule" unless followed by a plain-English explanation.
       - Use Markdown for hierarchy (h3, h4, bolding, bullet points).
-      - Maintain a word count of 700-1000 words for the entire response.
+      - Maintain a word count of 700-1000 words.
       - DO NOT use any LaTeX notation. Use plain text for formulas.`;
 
       const result = await model.generateContent(prompt);
@@ -468,6 +477,24 @@ async function startDevServer() {
             "priceCurrency": "USD"
           }
         };
+
+        // Add FAQ Schema if we have educational content
+        if (edu.faq && edu.faq.length > 0) {
+          const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": edu.faq.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f.a
+              }
+            }))
+          };
+          const faqSchemaScript = `\n  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`;
+          html = html.replace('</head>', `${faqSchemaScript}\n  </head>`);
+        }
       } else if (category) {
         schemaData = {
           "@context": "https://schema.org",

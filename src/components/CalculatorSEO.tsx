@@ -25,10 +25,11 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
     const [error, setError] = useState<string | null>(null);
 
     // Find the category for fallback
+    const pathSlug = path.startsWith('/') ? path.slice(1).replace(/\/$/, '') : path.replace(/\/$/, '');
     const category = CATEGORIES.find(cat => 
         cat.items.some(item => item.path === path || item.path === (path === '/' ? '/' : path.replace(/\/$/, '')))
     );
-    const fallback = category ? CATEGORY_EDUCATION[category.slug] : DEFAULT_EDUCATION;
+    const fallback = CATEGORY_EDUCATION[pathSlug] || (category ? CATEGORY_EDUCATION[category.slug] : DEFAULT_EDUCATION);
 
     useEffect(() => {
         const cached = localStorage.getItem(CACHE_KEY(path));
