@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 
-import { Calculator as CalcIcon, Stethoscope, Activity, Pill, User, Users, ShieldCheck } from 'lucide-react';
+import { Calculator as CalcIcon, Stethoscope, Activity, Pill, User, Users, ShieldCheck, Settings2, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export const HealthInsuranceCalculator: React.FC = () => {
   const [zipCode, setZipCode] = useState<string>('');

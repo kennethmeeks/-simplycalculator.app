@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
 import { motion } from 'motion/react';
 
-import { Calculator as CalcIcon, Info, ShieldCheck, Heart, Home, GraduationCap, AlertCircle } from 'lucide-react';
+import { Calculator as CalcIcon, Info, ShieldCheck, Heart, Home, GraduationCap, AlertCircle, User, ChevronRight } from 'lucide-react';
 
 export const LifeInsuranceCalculator: React.FC = () => {
   const [age, setAge] = useState<number>(35);

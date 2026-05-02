@@ -38,7 +38,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/car-depreciation': [
     { id: 'price', label: 'Purchase Price', type: 'number', unit: '$' },
     { id: 'age', label: 'Car Age', type: 'number', unit: 'years' },
-    { id: 'condition', label: 'Condition', type: 'select', options: [{label: 'Excellent', value: 'exc'}, {label: 'Good', value: 'good'}, {label: 'Fair', value: 'fair'}]}
+    { id: 'condition', label: 'Vehicle Condition', type: 'select', options: [{label: 'Excellent', value: 'exc'}, {label: 'Good', value: 'good'}, {label: 'Fair', value: 'fair'}]}
   ],
   '/age': [
     { id: 'birthDate', label: 'Birth Date', type: 'date' }
@@ -160,7 +160,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'liabilities', label: 'Current Liabilities', type: 'number', unit: '$' }
   ],
   '/batting-average': [
-    { id: 'hits', label: 'Hits', type: 'number' },
+    { id: 'hits', label: 'Total Base Hits', type: 'number' },
     { id: 'atBats', label: 'At Bats', type: 'number' }
   ],
   '/era': [
@@ -173,7 +173,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   ],
   '/bench-press-1rm': [
     { id: 'weight', label: 'Lifted Weight', type: 'number' },
-    { id: 'reps', label: 'Reps', type: 'number' }
+    { id: 'reps', label: 'Repetitions (Reps)', type: 'number' }
   ],
   '/bike-gear': [
     { id: 'chainring', label: 'Chainring Teeth', type: 'number' },
@@ -185,7 +185,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'balls', label: 'Balls Faced', type: 'number' }
   ],
   '/steps-to-calories': [
-    { id: 'steps', label: 'Steps', type: 'number' },
+    { id: 'steps', label: 'Total Daily Steps', type: 'number' },
     { id: 'weight', label: 'Person Weight', type: 'number' }
   ],
   '/tip': [
@@ -207,7 +207,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },
     { id: 'rate', label: 'Annual Interest Rate', type: 'number', unit: '%' },
     { id: 'time', label: 'Loan Duration', type: 'number' },
-    { id: 'timeUnit', label: 'Unit', type: 'select', options: [{label: 'Years', value: 'years'}, {label: 'Months', value: 'months'}, {label: 'Days', value: 'days'}], defaultValue: 'years' }
+    { id: 'timeUnit', label: 'Duration Unit', type: 'select', options: [{label: 'Years', value: 'years'}, {label: 'Months', value: 'months'}, {label: 'Days', value: 'days'}], defaultValue: 'years' }
   ],
   '/math/percent-error': [
     { id: 'experimental', label: 'Experimental Value (Measured)', type: 'number' },
@@ -361,8 +361,8 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/army-body-fat': [
     { id: 'gender', label: 'Gender', type: 'select', options: [{label: 'Male', value: 'male'}, {label: 'Female', value: 'female'}]},
     { id: 'height', label: 'Body Height', type: 'number', unit: 'inches' },
-    { id: 'neck', label: 'Neck', type: 'number', unit: 'inches' },
-    { id: 'waist', label: 'Waist', type: 'number', unit: 'inches' },
+    { id: 'neck', label: 'Neck Circumference', type: 'number', unit: 'inches' },
+    { id: 'waist', label: 'Waist Circumference', type: 'number', unit: 'inches' },
     { id: 'hips', label: 'Hips (Female Only)', type: 'number', unit: 'inches' }
   ],
   '/unit-converter': [
@@ -571,7 +571,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   ],
   '/diabetes-risk': [
     { id: 'age', label: 'Current Age', type: 'number' },
-    { id: 'bmi', label: 'BMI', type: 'number' }
+    { id: 'bmi', label: 'Current Known BMI', type: 'number' }
   ],
   '/insulin-dosage': [
     { id: 'carbs', label: 'Total Carbs', type: 'number', unit: 'g' },
@@ -647,7 +647,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'm2', label: 'Adjustment Minutes', type: 'number' }
   ],
   '/grout': [
-    { id: 'area', label: 'Area', type: 'number', unit: 'sq ft' },
+    { id: 'area', label: 'Total Surface Area', type: 'number', unit: 'sq ft' },
     { id: 'tileW', label: 'Tile Width', type: 'number', unit: 'in' },
     { id: 'tileL', label: 'Tile Length', type: 'number', unit: 'in' },
     { id: 'jointW', label: 'Joint Width', type: 'number', unit: 'in' }
@@ -863,7 +863,7 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   '/compound-growth': [
     { id: 'principal', label: 'Principal Amount', type: 'number', unit: '$' },
     { id: 'rate', label: 'Annual Growth Rate', type: 'number', unit: '%' },
-    { id: 'years', label: 'Years', type: 'number' }
+    { id: 'years', label: 'Calculation Period (Years)', type: 'number' }
   ],
   '/health-insurance': [
     { id: 'zipCode', label: 'Zip Code', type: 'text', placeholder: 'e.g. 90210', description: 'Used to determine regional benchmark rates.' },

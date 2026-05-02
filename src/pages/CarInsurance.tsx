@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { Car, User, Shield, AlertTriangle } from 'lucide-react';
+import { Car, User, Shield, AlertTriangle, ChevronRight } from 'lucide-react';
 import { CalculatorSEO } from '../components/CalculatorSEO';
 import { ResultActions } from '../components/ResultActions';
 
 export const CarInsuranceCalculator: React.FC = () => {
+  const [zipCode, setZipCode] = useState<string>('');
   const [age, setAge] = useState<number>(30);
   const [gender, setGender] = useState<'male' | 'female'>('male');
   const [location, setLocation] = useState<'urban' | 'suburban' | 'rural'>('suburban');
@@ -47,7 +48,7 @@ export const CarInsuranceCalculator: React.FC = () => {
 
     setEstimatedPremium(base);
     setMonthlyPayment(base / 12);
-  }, [age, gender, location, vehicleValue, annualMileage, drivingRecord, coverageLevel]);
+  }, [age, gender, location, vehicleValue, annualMileage, drivingRecord, coverageLevel, zipCode]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -91,10 +92,9 @@ export const CarInsuranceCalculator: React.FC = () => {
                 <input
                   type="text"
                   placeholder="e.g. 90210"
+                  value={zipCode}
+                  onChange={(e) => setZipCode(e.target.value.replace(/\D/g, '').slice(0, 5))}
                   className="input-field"
-                  onChange={(e) => {
-                    // Just visual for now to feel "industry standard"
-                  }}
                 />
               </div>
 
@@ -209,6 +209,10 @@ export const CarInsuranceCalculator: React.FC = () => {
                 dark
               />
             </div>
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-200 transition-all active:scale-95 flex items-center justify-center gap-2 group mt-6">
+              Get 2026 Insurance Quotes
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </motion.div>
 
           <div className="calculator-container bg-amber-50 border-amber-200 p-4">
