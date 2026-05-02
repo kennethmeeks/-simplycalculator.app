@@ -25,7 +25,7 @@ export const FlooringCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Flooring Calculator | Estimate Material and Cost for Your Floor</title>
+        <title>Flooring Calculator [Instant Results]</title>
         <meta name="description" content="Free online flooring calculator. Estimate how much hardwood, laminate, or tile flooring you need based on room dimensions and waste factor in 2026." />
       </Helmet>
 

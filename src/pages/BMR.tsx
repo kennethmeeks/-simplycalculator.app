@@ -94,7 +94,7 @@ export const BMRCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>BMR Calculator | Calculate Your Basal Metabolic Rate | simplycalculator.app</title>
+        <title>BMR Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online BMR calculator using the Mifflin-St Jeor equation. Find out how many calories your body burns at rest in 2026." />
       </Helmet>
 

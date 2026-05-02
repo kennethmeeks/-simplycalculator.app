@@ -88,7 +88,7 @@ export const HealthInsuranceCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       <Helmet>
-        <title>Health Insurance Quote & Cost Calculator 2026 | Subsidies & Premiums</title>
+        <title>Health Insurance Calculator [Instant Results]</title>
         <meta name="description" content="Get a realistic health insurance estimate for 2026. Input your Zip Code, Income, and Age to see potential premiums and government subsidies." />
       </Helmet>
 

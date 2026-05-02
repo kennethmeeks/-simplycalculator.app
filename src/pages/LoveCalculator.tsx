@@ -21,7 +21,7 @@ export const LoveCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Love Calculator | Calculate Compatibility Between Two Names 2026</title>
+        <title>Love Calculator [Instant Results]</title>
         <meta name="description" content="Free online love calculator for 2026. Quickly calculate compatibility between two names with instant results." />
       </Helmet>
 

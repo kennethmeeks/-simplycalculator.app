@@ -63,7 +63,7 @@ export const BRRRRCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Advanced BRRRR Calculator | Real Estate Investing Strategy & ROI | simplycalculator.app</title>
+        <title>BRRRR Strategy Calculator [100% Private]</title>
         <meta name="description" content="Analyze your BRRRR real estate deals with our advanced calculator. Calculate cash-out amounts, equity created, and cash flow for 2026 investors." />
       </Helmet>
 

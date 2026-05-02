@@ -42,7 +42,7 @@ export const Zodiac: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Zodiac/Star Sign Calculator | Find Your Zodiac Sign 2026</title>
+        <title>Zodiac Sign Calculator [Instant Results]</title>
         <meta name="description" content="Free online zodiac/star sign calculator for 2026. Quickly find your zodiac sign from your birth date with instant results." />
       </Helmet>
 

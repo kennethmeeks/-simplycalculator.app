@@ -23,7 +23,7 @@ export const ScientificNotation: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Scientific Notation Calculator | Convert to Standard Form 2026</title>
+        <title>Scientific Notation Calculator [100% Private]</title>
         <meta name="description" content="Free online scientific notation calculator for 2026. Easily convert between scientific notation and standard form with instant results." />
       </Helmet>
 

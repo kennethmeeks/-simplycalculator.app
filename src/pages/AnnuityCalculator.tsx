@@ -35,7 +35,7 @@ export const AnnuityCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Annuity Calculator | Estimate Future Value 2026 | simplycalculator.app</title>
+        <title>Annuity Calculator [100% Private]</title>
         <meta name="description" content="Free online annuity calculator. Estimate the future value of your annuity based on initial investment, annual contributions, and expected return." />
       </Helmet>
 

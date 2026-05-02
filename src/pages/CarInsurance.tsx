@@ -61,7 +61,7 @@ export const CarInsuranceCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <Helmet>
-        <title>Car Insurance Calculator 2026 | Estimate Your Auto Premium</title>
+        <title>Car Insurance Calculator [100% Private]</title>
         <meta name="description" content="Estimate your car insurance premiums for 2026 with our free calculator. Compare rates based on age, vehicle, and driving history to find the best deal." />
         <meta name="keywords" content="car insurance calculator, auto insurance estimator 2026, car insurance premium calculator, vehicle insurance cost tool, insurance quote estimator" />
       </Helmet>

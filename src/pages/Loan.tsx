@@ -117,7 +117,7 @@ export const LoanCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Loan Calculator | Calculate Monthly Payments & Interest</title>
+        <title>Loan Calculator [Instant Results]</title>
         <meta name="description" content="Free online loan calculator to estimate monthly payments, total interest, and total cost of any loan. Perfect for personal loans, business loans, and more in 2026." />
       </Helmet>
 

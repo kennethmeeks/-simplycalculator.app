@@ -96,7 +96,7 @@ export const PercentageCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
-        <title>Percentage Calculator | Calculate Percentages with Formula & Steps</title>
+        <title>Percentage Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online percentage calculator for 2026. Calculate percentages, percentage change, and more with clear steps and formulas for easy understanding." />
       </Helmet>
 

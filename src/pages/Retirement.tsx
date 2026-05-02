@@ -48,7 +48,7 @@ export const RetirementCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Retirement Calculator | Plan Your Financial Future</title>
+        <title>Retirement Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online retirement calculator to estimate your future nest egg. Plan your retirement age, savings goals, and inflation-adjusted purchasing power in 2026." />
       </Helmet>
 

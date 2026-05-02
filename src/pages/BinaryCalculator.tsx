@@ -37,7 +37,7 @@ export const BinaryCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Binary Calculator | Binary to Decimal & Hex Converter | simplycalculator.app</title>
+        <title>Binary Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online binary calculator. Convert between binary, decimal, and hexadecimal systems instantly. Essential for computer science in 2026." />
       </Helmet>
 

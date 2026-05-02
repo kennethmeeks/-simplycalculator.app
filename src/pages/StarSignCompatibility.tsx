@@ -40,7 +40,7 @@ export const StarSignCompatibility: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Star Sign Compatibility | Zodiac Love Match Calculator</title>
+        <title>Star Sign Compatibility [Free & No Sign-up]</title>
         <meta name="description" content="Free online star sign compatibility calculator. Find your zodiac love match and see how compatible you and your partner are for 2026." />
       </Helmet>
 

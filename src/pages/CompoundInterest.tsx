@@ -123,7 +123,7 @@ export const CompoundInterestCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Compound Interest Calculator | Monthly Contributions & Growth 2026 | simplycalculator.app</title>
+        <title>Compound Interest Calculator [Updated for 2026]</title>
         <meta name="description" content="Calculate your investment growth with our free compound interest calculator. See how monthly contributions and compounding interest can build your wealth in 2026." />
       </Helmet>
 

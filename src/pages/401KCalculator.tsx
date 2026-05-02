@@ -43,7 +43,7 @@ export const FourOhOneKCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>401k Calculator | Estimate Your Retirement Savings | simplycalculator.app</title>
+        <title>401k Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online 401k calculator with employer match. Estimate your future retirement balance based on contributions, salary growth, and investment returns in 2026." />
       </Helmet>
 

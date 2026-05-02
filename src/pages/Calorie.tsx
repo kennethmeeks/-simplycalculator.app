@@ -126,7 +126,7 @@ export const CalorieCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <Helmet>
-        <title>Calorie Calculator | Daily Needs for Weight Loss & Maintenance | simplycalculator.app</title>
+        <title>Calorie Calculator [Updated for 2026]</title>
         <meta name="description" content="Estimate your daily calorie needs with our free calorie calculator. Find the right balance for weight loss, muscle gain, or maintenance in 2026." />
       </Helmet>
 

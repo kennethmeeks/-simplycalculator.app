@@ -40,7 +40,7 @@ export const AutoLeaseCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Auto Lease Calculator | Estimate Monthly Payments 2026 | simplycalculator.app</title>
+        <title>Auto Lease Calculator [Instant Results]</title>
         <meta name="description" content="Free online auto lease calculator. Estimate your monthly car lease payments, including depreciation, finance fees, and sales tax." />
       </Helmet>
 

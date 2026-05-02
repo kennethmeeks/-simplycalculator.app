@@ -121,7 +121,7 @@ export const GPACalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>GPA Calculator | 4.0 Scale with Credits & Weighted Average</title>
+        <title>GPA Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Calculate your Grade Point Average (GPA) with our free online tool. Supports 4.0 scale, multiple courses, and credit weights for 2026 academic planning." />
       </Helmet>
 

@@ -41,7 +41,7 @@ export const CreditCardCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Credit Card Calculator | Plan Your Debt Payoff Strategy | simplycalculator.app</title>
+        <title>Credit Card Calculator [100% Private]</title>
         <meta name="description" content="Free online credit card calculator to estimate payoff time and interest. See how your monthly payments impact your debt in 2026." />
       </Helmet>
 

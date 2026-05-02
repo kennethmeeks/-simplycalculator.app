@@ -103,7 +103,7 @@ export const VATCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>VAT Calculator | Add or Remove Value Added Tax Easily</title>
+        <title>VAT Calculator [Updated for 2026]</title>
         <meta name="description" content="Calculate VAT (Value Added Tax) with our free online tool. Add or remove VAT from any amount instantly with accurate 2026 tax rates and formulas." />
       </Helmet>
 

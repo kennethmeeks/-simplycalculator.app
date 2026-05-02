@@ -38,7 +38,7 @@ export const TakeHomePayCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Take Home Pay Calculator | Estimate Your Net Salary</title>
+        <title>Take Home Pay Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online take home pay calculator. Estimate your annual and monthly net salary after federal and state taxes." />
       </Helmet>
 

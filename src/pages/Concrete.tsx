@@ -60,7 +60,7 @@ export const ConcreteCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Concrete Calculator | Cubic Yards & Bag Estimator for Slabs & Footings | simplycalculator.app</title>
+        <title>Concrete Calculator [Updated for 2026]</title>
         <meta name="description" content="Calculate concrete volume in cubic yards or bags for slabs, footings, and columns. Includes waste percentage and bag count for 80lb and 60lb mixes." />
       </Helmet>
 

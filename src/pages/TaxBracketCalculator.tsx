@@ -54,7 +54,7 @@ export const TaxBracketCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Tax Bracket Calculator | Federal Income Tax Brackets 2026</title>
+        <title>Tax Bracket Calculator [Instant Results]</title>
         <meta name="description" content="Free online tax bracket calculator. See your marginal and effective tax rates based on your taxable income for 2026." />
       </Helmet>
 

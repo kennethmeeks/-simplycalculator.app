@@ -115,7 +115,7 @@ export const AmazonFBACalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Amazon FBA Fee Calculator | Calculate Profit Margins & ROI for Sellers | simplycalculator.app</title>
+        <title>Amazon FBA Fee Calculator [Updated for 2026]</title>
         <meta name="description" content="Calculate your Amazon FBA profit margins and ROI. Includes referral fees, fulfillment fees, storage, and advertising costs for 2026 e-commerce sellers." />
       </Helmet>
 

@@ -33,7 +33,7 @@ export const InterestRateCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Interest Rate Calculator | Calculate Loan & Investment Rates | simplycalculator.app</title>
+        <title>Interest Rate Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online interest rate calculator. Find the effective interest rate for loans or investments based on principal, time, and total amount in 2026." />
       </Helmet>
 

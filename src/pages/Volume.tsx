@@ -39,7 +39,7 @@ export const VolumeCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Volume Calculator | Calculate Volume for Sphere, Cylinder, Cube & More</title>
+        <title>Volume Calculator [Instant Results]</title>
         <meta name="description" content="Free online volume calculator to find the volume of common 3D shapes including spheres, cylinders, cones, pyramids, and rectangular prisms." />
       </Helmet>
 

@@ -127,7 +127,7 @@ export const APRCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>APR Calculator | Calculate True Annual Percentage Rate | simplycalculator.app</title>
+        <title>APR Calculator [Instant Results]</title>
         <meta name="description" content="Free online APR calculator to find the true cost of borrowing. Calculate Annual Percentage Rate including interest and loan fees in 2026." />
       </Helmet>
 

@@ -62,7 +62,7 @@ export const LifeInsuranceCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       <Helmet>
-        <title>Life Insurance Quote & Coverage Calculator 2026 | DIME Method</title>
+        <title>Life Insurance Calculator [Updated for 2026]</title>
         <meta name="description" content="Calculate your life insurance needs and estimate monthly premiums for 2026. Use the DIME method to protect your family's financial future." />
       </Helmet>
 

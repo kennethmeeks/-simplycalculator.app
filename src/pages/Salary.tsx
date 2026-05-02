@@ -120,7 +120,7 @@ export const SalaryCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
-        <title>Salary Calculator | Hourly to Annual Salary Converter 2026</title>
+        <title>Salary Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Calculate your annual, monthly, and weekly income with our free salary calculator. Convert hourly to annual salary and see your take-home pay potential for 2026." />
       </Helmet>
 

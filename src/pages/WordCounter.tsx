@@ -25,7 +25,7 @@ export const WordCounter: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Word Counter | Count Words, Characters, Sentences & Paragraphs 2026</title>
+        <title>Word Counter [100% Private]</title>
         <meta name="description" content="Free online word counter for 2026. Quickly count words, characters, sentences, and paragraphs in any text with instant results." />
       </Helmet>
 

@@ -29,7 +29,7 @@ export const Numerology: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Numerology Calculator | Calculate Your Life Path Number 2026</title>
+        <title>Numerology Calculator [100% Private]</title>
         <meta name="description" content="Free online numerology calculator for 2026. Quickly calculate your life path number from your name with instant results." />
       </Helmet>
 

@@ -112,7 +112,7 @@ export const MortgageCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
-        <title>Mortgage Calculator with Taxes and Insurance 2026 | simplycalculator.app</title>
+        <title>Mortgage Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free mortgage calculator with taxes and insurance. Estimate your total monthly payment." />
       </Helmet>
 

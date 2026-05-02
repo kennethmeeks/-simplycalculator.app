@@ -28,7 +28,7 @@ export const PaintCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Paint Calculator | Estimate Gallons Needed for Your Room</title>
+        <title>Paint Calculator [100% Private]</title>
         <meta name="description" content="Free online paint calculator. Estimate how many gallons of paint you need for your walls based on room dimensions, doors, and windows in 2026." />
       </Helmet>
 

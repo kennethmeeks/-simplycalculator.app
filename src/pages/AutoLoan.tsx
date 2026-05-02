@@ -35,7 +35,7 @@ export const AutoLoanCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Auto Loan Calculator | Car Payment with Trade-In & Down Payment | simplycalculator.app</title>
+        <title>Auto Loan Calculator [Instant Results]</title>
         <meta name="description" content="Estimate your monthly car payments with our free auto loan calculator. Factor in trade-in value, down payments, and interest rates for 2026." />
       </Helmet>
 

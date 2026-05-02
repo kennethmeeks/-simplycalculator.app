@@ -30,7 +30,7 @@ export const BudgetCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Monthly Budget Calculator | Plan Your Finances 2026 | simplycalculator.app</title>
+        <title>Monthly Budget Calculator [Instant Results]</title>
         <meta name="description" content="Free online monthly budget calculator. Track your income and expenses, calculate your savings rate, and see where your money is going." />
       </Helmet>
 

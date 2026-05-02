@@ -28,7 +28,7 @@ export const MulchCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Mulch Calculator | Estimate Cubic Yards and Bags Needed</title>
+        <title>Mulch Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online mulch calculator. Estimate how many cubic yards or bags of mulch you need for your garden bed based on area and depth in 2026." />
       </Helmet>
 

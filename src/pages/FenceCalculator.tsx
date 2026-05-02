@@ -31,7 +31,7 @@ export const FenceCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Fence Calculator | Estimate Posts, Rails, and Pickets</title>
+        <title>Fence Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online fence calculator. Estimate how many posts, rails, and pickets you need for your new fence based on length and spacing in 2026." />
       </Helmet>
 

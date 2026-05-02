@@ -39,7 +39,7 @@ export const MacroCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Macro Calculator | Calculate Protein, Carbs & Fat Ratios</title>
+        <title>Macro Calculator [Instant Results]</title>
         <meta name="description" content="Free online macro calculator to determine your ideal macronutrient ratios for weight loss, muscle gain, or maintenance in 2026." />
       </Helmet>
 

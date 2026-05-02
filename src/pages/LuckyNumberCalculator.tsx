@@ -37,7 +37,7 @@ export const LuckyNumberCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Lucky Number Calculator | Find Your Personal Lucky Numbers</title>
+        <title>Lucky Number Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online lucky number calculator. Discover your personal lucky number, color, and day based on your birth date for 2026." />
       </Helmet>
 

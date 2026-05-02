@@ -30,7 +30,7 @@ export const DeckCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Deck Calculator | Estimate Boards and Joists for Your Deck</title>
+        <title>Deck Calculator [100% Private]</title>
         <meta name="description" content="Free online deck calculator. Estimate how many deck boards and joists you need for your new deck based on dimensions and spacing in 2026." />
       </Helmet>
 

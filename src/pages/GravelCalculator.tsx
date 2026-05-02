@@ -28,7 +28,7 @@ export const GravelCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Gravel Calculator | Estimate Cubic Yards and Tons Needed</title>
+        <title>Gravel Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online gravel calculator. Estimate how many cubic yards or tons of gravel you need for your driveway or path based on area and depth in 2026." />
       </Helmet>
 

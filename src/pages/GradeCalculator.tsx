@@ -63,7 +63,7 @@ export const GradeCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Grade Calculator | Calculate Current Grade & Final Exam Score</title>
+        <title>Grade Calculator [Instant Results]</title>
         <meta name="description" content="Free online grade calculator to find your current class grade and what you need on your final exam to reach your goal. Supports weighted categories." />
       </Helmet>
 

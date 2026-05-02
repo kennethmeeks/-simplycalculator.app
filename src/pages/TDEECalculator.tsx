@@ -98,7 +98,7 @@ export const TDEECalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>TDEE Calculator | Calculate Your Total Daily Energy Expenditure</title>
+        <title>TDEE Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online TDEE calculator to find your maintenance calories. Estimate how many calories you burn daily based on activity level in 2026." />
       </Helmet>
 

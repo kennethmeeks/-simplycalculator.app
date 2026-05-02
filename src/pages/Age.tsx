@@ -101,7 +101,7 @@ export const AgeCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Age Calculator | Calculate Age in Years, Months, and Days | simplycalculator.app</title>
+        <title>Age Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Calculate your exact age in years, months, and days with our free online age tool. Perfect for legal, medical, or personal use in 2026." />
       </Helmet>
 

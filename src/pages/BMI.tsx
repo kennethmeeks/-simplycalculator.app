@@ -174,7 +174,7 @@ export const BMICalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <Helmet>
-        <title>BMI Calculator for Adults with History 2026 | simplycalculator.app</title>
+        <title>BMI Calculator [100% Private]</title>
         <meta name="description" content="Calculate your Body Mass Index with our free BMI calculator for adults with history. Track your weight trends over time and understand your health category in 2026." />
       </Helmet>
 

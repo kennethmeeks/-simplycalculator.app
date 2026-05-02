@@ -38,7 +38,7 @@ export const FriendshipCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Friendship Calculator | Test Your Friendship Bond</title>
+        <title>Friendship Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online friendship calculator. Test your friendship bond and see how compatible you and your friend are for 2026." />
       </Helmet>
 

@@ -56,7 +56,7 @@ export const UnitConverter: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Unit Converter | Length, Weight, Volume Conversion 2026</title>
+        <title>Unit Converter [Free & No Sign-up]</title>
         <meta name="description" content="Free online unit converter for 2026. Easily convert between metric and imperial units for length, weight, and volume with instant results." />
       </Helmet>
 

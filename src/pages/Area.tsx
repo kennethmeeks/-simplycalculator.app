@@ -43,7 +43,7 @@ export const AreaCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Area Calculator | Calculate Area for Circle, Rectangle, Triangle & More | simplycalculator.app</title>
+        <title>Area Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online area calculator to find the surface area of common 2D shapes including circles, rectangles, triangles, trapezoids, and ellipses." />
       </Helmet>
 

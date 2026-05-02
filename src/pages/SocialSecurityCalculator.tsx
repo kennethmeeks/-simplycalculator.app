@@ -50,7 +50,7 @@ export const SocialSecurityCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Social Security Benefit Calculator | Estimate Retirement Income 2026 | simplycalculator.app</title>
+        <title>Social Security Calculator [100% Private]</title>
         <meta name="description" content="Free online Social Security calculator. Estimate your future monthly Social Security benefits based on your current salary and retirement age." />
       </Helmet>
 
