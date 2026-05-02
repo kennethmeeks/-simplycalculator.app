@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 
-import { Calculator as CalcIcon, Stethoscope, Activity, Pill, User, Users, ShieldCheck, Settings2, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Calculator as CalcIcon, Stethoscope, Activity, Pill, User as UserIcon, Users as UsersIcon, ShieldCheck, Settings2, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export const HealthInsuranceCalculator: React.FC = () => {
   const [zipCode, setZipCode] = useState<string>('');
@@ -108,7 +108,7 @@ export const HealthInsuranceCalculator: React.FC = () => {
           <div className="calculator-container shadow-sm border-slate-200">
             <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
               <div className="p-2 bg-blue-50 rounded-lg">
-                <User className="w-5 h-5 text-blue-600" />
+                <UserIcon className="w-5 h-5 text-blue-600" />
               </div>
               <h2 className="text-xl font-bold text-slate-800">1. Personal Profile</h2>
             </div>
@@ -165,7 +165,7 @@ export const HealthInsuranceCalculator: React.FC = () => {
           <div className="calculator-container shadow-sm border-slate-200">
             <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
               <div className="p-2 bg-purple-50 rounded-lg">
-                <Users className="w-5 h-5 text-purple-600" />
+                <UsersIcon className="w-5 h-5 text-purple-600" />
               </div>
               <h2 className="text-xl font-bold text-slate-800">2. Coverage Level</h2>
             </div>

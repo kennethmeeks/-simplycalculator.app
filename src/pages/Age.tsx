@@ -170,3 +170,5 @@ export const AgeCalculator: React.FC = () => {
     </div>
   );
 };
+
+export default AgeCalculator;

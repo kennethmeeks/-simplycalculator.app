@@ -66,7 +66,7 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                 localStorage.setItem(CACHE_KEY(path), JSON.stringify(data));
             } catch (err: any) {
                 // Use fallback on error
-                if (err.message !== "GEMINI_API_KEY_INVALID") {
+                if (err.message !== "GEMINI_API_KEY_INVALID" && !err.message?.includes("SERVER_RESTARTING")) {
                     console.error("SEO Guide fetch error:", err);
                 }
                 

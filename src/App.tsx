@@ -12,7 +12,7 @@ const TipCalculator = lazy(() => import('./pages/Tip').then(m => ({ default: m.T
 const SalaryCalculator = lazy(() => import('./pages/Salary').then(m => ({ default: m.SalaryCalculator })));
 const CompoundInterestCalculator = lazy(() => import('./pages/CompoundInterest').then(m => ({ default: m.CompoundInterestCalculator })));
 const PercentageCalculator = lazy(() => import('./pages/Percentage').then(m => ({ default: m.PercentageCalculator })));
-const AgeCalculator = lazy(() => import('./pages/Age').then(m => ({ default: m.AgeCalculator })));
+const AgeCalculator = lazy(() => import('./pages/Age'));
 const AutoLoanCalculator = lazy(() => import('./pages/AutoLoan').then(m => ({ default: m.AutoLoanCalculator })));
 const AverageReturnCalculator = lazy(() => import('./pages/AverageReturnCalculator').then(m => ({ default: m.AverageReturnCalculator })));
 const DiscountCalculator = lazy(() => import('./pages/Discount').then(m => ({ default: m.DiscountCalculator })));

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { CalculatorSEO } from '../components/CalculatorSEO';
 import { motion } from 'motion/react';
 
-import { Calculator as CalcIcon, Info, ShieldCheck, Heart, Home, GraduationCap, AlertCircle, User, ChevronRight } from 'lucide-react';
+import { Calculator as CalcIcon, Info, ShieldCheck, Heart, Home, GraduationCap, AlertCircle, User as UserIcon, ChevronRight } from 'lucide-react';
 
 export const LifeInsuranceCalculator: React.FC = () => {
   const [age, setAge] = useState<number>(35);
@@ -81,7 +81,7 @@ export const LifeInsuranceCalculator: React.FC = () => {
           {/* Section: Personal Profile */}
           <div className="calculator-container shadow-sm border-slate-200">
             <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
-              <User className="w-5 h-5 text-blue-600" />
+              <UserIcon className="w-5 h-5 text-blue-600" />
               <h2 className="text-xl font-bold text-slate-800">1. Your Profile</h2>
             </div>
 
