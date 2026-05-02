@@ -48,7 +48,7 @@ export const AverageReturnCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Average Return Calculator | Arithmetic vs. Geometric Mean 2026 | simplycalculator.app</title>
+        <title>Average Return Calculator [Instant Results]</title>
         <meta name="description" content="Free online average return calculator. Calculate both the arithmetic and geometric average returns for your investment portfolio over multiple periods." />
       </Helmet>
 

@@ -9,7 +9,7 @@ export const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app</title>
+        <title>Online Calculator Hub [Free & No Sign-up]</title>
         <meta name="description" content="Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces." />
         <meta property="og:title" content="All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app" />
         <meta property="og:description" content="Access over 1600+ free online calculators for 2026. Data-driven tools for Finance, Health, and Engineering." />

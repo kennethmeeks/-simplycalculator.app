@@ -31,7 +31,7 @@ export const AnnuityPayoutCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Annuity Payout Calculator | Estimate Retirement Income 2026 | simplycalculator.app</title>
+        <title>Annuity Payout Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online annuity payout calculator. Estimate your monthly or annual annuity payments based on your current balance, payout period, and expected return." />
       </Helmet>
 

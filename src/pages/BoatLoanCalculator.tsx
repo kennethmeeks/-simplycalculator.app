@@ -33,7 +33,7 @@ export const BoatLoanCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Boat Loan Calculator | Estimate Monthly Payments 2026 | simplycalculator.app</title>
+        <title>Boat Loan Calculator [100% Private]</title>
         <meta name="description" content="Free online boat loan calculator. Estimate your monthly payments, total interest, and total cost for financing a new or used boat." />
       </Helmet>
 

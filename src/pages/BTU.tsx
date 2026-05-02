@@ -34,7 +34,7 @@ export const BTUCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>BTU Calculator | Calculate Heating & Cooling Needs | simplycalculator.app</title>
+        <title>BTU Calculator [Updated for 2026]</title>
         <meta name="description" content="Free BTU calculator for air conditioning and heating. Calculate the BTUs needed for any room size based on square footage and insulation quality." />
       </Helmet>
 

@@ -57,7 +57,7 @@ export const BodyFatCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Body Fat Calculator | Estimate Your Body Fat Percentage | simplycalculator.app</title>
+        <title>Body Fat Calculator [100% Private]</title>
         <meta name="description" content="Free online body fat calculator using the US Navy method. Estimate your body fat percentage, lean mass, and fat mass in 2026." />
       </Helmet>
 
