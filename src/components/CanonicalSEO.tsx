@@ -6,20 +6,30 @@ export const CanonicalSEO: React.FC = () => {
     const location = useLocation();
     const domain = 'https://simplycalculator.app';
     
-    // Standardize the path:
-    // 1. Remove trailing slash (except for empty path which becomes root)
-    // 2. Ensure leading slash
+    // Normalization logic
     let path = location.pathname;
+
+    // 1. Force lowercase for consistency (Google sees /BMI and /bmi as different)
+    path = path.toLowerCase();
+
+    // 2. Remove trailing slash (except for empty path which becomes root)
     if (path.length > 1 && path.endsWith('/')) {
         path = path.slice(0, -1);
     }
     
+    // 3. Resolve duplication for categories
+    // Map /category/finance to just /finance
+    if (path.startsWith('/category/')) {
+        path = path.replace('/category/', '/');
+    }
+
     // Special case for root
     const canonicalUrl = `${domain}${path === '/' ? '' : path}`;
 
     return (
         <Helmet>
             <link rel="canonical" href={canonicalUrl} />
+            <meta property="og:url" content={canonicalUrl} />
         </Helmet>
     );
 };

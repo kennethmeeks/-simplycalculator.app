@@ -1,9 +1,25 @@
-import React, { lazy, Suspense } from 'react';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { Route, Routes, BrowserRouter as Router, useLocation, useNavigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Loader2 } from 'lucide-react';
+import { CanonicalSEO } from './components/CanonicalSEO';
+
+const TrailingSlashRedirect = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const { pathname, search, hash } = location;
+        if (pathname.length > 1 && pathname.endsWith('/')) {
+            const newPath = pathname.slice(0, -1);
+            navigate(newPath + search + hash, { replace: true });
+        }
+    }, [location, navigate]);
+
+    return null;
+};
 
 const CalculatorPage = lazy(() => import('./pages/CalculatorPage').then(m => ({ default: m.CalculatorPage })));
 const MortgageCalculator = lazy(() => import('./pages/Mortgage').then(m => ({ default: m.MortgageCalculator })));
@@ -265,12 +281,12 @@ const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms }
 const CategoryPage = lazy(() => import('./pages/CategoryPage').then(m => ({ default: m.CategoryPage })));
 
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { CanonicalSEO } from './components/CanonicalSEO';
 
 export default function App() {
   return (
     <HelmetProvider>
       <Router>
+        <TrailingSlashRedirect />
         <CanonicalSEO />
         <Layout>
           <ErrorBoundary>

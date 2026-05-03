@@ -14,7 +14,6 @@ export const Home: React.FC = () => {
         <meta property="og:title" content="All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app" />
         <meta property="og:description" content="Access over 1600+ free online calculators for 2026. Data-driven tools for Finance, Health, and Engineering." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://simplycalculator.app" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="simplycalculator.app | 1600+ Free Tools" />
         <meta name="twitter:description" content="Verified mathematical accuracy for all your calculation needs." />

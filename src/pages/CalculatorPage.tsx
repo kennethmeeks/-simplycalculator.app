@@ -337,7 +337,6 @@ export const CalculatorPage: React.FC = () => {
                 <meta property="og:title" content={`${foundItem.name} | simplycalculator.app`} />
                 <meta property="og:description" content={foundItem.desc} />
                 <meta property="og:type" content="article" />
-                <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:title" content={foundItem.name} />
                 <meta name="twitter:description" content={foundItem.desc} />
@@ -656,7 +655,7 @@ export const CalculatorPage: React.FC = () => {
                             </div>
                             
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                {foundCategory.items.filter(i => i.path !== foundItem.path).slice(0, 4).map((related, idx) => (
+                                {foundCategory.items.filter(i => i.path !== foundItem.path).slice(0, 8).map((related, idx) => (
                                     <Link 
                                         key={idx}
                                         to={related.path}
