@@ -67,7 +67,7 @@ export const MarriageTaxCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Marriage Tax Penalty & Bonus Calculator 2026 | simplycalculator.app</title>
+        <title>Marriage Tax Calculator [100% Private]</title>
         <meta name="description" content="Free online marriage tax calculator. See if getting married will result in a tax penalty or a tax bonus based on your combined incomes." />
       </Helmet>
 

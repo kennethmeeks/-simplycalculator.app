@@ -27,7 +27,7 @@ export const CDCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>CD Calculator | Calculate Certificate of Deposit Interest 2026 | simplycalculator.app</title>
+        <title>CD Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online CD calculator. Calculate the future value and total interest earned on your Certificate of Deposit (CD) based on APY and term." />
       </Helmet>
 

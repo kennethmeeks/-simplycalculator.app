@@ -332,7 +332,7 @@ export const CalculatorPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>{foundItem.name} | Free Professional Calculator | simplycalculator.app</title>
+                <title>{foundItem.name} [Instant Results]</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
                 <meta property="og:title" content={`${foundItem.name} | simplycalculator.app`} />
                 <meta property="og:description" content={foundItem.desc} />

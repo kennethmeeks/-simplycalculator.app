@@ -7,7 +7,7 @@ export const Sitemap: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto py-8">
       <Helmet>
-        <title>Sitemap | All Online Calculators 2026 | simplycalculator.app</title>
+        <title>Sitemap [Instant Results]</title>
         <meta name="description" content="Browse our complete list of over 1600+ free online calculators. Find tools for finance, fitness, health, math, and more in our comprehensive sitemap." />
       </Helmet>
 

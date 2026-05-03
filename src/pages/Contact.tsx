@@ -41,7 +41,7 @@ export const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/50">
       <Helmet>
-        <title>Contact Us | simplycalculator.app | Feedback & Support 2026</title>
+        <title>Contact Us [Free & No Sign-up]</title>
         <meta name="description" content="Have questions or suggestions? Reach out to the simplycalculator.app team. We're here to help with your calculation needs and technical inquiries." />
       </Helmet>
 

@@ -21,7 +21,7 @@ export const PresentValueCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Present Value Calculator | Calculate PV of Future Money 2026 | simplycalculator.app</title>
+        <title>Present Value Calculator [100% Private]</title>
         <meta name="description" content="Free online present value calculator. Calculate the current value of a future sum of money based on a specific interest rate and time period." />
       </Helmet>
 

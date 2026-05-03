@@ -30,7 +30,7 @@ export const CollegeCostCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>College Cost Calculator | Estimate Tuition & Expenses 2026 | simplycalculator.app</title>
+        <title>College Cost Calculator [Instant Results]</title>
         <meta name="description" content="Free online college cost calculator. Estimate the total cost of a college education, including tuition, room and board, books, and other expenses." />
       </Helmet>
 

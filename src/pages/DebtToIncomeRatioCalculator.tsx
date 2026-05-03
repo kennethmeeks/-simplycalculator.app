@@ -22,7 +22,7 @@ export const DebtToIncomeRatioCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Debt-to-Income (DTI) Ratio Calculator | Mortgage Planning 2026 | simplycalculator.app</title>
+        <title>DTI Ratio Calculator [100% Private]</title>
         <meta name="description" content="Free online debt-to-income (DTI) ratio calculator. Calculate your DTI ratio to see how much of your gross monthly income goes toward debt payments." />
       </Helmet>
 

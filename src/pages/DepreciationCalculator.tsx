@@ -53,7 +53,7 @@ export const DepreciationCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Depreciation Calculator | Straight-Line & Declining Balance 2026 | simplycalculator.app</title>
+        <title>Depreciation Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online depreciation calculator. Calculate annual depreciation, accumulated depreciation, and book value using straight-line or double-declining balance methods." />
       </Helmet>
 

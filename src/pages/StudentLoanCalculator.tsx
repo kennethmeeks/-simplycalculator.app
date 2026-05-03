@@ -104,7 +104,7 @@ export const StudentLoanCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Student Loan Calculator | Calculate Monthly Payments 2026 | simplycalculator.app</title>
+        <title>Student Loan Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online student loan calculator. Calculate your monthly student loan payments, total interest, and total cost based on loan amount, rate, and term." />
       </Helmet>
 

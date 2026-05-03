@@ -19,7 +19,7 @@ export const CommissionCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Commission Calculator | Calculate Sales Commission 2026 | simplycalculator.app</title>
+        <title>Commission Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online commission calculator. Calculate sales commission amounts and net sales based on sales volume and commission percentage." />
       </Helmet>
 

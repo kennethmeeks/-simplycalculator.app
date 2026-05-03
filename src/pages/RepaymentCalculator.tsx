@@ -29,7 +29,7 @@ export const RepaymentCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Loan Repayment Calculator | Calculate Monthly Payments 2026 | simplycalculator.app</title>
+        <title>Repayment Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online loan repayment calculator. Calculate your monthly loan payments, total interest, and total cost based on loan amount, rate, and term." />
       </Helmet>
 

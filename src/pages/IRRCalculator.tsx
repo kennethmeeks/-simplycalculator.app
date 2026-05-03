@@ -52,7 +52,7 @@ export const IRRCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>IRR Calculator | Calculate Internal Rate of Return 2026 | simplycalculator.app</title>
+        <title>IRR Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online IRR calculator. Calculate the Internal Rate of Return (IRR) for your investment projects based on initial cost and periodic cash flows." />
       </Helmet>
 

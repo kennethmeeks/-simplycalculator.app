@@ -33,7 +33,7 @@ export const IRACalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Traditional IRA Calculator | Estimate Retirement Savings 2026 | simplycalculator.app</title>
+        <title>Traditional IRA Calculator [100% Private]</title>
         <meta name="description" content="Free online traditional IRA calculator. Estimate your future traditional IRA balance and see the impact of taxes on your retirement savings." />
       </Helmet>
 

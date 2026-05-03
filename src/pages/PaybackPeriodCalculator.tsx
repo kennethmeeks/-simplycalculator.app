@@ -36,7 +36,7 @@ export const PaybackPeriodCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Payback Period Calculator | Calculate Investment Recovery 2026 | simplycalculator.app</title>
+        <title>Payback Period Calculator [Instant Results]</title>
         <meta name="description" content="Free online payback period calculator. Calculate how long it will take to recover the cost of an investment based on periodic cash flows." />
       </Helmet>
 

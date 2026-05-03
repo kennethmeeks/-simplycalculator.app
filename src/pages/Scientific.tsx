@@ -78,7 +78,7 @@ export const ScientificCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Free Scientific Calculator 2026 | simplycalculator.app</title>
+        <title>Scientific Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Use our free 2026 online scientific calculator for advanced math, trigonometry, and logarithms. Accurate and easy to use." />
       </Helmet>
 

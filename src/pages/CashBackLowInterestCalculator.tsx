@@ -40,7 +40,7 @@ export const CashBackLowInterestCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Cash Back vs Low Interest Calculator | Compare Auto Financing 2026 | simplycalculator.app</title>
+        <title>Auto Financing Comparison [Free & No Sign-up]</title>
         <meta name="description" content="Free online cash back vs low interest calculator. Compare auto financing options to see whether a cash back rebate or a low interest rate is the better deal." />
       </Helmet>
 

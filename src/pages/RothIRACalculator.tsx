@@ -33,7 +33,7 @@ export const RothIRACalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Roth IRA Calculator | Estimate Retirement Wealth 2026 | simplycalculator.app</title>
+        <title>Roth IRA Calculator [100% Private]</title>
         <meta name="description" content="Free online Roth IRA calculator. Estimate your future Roth IRA balance and see the tax-free growth of your retirement savings." />
       </Helmet>
 

@@ -48,7 +48,7 @@ export const CanadianMortgageCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Canadian Mortgage Calculator | Calculate Payments & Interest 2026 | simplycalculator.app</title>
+        <title>Canadian Mortgage Calculator [100% Private]</title>
         <meta name="description" content="Free Canadian mortgage calculator. Calculate monthly, bi-weekly, or weekly payments with semi-annual compounding for Canadian fixed-rate mortgages." />
       </Helmet>
 

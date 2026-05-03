@@ -32,7 +32,7 @@ export const MarginCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Margin Calculator | Calculate Profit Margin & Markup 2026 | simplycalculator.app</title>
+        <title>Margin Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online margin calculator. Calculate gross profit margin, markup percentage, and total profit based on cost and revenue." />
       </Helmet>
 

@@ -44,7 +44,7 @@ export const RefinanceCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Mortgage Refinance Calculator | Calculate Savings 2026 | simplycalculator.app</title>
+        <title>Refinance Calculator [Instant Results]</title>
         <meta name="description" content="Free online mortgage refinance calculator. See if refinancing your mortgage makes sense by calculating monthly savings and break-even point." />
       </Helmet>
 

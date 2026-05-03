@@ -23,7 +23,7 @@ export const EstateTaxCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Federal Estate Tax Calculator | Estimate Estate Taxes 2026 | simplycalculator.app</title>
+        <title>Estate Tax Calculator [Instant Results]</title>
         <meta name="description" content="Free online federal estate tax calculator. Estimate the potential estate tax liability for high-net-worth individuals based on current federal exemptions." />
       </Helmet>
 

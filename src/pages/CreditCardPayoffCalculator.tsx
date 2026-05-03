@@ -31,7 +31,7 @@ export const CreditCardPayoffCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Credit Card Payoff Goal Calculator | Calculate Monthly Payment 2026 | simplycalculator.app</title>
+        <title>Credit Card Payoff Calculator [100% Private]</title>
         <meta name="description" content="Free online credit card payoff calculator. Calculate the monthly payment needed to pay off your credit card balance within a specific timeframe." />
       </Helmet>
 

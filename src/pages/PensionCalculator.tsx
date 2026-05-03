@@ -24,7 +24,7 @@ export const PensionCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Pension Calculator | Estimate Retirement Income 2026 | simplycalculator.app</title>
+        <title>Pension Calculator [Updated for 2026]</title>
         <meta name="description" content="Free online pension calculator. Estimate your future pension income based on your salary, years of service, and your employer's pension multiplier." />
       </Helmet>
 

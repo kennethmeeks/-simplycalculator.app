@@ -38,7 +38,7 @@ export const BusinessLoanCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Business Loan Calculator | Estimate Payments & APR 2026 | simplycalculator.app</title>
+        <title>Business Loan Calculator [Instant Results]</title>
         <meta name="description" content="Free online business loan calculator. Estimate monthly payments, total interest, and APR for your small business loan including origination fees." />
       </Helmet>
 

@@ -32,7 +32,7 @@ export const BondCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Bond Price Calculator | Calculate Bond Yield 2026 | simplycalculator.app</title>
+        <title>Bond Price Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online bond calculator. Estimate the current price and yield of a bond based on its face value, coupon rate, market rate, and maturity." />
       </Helmet>
 

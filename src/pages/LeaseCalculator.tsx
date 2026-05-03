@@ -38,7 +38,7 @@ export const LeaseCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Lease Calculator | General Asset Lease Payments 2026 | simplycalculator.app</title>
+        <title>Lease Calculator [Instant Results]</title>
         <meta name="description" content="Free online lease calculator. Estimate monthly payments for any leased asset, including equipment, vehicles, and more. Calculate depreciation and finance fees." />
       </Helmet>
 

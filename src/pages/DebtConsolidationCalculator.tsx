@@ -60,7 +60,7 @@ export const DebtConsolidationCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Debt Consolidation Calculator | Save on Interest 2026 | simplycalculator.app</title>
+        <title>Debt Consolidation Calculator [Instant Results]</title>
         <meta name="description" content="Free online debt consolidation calculator. Compare your current debt payments with a new consolidation loan to see how much you can save." />
       </Helmet>
 

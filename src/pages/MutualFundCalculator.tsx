@@ -33,7 +33,7 @@ export const MutualFundCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Mutual Fund Calculator | Estimate Investment Growth 2026 | simplycalculator.app</title>
+        <title>Mutual Fund Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Free online mutual fund calculator. Estimate your future mutual fund balance based on initial investment, monthly contributions, and expense ratio." />
       </Helmet>
 

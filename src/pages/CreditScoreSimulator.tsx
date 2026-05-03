@@ -59,7 +59,7 @@ export const CreditScoreSimulator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Credit Score Simulator 2026 | Estimate Credit Impact | simplycalculator.app</title>
+        <title>Credit Score Simulator [Free & No Sign-up]</title>
         <meta name="description" content="Free online credit score simulator. Estimate how financial actions like paying off debt or opening new accounts will impact your credit score in 2026." />
         <meta name="keywords" content="credit score simulator, credit score estimator, credit impact calculator, fico score simulator, credit score help 2026" />
       </Helmet>

@@ -27,7 +27,7 @@ export const TipCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Tip Calculator with Bill Split 2026 | simplycalculator.app</title>
+        <title>Tip Calculator [Free & No Sign-up]</title>
         <meta name="description" content="Calculate the perfect tip and split the bill easily with our free tip calculator with bill split. Ideal for restaurants, bars, and group dining in 2026." />
       </Helmet>
 
