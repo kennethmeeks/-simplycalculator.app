@@ -126,13 +126,13 @@ export const CalorieCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <Helmet>
-        <title>Calorie Calculator [Updated for 2026]</title>
-        <meta name="description" content="Estimate your daily calorie needs with our free calorie calculator. Find the right balance for weight loss, muscle gain, or maintenance in 2026." />
+        <title>Calorie Calculator — Eat 2,200/day to Lose Weight? Free Tool</title>
+        <meta name="description" content="Calculate your daily maintenance calories and weight loss goals. Personalized metrics for fat loss and muscle gain in 2026." />
       </Helmet>
 
       <header className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Calorie Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Estimate your daily energy expenditure based on your physical metrics.</p>
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Calorie Calculator: How Many Calories Do You Need Every Day?</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">To lose one pound per week, you might only need to eat 2,200 calories; calculate your exact needs based on your body type.</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">

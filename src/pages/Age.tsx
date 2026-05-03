@@ -101,12 +101,12 @@ export const AgeCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Age Calculator [Free & No Sign-up]</title>
-        <meta name="description" content="Calculate your exact age in years, months, and days with our free online age tool. Perfect for legal, medical, or personal use in 2026." />
+        <title>Age Calculator — Exactly How Old Are You in Days? Free</title>
+        <meta name="description" content="Calculate your exact age in years, months, and days. Find your birthstone, zodiac, and days since your birth in 2026." />
       </Helmet>
 
-      <h1>Age Calculator</h1>
-      <p>The Age Calculator can determine the age or interval between two dates. The calculated age will be displayed in years, months, and days.</p>
+      <h1>Age Calculator: How Many Days Have You Been Alive?</h1>
+      <p>You have been alive for over 10,000 days; find out exactly how many years, months, and minutes old you are right now.</p>
 
       
 

@@ -44,14 +44,14 @@ export const DebtPayoffCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Debt Payoff Calculator [Updated for 2026]</title>
-        <meta name="description" content="Free online debt payoff calculator. See how long it will take to pay off your total debt and how much interest you will pay based on your monthly payment." />
+        <title>Debt Payoff — Be Debt Free by 2028? Free 2026 Calculator</title>
+        <meta name="description" content="Create a clear plan to escape debt. See your debt-free date and total interest savings with our free 2026 payoff tool." />
       </Helmet>
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-4">Debt Payoff Calculator</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">When Exactly Will You Be Debt-Free and Financially Independent?</h1>
         <p className="text-slate-600">
-          Determine how long it will take to pay off your total debt and see how much interest you'll pay based on your monthly payment.
+          You could save $4,500 in interest and shave 3 years off your debt by following this simple, free payoff strategy.
         </p>
       </div>
 

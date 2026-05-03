@@ -35,12 +35,12 @@ export const AutoLoanCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Auto Loan Calculator [Instant Results]</title>
-        <meta name="description" content="Estimate your monthly car payments with our free auto loan calculator. Factor in trade-in value, down payments, and interest rates for 2026." />
+        <title>Auto Loan Calculator — Your Monthly Car Payment in 10s Free</title>
+        <meta name="description" content="Estimate your car payments instantly. Factoring interest rates, trade-ins, and down payments for your 2026 car purchase." />
       </Helmet>
 
-      <h1>Auto Loan Calculator</h1>
-      <p>Estimate your monthly car payments based on vehicle price, down payment, trade-in value, and interest rate.</p>
+      <h1>Auto Loan Calculator: What Can You Actually Afford Each Month?</h1>
+      <p>Determine exactly how much car you can afford by calculating monthly payments, including taxes and fees, in seconds.</p>
 
       
 

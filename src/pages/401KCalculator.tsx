@@ -43,12 +43,12 @@ export const FourOhOneKCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>401k Calculator [Free & No Sign-up]</title>
-        <meta name="description" content="Free online 401k calculator with employer match. Estimate your future retirement balance based on contributions, salary growth, and investment returns in 2026." />
+        <title>Free 2026 401k Calculator — How Much Will I Have at 67?</title>
+        <meta name="description" content="Estimate your future 401k retirement balance with employer match. See how much wealth you'll accumulate by 2026 and beyond." />
       </Helmet>
 
-      <h1>401k Calculator</h1>
-      <p>Estimate your future 401k balance at retirement. Factor in your current balance, annual contributions, employer matching, and expected market returns.</p>
+      <h1>How Big Will Your 401k Retirement Nest Egg Be?</h1>
+      <p>Your 401k could grow to over $1,240,000 if you start today; use this free calculator to see your exact retirement potential.</p>
 
       
 

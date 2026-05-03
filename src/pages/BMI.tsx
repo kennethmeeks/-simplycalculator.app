@@ -174,13 +174,13 @@ export const BMICalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <Helmet>
-        <title>BMI Calculator [100% Private]</title>
-        <meta name="description" content="Calculate your Body Mass Index with our free BMI calculator for adults with history. Track your weight trends over time and understand your health category in 2026." />
+        <title>BMI Calculator — Your Healthy Weight Range in 10 Seconds Free</title>
+        <meta name="description" content="Check your body mass index instantly. Find your ideal weight category and track your health progress with our free BMI tool." />
       </Helmet>
 
       <header className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">BMI Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Standard Body Mass Index measurement for adults.</p>
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">BMI Calculator: Are You In The Healthy Weight Range?</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Your body mass index (BMI) is the most popular way to check if your weight is healthy; find your number in 10 seconds.</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">

@@ -21,12 +21,12 @@ export const LoveCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Love Calculator [Instant Results]</title>
-        <meta name="description" content="Free online love calculator for 2026. Quickly calculate compatibility between two names with instant results." />
+        <title>Love Calculator — How Compatible Are You Really? Find Out Free</title>
+        <meta name="description" content="Test your relationship compatibility. Use our names and zodiac signs match tool to see if you've found your soulmate." />
       </Helmet>
 
-      <h1>Love Calculator</h1>
-      <p>Quickly calculate compatibility between two names for fun and entertainment.</p>
+      <h1>Love Calculator: Have You Found Your True Soulmate?</h1>
+      <p>Your names could hold the secret to your future; find out if you and your crush are a 99% match in just a few clicks.</p>
 
       
 

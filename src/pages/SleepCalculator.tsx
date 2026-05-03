@@ -24,12 +24,12 @@ export const SleepCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Sleep Calculator | Find the Best Time to Go to Bed 2026</title>
-        <meta name="description" content="Free online sleep calculator for 2026. Quickly find the best time to go to bed to wake up feeling refreshed with instant results." />
+        <title>Sleep Calculator — Wake Up Feeling Amazing Every Day! Free</title>
+        <meta name="description" content="Calculate the best time to go to bed or wake up. Maximize your energy and productivity by timing your sleep cycles." />
       </Helmet>
 
-      <h1>Sleep Calculator</h1>
-      <p>Quickly find the best time to go to bed to wake up feeling refreshed and energized.</p>
+      <h1>Sleep Calculator: When Should You Go To Bed To Feel Refreshed?</h1>
+      <p>Waking up in the middle of a sleep cycle is why you feel tired; find your perfect bedtime to wake up feeling amazing.</p>
 
       
 

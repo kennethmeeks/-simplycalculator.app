@@ -123,12 +123,12 @@ export const CompoundInterestCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Compound Interest Calculator [Updated for 2026]</title>
-        <meta name="description" content="Calculate your investment growth with our free compound interest calculator. See how monthly contributions and compounding interest can build your wealth in 2026." />
+        <title>Compound Interest — $1K Grows to $7,612 Free Calculator 2026</title>
+        <meta name="description" content="Watch your savings explode with our free 2026 compound interest calculator. Calculate future value with monthly contributions and interest." />
       </Helmet>
 
-      <h1>Compound Interest Calculator</h1>
-      <p>Calculate how much your investment will grow over time with compound interest and regular contributions.</p>
+      <h1>Compound Interest Calculator: How Fast Can Your Money Grow?</h1>
+      <p>Compound interest is the eighth wonder of the world; calculate how $1,000 can grow into $7,612 or more with zero effort.</p>
 
       
 

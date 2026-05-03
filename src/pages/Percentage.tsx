@@ -96,13 +96,13 @@ export const PercentageCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
-        <title>Percentage Calculator [Updated for 2026]</title>
-        <meta name="description" content="Free online percentage calculator for 2026. Calculate percentages, percentage change, and more with clear steps and formulas for easy understanding." />
+        <title>Percentage Calculator — Solve Any % Problem in 5 Seconds Free</title>
+        <meta name="description" content="Calculate percentage increases, decreases, and fractions. The fastest way to solve any percentage math problem in 2026." />
       </Helmet>
 
       <header className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Percentage Calculator</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">Efficient, verified percentage calculations for professional and everyday use in 2026.</p>
+        <h1 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase">Percentage Calculator: How Do You Solve This Math Problem?</h1>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium text-sm">You can solve any percentage increase or decrease in under 5 seconds with this free tool, no manual math required.</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">

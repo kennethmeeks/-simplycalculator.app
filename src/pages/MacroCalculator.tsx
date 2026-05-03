@@ -39,12 +39,12 @@ export const MacroCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Macro Calculator [Instant Results]</title>
-        <meta name="description" content="Free online macro calculator to determine your ideal macronutrient ratios for weight loss, muscle gain, or maintenance in 2026." />
+        <title>Macro Calculator — The Perfect 40/30/30 Split Free 2026</title>
+        <meta name="description" content="Optimize your diet. Calculate your ideal protein, carb, and fat ratios for muscle gain or fat loss with our free 2026 tool." />
       </Helmet>
 
-      <h1>Macro Calculator</h1>
-      <p>Determine your ideal daily intake of protein, carbohydrates, and fats based on your calorie goals and fitness objectives.</p>
+      <h1>Macro Calculator: What Should Your Protein and Fat Ratios Be?</h1>
+      <p>The perfect 40/30/30 macro split could be the key to your transformation; calculate your grams of protein, fat, and carbs.</p>
 
       
 
