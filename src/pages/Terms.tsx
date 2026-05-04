@@ -6,8 +6,8 @@ export const Terms: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Terms of Service [100% Private]</title>
-        <meta name="description" content="Read our terms of service and conditions for using simplycalculator.app. Professional and transparent guidelines for our users." />
+        <title>Terms of Service | simplycalculator.app — 2026 Usage Rules</title>
+        <meta name="description" content="Standard terms and conditions for using simplycalculator.app. Verified formulas and professional-grade calculation tools for 2026." />
       </Helmet>
 
       <div className="flex items-center gap-3 mb-8">

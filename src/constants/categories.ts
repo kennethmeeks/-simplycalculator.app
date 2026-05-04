@@ -321,6 +321,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Math',
     slug: 'math',
     description: 'Master mathematics from basic arithmetic to advanced calculus. Our tools cover everything from simple addition to complex linear algebra and statistics.',
+    defaultGuidance: {
+      whyItMatters: 'Mathematical precision is the universal language of logic and problem-solving. Whether you are solving for X in a classroom or calculating the volume of a sphere in the field, using verified formulas ensures that your results are consistent, preventing cascading errors in more complex projects.',
+      pitfalls: [
+        'Order of Operations Error: Forgetting PEMDAS/BODMAS is the most common reason for incorrect results. Our tools handle this automatically, but manual verification should always follow these rules.',
+        'Improper Rounding: Rounding too early in a multi-step problem can significantly skew the final answer. Always keep as many decimals as possible until the final step.'
+      ],
+      proTip: 'Whenever possible, draw the problem. Visualization, especially in geometry, helps you identify if an answer "looks" right before you commit to the result.'
+    },
     items: [
       { name: 'Basic Calculator', path: '/math/basic', desc: 'A simple calculator for basic operations.', keywords: ['arithmetic', 'simple math', 'calculator', 'basics'] },
       { name: 'Addition', path: '/math/addition', desc: 'Sum multiple numbers with precision.', keywords: ['plus', 'summation', 'total', 'arithmetic', 'math basics'] },
@@ -387,6 +395,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Roofing & Framing',
     slug: 'roofing',
     description: 'Specialized structural engineering for envelopes and rafters. From truss math to shingle coverage, ensure your building is watertight and structurally sound.',
+    defaultGuidance: {
+      whyItMatters: 'Roofing and framing math are critical for structural integrity and preventing water damage. Incorrect rafter lengths or pitch calculations can lead to sagging loads or improper drainage, which are two of the most expensive building failures to correct after construction is complete.',
+      pitfalls: [
+        'Ignoring "Exposure" Factor: Not accounting for shingle overlap can lead to a 15-20% deficit in material count.',
+        'Ignoring Gravity Loads: Miscalculating the snow load or dead weight of roofing materials can lead to structural collapse in extreme weather.'
+      ],
+      proTip: 'Always calculate your pitch as "Rise over Run." Measuring from the bottom of the rafter rather than the top can lead to incorrect overhang dimensions.'
+    },
     items: [
       { name: 'Roofing Calculator', path: '/roofing', desc: 'Estimate shingles and materials.' },
       { name: 'Rafter Length', path: '/rafter-length', desc: 'Step-by-step rafter sizing and layout.' },
@@ -403,6 +419,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Real Estate & Mortgages',
     slug: 'real-estate',
     description: 'Expert planning for property and residential financing. Analyze mortgage structures, investment returns, and leasing math with professional precision.',
+    defaultGuidance: {
+      whyItMatters: 'Real estate is often an individual\'s primary vehicle for wealth creation, but it is also their largest liability. Understanding the impact of interest rates, amortization, and cap rates allows you to move beyond "emotional buying" and treat property as a calculated financial asset.',
+      pitfalls: [
+        'Forgetting Closing Costs: Most buyers forget that taxes, title fees, and commissions add 2-5% to the total purchase price beyond the down payment.',
+        'Cash Flow vs. Appreciation: Relying solely on a home\'s value to go up is a speculative gamble. Professional investors prioritize positive monthly cash flow over hypothetical future price growth.'
+      ],
+      proTip: 'Always calculate "Price Per Square Foot" for comparable homes in your specific neighborhood. This is the only way to truly know if you are overpaying for a property based on its area.'
+    },
     items: [
       { name: 'Mortgage Calculator', path: '/mortgage', desc: 'Primary mortgage payment analysis.' },
       { name: 'House Affordability', path: '/house-affordability', desc: 'Find your home budget range.' },
@@ -437,6 +461,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Construction & Building',
     slug: 'construction',
     description: 'Specialized calculators for structural engineering and building materials. Estimate lumber, steel weight, and framing requirements for professional worksites.',
+    defaultGuidance: {
+      whyItMatters: 'Construction math is the difference between a project that is profitable and one that is a financial disaster. Precisely estimating materials like lumber, drywall, and steel ensures that your job site stays active without the delays caused by "just one more trip" to the supplier.',
+      pitfalls: [
+        'Ignoring "Nominal" vs "Actual": A 2x4 lumber board is actually 1.5" x 3.5". Using nominal dimensions in high-precision framing will lead to misaligned walls and headers.',
+        'Deflection Overlooked: Sizing a beam strictly for "strength" without checking "deflection" (how much it bends) can result in cracked drywall and bouncy floors even if the building is technically safe.'
+      ],
+      proTip: 'When ordering materials for a whole project, always group your cut-list. You might find that ordering 12-foot boards and cutting them results in significantly less waste than ordering standard 8-footers.'
+    },
     items: [
       { name: 'Lumber Calculator', path: '/lumber', desc: 'Board feet and volume for framing.' },
       { name: 'Board Foot', path: '/board-foot', desc: 'Standard lumber volume measurement.' },
