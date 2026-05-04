@@ -11,11 +11,13 @@ export const Home: React.FC = () => {
       <Helmet>
         <title>simplycalculator.app | 1,600+ Free Online Calculators for 2026</title>
         <meta name="description" content="Access over 1,600+ free online calculators. Get instant accurate results for Finance, Health, Math, and Engineering with our verified 2026 mathematical suite." />
+        <link rel="canonical" href="https://simplycalculator.app" />
         <meta property="og:title" content="simplycalculator.app — Solve Any Problem in 5 Seconds Free" />
         <meta property="og:description" content="Browse 1,600+ data-driven tools for everyone. Completely free with no sign-ups required. Verified accuracy." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://simplycalculator.app" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="simplycalculator.app | 1600+ Free Tools" />
+        <meta name="twitter:title" content="simplycalculator.app | 1600+ Free Tools for 2026" />
         <meta name="twitter:description" content="Verified mathematical accuracy for all your calculation needs." />
         <script type="application/ld+json">
           {`

@@ -334,10 +334,12 @@ export const CalculatorPage: React.FC = () => {
             <Helmet>
                 <title>{foundItem.name} — Get Results in 10s Free 2026</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
+                <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
                 <meta property="og:title" content={`${foundItem.name} | simplycalculator.app`} />
                 <meta property="og:description" content={foundItem.desc} />
                 <meta property="og:type" content="article" />
-                <meta name="twitter:card" content="summary" />
+                <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
+                <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={foundItem.name} />
                 <meta name="twitter:description" content={foundItem.desc} />
                 <script type="application/ld+json">
@@ -348,6 +350,7 @@ export const CalculatorPage: React.FC = () => {
                     "operatingSystem": "All",
                     "applicationCategory": "EducationalApplication",
                     "description": foundItem.desc,
+                    "url": `https://simplycalculator.app${foundItem.path}`,
                     "offers": {
                       "@type": "Offer",
                       "price": "0",

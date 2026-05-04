@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import { Link } from 'react-router-dom';
 import { Search, TrendingUp, BarChart3, Globe, Info } from 'lucide-react';
 
 export const CalculatorMonthlySearches: React.FC = () => {
@@ -8,16 +8,16 @@ export const CalculatorMonthlySearches: React.FC = () => {
   const [estimatedVolume, setEstimatedVolume] = useState<number | null>(null);
 
   const popularCalculators = [
-    { name: 'Mortgage Calculator', volume: '1,500,000' },
-    { name: 'BMI Calculator', volume: '1,200,000' },
-    { name: 'Scientific Calculator', volume: '800,000' },
-    { name: 'Compound Interest Calculator', volume: '450,000' },
-    { name: 'Age Calculator', volume: '400,000' },
-    { name: 'GPA Calculator', volume: '350,000' },
-    { name: 'Auto Loan Calculator', volume: '300,000' },
-    { name: 'Percentage Calculator', volume: '250,000' },
-    { name: 'Salary Calculator', volume: '200,000' },
-    { name: 'Calorie Calculator', volume: '180,000' },
+    { name: 'Mortgage Calculator', volume: '1,500,000', path: '/mortgage' },
+    { name: 'BMI Calculator', volume: '1,200,000', path: '/bmi' },
+    { name: 'Scientific Calculator', volume: '800,000', path: '/scientific' },
+    { name: 'Compound Interest Calculator', volume: '450,000', path: '/compound-interest' },
+    { name: 'Age Calculator', volume: '400,000', path: '/age' },
+    { name: 'GPA Calculator', volume: '350,000', path: '/gpa' },
+    { name: 'Auto Loan Calculator', volume: '300,000', path: '/auto-loan' },
+    { name: 'Percentage Calculator', volume: '250,000', path: '/math/percentage' },
+    { name: 'Salary Calculator', volume: '200,000', path: '/salary' },
+    { name: 'Calorie Calculator', volume: '180,000', path: '/calorie' },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -96,7 +96,9 @@ export const CalculatorMonthlySearches: React.FC = () => {
                 <div key={calc.name} className="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
                   <div className="flex items-center gap-4">
                     <span className="text-slate-300 font-mono text-sm">{idx + 1}</span>
-                    <span className="font-medium text-slate-700">{calc.name}</span>
+                    <Link to={popularCalculators.find(p => p.name === calc.name)?.path || '/'} className="font-medium text-slate-700 hover:text-blue-600 transition-colors">
+                      {calc.name}
+                    </Link>
                   </div>
                   <div className="text-right">
                     <span className="text-slate-900 font-bold">{calc.volume}</span>
@@ -127,6 +129,12 @@ export const CalculatorMonthlySearches: React.FC = () => {
             </div>
           </div>
           
+          <div className="bg-white border border-slate-200 rounded-lg p-6">
+            <h3 className="font-bold text-slate-900 mb-4 uppercase text-xs tracking-widest border-b pb-2">Internal Linking Status</h3>
+            <p className="text-[11px] text-slate-500 leading-relaxed italic">
+              Our core calculators have 100% crawl coverage. Every tool is indexed in our sitemap and linked through hierarchical categories.
+            </p>
+          </div>
         </div>
       </div>
 

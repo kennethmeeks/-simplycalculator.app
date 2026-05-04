@@ -201,7 +201,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/salary': (inputs) => {
-    const amt = parseFloat(inputs.amount);
+    const amt = cleanNum(inputs.amount);
     const freq = inputs.frequency || 'annual';
     if (isNaN(amt)) return { value: 'Invalid input' };
     
@@ -235,8 +235,8 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/math/percentage': (inputs) => {
-    const x = parseFloat(inputs.num1);
-    const y = parseFloat(inputs.num2);
+    const x = cleanNum(inputs.num1);
+    const y = cleanNum(inputs.num2);
     const op = inputs.operation;
     if (isNaN(x) || isNaN(y)) return { value: 'Invalid input' };
     
@@ -281,9 +281,9 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/grade': (inputs) => {
-    const current = parseFloat(inputs.currentGrade);
-    const target = parseFloat(inputs.targetGrade);
-    const weight = parseFloat(inputs.finalWeight);
+    const current = cleanNum(inputs.currentGrade);
+    const target = cleanNum(inputs.targetGrade);
+    const weight = cleanNum(inputs.finalWeight);
     if (isNaN(current) || isNaN(target) || isNaN(weight) || weight === 0) return { value: 'Invalid input' };
     const needed = (target - current * (1 - weight / 100)) / (weight / 100);
     return {
@@ -292,9 +292,9 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/simple-interest': (inputs) => {
-    const p = parseFloat(inputs.principal);
-    const r = parseFloat(inputs.rate);
-    const t_val = parseFloat(inputs.time);
+    const p = cleanNum(inputs.principal);
+    const r = cleanNum(inputs.rate);
+    const t_val = cleanNum(inputs.time);
     const unit = inputs.timeUnit || 'years';
     if (isNaN(p) || isNaN(r) || isNaN(t_val)) return { value: 'Invalid input' };
     
@@ -307,9 +307,9 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return { value: `$${total.toLocaleString(undefined, {minimumFractionDigits: 2})}`, explanation: `Total interest: $${interest.toLocaleString(undefined, {minimumFractionDigits: 2})}. Total balance: $${total.toLocaleString(undefined, {minimumFractionDigits: 2})}.` };
   },
   '/bmr': (inputs) => {
-    const w = parseFloat(inputs.weight);
-    const h = parseFloat(inputs.height);
-    const a = parseFloat(inputs.age);
+    const w = cleanNum(inputs.weight);
+    const h = cleanNum(inputs.height);
+    const a = cleanNum(inputs.age);
     const g = inputs.gender;
     if (isNaN(w) || isNaN(h) || isNaN(a)) return { value: 'Invalid input' };
     
@@ -324,7 +324,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/pressure': (inputs) => {
-    const val = parseFloat(inputs.value);
+    const val = cleanNum(inputs.value);
     const from = inputs.fromUnit;
     const to = inputs.toUnit;
     if (isNaN(val)) return { value: 'Invalid input' };
@@ -347,8 +347,8 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/math/percent-error': (inputs) => {
-    const exp = parseFloat(inputs.experimental);
-    const theo = parseFloat(inputs.theoretical);
+    const exp = cleanNum(inputs.experimental);
+    const theo = cleanNum(inputs.theoretical);
     if (isNaN(exp) || isNaN(theo) || theo === 0) return { value: 'Invalid input' };
     const err = Math.abs((exp - theo) / theo) * 100;
     return {
@@ -386,9 +386,9 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     };
   },
   '/roi': (inputs) => {
-    const invested = parseFloat(inputs.invested);
-    const returned = parseFloat(inputs.returned);
-    const years = parseFloat(inputs.years);
+    const invested = cleanNum(inputs.invested);
+    const returned = cleanNum(inputs.returned);
+    const years = cleanNum(inputs.years);
     if (isNaN(invested) || isNaN(returned)) return { value: 'Invalid input' };
     if (invested === 0) return { value: '0%', explanation: 'Cannot calculate ROI for a $0 investment.' };
     
@@ -1601,23 +1601,23 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return standardCalculations['/gpa'](inputs);
   },
   '/million-to-billion': (inputs) => {
-    const val = parseFloat(inputs.value);
+    const val = cleanNum(inputs.value);
     if (isNaN(val)) return { value: 'Invalid' };
     return { value: `${(val / 1000).toFixed(3)} Billion`, explanation: `${val.toLocaleString()} million is equal to ${(val / 1000).toFixed(3)} billion.` };
   },
   '/crore-to-lakh': (inputs) => {
-    const val = parseFloat(inputs.value);
+    const val = cleanNum(inputs.value);
     if (isNaN(val)) return { value: 'Invalid' };
     return { value: `${(val * 100).toLocaleString()} Lakh`, explanation: `${val} Crore is equal to ${val * 100} Lakh.` };
   },
   '/nm-to-ft-lbs': (inputs) => {
-    const val = parseFloat(inputs.value);
+    const val = cleanNum(inputs.value);
     if (isNaN(val)) return { value: 'Invalid' };
     const ftlbs = val * 0.737562149;
     return { value: `${ftlbs.toFixed(2)} ft-lbs`, explanation: `${val} Newton-meters is approximately ${ftlbs.toFixed(2)} foot-pounds.` };
   },
   '/unit-converter': (inputs) => {
-    const val = parseFloat(inputs.value);
+    const val = cleanNum(inputs.value);
     const type = inputs.type;
     const from = inputs.fromUnit;
     const to = inputs.toUnit;
@@ -1627,13 +1627,13 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       const toMeters: Record<string, number> = { 'm': 1, 'cm': 0.01, 'mm': 0.001, 'km': 1000, 'in': 0.0254, 'ft': 0.3048, 'yd': 0.9144, 'mi': 1609.34 };
       const meters = val * (toMeters[from || 'm'] || 1);
       const res = meters / (toMeters[to || 'm'] || 1);
-      return { value: res.toFixed(4), explanation: `${val}${from} is equal to ${res.toFixed(4)}${to}.` };
+      return { value: Number(res.toFixed(6)).toString(), explanation: `${val} ${from} is equal to ${res.toFixed(4)} ${to}.` };
     }
     if (type === 'weight') {
       const toKg: Record<string, number> = { 'kg': 1, 'g': 0.001, 'mg': 0.000001, 'lb': 0.453592, 'oz': 0.0283495 };
       const kg = val * (toKg[from || 'kg'] || 1);
       const res = kg / (toKg[to || 'kg'] || 1);
-      return { value: res.toFixed(4), explanation: `${val}${from} is equal to ${res.toFixed(4)}${to}.` };
+      return { value: Number(res.toFixed(6)).toString(), explanation: `${val} ${from} is equal to ${res.toFixed(4)} ${to}.` };
     }
     if (type === 'temp') {
       let c = val;
@@ -1649,66 +1649,136 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
   },
   '/scientific': (inputs) => {
     try {
-      const expression = (inputs.expression || '').toLowerCase();
-      if (!expression) return { value: 'Enter expression' };
-      // Basic math evaluation for scientific calculator
-      const clean = expression.replace(/[^0-9+\-*/(). ^sqrtpi]/g, '')
-                               .replace(/sqrt/g, 'Math.sqrt')
-                               .replace(/pi/g, 'Math.PI')
-                               .replace(/\^/g, '**');
-      const result = eval(clean);
+      let exp = (inputs.expression || '').toLowerCase();
+      if (!exp) return { value: '0' };
+      
+      // Safety and convenience replacements
+      exp = exp.replace(/ln\(/g, 'Math.log(')
+               .replace(/log\(/g, 'Math.log10(')
+               .replace(/sin\(/g, 'Math.sin(')
+               .replace(/cos\(/g, 'Math.cos(')
+               .replace(/tan\(/g, 'Math.tan(')
+               .replace(/sqrt\(/g, 'Math.sqrt(')
+               .replace(/pi/g, 'Math.PI')
+               .replace(/e/g, 'Math.E')
+               .replace(/\^/g, '**');
+
+      // Basic security check - only allow numbers, operators, and Math functions
+      // We've already replaced standard functions with Math.xxx
+      const allowed = /^[0-9+\-*/(). ^Match.sqrtsincostanlog10PIE]*$/;
+      if (!allowed.test(exp.replace(/\s/g, ''))) {
+          throw new Error("Security block: Invalid characters");
+      }
+
+      // eslint-disable-next-line no-eval
+      const result = eval(exp);
       if (typeof result !== 'number' || isNaN(result)) throw new Error();
-      return { value: Number(result.toFixed(8)).toString(), explanation: `Result of: ${expression}` };
+      
+      return { 
+          value: Number(result.toFixed(10)).toString(), 
+          explanation: `Calculation: ${inputs.expression} = ${result}` 
+      };
     } catch (e) {
-      return { value: 'Error', explanation: 'Invalid mathematical expression.' };
+      return { value: 'Error', explanation: 'Invalid math expression. Please use functions like sin(), cos(), sqrt(), etc.' };
     }
   },
+  '/math/fraction': (inputs) => {
+      const n1 = cleanNum(inputs.num1);
+      const d1 = cleanNum(inputs.den1);
+      const n2 = cleanNum(inputs.num2);
+      const d2 = cleanNum(inputs.den2);
+      const op = inputs.op || '+';
+      if (isNaN(n1) || isNaN(d1) || isNaN(n2) || isNaN(d2) || d1 === 0 || d2 === 0) return { value: 'Invalid' };
+      
+      let resN, resD;
+      if (op === '+') { resN = n1*d2 + n2*d1; resD = d1*d2; }
+      else if (op === '-') { resN = n1*d2 - n2*d1; resD = d1*d2; }
+      else if (op === '*') { resN = n1*n2; resD = d1*d2; }
+      else { resN = n1*d2; resD = d1*n2; }
+      
+      if (resD === 0) return { value: 'Error' };
+      
+      const gcd = (a: number, b: number): number => b ? gcd(b, a % b) : a;
+      const common = Math.abs(gcd(resN, resD));
+      const finalN = resN / common;
+      const finalD = resD / common;
+      
+      return { 
+          value: finalD === 1 ? String(finalN) : `${finalN}/${finalD}`, 
+          explanation: `Result of ${n1}/${d1} ${op} ${n2}/${d2} simplified to ${finalN}/${finalD}.` 
+      };
+  },
+  '/inflation': (inputs) => {
+      const amt = cleanNum(inputs.amount);
+      const start = parseInt(inputs.startYear);
+      const end = parseInt(inputs.endYear) || 2026;
+      if (isNaN(amt) || isNaN(start)) return { value: 'Invalid' };
+      
+      // Estimated historic average of 3.2%
+      const years = end - start;
+      const res = amt * Math.pow(1.032, years);
+      return { value: `$${res.toLocaleString(undefined, { maximumFractionDigits: 0 })}`, explanation: `$${amt.toLocaleString()} in ${start} is approx. $${res.toLocaleString()} in ${end} (avg 3.2% inflation).` };
+  },
+  '/salary-to-hourly': (inputs) => {
+      const sal = cleanNum(inputs.salary);
+      const hours = cleanNum(inputs.hoursPerWeek) || 40;
+      if (isNaN(sal)) return { value: 'Invalid' };
+      const hourly = sal / (hours * 52);
+      return { value: `$${hourly.toFixed(2)}/hr`, explanation: `Based on ${hours} hours per week for 52 weeks, an annual salary of $${sal.toLocaleString()} is $${hourly.toFixed(2)} per hour.` };
+  },
+  '/hourly-to-salary': (inputs) => {
+      const hr = cleanNum(inputs.hourlyRate);
+      const hours = cleanNum(inputs.hoursPerWeek) || 40;
+      if (isNaN(hr)) return { value: 'Invalid' };
+      const sal = hr * hours * 52;
+      return { value: `$${sal.toLocaleString()}/yr`, explanation: `An hourly rate of $${hr} working ${hours}hr/week results in a gross annual salary of $${sal.toLocaleString()}.` };
+  },
   '/math/addition': (inputs) => {
-    const n1 = parseFloat(inputs.num1) || 0;
-    const n2 = parseFloat(inputs.num2) || 0;
-    const n3 = parseFloat(inputs.num3) || 0;
+    const n1 = cleanNum(inputs.num1) || 0;
+    const n2 = cleanNum(inputs.num2) || 0;
+    const n3 = cleanNum(inputs.num3) || 0;
     const sum = n1 + n2 + n3;
     return { value: String(sum), explanation: `${n1} + ${n2} ${inputs.num3 ? '+ ' + n3 : ''} = ${sum}` };
   },
   '/math/multiplication': (inputs) => {
-    const n1 = parseFloat(inputs.num1) || 0;
-    const n2 = parseFloat(inputs.num2) || 0;
+    const n1 = cleanNum(inputs.num1) || 0;
+    const n2 = cleanNum(inputs.num2) || 0;
     return { value: String(n1 * n2), explanation: `${n1} × ${n2} = ${n1 * n2}` };
   },
   '/math/division': (inputs) => {
-    const n1 = parseFloat(inputs.num1);
-    const n2 = parseFloat(inputs.num2);
+    const n1 = cleanNum(inputs.num1);
+    const n2 = cleanNum(inputs.num2);
     if (isNaN(n1) || isNaN(n2)) return { value: 'Invalid' };
     if (n2 === 0) return { value: 'Cannot divide by zero' };
     return { value: String(n1 / n2), explanation: `${n1} ÷ ${n2} = ${n1 / n2}` };
   },
   '/math/average': (inputs) => {
-    const nums = (inputs.numbers || '').split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+    const nums = (inputs.numbers || '').split(',').map(n => cleanNum(n.trim())).filter(n => !isNaN(n));
     if (nums.length === 0) return { value: '0' };
     const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
-    return { value: avg.toFixed(4), explanation: `Average of ${nums.length} numbers is ${avg.toFixed(4)}` };
+    return { value: Number(avg.toFixed(4)).toString(), explanation: `Average of ${nums.length} numbers is ${avg.toFixed(4)}` };
   },
   '/math/square-root': (inputs) => {
-    const val = parseFloat(inputs.value);
+    const val = cleanNum(inputs.value);
     if (isNaN(val) || val < 0) return { value: 'Invalid' };
     const res = Math.sqrt(val);
     return { value: String(res), explanation: `√${val} = ${res}` };
   },
   '/math/exponent': (inputs) => {
-    const base = parseFloat(inputs.base);
-    const p = parseFloat(inputs.power);
+    const base = cleanNum(inputs.base);
+    const p = cleanNum(inputs.power);
     if (isNaN(base) || isNaN(p)) return { value: 'Invalid' };
     const res = Math.pow(base, p);
     return { value: String(res), explanation: `${base} ^ ${p} = ${res}` };
   },
   '/math/modulo': (inputs) => {
-    const n1 = parseFloat(inputs.num1);
-    const n2 = parseFloat(inputs.num2);
+    const n1 = cleanNum(inputs.num1);
+    const n2 = cleanNum(inputs.num2);
     if (isNaN(n1) || isNaN(n2) || n2 === 0) return { value: 'Invalid' };
     return { value: String(n1 % n2), explanation: `${n1} mod ${n2} = ${n1 % n2}` };
   },
   '/math/circle': (inputs) => {
-     const r = parseFloat(inputs.radius);
+     const r = cleanNum(inputs.radius);
      const type = inputs.type;
      if (isNaN(r)) return { value: 'Invalid' };
      if (type === 'area') return { value: (Math.PI * r * r).toFixed(4), explanation: `Area = π × ${r}² = ${(Math.PI * r * r).toFixed(4)}` };
@@ -1716,7 +1786,7 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
      return { value: String(2 * r), explanation: `Diameter = 2 × ${r} = ${2*r}` };
   },
   '/cat-age': (inputs) => {
-    const age = parseFloat(inputs.age);
+    const age = cleanNum(inputs.age);
     if (isNaN(age)) return { value: 'Invalid' };
     let human = 0;
     if (age === 1) human = 15;
@@ -1725,8 +1795,8 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return { value: `${human} Years`, explanation: `A ${age} year old cat is approx. ${human} human years.` };
   },
   '/bmi-kids': (inputs) => {
-    const weight = parseFloat(inputs.weight);
-    const height = parseFloat(inputs.height) / 100;
+    const weight = cleanNum(inputs.weight);
+    const height = cleanNum(inputs.height) / 100;
     if (isNaN(weight) || isNaN(height) || height === 0) return { value: 'Invalid' };
     const bmi = weight / (height * height);
     return { value: bmi.toFixed(1), explanation: `BMI is ${bmi.toFixed(1)}. For children, this is compared against CDC age/gender growth charts to find a percentile.` };

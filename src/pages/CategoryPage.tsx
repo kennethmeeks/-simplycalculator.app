@@ -21,6 +21,49 @@ export const CategoryPage: React.FC = () => {
       <Helmet>
         <title>{data.title} - All Free Calculators 2026</title>
         <meta name="description" content={data.description} />
+        <link rel="canonical" href={`https://simplycalculator.app/category/${data.slug}`} />
+        <meta property="og:title" content={`${data.title} - All Free Calculators 2026`} />
+        <meta property="og:description" content={data.description} />
+        <meta property="og:url" content={`https://simplycalculator.app/category/${data.slug}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": data.title,
+            "description": data.description,
+            "url": `https://simplycalculator.app/category/${data.slug}`,
+            "mainEntity": {
+              "@type": "ItemList",
+              "numberOfItems": data.items.length,
+              "itemListElement": data.items.map((item, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "url": `https://simplycalculator.app${item.path}`,
+                "name": item.name
+              }))
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://simplycalculator.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": data.title,
+                "item": `https://simplycalculator.app/category/${data.slug}`
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <div className="space-y-16">
