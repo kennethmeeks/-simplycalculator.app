@@ -27,12 +27,12 @@ export const PaceCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Pace Calculator | Calculate Running Pace & Speed</title>
-        <meta name="description" content="Free online pace calculator for runners. Calculate your pace per mile or kilometer based on time and distance for your next race in 2026." />
+        <title>Pace Calculator — Want to Break 20:00 in a 5K? Free Tool</title>
+        <meta name="description" content="Calculate your exact running pace. Find the split times you need to hit your goal time for any race distance in 2026." />
       </Helmet>
 
-      <h1>Pace Calculator</h1>
-      <p>Calculate your running pace based on time and distance. Perfect for training for a 5K, 10K, half-marathon, or full marathon.</p>
+      <h1>Pace Calculator: What Split Do You Need To Hit Your Goal?</h1>
+      <p>Running just 5 seconds per mile faster can be the difference between a PR and a struggle; find your perfect pace instantly.</p>
 
       
 

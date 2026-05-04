@@ -32,13 +32,13 @@ export const NetWorthCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Net Worth Calculator | Track Your Financial Progress</title>
-        <meta name="description" content="Free online net worth calculator. Calculate your total assets and liabilities to find your true net worth for 2026." />
+        <title>Net Worth — Are You Richer Than You Think? Free 2026</title>
+        <meta name="description" content="Calculate your true financial standing. Subtract your liabilities from your assets to see your 2026 net worth instantly." />
       </Helmet>
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Net Worth Calculator</h1>
-        <p className="text-slate-600">Calculate your total net worth by subtracting your liabilities from your assets.</p>
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">Net Worth Calculator: What Are You Actually Worth Today?</h1>
+        <p className="text-slate-600">Most millionaires didn't know their net worth until they tracked it; use this free tool to see your total financial score.</p>
       </div>
 
       

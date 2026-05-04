@@ -53,13 +53,14 @@ export const IncomeTaxCalculator: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Income Tax Calculator 2024-2025 | Federal Tax Estimator</title>
-        <meta name="description" content="Estimate your federal income tax for 2024 and 2025. Calculate taxable income, tax brackets, effective tax rate, and take-home pay with our free tool." />
-        <meta name="keywords" content="income tax calculator, federal tax estimator, tax bracket calculator, 2024 tax calculator, 2025 tax calculator, take home pay, effective tax rate" />
+        <title>Income Tax Calculator — Your 2026 Refund or Tax Bill? Free</title>
+        <meta name="description" content="Don't be surprised by the IRS. Estimate your 2026 federal income tax, take-home pay, and effective tax rate instantly." />
+        <meta name="keywords" content="income tax calculator, federal tax estimator, tax bracket calculator, 2026 tax calculator, take home pay, effective tax rate" />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Income Tax Calculator</h1>
+        <h1 className="text-3xl font-bold mb-6">Income Tax Calculator: How Much Cash is the IRS Taking?</h1>
+        <p className="mb-8 text-slate-600">The average tax refund is $2,800; see if you're getting a check or if you owe money with our free 2026 tax estimator.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">

@@ -9,10 +9,10 @@ export const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Online Calculator Hub [Free & No Sign-up]</title>
-        <meta name="description" content="Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces." />
-        <meta property="og:title" content="All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app" />
-        <meta property="og:description" content="Access over 1600+ free online calculators for 2026. Data-driven tools for Finance, Health, and Engineering." />
+        <title>simplycalculator.app | 1,600+ Free Online Calculators for 2026</title>
+        <meta name="description" content="Access over 1,600+ free online calculators. Get instant accurate results for Finance, Health, Math, and Engineering with our verified 2026 mathematical suite." />
+        <meta property="og:title" content="simplycalculator.app — Solve Any Problem in 5 Seconds Free" />
+        <meta property="og:description" content="Browse 1,600+ data-driven tools for everyone. Completely free with no sign-ups required. Verified accuracy." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="simplycalculator.app | 1600+ Free Tools" />

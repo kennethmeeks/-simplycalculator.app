@@ -30,14 +30,14 @@ export const BudgetCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Monthly Budget Calculator [Instant Results]</title>
-        <meta name="description" content="Free online monthly budget calculator. Track your income and expenses, calculate your savings rate, and see where your money is going." />
+        <title>Budget Calculator — Where Is My Money Actually Going? Free</title>
+        <meta name="description" content="Take control of your finances. Use our free budget calculator to track expenses, find hidden savings, and reach your goals in 2026." />
       </Helmet>
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-4">Monthly Budget Calculator</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">Budget Calculator: How Much Money Do You Have Left For Fun?</h1>
         <p className="text-slate-600">
-          Take control of your finances by tracking your monthly income and expenses. See exactly how much you're saving and where you can cut back.
+          The average person wastes $400 every month on forgotten subscriptions; use this free tool to find your missing cash instantly.
         </p>
       </div>
 

@@ -38,12 +38,12 @@ export const SavingsCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Savings Calculator | Track Your Savings Goals & Growth</title>
-        <meta name="description" content="Free online savings calculator to reach your financial goals. Calculate how much you'll save over time with interest and regular deposits in 2026." />
+        <title>Savings Calculator — $500 Grows to $24,812? Free 2026 Tool</title>
+        <meta name="description" content="Watch your savings multiply. Calculate future growth based on monthly deposits and interest rates with our free 2026 calculator." />
       </Helmet>
 
-      <h1>Savings Calculator</h1>
-      <p>Plan your savings goals and see how your money grows over time. Perfect for emergency funds, vacation savings, or a down payment on a house.</p>
+      <h1>Savings Calculator: How Fast Can You Build a $100K Fund?</h1>
+      <p>Small monthly deposits of just $100 can grow into a massive fortune; see exactly how much you'll have in 10, 20, or 30 years.</p>
 
       
 

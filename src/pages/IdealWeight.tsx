@@ -52,12 +52,12 @@ export const IdealWeightCalculator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Helmet>
-        <title>Ideal Weight Calculator | Height & Gender Based Formula</title>
-        <meta name="description" content="Calculate your ideal body weight based on your height and gender with our free online tool. Uses the Devine formula for accurate 2026 health estimates." />
+        <title>Ideal Weight — Is Your Body at Its Target Weight? Free</title>
+        <meta name="description" content="Stop guessing. Find your medically ideal body weight based on your height and gender with our free 2026 calculator." />
       </Helmet>
 
-      <h1>Ideal Weight Calculator</h1>
-      <p>Estimate your ideal body weight based on your height and gender using the standard Devine formula.</p>
+      <h1>Ideal Weight Calculator: What Is Your Heart's Perfect Weight?</h1>
+      <p>Being just 10 lbs over your ideal weight puts extra stress on your joints and heart; find your target number in 3 seconds.</p>
 
       
 
