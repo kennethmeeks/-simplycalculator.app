@@ -6,8 +6,8 @@ export const About: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       <Helmet>
-        <title>About simplycalculator.app | Our Mission for Accurate Tools 2026</title>
-        <meta name="description" content="Discover the story behind simplycalculator.app. Learn about our commitment to mathematical accuracy, user privacy, and providing free high-quality online tools." />
+        <title>About simplycalculator.app | High-Authority Math & Finance Tools 2026</title>
+        <meta name="description" content="Discover the philosophy behind simplycalculator.app. Learn about our commitment to engineering precision, financial accuracy, and free access to world-class calculation tools." />
       </Helmet>
 
       <div className="text-center mb-16">

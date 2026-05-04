@@ -6,8 +6,8 @@ export const Privacy: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       <Helmet>
-        <title>Privacy Policy [100% Private]</title>
-        <meta name="description" content="Read our comprehensive privacy policy. Learn how simplycalculator.app protects your data through local browser processing and transparent advertising practices." />
+        <title>Privacy Policy | Your Data Stays Private simplycalculator.app</title>
+        <meta name="description" content="Read our verified privacy standards. simplycalculator.app uses local-only browser processing to ensure your sensitive financial and health data is never stored on a server." />
       </Helmet>
 
       <div className="mb-12">

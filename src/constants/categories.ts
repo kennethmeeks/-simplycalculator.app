@@ -287,6 +287,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Personal & Fun',
     slug: 'personal',
     description: 'Life metrics and entertaining curiosities. Our personal tools help you track unique milestones, compatibility, and day-to-day life calculations.',
+    defaultGuidance: {
+      whyItMatters: 'While some metrics are for entertainment, others—like business days or age differences—help organize the social and professional logic of our lives. These tools add clarity to complex personal timelines and help you celebrate milestones with mathematical accuracy.',
+      pitfalls: [
+        'Timezone Overlap: When calculating "days until" for international events, forgetting the date line can lead to missing the start of your countdown.',
+        'Inclusive vs. Exclusive Dates: Forgetting whether you are counting the "start" day or "end" day in a range can result in a 24-hour error.'
+      ],
+      proTip: 'Use the "Business Days" calculator for project planning rather than simple day counts to get a realistic view of when a task will actually be completed in a professional setting.'
+    },
     items: [
       { name: 'Dog Age Calculator', path: '/dog-age', desc: 'Convert dog years to human years.' },
       { name: 'Cat Age Calculator', path: '/cat-age', desc: 'Convert cat years to human years.' },
@@ -311,6 +319,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Insurance',
     slug: 'insurance',
     description: 'Secure your future with proper coverage. Our tools help you estimate how much life, health, or auto insurance you actually need.',
+    defaultGuidance: {
+      whyItMatters: 'Insurance is your financial safety net. Calculating the correct coverage amount is the difference between being "insured" and being "protected." Under-insuring leaves your family vulnerable, while over-insuring wastes thousands in unnecessary premiums over a lifetime.',
+      pitfalls: [
+        'The "Rule of Thumb" Trap: Relying on generic advice (like "10x your salary") ignores individual debt, education costs, and inflation. Always calculate based on your specific liabilities.',
+        'Ignoring Inflation: A $500k policy today will have significantly less purchasing power in 20 years. Re-evaluate your coverage every 3-5 years.'
+      ],
+      proTip: 'Consider "Laddering" your policies. Instead of one giant 30-year policy, take multiple smaller policies with different durations (e.g., 10, 20, and 30 years) to match your shrinking debt as your mortgage is paid off.'
+    },
     items: [
       { name: 'Life Insurance', path: '/life-insurance', desc: 'Coverage for family protection.' },
       { name: 'Health Insurance', path: '/health-insurance', desc: 'Out-of-pocket and premium math.' },
@@ -522,6 +538,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Water & Hydraulics',
     slug: 'hydraulics',
     description: 'Precision fluid dynamics for plumbing, fire safety, and landscaping. Calculate flow rates, vessel volumes, and pressure drops for complex pipe systems.',
+    defaultGuidance: {
+      whyItMatters: 'Fluid dynamics is the silent force behind modern infrastructure. Whether you\'re sizing a pool pump or ensuring fire safety flow, understanding pressure and volume prevents catastrophic failures like pipe bursts or equipment cavitation that can cost thousands in repairs.',
+      pitfalls: [
+        'Ignoring Friction Loss: Water loses pressure as it travels through pipes. Forgetting to account for the length and diameter of the pipe will lead to inadequate flow at the destination.',
+        'Static vs. Dynamic Pressure: Pressure changes when water starts moving. Designing for static pressure alone often results in systems that underperform under actual load.'
+      ],
+      proTip: 'Always "over-size" your pipes slightly if you\'re on the edge of a calculation. Increasing pipe diameter by just 25% can reduce friction loss by more than 50%, significantly extending pump life.'
+    },
     items: [
       { name: 'Pool Calculator', path: '/pool', desc: 'Gallons, heating, and chemical needs.' },
       { name: 'Pond Calculator', path: '/pond', desc: 'Liner area and volume for water features.' },
@@ -966,6 +990,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Military & Recruitment',
     slug: 'military',
     description: 'Compliance and fitness standards for the armed forces. Calculate scores for PT tests and body composition requirements across various branches.',
+    defaultGuidance: {
+      whyItMatters: 'Military standards are designed to ensure operational readiness and safety. For service members, these calculations are often the difference between career advancement and administrative action. Precision in these tests ensures you meet the physical demands of high-stakes environments.',
+      pitfalls: [
+        'The "Tape Test" Variable: The Army and Navy body fat tests are estimates. Factors like neck tension or hydration can slightly skew results. Always test multiple times to find your true average.',
+        'Ignoring Minimum Thresholds: In tests like the ACFT, excelling in one area doesn\'t compensate for failing a minimum in another. Balanced training is critical.'
+      ],
+      proTip: 'Train 10% above the required standard. On test day, stress and environmental factors (like heat or unfamiliar terrain) often sap performance, and having that buffer ensures you still pass with ease.'
+    },
     items: [
       { name: 'ACFT Calculator', path: '/acft', desc: 'Army Combat Fitness Test grading.', keywords: ['acft scoring', 'army fitness', 'strength test', 'deadlift', 'power throw', 'army pt', 'leg tuck', 'shuttle run', 'combat fitness', 'grading scale', 'physical assessment', 'military health', 'standards', 'exercise math'] },
       { name: 'APFT Calculator', path: '/apft', desc: 'Legacy Army Physical Fitness Test scoring.', keywords: ['army physical fitness', 'apft', 'legacy army pt', 'pushups and situps', 'two mile run', 'pt test scoring', 'army standards', 'vintage army fitness', 'physical training', 'score chart', 'army metrics', 'military exercise'] },
@@ -980,6 +1012,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Converters',
     slug: 'converters',
     description: 'Instant unit transformation. Convert length, weight, tech formats, and historical numbering systems with total accuracy.',
+    defaultGuidance: {
+      whyItMatters: 'Unit conversion is the bridge between different engineering and scientific standards. A simple error in converting Newtons to foot-pounds or Celsius to Fahrenheit can lead to total system failure in manufacturing or incorrect dosages in medical settings.',
+      pitfalls: [
+        'Precision Loss: Rounding your conversion factor (e.g., using 2.5 instead of 2.54 for inches to cm) can lead to significant errors when dealing with large quantities.',
+        'Base Unit Confusion: In digital conversions (like Mbps to MB/s), the factor of 8 is often forgotten, leading to an 800% error in bandwidth expectations.'
+      ],
+      proTip: 'Always perform a "sanity check" after converting. If you\'re converting a small number to a smaller unit (like meters to millimeters), the result should be a much larger number. If it isn\'t, you swapped your multiplier.'
+    },
     items: [
       { name: 'Unit Converter', path: '/unit-converter', desc: 'Metric and Imperial conversions.', keywords: ['metric converter', 'imperial units', 'length weight volume', 'universal converter', 'measurement math', 'si units', 'customary units', 'unit transformation', 'comprehensive converter', 'precision units', 'engineering units', 'daily conversion', 'measurement transformation', 'unit scale', 'conversion tools'] },
       { name: 'Force Converter', path: '/force-converter', desc: 'Convert Newtons, lbf, and more.', keywords: ['newton converter', 'pound force', 'lbf to n', 'dyne conversion', 'physic force', 'engineering dynamics', 'kilonewton', 'force units', 'mechanical engineering', 'statics math', 'force transformation', 'kip conversion', 'structural force'] },
@@ -1155,6 +1195,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Sales & Business',
     slug: 'sales',
     description: 'Grow your venture and shop smarter. Our retail suite covers everything from profit margins and markups to strategic discount analysis for major sales events.',
+    defaultGuidance: {
+      whyItMatters: 'Retail and commercial success is built on understanding the interplay between cost, price, and volume. Whether you\'re planning a Black Friday sale or managing everyday margins, these calculations ensure your pricing strategy is sustainable and your discounts actually drive profitable growth rather than just moving inventory.',
+      pitfalls: [
+        'Margin vs. Markup Confusion: "Markup" is based on cost, while "Margin" is based on selling price. Forgetting this distinction can lead you to price your products significantly lower than intended, eroding your bottom line.',
+        'Cumulative Discount Errors: Two 20% discounts are not the same as one 40% discount. Stacking discounts without calculating the net effect can result in selling items at a loss.'
+      ],
+      proTip: 'Use the "Price to Earnings" tools to evaluate not just individual sales, but the health of your entire business model. Aim for a margin that absorbs your overhead while remaining competitive in your specific market.'
+    },
     items: [
       { name: 'Black Friday Calculator', path: '/black-friday', desc: 'Strategize for the biggest shopping event of the year.', keywords: ['cyber week', 'retail deals', 'doorbusters', 'shopping strategy', 'savings tracker', 'holiday shopping', 'seasonal sales', 'discount math', 'shopping list', 'deal analyzer'] },
       { name: 'Cash Back Calculator', path: '/cash-back', desc: 'Calculate the real value of rewards and rebates.', keywords: ['credit card rewards', 'rebates', 'loyalty points', 'financial perks', 'shopping returns', 'reward value', 'cash incentives', 'savings math', 'bonus points', 'reward tracking'] },
@@ -1183,6 +1231,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Engineering & Industrial',
     slug: 'engineering',
     description: 'Precision tools for mechanical, electrical, and structural engineering. Handle complex tolerances, industrial throughput, and manufacturing specifications.',
+    defaultGuidance: {
+      whyItMatters: 'Precision is the foundational requirement of engineering. From calculating bearing life to defining gear ratios, these industrial tools translate theoretical physics into functional mechanical reality. Accuracy here prevents structural failures, reduces mechanical wear, and ensures safety in heavy-duty environments.',
+      pitfalls: [
+        'Ignoring Tolerances: No material or process is perfect. Failing to account for a "margin of error" in torque or load will lead to premature fatigue and breakage.',
+        'Stress vs. Strain: Confusing these two can lead to selecting materials that are "strong" but too brittle for the intended application.'
+      ],
+      proTip: 'Always use the "Duty Cycle" calculator for electrical and mechanical motors. Running a machine at 100% capacity without the required cooling periods is the most common cause of industrial equipment burnout.'
+    },
     items: [
       { name: 'Acoustic Impedance', path: '/acoustic-impedance', desc: 'Calculate sound propagation in materials.' },
       { name: 'Airflow Velocity', path: '/airflow-velocity', desc: 'Measure air movement in ducts.' },
@@ -1221,6 +1277,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Sports & Outdoors',
     slug: 'sports',
     description: 'Track your performance in the field, on the trail, or in the gym. Specialized math for professional athletes and outdoor enthusiasts.',
+    defaultGuidance: {
+      whyItMatters: 'Performance tracking turns effort into measurable progress. Whether you\'re analyzing your ERA on the pitcher\'s mound or calculating your FTP on a bike, these metrics allow athletes to identify their specific strengths and weaknesses, enabling "marginal gains" that lead to professional-level results.',
+      pitfalls: [
+        'The "Single Stat" Myopia: Relying solely on batting average or miles run doesn\'t show the full picture of efficiency. Balanced metrics (like WHIP or power-to-weight ratio) are better indicators of overall skill.',
+        'Ignoring Environmental Factors: Wind, elevation, and heat significantly impact performance numbers. Always cross-reference your raw data with the conditions of the day.'
+      ],
+      proTip: 'Consistency beats intensity. Use the "Race Predictor" tools to set realistic goals that prevent overtraining and injury, ensuring you reach peak performance on race day rather than in the gym.'
+    },
     items: [
       { name: 'Batting Average', path: '/batting-average', desc: 'Calculate base hit frequency.', keywords: ['baseball stats', 'sabermetrics', 'batting avg', 'hitting percentage', 'baseball math', 'mlb metrics', 'hitting stats', 'at bats', 'base hits', 'offense calculator', 'hitting ratio', 'batting statistics'] },
       { name: 'ERA Calculator', path: '/era', desc: 'Earned Run Average for pitchers.', keywords: ['earned run average', 'era', 'pitching stats', 'sabermetrics', 'baseball pitching', 'pitching performance', 'pitching math', 'earned runs', 'innings pitched', 'mlb pitching metrics', 'pitcher analytics'] },
@@ -1293,6 +1357,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Sustainability & Environment',
     slug: 'environment',
     description: 'Measure your impact on the planet. Tools for carbon tracking, renewable energy planning, and eco-friendly lifestyle choices.',
+    defaultGuidance: {
+      whyItMatters: 'Ecological impact is best managed when it is measured. From tracking your carbon footprint to calculating the ROI of solar panels, these tools move sustainability from a vague goal to a data-driven strategy. Understanding your resource consumption allows for meaningful reductions that benefit both the planet and your wallet.',
+      pitfalls: [
+        'Ignoring Life-Cycle Costs: A "green" product that requires massive energy to produce and transport might have a higher net impact than a local standard alternative.',
+        'Solar Shading Overlook: Calculating solar ROI without factoring in daily shading from trees or buildings can lead to significantly lower energy yields than projected.'
+      ],
+      proTip: 'Focus on "Carbon ROI." Replacing an old heating system often has a much higher environmental impact per dollar spent than smaller, more visible changes like banning plastic straws.'
+    },
     items: [
       { name: 'Carbon Footprint', path: '/carbon-footprint', desc: 'Calculate annual CO2 emissions.', keywords: ['carbon footprint', 'co2 emissions', 'climate impact', 'greenhouse gas', 'environment math', 'eco footprint', 'sustainability', 'emissions tracking', 'climate change', 'ecology', 'nature impact', 'environmental science'] },
       { name: 'Solar ROI', path: '/solar-roi', desc: 'Calculate playback for solar panel installs.', keywords: ['solar payback', 'renewable energy', 'solar return', 'solar installation', 'energy savings', 'solar investment', 'photovoltaic math', 'green energy', 'utility savings', 'solar ROI', 'environmental finance'] },
@@ -1307,6 +1379,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Culinary & Cooking',
     slug: 'culinary',
     description: 'Precision in the kitchen and at the bar. Professional scales for bakers, chefs, and home cooks to ensure perfect results every time.',
+    defaultGuidance: {
+      whyItMatters: 'Cooking is a blend of artistry and chemistry. Professional culinary math, such as baker’s percentages or recipe scaling, ensures that your dishes are consistent whether you\'re serving a family of four or a banquet of forty. Precision here prevents wasted ingredients and ensures the perfect balance of flavors and textures.',
+      pitfalls: [
+        'Volume vs. Weight in Baking: Measuring flour by the cup instead of by grams can lead to a 20% variance in actual quantity, resulting in dry or dense baked goods.',
+        'Scaling Liquid Reductions: When doubling a recipe, reducing a sauce doesn\'t always take double the time. You must watch the viscosity rather than just the clock.'
+      ],
+      proTip: 'In baking, treat flour as 100% and calculate all other ingredients relative to it. This "Baker\'s Percentage" method allows you to adjust hydration levels for the perfect crust every time.'
+    },
     items: [
       { name: 'Baker\'s Percentage', path: '/bakers-percentage', desc: 'Calculate ingredient ratios relative to flour.' },
       { name: 'Recipe Scaling', path: '/recipe-scaler', desc: 'Adjust ingredient quantities for different serving sizes.' },
@@ -1324,6 +1404,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Academic & Education',
     slug: 'academic',
     description: 'Tools for students, researchers, and writers. Manage your grades, track your reading, and optimize your study sessions with clinical precision.',
+    defaultGuidance: {
+      whyItMatters: 'Academic success is often a matter of strategic time management and metric tracking. By calculating reading times, speaking durations, and target grades, students and educators can move beyond stress and focus on high-impact study sessions that maximize retention and performance.',
+      pitfalls: [
+        'The "Cramming" Delusion: Scientific studies show that 10 one-hour sessions are significantly more effective than one 10-hour session. Use the "Forgetting Curve" tool to schedule optimal reviews.',
+        'Word Count vs. Page Count: Font size and margins significantly skew page length. Always calculate by word count for professional or academic submissions.'
+      ],
+      proTip: 'Read your own speech or essay out loud while timing it. The "Speaking Time" calculator is an estimate, but your natural cadence will reveal if you have too much content for your allotted timeframe.'
+    },
     items: [
       { name: 'Word to Pages', path: '/word-to-page', desc: 'Estimate document length based on font and spacing.' },
       { name: 'Reading Time', path: '/reading-time', desc: 'Calculate how long it takes to finish a text.' },
@@ -1342,6 +1430,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Hobbies & Creative',
     slug: 'hobbies',
     description: 'Calculations for makers, gamers, and artists. From photography precision to 3D printing costs, we handle the math behind your passions.',
+    defaultGuidance: {
+      whyItMatters: 'Creative hobbies often involve technical "invisible" math that dictates the quality of the final work. Whether it\'s the depth of field in photography or the stitch count in knitting, understanding the underlying ratios allows you to troubleshoot issues and replicate your best results reliably.',
+      pitfalls: [
+        'Ignoring "Crop Factor" in Photography: A 50mm lens behaves differently on a full-frame sensor versus a crop sensor. Forgetting this will lead to unexpected framing and focus depth.',
+        'Low Infill in 3D Printing: Saving on material by reducing infill can lead to structural failure in functional parts. Use the cost tool to find the balance between strength and expense.'
+      ],
+      proTip: 'Use the "Elo Rating" system for any competitive hobby to match yourself with players of similar skill. This ensures you\'re sufficiently challenged without being overwhelmed, leading to faster skill acquisition.'
+    },
     items: [
       { name: 'Depth of Field', path: '/depth-of-field', desc: 'Measure focus range for photography.' },
       { name: '3D Print Cost', path: '/3d-print-cost', desc: 'Estimate material and energy expenses for models.' },
@@ -1359,6 +1455,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Tech & Programming',
     slug: 'tech',
     description: 'Digital utilities for developers and technicians. Handle data conversions, network subnets, and coding mathematics.',
+    defaultGuidance: {
+      whyItMatters: 'The digital world is built on precise data structures and network logic. Accurate subnet mapping, regex verification, and latency calculations are essential for building secure, efficient, and scalable software. These tools help developers eliminate bugs and optimize performance before the code even reaches production.',
+      pitfalls: [
+        'Hardcoding "Magic Numbers": Using fixed values for things like API rate limits or timeout durations instead of calculating them based on traffic logs leads to systems that break under load.',
+        'Regex Greediness: Poorly written regular expressions can lead to "catastrophic backtracking," significantly slowing down your application\'s response time.'
+      ],
+      proTip: 'Always calculate your "Payload Size" during API design. Reducing the weight of your JSON objects by just 10% can lead to massive cost savings and performance gains in high-traffic mobile applications.'
+    },
     items: [
       { name: 'Subnet Mask', path: '/subnet-mask', desc: 'Calculate network ranges and host counts.' },
       { name: 'Hex to Decimal', path: '/hex-to-decimal', desc: 'Convert programming codes to standard numbers.' },
@@ -1385,6 +1489,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Travel & Lifestyle',
     slug: 'lifestyle',
     description: 'Optimize your daily adventures. From flight planning to lifestyle milestones, manage every aspect of your mobile existence.',
+    defaultGuidance: {
+      whyItMatters: 'Global mobility requires logistical precision. From managing jet lag to splitting expenses with roommates, these tools streamline the complexities of a mobile lifestyle. Accuracy in travel planning ensures that you spend more time enjoying your destination and less time navigating the stress of unforeseen costs or time-zone errors.',
+      pitfalls: [
+        'The "Cash Value" Illusion of Miles: Not all frequent flyer miles are equal. Calculating the "cents per mile" value is the only way to know if you\'re getting a good deal or if you should just pay cash.',
+        'Underestimating Recovery Time: Jet lag isn\'t just about being tired; it\'s a metabolic shift. Forgetting to calculate your recovery window can ruin the first three days of an international trip.'
+      ],
+      proTip: 'Use the "Luggage Capacity" tool to actually measure your bags rather than relying on the manufacturer\'s "liters" claim. Manufacturers often include pockets that aren\'t usable for bulk items, leading to over-packing errors.'
+    },
     items: [
       { name: 'Jet Lag Recovery', path: '/jet-lag', desc: 'Calculate the time needed to adjust to new zones.' },
       { name: 'Pack Your Bag', path: '/luggage-capacity', desc: 'Estimate volume and weight for travel gear.' },
@@ -1402,6 +1514,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Biology & Life Sciences',
     slug: 'biology',
     description: 'Advanced tools for biotechnology, microbiology, and genetics. Calculate concentrations, dilutions, and mapping for precise lab results.',
+    defaultGuidance: {
+      whyItMatters: 'Life sciences operate at the intersection of complex biological systems and rigorous mathematical models. Whether you\'re calculating DNA concentrations or mapping genetic crosses, precision is vital for laboratory reproducibility. These tools help eliminate the "human error" factor in stoichiometric and generational calculations.',
+      pitfalls: [
+        'Dilution Errors: Miscalculating the C1V1=C2V2 ratio can ruin an entire multi-day experiment. Always double-check your initial concentrations before performing a serial dilution.',
+        'Ignoring Population Caps: When calculating bacterial generation time, forgetting that resources are finite (the plateau phase) leads to unrealistic projections of growth.'
+      ],
+      proTip: 'In genetics, always draw the Punnett square manually once to visualize the ratios before using the calculator. This helps you identify if it\'s a simple Mendelian pattern or if you\'re looking at more complex linked traits.'
+    },
     items: [
       { name: 'Annealing Temp', path: '/annealing-temperature', desc: 'Optimal PCR primer binding temperature.' },
       { name: 'Generation Time', path: '/generation-time', desc: 'Calculate bacterial population growth rates.' },
@@ -1424,6 +1544,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Pets & Animals',
     slug: 'pets',
     description: 'Expert care tools for your animal companions and livestock. Calculate health dosages, track pregnancy, and manage nutritional needs for all species.',
+    defaultGuidance: {
+      whyItMatters: 'Expert care for animals requires understanding their unique biological timelines and nutritional needs. From tracking a horse\'s gestation to calculating safe dosages for a dog, these tools provide pet owners and livestock managers with the objective data needed to ensure animal welfare and optimal health outcomes.',
+      pitfalls: [
+        'Breed-Specific Variables: A generic "dog food" calculation might be too high for a sedentary breed and too low for an active working dog. Always adjust for the specific energy level of your pet.',
+        'Dosage Scaling Errors: Never assume a human dose can be scaled down by weight for an animal. Metabolism between species varies wildly, and some human-safe substances (like chocolate or onions) are toxic to pets.'
+      ],
+      proTip: 'Track your pet\'s "Body Condition Score" rather than just their weight. A Labrador and a Greyhound might weigh the same but have very different healthy body fat percentages.'
+    },
     items: [
       { name: 'Dog Pregnancy', path: '/dog-pregnancy', desc: 'Track gestation and expected delivery date.' },
       { name: 'Cat Pregnancy', path: '/cat-pregnancy', desc: 'Feline gestation milestones and due dates.' },
@@ -1465,6 +1593,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Gardening & Agriculture',
     slug: 'gardening',
     description: 'Professional planning for gardens, farms, and landscapes. Optimize your yields and manage resources for sustainable growth.',
+    defaultGuidance: {
+      whyItMatters: 'Successful cultivation is a result of managing finite resources like water, light, and nutrients. Professional agricultural math ensures that your yields are maximized while your input costs are minimized. Precision in spacing and fertilizer application prevents resource waste and ensures the long-term health of your soil.',
+      pitfalls: [
+        'Ignoring "Soil Settle": When calculating soil or mulch volume, forgetting that material compacts over time can leave you 15-20% short of your desired depth.',
+        'Over-Fertilization: More is not always better. Excessive nitrogen can "burn" plant roots and lead to nutrient runoff that harms local water systems.'
+      ],
+      proTip: 'Calculate your "Growing Degree Units" to predict harvest dates. Calendar days are often wrong because plants grow based on heat accumulation rather than the passage of time.'
+    },
     items: [
       { name: 'Plant Spacing', path: '/plant-spacing', desc: 'Calculate distance for optimal growth.' },
       { name: 'Vegetable Yield', path: '/vegetable-yield', desc: 'Estimate harvest weight by area.' },
@@ -1493,6 +1629,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Time & Date',
     slug: 'time-date',
     description: "Don't waste your time counting days - every second is precious. That's why we created this set of calculators that will help you with your problems… around the clock 😉. From the days between dates to the leap year, we didn't run out the clock - each one of our calculators will help you.",
+    defaultGuidance: {
+      whyItMatters: 'Time is our most finite resource. Whether you\'re tracking work rotations, calculating chronological age for legal purposes, or finding the gap between two historical dates, precision ensures that your schedules are synchronized. These tools remove the ambiguity of leap years and variable month lengths.',
+      pitfalls: [
+        'The "Inclusive" Error: When counting days between dates, people often forget to specify if they are including both the start AND end day. This leads to a consistent "off-by-one" error in planning.',
+        'Leap Year Overlook: Simple math that assumes 365 days a year will drift by several days over a decade. Professional scheduling must account for the 366-day leap year.'
+      ],
+      proTip: 'For long-term project management, use "Business Days" rather than total days. A 30-day deadline sounds like a month, but it\'s only about 20-22 actual work days.'
+    },
     items: [
       { name: '8-Hour Shift', path: '/8-hour-shift', desc: 'Track work rotations and pay.', keywords: ['shift work', 'schedule', 'work hours', 'nursing shift', 'industrial schedule'] },
       { name: 'Add Time', path: '/add-time', desc: 'Add durations to establish end times.', keywords: ['duration', 'time math', 'adding hours', 'time tracker'] },
@@ -1775,6 +1919,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Parenting & Childcare',
     slug: 'parenting',
     description: 'Supporting you through every milestone. From pregnancy tracking to college planning, handle the math of raising the next generation.',
+    defaultGuidance: {
+      whyItMatters: "Parenting decisions are often driven by emotion, but grounding them in developmental data and financial planning provides a stable foundation for your child's future. Accuracy in these calculations ensures safety and long-term security.",
+      pitfalls: [
+        "Ignoring the cumulative impact of inflation on college savings",
+        "Using age-based markers as rigid deadlines rather than developmental ranges"
+      ],
+      proTip: "Use the 529 plan's compound interest to your advantage by starting contributions as early as possible, even in small amounts."
+    },
     items: [
       { name: 'Baby Feeding', path: '/baby-feeding-math', desc: 'Calculate oz/ml based on age and weight.', keywords: ['breastfeeding', 'formula', 'infant nutrition', 'baby health'] },
       { name: 'Diaper Cost', path: '/diaper-expenses', desc: 'Estimate annual spending on nappies.', keywords: ['baby budget', 'parenting costs', 'shopping'] },
@@ -1797,6 +1949,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Legal & Compliance',
     slug: 'legal',
     description: 'Navigate complex regulations with data. Tools for small business compliance, personal legal rights, and tax implications.',
+    defaultGuidance: {
+      whyItMatters: "Navigating legal requirements with precision is essential to avoid costly penalties and protect your intellectual or physical property. These tools provide the necessary data to make informed compliance decisions.",
+      pitfalls: [
+        "Misinterpreting jurisdiction-specific rules as global standards",
+        "Underestimating the time required for patent or trademark processing"
+      ],
+      proTip: "Always document the date and source of your data when calculating compliance risks to maintain a clear audit trail."
+    },
     items: [
       { name: 'GDPR Penalty Risk', path: '/gdpr-risk', desc: 'Estimate potential fines based on revenue.', keywords: ['compliance', 'data privacy', 'business law', 'eu regs'] },
       { name: 'Copyright Term', path: '/copyright-expiration', desc: 'Find when works enter the public domain.', keywords: ['intellectual property', 'ip law', 'creative rights'] },
@@ -1819,6 +1979,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Crypto & Blockchain',
     slug: 'crypto',
     description: 'Digital finance for the decentralized web. Track your portfolio, gas fees, and the economics of mining.',
+    defaultGuidance: {
+      whyItMatters: "The high volatility and technical complexity of blockchain assets demand rigorous mathematical analysis. Understanding gas fees, tax implications, and smart contract risks is the difference between profit and total loss.",
+      pitfalls: [
+        "Neglecting the impact of impermanent loss in liquidity pools",
+        "Forgetting to account for transaction (gas) fees when calculating ROI"
+      ],
+      proTip: "Use a hardware wallet and verify seed phrases offline to ensure the highest level of security for your digital assets."
+    },
     items: [
       { name: 'Bitcoin Profit/Loss', path: '/btc-roi', desc: 'Calculate gains based on purchase dates.', keywords: ['crypto', 'investing', 'satoshi', 'bitcoin'] },
       { name: 'Gas Fee Estimator', path: '/eth-gas', desc: 'Calculate transaction costs in Gwei.', keywords: ['ethereum', 'blockchain', 'defi', 'fees'] },
@@ -1841,6 +2009,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Freelance & Gig Economy',
     slug: 'freelance',
     description: 'The math of the independent professional. Optimize your rates, manage your taxes, and scale your personal brand.',
+    defaultGuidance: {
+      whyItMatters: "As an independent professional, your time is your most valuable asset. Calculating your true hourly rate including overhead and taxes is critical for building a sustainable and profitable business.",
+      pitfalls: [
+        "Setting rates based solely on competitors without accounting for personal overhead",
+        "Failing to set aside a consistent percentage for self-employment taxes"
+      ],
+      proTip: "Build a 'safety buffer' into your project estimates to account for unexpected onboarding time or scope creep."
+    },
     items: [
       { name: 'Freelance Hourly Rate', path: '/hourly-rate', desc: 'Reclaim your worth: include tax and overhead.', keywords: ['business strategy', 'pricing', 'career growth'] },
       { name: 'Tax Reserve (1099)', path: '/1099-tax-reserve', desc: 'Calculate the percentage to set aside.', keywords: ['independent contractor', 'irs', 'self employment'] },
@@ -1863,6 +2039,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Self Improvement & Education',
     slug: 'self-improvement',
     description: 'Data-driven growth for the mind and career. Track your learning, optimize your time, and reach your goals.',
+    defaultGuidance: {
+      whyItMatters: "Transforming personal growth from a vague goal into a data-driven process increases your probability of success. Tracking learning velocity and skill mastery provides the feedback loop needed for elite performance.",
+      pitfalls: [
+        "Overestimating reading speed at the expense of comprehension",
+        "Expecting linear progress instead of accounting for the 'plateau' effect in skill acquisition"
+      ],
+      proTip: "Apply the Pomodoro technique with personalized intervals to maximize your specific focus-to-rest ratio."
+    },
     items: [
       { name: 'Reading Velocity', path: '/reading-speed', desc: 'Calculate your WPM and book completion.', keywords: ['learning', 'books', 'literacy', 'productivity'] },
       { name: 'Language Fluency Time', path: '/language-learning-timer', desc: 'Estimate hours to reach B2/C1 levels.', keywords: ['education', 'linguistics', 'cefr'] },
@@ -1880,6 +2064,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Logistics & Shipping',
     slug: 'logistics',
     description: 'Professional supply chain math for businesses and shippers. Manage volume, weight, and delivery efficiency.',
+    defaultGuidance: {
+      whyItMatters: "Efficiency in the supply chain is built on precise mathematical models. Calculating reorder points, safety stock, and load optimization minimizes waste and ensures that products move through the global economy with minimal friction.",
+      pitfalls: [
+        "Relying on historic averages during period of high market volatility",
+        "Failing to account for the 'bullwhip effect' when scaling orders"
+      ],
+      proTip: "Use dimensional weight calculations proactively to negotiate better rates with freight carriers before shipments are finalized."
+    },
     items: [
       { name: 'Reorder Point (ROP)', path: '/reorder-point', desc: 'The exact moment to restock inventory.', keywords: ['supply chain', 'warehouse', 'business'] },
       { name: 'Safety Stock', path: '/safety-stock', desc: 'Calculate buffer inventory for demand spikes.', keywords: ['logistics', 'risk management', 'supply chain'] },
@@ -1897,6 +2089,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Home Tech & Smart Home',
     slug: 'home-tech',
     description: 'Optimize your digital sanctuary. Calculations for automation, network coverage, and energy-efficient gadgets.',
+    defaultGuidance: {
+      whyItMatters: "A truly smart home relies on robust network logic and energy efficiency calculations. Understanding protocol ranges and power draw helps you build a digital sanctuary that is both reliable and cost-effective.",
+      pitfalls: [
+        "Overloading a single Wi-Fi mesh node without considering physical obstructions",
+        "Ignoring the cumulative 'vampire load' of connected devices on your utility bill"
+      ],
+      proTip: "Place your smart home hub centrally and use Zigbee or Z-Wave repeaters to create a self-healing mesh network for maximum reliability."
+    },
     items: [
       { name: 'Zigbee vs Z-Wave Range', path: '/smarthome-range', desc: 'Analyze protocol coverage through walls.', keywords: ['iot', 'home automation', 'networking'] },
       { name: 'Smart Bulb ROI', path: '/smart-bulb-savings', desc: 'Compare LED automation to manual switches.', keywords: ['energy', 'utility', 'saving'] },
@@ -1914,6 +2114,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Food Science & Health',
     slug: 'food-science',
     description: 'The chemistry of what we consume. Precise tools for dietary tracking, safe consumption limits, and nutritional bio-availability.',
+    defaultGuidance: {
+      whyItMatters: "Precise nutritional tracking and understanding metabolic chemistry are key to long-term wellness. These tools help you move beyond generic advice to data-driven dietary decisions tailored to your unique biology.",
+      pitfalls: [
+        "Focusing solely on calories while ignoring the glycemic load of mixed meals",
+        "Misestimating the biological half-life of substances like caffeine or alcohol"
+      ],
+      proTip: "Pair high-glycemic carbohydrates with fibers and healthy fats to significantly reduce blood sugar spikes after eating."
+    },
     items: [
       { name: 'Saturated Fat Limit', path: '/sat-fat-limit', desc: 'Daily recommendation based on calorie intake.', keywords: ['keto', 'heart health', 'diet'] },
       { name: 'Sodium Watcher', path: '/sodium-intake', desc: 'Heart-healthy salt limits tracker.', keywords: ['hypertension', 'health', 'nutrition'] },
@@ -1931,6 +2139,14 @@ export const CATEGORIES: CategoryData[] = [
       title: 'Historical & Ancient Math',
       slug: 'ancient-math',
       description: 'Explore the foundations of human calculation. Convert ancient numbering systems and simulate historical tools.',
+      defaultGuidance: {
+        whyItMatters: "Exploring the mathematical foundations of ancient civilizations provides profound insight into human progress. Converting historical systems and simulating ancient tools bridges the gap between traditional wisdom and modern calculation.",
+        pitfalls: [
+          "Applying modern decimal logic to non-decimal systems like Babylonian Base-60",
+          "Ignoring the calendar reforms (like the Gregorian shift) when calculating historical dates"
+        ],
+        proTip: "When studying Roman Numerals, remember they were primarily used for recording and numbering, while actual calculations were performed on an abacus."
+      },
       items: [
           { name: 'Roman Numeral Mastery', path: '/roman-numerals-pro', desc: 'Advanced conversion for historical dates.', keywords: ['history', 'latin', 'numbers'] },
           { name: 'Abacus Simulator', path: '/soroban-calc', desc: 'Simulate Eastern bead-frame arithmetic.', keywords: ['tradition', 'math', 'education'] },
@@ -1948,6 +2164,14 @@ export const CATEGORIES: CategoryData[] = [
       title: 'Space & Astronomy',
       slug: 'space',
       description: 'The mathematics of the cosmos. Calculate orbital mechanics, light speed travel, and planetary trajectories.',
+      defaultGuidance: {
+        whyItMatters: "The vast scale of the cosmos demands precision that bridges physics and imagination. Calculating orbital mechanics and light-speed trajectories allows us to navigate the stars and understand our place in the universe.",
+        pitfalls: [
+          "Using standard Newtonian physics in scenarios where relativistic time expansion is significant",
+          "Assuming constant gravity when calculating escape velocities from non-spherical bodies"
+        ],
+        proTip: "Use the Schwarzschild radius to conceptualize the density limits of matter; it's a fundamental constant for understanding black hole physics."
+      },
       items: [
           { name: 'Light Speed Travel', path: '/light-year-time', desc: 'Time expansion and distance for relativity.', keywords: ['physics', 'sci-fi', 'astronomy'] },
           { name: 'Escape Velocity', path: '/escape-velocity', desc: 'Energy needed to leave a planetary body.', keywords: ['rocket science', 'physics', 'nasa'] },
@@ -1965,6 +2189,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'International Travel',
     slug: 'intl-travel',
     description: 'Calculations for global explorers. Handle logistics, currency, and cross-border standards.',
+    defaultGuidance: {
+      whyItMatters: "Global exploration is as much about logistical precision as it is about cultural immersion. Managing time zone shifts, currency volatility, and visa regulations ensures a smooth journey across borders and prevents costly travel disruptions.",
+      pitfalls: [
+        "Relying on generic jet lag advice instead of timing light exposure to your specific shift",
+        "Failing to verify the exact Schengen zone stay limits"
+      ],
+      proTip: "Use the 24-hour clock for all travel bookings to avoid the common AM/PM booking error, especially for late-night flights."
+    },
     items: [
       { name: 'Jet Lag Recovery', path: '/jet-lag-optimizer', desc: 'Custom light-exposure plan by time zone shift.', keywords: ['travel', 'sleep', 'biohacking'] },
       { name: 'VAT Refund Estimator', path: '/vat-refund', desc: 'Calculate money back on foreign shopping.', keywords: ['finance', 'travel', 'taxes'] },
@@ -1982,6 +2214,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Small Business Admin',
     slug: 'small-biz',
     description: 'The back-office brain for entrepreneurs. Streamline your operations with data-driven tools.',
+    defaultGuidance: {
+      whyItMatters: "The success of a small business is often determined by the accuracy of its back-office operations. Streamlining marketing ROI, leasing costs, and subscription stacks allows entrepreneurs to focus on growth while maintaining financial health.",
+      pitfalls: [
+        "Ignoring customer churn rate when calculating the ROI of acquisition campaigns",
+        "Failing to account for the 'per-seat' licensing costs as the team scales"
+      ],
+      proTip: "Audit your SaaS subscriptions quarterly to identify and remove redundant tools that may be duplicating functionality."
+    },
     items: [
       { name: 'Email Marketing ROI', path: '/email-roi', desc: 'Analyze list value vs campaign cost.', keywords: ['marketing', 'business', 'growth'] },
       { name: 'Customer Referrals', path: '/referral-lpv', desc: 'Lead Potential Value of word-of-mouth.', keywords: ['growth', 'sales', 'business'] },
@@ -1999,6 +2239,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Green Living & Sustainability',
     slug: 'sustainability-pro',
     description: 'Deepen your ecological mindfulness. Sophisticated tools for a lower-impact lifestyle.',
+    defaultGuidance: {
+      whyItMatters: "Deepening your ecological mindfulness requires moving beyond surface-level habits to quantifiable environmental impact. These tools provide the precision needed to optimize your carbon footprint and transition to a truly sustainable lifestyle.",
+      pitfalls: [
+        "Underestimating the energy loss from 'phantom loads' in home electronics",
+        "Focusing on recycling while ignoring the higher impact of reducing food miles"
+      ],
+      proTip: "Match your compost's carbon-to-nitrogen ratio accurately to accelerate decomposition and prevent odors in urban gardening settings."
+    },
     items: [
       { name: 'Compost C/N Ratio', path: '/compost-chemistry', desc: 'Carbon to Nitrogen balance for healthy soil.', keywords: ['gardening', 'science', 'nature'] },
       { name: 'Electric Vehicle ROI', path: '/ev-payback', desc: 'Savings over gas based on local kwh/gal.', keywords: ['automotive', 'finance', 'green'] },
@@ -2016,6 +2264,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Real Estate Strategy',
     slug: 'real-estate-pro',
     description: 'Expert-level property analysis for investors and homebuyers.',
+    defaultGuidance: {
+      whyItMatters: "Expert-level property analysis is the foundation of successful real estate investment. Calculating cap rates, cash-on-cash returns, and renovation ROI with precision allows you to identify high-value opportunities and manage risk effectively.",
+      pitfalls: [
+        "Failing to account for vacancy rates and maintenance reserves in gross scheduled income",
+        "Underestimating the 'carry cost' during house flipping renovation periods"
+      ],
+      proTip: "When using the BRRRR strategy, focus on increasing the After Repair Value (ARV) through high-impact aesthetics that appeal to appraisers."
+    },
     items: [
       { name: 'Cap Rate Advanced', path: '/cap-rate-pro', desc: 'Project returns including vacancy and repairs.', keywords: ['investment', 'finance', 'real estate'] },
       { name: 'House Flipping ROI', path: '/flip', desc: 'Buy, reno, and carry cost analysis.', keywords: ['business', 'real estate', 'finance'] },
@@ -2033,6 +2289,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Personal Development',
     slug: 'productivity-pro',
     description: 'Master your routine and reclaim your potential. Tools for elite performance and lifelong growth.',
+    defaultGuidance: {
+      whyItMatters: "Elite performance is achieved when routine is transformed into a measurable process. Tracking deep work ratios, opportunity costs, and knowledge half-lives provides the data needed to reclaim your potential and reach world-class expertise.",
+      pitfalls: [
+        "Misjudging personal capacity due to the 'planning fallacy' (underestimating time needed)",
+        "Equating productivity with 'busy work' instead of focused deep work"
+      ],
+      proTip: "Apply a 40% 'buffer' to all project completion estimates to account for the inherent bias toward optimism in planning."
+    },
     items: [
       { name: 'Deep Work Ratio', path: '/deep-work-tracking', desc: 'Analyze focused hours vs shallow admin.', keywords: ['productivity', 'career', 'psychology'] },
       { name: 'Project Completion Time', path: '/estimating-bias', desc: 'Correct for the planning fallacy (add 40%).', keywords: ['psychology', 'time', 'management'] },
@@ -2050,6 +2314,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Everyday Utility & Life Hacks',
     slug: 'util-hacks',
     description: 'The math behind the mundane. Clever tools to optimize your household, finances, and time.',
+    defaultGuidance: {
+      whyItMatters: "The math behind mundane activities can unlock significant savings in time and resources. Optimizing household utilities, managing inventory, and understanding the physical limits of everyday items transforms your living space into a high-efficiency environment.",
+      pitfalls: [
+        "Ignoring the impact of inflation on the long-term value of gift cards",
+        "Overestimating the weight capacity of shelves without accounting for dynamic loads"
+      ],
+      proTip: "Use the inverse square law when planning home lighting; doubling the distance from a light source reduces intensities by four times."
+    },
     items: [
       { name: 'Gift Card Value', path: '/gift-card-depreciation', desc: 'Hidden value loss through inflation and fees.', keywords: ['personal finance', 'shopping', 'lifestyle'] },
       { name: 'Coffee Grinder Setting', path: '/coffee-grind-math', desc: 'Convert between micron settings and brew types.', keywords: ['culinary', 'coffee', 'tech'] },
@@ -2087,6 +2359,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Pet Health & Wellness',
     slug: 'pet-wellness',
     description: 'Expert care for your animal companions. Track growth, nutrition, and life stages for a happier pet.',
+    defaultGuidance: {
+      whyItMatters: "Expert care for animal companions requires a foundation in nutritional science and developmental tracking. Precision in calculating calorie intake, growth curves, and life stages ensures your pet lives a long, healthy, and happy life.",
+      pitfalls: [
+        "Feeding based on package averages instead of your pet's specific body mass index",
+        "Underestimating the hydration needs of senior cats with renal considerations"
+      ],
+      proTip: "Monitor your puppy's 12-week metrics to project their adult weight accurately and adjust their dietary planning accordingly."
+    },
     items: [
       { name: 'Dog Pregnancy Timer', path: '/dog-pregnancy-tracker', desc: 'Estimated whelping date based on mating.', keywords: ['pets', 'breeding', 'health'] },
       { name: 'Cat BMI Calculator', path: '/cat-body-mass', desc: 'Assess feline fitness using leg/chest metrics.', keywords: ['pets', 'health', 'cats'] },
@@ -2104,6 +2384,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Creative Arts & Photography',
     slug: 'creative-arts',
     description: 'Technical precision for visual storytellers. Optics, layout, and production math for creators.',
+    defaultGuidance: {
+      whyItMatters: "Technical precision is the secret weapon of the artistic storyteller. Optics, layout math, and production calculations provide the structure needed to transform creative vision into polished, professional-grade visual assets.",
+      pitfalls: [
+        "Neglecting sensor crop factors when calculating focal length equivalents",
+        "Ignoring the impact of neutral density filters on total exposure timing"
+      ],
+      proTip: "Find the hyperfocal distance for your specific lens and aperture to maximize the depth of field in landscape photography."
+    },
     items: [
       { name: 'Depth of Field (DoF)', path: '/dof', desc: 'Find the hyperfocal distance for sharp landscapes.', keywords: ['photography', 'optics', 'tech'] },
       { name: 'Sensor Crop Factor', path: '/focal-length-equivalent', desc: 'Field of view math for APS-C vs Full Frame.', keywords: ['photography', 'tech', 'gear'] },
@@ -2121,6 +2409,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Outdoor Survival & Adventure',
     slug: 'survival-bushcraft',
     description: 'Gear logic for the great outdoors. Safety, navigation, and endurance tools for adventurers.',
+    defaultGuidance: {
+      whyItMatters: "Gear logic and navigational precision are critical for safety in the great outdoors. Calculating hiking times, pack weight ratios, and purification limits allows you to push boundaries while maintaining a high safety margin.",
+      pitfalls: [
+        "Using base weight ratios that exceed 20% of your total body weight",
+        "Failing to adjust water boiling times for higher altitudes"
+      ],
+      proTip: "Use Naismith's Rule as a baseline and add 30 minutes for every 1000 feet of ascent to predict your arrival time accurately."
+    },
     items: [
       { name: 'Hiking Time: Naismith', path: '/naismith-rule-tracker', desc: 'Pace estimation including elevation impact.', keywords: ['outdoor', 'fitness', 'travel'] },
       { name: 'Backpacker Base Weight', path: '/pack-weight-ratio', desc: 'Gear load vs total body weight safety.', keywords: ['outdoor', 'hiking', 'safety'] },
@@ -2138,6 +2434,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Event Logistics & Hosting',
     slug: 'event-master',
     description: 'Flawless execution for gatherings big and small. Seating, catering, and timeline management.',
+    defaultGuidance: {
+      whyItMatters: "Flawless execution of gatherings requires a deep understanding of catering volumes, crowd density, and event timelines. Professional management of these variables ensures a high-quality experience for both hosts and guests.",
+      pitfalls: [
+        "Overestimating invitation response rates without accounting for standard attrition",
+        "Failing to calculate the aisle-width constraints in high-density seating plans"
+      ],
+      proTip: "When planning an open bar, calculate volumes based on 1.5 drinks per person for the first hour and 1 drink per person for subsequent hours."
+    },
     items: [
       { name: 'Beverage Bar Math', path: '/wedding-bar-volume', desc: 'Alcohol quantities based on guest count and hours.', keywords: ['event planning', 'beverages', 'finance'] },
       { name: 'Catering Portion Size', path: '/food-prep-portions', desc: 'Buffet vs plated prep counts for zero waste.', keywords: ['cooking', 'catering', 'event planning'] },
@@ -2155,6 +2459,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Automotive Performance & Tuning',
     slug: 'auto-tune',
     description: 'Go beyond the dashboard. Thermodynamics, gear logic, and maintenance math for enthusiasts.',
+    defaultGuidance: {
+      whyItMatters: "True automotive excellence requires moving beyond the dashboard to understand the underlying thermodynamics and mechanical logic. Precision tuning of torque, boost, and gear ratios maximizes performance while maintaining vehicle reliability.",
+      pitfalls: [
+        "Focusing on peak horsepower while ignoring the usable torque curve",
+        "Underestimating the aerodynamic drag impact at high track speeds"
+      ],
+      proTip: "Use corner balance calculations to optimize chassis weight distribution, which significantly improves handling and tire wear."
+    },
     items: [
       { name: 'Torque to Horsepower', path: '/hp-torque-converter', desc: 'Analyze engine output at specific RPM ranges.', keywords: ['automotive', 'physics', 'tech'] },
       { name: 'Compression Ratio', path: '/static-compression-math', desc: 'Cylinder volume vs deck height and gasket.', keywords: ['automotive', 'engineering', 'tuning'] },
@@ -2172,6 +2484,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Home Gardening & Agriculture',
     slug: 'garden-agri',
     description: 'Grow your own future. Soil science, irrigation, and harvest planning for green thumbs.',
+    defaultGuidance: {
+      whyItMatters: "Cultivating a successful garden is a scientific endeavor that relies on precise soil chemistry and irrigation logic. Managing nutrient solutions, seed spacing, and light intervals allows you to maximize yields and create a thriving ecological sanctuary.",
+      pitfalls: [
+        "Over-watering based on a schedule instead of measuring actual soil moisture",
+        "Ignoring the carbon-to-nitrogen ratio in compost, leading to slow decomposition"
+      ],
+      proTip: "Calculate your garden's Daily Light Integral (DLI) to ensure your plants are receiving the exact photoperiod they need for optimal growth."
+    },
     items: [
       { name: 'Seed Spacing: Block', path: '/intensive-seed-math', desc: 'Maximize yields per square foot in raised beds.', keywords: ['gardening', 'nature', 'efficiency'] },
       { name: 'Compost C:N Ratio', path: '/compost-chemistry-mix', desc: 'Balance browns and greens for fast breakdown.', keywords: ['nature', 'science', 'ecology'] },
@@ -2189,6 +2509,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Audio & Music Production',
     slug: 'audio-pro',
     description: 'Sound engineering and composition tools. Acoustics, delays, and digital signal math.',
+    defaultGuidance: {
+      whyItMatters: "Professional sound engineering is built on the precise manipulation of frequencies and temporal relationships. Understanding delay sync, gain staging, and acoustic math allows you to create high-fidelity recordings that translate perfectly across all listening environments.",
+      pitfalls: [
+        "Allowing digital clipping due to poor gain staging",
+        "Ignoring the room's resonant frequencies when positioning monitoring equipment"
+      ],
+      proTip: "Sync your reverb pre-delay and tail times to the track's BPM to create a sense of depth that feels rhythmically connected to the music."
+    },
     items: [
       { name: 'BPM to Milliseconds', path: '/tempo-delay-sync', desc: 'Match echo and reverb tails to track speed.', keywords: ['audio', 'music', 'tech'] },
       { name: 'Note Frequency (Hz)', path: '/musical-pitch-hz', desc: 'Convert keyboard notes to exact frequencies.', keywords: ['music', 'science', 'audio'] },
@@ -2206,6 +2534,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Social Media & Content Strategy',
     slug: 'social-content',
     description: 'Growth algorithms and engagement logic. Data-driven tools for digital influence.',
+    defaultGuidance: {
+      whyItMatters: "Growth in the digital landscape is driven by engagement algorithms and data-driven content strategy. Analyzing retention gaps, CTR statistics, and posting cadences allows reached-based influence to scale efficiently.",
+      pitfalls: [
+        "Focusing on follower count while ignoring actual audience engagement rates",
+        "Posting at generic times instead of analyzing your specific audience's peak activity"
+      ],
+      proTip: "Analyze viewer retention drop-off points to identify exactly where your content loses interest and adjust your script pacing accordingly."
+    },
     items: [
       { name: 'Engagement Rate %', path: '/social-engagement-roi', desc: 'True audience value beyond follower count.', keywords: ['marketing', 'social', 'business'] },
       { name: 'Video Retention Gap', path: '/retention-dropoff-calc', desc: 'Analyze where viewers exit your content.', keywords: ['marketing', 'video', 'psychology'] },
@@ -2223,6 +2559,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Hobbyist Crafts & DIY',
     slug: 'hobby-crafts',
     description: 'Material math for the maker movement. Precision tools for sewing, woodworking, and more.',
+    defaultGuidance: {
+      whyItMatters: "The maker movement relies on material math and technical precision to bring complex projects to life. Accurate calculations for yarn yardage, resin volume, and scale conversions ensure that your DIY endeavors are both successful and resource-efficient.",
+      pitfalls: [
+        "Underestimating the amount of resin needed for deep-pour art projects",
+        "Failing to account for fabric shrinkage or seam allowances in complex sewing patterns"
+      ],
+      proTip: "When working with irregular hides in leathercraft, use a surface-area grid to calculate the true usable yield before cutting."
+    },
     items: [
       { name: 'Yarn Yardage: Pro', path: '/knitting-yarn-usage', desc: 'Estimate skeins needed for specific garment sizes.', keywords: ['crafts', 'fashion', 'math'] },
       { name: 'Sewing Seam Waste', path: '/fabric-cut-allowance', desc: 'True material needs including overlap and bias.', keywords: ['crafts', 'sewing', 'diy'] },
@@ -2240,6 +2584,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Aviation & Pilot Mathematics',
     slug: 'aviation',
     description: 'Sky-high precision. Airspeed, lift, and fuel logistics for general and commercial aviation.',
+    defaultGuidance: {
+      whyItMatters: "Precision in aviation is not just a matter of performance, but of fundamental safety. Accurate calculation of true airspeed, density altitude, and weight balance is critical for navigating the skies and ensuring every flight reaches its destination safely.",
+      pitfalls: [
+        "Failing to adjust for the impact of humidity on density altitude",
+        "Miscalculating the crosswind component relative to the specific runway heading"
+      ],
+      proTip: "Monitor your CG envelope proactively; even small shifts in weight distribution can significantly impact stall speeds and turn radius."
+    },
     items: [
       { name: 'True Airspeed (TAS)', path: '/tas', desc: 'Correct IAS for pressure altitude and temp.', keywords: ['aviation', 'physics', 'travel'] },
       { name: 'Density Altitude', path: '/density-alt-math', desc: 'Impact of humidity and temp on aircraft lift.', keywords: ['aviation', 'weather', 'safety'] },
@@ -2257,6 +2609,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Space Exploration & Astronomy',
     slug: 'space-tech',
     description: 'Cosmic scale calculations. Orbital mechanics, light travel, and planetary physics.',
+    defaultGuidance: {
+      whyItMatters: "The mathematics of the cosmos bridges the gap between theoretical physics and real-world exploration. Calculating orbital velocity, escape velocity, and light travel time allows us to project our presence into the universe and understand the physics of distant stars.",
+      pitfalls: [
+        "Using Earth-centric gravity constants when calculating trajectories for other planetary bodies",
+        "Ignoring the time-delay impact of light speed when planning interstellar communications"
+      ],
+      proTip: "Use the Schwarzschild radius as a baseline to understand the event horizons of various masses, which is essential for astrophysics modeling."
+    },
     items: [
       { name: 'Orbital Velocity', path: '/orbital-speed-math', desc: 'Speed required to maintain orbit at specific altitudes.', keywords: ['space', 'physics', 'science'] },
       { name: 'Light Travel Time', path: '/interstellar-ping', desc: 'Communication delay based on light-year distance.', keywords: ['space', 'science', 'tech'] },
@@ -2274,6 +2634,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Renewable Energy & Solar',
     slug: 'solar-energy',
     description: 'Power from the sun. Efficiency, storage, and ROI for sustainable energy systems.',
+    defaultGuidance: {
+      whyItMatters: "Maximizing the efficiency of sustainable energy systems requires precise calculations of yield, storage, and ROI. Optimizing panel tilt and understanding dc-ac conversion losses ensures that your transition to green power is both economically and ecologically viable.",
+      pitfalls: [
+        "Sizing a battery bank without accounting for the required amp-hour buffer for off-grid duration",
+        "Ignoring the impact of seasonal shading on total annual kWh generation."
+      ],
+      proTip: "Optimize your solar panel tilt based on your specific latitude to maximize annual sun exposure rather than just focusing on peak summer output."
+    },
     items: [
       { name: 'Solar Panel Yield', path: '/pv-output-est', desc: 'Estimated kWh generation based on square footage.', keywords: ['energy', 'home', 'green'] },
       { name: 'Battery Bank Sizing', path: '/off-grid-storage-calc', desc: 'Amp-hours needed for specific backup duration.', keywords: ['energy', 'tech', 'diy'] },
@@ -2291,6 +2659,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Data Science & Machine Learning',
     slug: 'data-science',
     description: 'Statistical significance and model performance. Tools for the modern data analyst.',
+    defaultGuidance: {
+      whyItMatters: "The integrity of machine learning models is built on rigorous statistical significance and performance analysis. Calculating precision, recall, and F1 scores ensures that your models provide accurate insights and balance correctly between different types of error.",
+      pitfalls: [
+        "Focusing solely on accuracy in imbalanced datasets without checking precision and recall",
+        "Ignoring the 'log-loss' penalty for confident but incorrect predictions."
+      ],
+      proTip: "Use A/B testing with chi-square significance to verify if a conversion lift is statistically real before scaling any new algorithm."
+    },
     items: [
       { name: 'Precision & Recall', path: '/ml-performance-matrix', desc: 'Evaluate classification model accuracy.', keywords: ['data', 'tech', 'stat'] },
       { name: 'F1 Score Calculator', path: '/ml-f1-balance', desc: 'Harmonic mean of precision and recall.', keywords: ['data', 'tech', 'logic'] },
@@ -2308,6 +2684,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Web Development & UI/UX',
     slug: 'web-dev',
     description: 'Optimizing the digital experience. Layout math, performance, and accessibility tools.',
+    defaultGuidance: {
+      whyItMatters: "Optimizing the digital experience is a blend of layout math, performance auditing, and accessibility compliance. Precise calculations for fluid typography, contrast ratios, and container aspect ratios ensure a seamless and inclusive user interface across all devices.",
+      pitfalls: [
+        "Failing to account for the true pixel width of fr units after CSS grid gaps are applied",
+        "Ignoring WCAG contrast ratios, which can make text unreadable for a significant portion of users."
+      ],
+      proTip: "Use CSS clamp() for fluid typography to ensure that your font scaling remains harmonious and readable on ultra-wide monitors and small mobile screens alike."
+    },
     items: [
       { name: 'Fluid Typography', path: '/clamp-font-math', desc: 'CSS clamp() values for responsive font scaling.', keywords: ['web', 'design', 'ux'] },
       { name: 'Flexbox Basis Offset', path: '/flex-grow-shrink-calc', desc: 'Calculate true width after flex expansion.', keywords: ['web', 'tech', 'design'] },
@@ -2325,6 +2709,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Cybersecurity & Encryption',
     slug: 'cyber-sec',
     description: 'Hardening the digital perimeter. Hashing, entropy, and risk assessment math.',
+    defaultGuidance: {
+      whyItMatters: "Hardening the digital perimeter is a matter of mathematical entropy and risk assessment. Calculating password strength, bcrypt work factors, and CVSS scores provides the data needed to protect sensitive information and defend against evolving cyber threats.",
+      pitfalls: [
+        "Underestimating the time a brute-force attack takes for passwords with low character entropy",
+        "Ignoring the network latency impact of intensive SSL handshakes"
+      ],
+      proTip: "Increase your Bcrypt rounds cost as hardware processing power evolves to maintain a consistent defense against offline hashing attacks."
+    },
     items: [
       { name: 'Password Entropy (Bits)', path: '/password-brute-force-timer', desc: 'Time to crack based on char-set and length.', keywords: ['security', 'tech', 'math'] },
       { name: 'Bcrypt Rounds Cost', path: '/hashing-work-factor', desc: 'Iterative delay based on salt rounds.', keywords: ['security', 'tech', 'server'] },
@@ -2342,6 +2734,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Geology & Mineral Mining',
     slug: 'geology',
     description: 'Earth science and resource extraction. Seismic wave and mineral density tools.',
+    defaultGuidance: {
+      whyItMatters: "Earth science and resource extraction rely on precise calculations of mineral density, seismic velocity, and soil porosity. Understanding these variables allows for the efficient identification of geological samples and the safe assessment of ground stability.",
+      pitfalls: [
+        "Misidentifying minerals by relying on visual properties instead of specific gravity (SG) measurements",
+        "Underestimating slope shear strength, which can lead to hazardous landslide risks"
+      ],
+      proTip: "Use seismic wave velocity data to accurately model subsurface rock densities before initiating any significant geotechnical project."
+    },
     items: [
       { name: 'Mineral Density (SG)', path: '/specific-gravity-mineral', desc: 'Identify samples via displacement weight.', keywords: ['science', 'nature', 'math'] },
       { name: 'Seismic Wave Velocity', path: '/p-wave-velocity-calc', desc: 'Speed through different rock densities.', keywords: ['science', 'nature', 'physics'] },
@@ -2359,6 +2759,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Meteorology & Climate Science',
     slug: 'weather-pro',
     description: 'Atmospheric thermodynamics and forecasting. Wind chill, pressure, and storm math.',
+    defaultGuidance: {
+      whyItMatters: "Atmospheric thermodynamics and forecasting provide the foundation for understanding our weather and climate. Precise calculations of dew points, wind chill, and storm distances are critical for public safety and logistical planning in the face of nature's variability.",
+      pitfalls: [
+        "Relying on ambient temperature alone without considering the heat index's apparent impact",
+        "Misestimating storm distance by ignoring the temporal gap between lightning and thunder"
+      ],
+      proTip: "Use the barometric trend to predict incoming weather fronts; a sudden drop in pressure is a high-probability indicator of an approaching storm."
+    },
     items: [
       { name: 'Dew Point (Magnus)', path: '/dew-point-precision', desc: 'The exact temp where condensation begins.', keywords: ['weather', 'science', 'nature'] },
       { name: 'Wind Chill Index', path: '/perceived-cold-math', desc: 'Human heat loss based on air movement.', keywords: ['weather', 'safety', 'lifestyle'] },
@@ -2376,6 +2784,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Retail & E-commerce Strategy',
     slug: 'retail-pro',
     description: 'Profitability and inventory logic. Data-driven tools for high-volume sales.',
+    defaultGuidance: {
+      whyItMatters: "Sustaining a profitable retail operation requires a data-driven approach to margin management and inventory velocity. Calculating markup, break-even points, and customer lifetime value allows for optimized sales strategies and efficient resource allocation.",
+      pitfalls: [
+        "Failing to account for inventory shrinkage when calculating net annual revenue",
+        "Focusing on customer acquisition cost (CAC) without considering its ratio to long-term lifetime value (LTV)"
+      ],
+      proTip: "Analyze your floor space yield periodically to identify high-performing categories and optimize your physical or digital layout for maximum revenue."
+    },
     items: [
       { name: 'Gross Margin (Markup)', path: '/retail-profit-markup', desc: 'Target sell price based on cost/margin goals.', keywords: ['business', 'finance', 'retail'] },
       { name: 'Inventory Turnover', path: '/shelf-velocity-math', desc: 'Frequency of restock vs annual sales.', keywords: ['business', 'logistics', 'saving'] },
@@ -2393,6 +2809,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Precision Manufacturing & CNC',
     slug: 'manufacturing',
     description: 'Robotic accuracy and tool paths. Feeds, speeds, and tolerance math for the shop.',
+    defaultGuidance: {
+      whyItMatters: "Modern manufacturing relies on robotic accuracy and precise tool path calculations. Managing feeds, speeds, and tolerances with mathematical rigor ensures that components are produced with high efficiency and meet the most demanding industrial standards.",
+      pitfalls: [
+        "Ignoring material-specific springback when setting metal brake angles",
+        "Using incorrect thread pitch limits, which can compromise the structural integrity of precision assemblies"
+      ],
+      proTip: "Optimize your Overall Equipment Effectiveness (OEE) score by tracking machine uptime and identifying the root causes of production bottlenecks."
+    },
     items: [
       { name: 'Speeds and Feeds CNC', path: '/sfm-ipt-cutting', desc: 'RPM and feed rate based on tool diameter.', keywords: ['manufacturing', 'tech', 'engineering'] },
       { name: 'Bolt Hole Circle', path: '/flange-drill-coords', desc: 'X/Y offsets for circular hole patterns.', keywords: ['manufacturing', 'math', 'diy'] },
@@ -2410,6 +2834,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Oceanography & Marine Science',
     slug: 'marine-science',
     description: 'Deep sea data and vessel physics. Buoyancy, tides, and underwater acoustics.',
+    defaultGuidance: {
+      whyItMatters: "The study of our oceans requires a rigorous application of physics and chemistry to understand vessel hull speeds, water pressure, and tidal harmonics. These tools provide the necessary data to navigate the deep sea safely and manage marine resources sustainably.",
+      pitfalls: [
+        "Ignoring the impact of salinity and pressure when calculating the speed of sound in water",
+        "Failing to account for the scope swing radius when anchoring in high-wind marine environments"
+      ],
+      proTip: "Use harmonic tide predictions to estimate water levels accurately; simple lunar-cycle averages can lead to significant errors in shallow coastal navigation."
+    },
     items: [
       { name: 'Water Pressure at Depth', path: '/atmosphere-underwater', desc: 'Calculate PSI for every 10 meters of descent.', keywords: ['science', 'physics', 'nature'] },
       { name: 'Speed of Sound: Water', path: '/sonar-travel-math', desc: 'Adjusted for salinity, temp, and pressure.', keywords: ['science', 'tech', 'physics'] },
@@ -2427,6 +2859,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Microscopy & Optics',
     slug: 'optics',
     description: 'Precision lenses and microscopic detail. Refraction, magnification, and diffraction math.',
+    defaultGuidance: {
+      whyItMatters: "Precision in optics is essential for revealing the microscopic details of our world and achieving peak performance from lens-based systems. Understanding numerical aperture, diffraction limits, and light bending ensures clarity and accuracy in both scientific and creative applications.",
+      pitfalls: [
+        "Exceeding the theoretical resolution cap (diffraction limit) of a lens, leading to blurry microscopic images",
+        "Miscalculating the focal length shift when working with convex mirrors"
+      ],
+      proTip: "When focus-stacking at high magnification, calculate your depth of field (DoF) to ensure each transition is sharp and artifacts are minimized."
+    },
     items: [
       { name: 'Numerical Aperture', path: '/lens-light-gathering', desc: 'Objective lens performance vs light cone.', keywords: ['science', 'optics', 'tech'] },
       { name: 'Depth of Field Micro', path: '/focus-stack-math', desc: 'Sharp thickness at high magnification.', keywords: ['science', 'optics', 'art'] },
@@ -2444,6 +2884,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Pharmacology & Lab Safety',
     slug: 'pharmacy',
     description: 'Medical dosing and solution chemistry. Critical accuracy for laboratory and healthcare.',
+    defaultGuidance: {
+      whyItMatters: "Critical accuracy in medical dosing and laboratory chemistry is paramount for healthcare safety and scientific integrity. These tools help you calculate dosage by weight, infusion rates, and elimination half-lives with the precision required for clinical environments.",
+      pitfalls: [
+        "Failing to adjust pediatric doses based on age and developmental factors",
+        "Ignoring the potency decay of medications past their listed expiration datum"
+      ],
+      proTip: "Always use the C1V1 = C2V2 dilution formula to ensure stock solutions are mixed with high precision for sensitive laboratory assays."
+    },
     items: [
       { name: 'Dosage by Weight', path: '/mg-kg-bodyweight', desc: 'Standard clinical dose calculation.', keywords: ['health', 'math', 'safety'] },
       { name: 'Infusion Drip Rate', path: '/iv-gt-minute', desc: 'Gtt/min based on bag size and target duration.', keywords: ['health', 'nursing', 'safety'] },
@@ -2461,6 +2909,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Toxicology & Forensic Science',
     slug: 'forensics',
     description: 'Investigative math. Post-mortem timing, chemical traces, and impact trajectory.',
+    defaultGuidance: {
+      whyItMatters: "Investigative math provides the objective evidence needed to solve complex forensic puzzles. Calculating trajectory offsets, time of death via algor mortis, and blood spatter origin allows for the rigorous reconstruction of events based on physical traces.",
+      pitfalls: [
+        "Relying on ambient temperature alone to estimate time of death without considering cooling body thermodynamics",
+        "Misinterpreting blood spatter origin by ignoring surface tension and impact velocity"
+      ],
+      proTip: "Use DNA marker probability to calculate the likelihood of a random match; understanding the statistical ratios is key to presenting forensic evidence accurately."
+    },
     items: [
       { name: 'Time of Death (Algor)', path: '/cooling-t-post-mortem', desc: 'Body temp drop vs ambient environment.', keywords: ['forensics', 'science', 'safety'] },
       { name: 'Blood Spatter Angle', path: '/impact-velocity-origin', desc: 'Calculate point of origin from elliptical drops.', keywords: ['forensics', 'math', 'physics'] },
@@ -2478,6 +2934,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Archaeology & Cultural History',
     slug: 'archaeology',
     description: 'Time-travel with data. Radiocarbon dating, relic value, and societal scaling.',
+    defaultGuidance: {
+      whyItMatters: "Exploring human history through data requires a fusion of scientific dating and stratigraphic analysis. Calculating carbon-14 decay, ancient labor logic, and demographic support allows us to reconstruct past societies with remarkable precision.",
+      pitfalls: [
+        "Applying modern purchasing power logic to ancient currencies without accounting for long-term numismatic inflation",
+        "Ignoring the environmental constraints when estimating harvest yields relative to ancient populations"
+      ],
+      proTip: "When mapping a site, use UTM coordinates for precision trench placement; even small grid offsets can lead to significant stratigraphic errors."
+    },
     items: [
       { name: 'Carbon-14 Decay', path: '/radiocarbon-dating-age', desc: 'Estimate relic age based on isotope decay.', keywords: ['archaeology', 'science', 'history'] },
       { name: 'Pottery Typology Ratio', path: '/style-frequency-seriation', desc: 'Relative dating by stratigraphic prevalence.', keywords: ['archaeology', 'history', 'stat'] },
@@ -2495,6 +2959,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Music Theory & Composition',
     slug: 'music-theory',
     description: 'Harmonic algorithms and tuning. Scale math, interval ratios, and rhythmic logic.',
+    defaultGuidance: {
+      whyItMatters: "Harmonic algorithms and rhythmic logic form the foundation of compelling musical composition. Understanding scale math, interval ratios, and polyrhythmic sync points allows you to create masterpieces that are both emotionally resonant and mathematically structured.",
+      pitfalls: [
+        "Ignoring the mathematical impurity of equal temperament when seeking 'just intonation' intervals",
+        "Miscalculating the sync points in complex polyrhythms, leading to rhythmic drift"
+      ],
+      proTip: "Map your keyboard frequencies to 432Hz scientific tuning to explore the subtle psychoacoustic effects of natural planetary harmonics."
+    },
     items: [
       { name: 'Tuning Hertz (Hz)', path: '/frequency-scale-map', desc: 'Map A=440Hz vs A=432Hz scientific tunings.', keywords: ['music', 'audio', 'science'] },
       { name: 'Interval Ratio Pro', path: '/just-intonation-math', desc: 'Mathematical purity of fifths, thirds, and octaves.', keywords: ['music', 'math', 'audio'] },
@@ -2512,6 +2984,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Coffee & Tea Science',
     slug: 'coffee-craft',
     description: 'Extraction and chemistry. Precision brewing for a better morning.',
+    defaultGuidance: {
+      whyItMatters: "Precision brewing is a chemical extraction process that relies on exact water-to-coffee ratios and thermal management. Understanding TDS, extraction yields, and grind size surface area transforms your morning routine into a reproducible scientific success.",
+      pitfalls: [
+        "Focusing solely on brewing time while ignoring the impact of water hardness on flavor clarity",
+        "Underestimating the rate of caffeine release in long-steep tea cycles"
+      ],
+      proTip: "Aim for an extraction yield between 18% and 22% for the peak sweetness and complex acidity profile that characterizes the 'golden brew'."
+    },
     items: [
       { name: 'Extraction Yield %', path: '/coffee-tds-extraction', desc: 'Strength vs solubles dissolved in cup.', keywords: ['cooking', 'lifestyle', 'science'] },
       { name: 'Water to Coffee Ratio', path: '/golden-brew-math', desc: 'Standard 1:15 to 1:18 gram calculations.', keywords: ['cooking', 'lifestyle', 'math'] },
@@ -2529,6 +3009,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Mixology & Spirit Science',
     slug: 'mixology',
     description: 'Molecular cocktails and volume math. Professional bar logistics and density.',
+    defaultGuidance: {
+      whyItMatters: "Molecular mixology uses volume math and fluid density to create sophisticated cocktail experiences. Calculating true ABV, brix levels, and specific gravity allow for professional-grade consistency and perfect layered presentation.",
+      pitfalls: [
+        "Ignoring the significant dilution caused by ice melt during long stirring or shaking cycles",
+        "Misjudging the acidity balance of sour mixes without verifying the citric acid titration"
+      ],
+      proTip: "When layering drinks, chill your high-density ingredients first; cold liquids are more viscous and hold their layers better against lower-density spirits."
+    },
     items: [
       { name: 'True ABV Calculator', path: '/cocktail-alcohol-dilution', desc: 'Final strength after ice melt and syrups.', keywords: ['lifestyle', 'party', 'math'] },
       { name: 'Ice Melt Dilution %', path: '/thermal-chill-math', desc: 'Water volume added during specific stir times.', keywords: ['physics', 'cooking', 'lifestyle'] },
@@ -2546,6 +3034,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Baking & Pastry Precision',
     slug: 'baking-pro',
     description: 'Thermodynamics of dough and sugar. High-precision math for professional results.',
+    defaultGuidance: {
+      whyItMatters: "Baking is a game of thermodynamics and high-precision chemistry. Using baker's percentages and calculating desired dough temperatures ensures consistent, professional results across different flours and environmental conditions.",
+      pitfalls: [
+        "Underestimating the impact of ambient humidity on flour water absorption",
+        "Ignoring the friction factor of your mixer when calculating initial water temperature"
+      ],
+      proTip: "Adjust your candy stages based on altitude; boiling points drop approximately 2°F for every 1000 feet above sea level, impacting sugar crystallization."
+    },
     items: [
       { name: 'Bakers Percentage Pro', path: '/advanced-flour-ratio', desc: 'Scale dough using flour as 100% baseline.', keywords: ['cooking', 'science', 'math'] },
       { name: 'Hydration Level Adj', path: '/flour-water-absorption', desc: 'Accounting for humidity and protein content.', keywords: ['cooking', 'science', 'nature'] },
@@ -2563,6 +3059,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Renewable Power & Off-Grid',
     slug: 'outdoor-elec',
     description: 'Living off the sun and wind. Survival and sustainable energy logistics.',
+    defaultGuidance: {
+      whyItMatters: "Living sustainably off the grid requires a mastery of solar paths, voltage drops, and battery duty cycles. Managing parasitic loads and optimizing panel placement ensures a reliable energy supply even in the most remote survival scenarios.",
+      pitfalls: [
+        "Under-sizing wire gauges on long low-voltage DC runs, leading to significant power loss and safety risks",
+        "Failing to account for the phantom load of inverters when they are in standby mode"
+      ],
+      proTip: "Use solar shadow path projections to identify the exact tree-line overlap for your specific winter solstice, ensuring peak generation when you need it most."
+    },
     items: [
       { name: 'Solar Shadow Path', path: '/winter-sun-arc-math', desc: 'Panels placement to avoid tree-line overlap.', keywords: ['energy', 'nature', 'math'] },
       { name: 'Battery State of Charge', path: '/voltage-rest-soc', desc: 'Estimate capacity remaining from battery volts.', keywords: ['energy', 'tech', 'diy'] },
@@ -2580,6 +3084,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Aquarium & Hydrobiology',
     slug: 'aquarium',
     description: 'Aquatic ecosystem management. Chemistry, lighting, and stocking logistics.',
+    defaultGuidance: {
+      whyItMatters: "Maintaining a balanced aquatic ecosystem is a matter of precise chemical monitoring and bioload management. Accurate calculations for water volume, filtration turnover, and nutrient dosing ensure a thriving environment for your fish and plants.",
+      pitfalls: [
+        "Over-stocking the tank without accounting for the actual filtration capacity",
+        "Ignoring the water displacement from substrate and decorations, leading to incorrect dosing"
+      ],
+      proTip: "Use a slow-drip method for salinity changes in reef tanks; even small sudden swings in specific gravity can be fatal for sensitive corals."
+    },
     items: [
       { name: 'Tank Volume: Actual', path: '/water-displacement-net', desc: 'Liquid volume after substrate and rock.', keywords: ['hobby', 'nature', 'math'] },
       { name: 'Stocking Density Pro', path: '/bioload-filtration-limit', desc: 'Fish inches vs filtration turn-over rate.', keywords: ['hobby', 'nature', 'safety'] },
@@ -2597,6 +3109,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Model Rocketry & Drones',
     slug: 'rocketry-drones',
     description: 'Aerodynamic performance and propulsion. Flight physics for high-altitude hobbies.',
+    defaultGuidance: {
+      whyItMatters: "High-altitude rocketry and multi-rotor flight rely on aerodynamic precision and energy management. Calculating apogee, thrust-to-weight ratios, and battery flight times allows for safe launches and optimal performance in every mission.",
+      pitfalls: [
+        "Ignoring the Center of Pressure (CP) vs Center of Gravity (CG) relationship, which can lead to unstable flight",
+        "Failing to account for motor thrust curves when predicting peak altitude"
+      ],
+      proTip: "Always size your parachute for a descent velocity of 15-20 fps to ensure your model lands safely without structural damage or excessive drift."
+    },
     items: [
       { name: 'Rocket Apogee Est', path: '/launch-math-altitude', desc: 'Project peak height based on impulse/weight.', keywords: ['tech', 'physics', 'hobby'] },
       { name: 'Drone Battery Flight', path: '/multi-rotor-airtime', desc: 'Minutes remaining based on amp draw/weight.', keywords: ['tech', 'travel', 'math'] },
@@ -2614,6 +3134,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Horology & Precision Timing',
     slug: 'horology',
     description: 'Mastery of time. Mechanical oscillation, accuracy, and calendar math.',
+    defaultGuidance: {
+      whyItMatters: "The mastery of time is built on the pursuit of mechanical accuracy and synchronized oscillations. Understanding beat errors, amplitude shifts, and lunar-cycle complications allows for the precise maintenance and appreciation of fine watchmaking.",
+      pitfalls: [
+        "Assuming a mechanical watch is inaccurate based on a single-day measurement instead of a multi-position average",
+        "Ignoring the impact of gravity (isochronism) on balance wheel rotation"
+      ],
+      proTip: "Monitor your watch's amplitude at full wind; a drop below 250 degrees is a high-probability indicator that the movement requires professional servicing."
+    },
     items: [
       { name: 'Watch Rate (BPH/Hz)', path: '/movement-beat-error', desc: 'Vibrations per hour to milliseconds.', keywords: ['hobby', 'tech', 'engineering'] },
       { name: 'Amplitude Degree Shift', path: '/balance-wheel-rotation', desc: 'Energy health of a mechanical movement.', keywords: ['hobby', 'physics', 'tech'] },
@@ -2631,6 +3159,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Linguistics & Phonetics',
     slug: 'linguistics',
     description: 'Decoding the structure of speech. Entropy, word count, and statistical language tools.',
+    defaultGuidance: {
+      whyItMatters: "Analyzing the structure of human language requires a fusion of statistical data and phonetic precision. Calculating Zipf's law rankings, lexical diversity, and reading velocity provides deep insights into communication patterns and literacy development.",
+      pitfalls: [
+        "Using word frequency scores from outdated corpora that don't reflect modern technical or social slang",
+        "Ignoring the impact of syllable complexity on overall reading grade levels"
+      ],
+      proTip: "Apply the Gunning Fog Index to your professional writing periodically to ensure you're communicating at the ideal readability level for your target audience."
+    },
     items: [
       { name: 'Zipf\'s Law Rank', path: '/word-frequency-power', desc: 'Predict word prevalence in any large text.', keywords: ['language', 'stat', 'data'] },
       { name: 'Phoneme Entropy', path: '/speech-information-bits', desc: 'Information density per spoken second.', keywords: ['language', 'tech', 'science'] },
@@ -2648,6 +3184,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Formal Logic & Philosophy',
     slug: 'formal-logic',
     description: 'Structured thinking. Boolean algebra, truth tables, and philosophical probability.',
+    defaultGuidance: {
+      whyItMatters: "Structured thinking and deductive reasoning are the pillars of high-level philosophical analysis. Using truth tables, Bayesian probability, and game theory allows you to update your beliefs based on logic and navigate complex ethical dilemmas with clarity.",
+      pitfalls: [
+        "Committing a 'logical fallacy' by assuming correlation implies causation in statistical arguments",
+        "Failing to update your prior probabilities (Bayes' Theorem) when significant new evidence arises"
+      ],
+      proTip: "Apply Occam's Razor to competing theories: the simplest explanation that accounts for all data points is statistically the most likely to be correct."
+    },
     items: [
       { name: 'Truth Table Utility', path: '/boolean-logic-solver', desc: 'Verify AND/OR/XOR gates for complex logic.', keywords: ['education', 'math', 'tech'] },
       { name: 'Pascal\'s Wager Odds', path: '/infinite-payoff-math', desc: 'Logical outcomes for high-stakes beliefs.', keywords: ['philosophy', 'stat', 'logic'] },
@@ -2665,6 +3209,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Demographics & Sociology',
     slug: 'sociology',
     description: 'Large-scale human behavior. Population trends, urban density, and social data.',
+    defaultGuidance: {
+      whyItMatters: "Mapping the evolution of human societies requires a precise understanding of population growth, wealth distribution, and social migration patterns. These tools provide the statistical foundation for analyzing how we live, work, and interact within large-scale civilizations.",
+      pitfalls: [
+        "Ignoring the impact of aging populations on dependency ratios in modern developed nations",
+        "Failing to account for the 'Gini Coefficient' when assessing the true economic health of a region"
+      ],
+      proTip: "Use the Rule of 70 to quickly estimate how many years it will take for a population or your savings to double at any given annual growth rate."
+    },
     items: [
       { name: 'Population Doubling', path: '/rule-of-70-growth', desc: 'Years to 2x based on annual growth rate.', keywords: ['sociology', 'math', 'nature'] },
       { name: 'Gini Coefficient (%)', path: '/wealth-inequality-index', desc: 'Mathematical measure of income distribution.', keywords: ['sociology', 'economics', 'stat'] },
@@ -2682,6 +3234,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Urban Planning & Transit',
     slug: 'urban-planning',
     description: 'Designing the future city. Traffic flow, zoning logic, and infrastructure math.',
+    defaultGuidance: {
+      whyItMatters: "Designing the sustainable cities of the future relies on the precise management of traffic flow, zoning density, and public transit efficiency. Understanding these variables allows planners to create walkable, green environments that optimize resource usage and enhance the quality of life.",
+      pitfalls: [
+        "Focusing on road expansion while ignoring 'induced demand,' which leads back to congestion",
+        "Underestimating the park-acre-ratio needed to maintain the psychological wellbeing of high-density urban populations"
+      ],
+      proTip: "Maximize your city's walkability by targeting an amenity density radius that ensures most essential services are reach-based within 15 minutes."
+    },
     items: [
       { name: 'Traffic Flow (V/C)', path: '/road-capacity-stress', desc: 'Congestion logic for volume vs cap.', keywords: ['urban planning', 'travel', 'tech'] },
       { name: 'Floor Area Ratio (FAR)', path: '/zoning-density-math', desc: 'Building square footage vs land lot size.', keywords: ['urban planning', 'business', 'design'] },
@@ -2699,6 +3259,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Environmental Law & Compliance',
     slug: 'eco-legal',
     description: 'Regulatory accuracy. Emissions limits, fines, and permit math.',
+    defaultGuidance: {
+      whyItMatters: "Navigating the complexities of environmental regulations requires a data-driven approach to emissions monitoring and habitat protection. Maintaining accurate logs of waste-water ppm and carbon footprints ensures that your operations remain compliant and ecologically responsible.",
+      pitfalls: [
+        "Failing to account for the cumulative weight of hazardous waste over a full reporting year",
+        "Ignoring the impact of decibel-curfew laws when planning industrial or construction projects near residential zones."
+      ],
+      proTip: "Verify your Habitat Exclusion zones against endangered species buffers early in the site planning phase to prevent significant legal and construction delays."
+    },
     items: [
       { name: 'Effluent ppm Limit', path: '/waste-water-threshold', desc: 'Compliance math for industrial discharge.', keywords: ['legal', 'green', 'science'] },
       { name: 'Carbon Penalty Cost', path: '/tax-liability-ton-co2', desc: 'Estimated fine for exceeding emission caps.', keywords: ['legal', 'finance', 'green'] },
@@ -2716,6 +3284,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Disaster Preparedness',
     slug: 'disaster-prep',
     description: 'Survival logistics. Rations, shelter stability, and emergency range.',
+    defaultGuidance: {
+      whyItMatters: "Survival in high-stakes emergency scenarios depends on rigorous logistical planning and resource management. Precise calculations for water rations, calorie buffers, and evacuation ranges ensure that you and your community can navigate disasters with confidence and resilience.",
+      pitfalls: [
+        "Calculating food rations based on bulk weight instead of actual caloric energy density",
+        "Underestimating the panic-buy multiplier during the first 24 hours of a regional supply chain disruption."
+      ],
+      proTip: "Store at least 4 liters of water per person per day; this accounts for hydration, essential hygiene, and unexpected temperature-driven loss."
+    },
     items: [
       { name: 'Water Ration Solver', path: '/survival-hydration-logic', desc: 'Liters needed per person based on temp.', keywords: ['safety', 'health', 'survival'] },
       { name: 'Food Calorie Buffer', path: '/emergency-ration-timer', desc: 'Days of shelf-life vs daily energy needs.', keywords: ['safety', 'health', 'saving'] },
@@ -2733,6 +3309,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Esports & Gaming Performance',
     slug: 'esports-pro',
     description: 'Data-driven gaming. Reflexes, framerates, and competitive logic.',
+    defaultGuidance: {
+      whyItMatters: "Competitive gaming is a field governed by frame-timings, network latency, and reflex optimization. Analyzing your DPI settings, input lag, and rank-progression logic allows you to maximize your performance and gain a measurable advantage in high-stakes digital arenas.",
+      pitfalls: [
+        "Focusing on high DPI settings while failing to match your exact eDPI across different game engines",
+        "Ignoring the input-lag penalty associated with inconsistent framerates on lower-refresh monitors."
+      ],
+      proTip: "Match your mouse sensitivity across all your competitive titles using eDPI calculations to ensure that your muscle memory remains a consistent asset regardless of the platform."
+    },
     items: [
       { name: 'Latency Advantage (ms)', path: '/ping-reaction-gap', desc: 'How much your internet speed impacts duel wins.', keywords: ['gaming', 'tech', 'stat'] },
       { name: 'FPS to Frametime', path: '/input-lag-ms-conversion', desc: 'Visual delay between frames at specific 144/240Hz.', keywords: ['gaming', 'tech', 'performance'] },
