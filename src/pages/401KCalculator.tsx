@@ -191,6 +191,39 @@ export const FourOhOneKCalculator: React.FC = () => {
         </div>
       </div>
 
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Professional Guidance: Why Your 401(k) Strategy Matters</h2>
+          <p className="text-slate-600 leading-relaxed">
+            Your 401(k) is often your most powerful wealth-building engine due to the "triple threat" of tax-deferred growth, employer matching, and payroll automation. Small adjustments to your contribution rate today can compound into hundreds of thousands of additional dollars by retirement, providing the essential safety net needed to maintain your lifestyle after your working years.
+          </p>
+        </div>
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+          <h3 className="font-bold text-slate-900 flex items-center gap-2">
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
+          </h3>
+          <ul className="space-y-3 text-sm text-slate-600">
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
+              <span><strong className="text-slate-900">Leaving Money on the Table:</strong> Failing to contribute enough to reach the full employer match is a guaranteed 100% loss on your "free" investment capital.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
+              <span><strong className="text-slate-900">Inflation Ignorance:</strong> Not factor in salary increases or failing to increase your percentage contribution as your salary grows reduces your future purchasing power.</span>
+            </li>
+          </ul>
+          <div className="mt-4 pt-4 border-t border-slate-200">
+            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
+              <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
+              The "Rule of 15%" Benchmark
+            </h3>
+            <p className="text-sm text-slate-600 mt-1">
+              Financial experts generally recommend saving 15% of your gross household income for retirement. If your employer matches 5%, you only need to contribute 10% from your own paycheck to hit this critical benchmark.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <CalculatorSEO 
         name="401k Calculator" 
         path="/401k" 

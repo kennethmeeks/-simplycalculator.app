@@ -191,6 +191,39 @@ export const DebtPayoffCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-rose-600 pl-4">Professional Guidance: Escaping the Interest Trap</h2>
+          <p className="text-slate-600 leading-relaxed">
+            High-interest debt is a primary obstacle to financial freedom. This calculation is critical because it exposes the true cost of "minimum payments." When you only pay the minimum, you are often purely servicing interest, leaving the principal untouched for decades. Visualizing your "Debt-Free Date" is the first psychological step in taking aggressive action to reclaim your income.
+          </p>
+        </div>
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+          <h3 className="font-bold text-slate-900 flex items-center gap-2">
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
+          </h3>
+          <ul className="space-y-3 text-sm text-slate-600">
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
+              <span><strong className="text-slate-900">Ignoring the Math:</strong> Focusing on "small wins" (Snowball method) when a high-interest card (Avalanche method) is costing you thousands more in pure interest.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
+              <span><strong className="text-slate-900">The Lifestyle Creep:</strong> Using "found money" like tax refunds for spending rather than applying it to your principal. Every extra dollar applied to principal can save multiple dollars in future interest.</span>
+            </li>
+          </ul>
+          <div className="mt-4 pt-4 border-t border-slate-200">
+            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
+              <span className="bg-rose-100 text-rose-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
+              The "Interest Arbitrage" Rule
+            </h3>
+            <p className="text-sm text-slate-600 mt-1">
+              If your debt interest rate is higher than your savings interest rate, every dollar used to pay down debt "earns" you a guaranteed, tax-free return equal to that interest rate. Stop saving at 4% if you're paying 24% on a card.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

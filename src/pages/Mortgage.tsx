@@ -203,6 +203,39 @@ export const MortgageCalculator: React.FC = () => {
         </section>
       </div>
 
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Professional Guidance: The True Cost of Homeownership</h2>
+          <p className="text-slate-600 leading-relaxed">
+            A mortgage is likely the largest financial commitment of your life. This calculation is critical because it reveals the massive impact of interest rates over a 30-year span. Understanding your monthly payment helps you avoid being "house poor"—a situation where your housing costs exceed 30% of your gross income, leaving you vulnerable to financial stress when unexpected repairs or life events occur.
+          </p>
+        </div>
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+          <h3 className="font-bold text-slate-900 flex items-center gap-2">
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
+          </h3>
+          <ul className="space-y-3 text-sm text-slate-600">
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
+              <span><strong className="text-slate-900">Ignoring the PITI:</strong> Many first-time buyers only calculate Principal and Interest. You must account for Taxes and Insurance (PITI), which can add 20-30% to your actual monthly out-of-pocket cost.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
+              <span><strong className="text-slate-900">Overlooking Amortization:</strong> In the early years of a mortgage, almost your entire payment goes toward interest, not equity. Don't rely on short-term home appreciation if you plan to sell within 5 years.</span>
+            </li>
+          </ul>
+          <div className="mt-4 pt-4 border-t border-slate-200">
+            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
+              <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
+              The Bi-Weekly Strategy
+            </h3>
+            <p className="text-sm text-slate-600 mt-1">
+              Making half of your monthly payment every two weeks instead of a full payment once a month results in one extra full payment per year. This simple trick can shave 4-6 years off a 30-year mortgage and save you tens of thousands in interest.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <CalculatorSEO 
         name="Mortgage Calculator" 
         path="/mortgage" 

@@ -217,6 +217,39 @@ export const CompoundInterestCalculator: React.FC = () => {
         </div>
       </div>
 
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-emerald-600 pl-4">Professional Guidance: The Math of Wealth</h2>
+          <p className="text-slate-600 leading-relaxed">
+            Compound interest is the mechanism that allows ordinary savings to transform into generational wealth. By reinvesting your earnings to generate their own earnings, you create a snowball effect that accelerates over time. Understanding this calculation is critical because it highlights the "cost of waiting"—even a few years of delay can significantly reduce your final result.
+          </p>
+        </div>
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+          <h3 className="font-bold text-slate-900 flex items-center gap-2">
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
+          </h3>
+          <ul className="space-y-3 text-sm text-slate-600">
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
+              <span><strong className="text-slate-900">Underestimating Friction:</strong> Forgetting to account for taxes and management fees. A 1% fee can devour over 25% of your potential gains over 30 years.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
+              <span><strong className="text-slate-900">Linear Thinking:</strong> People often expect growth to be steady, but the real momentum happens in the final 10 years. Patience is the hidden ingredient in compound interest.</span>
+            </li>
+          </ul>
+          <div className="mt-4 pt-4 border-t border-slate-200">
+            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
+              <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
+              The Rule of 72
+            </h3>
+            <p className="text-sm text-slate-600 mt-1">
+              To quickly find how long it takes to double your money, divide 72 by your expected interest rate. At 8% growth, your money will double every 9 years without you adding another penny.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <CalculatorSEO 
         name="Compound Interest Calculator" 
         path="/compound-interest" 

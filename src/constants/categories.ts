@@ -1,14 +1,22 @@
+export interface ProfessionalGuidance {
+  whyItMatters: string;
+  pitfalls: string[];
+  proTip: string;
+}
+
 export interface CalculatorItem {
   name: string;
   path: string;
   desc: string;
   keywords?: string[];
+  guidance?: ProfessionalGuidance;
 }
 
 export interface CategoryData {
   title: string;
   slug: string;
   description: string;
+  defaultGuidance?: ProfessionalGuidance;
   items: CalculatorItem[];
 }
 
@@ -17,9 +25,30 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Finance & Investment',
     slug: 'finance',
     description: 'Grow your wealth and manage your debt with precision. Our finance suite covers everything from daily budgeting to complex investment analysis and tax planning.',
+    defaultGuidance: {
+      whyItMatters: 'Financial calculations are the foundation of long-term security. Understanding the math behind interest, inflation, and tax liability allows you to make objective decisions that preserve your purchasing power and minimize wasted capital through fees or inefficient debt management.',
+      pitfalls: [
+        'Ignoring Compound Friction: Small fees (1%) and taxes can reduce your total wealth by 25-30% over long periods if not accounted for.',
+        'Nominal vs. Real Returns: Forgetting to subtract inflation from your gains can give you a false sense of security about your actual spending power.'
+      ],
+      proTip: 'Always calculate your "Real Rate of Return" by subtracting the annual inflation rate from your nominal return to see the actual growth of your wealth.'
+    },
     items: [
       { name: '12-Hour Shift Pay Calculator', path: '/12-hour-shift-pay', desc: 'Calculate earnings for 12-hour shift rotations.', keywords: ['12 hour shift salary', 'shift differential', 'overtime pay', 'nursing schedule pay', 'industrial shift calculator', 'work hours earnings', '12h rotation pay', 'wages calculator', 'hourly pay shift', 'shift work income'] },
-      { name: '3x Rent Calculator', path: '/3x-rent', desc: 'Check if your income meets the 3x rent rule.', keywords: ['rent affordability', 'income for rent', '3x rent rule', 'leasing requirement', 'apartment qualifying', 'landlord check', 'monthly rent budget', 'can i afford this rent', 'salary for apartment', 'rental income test'] },
+      { 
+        name: '3x Rent Calculator', 
+        path: '/3x-rent', 
+        desc: 'Check if your income meets the 3x rent rule.', 
+        guidance: {
+          whyItMatters: 'The "3x Rent Rule" is a critical industry standard used by landlords to ensure tenants aren\'t "rent burdened." If your housing costs exceed 33% of your gross income, you statistically lack the buffer needed for emergency savings and other vital living expenses.',
+          pitfalls: [
+            'Gross vs. Net Confusion: Landlords look at gross income, but you live on net income. If you have significant debt, "qualifying" doesn\'t always mean "affordability."',
+            'Ignoring Utilities: Forgetting that a "cheap" apartment might have high heating or cooling costs that push you over your actual budget.'
+          ],
+          proTip: 'If your income is borderline, consider including a co-signer or showcasing a higher-than-average credit score to de-risk your application in the landlord\'s eyes.'
+        },
+        keywords: ['rent affordability', 'income for rent', '3x rent rule', 'leasing requirement', 'apartment qualifying', 'landlord check', 'monthly rent budget', 'can i afford this rent', 'salary for apartment', 'rental income test'] 
+      },
       { name: '401k Calculator', path: '/401k', desc: 'Estimate future 401k balance.', keywords: ['retirement savings', 'employer match', '401k growth', 'investment projection', 'wealth building', 'pension alternative', 'nest egg', 'retirement planning', 'contribution limit', 'compounding interest'] },
       { name: '403b Calculator', path: '/403b', desc: 'Project non-profit retirement savings.', keywords: ['non profit retirement', 'teacher pension', 'TSA calculator', 'public sector savings', '403b growth', 'tax sheltered annuity', 'retirement nest egg', 'investment estimator', 'annual contribution', 'tax deferred growth'] },
       { name: '50/30/20 Rule', path: '/50-30-20-rule', desc: 'Standard budgeting rule for needs, wants, and savings.', keywords: ['budgeting method', 'finance breakdown', 'savings rule', 'needs vs wants', 'financial health', 'monthly budget', 'money management', 'spending plan', 'wealth simple', 'popular budget'] },
@@ -476,6 +505,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Concrete & Masonry',
     slug: 'masonry',
     description: 'Precision math for concrete, brick, and stone work. From slab volume to mortar quantity, ensure your foundation is perfectly measured.',
+    defaultGuidance: {
+      whyItMatters: 'Concrete and masonry projects are high-stakes because "wet" materials have a limited working time and removal once cured is expensive. Accurate calculations prevent the two biggest job-site failures: running out of material mid-pour (creating weak "cold joints") or over-ordering and paying for wasted material and disposal fees.',
+      pitfalls: [
+        'Ignoring "Waste Factor": Always add 5-10% to your raw calculation to account for spillage, uneven sub-grades, and material stuck in the mixer or pump.',
+        'Volume vs. Weight Confusion: Different aggregates (gravel vs. sand) have different densities. Ordering by weight without checking the specific material density can lead to severe shortages.'
+      ],
+      proTip: 'For large pours, calculate your "Actual Yield" after the first load. If you are using more than expected, you can adjust the remaining order before the project is finished.'
+    },
     items: [
       { name: 'Concrete Calculator', path: '/concrete', desc: 'Estimate volume for building slabs.' },
       { name: 'Concrete Block', path: '/concrete-block', desc: 'Count for walls and foundations.' },
@@ -500,6 +537,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Home Improvement',
     slug: 'home-improvement',
     description: 'Utilities for renovations and mechanical systems. Optimize HVAC sizing, calculate flooring needs, and plan your interior design projects.',
+    defaultGuidance: {
+      whyItMatters: 'Home improvement math protects your budget and your timeline. Whether you are sizing an AC unit or measuring for wainscoting, precision ensures that you buy exactly what you need. This reduces the number of trips to the supply store and ensures your mechanical systems operate at peak efficiency for the square footage of your home.',
+      pitfalls: [
+        'Linear vs. Square Measure: Forgetting to account for "pattern match" in wallpaper or flooring waste for diagonal layouts can leave you two boxes short of a finished room.',
+        'Over-Sizing HVAC: Buying a "bigger" AC unit than your BTU calculation requires often leads to short-cycling, which increases humidity and reduces the lifespan of the equipment.'
+      ],
+      proTip: 'When measuring for materials like flooring or siding, draw a rough "cut map" to see if your room dimensions will leave you with sliver-thin, difficult-to-install pieces at the edges.'
+    },
     items: [
       { name: 'Paint Calculator', path: '/paint', desc: 'Estimate gallons and coverage.' },
       { name: 'Wallpaper', path: '/wallpaper', desc: 'Analyze roll count and coverage.' },
@@ -537,6 +582,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Science',
     slug: 'science',
     description: 'Scientific precision at your fingertips. Our tools cover chemistry, physics, and engineering to help professionals and students verify complex results.',
+    defaultGuidance: {
+      whyItMatters: 'Science relies on reproducible and precise measurements to move from hypothesis to fact. Using standardized calculators ensures that unit conversions and complex formulas like the Arrhenius equation or stoichiometric ratios are handled without human error, which is vital for laboratory accuracy and academic integrity.',
+      pitfalls: [
+        'Unit Mismatch: Mixing metric and imperial units in a single calculation is the leading cause of scientific error. Always verify your input units before proceeding.',
+        'Precision vs. Accuracy: Using too many significant figures can imply a level of precision that your instruments didn\'t actually provide.'
+      ],
+      proTip: 'Always use "Scientific Notation" for extremely large or small numbers to maintain clarity and avoid losing zeros in your manual transcriptions.'
+    },
     items: [
       { name: 'Activation Energy', path: '/activation-energy', desc: 'Calculate energy needed for chemical reactions.', keywords: ['chemistry', 'kinetics', 'arrhenius', 'reaction rate', 'energy barrier', 'thermodynamics', 'chemical math', 'activation barrier', 'catalyst', 'molecular speed'] },
       { name: 'Actual Yield', path: '/actual-yield', desc: 'Calculate the measured amount of product.', keywords: ['stoichiometry', 'chemistry lab', 'experiment results', 'yield percentage', 'theoretical vs actual', 'chemical quantity', 'product amount', 'reaction efficiency', 'lab math', 'chemistry calculator'] },
@@ -610,6 +663,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Everyday Tools',
     slug: 'everyday',
     description: 'Utilities for the modern lifestyle. Secure your digital world, manage your time, or handle small mathematical tasks in your daily routine.',
+    defaultGuidance: {
+      whyItMatters: 'Small math tasks often lead to the biggest lifestyle optimizations. Whether it\'s calculating the unit price of groceries or generating a secure password, these tools eliminate the "mental load" of daily life, allowing you to focus on executing your goals rather than calculating them.',
+      pitfalls: [
+        'Ignoring the "Bulk Trap": Just because an item is in a larger container doesn\'t mean it is cheaper per unit. Always check the unit price.',
+        'Password Fatigue: Relying on variations of the same password across multiple sites makes you vulnerable. Use a generator and a manager for true security.'
+      ],
+      proTip: 'For any recurring task (like shopping or password resets), bookmark the specific calculator to turn a 5-minute headache into a 10-second confirmation.'
+    },
     items: [
       { name: 'Time Calculator', path: '/time', desc: 'Durations and time additions.' },
       { name: 'Appliance Depreciation', path: '/appliance-depreciation', desc: 'Track value loss of home equipment.' },
@@ -683,6 +744,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Automotive',
     slug: 'automotive',
     description: 'Keep your vehicle running efficiently. Manage fuel budgets, track depreciation, and analyze the true cost of car ownership.',
+    defaultGuidance: {
+      whyItMatters: 'Vehicles are often a person\'s second largest expense after housing. Understanding the true cost of ownership—including depreciation and fuel efficiency—allows you to decide when it\'s cheaper to repair an old car versus buying a new one.',
+      pitfalls: [
+        'Ignoring "Hidden" Maintenance: Calculating only gas costs without factoring in tires, oil, and depreciation gives a skewed view of your commute costs.',
+        'Over-Estimating "Fuel Gains": Spending $30,000 to save $50 a month in gas often has an ROI of decades. Calculate the payback period before upgrading to a hybrid/EV.'
+      ],
+      proTip: 'Track your MPG over time. A sudden drop in efficiency is often the first sign of a mechanical issue that hasn\'t yet triggered a dashboard warning light.'
+    },
     items: [
       { name: 'Car Refinance', path: '/car-refinance', desc: 'Check if new auto rates save you money.' },
       { name: 'Car Depreciation', path: '/car-depreciation', desc: 'Vehicle value loss over time.' },
@@ -728,6 +797,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Health & Fitness',
     slug: 'health',
     description: 'Monitor your physical benchmarks and nutritional health with precision. Our suite of clinical and fitness tools helps you understand your metabolism and stay on track with your body goals.',
+    defaultGuidance: {
+      whyItMatters: 'Health metrics provide an objective snapshot of your biological status. While numbers like BMI or body fat percentage aren\'t the only indicators of wellness, they help ground your fitness journey in data, allowing for adjustments in training and nutrition that are based on measurable outcomes rather than guesswork.',
+      pitfalls: [
+        'Ignoring Trend Over Time: A single measurement (like a high weight morning) is often just water retention. Always look at the 7-day or 30-day average to see real progress.',
+        'Over-Reliance on One Index: BMI, for example, can be misleading for athletes with high muscle mass. Always combine multiple metrics (like waist-to-height ratio) for a fuller picture.'
+      ],
+      proTip: 'For the most accurate metabolism tracking, take measurements first thing in the morning on an empty stomach to minimize variables like hydration levels or recent meals.'
+    },
     items: [
       { name: 'Added Sugar Intake', path: '/added-sugar-intake', desc: 'Calculate recommended maximum daily sugar.' },
       { name: 'Arm Body Fat', path: '/arm-body-fat', desc: 'Analyze upper body composition.', keywords: ['arm fat', 'triceps skinfold', 'biceps fat', 'upper body composition', 'limb fat percentage', 'body fat distribution', 'caliper test', 'arm circumference', 'muscle vs fat', 'fitness measurement', 'body fat calculator', 'localized fat', 'arm toning', 'body metrics'] },
@@ -822,6 +899,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Medical & Clinical',
     slug: 'medical',
     description: 'Specialized healthcare and clinical indicators. Tools for diabetes management, cardiovascular risk, and professional medical assessments.',
+    defaultGuidance: {
+      whyItMatters: 'Clinical calculations are essential for monitoring chronic conditions and assessing risk factors like cardiovascular health or diabetic complications. These tools allow you to translate lab results into actionable insights that can be discussed with your healthcare provider to optimize your treatment plan.',
+      pitfalls: [
+        'Self-Diagnosis Dependency: These calculators are intended for informational purposes and should never replace professional medical advice. Always verify results with a physician.',
+        'Data Latency: Using old lab results for current calculations can lead to incorrect assessments of your health risk. Always use your most recent clinical data.'
+      ],
+      proTip: 'Keep a digital log of these calculations (like your cholesterol ratio or HOMA-IR) to show your doctor how your metabolic markers are shifting over months or years.'
+    },
     items: [
       { name: 'Blood Sugar Converter', path: '/blood-sugar-converter', desc: 'Switch between mg/dL and mmol/L.', keywords: ['diabetes math', 'glucose conversion', 'blood sugar units', 'mg dl to mmol l', 'diabetic tracking', 'unit converter medical', 'glucose monitoring', 'blood chemistry', 'lab results converter', 'diabetes management', 'blood sugar levels'] },
       { name: 'A1c to Glucose', path: '/a1c', desc: 'Convert Hemoglobin A1c to average blood sugar.', keywords: ['hemoglobin a1c', 'estimated average glucose', 'eag', 'diabetes tracking', 'sugar average', '3 month sugar', 'hba1c conversion', 'blood glucose average', 'diabetic monitoring', 'clinical a1c'] },
@@ -948,6 +1033,14 @@ export const CATEGORIES: CategoryData[] = [
     title: 'Business & Marketing',
     slug: 'business',
     description: 'Optimize your operations and scale your growth. Our business suite covers everything from SaaS metrics and marketing performance to HR analytics and corporate finance.',
+    defaultGuidance: {
+      whyItMatters: 'Business is a game of margins. Accuracy in calculating your break-even point or churn rate isn\'t just about bookkeeping; it\'s about identifying which levers will actually lead to profit and which are vanity metrics that distract from sustainable growth.',
+      pitfalls: [
+        'Vanity Metrics: Focusing on "Gross Revenue" without calculating your "Contribution Margin" can lead you to spend more on acquiring a customer than they are worth.',
+        'Ignoring Customer Lifetime Value (LTV): Judging a marketing campaign by its 1-day ROI instead of the total value a customer brings over 12 months can cause you to shut down highly profitable channels.'
+      ],
+      proTip: 'Calculate your "LTV to CAC" ratio. A healthy business usually aims for an LTV that is at least 3x the Cost of Acquisition (CAC).'
+    },
     items: [
       { name: '3D Printer - Buy vs Outsource', path: '/3d-printer-buy-vs-outsource', desc: 'Decide whether to manufacture in-house or outsource.' },
       { name: 'Absence Percentage', path: '/absence-percentage', desc: 'Calculate the rate of employee absenteeism.' },

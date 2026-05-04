@@ -330,6 +330,39 @@ export const BMICalculator: React.FC = () => {
         </section>
       </div>
 
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Professional Guidance: Beyond the BMI Number</h2>
+          <p className="text-slate-600 leading-relaxed">
+            BMI is a critical initial screening tool because it provides a standardized baseline for health risks associated with weight. While it doesn't measure body fat directly, a high BMI is strongly correlated with metabolic issues, heart disease, and type 2 diabetes. Understanding your category allows you to have more informed conversations with your primary care physician about your overall health trajectory.
+          </p>
+        </div>
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+          <h3 className="font-bold text-slate-900 flex items-center gap-2">
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
+          </h3>
+          <ul className="space-y-3 text-sm text-slate-600">
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
+              <span><strong className="text-slate-900">The "Muscle Trap":</strong> Athletes and bodybuilders often have a high BMI because muscle is denser than fat. If you are very muscular, BMI will likely overestimate your health risk.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
+              <span><strong className="text-slate-900">Ignoring Distribution:</strong> BMI doesn't tell you *where* your fat is stored. Abdominal fat (visceral fat) is far more dangerous than fat stored in hips or legs, regardless of your BMI score.</span>
+            </li>
+          </ul>
+          <div className="mt-4 pt-4 border-t border-slate-200">
+            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
+              <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
+              The Waist-to-Height Ratio
+            </h3>
+            <p className="text-sm text-slate-600 mt-1">
+              For a better health picture, measure your waist circumference. Your waist should be less than half your height. Combined with BMI, this provides a much more accurate assessment of individual metabolic health.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <CalculatorSEO 
         name="BMI Calculator" 
         path="/bmi" 
