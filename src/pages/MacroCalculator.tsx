@@ -118,39 +118,6 @@ export const MacroCalculator: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Professional Guidance: Precision Nutrition</h2>
-          <p className="text-slate-600 leading-relaxed">
-            While "calories in vs. calories out" determines weight change, your macronutrient split (Protein, Carbs, Fats) determines *what* that weight is. This calculation is critical for body composition because it ensures you are consuming enough protein to preserve muscle and enough fats for hormonal health, while adjusting carbs to fuel your specific activity level and training intensity.
-          </p>
-        </div>
-        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
-          <h3 className="font-bold text-slate-900 flex items-center gap-2">
-            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
-          </h3>
-          <ul className="space-y-3 text-sm text-slate-600">
-            <li className="flex gap-2">
-              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
-              <span><strong className="text-slate-900">Fear of Fats:</strong> Many people cut fats too low to save calories. Fats are essential for absorbing vitamins (A, D, E, K) and regulating testosterone and estrogen. Never drop below 20-25% of your total calories from fat for extended periods.</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
-              <span><strong className="text-slate-900">Ignoring Fiber:</strong> While not a primary macro, tracking only "net carbs" can lead to a low-fiber diet. Aim for 25-35g of fiber daily to support gut health and maintain satiety during a cut.</span>
-            </li>
-          </ul>
-          <div className="mt-4 pt-4 border-t border-slate-200">
-            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
-              <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
-              The "Protein Anchor" Rule
-            </h3>
-            <p className="text-sm text-slate-600 mt-1">
-              Start your macro planning with protein. For active individuals, a range of 0.8g to 1g of protein per pound of lean body mass is the "gold standard" for preserving muscle during weight loss and facilitating recovery during muscle growth phases.
-            </p>
-          </div>
-        </div>
-      </div>
-
       <CalculatorSEO 
         name="Macro Calculator" 
         path="/macro-calculator" 

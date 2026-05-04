@@ -308,39 +308,6 @@ export const CalorieCalculator: React.FC = () => {
         </section>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-12">
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Professional Guidance: Fueling Your Transformation</h2>
-          <p className="text-slate-600 leading-relaxed">
-            Your Total Daily Energy Expenditure (TDEE) is the most critical number for weight management. This calculation is vital because it moves beyond generic "2,000 calorie" labels and identifies your specific metabolic fingerprint. Knowing this number allows you to create a sustainable deficit for fat loss or a surplus for muscle gain without the guesswork that leads to burnout and metabolic adaptation.
-          </p>
-        </div>
-        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
-          <h3 className="font-bold text-slate-900 flex items-center gap-2">
-            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs text uppercase tracking-wider">Common Pitfalls</span>
-          </h3>
-          <ul className="space-y-3 text-sm text-slate-600">
-            <li className="flex gap-2">
-              <span className="font-bold text-slate-900 min-w-[20px]">1.</span>
-              <span><strong className="text-slate-900">Overestimating Activity:</strong> Most people overestimate how many calories they burn during exercise. When in doubt, select a lower activity multiplier to avoid overeating beyond your actual maintenance needs.</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="font-bold text-slate-900 min-w-[20px]">2.</span>
-              <span><strong className="text-slate-900">The "Starvation Mode" Myth:</strong> Cutting calories too aggressively (below your BMR) can lead to muscle loss and extreme fatigue. Aim for a moderate 250-500 calorie daily deficit for healthy, long-term fat loss.</span>
-            </li>
-          </ul>
-          <div className="mt-4 pt-4 border-t border-slate-200">
-            <h3 className="font-bold text-slate-900 flex items-center gap-2 text-sm italic">
-              <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs not-italic uppercase tracking-wider">Pro-Tip</span>
-              The NEAT Factor
-            </h3>
-            <p className="text-sm text-slate-600 mt-1">
-              Non-Exercise Activity Thermogenesis (NEAT)—like walking, fidgeting, and standing—often burns more calories than your actual gym session. Prioritizing 8,000-10,000 steps a day is often more effective for weight loss than high-intensity cardio.
-            </p>
-          </div>
-        </div>
-      </div>
-
       <CalculatorSEO 
         name="Calorie Calculator" 
         path="/calorie" 

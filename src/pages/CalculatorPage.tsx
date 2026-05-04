@@ -430,23 +430,6 @@ export const CalculatorPage: React.FC = () => {
                             </div>
                         </header>
 
-                        <div className="bg-white border-l-4 border-blue-600 p-6 mb-8 rounded-xl shadow-sm bg-gradient-to-r from-blue-50/30 to-transparent">
-                            <h3 className="text-sm font-black text-slate-900 mb-2 flex items-center gap-2 uppercase tracking-widest">
-                                <Info className="w-4 h-4 text-blue-600" />
-                                Professional Guidance
-                            </h3>
-                            <div className="text-xs text-slate-600 leading-relaxed font-medium">
-                                <p className="mb-2">
-                                    To get the most accurate results from the <strong className="text-blue-700">{foundItem.name}</strong>, please ensure you have your latest data points ready. 
-                                </p>
-                                <ul className="list-disc pl-4 space-y-1 text-slate-500 italic">
-                                    <li>Enter your values in the <strong>"Your Details"</strong> panel.</li>
-                                    <li>Results update in real-time using our 2026 mathematics engine.</li>
-                                    <li>Review the <strong>Expert Insights</strong> below for professional tips on this specific calculation.</li>
-                                </ul>
-                            </div>
-                        </div>
-
                         {foundItem.path === '/math/basic-calculator' ? (
                             <div className="py-12">
                                 <InteractiveCalculator />
@@ -625,51 +608,6 @@ export const CalculatorPage: React.FC = () => {
                                 </div>
                             </section>
                         </div>
-                        )}
-
-                        {/* Professional Guidance Section */}
-                        {(foundItem.guidance || foundCategory.defaultGuidance) && (
-                            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-200 pt-16">
-                                <div className="space-y-6">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-full border border-blue-100">
-                                        <Info className="w-3 h-3 text-blue-600" />
-                                        <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">Expert Insights</span>
-                                    </div>
-                                    <h2 className="text-2xl font-black text-slate-900 leading-tight">
-                                        Why {foundItem.name} Matters
-                                    </h2>
-                                    <p className="text-slate-600 leading-relaxed font-medium">
-                                        {foundItem.guidance?.whyItMatters || foundCategory.defaultGuidance?.whyItMatters}
-                                    </p>
-                                </div>
-                                <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 space-y-6 relative overflow-hidden group">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#0066cc]/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700"></div>
-                                    
-                                    <div>
-                                        <h3 className="font-black text-slate-900 flex items-center gap-2 text-xs uppercase tracking-widest mb-4">
-                                            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Common Pitfalls</span>
-                                        </h3>
-                                        <ul className="space-y-4">
-                                            {(foundItem.guidance?.pitfalls || foundCategory.defaultGuidance?.pitfalls || []).map((pitfall, idx) => (
-                                                <li key={idx} className="flex gap-3 text-sm text-slate-600 leading-relaxed">
-                                                    <span className="font-black text-slate-900 min-w-[20px]">{idx + 1}.</span>
-                                                    <span>{pitfall}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    
-                                    <div className="pt-6 border-t border-slate-200">
-                                        <h3 className="font-black text-slate-900 flex items-center gap-2 text-xs uppercase tracking-widest mb-2 italic">
-                                            <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded not-italic">Pro-Tip</span>
-                                            Insider Strategy
-                                        </h3>
-                                        <p className="text-sm text-slate-600 font-medium leading-relaxed italic">
-                                            "{foundItem.guidance?.proTip || foundCategory.defaultGuidance?.proTip}"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
                         )}
 
                         {/* SEO Educational Guide Section */}
