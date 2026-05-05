@@ -5,6 +5,7 @@ import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Loader2 } from 'lucide-react';
 import { CanonicalSEO } from './components/CanonicalSEO';
+import { CATEGORIES } from './constants/categories';
 
 const TrailingSlashRedirect = () => {
     const location = useLocation();
@@ -552,44 +553,11 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/sitemap" element={<Sitemap />} />
-            <Route path="/finance" element={<CategoryPage />} />
-            <Route path="/personal" element={<CategoryPage />} />
-            <Route path="/health" element={<CategoryPage />} />
-            <Route path="/math" element={<CategoryPage />} />
-            <Route path="/math/:calculatorPath" element={<CalculatorPage />} />
-            <Route path="/science" element={<CategoryPage />} />
-            <Route path="/real-estate-construction" element={<CategoryPage />} />
-            <Route path="/everyday" element={<CategoryPage />} />
-            <Route path="/automotive" element={<CategoryPage />} />
-            <Route path="/insurance" element={<CategoryPage />} />
-            <Route path="/converters" element={<CategoryPage />} />
-            <Route path="/business-and-marketing" element={<CategoryPage />} />
-            <Route path="/military" element={<CategoryPage />} />
-            <Route path="/medical" element={<CategoryPage />} />
-            <Route path="/lifestyle" element={<CategoryPage />} />
-            <Route path="/hobbies" element={<CategoryPage />} />
-            <Route path="/tech" element={<CategoryPage />} />
-            <Route path="/sports" element={<CategoryPage />} />
-            <Route path="/environment" element={<CategoryPage />} />
-            <Route path="/culinary" element={<CategoryPage />} />
-            <Route path="/academic" element={<CategoryPage />} />
-            <Route path="/biology" element={<CategoryPage />} />
-            <Route path="/pets" element={<CategoryPage />} />
-            <Route path="/gardening" element={<CategoryPage />} />
-            <Route path="/time-date" element={<CategoryPage />} />
-            <Route path="/geography" element={<CategoryPage />} />
-            <Route path="/fashion" element={<CategoryPage />} />
-            <Route path="/chemistry" element={<CategoryPage />} />
-            <Route path="/entertainment" element={<CategoryPage />} />
-            <Route path="/home-improvement" element={<CategoryPage />} />
-            <Route path="/engineering" element={<CategoryPage />} />
-            <Route path="/linguistics" element={<CategoryPage />} />
-            <Route path="/formal-logic" element={<CategoryPage />} />
-            <Route path="/sociology" element={<CategoryPage />} />
-            <Route path="/urban-planning" element={<CategoryPage />} />
-            <Route path="/eco-legal" element={<CategoryPage />} />
-            <Route path="/disaster-prep" element={<CategoryPage />} />
-            <Route path="/esports-pro" element={<CategoryPage />} />
+            {/* All Category Hubs at top-level */}
+            {CATEGORIES.map(cat => (
+              <Route key={cat.slug} path={`/${cat.slug}`} element={<CategoryPage />} />
+            ))}
+            
             <Route path="/category/:categoryKey" element={<CategoryPage />} />
             <Route path="/:calculatorPath" element={<CalculatorPage />} />
           </Routes>

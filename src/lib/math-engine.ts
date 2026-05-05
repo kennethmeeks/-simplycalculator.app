@@ -78,49 +78,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Your monthly payment (principal and interest) for a $${principal.toLocaleString()} loan at ${parseFloat(inputs.rate)}% interest.`
     };
   },
-  '/math/fraction': (inputs) => {
-    const n1 = parseInt(inputs.num1 || '0');
-    const d1 = parseInt(inputs.den1 || '1');
-    const n2 = parseInt(inputs.num2 || '0');
-    const d2 = parseInt(inputs.den2 || '1');
-    const op = inputs.operation || 'add';
-
-    if (d1 === 0 || d2 === 0) return { value: 'Error', explanation: 'Denominator cannot be zero.' };
-
-    let resN = 0;
-    let resD = 1;
-
-    switch (op) {
-      case 'add':
-        resN = n1 * d2 + n2 * d1;
-        resD = d1 * d2;
-        break;
-      case 'subtract':
-        resN = n1 * d2 - n2 * d1;
-        resD = d1 * d2;
-        break;
-      case 'multiply':
-        resN = n1 * n2;
-        resD = d1 * d2;
-        break;
-      case 'divide':
-        if (n2 === 0) return { value: 'Error', explanation: 'Cannot divide by zero.' };
-        resN = n1 * d2;
-        resD = d1 * n2;
-        break;
-    }
-
-    const gcd = (a: number, b: number): number => b === 0 ? a : gcd(b, a % b);
-    const common = Math.abs(gcd(resN, resD));
-    resN /= common;
-    resD /= common;
-
-    const opSymbol = op === 'add' ? '+' : op === 'subtract' ? '-' : op === 'multiply' ? '×' : '÷';
-    return { 
-      value: `${resN}/${resD}`, 
-      explanation: `${n1}/${d1} ${opSymbol} ${n2}/${d2} = ${resN}/${resD}` 
-    };
-  },
   '/math/pythagorean-theorem': (inputs) => {
      const a = parseFloat(inputs.a);
      const b = parseFloat(inputs.b);
@@ -499,20 +456,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       value: `$${total.toLocaleString()}`,
       explanation: `Regular Pay: $${regPay.toLocaleString()}. Overtime Pay: $${otPay.toLocaleString()} (${otHours} hours at $${(rate*multi).toFixed(2)}/hr).`
     };
-  },
-  '/hourly-to-salary': (inputs) => {
-    const hr = parseFloat(inputs.hourlyRate);
-    const hrsPerWk = parseFloat(inputs.hoursPerWeek) || 40;
-    if (isNaN(hr)) return { value: 'Invalid input' };
-
-    const weekly = hr * hrsPerWk;
-    const annual = weekly * 52;
-    const monthly = annual / 12;
-
-    return {
-      value: `$${annual.toLocaleString()} /yr`,
-      explanation: `Based on ${hrsPerWk} hours/week: Weekly: $${weekly.toLocaleString()} | Monthly: $${monthly.toLocaleString(undefined, {maximumFractionDigits: 0})}.`
-    }
   },
   '/pregnancy': (inputs) => {
     const lmp = new Date(inputs.lastPeriod);

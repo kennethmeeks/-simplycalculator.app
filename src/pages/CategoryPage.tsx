@@ -21,17 +21,15 @@ export const CategoryPage: React.FC = () => {
       <Helmet>
         <title>{data.title} - All Free Calculators 2026</title>
         <meta name="description" content={data.description} />
-        <link rel="canonical" href={`https://simplycalculator.app/category/${data.slug}`} />
         <meta property="og:title" content={`${data.title} - All Free Calculators 2026`} />
         <meta property="og:description" content={data.description} />
-        <meta property="og:url" content={`https://simplycalculator.app/category/${data.slug}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": data.title,
             "description": data.description,
-            "url": `https://simplycalculator.app/category/${data.slug}`,
+            "url": `https://simplycalculator.app/${data.slug}`,
             "mainEntity": {
               "@type": "ItemList",
               "numberOfItems": data.items.length,
@@ -59,7 +57,7 @@ export const CategoryPage: React.FC = () => {
                 "@type": "ListItem",
                 "position": 2,
                 "name": data.title,
-                "item": `https://simplycalculator.app/category/${data.slug}`
+                "item": `https://simplycalculator.app/${data.slug}`
               }
             ]
           })}
@@ -92,17 +90,20 @@ export const CategoryPage: React.FC = () => {
         <section className="bg-white border-2 border-[#eee] p-6 shadow-[8px_8px_0px_0px_#f0f0f0]">
             <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#bbb] mb-4">// Jump to Hub</h3>
             <div className="flex flex-wrap gap-x-8 gap-y-4">
-                {CATEGORIES.map(c => (
-                    <Link 
-                      key={c.slug} 
-                      to={`/category/${c.slug}`} 
-                      className={`text-[11px] font-black uppercase tracking-tighter transition-colors ${
-                        c.slug === categoryKey ? 'text-blue-600 underline underline-offset-4 decoration-2' : 'text-[#111] hover:text-blue-600'
-                      }`}
-                    >
-                      {c.title}
-                    </Link>
-                ))}
+                {CATEGORIES.map(c => {
+                    const path = `/${c.slug}`;
+                    return (
+                        <Link 
+                          key={c.slug} 
+                          to={path} 
+                          className={`text-[11px] font-black uppercase tracking-tighter transition-colors ${
+                            c.slug === categoryKey ? 'text-blue-600 underline underline-offset-4 decoration-2' : 'text-[#111] hover:text-blue-600'
+                          }`}
+                        >
+                          {c.title}
+                        </Link>
+                    );
+                })}
             </div>
         </section>
 

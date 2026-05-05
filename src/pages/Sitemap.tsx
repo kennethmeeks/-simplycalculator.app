@@ -27,7 +27,7 @@ export const Sitemap: React.FC = () => {
         {CATEGORIES.map((cat) => (
           <div key={cat.slug} className="space-y-6">
             <div className="flex items-center gap-3 border-b-2 border-[#0066cc] pb-2 mb-4">
-                <Link to={`/category/${cat.slug}`} className="text-lg font-black text-[#111] uppercase tracking-wide hover:text-[#0066cc]">
+                <Link to={`/${cat.slug}`} className="text-lg font-black text-[#111] uppercase tracking-wide hover:text-[#0066cc]">
                     {cat.title}
                 </Link>
             </div>

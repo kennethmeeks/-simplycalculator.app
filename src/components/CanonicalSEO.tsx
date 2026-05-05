@@ -18,14 +18,10 @@ export const CanonicalSEO: React.FC = () => {
     }
     
     // 3. Resolve duplication for categories
-    // Map /category/finance to just /finance if it's a top-level category
-    // This aligns with App.tsx routing
-    const topKeywords = ['finance', 'health', 'math', 'science', 'personal', 'automotive', 'insurance', 'academic', 'lifestyle', 'time-date'];
+    // Map /category/name to just /name
     if (path.startsWith('/category/')) {
-        const potentialCategory = path.split('/')[2];
-        if (topKeywords.includes(potentialCategory)) {
-            path = `/${potentialCategory}`;
-        }
+        path = path.slice(9); // More efficient than replace for prefix
+        if (!path.startsWith('/')) path = '/' + path;
     }
 
     // Special case for root

@@ -334,11 +334,9 @@ export const CalculatorPage: React.FC = () => {
             <Helmet>
                 <title>{foundItem.name} — Get Results in 10s Free 2026</title>
                 <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
-                <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
                 <meta property="og:title" content={`${foundItem.name} | simplycalculator.app`} />
                 <meta property="og:description" content={foundItem.desc} />
                 <meta property="og:type" content="article" />
-                <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={foundItem.name} />
                 <meta name="twitter:description" content={foundItem.desc} />
@@ -378,7 +376,7 @@ export const CalculatorPage: React.FC = () => {
                         "@type": "ListItem",
                         "position": 2,
                         "name": foundCategory?.title || "Categories",
-                        "item": `https://simplycalculator.app/category/${foundCategory?.slug || ''}`
+                        "item": `https://simplycalculator.app/${foundCategory?.slug || ''}`
                       },
                       {
                         "@type": "ListItem",
@@ -397,7 +395,7 @@ export const CalculatorPage: React.FC = () => {
                     <ChevronRight className="w-3 h-3" />
                     {foundCategory && (
                         <>
-                            <Link to={`/category/${foundCategory.slug}`} className="hover:text-blue-600">{foundCategory.title}</Link>
+                            <Link to={`/${foundCategory.slug}`} className="hover:text-blue-600">{foundCategory.title}</Link>
                             <ChevronRight className="w-3 h-3" />
                         </>
                     )}
@@ -581,7 +579,7 @@ export const CalculatorPage: React.FC = () => {
                                                 </div>
                                                 <div className="space-y-1">
                                                     <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Awaiting inputs</p>
-                                                    <p className="text-slate-300 text-[10px] max-w-[180px] mx-auto">Enter details on the left to see your professional estimation.</p>
+                                                    <p className="text-slate-300 text-[10px] max-w-[180px] mx-auto">Enter details on the left to see your results.</p>
                                                 </div>
                                             </div>
                                         )}
@@ -633,7 +631,7 @@ export const CalculatorPage: React.FC = () => {
                                     <p className="text-xs text-slate-500 font-medium">Explore related calculation tools.</p>
                                 </div>
                                 <Link 
-                                    to={`/category/${foundCategory.slug}`}
+                                    to={`/${foundCategory.slug}`}
                                     className="text-[10px] font-black uppercase tracking-widest text-[#0066cc] hover:underline"
                                 >
                                     Browse Category
