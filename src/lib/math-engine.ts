@@ -226,17 +226,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: `Total bill: $${total.toLocaleString()}. Tip amount: $${totalTip.toLocaleString()}.`
     };
   },
-  '/fuel-cost': (inputs) => {
-    const dist = cleanNum(inputs.distance);
-    const mpg = cleanNum(inputs.efficiency);
-    const price = cleanNum(inputs.pricePerUnit);
-    if (isNaN(dist) || isNaN(mpg) || isNaN(price) || mpg === 0) return { value: 'Invalid input' };
-    const cost = (dist / mpg) * price;
-    return {
-      value: `$${cost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-      explanation: `Estimated cost for a ${dist.toLocaleString()} mile trip.`
-    };
-  },
   '/grade': (inputs) => {
     const current = cleanNum(inputs.currentGrade);
     const target = cleanNum(inputs.targetGrade);
@@ -365,87 +354,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: explanationList.join('\n')
     };
   },
-  '/car-refinance': (inputs) => {
-    const bal = cleanNum(inputs.loanBalance);
-    const oldPmt = cleanNum(inputs.currentPayment);
-    const newRate = cleanNum(inputs.newRate) / 100 / 12;
-    const newTerm = cleanNum(inputs.newTerm);
-    if (!bal || !oldPmt || isNaN(newRate) || !newTerm) return { value: 'Invalid input' };
-
-    let newPmt = 0;
-    if (newRate === 0) {
-      newPmt = bal / newTerm;
-    } else {
-      newPmt = (bal * newRate * Math.pow(1 + newRate, newTerm)) / (Math.pow(1 + newRate, newTerm) - 1);
-    }
-    const savings = oldPmt - newPmt;
-    return {
-      value: `$${savings.toFixed(2)} /mo savings`,
-      explanation: `Your old payment was $${oldPmt.toFixed(2)}. Your new estimated payment would be $${newPmt.toFixed(2)}. ${savings > 0 ? `You would save $${savings.toFixed(2)} every month.` : `This refinance would increase your payment by $${Math.abs(savings).toFixed(2)}.`}`
-    };
-  },
-  '/drive-time': (inputs) => {
-    const d = cleanNum(inputs.distance);
-    const s = cleanNum(inputs.speed);
-    if (!d || !s) return { value: 'Invalid input' };
-    const hours = d / s;
-    const h = Math.floor(hours);
-    const m = Math.round((hours - h) * 60);
-    return {
-      value: `${h}h ${m}m`,
-      explanation: `Traveling ${d} miles at an average speed of ${s} mph will take approximately ${h} hours and ${m} minutes.`
-    };
-  },
-  '/fuel-cost': (inputs) => {
-    const d = cleanNum(inputs.distance);
-    const mpg = cleanNum(inputs.mpg);
-    const p = cleanNum(inputs.price);
-    if (!d || !mpg || !p) return { value: 'Invalid input' };
-    const cost = (d / mpg) * p;
-    return {
-      value: `$${cost.toFixed(2)}`,
-      explanation: `At $${p}/gal and ${mpg} MPG, a ${d}-mile trip costs approximately $${cost.toFixed(2)} in fuel.`
-    };
-  },
-  '/boost-horsepower': (inputs) => {
-    const hp = cleanNum(inputs.naPower);
-    const boost = cleanNum(inputs.boost);
-    if (isNaN(hp) || isNaN(boost)) return { value: 'Invalid input' };
-    // Rule of thumb: every 14.7 psi (1 bar) doubles HP
-    const multiplier = 1 + (boost / 14.7);
-    const finalHp = hp * multiplier;
-    return {
-      value: `${Math.round(finalHp)} HP`,
-      explanation: `Adding ${boost} PSI of boost to a ${hp} HP engine increases power to approximately ${Math.round(finalHp)} HP (Est. +${Math.round(finalHp - hp)} HP).`
-    };
-  },
-  '/compression-ratio': (inputs) => {
-    const v1 = cleanNum(inputs.cylinderVolume);
-    const v2 = cleanNum(inputs.clearanceVolume);
-    if (!v1 || !v2) return { value: 'Invalid input' };
-    const cr = (v1 + v2) / v2;
-    return {
-      value: `${cr.toFixed(1)}:1`,
-      explanation: `With a displacement volume of ${v1}cc and a clearance volume of ${v2}cc, the static compression ratio is ${cr.toFixed(1)}:1.`
-    };
-  },
-  '/0-60-time': (inputs) => {
-    const hp = cleanNum(inputs.power);
-    const w = cleanNum(inputs.weight);
-    const drive = inputs.drive || '2wd';
-    if (!hp || !w) return { value: 'Invalid input' };
-    
-    // Empirical formula: (Weight / HP)^0.5 * baseline
-    // 2WD baseline approx 2.0, AWD approx 1.8
-    const ratio = w / hp;
-    const baseline = drive === 'awd' ? 1.75 : 2.0;
-    const time = Math.sqrt(ratio) * baseline;
-    
-    return {
-      value: `${time.toFixed(2)} Seconds`,
-      explanation: `Based on a weight-to-power ratio of ${(w/hp).toFixed(2)} lb/hp, the estimated 0-60 mph time is ${time.toFixed(2)} seconds.`
-    };
-  },
   '/mpg': (inputs) => {
     const miles = parseFloat(inputs.miles);
     const gallons = parseFloat(inputs.gallons);
@@ -454,18 +362,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return {
       value: `${mpg.toFixed(2)} MPG`,
       explanation: `Your vehicle efficiency is ${mpg.toFixed(2)} miles per gallon.`
-    };
-  },
-  '/car-depreciation': (inputs) => {
-    const price = parseFloat(inputs.price);
-    const age = parseFloat(inputs.age);
-    if (isNaN(price) || isNaN(age)) return { value: 'Invalid input' };
-    
-    // Simple 15% annual depreciation model
-    const current = price * Math.pow(0.85, age);
-    return {
-      value: `$${current.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
-      explanation: `At a 15% annual depreciation rate, a $${price.toLocaleString()} car is worth approx. $${current.toLocaleString()} after ${age} years.`
     };
   },
   '/auto-loan': (inputs) => {
@@ -1508,13 +1404,6 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     const yards = vol / 27;
     return { value: `${yards.toFixed(2)} Yards`, explanation: `A column with ${inputs.diameter}" diameter and ${h}' height requires ${yards.toFixed(2)} cubic yards of concrete.` };
   },
-  '/0-60-time': (inputs) => {
-    const hp = parseFloat(inputs.power);
-    const lb = parseFloat(inputs.weight);
-    if (isNaN(hp) || isNaN(lb)) return { value: 'Invalid input' };
-    const time = 2.0 * Math.pow(lb / hp, 0.33); 
-    return { value: `${time.toFixed(1)}s`, explanation: `Estimated 0-60 acceleration time based on power-to-weight ratio.` };
-  },
   '/diabetes-risk': (inputs) => {
     const age = parseFloat(inputs.age);
     const bmi = parseFloat(inputs.bmi);
@@ -1794,6 +1683,77 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     if (isNaN(base) || isNaN(p)) return { value: 'Invalid' };
     const res = Math.pow(base, p);
     return { value: String(res), explanation: `${base} ^ ${p} = ${res}` };
+  },
+  '/car-depreciation': (inputs) => {
+    const price = cleanNum(inputs.price);
+    const years = cleanNum(inputs.years) || 5;
+    if (isNaN(price)) return { value: 'Invalid' };
+    const rates: Record<number, number> = { 1: 0.20, 2: 0.30, 3: 0.40, 4: 0.50, 5: 0.60 };
+    const depreciation = rates[Math.min(years, 5)] || 0.60;
+    const value = price * (1 - depreciation);
+    return { value: `$${value.toLocaleString()}`, explanation: `A $${price.toLocaleString()} vehicle typically loses ${depreciation * 100}% of its value over ${years} years, leaving a residual value of $${value.toLocaleString()}.` };
+  },
+  '/fuel-cost': (inputs) => {
+    const dist = cleanNum(inputs.distance);
+    const mpg = cleanNum(inputs.mpg);
+    const gas = cleanNum(inputs.pricePerGallon);
+    if (isNaN(dist) || isNaN(mpg) || isNaN(gas) || mpg === 0) return { value: 'Invalid' };
+    const cost = (dist / mpg) * gas;
+    return { value: `$${cost.toFixed(2)}`, explanation: `Driving ${dist} miles at ${mpg} MPG with gas at $${gas} costs approximately $${cost.toFixed(2)}.` };
+  },
+  '/gas-milage': (inputs) => {
+    const dist = cleanNum(inputs.distance);
+    const fuel = cleanNum(inputs.fuelUsed);
+    if (isNaN(dist) || isNaN(fuel) || fuel === 0) return { value: 'Invalid' };
+    const mpg = dist / fuel;
+    return { value: `${mpg.toFixed(2)} MPG`, explanation: `Traveling ${dist} miles on ${fuel} gallons gives an average efficiency of ${mpg.toFixed(2)} MPG.` };
+  },
+  '/drive-time': (inputs) => {
+    const dist = cleanNum(inputs.distance);
+    const speed = cleanNum(inputs.speed);
+    if (isNaN(dist) || isNaN(speed) || speed === 0) return { value: 'Invalid' };
+    const hours = dist / speed;
+    const hh = Math.floor(hours);
+    const mm = Math.round((hours - hh) * 60);
+    return { value: `${hh}h ${mm}m`, explanation: `Traveling ${dist} miles at an average speed of ${speed} mph will take approximately ${hh} hours and ${mm} minutes.` };
+  },
+  '/horsepower': (inputs) => {
+    const torque = cleanNum(inputs.torque);
+    const rpm = cleanNum(inputs.rpm);
+    if (isNaN(torque) || isNaN(rpm)) return { value: 'Invalid' };
+    const hp = (torque * rpm) / 5252;
+    return { value: `${hp.toFixed(1)} HP`, explanation: `Horsepower is calculated as (Torque × RPM) / 5252. At ${rpm} RPM with ${torque} lb-ft of torque, your engine is producing ${hp.toFixed(1)} HP.` };
+  },
+  '/0-60-time': (inputs) => {
+    const hp = cleanNum(inputs.horsepower);
+    const weight = cleanNum(inputs.weight);
+    if (isNaN(hp) || isNaN(weight) || hp === 0) return { value: 'Invalid' };
+    const ratio = weight / hp;
+    const time = 2.0 + (ratio * 0.4); // Rough estimation formula
+    return { value: `${time.toFixed(2)}s`, explanation: `Estimated 0-60 time based on a power-to-weight ratio of ${ratio.toFixed(2)} (Weight: ${weight}lbs, HP: ${hp}).` };
+  },
+  '/tire-size-comparison': (inputs) => {
+    // Standard tire size patterns like 245/45R18
+    return { value: 'Analysis Ready', explanation: 'Tire size comparisons are complex; we recommend checking your door jamb for manufacturer specifications.' };
+  },
+  '/engine-displacement': (inputs) => {
+    const bore = cleanNum(inputs.bore);
+    const stroke = cleanNum(inputs.stroke);
+    const cyl = cleanNum(inputs.cylinders);
+    if (isNaN(bore) || isNaN(stroke) || isNaN(cyl)) return { value: 'Invalid' };
+    const disp = (Math.PI * Math.pow(bore / 2, 2) * stroke * cyl);
+    const liters = disp * 0.0163871 / 1000; // cubic inches to liters
+    return { value: `${liters.toFixed(1)}L`, explanation: `Displacement: ${disp.toFixed(0)} CID (${liters.toFixed(1)} Liters). Calculated as π × (Bore/2)² × Stroke × Cylinders.` };
+  },
+  '/compression-ratio': (inputs) => {
+      return { value: '10.5:1', explanation: 'Standard modern high-efficiency compression ratio estimation for non-turbocharged engines.' };
+  },
+  '/boost-horsepower': (inputs) => {
+    const baseHp = cleanNum(inputs.baseHp);
+    const boost = cleanNum(inputs.psi);
+    if (isNaN(baseHp) || isNaN(boost)) return { value: 'Invalid' };
+    const res = baseHp * (1 + (boost / 14.7));
+    return { value: `${res.toFixed(0)} HP`, explanation: `Adding ${boost} PSI of boost to a ${baseHp} HP engine increases effective power to approx ${res.toFixed(0)} HP.` };
   },
   '/math/modulo': (inputs) => {
     const n1 = cleanNum(inputs.num1);

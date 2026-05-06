@@ -392,9 +392,18 @@ async function startDevServer() {
                       ${edu.whyItWorks}
                     </p>
                     <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">How to Use</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
                       ${edu.howToUse}
                     </p>
+
+                    ${edu.methodology ? `
+                      <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-lg mb-8">
+                        <h4 class="text-sm font-black uppercase tracking-widest text-indigo-900 mb-2">Calculation Methodology</h4>
+                        <p class="text-xs text-indigo-800 leading-relaxed italic">
+                          ${edu.methodology}
+                        </p>
+                      </div>
+                    ` : ''}
                   </div>
                 </div>
                 <div>
@@ -407,6 +416,20 @@ async function startDevServer() {
                       </div>
                     `).join('')}
                   </div>
+
+                  ${edu.glossary && edu.glossary.length > 0 ? `
+                    <div class="mt-12 pt-8 border-t border-slate-200">
+                      <h4 class="text-lg font-black mb-4 text-slate-800">Key Terms & Glossary</h4>
+                      <dl class="space-y-4">
+                        ${edu.glossary.map(g => `
+                          <div>
+                            <dt class="text-sm font-black text-slate-900">${g.term}</dt>
+                            <dd class="text-xs text-slate-500 mt-1">${g.definition}</dd>
+                          </div>
+                        `).join('')}
+                      </dl>
+                    </div>
+                  ` : ''}
 
                   <div class="mt-8 pt-8 border-t border-slate-200">
                     <h4 class="text-lg font-black mb-4 text-slate-800">Contextual Next Steps</h4>

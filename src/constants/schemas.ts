@@ -22,14 +22,13 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'speed', label: 'Average Speed', type: 'number', unit: 'mph' }
   ],
   '/fuel-cost': [
-    { id: 'distance', label: 'Total Distance', type: 'number', unit: 'miles' },
-    { id: 'mpg', label: 'Fuel Efficiency', type: 'number', unit: 'mpg' },
-    { id: 'price', label: 'Gas Price', type: 'number', unit: '$/gal' }
+    { id: 'distance', label: 'Trip Distance', type: 'number', unit: 'miles' },
+    { id: 'efficiency', label: 'Fuel Efficiency', type: 'number', unit: 'MPG' },
+    { id: 'pricePerUnit', label: 'Fuel Price', type: 'number', unit: 'per gallon' }
   ],
   '/0-60-time': [
     { id: 'power', label: 'Horsepower', type: 'number', unit: 'hp' },
-    { id: 'weight', label: 'Vehicle Weight', type: 'number', unit: 'lbs' },
-    { id: 'drive', label: 'Drive Type', type: 'select', options: [{label: 'RWD/FWD', value: '2wd'}, {label: 'AWD', value: 'awd'}]}
+    { id: 'weight', label: 'Vehicle Weight', type: 'number', unit: 'lbs' }
   ],
   '/boost-horsepower': [
     { id: 'naPower', label: 'Naturally Aspirated HP', type: 'number', unit: 'hp' },
@@ -233,11 +232,6 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'billAmount', label: 'Bill Amount', type: 'number', unit: '$' },
     { id: 'tipPercent', label: 'Tip Percentage', type: 'number', unit: '%' },
     { id: 'numPeople', label: 'Number of People', type: 'number', defaultValue: '1' }
-  ],
-  '/fuel-cost': [
-    { id: 'distance', label: 'Trip Distance', type: 'number', unit: 'miles' },
-    { id: 'efficiency', label: 'Fuel Efficiency', type: 'number', unit: 'MPG' },
-    { id: 'pricePerUnit', label: 'Fuel Price', type: 'number', unit: 'per gallon' }
   ],
   '/grade': [
     { id: 'currentGrade', label: 'Current Grade', type: 'number', unit: '%' },
@@ -605,10 +599,6 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'length', label: 'Room Length', type: 'number', unit: 'ft' },
     { id: 'width', label: 'Room Width', type: 'number', unit: 'ft' },
     { id: 'waste', label: 'Waste percentage', type: 'number', unit: '%', defaultValue: '10' }
-  ],
-  '/0-60-time': [
-    { id: 'power', label: 'Horsepower', type: 'number', unit: 'hp' },
-    { id: 'weight', label: 'Vehicle Weight', type: 'number', unit: 'lbs' }
   ],
   '/diabetes-risk': [
     { id: 'age', label: 'Current Age', type: 'number' },
