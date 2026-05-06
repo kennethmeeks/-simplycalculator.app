@@ -7,6 +7,7 @@ import { motion } from 'motion/react';
 import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from '../constants/educational';
 import { CATEGORIES } from '../constants/categories';
 import { getSpecificFAQ } from '../lib/faq-utils';
+import { getProContent } from '../lib/pro-content-utils';
 
 interface GuideContent {
     howAndWhy: string;
@@ -144,6 +145,18 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                             </div>
                         )}
                     </div>
+
+                    {getProContent(path).map((pro, idx) => (
+                        <div key={idx} className="mt-12 p-8 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <h3 className="text-lg font-black mb-4 text-slate-800 flex items-center gap-2">
+                                <span className="w-2 h-6 bg-blue-600 rounded-full"></span>
+                                {pro.title}
+                            </h3>
+                            <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                                {pro.content}
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
                 {displayContent.faq.length > 0 && (

@@ -10,6 +10,7 @@ import { CATEGORIES } from "./src/constants/categories";
 import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from "./src/constants/educational";
 import { getHighIntentSEO } from "./src/lib/seo-utils";
 import { getSpecificFAQ } from "./src/lib/faq-utils";
+import { getProContent } from "./src/lib/pro-content-utils";
 
 dotenv.config();
 
@@ -406,6 +407,18 @@ async function startDevServer() {
                       </div>
                     ` : ''}
                   </div>
+
+                  ${getProContent(matchedCalculator.path).map(pro => `
+                    <div class="mb-12 p-8 bg-slate-50 border border-slate-200 rounded-2xl">
+                      <h3 class="text-xl font-black mb-4 text-slate-800 flex items-center gap-2">
+                        <span class="w-2 h-6 bg-blue-600 rounded-full"></span>
+                        ${pro.title}
+                      </h3>
+                      <div class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                        ${pro.content}
+                      </div>
+                    </div>
+                  `).join('')}
                 </div>
                 <div>
                   <h3 class="text-2xl font-black mb-4">Common Questions & Insights</h3>
