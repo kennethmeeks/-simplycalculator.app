@@ -19,10 +19,10 @@ export const CategoryPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{data.title} - All Free Calculators 2026</title>
-        <meta name="description" content={data.description} />
-        <meta property="og:title" content={`${data.title} - All Free Calculators 2026`} />
-        <meta property="og:description" content={data.description} />
+        <title>{data.title} Hub: Professional 2026 Calculation Tools (Free)</title>
+        <meta name="description" content={`Accurate ${data.title} calculators. ${data.description} All tools are free, verified for 2026, and mobile-optimized for professional use.`} />
+        <meta property="og:title" content={`${data.title} Hub | Professional 2026 Toolset`} />
+        <meta property="og:description" content={`Access the full suite of professional ${data.title} calculators. Free, accurate, and instant tools verified for 2026.`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

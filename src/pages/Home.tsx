@@ -9,14 +9,14 @@ export const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>simplycalculator.app | 1,600+ Free Online Calculators for 2026</title>
-        <meta name="description" content="Access over 1,600+ free online calculators. Get instant accurate results for Finance, Health, Math, and Engineering with our verified 2026 mathematical suite." />
-        <meta property="og:title" content="simplycalculator.app — Solve Any Problem in 5 Seconds Free" />
-        <meta property="og:description" content="Browse 1,600+ data-driven tools for everyone. Completely free with no sign-ups required. Verified accuracy." />
+        <title>SimplyCalculator — Professional 2026 Toolkit | 1,600+ Free Online Tools</title>
+        <meta name="description" content="Access SimplyCalculator's professional 2026 mathematical suite. 1,600+ free online calculators for Finance, Health, Engineering, and Math. Accurate, instant, and verified." />
+        <meta property="og:title" content="SimplyCalculator — Professional 2026 Mathematical Toolkit" />
+        <meta property="og:description" content="Browse 1,600+ verified tools for professional and personal calculations. Completely free, mobile-optimized, and built for 2026 standards." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="simplycalculator.app | 1600+ Free Tools for 2026" />
-        <meta name="twitter:description" content="Verified mathematical accuracy for all your calculation needs." />
+        <meta name="twitter:title" content="SimplyCalculator | 1,600+ Professional Tools for 2026" />
+        <meta name="twitter:description" content="Verified mathematical accuracy for all your calculation needs. Free and instant." />
         <script type="application/ld+json">
           {`
             {

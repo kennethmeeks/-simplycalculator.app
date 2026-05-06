@@ -339,11 +339,11 @@ export const CalculatorPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>{foundItem.name} — Professional Results 2026 | Free Online Tool</title>
-                <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Use our verified formulas for 2026. Part of our ${foundCategory?.title} suite. Free, instant, and mobile-friendly.`} />
+                <title>{foundItem.name} — Professional 2026 Result | Free & Instant</title>
+                <meta name="description" content={`Get your accurate ${foundItem.name} result instantly. ${foundItem.desc}. Verified for 2026 professional standards. Free and mobile-friendly.`} />
                 <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
-                <meta property="og:title" content={`${foundItem.name} | Professional 2026 Calculator`} />
-                <meta property="og:description" content={`Get instant, accurate results with the ${foundItem.name}. Verified for 2026. ${foundItem.desc}`} />
+                <meta property="og:title" content={`${foundItem.name} | Professional 2026 Results`} />
+                <meta property="og:description" content={`Use the professional ${foundItem.name} for instant, verified results. Free for 2026. ${foundItem.desc}`} />
                 <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />
