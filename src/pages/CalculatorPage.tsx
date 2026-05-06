@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { CATEGORIES } from '../constants/categories';
 import { POPULAR_SCHEMAS, CalculatorField } from '../constants/schemas';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calculator, ChevronLeft, ChevronRight, ChevronDown, Info, Settings2, CheckCircle2, RotateCcw, Loader2, Share2, FileDown, Lightbulb } from 'lucide-react';
+import { Calculator, ChevronLeft, ChevronRight, ChevronDown, Info, Settings2, CheckCircle2, RotateCcw, Loader2, Share2, FileDown } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
 import { CalculatorVisualizer } from '../components/CalculatorVisualizer';
 import { standardCalculations } from '../lib/math-engine';
@@ -193,7 +193,6 @@ export const CalculatorPage: React.FC = () => {
 
         setIsLoading(true);
         setError(null);
-        const startTime = Date.now();
         try {
             let calculationResult;
             // Check for standard deterministic calculation first
@@ -218,12 +217,6 @@ export const CalculatorPage: React.FC = () => {
             }
 
             if (!calculationResult || !calculationResult.value) throw new Error("Our engine couldn't process these specific values. Please try adjusting them.");
-            
-            // Ensure at least 1.5s delay for "Scientific Processing" feel
-            const elapsed = Date.now() - startTime;
-            if (elapsed < 1500) {
-                await new Promise(resolve => setTimeout(resolve, 1500 - elapsed));
-            }
             
             setResult(calculationResult);
         } catch (err: any) {
@@ -526,45 +519,9 @@ export const CalculatorPage: React.FC = () => {
                                 
                                 <h2 className="text-[#0066cc] font-black text-2xl mb-8 relative z-10">Your Results</h2>
                                 
-                                    <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10 w-full min-h-[300px]">
-                                        <AnimatePresence mode="wait">
-                                            {isLoading ? (
-                                                 <motion.div 
-                                                     key="loading"
-                                                     initial={{ opacity: 0 }}
-                                                     animate={{ opacity: 1 }}
-                                                     exit={{ opacity: 0 }}
-                                                     className="w-full max-w-sm space-y-8"
-                                                 >
-                                                     <div className="space-y-4">
-                                                         <div className="flex justify-between items-end">
-                                                             <div className="text-left">
-                                                                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0066cc] mb-1">Engine Latency: 42ms</p>
-                                                                 <h3 className="text-sm font-bold text-slate-800">Analyzing Complexity...</h3>
-                                                             </div>
-                                                             <Loader2 className="w-5 h-5 animate-spin text-[#0066cc]" />
-                                                         </div>
-                                                         <div className="h-2 w-full bg-blue-50 rounded-full overflow-hidden border border-blue-100">
-                                                             <motion.div 
-                                                                 initial={{ width: "0%" }}
-                                                                 animate={{ width: "100%" }}
-                                                                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                                                                 className="h-full bg-[#0066cc]"
-                                                             />
-                                                         </div>
-                                                     </div>
-                                                     <motion.div 
-                                                         initial={{ opacity: 0, y: 10 }}
-                                                         animate={{ opacity: 1, y: 0 }}
-                                                         transition={{ delay: 0.5 }}
-                                                         className="p-4 bg-white border border-blue-50 rounded-xl shadow-sm"
-                                                     >
-                                                         <p className="text-[11px] text-slate-500 font-medium leading-relaxed italic">
-                                                             "Did you know? Mathematical models like these help reduce human margin of error by up to 94% in professional environments."
-                                                         </p>
-                                                     </motion.div>
-                                                 </motion.div>
-                                            ) : result ? (
+                                <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10 w-full min-h-[300px]">
+                                    <AnimatePresence mode="wait">
+                                        {result ? (
                                             <motion.div 
                                                 key="result"
                                                 initial={{ opacity: 0, y: 10 }} 
@@ -602,39 +559,6 @@ export const CalculatorPage: React.FC = () => {
                                                     category={foundCategory.slug}
                                                     result={result}
                                                 />
-
-                                                <motion.div 
-                                                    initial={{ opacity: 0 }}
-                                                    animate={{ opacity: 1 }}
-                                                    transition={{ delay: 0.5 }}
-                                                    className="pt-8 mt-4 border-t border-blue-100/30"
-                                                >
-                                                    <div className="bg-white/50 border border-blue-100 rounded-xl p-6 text-left space-y-4 shadow-sm group hover:border-blue-400 transition-colors">
-                                                        <div className="flex items-center gap-3">
-                                                            <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
-                                                                <Lightbulb className="w-4 h-4" />
-                                                            </div>
-                                                            <h4 className="text-xs font-black uppercase tracking-widest text-slate-800">Strategic Next Steps</h4>
-                                                        </div>
-                                                        <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
-                                                            {foundCategory.slug === 'finance' ? "Consider reviewing your debt-to-income ratio or monthly budget to see how this fits your overall financial strategy." : 
-                                                             foundCategory.slug === 'health' ? "Track these results over 30 days to observe trends in your biological metrics." :
-                                                             foundCategory.slug === 'math' ? "Use the 'Verified Formula' guide below to double-check the structural logic behind these numbers." :
-                                                             "Explore related tools in this category below to cross-reference these results with similar metrics."}
-                                                        </p>
-                                                        <div className="pt-2">
-                                                            <button 
-                                                                onClick={() => {
-                                                                    const guide = document.getElementById('methodology-section');
-                                                                    guide?.scrollIntoView({ behavior: 'smooth' });
-                                                                }}
-                                                                className="text-[10px] font-black uppercase text-blue-600 hover:underline inline-flex items-center gap-2"
-                                                            >
-                                                                Read Methodology <ChevronDown className="w-3 h-3" />
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </motion.div>
                                                 
                                                 <div className="flex justify-center mt-6">
                                                     <ResultActions 
@@ -694,13 +618,11 @@ export const CalculatorPage: React.FC = () => {
                                 SimplyCalculator Logic
                             </div>
                         </div>
-                        <div id="methodology-section">
-                            <CalculatorSEO 
-                                name={foundItem.name}
-                                path={foundItem.path}
-                                description={foundItem.desc}
-                            />
-                        </div>
+                        <CalculatorSEO 
+                            name={foundItem.name}
+                            path={foundItem.path}
+                            description={foundItem.desc}
+                        />
 
                         <section className="pt-24 border-t border-slate-100">
                             <div className="flex items-center justify-between mb-10">

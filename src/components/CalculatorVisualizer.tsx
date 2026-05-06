@@ -125,48 +125,8 @@ export const CalculatorVisualizer: React.FC<CalculatorVisualizerProps> = ({ name
         );
     }
 
-    // Default Fallback: Simple Benchmark comparison
-    // If it's a numeric result, show where it sits relative to common benchmarks
-    if (!isNaN(numericValue) && numericValue > 0) {
-        const benchmarkVal = numericValue * 0.85; // Simulated typical value for comparison
-        const data = [
-            { name: 'Your Result', value: numericValue },
-            { name: 'Avg. Household', value: benchmarkVal }
-        ];
-
-        return (
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="w-full mt-8 p-6 bg-white rounded-2xl border border-slate-100 shadow-sm"
-            >
-                <div className="flex items-center justify-between mb-6">
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400">Benchmark Comparison</h4>
-                    <span className="text-[9px] font-black text-blue-600 px-2 py-0.5 bg-blue-50 rounded italic uppercase tracking-tighter">Live Analysis</span>
-                </div>
-                <div className="h-48 w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={data} layout="vertical">
-                            <XAxis type="number" hide />
-                            <YAxis dataKey="name" type="category" width={100} axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 700, fill: '#64748b' }} />
-                            <Tooltip 
-                                cursor={{ fill: 'transparent' }}
-                                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                            />
-                            <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                                {data.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={index === 0 ? '#3b82f6' : '#e2e8f0'} />
-                                ))}
-                            </Bar>
-                        </BarChart>
-                    </ResponsiveContainer>
-                </div>
-                <p className="mt-4 text-[10px] text-slate-400 font-medium text-center">
-                    This visualization compares your result against typical baselines in this category.
-                </p>
-            </motion.div>
-        );
-    }
+    // Default Fallback: Simple Bar comparison (if we had history or benchmarks)
+    // For now, we only show specific high-value charts like Omni does.
     
     return null;
 }
