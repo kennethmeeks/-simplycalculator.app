@@ -40,6 +40,9 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'age', label: 'Car Age', type: 'number', unit: 'years' },
     { id: 'condition', label: 'Vehicle Condition', type: 'select', options: [{label: 'Excellent', value: 'exc'}, {label: 'Good', value: 'good'}, {label: 'Fair', value: 'fair'}]}
   ],
+  '/money-factor': [
+    { id: 'factor', label: 'Money Factor', type: 'number', placeholder: 'e.g. 0.0025', description: 'Often found on lease contracts; multiply by 2400 for APR.' }
+  ],
   '/age': [
     { id: 'birthDate', label: 'Birth Date', type: 'date' }
   ],
@@ -91,6 +94,15 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
   ],
   '/nm-to-ft-lbs': [
     { id: 'value', label: 'Newton-Meters', type: 'number', unit: 'Nm' }
+  ],
+  '/afr': [
+    { id: 'fuel', label: 'Fuel Type', type: 'select', options: [
+      { label: 'Gasoline (14.7)', value: '14.7' },
+      { label: 'Ethanol (9.0)', value: '9.0' },
+      { label: 'Methanol (6.47)', value: '6.47' },
+      { label: 'E85 (9.76)', value: '9.76' }
+    ]},
+    { id: 'lambda', label: 'Measured Lambda (λ)', type: 'number', placeholder: 'e.g. 0.85' }
   ],
   '/pressure': [
     { id: 'value', label: 'Pressure Amount', type: 'number' },
@@ -891,5 +903,60 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
       { label: 'Minor Violations', value: 'minor' },
       { label: 'Major Violations', value: 'major' }
     ]}
+  ],
+  '/accel-est': [
+    { id: 'power', label: 'Weight (lbs)', type: 'number', placeholder: 'e.g. 3200' },
+    { id: 'hp', label: 'Horsepower', type: 'number', placeholder: 'e.g. 300' }
+  ],
+  '/hp-torque-converter': [
+    { id: 'torque', label: 'Torque', type: 'number', unit: 'ft-lbs' },
+    { id: 'rpm', label: 'Engine Speed', type: 'number', unit: 'RPM' }
+  ],
+  '/static-compression-math': [
+    { id: 'bore', label: 'Cylinder Bore', type: 'number', unit: 'in' },
+    { id: 'stroke', label: 'Piston Stroke', type: 'number', unit: 'in' },
+    { id: 'headVol', label: 'Cylinder Head Volume', type: 'number', unit: 'cc' },
+    { id: 'gasketThick', label: 'Gasket Thickness', type: 'number', unit: 'in' }
+  ],
+  '/boost-pressure-adj': [
+    { id: 'currentBoost', label: 'Current Boost', type: 'number', unit: 'PSI' },
+    { id: 'ambientTemp', label: 'Ambient Temperature', type: 'number', unit: '°F' },
+    { id: 'intakeTemp', label: 'Intake Temperature', type: 'number', unit: '°F' }
+  ],
+  '/injector-sizing-pro': [
+    { id: 'targetHp', label: 'Target Horsepower', type: 'number' },
+    { id: 'numInjectors', label: 'Number of Injectors', type: 'number', defaultValue: '4' },
+    { id: 'dutyCycle', label: 'Maximum Duty Cycle', type: 'number', unit: '%', defaultValue: '80' }
+  ],
+  '/friction-stop-distance': [
+    { id: 'speed', label: 'Initial Speed', type: 'number', unit: 'MPH' },
+    { id: 'weight', label: 'Vehicle Weight', type: 'number', unit: 'lbs' },
+    { id: 'friction', label: 'Coefficient of Friction', type: 'number', defaultValue: '0.8', description: 'Dry asphalt: 0.7-0.9, Wet: 0.4-0.6' }
+  ],
+  '/spoiler-downforce-drag': [
+    { id: 'speed', label: 'Vehicle Speed', type: 'number', unit: 'MPH' },
+    { id: 'area', label: 'Frontal Area', type: 'number', unit: 'sq ft' },
+    { id: 'cd', label: 'Drag Coefficient', type: 'number', defaultValue: '0.3' }
+  ],
+  '/oil-interval-logic': [
+    { id: 'lastMileage', label: 'Last Change Mileage', type: 'number' },
+    { id: 'drivingStyle', label: 'Driving Style', type: 'select', options: [
+      { label: 'Highway (Easy)', value: '1' },
+      { label: 'Mixed', value: '0.8' },
+      { label: 'City/Short Trips', value: '0.6' },
+      { label: 'Towing/Hot/Hard', value: '0.4' }
+    ]}
+  ],
+  '/transmission-math-pro': [
+    { id: 'rpm', label: 'Redline RPM', type: 'number' },
+    { id: 'ratio', label: 'Top Gear Ratio', type: 'number' },
+    { id: 'finalDrive', label: 'Final Drive Ratio', type: 'number' },
+    { id: 'tireDiameter', label: 'Tire Diameter', type: 'number', unit: 'in' }
+  ],
+  '/corner-balance-calc': [
+    { id: 'fl', label: 'Front Left', type: 'number', unit: 'lbs' },
+    { id: 'fr', label: 'Front Right', type: 'number', unit: 'lbs' },
+    { id: 'rl', label: 'Rear Left', type: 'number', unit: 'lbs' },
+    { id: 'rr', label: 'Rear Right', type: 'number', unit: 'lbs' }
   ]
 };

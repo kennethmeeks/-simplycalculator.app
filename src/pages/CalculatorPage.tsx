@@ -100,6 +100,13 @@ export const CalculatorPage: React.FC = () => {
                         { id: 'value', label: 'Value to Convert', type: 'number' }
                     ];
                 }
+                if (n.includes('car') || n.includes('auto') || n.includes('engine') || n.includes('gear')) {
+                    return [
+                        { id: 'input1', label: 'Primary Spec', type: 'number' },
+                        { id: 'input2', label: 'Load/Factor', type: 'number' },
+                        { id: 'input3', label: 'Correction', type: 'number' },
+                    ];
+                }
                 // Global fallback
                 return [
                     { id: 'input1', label: `${name} Value`, type: 'number' },
@@ -523,7 +530,26 @@ export const CalculatorPage: React.FC = () => {
                                 
                                 <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10 w-full min-h-[300px]">
                                     <AnimatePresence mode="wait">
-                                        {result ? (
+                                        {isLoading ? (
+                                            <motion.div 
+                                                key="loading"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                className="w-full max-w-sm space-y-6"
+                                            >
+                                                <div className="flex flex-col items-center gap-4">
+                                                    <div className="relative w-16 h-16">
+                                                        <div className="absolute inset-0 border-4 border-slate-100 rounded-full"></div>
+                                                        <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <p className="text-sm font-black text-slate-900 uppercase tracking-widest">Processing Data</p>
+                                                        <p className="text-xs text-slate-400 font-medium italic">Verified for 2026 Engine Rules</p>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        ) : result ? (
                                             <motion.div 
                                                 key="result"
                                                 initial={{ opacity: 0, y: 10 }} 

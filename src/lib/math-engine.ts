@@ -1743,5 +1743,125 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     if (isNaN(weight) || isNaN(height) || height === 0) return { value: 'Invalid' };
     const bmi = weight / (height * height);
     return { value: bmi.toFixed(1), explanation: `BMI is ${bmi.toFixed(1)}. For children, this is compared against CDC age/gender growth charts to find a percentile.` };
+  },
+  '/accel-est': (inputs) => {
+    const w = cleanNum(inputs.power || inputs.weight);
+    const hp = cleanNum(inputs.hp);
+    if (isNaN(w) || isNaN(hp) || hp === 0) return { value: 'Invalid input' };
+    const ratio = w / hp;
+    // VERY rough ET estimate formula: 13.5 * (wt/hp)^(1/3)
+    const et = 5.825 * Math.pow(ratio, 1/3); 
+    const trap = 234 * Math.pow(hp/w, 1/3);
+    return { value: `${et.toFixed(2)}s @ ${trap.toFixed(1)}mph`, explanation: `Projected 1/4 mile performance based on a ${ratio.toFixed(1)} weight-to-power ratio.` };
+  },
+  '/hp-torque-converter': (inputs) => {
+    const t = cleanNum(inputs.torque);
+    const rpm = cleanNum(inputs.rpm);
+    if (isNaN(t) || isNaN(rpm)) return { value: 'Invalid' };
+    const hp = (t * rpm) / 5252;
+    return { value: `${hp.toFixed(1)} HP`, explanation: `At ${rpm} RPM, ${t} ft-lbs of torque produces exactly ${hp.toFixed(1)} horsepower.` };
+  },
+  '/static-compression-math': (inputs) => {
+    const b = cleanNum(inputs.bore);
+    const s = cleanNum(inputs.stroke);
+    const hv = cleanNum(inputs.headVol);
+    const gt = cleanNum(inputs.gasketThick);
+    if (isNaN(b) || isNaN(s) || isNaN(hv)) return { value: 'Invalid' };
+    
+    const swept = (Math.PI * Math.pow(b/2, 2) * s) * 16.387; // cu in to cc
+    const clearance = (Math.PI * Math.pow(b/2, 2) * gt) * 16.387;
+    const total = swept + hv + clearance;
+    const compressed = hv + clearance;
+    const ratio = total / compressed;
+    
+    return { value: `${ratio.toFixed(2)}:1`, explanation: `Static compression ratio calculated for ${Math.round(swept/s)}cc swept volume per inch of stroke.` };
+  },
+  '/boost-pressure-adj': (inputs) => {
+    const b = cleanNum(inputs.currentBoost);
+    const at = cleanNum(inputs.ambientTemp);
+    const it = cleanNum(inputs.intakeTemp);
+    if (isNaN(b)) return { value: 'Invalid' };
+    
+    // Ideal gas law approximation for air density shift
+    const baseRankine = at + 459.67;
+    const intakeRankine = it + 459.67;
+    const densityRatio = baseRankine / intakeRankine;
+    const effectiveBoost = (b + 14.7) * densityRatio - 14.7;
+    
+    return { value: `${effectiveBoost.toFixed(2)} PSI`, explanation: `Effective boost adjusted for temperature-induced air density shift. Air is ${Math.round(densityRatio * 100)}% as dense as ambient.` };
+  },
+  '/injector-sizing-pro': (inputs) => {
+    const hp = cleanNum(inputs.targetHp);
+    const n = cleanNum(inputs.numInjectors) || 4;
+    const dc = cleanNum(inputs.dutyCycle) || 80;
+    if (isNaN(hp) || n === 0) return { value: 'Invalid' };
+    
+    // Rule of thumb: 0.5 lb/hr per HP for gasoline
+    const totalFlow = hp * 0.5;
+    const perInjector = (totalFlow / n) / (dc / 100);
+    const cc = perInjector * 10.5; // lb/hr to cc/min
+    
+    return { value: `${Math.round(cc)} cc/min`, explanation: `Recommended injector size per cylinder at ${dc}% duty cycle to support ${hp} HP.` };
+  },
+  '/friction-stop-distance': (inputs) => {
+    const v = cleanNum(inputs.speed);
+    const mu = cleanNum(inputs.friction) || 0.8;
+    if (isNaN(v)) return { value: 'Invalid' };
+    
+    // d = v^2 / (2 * mu * g)
+    // v in ft/s, g in ft/s^2
+    const vFs = v * 1.46667;
+    const d = (vFs * vFs) / (2 * mu * 32.2);
+    
+    return { value: `${Math.round(d)} feet`, explanation: `Estimated emergency braking distance from ${v} MPH on a surface with ${mu} friction coefficient.` };
+  },
+  '/oil-interval-logic': (inputs) => {
+    const m = cleanNum(inputs.lastMileage);
+    const style = cleanNum(inputs.drivingStyle) || 1;
+    if (isNaN(m)) return { value: 'Invalid' };
+    
+    const baseInterval = 7500;
+    const adjusted = baseInterval * style;
+    const next = m + adjusted;
+    
+    return { value: `At ${next.toLocaleString()} mi`, explanation: `Recommended change in ${Math.round(adjusted).toLocaleString()} miles based on your driving profile multiplier (${style}x).` };
+  },
+  '/corner-balance-calc': (inputs) => {
+    const fl = cleanNum(inputs.fl);
+    const fr = cleanNum(inputs.fr);
+    const rl = cleanNum(inputs.rl);
+    const rr = cleanNum(inputs.rr);
+    if (isNaN(fl) || isNaN(fr) || isNaN(rl) || isNaN(rr)) return { value: 'Invalid' };
+    
+    const total = fl + fr + rl + rr;
+    const cross = fl + rr;
+    const crossPct = (cross / total) * 100;
+    const frontPct = ((fl + fr) / total) * 100;
+    
+    return { value: `${crossPct.toFixed(1)}% Cross`, explanation: `Cross Weight (FL+RR) is ${crossPct.toFixed(1)}%. Front Weight: ${frontPct.toFixed(1)}%. Total: ${total} lbs.` };
+  },
+  '/afr': (inputs) => {
+    const stoich = cleanNum(inputs.fuel) || 14.7;
+    const lambda = cleanNum(inputs.lambda);
+    if (isNaN(lambda)) return { value: 'Invalid' };
+    const afr = stoich * lambda;
+    return { value: afr.toFixed(2), explanation: `At a lambda of ${lambda}, the effective Air-Fuel Ratio for this fuel (stoich ${stoich}:1) is ${afr.toFixed(2)}:1.` };
+  },
+  '/money-factor': (inputs) => {
+    const f = cleanNum(inputs.factor);
+    if (isNaN(f)) return { value: 'Invalid' };
+    const apr = f * 2400;
+    return { value: `${apr.toFixed(2)}% APR`, explanation: `A money factor of ${f} is roughly equivalent to a ${apr.toFixed(2)}% annual percentage rate (APR).` };
+  },
+  '/transmission-math-pro': (inputs) => {
+    const rpm = cleanNum(inputs.rpm);
+    const ratio = cleanNum(inputs.ratio);
+    const fd = cleanNum(inputs.finalDrive);
+    const tire = cleanNum(inputs.tireDiameter);
+    if (isNaN(rpm) || isNaN(ratio) || isNaN(fd) || isNaN(tire) || ratio === 0 || fd === 0) return { value: 'Invalid' };
+    
+    // v = (RPM * TireDiameter) / (Ratio * FinalDrive * 336)
+    const speed = (rpm * tire) / (ratio * fd * 336);
+    return { value: `${Math.round(speed)} MPH`, explanation: `Projected top speed at ${rpm} RPM in top gear, assuming standard drag and friction conditions.` };
   }
 };
