@@ -9,6 +9,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { CATEGORIES } from "./src/constants/categories";
 import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from "./src/constants/educational";
 import { getHighIntentSEO } from "./src/lib/seo-utils";
+import { getSpecificFAQ } from "./src/lib/faq-utils";
 
 dotenv.config();
 
@@ -409,7 +410,7 @@ async function startDevServer() {
                 <div>
                   <h3 class="text-2xl font-black mb-4">Common Questions & Insights</h3>
                   <div class="space-y-6">
-                    ${edu.faq.map(f => `
+                    ${getSpecificFAQ(matchedCalculator.name, calculatorCategory.title, matchedCalculator.path).map(f => `
                       <div class="border-l-2 border-blue-600 pl-4 py-1">
                         <p class="font-bold text-slate-900 text-sm mb-1">${f.q}</p>
                         <p class="text-slate-600 text-xs leading-relaxed">${f.a}</p>

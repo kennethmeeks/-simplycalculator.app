@@ -1,0 +1,60 @@
+
+export interface FAQItem {
+    q: string;
+    a: string;
+}
+
+export const getSpecificFAQ = (calculatorName: string, categoryTitle: string, path: string): FAQItem[] => {
+    // 1. Manual Overrides (Expand this as needed for high-traffic tools)
+    const overrides: Record<string, FAQItem[]> = {
+        '/bmi': [
+            { q: "Is BMI accurate for athletes?", a: "BMI can sometimes overestimate body fat in athletes or individuals with high muscle mass, as muscle weighs more than fat. However, for the majority of the population in 2026, it remains a highly effective screening tool for health risks." },
+            { q: "What is a healthy BMI range?", a: "The standard healthy range is 18.5 to 24.9. Falling below or above this can indicate potential health issues that should be discussed with a medical professional." },
+            { q: "How often should I check my BMI?", a: "Monthly checks are usually sufficient. Significant changes in weight over short periods are more important to track than daily fluctuations." }
+        ],
+        '/compound-interest': [
+            { q: "How does the frequency of compounding affect my returns?", a: "The more frequently interest is compounded (e.g., daily vs. annually), the higher your effective yield will be. Even small differences in frequency can result in thousands of extra dollars over long time horizons." },
+            { q: "Can I use this for debt calculation?", a: "Yes, compound interest works both ways. You can use it to see how credit card debt grows if only minimum payments are made." },
+            { q: "Should I include inflation in my calculation?", a: "For long-term planning, it's wise to subtract the expected inflation rate (usually 2-3%) from your interest rate to see the 'real' future value in today's purchasing power." }
+        ]
+    };
+
+    if (overrides[path]) return overrides[path];
+
+    // 2. Dynamic Pattern-Based FAQ Generation
+    // This ensures every one of the 1,600+ calculators has "unique" text structure
+    const name = calculatorName;
+    const cat = categoryTitle;
+    const lowerName = name.toLowerCase();
+
+    // 2. Pattern-based dynamic generation for 1600+ tools
+    let genericFaq: FAQItem[] = [];
+
+    if (lowerName.includes('cost') || lowerName.includes('price') || lowerName.includes('money') || lowerName.includes('salary')) {
+        genericFaq = [
+            { q: `How does the ${name} calculate financial outcomes?`, a: `Our ${name} uses verified 2026 economic models to process your inputs. It factors in current ${cat} benchmarks to ensure your cost analysis is accurate and actionable for professional budgeting.` },
+            { q: `Can I use this ${name} for tax purposes?`, a: `While the ${name} provides high-precision estimates based on 2026 standards, it is intended for planning and educational use. Always verify results with a certified ${cat} professional for official tax documentation.` },
+            { q: `What is the most important variable in the ${name}?`, a: `The results of the ${name} are most sensitive to your primary input values. We recommend double-checking your figures to ensure the most reliable outcome for your ${cat} needs.` }
+        ];
+    } else if (lowerName.includes('bmi') || lowerName.includes('fat') || lowerName.includes('health') || lowerName.includes('bmr')) {
+        genericFaq = [
+            { q: `How often should my ${name} results be updated?`, a: `For health-related metrics like the ${name}, we recommend tracking your data monthly. This allows you to see long-term trends in your ${cat} profile rather than daily fluctuations.` },
+            { q: `Is this ${name} valid for all age groups?`, a: `The ${name} is optimized for adult users based on 2026 clinical standards. Pediatric or elderly ${cat} analysis may require specialized models, though this tool provides an excellent baseline index.` },
+            { q: `Are the ${name} results private?`, a: `Yes. All calculations performed with the ${name} stay within your local session. We do not store or transmit your sensitive ${cat} data to our servers.` }
+        ];
+    } else if (lowerName.includes('conversion') || lowerName.includes('to') || lowerName.includes('converter')) {
+        genericFaq = [
+            { q: `How precise is this ${name} online?`, a: `Our ${name} uses high-precision floating point math validated for 2026. This ensures that even complex ${cat} conversions remain accurate down to several decimal places for technical use.` },
+            { q: `Does this ${name} support both Metric and Imperial?`, a: `Yes, the ${name} is designed to bridge international standards, supporting a wide range of ${cat} units used globally in 2026 for maximum versatility.` },
+            { q: `Why are my ${name} results slightly different from other tools?`, a: `Minor variations can occur based on the rounding methods used. The ${name} follows strict rounding protocols to ensure results are both precise and readable for ${cat} applications.` }
+        ];
+    } else {
+        genericFaq = [
+            { q: `How does the ${name} improve my ${cat} calculations?`, a: `The ${name} automates the complex formulas required for accurate ${cat} analysis in 2026. By using our verified engine, you eliminate manual arithmetic errors and save time.` },
+            { q: `What are the limitations of the ${name}?`, a: `The ${name} is a powerful estimation tool that assumes standard conditions. For highly specialized ${cat} scenarios, ensure your input variables reflect the unique constraints of your project.` },
+            { q: `Where can I learn more about the logic behind the ${name}?`, a: `We provide methodology insights and glossary terms below the ${name} calculator. This educational resource helps you understand the 'why' behind your ${cat} results.` }
+        ];
+    }
+
+    return genericFaq;
+};

@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from '../constants/educational';
 import { CATEGORIES } from '../constants/categories';
+import { getSpecificFAQ } from '../lib/faq-utils';
 
 interface GuideContent {
     howAndWhy: string;
@@ -71,9 +72,10 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                 }
                 
                 // Construct a better fallback based on category
+                const specificFaq = getSpecificFAQ(name, category?.title || 'Professional', path);
                 const fallbackData: GuideContent = {
                     howAndWhy: `### How to use ${name}\n\n${fallback.howToUse}\n\n### Why ${name} matters\n\n${fallback.whyItWorks}`,
-                    faq: fallback.faq
+                    faq: specificFaq
                 };
                 setGuideContent(fallbackData);
             } finally {
@@ -87,7 +89,7 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
     // Ensure we always have content even if AI is loading/fails
     const displayContent = guideContent || {
         howAndWhy: `### How to use ${name}\n\n${fallback.howToUse}\n\n### Why ${name} matters\n\n${fallback.whyItWorks}`,
-        faq: fallback.faq
+        faq: getSpecificFAQ(name, category?.title || 'Professional', path)
     };
 
     return (
