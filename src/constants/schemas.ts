@@ -10,6 +10,35 @@ export interface CalculatorField {
 }
 
 export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
+  '/car-refinance': [
+    { id: 'loanBalance', label: 'Current Loan Balance', type: 'number', unit: '$' },
+    { id: 'currentRate', label: 'Current Interest Rate', type: 'number', unit: '%' },
+    { id: 'currentPayment', label: 'Current Monthly Payment', type: 'number', unit: '$' },
+    { id: 'newRate', label: 'New Interest Rate', type: 'number', unit: '%' },
+    { id: 'newTerm', label: 'New Loan Term', type: 'number', unit: 'months' }
+  ],
+  '/drive-time': [
+    { id: 'distance', label: 'Trip Distance', type: 'number', unit: 'miles' },
+    { id: 'speed', label: 'Average Speed', type: 'number', unit: 'mph' }
+  ],
+  '/fuel-cost': [
+    { id: 'distance', label: 'Total Distance', type: 'number', unit: 'miles' },
+    { id: 'mpg', label: 'Fuel Efficiency', type: 'number', unit: 'mpg' },
+    { id: 'price', label: 'Gas Price', type: 'number', unit: '$/gal' }
+  ],
+  '/0-60-time': [
+    { id: 'power', label: 'Horsepower', type: 'number', unit: 'hp' },
+    { id: 'weight', label: 'Vehicle Weight', type: 'number', unit: 'lbs' },
+    { id: 'drive', label: 'Drive Type', type: 'select', options: [{label: 'RWD/FWD', value: '2wd'}, {label: 'AWD', value: 'awd'}]}
+  ],
+  '/boost-horsepower': [
+    { id: 'naPower', label: 'Naturally Aspirated HP', type: 'number', unit: 'hp' },
+    { id: 'boost', label: 'Turbo/Supercharger Boost', type: 'number', unit: 'psi' }
+  ],
+  '/compression-ratio': [
+    { id: 'cylinderVolume', label: 'Cylinder Volume (Max)', type: 'number', unit: 'cc' },
+    { id: 'clearanceVolume', label: 'Clearance Volume (Min)', type: 'number', unit: 'cc' }
+  ],
   '/bmi': [
     { id: 'weight', label: 'Body Weight', type: 'number', unit: 'kg', placeholder: 'e.g. 70', description: 'Used to determine weight category.' },
     { id: 'height', label: 'Body Height', type: 'number', unit: 'cm', placeholder: 'e.g. 175', description: 'Used alongside weight for the BMI ratio.' }

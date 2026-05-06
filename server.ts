@@ -8,6 +8,7 @@ import cors from "cors";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { CATEGORIES } from "./src/constants/categories";
 import { CATEGORY_EDUCATION, DEFAULT_EDUCATION } from "./src/constants/educational";
+import { getHighIntentSEO } from "./src/lib/seo-utils";
 
 dotenv.config();
 
@@ -322,8 +323,9 @@ async function startDevServer() {
           </nav>
         `;
       } else if (matchedCalculator && calculatorCategory) {
-        title = `${matchedCalculator.name} | Free Online Calculator 2026 | simplycalculator.app`;
-        description = matchedCalculator.desc || description;
+        const seo = getHighIntentSEO(matchedCalculator.name, calculatorCategory.title, calculatorCategory.slug);
+        title = seo.title;
+        description = seo.description;
         pageHeader = matchedCalculator.name;
         breadcrumbs = `
           <nav class="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">
@@ -371,9 +373,19 @@ async function startDevServer() {
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 bg-slate-50 p-8 rounded-xl border border-slate-200">
                 <div>
-                  <h2 class="text-2xl font-black mb-4">About ${matchedCalculator.name}</h2>
+                  <h2 class="text-2xl font-black mb-4">About the ${matchedCalculator.name}</h2>
                   <p class="text-slate-600 leading-relaxed font-medium mb-6">${matchedCalculator.desc}</p>
                   
+                  <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Professional Methodology</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                      The ${matchedCalculator.name} utilizes standardized mathematical models verified for 2026. This tool is designed to provide high-precision outputs by processing your inputs through our proprietary logic engine. Whether used for professional analysis or personal planning, the underlying formulas ensure data integrity and replicable results.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded text-sm text-blue-800">
+                      <strong>Pro Insight:</strong> Combining the results from this ${matchedCalculator.name} with our other tools in the ${calculatorCategory.title} section provides a multi-dimensional view of your requirements.
+                    </div>
+                  </div>
+
                   <div class="mt-8 pt-8 border-t border-slate-200">
                     <h3 class="text-lg font-bold mb-3 text-slate-800">${edu.title}</h3>
                     <p class="text-sm text-slate-600 leading-relaxed mb-4">
@@ -386,7 +398,7 @@ async function startDevServer() {
                   </div>
                 </div>
                 <div>
-                  <h3 class="text-2xl font-black mb-4">Common Questions</h3>
+                  <h3 class="text-2xl font-black mb-4">Common Questions & Insights</h3>
                   <div class="space-y-6">
                     ${edu.faq.map(f => `
                       <div class="border-l-2 border-blue-600 pl-4 py-1">
@@ -397,7 +409,8 @@ async function startDevServer() {
                   </div>
 
                   <div class="mt-8 pt-8 border-t border-slate-200">
-                    <h4 class="text-lg font-black mb-4 text-slate-800">Related Tools</h4>
+                    <h4 class="text-lg font-black mb-4 text-slate-800">Contextual Next Steps</h4>
+                    <p class="text-sm text-slate-600 mb-4">After reviewing your results, consider exploring these related tools to deepen your analysis:</p>
                     <ul class="space-y-2">
                       ${calculatorCategory.items.slice(0, 8).filter(i => i.path !== matchedCalculator.path).map(i => `
                         <li><a href="${i.path}" class="text-blue-600 hover:underline font-bold text-sm">${i.name}</a></li>

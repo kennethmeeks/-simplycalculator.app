@@ -3,6 +3,7 @@ import { useParams, Link, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { CATEGORIES } from '../constants/categories';
 import { POPULAR_SCHEMAS, CalculatorField } from '../constants/schemas';
+import { getHighIntentSEO } from '../lib/seo-utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calculator, ChevronLeft, ChevronRight, ChevronDown, Info, Settings2, CheckCircle2, RotateCcw, Loader2, Share2, FileDown } from 'lucide-react';
 import { ResultActions } from '../components/ResultActions';
@@ -187,6 +188,12 @@ export const CalculatorPage: React.FC = () => {
                title.includes('wellness');
     }, [foundCategory]);
 
+    const seoData = useMemo(() => {
+        if (!foundItem) return { title: '', desc: '' };
+        const seo = getHighIntentSEO(foundItem.name, foundCategory?.title, foundCategory?.slug);
+        return { title: seo.title, desc: seo.description };
+    }, [foundItem, foundCategory]);
+
     if (!foundItem) {
         return <Navigate to="/" replace />;
     }
@@ -339,11 +346,11 @@ export const CalculatorPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>{foundItem.name} — Professional 2026 Result | Free & Instant</title>
-                <meta name="description" content={`Get your accurate ${foundItem.name} result instantly. ${foundItem.desc}. Verified for 2026 professional standards. Free and mobile-friendly.`} />
+                <title>{seoData.title}</title>
+                <meta name="description" content={seoData.desc} />
                 <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
-                <meta property="og:title" content={`${foundItem.name} | Professional 2026 Results`} />
-                <meta property="og:description" content={`Use the professional ${foundItem.name} for instant, verified results. Free for 2026. ${foundItem.desc}`} />
+                <meta property="og:title" content={seoData.title} />
+                <meta property="og:description" content={seoData.desc} />
                 <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />

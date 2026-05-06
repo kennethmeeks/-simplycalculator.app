@@ -19,10 +19,10 @@ export const CategoryPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{data.title} Hub: Professional 2026 Calculation Tools (Free)</title>
-        <meta name="description" content={`Accurate ${data.title} calculators. ${data.description} All tools are free, verified for 2026, and mobile-optimized for professional use.`} />
-        <meta property="og:title" content={`${data.title} Hub | Professional 2026 Toolset`} />
-        <meta property="og:description" content={`Access the full suite of professional ${data.title} calculators. Free, accurate, and instant tools verified for 2026.`} />
+        <title>{data.title} Calculators: Solve any {data.title} problem fast & free (2026)</title>
+        <meta name="description" content={`Access ${data.items.length}+ verified ${data.title} calculators. Get professional, accurate results instantly for any ${data.title} scenario. Fast, mobile-friendly, and free for 2026.`} />
+        <meta property="og:title" content={`${data.title} Hub: The Complete 2026 Calculator Suite`} />
+        <meta property="og:description" content={`Solve your ${data.title} questions with our full suite of 1,600+ verified tools. Accurate, instant results for professionals and students.`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

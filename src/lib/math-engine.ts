@@ -365,6 +365,87 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
       explanation: explanationList.join('\n')
     };
   },
+  '/car-refinance': (inputs) => {
+    const bal = cleanNum(inputs.loanBalance);
+    const oldPmt = cleanNum(inputs.currentPayment);
+    const newRate = cleanNum(inputs.newRate) / 100 / 12;
+    const newTerm = cleanNum(inputs.newTerm);
+    if (!bal || !oldPmt || isNaN(newRate) || !newTerm) return { value: 'Invalid input' };
+
+    let newPmt = 0;
+    if (newRate === 0) {
+      newPmt = bal / newTerm;
+    } else {
+      newPmt = (bal * newRate * Math.pow(1 + newRate, newTerm)) / (Math.pow(1 + newRate, newTerm) - 1);
+    }
+    const savings = oldPmt - newPmt;
+    return {
+      value: `$${savings.toFixed(2)} /mo savings`,
+      explanation: `Your old payment was $${oldPmt.toFixed(2)}. Your new estimated payment would be $${newPmt.toFixed(2)}. ${savings > 0 ? `You would save $${savings.toFixed(2)} every month.` : `This refinance would increase your payment by $${Math.abs(savings).toFixed(2)}.`}`
+    };
+  },
+  '/drive-time': (inputs) => {
+    const d = cleanNum(inputs.distance);
+    const s = cleanNum(inputs.speed);
+    if (!d || !s) return { value: 'Invalid input' };
+    const hours = d / s;
+    const h = Math.floor(hours);
+    const m = Math.round((hours - h) * 60);
+    return {
+      value: `${h}h ${m}m`,
+      explanation: `Traveling ${d} miles at an average speed of ${s} mph will take approximately ${h} hours and ${m} minutes.`
+    };
+  },
+  '/fuel-cost': (inputs) => {
+    const d = cleanNum(inputs.distance);
+    const mpg = cleanNum(inputs.mpg);
+    const p = cleanNum(inputs.price);
+    if (!d || !mpg || !p) return { value: 'Invalid input' };
+    const cost = (d / mpg) * p;
+    return {
+      value: `$${cost.toFixed(2)}`,
+      explanation: `At $${p}/gal and ${mpg} MPG, a ${d}-mile trip costs approximately $${cost.toFixed(2)} in fuel.`
+    };
+  },
+  '/boost-horsepower': (inputs) => {
+    const hp = cleanNum(inputs.naPower);
+    const boost = cleanNum(inputs.boost);
+    if (isNaN(hp) || isNaN(boost)) return { value: 'Invalid input' };
+    // Rule of thumb: every 14.7 psi (1 bar) doubles HP
+    const multiplier = 1 + (boost / 14.7);
+    const finalHp = hp * multiplier;
+    return {
+      value: `${Math.round(finalHp)} HP`,
+      explanation: `Adding ${boost} PSI of boost to a ${hp} HP engine increases power to approximately ${Math.round(finalHp)} HP (Est. +${Math.round(finalHp - hp)} HP).`
+    };
+  },
+  '/compression-ratio': (inputs) => {
+    const v1 = cleanNum(inputs.cylinderVolume);
+    const v2 = cleanNum(inputs.clearanceVolume);
+    if (!v1 || !v2) return { value: 'Invalid input' };
+    const cr = (v1 + v2) / v2;
+    return {
+      value: `${cr.toFixed(1)}:1`,
+      explanation: `With a displacement volume of ${v1}cc and a clearance volume of ${v2}cc, the static compression ratio is ${cr.toFixed(1)}:1.`
+    };
+  },
+  '/0-60-time': (inputs) => {
+    const hp = cleanNum(inputs.power);
+    const w = cleanNum(inputs.weight);
+    const drive = inputs.drive || '2wd';
+    if (!hp || !w) return { value: 'Invalid input' };
+    
+    // Empirical formula: (Weight / HP)^0.5 * baseline
+    // 2WD baseline approx 2.0, AWD approx 1.8
+    const ratio = w / hp;
+    const baseline = drive === 'awd' ? 1.75 : 2.0;
+    const time = Math.sqrt(ratio) * baseline;
+    
+    return {
+      value: `${time.toFixed(2)} Seconds`,
+      explanation: `Based on a weight-to-power ratio of ${(w/hp).toFixed(2)} lb/hp, the estimated 0-60 mph time is ${time.toFixed(2)} seconds.`
+    };
+  },
   '/mpg': (inputs) => {
     const miles = parseFloat(inputs.miles);
     const gallons = parseFloat(inputs.gallons);

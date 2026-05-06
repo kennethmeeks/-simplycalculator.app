@@ -811,7 +811,7 @@ export const CATEGORIES: CategoryData[] = [
     items: [
       { name: 'Car Refinance', path: '/car-refinance', desc: 'Check if new auto rates save you money.' },
       { name: 'Car Depreciation', path: '/car-depreciation', desc: 'Vehicle value loss over time.' },
-      { name: '0-60 Time', path: '/0-60', desc: 'Estimate vehicle acceleration performance.' },
+      { name: '0-60 Time', path: '/0-60-time', desc: 'Estimate vehicle acceleration performance.' },
       { name: 'Boat Speed', path: '/boat-speed', desc: 'Calculate nautical velocity and performance.' },
       { name: 'Boost Horsepower', path: '/boost-horsepower', desc: 'Estimate gains from forced induction.' },
       { name: 'BSFC Calculator', path: '/bsfc', desc: 'Brake Specific Fuel Consumption analysis.' },
