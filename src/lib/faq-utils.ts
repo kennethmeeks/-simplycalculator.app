@@ -28,6 +28,31 @@ export const getSpecificFAQ = (calculatorName: string, categoryTitle: string, pa
         ],
         '/28-36-rule': [
             { q: "Is the 28/36 rule still relevant in 2026?", a: "Yes, it remains the gold standard for conservative lending. While some lenders allow higher ratios, staying within 28/36 ensures you aren't 'house poor' and can weather economic shifts." }
+        ],
+        '/calibration-curve': [
+            { q: "What is a calibration curve used for in analytical chemistry?", a: "A calibration curve (also known as a standard curve) is used to determine the concentration of an unknown substance by comparing it to a set of standards with known concentrations. It's a fundamental method in instrumental analysis in 2026." },
+            { q: "How do I interpret the R-squared value?", a: "The R-squared value indicates how well your data points fit the linear regression. A value closer to 1.0 (e.g., 0.999) suggests a highly reliable calibration." },
+            { q: "What should I do if my unknown sample is outside the curve?", a: "If your unknown concentration is higher than your highest standard, you should dilute the sample and re-measure. Calculations outside the 'linear range' of the curve are statistically unreliable." }
+        ],
+        '/wealth-inequality-index': [
+            { q: "What does a Gini Coefficient of 0% mean?", a: "A Gini Coefficient of 0% represents perfect equality, where every individual in a population has the exact same income or wealth." },
+            { q: "How is wealth inequality measured in 2026?", a: "While the Gini Index remains the primary metric, economists also look at the 'Palma Ratio' and 'Top 10% Share' to get a more nuanced view of economic distribution across different social strata." },
+            { q: "What is a 'high' wealth inequality score?", a: "Globally, Gini scores above 45% (0.45) are generally considered to represent significant inequality, often associated with lower social mobility and potential economic instability." }
+        ],
+        '/car-depreciation': [
+            { q: "How much value does a new car lose in the first year?", a: "On average, a new vehicle loses 20% to 30% of its value within the first 12 months. Our 2026 model uses a baseline of 20% for the first year followed by 15% annual drops for most consumer vehicles." },
+            { q: "Which car brands hold their value best?", a: "In 2026, brands like Toyota, Honda, and certain electric vehicles (EVs) with long-range batteries tend to have lower depreciation rates due to high secondary market demand." },
+            { q: "Does mileage or age affect depreciation more?", a: "Both are critical. However, age is a constant factor that hits Luxury and EV models harder, while excessive mileage (over 15,000 miles per year) can trigger 'stealth depreciation' beyond the standard age curves." }
+        ],
+        '/debt-avalanche': [
+            { q: "Debt Avalanche vs. Snowball: What's the math difference?", a: "The Debt Avalanche focus is purely mathematical efficiency: you pay off the highest interest rate debt first, regardless of the balance. This minimizes total interest paid. The Debt Snowball focuses on psychological wins by paying off the smallest balances first to gain momentum. Math-wise, the Avalanche is always faster and cheaper." },
+            { q: "Which method should I choose in 2026?", a: "If you are strictly disciplined, use the Avalanche. if you struggle with motivation, the Snowball's 'quick wins' of closing out small accounts can provide the psychological boost needed to stay on track for years." }
+        ],
+        '/debt-snowball': [
+            { q: "Is the Snowball method better than the Avalanche?", a: "Mathematically, no. But behaviorally, yes for many users. Our tool helps you see the 'Cost of Motivation'—the extra interest you pay by choosing Snowball over Avalanche." }
+        ],
+        '/balance-transfer': [
+            { q: "Debt Consolidation Checklist: What do I need?", a: "1. Credit Score: Most 2026 lenders require 670+. 2. Interest Rate Comparison: Ensure the new loan/card APR is at least 5% lower than your current weighted average. 3. Fees: Check for 'Balance Transfer Fees' (usually 3-5%) or 'Origination Fees' on loans. 4. Repayment Plan: Have a budget that prevents you from running up balances on the newly empty cards." }
         ]
     };
 

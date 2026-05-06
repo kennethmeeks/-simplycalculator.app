@@ -68,6 +68,14 @@ export const POPULAR_SCHEMAS: Record<string, CalculatorField[]> = {
     { id: 'age', label: 'Car Age', type: 'number', unit: 'years' },
     { id: 'condition', label: 'Vehicle Condition', type: 'select', options: [{label: 'Excellent', value: 'exc'}, {label: 'Good', value: 'good'}, {label: 'Fair', value: 'fair'}]}
   ],
+  '/calibration-curve': [
+    { id: 'xValues', label: 'X Values (Standards)', type: 'text', placeholder: 'e.g. 0, 1, 5, 10, 20' },
+    { id: 'yValues', label: 'Y Values (Response)', type: 'text', placeholder: 'e.g. 0, 0.12, 0.58, 1.15, 2.31' },
+    { id: 'unknownY', label: 'Unknown Sample Y (Optional)', type: 'number', placeholder: 'Interpolate X for this Y' }
+  ],
+  '/wealth-inequality-index': [
+    { id: 'values', label: 'Income or Wealth Values', type: 'text', placeholder: 'e.g. 10000, 25000, 50000, 100000' }
+  ],
   '/money-factor': [
     { id: 'factor', label: 'Money Factor', type: 'number', placeholder: 'e.g. 0.0025', description: 'Often found on lease contracts; multiply by 2400 for APR.' }
   ],

@@ -1685,13 +1685,83 @@ export const standardCalculations: Record<string, (inputs: Record<string, string
     return { value: String(res), explanation: `${base} ^ ${p} = ${res}` };
   },
   '/car-depreciation': (inputs) => {
-    const price = cleanNum(inputs.price);
-    const years = cleanNum(inputs.years) || 5;
-    if (isNaN(price)) return { value: 'Invalid' };
-    const rates: Record<number, number> = { 1: 0.20, 2: 0.30, 3: 0.40, 4: 0.50, 5: 0.60 };
-    const depreciation = rates[Math.min(years, 5)] || 0.60;
-    const value = price * (1 - depreciation);
-    return { value: `$${value.toLocaleString()}`, explanation: `A $${price.toLocaleString()} vehicle typically loses ${depreciation * 100}% of its value over ${years} years, leaving a residual value of $${value.toLocaleString()}.` };
+    const p = cleanNum(inputs.price);
+    const age = cleanNum(inputs.age);
+    const cond = inputs.condition || 'good';
+    if (isNaN(p) || isNaN(age)) return { value: 'Invalid input' };
+    
+    // Average 20% first year, 15% thereafter
+    let value = p;
+    for (let i = 0; i < age; i++) {
+        const rate = i === 0 ? 0.20 : 0.15;
+        value = value * (1 - rate);
+    }
+    
+    if (cond === 'exc') value *= 1.05;
+    if (cond === 'fair') value *= 0.85;
+
+    return {
+      value: `$${Math.round(value).toLocaleString()}`,
+      explanation: `Total Estimated Depreciation: $${Math.round(p - value).toLocaleString()}. Your vehicle has retained approx ${Math.round((value / p) * 100)}% of its original value after ${age} years.`
+    };
+  },
+  '/calibration-curve': (inputs) => {
+    const x = (inputs.xValues || '').split(',').map(v => parseFloat(v)).filter(v => !isNaN(v));
+    const y = (inputs.yValues || '').split(',').map(v => parseFloat(v)).filter(v => !isNaN(v));
+    const unknownY = parseFloat(inputs.unknownY);
+
+    if (x.length < 2 || x.length !== y.length) {
+      return { value: 'Error', explanation: 'X and Y must have same number of points (min 2).' };
+    }
+
+    const n = x.length;
+    let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+    for(let i=0; i<n; i++) {
+      sumX += x[i];
+      sumY += y[i];
+      sumXY += x[i] * y[i];
+      sumX2 += x[i] * x[i];
+    }
+
+    const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+    const intercept = (sumY - slope * sumX) / n;
+    
+    let res = `y = ${slope.toFixed(4)}x + ${intercept.toFixed(4)}`;
+    let interp = '';
+    if (!isNaN(unknownY)) {
+      const unknownX = (unknownY - intercept) / slope;
+      interp = `\nInterpolated X for Y=${unknownY}: ${unknownX.toFixed(4)}`;
+    }
+
+    return { value: res, explanation: `Linear Regression Equation: ${res}${interp}` };
+  },
+  '/wealth-inequality-index': (inputs) => {
+    const vals = (inputs.values || '').split(',').map(v => Math.abs(parseFloat(v))).filter(v => !isNaN(v)).sort((a,b) => a - b);
+    if (vals.length < 2) return { value: 'Error', explanation: 'Enter at least 2 wealth values (e.g. 1000, 5000).' };
+    
+    const n = vals.length;
+    let sumDiff = 0;
+    let sumTotal = 0;
+    for(let i=0; i<n; i++) {
+      sumTotal += vals[i];
+    }
+    
+    if (sumTotal === 0) return { value: '0%', explanation: 'Total wealth is zero.' };
+
+    for(let i=0; i<n; i++) {
+      for(let j=0; j<n; j++) {
+        sumDiff += Math.abs(vals[i] - vals[j]);
+      }
+    }
+    
+    const gini = sumDiff / (2 * n * n * (sumTotal / n));
+    return { 
+      value: `${(gini * 100).toFixed(2)}%`, 
+      explanation: `Gini Coefficient: ${gini.toFixed(4)}. A value of 0% indicates perfect equality, while 100% indicates maximum inequality.` 
+    };
+  },
+  '/word-to-time': (inputs) => {
+    return standardCalculations['/reading-time'](inputs);
   },
   '/fuel-cost': (inputs) => {
     const dist = cleanNum(inputs.distance);

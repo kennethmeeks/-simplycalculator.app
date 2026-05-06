@@ -1415,6 +1415,7 @@ export const CATEGORIES: CategoryData[] = [
     items: [
       { name: 'Word to Pages', path: '/word-to-page', desc: 'Estimate document length based on font and spacing.' },
       { name: 'Reading Time', path: '/reading-time', desc: 'Calculate how long it takes to finish a text.' },
+      { name: 'Word to Time', path: '/word-to-time', desc: 'Minutes to Words converter for reading and speaking.' },
       { name: 'Speaking Time', path: '/speaking-time', desc: 'Estimate speech duration based on word count.' },
       { name: 'GPA Advanced', path: '/gpa-advanced', desc: 'Calculate weighted and unweighted GPA with credits.' },
       { name: 'Class Rank', path: '/class-rank', desc: 'Estimate your academic standing in a cohort.' },
@@ -3219,7 +3220,7 @@ export const CATEGORIES: CategoryData[] = [
     },
     items: [
       { name: 'Population Doubling', path: '/rule-of-70-growth', desc: 'Years to 2x based on annual growth rate.', keywords: ['sociology', 'math', 'nature'] },
-      { name: 'Gini Coefficient (%)', path: '/wealth-inequality-index', desc: 'Mathematical measure of income distribution.', keywords: ['sociology', 'economics', 'stat'] },
+      { name: 'Gini Index (Wealth Inequality)', path: '/wealth-inequality-index', desc: 'Mathematical measure of income distribution.', keywords: ['sociology', 'economics', 'stat', 'gini index'] },
       { name: 'Urban Density Solver', path: '/people-per-square-mile', desc: 'Acreage vs total head count metrics.', keywords: ['sociology', 'urban planning', 'math'] },
       { name: 'Dependency Ratio Pro', path: '/working-age-support', desc: 'Labor force vs youth and elderly population.', keywords: ['sociology', 'economics', 'logic'] },
       { name: 'Malthusian Peak Time', path: '/resource-scarcity-timer', desc: 'Consumption velocity vs food production.', keywords: ['sociology', 'nature', 'math'] },
