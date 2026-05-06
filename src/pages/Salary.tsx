@@ -120,8 +120,8 @@ export const SalaryCalculator: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto w-full space-y-12 pb-20">
       <Helmet>
-        <title>Salary Calculator — What’s My Real Take-Home Pay in 2026? Free</title>
-        <meta name="description" content="Calculate your net paycheck after taxes. Convert hourly to annual salary and see your 2026 take-home pay potential instantly." />
+        <title>Salary Calculator: Accurate 2026 Paycheck & Take-Home Estimator</title>
+        <meta name="description" content="Professional salary analysis to calculate your real net paycheck. Convert hourly to annual and see your verified 2026 take-home pay potential instantly." />
       </Helmet>
 
       <header className="text-center space-y-4 mb-12">

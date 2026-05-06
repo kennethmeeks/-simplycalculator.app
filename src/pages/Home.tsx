@@ -9,9 +9,9 @@ export const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>SimplyCalculator — Professional 2026 Toolkit | 1,600+ Free Online Tools</title>
-        <meta name="description" content="Access SimplyCalculator's professional 2026 mathematical suite. 1,600+ free online calculators for Finance, Health, Engineering, and Math. Accurate, instant, and verified." />
-        <meta property="og:title" content="SimplyCalculator — Professional 2026 Mathematical Toolkit" />
+        <title>SimplyCalculator: Solve Any Professional Math Problem (1,600+ Tools 2026)</title>
+        <meta name="description" content="Access the verified SimplyCalculator 2026 toolkit. Solve any math or financial problem with over 1,600+ professional online tools. High-precision calculations for everyone." />
+        <meta property="og:title" content="SimplyCalculator: The Professional High-Intent Math Toolkit" />
         <meta property="og:description" content="Browse 1,600+ verified tools for professional and personal calculations. Completely free, mobile-optimized, and built for 2026 standards." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
