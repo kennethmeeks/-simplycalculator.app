@@ -84,24 +84,22 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
         fetchGuide();
     }, [name, path, description, fallback]);
 
-    if (isLoading) {
-        return null;
-    }
-
-    if (error || !guideContent) {
-        return null;
-    }
+    // Ensure we always have content even if AI is loading/fails
+    const displayContent = guideContent || {
+        howAndWhy: `### How to use ${name}\n\n${fallback.howToUse}\n\n### Why ${name} matters\n\n${fallback.whyItWorks}`,
+        faq: fallback.faq
+    };
 
     return (
         <div className="mt-24 space-y-20 border-t border-slate-100 pt-20">
             {/* FAQ Schema */}
             <Helmet>
-                {guideContent.faq.length > 0 && (
+                {displayContent.faq.length > 0 && (
                     <script type="application/ld+json">
                         {JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "FAQPage",
-                            "mainEntity": guideContent.faq.map(item => ({
+                            "mainEntity": displayContent.faq.map(item => ({
                                 "@type": "Question",
                                 "name": item.q,
                                 "acceptedAnswer": {
@@ -120,7 +118,7 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                         Calculator <span className="text-blue-600">Guide</span> & Methodology
                     </h2>
                     <div className="hidden md:block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                        Last Updated: 2026 Edition
+                        {isLoading ? 'Generating Analysis...' : 'Verified 2026 Edition'}
                     </div>
                 </header>
 
@@ -130,15 +128,23 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                             <BookOpen className="w-5 h-5 text-blue-600" />
                             Guide: How it Works
                         </h3>
-                        <div className="text-slate-600 leading-relaxed prose prose-slate max-w-none text-[14px]">
-                            <ReactMarkdown>
-                                {guideContent.howAndWhy}
-                            </ReactMarkdown>
-                        </div>
+                        {isLoading && !guideContent ? (
+                             <div className="space-y-4 animate-pulse">
+                                <div className="h-4 bg-slate-100 rounded w-3/4"></div>
+                                <div className="h-4 bg-slate-100 rounded w-5/6"></div>
+                                <div className="h-4 bg-slate-100 rounded w-2/3"></div>
+                             </div>
+                        ) : (
+                            <div className="text-slate-600 leading-relaxed prose prose-slate max-w-none text-[14px]">
+                                <ReactMarkdown>
+                                    {displayContent.howAndWhy}
+                                </ReactMarkdown>
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                {guideContent.faq.length > 0 && (
+                {displayContent.faq.length > 0 && (
                     <div className="mt-24 border-t border-slate-100 pt-20">
                         <div className="mb-12">
                             <h2 className="text-xl font-bold text-slate-900 mb-2 flex items-center gap-3">
@@ -149,7 +155,7 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                         </div>
                         
                         <div className="space-y-6 max-w-4xl">
-                            {guideContent.faq.map((item, idx) => (
+                            {displayContent.faq.map((item, idx) => (
                                 <div key={idx} className="group border-b border-slate-100 pb-6 last:border-0">
                                     <h3 className="text-sm font-bold text-slate-900 mb-2 flex gap-3">
                                         <span className="text-blue-600 font-black">Q.</span>

@@ -332,11 +332,13 @@ export const CalculatorPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>{foundItem.name} — Get Results in 10s Free 2026</title>
-                <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Verified formulas for 2026. Free, instant, and mobile-friendly math tool.`} />
-                <meta property="og:title" content={`${foundItem.name} | simplycalculator.app`} />
-                <meta property="og:description" content={foundItem.desc} />
-                <meta property="og:type" content="article" />
+                <title>{foundItem.name} — Professional Results 2026 | Free Online Tool</title>
+                <meta name="description" content={`Accurate ${foundItem.name}. ${foundItem.desc}. Use our verified formulas for 2026. Part of our ${foundCategory?.title} suite. Free, instant, and mobile-friendly.`} />
+                <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
+                <meta property="og:title" content={`${foundItem.name} | Professional 2026 Calculator`} />
+                <meta property="og:description" content={`Get instant, accurate results with the ${foundItem.name}. Verified for 2026. ${foundItem.desc}`} />
+                <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />
+                <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={foundItem.name} />
                 <meta name="twitter:description" content={foundItem.desc} />
