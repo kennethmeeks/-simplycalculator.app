@@ -16,6 +16,18 @@ export const getSpecificFAQ = (calculatorName: string, categoryTitle: string, pa
             { q: "How does the frequency of compounding affect my returns?", a: "The more frequently interest is compounded (e.g., daily vs. annually), the higher your effective yield will be. Even small differences in frequency can result in thousands of extra dollars over long time horizons." },
             { q: "Can I use this for debt calculation?", a: "Yes, compound interest works both ways. You can use it to see how credit card debt grows if only minimum payments are made." },
             { q: "Should I include inflation in my calculation?", a: "For long-term planning, it's wise to subtract the expected inflation rate (usually 2-3%) from your interest rate to see the 'real' future value in today's purchasing power." }
+        ],
+        '/401k': [
+            { q: "How much should I contribute to my 401(k) in 2026?", a: "At minimum, contribute enough to capture your full employer match—this is a 100% immediate return. Many experts recommend 15% of your gross income for long-term security." },
+            { q: "Can I withdraw money from my 401(k) early?", a: "While possible via loans or hardship withdrawals, you typically face a 10% penalty plus income tax in 2026. Use our tool to see how much growth you lose long-term if you withdraw early." },
+            { q: "What happens to my 401(k) if I leave my job?", a: "You can leave it with the old employer, roll it into your new job's plan, or move it to a personal IRA. A rollover typically avoids taxes and penalties." }
+        ],
+        '/529-plan': [
+            { q: "Can I use 529 funds for something other than college?", a: "Yes, in 2026 you can use up to $10,000 per year for K-12 tuition, and unused funds can sometimes be rolled into a Roth IRA (under certain SECURE 2.0 limits)." },
+            { q: "Who owns the 529 account?", a: "The person who opens it (usually a parent or grandparent) owns it, not the student. This means you maintain control over how the money is spent." }
+        ],
+        '/28-36-rule': [
+            { q: "Is the 28/36 rule still relevant in 2026?", a: "Yes, it remains the gold standard for conservative lending. While some lenders allow higher ratios, staying within 28/36 ensures you aren't 'house poor' and can weather economic shifts." }
         ]
     };
 

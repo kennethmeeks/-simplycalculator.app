@@ -528,12 +528,13 @@ async function startDevServer() {
           }
         };
 
-        // Add FAQ Schema if we have educational content
-        if (edu.faq && edu.faq.length > 0) {
+        // Use dynamic specific FAQ for schema to avoid duplicate content signal
+        const specificFaqItems = getSpecificFAQ(matchedCalculator.name, calculatorCategory.title, matchedCalculator.path);
+        if (specificFaqItems && specificFaqItems.length > 0) {
           const faqSchema = {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": edu.faq.map(f => ({
+            "mainEntity": specificFaqItems.map(f => ({
               "@type": "Question",
               "name": f.q,
               "acceptedAnswer": {

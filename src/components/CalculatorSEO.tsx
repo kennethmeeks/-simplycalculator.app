@@ -9,6 +9,8 @@ import { CATEGORIES } from '../constants/categories';
 import { getSpecificFAQ } from '../lib/faq-utils';
 import { getProContent } from '../lib/pro-content-utils';
 
+import { getHighIntentSEO } from '../lib/seo-utils';
+
 interface GuideContent {
     howAndWhy: string;
     faq: {q: string, a: string}[];
@@ -93,10 +95,15 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
         faq: getSpecificFAQ(name, category?.title || 'Professional', path)
     };
 
+    const seo = getHighIntentSEO(name, category?.title || 'Professional', category?.slug || '');
+
     return (
         <div className="mt-24 space-y-20 border-t border-slate-100 pt-20">
-            {/* FAQ Schema */}
+            {/* SEO & FAQ Schema */}
             <Helmet>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
+                <link rel="canonical" href={`https://simplycalculator.app${path}`} />
                 {displayContent.faq.length > 0 && (
                     <script type="application/ld+json">
                         {JSON.stringify({
