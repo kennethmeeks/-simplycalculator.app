@@ -318,7 +318,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: 'Insurance',
     slug: 'insurance',
-    description: 'Secure your future with proper coverage. Our tools help you estimate how much life, health, or auto insurance you actually need.',
+    description: 'Secure your future with proper coverage in 2026. Our tools help you estimate how much life, health, or auto insurance you actually need.',
     defaultGuidance: {
       whyItMatters: 'Insurance is your financial safety net. Calculating the correct coverage amount is the difference between being "insured" and being "protected." Under-insuring leaves your family vulnerable, while over-insuring wastes thousands in unnecessary premiums over a lifetime.',
       pitfalls: [
@@ -410,7 +410,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: 'Roofing & Framing',
     slug: 'roofing',
-    description: 'Specialized structural engineering for envelopes and rafters. From truss math to shingle coverage, ensure your building is watertight and structurally sound.',
+    description: 'Specialized structural engineering for envelopes and rafters in 2026. From truss math to shingle coverage, ensure your building is watertight and sound.',
     defaultGuidance: {
       whyItMatters: 'Roofing and framing math are critical for structural integrity and preventing water damage. Incorrect rafter lengths or pitch calculations can lead to sagging loads or improper drainage, which are two of the most expensive building failures to correct after construction is complete.',
       pitfalls: [
@@ -434,7 +434,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: 'Real Estate & Mortgages',
     slug: 'real-estate',
-    description: 'Expert planning for property and residential financing. Analyze mortgage structures, investment returns, and leasing math with professional precision.',
+    description: 'Expert 2026 planning for property and residential financing. Analyze mortgage structures, investment returns, and leasing math with professional precision.',
     defaultGuidance: {
       whyItMatters: 'Real estate is often an individual\'s primary vehicle for wealth creation, but it is also their largest liability. Understanding the impact of interest rates, amortization, and cap rates allows you to move beyond "emotional buying" and treat property as a calculated financial asset.',
       pitfalls: [
@@ -476,7 +476,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: 'Construction & Building',
     slug: 'construction',
-    description: 'Specialized calculators for structural engineering and building materials. Estimate lumber, steel weight, and framing requirements for professional worksites.',
+    description: 'Specialized calculators for structural engineering and 2026 materials. Estimate lumber, steel weight, and framing requirements for professional worksites.',
     defaultGuidance: {
       whyItMatters: 'Construction math is the difference between a project that is profitable and one that is a financial disaster. Precisely estimating materials like lumber, drywall, and steel ensures that your job site stays active without the delays caused by "just one more trip" to the supplier.',
       pitfalls: [
@@ -537,7 +537,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: 'Water & Hydraulics',
     slug: 'hydraulics',
-    description: 'Precision fluid dynamics for plumbing, fire safety, and landscaping. Calculate flow rates, vessel volumes, and pressure drops for complex pipe systems.',
+    description: '2026 precision fluid dynamics for plumbing, fire safety, and landscaping. Calculate flow rates, vessel volumes, and pressure drops for complex pipe systems.',
     defaultGuidance: {
       whyItMatters: 'Fluid dynamics is the silent force behind modern infrastructure. Whether you\'re sizing a pool pump or ensuring fire safety flow, understanding pressure and volume prevents catastrophic failures like pipe bursts or equipment cavitation that can cost thousands in repairs.',
       pitfalls: [
@@ -560,7 +560,7 @@ export const CATEGORIES: CategoryData[] = [
   {
     title: 'Concrete & Masonry',
     slug: 'masonry',
-    description: 'Precision math for concrete, brick, and stone work. From slab volume to mortar quantity, ensure your foundation is perfectly measured.',
+    description: 'Precision 2026 math for concrete, brick, and stone work. From slab volume to mortar quantity, ensure your foundation is perfectly measured.',
     defaultGuidance: {
       whyItMatters: 'Concrete and masonry projects are high-stakes because "wet" materials have a limited working time and removal once cured is expensive. Accurate calculations prevent the two biggest job-site failures: running out of material mid-pour (creating weak "cold joints") or over-ordering and paying for wasted material and disposal fees.',
       pitfalls: [

@@ -28,6 +28,259 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         ],
         methodology: "Our compound interest engine utilizes the standard exponential growth formula: A = P(1 + r/n)^(nt). We also incorporate periodic contributions by applying the future value of an ordinary annuity formula for each contribution period, ensuring that partial periods and interest-on-interest are precisely accounted for down to 12 decimal places."
     },
+    '12-hour-shift-pay': {
+        title: "12-Hour Shift Pay & Overtime Analysis",
+        howToUse: "Enter your hourly rate, number of 12-hour shifts per week, and any shift differentials. We'll calculate your gross weekly, monthly, and annual earnings, including federal overtime mandates for the 2026 tax year.",
+        whyItWorks: "Shift work requires complex math because it often triggers overtime (OT) after 40 hours in a week or 8 hours in a day, depending on your state. Our engine accurately partitions your pay into base hours and premium hours so you can verify your paycheck with precision.",
+        faq: [
+            { q: "How much is one 12-hour shift at $20/hr?", a: "A single 12-hour shift earns $240 gross. If you work 3 shifts per week, you earn $720. A 4th shift (48 total hours) would earn $720 plus 8 hours of overtime ($240), totaling $960 per week." },
+            { q: "What is the 8/80 overtime rule for 2026?", a: "Common in healthcare, this rule pays OT for any hours over 8 per day OR over 80 in a 14-day period. This calculator helps nurses and healthcare staff verify these complex 2-week pay cycles." }
+        ]
+    },
+    '28-36-rule': {
+        title: "The 28/36 Rule: Mortgage Affordability",
+        howToUse: "Input your gross monthly income and existing monthly debt obligations. Our 2026 lender-grade engine calculates the maximum housing payment banks will allow you to hold while maintaining a safe financial profile.",
+        whyItWorks: "Lenders use the 28/36 rule as a primary 'stress test.' It dictates that you spend no more than 28% of income on housing (Front-End) and 36% on all total debts (Back-End). Staying below these numbers is the fastest way to get loan approval.",
+        faq: [
+            { q: "What does the 28 and 36 stand for?", a: "28% of your gross monthly income for housing costs (PITI) and 36% for your total monthly debt payments (including car loans, cards, and the mortgage)." },
+            { q: "Is the 28/36 rule strict in 2026?", a: "While banks use it as a baseline, some programs like FHA go up to 43% or high-DTI cases. However, staying at 36% ensures the lowest interest rates and best loan terms." }
+        ]
+    },
+    '401k': {
+        title: "401k Retirement Projection & Matching",
+        howToUse: "Enter your current salary, age, 401k balance, and contribution percentage. Make sure to include your employer's matching percentage to see the full impact of 'free money' on your future nest egg.",
+        whyItWorks: "A 401k is a tax-advantaged vehicle that utilizes compounding interest and tax-deferred growth. By calculating your projection to age 67, you can see how incremental 1% increases in savings today can result in hundreds of thousands of extra dollars in retirement.",
+        faq: [
+            { q: "How much should I contribute to my 401k?", a: "At minimum, contribute whatever is needed to get the full employer match—it's a 100% immediate return on your money. Ideally, aiming for 15% of your gross income is the 2026 gold standard." },
+            { q: "What is the 401k contribution limit for 2026?", a: "The IRS sets yearly limits. For 2026, ensure you check the current 'catch-up' provisions if you are over age 50 to maximize your tax-sheltered growth." }
+        ]
+    },
+    '403b': {
+        title: "403b Retirement Planner for Non-Profits",
+        howToUse: "Designed for teachers, hospital staff, and non-profit employees. Input your salary and contributions. This tool tracks the growth of your Tax-Sheltered Annuity (TSA) over your entire career horizon.",
+        whyItWorks: "403b plans work similarly to 401ks but often have different fee structures and provider options. Our calculator accounts for these differences to give public sector employees a clear picture of their 2026 and future retirement readiness.",
+        faq: [
+            { q: "Is a 403b better than a 401k?", a: "They are nearly identical in tax benefits. The main difference is who can offer them (public schools/non-profits vs private companies). Both offer powerful tax-deferred compounding power." },
+            { q: "How much can I put in my 403b in 2026?", a: "The elective deferral limits are generally the same as 401ks. Use this tool to see how hitting those limits every year impacts your millionaire status by age 65." }
+        ]
+    },
+    '50-30-20-rule': {
+        title: "50/30/20 Budgeting Blueprint",
+        howToUse: "Enter your net (after-tax) monthly income. We will instantly split your budget into three categories: 50% for Needs, 30% for Wants, and 20% for Savings and Debt repayment.",
+        whyItWorks: "The 50/30/20 rule is the ultimate 'simplicity' budget. It removes the stress of tracking every penny by focusing on broad percentages. This ensures you cover your bills while still enjoying your life and building a 2026 emergency fund.",
+        faq: [
+            { q: "Does the 50/30/20 rule use gross or net income?", a: "It uses Net (Take-Home) income. This is the actual cash that hits your bank account every month after taxes and union dues are taken out." },
+            { q: "What counts as a 'Need' in the 50/30/20 rule?", a: "Housing, groceries, utilities, insurance, and minimum debt payments. If you can't live without it for a month, it's a 'Need'." }
+        ]
+    },
+    '529-plan': {
+        title: "529 College Savings & Growth Estimator",
+        howToUse: "Enter your child's age, your initial deposit, and monthly contributions. We'll project the total value of the fund by the time they reach college age (usually 18) based on 2026 market growth rates.",
+        whyItWorks: "The 529 plan is a powerhouse for education. It allows for tax-free growth and tax-free withdrawals for qualified education expenses. By starting early, you let time do the work of paying for tuition and housing.",
+        faq: [
+            { q: "Is a 529 plan worth it in 2026?", a: "Absolutely. The tax-free growth alone can save you 20-30% on the total cost of college compared to a standard savings account. It's the most efficient way to save for a degree." },
+            { q: "What happens if my child doesn't go to college?", a: "Recent 2026 rules allow you to roll over unused 529 funds (up to certain limits) into a Roth IRA for the beneficiary, protecting your hard-earned savings while maintaining tax benefits." }
+        ]
+    },
+    '70-20-10-rule': {
+        title: "70/20/10 Wealth & Giving Budget",
+        howToUse: "Input your take-home pay. This tool divides it into: 70% for Living Essentials, 20% for Savings, and 10% for Debt payoff or Charitable giving.",
+        whyItWorks: "The 70/20/10 rule is designed for those who want a more aggressive savings rate or have a strong commitment to giving back. It forces a leaner lifestyle (70% living) to ensure your 2026 wealth builds at a rapid pace.",
+        faq: [
+            { q: "Is 70/20/10 better than 50/30/20?", a: "It's more focused on financial independence. By capping living costs at 70%, you double your savings/debt power. It's perfect for high-earners or those in lower-cost areas." },
+            { q: "What should the 10% go toward if I have no debt?", a: "If your debt is gone, that 10% should move into charitable giving, tithing, or 'extreme' long-term investments like a brokerage account in 2026." }
+        ]
+    },
+    'acoustic-impedance': {
+        title: "Acoustic Impedance & Sound Physics",
+        howToUse: "Input the density of the material and the speed of sound through that medium. Our 2026 engineering engine calculates the 'impedance' (Z), measured in Rayls.",
+        whyItWorks: "Acoustic impedance (Z = ρ * c) is critical for understanding how sound reflects at boundaries. If two materials have a high 'impedance mismatch,' sound will bounce off rather than pass through. This is essential for ultrasound medical imaging and industrial sonar.",
+        faq: [
+            { q: "What is the unit for acoustic impedance?", a: "The SI unit is the Pascal-second per meter (Pa·s/m) or the Rayl. Our calculator provides results in both standard and scientific notation for 2026 lab use." },
+            { q: "Why does impedance matter in ultrasound?", a: "Gel is used during ultrasounds to match the impedance between the transducer and your skin. Without it, 99.9% of the sound waves would reflect back, making the image invisible." }
+        ]
+    },
+    'calibration-curve': {
+        title: "Calibration Curve & Linear Regression",
+        howToUse: "Enter your standard concentration values and their measured responses (like absorbance or voltage). We'll generate the line of best fit (y = mx + b) and calculate your unknown samples.",
+        whyItWorks: "In chemistry and biology, a calibration curve is used to find the concentration of an unknown sample. By using the 'Least Squares' method of linear regression, our tool ensures the most accurate statistical model for your 2026 laboratory data.",
+        faq: [
+            { q: "What is the R-squared value?", a: "R-squared shows how well your data fits the line. A value close to 1.0 means your standards are very accurate. Most 2026 lab protocols require an R² of 0.99 or higher." },
+            { q: "How do I calculate an unknown concentration?", a: "Once you have your line (y = mx + b), plug your measured sample value into 'y' and solve for 'x'. Our calculator handles this 'interpolation' for you automatically." }
+        ]
+    },
+    'gini-index': {
+        title: "Gini Index & Wealth Inequality Math",
+        howToUse: "Input the cumulative percentages of income or wealth earners. Our engine calculates the area between the Lorenz Curve and the line of perfect equality to find your index score.",
+        whyItWorks: "The Gini Index is the global standard for measuring inequality. A score of 0 represents perfect equality, while 1 (or 100) represents perfect inequality. It is essential for economic research and understanding 2026 social distributions.",
+        faq: [
+            { q: "What is a 'Good' Gini Index score?", a: "Most developed countries aim for a score between 0.25 and 0.35. Scores above 0.45 often signify significant wealth concentration and economic tension in a population." },
+            { q: "Can Gini be used for things other than money?", a: "Yes. In 2026, researchers use it for data distribution, biodiversity, and even measuring the equitability of infrastructure access in city planning." }
+        ]
+    },
+    'car-depreciation': {
+        title: "Car Depreciation & 5-Year Value Loss",
+        howToUse: "Enter your car's purchase price and age. We'll use 2026 market data to show you how much value your vehicle has lost and what it is likely worth today.",
+        whyItWorks: "Cars are depreciating assets. On average, a new car loses 20% in the first year and 15% every year after. By understanding this 'invisible cost,' you can make better decisions about when to sell or trade-in and avoid 'negative equity.'",
+        faq: [
+            { q: "Which cars depreciate the slowest?", a: "Trucks, SUVs, and certain high-demand hybrid brands typically hold their value best. Luxury sedans often see the steepest drops, sometimes losing 60% of their value in 3 years." },
+            { q: "How much value does a car lose after 100,000 miles?", a: "Mileage is a secondary factor to age, but crossing the 100k threshold often triggers a 10-15% 'perception' drop in 2026 resale value regardless of condition." }
+        ]
+    },
+    'inflation': {
+        title: "Inflation & Purchasing Power Tracker",
+        howToUse: "Enter a dollar amount and two different years. We'll use the Consumer Price Index (CPI) to show you how much that money is 'actually' worth in today's 2026 economy.",
+        whyItWorks: "Inflation is the gradual decrease in the purchasing power of money. $100 in 1990 bought much more than $100 does in 2026. This math is essential for understanding your long-term investment gains and salary requirements.",
+        faq: [
+            { q: "What is the average inflation rate?", a: "Historically, the US aim for about 2%. However, recent years have seen fluctuations. Our calculator uses the most current 2026 CPI data for high-precision dollar comparisons." },
+            { q: "How does inflation affect my savings?", a: "If your savings account pays 1% interest but inflation is 3%, you are technically 'losing' 2% of your buying power every year. This is why investing is vital for 2026 wealth." }
+        ]
+    },
+    'word-to-time': {
+        title: "Word Count to Reading & Speech Time",
+        howToUse: "Paste your text or enter your word count. Choose your speed—slow for a technical presentation, average for reading, or fast for scanning. We'll give you the exact minutes and seconds.",
+        whyItWorks: "Most people read at about 200-250 words per minute (wpm) and speak at 130-150 wpm. Our engine uses these 2026 linguistic benchmarks to help you time your speeches, scripts, and reading assignments perfectly.",
+        faq: [
+            { q: "How long is a 1,000-word speech?", a: "At a comfortable speaking pace of 130 wpm, a 1,000-word speech takes about 7 minutes and 40 seconds. For a 5-minute slot, you should aim for about 650 words." },
+            { q: "What is a 'fast' reading speed for 2026?", a: "Business professionals often scan at 400-500 wpm. Our calculator allows you to customize these speeds to match your personal skill or the difficulty of the text." }
+        ]
+    },
+    'calories': {
+        title: "Calorie Needs & Weight Management",
+        howToUse: "Input your age, gender, height, weight, and activity level. We use the 2026 Mifflin-St Jeor formula to determine your maintenance calories—the amount you need to stay exactly your current weight.",
+        whyItWorks: "Weight change is a thermodynamic equation: Calories In vs. Calories Out. By finding your TDEE (Total Daily Energy Expenditure), you can scientifically plan a surplus for muscle gain or a deficit for fat loss without the guesswork.",
+        faq: [
+            { q: "How many calories are in a pound of fat?", a: "Historically 3,500 calories. To lose one pound a week, you'd need a daily deficit of 500 calories. This 2026 calculator helps you find that target safely." },
+            { q: "Does metabolism slow down with age?", a: "Yes, but usually only by about 1-2% per decade after 30. Movement and muscle mass are much larger factors in your 2026 calorie burn than age alone." }
+        ]
+    },
+    'gpa': {
+        title: "GPA Calculator: College & High School Grade Averaging",
+        howToUse: "Enter your current letter grades and credit hours. We'll calculate your semester GPA and show you what grades you need next term to reach your cumulative goal for 2026 graduation.",
+        whyItWorks: "Grade Point Average (GPA) is a weighted calculation. A 4-credit 'A' impacts your score much more than a 1-credit 'A'. Our tool handles the weights and points (4.0 scale) to give you an' official' academic average.",
+        faq: [
+            { q: "What is a 'Good' GPA?", a: "Most colleges consider a 3.0 (a B average) as the standard for good standing. For 2026 graduate school or top internships, a 3.5 or higher is often the minimum requirement." },
+            { q: "How do 'Weighted' GPAs work?", a: "Honors and AP classes often add an extra point (5.0 scale). This calculator allows you to toggle weights so you can see your true rank for college applications." }
+        ]
+    },
+    'percentage': {
+        title: "Universal Percentage & Difference Tool",
+        howToUse: "Answer simple questions like 'What is X% of Y?' or 'What percent increase is A to B?'. Perfect for sales tax, tips, and data analysis in any 2026 professional setting.",
+        whyItWorks: "Percentages are ratios expressed out of 100. Despite being basic math, they are the most common source of calculation errors in business. Using a dedicated tool ensures your percentage decreases and growth rates are 100% accurate.",
+        faq: [
+            { q: "Is a 50% increase followed by a 50% decrease the same?", a: "No! If you have $100 and it grows 50%, you have $150. If $150 drops 50%, you are left with $75. This is a common math trap that our tool keeps you safe from." },
+            { q: "What is percentage points vs percent?", a: "If an interest rate goes from 3% to 4%, it increased by 1 'percentage point' but grew by 33.3 'percent'. We help you clarify these critical business terms." }
+        ]
+    },
+    'loan-payment': {
+        title: "Loan Payment & Total Interest Analysis",
+        howToUse: "Enter your loan amount, interest rate (APR), and length of the loan in months or years. See exactly how much your monthly bill will be and the total 'cost of the money' over time.",
+        whyItWorks: "Personal loans use 'simple interest' amortization. Our 2026 engine breaks down each payment into what goes to the bank (interest) and what goes to your debt (principal), helping you see how extra payments can save you thousands.",
+        faq: [
+            { q: "How much interest will I pay on a $10,000 loan?", a: "At 10% interest over 3 years, you'll pay about $1,616 in interest. Total cost: $11,616. Use this tool to compare different rates and save money on your next purchase." },
+            { q: "What is an APR?", a: "Annual Percentage Rate. It is the total cost of the loan including interest and any bank fees. Always use the APR for your 2026 loan comparisons to get the most honest answer." }
+        ]
+    },
+    'debt-avalanche': {
+        title: "Debt Avalanche: Pay Off Debt Fastest",
+        howToUse: "List your debts from highest interest rate to lowest. We'll show you how paying the most expensive debt first saves you the most money in the long run compared to other methods.",
+        whyItWorks: "The Avalanche method is mathematically the 'correct' way to pay debt. By targeting high-interest cards first (like 24% APR), you stop the most expensive 'leak' in your wallet, resulting in the shortest 2026 payoff timeline possible.",
+        faq: [
+            { q: "Avalanche vs Snowball: Which is better?", a: "Avalanche saves more money. Snowball gives more 'wins' by starting with small debts. If you are disciplined, Avalanche is the fastest way to become debt-free in 2026." },
+            { q: "Should I use Debt Avalanche for my mortgage?", a: "Usually no. Mortgages are 'cheap' debt (3-7%). You should use the Avalanche for high-interest credit cards and personal loans first to maximize your 2026 savings." }
+        ]
+    },
+    'debt-snowball': {
+        title: "Debt Snowball: Build Payoff Momentum",
+        howToUse: "List your debts from smallest balance to largest balance. We'll show you how clearing small debts quickly provides the psychological 'win' needed to stay motivated for the long haul.",
+        whyItWorks: "Personal finance is 20% math and 80% behavior. The Snowball method works because it gives you immediate success as small debts disappear. This 'momentum' is what keeps you focused on your 2026 financial freedom journey.",
+        faq: [
+            { q: "Does the Snowball method cost more in interest?", a: "Technically yes, because you might ignore a high-rate debt while paying a small low-rate one. However, the completion rate is much higher because of the psychological reinforcement." },
+            { q: "Is the Debt Snowball right for me?", a: "If you've struggled to stay on a budget before, the Snowball is your best bet. It turns your debt payoff into a series of reachable 'levels' that keep you inspired." }
+        ]
+    },
+    'balance-transfer': {
+        title: "Balance Transfer & Credit Interest Savings",
+        howToUse: "Enter your current credit card debt, their interest rate, and the '0% APR' offer details (including the transfer fee). We'll tell you if moving the debt is actually worth it or if the fees eat your savings.",
+        whyItWorks: "A balance transfer can save you thousands in interest, but most cards charge a 3% to 5% fee upfront. Our engine calculates this 'break-even' point so you know exactly how many months it takes for the move to start saving you money.",
+        faq: [
+            { q: "Is a 3% transfer fee worth it?", a: "If your current card is at 20% interest and you get 12 months at 0%, yes! You'll pay 3% once to save 20% over a year—a net savings of 17%. Use this tool to verify the math for your offer." },
+            { q: "What happens after the 0% period ends?", a: "The interest rate usually jumps to a very high 'standard' rate (often 24%+). You MUST have a plan to pay off the balance before that 2026 deadline to get the full value of the transfer." }
+        ]
+    },
+    'bitcoin-etf': {
+        title: "Bitcoin ETF Performance & Returns",
+        howToUse: "Input your investment amount and the current share price of your chosen Spot Bitcoin ETF. Our 2026 tracker shows you your total holdings value and projected growth based on fund benchmarks.",
+        whyItWorks: "Spot Bitcoin ETFs track the price of BTC directly. By factoring in expense ratios and tracking errors, our calculator gives you a realistic view of how these regulated financial products perform compared to direct 'on-chain' holding.",
+        faq: [
+            { q: "Is a Bitcoin ETF better than buying BTC?", a: "ETFs offer regulated, tax-advantaged (like IRA) exposure without the need for private keys. However, you pay a small management fee. This tool helps you see if those benefits outweigh the costs for your strategy." },
+            { q: "How often do ETF prices update?", a: "Most 2026 Spot ETFs update throughout the trading day. Our calculator uses these market snapshots to provide high-precision return data for your portfolio." }
+        ],
+        methodology: "We calculate returns using the standard (Current Price - Cost Basis) / Cost Basis formula, then adjust for the fund's published annual expense ratio to provide a net-of-fees performance estimate."
+    },
+    'angel-number': {
+        title: "Angel Numbers & Spiritual Patterns",
+        howToUse: "Enter the number sequence you've been seeing (like 111, 444, or 777). Our 2026 numerology engine breaks down the frequency and vibrational meaning of each digit to reveal the hidden message.",
+        whyItWorks: "Angel numbers are considered signposts in numerology. Each digit carries a specific intent—1 represents new beginnings, 4 represents stability, and 7 represents spiritual awakening. By analyzing the sequence, we provide a holistic interpretation of the 'universal nudge' you're receiving.",
+        faq: [
+            { q: "What should I do when I see an angel number?", a: "Take a moment to note your thoughts at that exact time. Numerologists believe the number is a confirmation or guidance related to your current mindset or situation." },
+            { q: "Why do I keep seeing 1111?", a: "This is often seen as a 'manifestation' number. It suggests that your thoughts are rapidly becoming your reality, so it's a reminder to keep your focus positive and intentional." }
+        ]
+    },
+    'animal-mortality-rate': {
+        title: "Livestock Mortality & Herd Health",
+        howToUse: "Enter your starting herd size and the number of losses over a specific period. This 2026 agricultural tool calculates your mortality percentage and compares it to industrial benchmarks for your specific species.",
+        whyItWorks: "Mortality rate is a key indicator of herd health and welfare. By tracking this 'invisible loss,' farmers can identify disease outbreaks early, evaluate the effectiveness of new protocols, and manage their profit margins more accurately.",
+        faq: [
+            { q: "What is a normal mortality rate for cattle?", a: "In 2026, many professionals aim for a rate below 2% for adult herds. Higher rates can indicate nutritional gaps or environmental stressors that need immediate attention." },
+            { q: "How do I calculate mortality for a specific timeframe?", a: "Use our 'Period Mortality' function to isolate losses by month or season, which is often more useful for identifying recurring seasonal health patterns." }
+        ]
+    },
+    'annualized-return': {
+        title: "Annualized Return & CAGR Math",
+        howToUse: "Input your initial investment, final value, and the total time in years or months. We'll find your CAGR—the steady rate of return you would have needed every year to reach that final amount.",
+        whyItWorks: "Total returns can be misleading, especially over different time horizons. Annualizing your returns allows for a true 'apples-to-apples' comparison between a 2-year stock gain and a 5-year real estate investment, regardless of the volatility in between.",
+        faq: [
+            { q: "Is annualized return the same as average return?", a: "No. Average return is the sum of yearly returns divided by the number of years. Annualized return (CAGR) account for the compounding effect, which is the 2026 standard for professional wealth management." },
+            { q: "Can annualized return be negative?", a: "Yes. If your final value is less than your starting value, the rate will be negative, showing you the 'annualized loss' of your buying power over that period." }
+        ]
+    },
+    'atom': {
+        title: "Atomic Structure & Subatomic Particles",
+        howToUse: "Select an element from the periodic table or enter an atomic number. We'll show you exactly how many protons, neutrons, and electrons that atom contains in its neutral state.",
+        whyItWorks: "The identity of an atom is dictated by its protons. By balancing the atomic number (protons) with the mass number (protons + neutrons), our engine maps the fundamental structure of matter with high scientific precision.",
+        faq: [
+            { q: "How do I find the number of neutrons?", a: "Subtract the atomic number from the mass number. (Mass - Protons = Neutrons). Our calculator handles this for all isotopes listed in the 2026 periodic data." },
+            { q: "What happens to electrons in an ion?", a: "If an atom has a charge, it has gained or lost electrons. A positive charge (cation) means fewer electrons, while a negative charge (anion) means extra electrons." }
+        ]
+    },
+    'attack-vector-bandwidth': {
+        title: "DDoS Scale & Bandwidth Analysis",
+        howToUse: "Enter the number of requests per second (RPS) and the average size of each request packet. We'll calculate the total throughput in Gigabits per second (Gbps) to see if your server or CDN can survive the load.",
+        whyItWorks: "Modern cybersecurity requires understanding 'volumetric' attacks. By calculating the total stress on your network pipe, you can better plan for 2026 infrastructure needs and select the right protection tier from your cloud provider.",
+        faq: [
+            { q: "How many Gbps is a 'large' attack in 2026?", a: "Attacks over 100 Gbps are common, but high-end 'terabit' attacks are the new benchmark for enterprise stress-testing. This tool helps you visualize that scale." },
+            { q: "Does packet size matter for DDoS?", a: "Yes. Small packets (like SYN floods) stress the CPU and firewall logic, while large packets (like DNS amplification) target the physical bandwidth of the network." }
+        ]
+    },
+    'automation-complexity': {
+        title: "Smart Home Hub Logic & Reliability",
+        howToUse: "List your automation triggers, conditions, and actions. We'll assess the 'path complexity' and projected latency (delay) based on the number of hub-to-cloud hops required.",
+        whyItWorks: "As smart homes get smarter, they get more fragile. High complexity often leads to 'collision' errors where commands cancel each other out. This 2026 analyzer helps you simplify your logic for a faster, more reliable user experience.",
+        faq: [
+            { q: "How do I reduce smart home delay?", a: "The best way is to 'Localize' your logic. Moving automations from the cloud to a local Zigbee or Matter hub can reduce latency by up to 90%." },
+            { q: "What is an automation 'loop'?", a: "A logic error where one action triggers its own trigger, causing an infinite cycle. Our tool helps flag these circular dependencies in your scene design." }
+        ]
+    },
+    'bathroom-mirror-size': {
+        title: "Ideal Mirror Dimensions for Vanities",
+        howToUse: "Enter the width of your vanity or sink cabinet. We'll recommend the optimal mirror width and height based on the 'Golden Proportions' for 2026 interior design standards.",
+        whyItWorks: "A mirror that is too wide looks 'heavy,' while one that is too narrow looks out of place. Designers generally recommend a mirror that is 2 to 4 inches narrower than the vanity on each side. Our calculator finds that 'sweet spot' for your specific space.",
+        faq: [
+            { q: "How high should I hang my bathroom mirror?", a: "The standard 2026 advice is to have the center of the mirror at eye level, roughly 60-64 inches from the floor, or 5-10 inches above the backsplash." },
+            { q: "Can a mirror be the same width as the vanity?", a: "Yes, but it creates a very modern, built-in look. It works best if the mirror is framed or if it fills the entire wall from corner to corner." }
+        ]
+    },
     finance: {
         title: "The Financial Decision Engine",
         howToUse: "Input your core numbers: how much you're starting with, your interest rate, and how many years you're planning for. Our engine shows you exactly how your money can grow. For 2026, it's smart to use conservative rates (like 5-7%) to see a more realistic picture of your future wealth.",
@@ -1158,6 +1411,501 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "How do I calculate 'Kill Participation' (KP)?", a: "Divide (Your Kills + Your Assists) by the team's total kills. In 2026, a 70%+ KP is expected for high-performing mid and support players." },
             { q: "What is 'Reaction Time' training?", a: "The speed at which you respond to a visual cue. 2026 pro-athletes average 150-200ms. Our tools help you track your progress over weeks of training." },
             { q: "How much gold does my team lose if I die?", a: "Beyond the bounty given to the enemy, you lose 'Expected Gold' from minions while dead. In a 2026 late-game, one death can cost your team 1,000+ total gold." }
+        ]
+    },
+    'nomad-living-cost': {
+        title: "Digital Nomad Budgeting & Costs",
+        howToUse: "Enter your target city and your expected lifestyle (Budget, Standard, Luxury). We aggregate data on 2026 housing, food, and transport to give you a monthly burn rate.",
+        whyItWorks: "Local data for 2026 is processed through a 'Nomad Premium' filter—accounting for the higher costs of short-term rentals and dining out that travelers face compared to locals.",
+        faq: [
+            { q: "What is the 'Nomad Premium'?", a: "It is the 30-50% extra you pay for flexibility, such as furnished apartments and monthly gym memberships that don't require long-term contracts in 2026." },
+            { q: "Does this include health insurance?", a: "Yes. Our 2026 model includes a standardized buffer for international health coverage, which is a vital part of any remote worker's overhead." }
+        ]
+    },
+    'operating-asset-turnover': {
+        title: "Asset Turnover & Sales Efficiency",
+        howToUse: "Enter your Net Sales and your average Operating Assets. Our 2026 analyzer finds your turnover ratio—how many dollars of sales you generate for every dollar of 'working' capital.",
+        whyItWorks: "Ratio analysis isolates 'Value Density.' By filtering out non-operating items like land or excess cash, our 2026 model reveals the core productivity of your business machinery.",
+        faq: [
+            { q: "What is a good turnover ratio?", a: "It varies by industry. Retailers often have high turnover (5.0+), while heavy manufacturing in 2026 might operate at 0.5 - 1.0. Compare your result to your specific sector." },
+            { q: "How do I improve my ratio?", a: "You can either increase sales with existing assets or sell off under-utilized equipment to 'shrink' your asset base while maintaining production in 2026." }
+        ]
+    },
+    'optimal-hedge-ratio': {
+        title: "Hedging Ratios & Portfolio Protection",
+        howToUse: "Input the standard deviation of your portfolio and your hedging instrument, along with their correlation. We find the exact 'Hedge Amount' needed for 2026 risk parity.",
+        whyItWorks: "Minimum variance hedging uses the Beta relationship between assets to find the 'offset' point. This 2026 mathematical hedge provides a structural layer of protection that goes beyond simple diversification.",
+        faq: [
+            { q: "When should I rebalance my hedge?", a: "Correlations shift over time. In 2026, we recommend checking your hedge ratio quarterly or after a major market movement of 10% or more." },
+            { q: "Is hedging free?", a: "No. There is a 'Cost of Carry' and transaction fees. Hedging in 2026 is an insurance policy; you pay a small premium to avoid a catastrophic loss." }
+        ]
+    },
+    'overtone-series-freq': {
+        title: "Overtone Series & Harmonic Ratios",
+        howToUse: "Enter your fundamental frequency (e.g., 440Hz). Our audio engine generates the full harmonic series, showing the Hz and musical relationship for every overtone.",
+        whyItWorks: "Sound travels in standing waves. By calculating the integer multiples of the fundamental, our 2026 engine models the 'Spectral Signature' of any sound, from a piano string to a vocal cord.",
+        faq: [
+            { q: "How many overtones are there?", a: "Mathematically, infinite! However, our 2026 tool covers the first 16, as those are the ones most relevant to human hearing and musical composition." },
+            { q: "What is the difference between Harmonic and Overtone?", a: "The fundamental is the 1st harmonic. The 1st overtone is the 2nd harmonic. Our 2026 tool labels both to avoid confusion in your physics or music work." }
+        ]
+    },
+    'ph': {
+        title: "pH Calculations & Acidity Math",
+        howToUse: "Enter the concentration of Hydrogen ions [H+] in moles per liter. We use the -log10 identity to find the pH level instantly for your 2026 lab report.",
+        whyItWorks: "Acid-base chemistry is based on exponential scales. By converting these tiny concentrations into a readable 0-14 scale, our 2026 tool helps you visualize the chemical activity of any solution.",
+        faq: [
+            { q: "What is neutral pH?", a: "In 2026, pH 7 is the neutral point (pure water). Anything lower is acidic (like lemon juice), and anything higher is alkaline (like bleach)." },
+            { q: "Is pOH the same thing?", a: "pOH measures the concentration of Hydroxide ions. In any 2026 aqueous solution, pH + pOH always equals 14." }
+        ]
+    },
+    'plug-type-finder': {
+        title: "World Plug Types & Global Power",
+        howToUse: "Select your destination country. We provide the 2026 socket types (A-N), voltage standards, and frequency required for your electronic devices.",
+        whyItWorks: "The world uses different electrical grids. By mapping international 2026 standards, our tool ensures you don't 'fry' your hairdryer or find yourself without a charge in a foreign airport.",
+        faq: [
+            { q: "What is the most common plug?", a: "Type C (the 'Europlug') is used in over 100 countries in 2026. However, many countries use 'hybrid' sockets that can take multiple types." },
+            { q: "Can I use travel adapters forever?", a: "Adapters are for short-term travel. In 2026, if you are moving permanently, it is safer to replace the cables or buy local appliances to ensure full grounding safety." }
+        ]
+    },
+    'price-per-square-foot': {
+        title: "Price per Square Foot & Real Estate Analysis",
+        howToUse: "Input the home's total price and the total square foot of finished living area. We calculate the PPSF so you can compare 2026 homes regardless of their footprint.",
+        whyItWorks: "PPSF is the 'Unit Price' of real estate. By normalizing home costs, our 2026 engine reveals if a property is priced at a premium or a discount relative to the local market average.",
+        faq: [
+            { q: "Does lot size affect PPSF?", a: "Often yes. If two identical homes are for sale, but one sits on a 5-acre lot, its PPSF will be higher to account for the land's 2026 value." },
+            { q: "Why is the kitchen 'more expensive'?", a: "Kitchens and bathrooms cost more to build per square foot than bedrooms. In 2026, smaller luxury condos often have high PPSF because they are 'all kitchen and bath' density." }
+        ]
+    },
+    'psi-to-gpm': {
+        title: "PSI to GPM & Flow Rate Logic",
+        howToUse: "Enter your starting pressure and the diameter of your discharge pipe. Our 2026 hydraulic engine estimates the flow rate (Gallons Per Minute) based on standard friction loss.",
+        whyItWorks: "Water flow is driven by pressure differential. By accounting for 'Head Loss' and pipe resistance, our 2026 tool predicts real-world output rather than just theoretical 'open pipe' flow.",
+        faq: [
+            { q: "Does pipe length matter?", a: "Greatly! In 2026 plumbing design, longer pipes create more friction, which reduces your GPM even if the PSI at the source stays high." },
+            { q: "What is 'Static' vs 'Residual' pressure?", a: "Static is the PSI when water isn't moving. Residual is the PSI while water is flowing. Our 2026 tool helps you find the correct residual GPM for your fixtures." }
+        ]
+    },
+    'new-york-tax': {
+        title: "New York State & City Income Tax",
+        howToUse: "Enter your gross income and filing status. We calculate the NY State tax brackets AND the specific New York City resident surcharge if you live in the Big Apple.",
+        whyItWorks: "New York has a unique 'Tax Shield' and 'NYC Premium' system. By applying the 2026 progressive brackets for both jurisdictions, we provide a high-precision estimate of your total state/city liability.",
+        faq: [
+            { q: "Is NYC tax separate from NY State tax?", a: "Yes! Residents of New York City in 2026 pay both. Our tool handles this multi-layer math automatically." },
+            { q: "What is the NY 'Standard Deduction' for 2026?", a: "NY deductuctions differ from Federal ones. We use the most recent 2026 state-specific values to ensure your Net Tax is accurate." }
+        ]
+    },
+    'satellite-lifespan': {
+        title: "Satellite Lifespan & Orbital Decay",
+        howToUse: "Enter the satellite's altitude and its physical characteristics. Our 2026 space engine predicts the 'Days in Orbit' until the object re-enters the primary atmosphere.",
+        whyItWorks: "Thin air in Low Earth Orbit (LEO) creates drag. By modeling the relationship between altitude and gas density in 2026, we calculate the gradual decay of velocity that leads to re-entry.",
+        faq: [
+            { q: "Do all satellites fall eventually?", a: "Yes, unless they are at a very high altitude (like Geostationary) where drag is negligible. In 2026, LEO satellites are legally required to have a de-orbit plan." },
+            { q: "Does the satellite's shape matter?", a: "Very much. A wide, flat satellite has more surface area and thus more 2026 drag, leading to a shorter orbital lifespan than a dense, spherical one." }
+        ]
+    },
+    'security-deposit-interest': {
+        title: "Security Deposits & Mandatory Interest",
+        howToUse: "Enter the deposit amount and the duration of the lease. Select your state or input a custom 2026 rate to find the total interest owed to the tenant.",
+        whyItWorks: "Many 2026 rental laws treat security deposits as a 'Trust.' This tool applies the statutory annual interest rates to ensure landlords and tenants are in full 2026 legal compliance.",
+        faq: [
+            { q: "Is interest paid monthly or annually?", a: "Usually annually. In many 2026 jurisdictions, the landlord must either pay the interest to the tenant once a year or apply it as a credit to the next month's rent." },
+            { q: "What if my security deposit is small?", a: "Interest is owed regardless of size if the local 2026 law mandates it. Even a few dollars can be a point of legal contention in 2026 eviction or moving disputes." }
+        ]
+    },
+    'size-to-weight-rectangular': {
+        title: "Size to Weight & Mass Math",
+        howToUse: "Input the Length, Width, and Height of your object. Select your material density to find the estimated 2026 weight in pounds or kilograms.",
+        whyItWorks: "Weight is Volume x Density. By calculating the cubic square volume of your 2026 package and multiplying by the physical mass of the content, we ensure your shipping math is perfect.",
+        faq: [
+            { q: "Why is my scale weight different?", a: "This tool provides a theoretical estimate. In 2026, air pockets, packaging tape, and internal hollows can make the 'Actual' scale weight lighter than a solid-mass calculation." },
+            { q: "What is the density of typical cardboard?", a: "Standard 2026 shipping boxes are very light, but the 'Packaged Weight' depends on the density of the contents (e.g., steel vs. feathers) inside that volume." }
+        ]
+    },
+    'stone': {
+        title: "Stone, Gravel & Aggregate Math",
+        howToUse: "Enter the dimensions of your bed or slab. Our 2026 engine calculates the total cubic yards and Tonnage required for your masonry or landscaping project.",
+        whyItWorks: "Stone has much higher density than soil. By using the 2,700 lb/yard 2026 benchmark for crushed rock, we prevent under-ordering material and ensure your foundation is structural.",
+        faq: [
+            { q: "How deep should stone be for a driveway?", a: "In 2026, we recommended a 6-8 inch base layer of aggregate for stability, topped with 2-3 inches of decorative or smaller surface stone." },
+            { q: "Is 'Crusher Run' different from 'Gravel'?", a: "Yes. Crusher run includes 'fines' (dust) that help it compact into a solid 2026 base, whereas clean gravel allows for maximum drainage." }
+        ]
+    },
+    'tax-rebate-net-cost': {
+        title: "Tax Rebates & Net Pricing 2026",
+        howToUse: "Input the MSRP of your purchase and all associated rebates. Our 2026 financial engine calculates the true final cost and your effective 'Percentage Discount.'",
+        whyItWorks: "Rebates are asynchronous. By bringing tomorrow's 2026 tax credit into today's price comparison, we provide a clear view of the real cost-to-own for EVs, solar, and high-efficiency appliances.",
+        faq: [
+            { q: "Should I include sales tax in my calculation?", a: "Usually yes. In 2026, sales tax is calculated on the price *before* rebates in many states, making the 'Net Cost' slightly higher than a simple subtraction would suggest." },
+            { q: "What is a 'Refundable' tax credit?", a: "It means if your 2026 credit is more than your total tax bill, the government sends you a check for the difference. 'Non-refundable' credits can only take your bill to zero." }
+        ]
+    },
+    'tdee': {
+        title: "TDEE & Metabolic Energy Math",
+        howToUse: "Enter your age, sex, weight, and activity frequency. Our 2026 health engine calculates your 'Maintenance Calories'—the fuel you need to remain at your current weight.",
+        whyItWorks: "TDEE = BMR x Activity Factor. By modeling the 2026 thermic effect of your lifestyle, we provide a personalized 2026 anchor point for any safe weight-loss or muscle-gain journey.",
+        faq: [
+            { q: "Why did my TDEE drop when I lost weight?", a: "Smaller bodies require less energy to move and maintain. In 2026, we suggest re-calculating your TDEE every 10 lbs (5 kg) of weight change for accuracy." },
+            { q: "Is 'Sedentary' the same for everyone?", a: "No. In 2026, we define sedentary as someone with a desk job who performs zero intentional exercise. If you stand all day at work, you are at least 'Lightly Active'." }
+        ]
+    },
+    'thread-pitch': {
+        title: "Thread Pitch & Fastener Logic",
+        howToUse: "Enter the number of threads and the measured distance. Our 2026 mechanical engine identifies if you are working with Fine (UNF) or Coarse (UNC/Metric) hardware.",
+        whyItWorks: "Thread spacing is the 'Key' to mechanical safety. By calculating the distance between peaks, our 2026 tool ensures that bolts and nuts seat perfectly without stripping the threads.",
+        faq: [
+            { q: "What is 'Fine' thread used for?", a: "Fine threads have more surface area and greater 2026 vibration resistance. They are typically used in automotive and aerospace where parts are under constant stress." },
+            { q: "Can I use a Metric nut on a US bolt?", a: "No! Even if they look similar in 2026, the pitch is different. Forcing them together will destroy the cross-threading protection and fail the joint." }
+        ]
+    },
+    'tls-ping-overhead': {
+        title: "TLS Overhead & SSL Latency",
+        howToUse: "Enter your standard 'Ping' (ICM) and your SSL Handshake time. We calculate the percentage of 2026 latency caused strictly by security protocols.",
+        whyItWorks: "Privacy costs time. By measuring the 'Crypto-Tax' on your 2026 web requests, we help developers optimize certificate sizes and handshake protocols for better user experience.",
+        faq: [
+            { q: "Is TLS overhead the same for all sites?", a: "No. Sites with large 2026 certificate chains or old TLS 1.2 protocols will have significantly higher overhead than optimized 2026 'Modern' sites." },
+            { q: "Does a 5G connection reduce TLS time?", a: "Indirectly. While 5G reduces 2026 'Radio Latency,' the TLS handshake still requires multiple round-trips. Server-side speed is the 2026 bottleneck for handshakes." }
+        ]
+    },
+    'triathlon-finish': {
+        title: "Triathlon Splits & Race Predictions",
+        howToUse: "Enter your projected pace for Swim, Bike, and Run. Include your T1/T2 estimate to see your total 2026 Race Day finish time across all distances.",
+        whyItWorks: "Endurance math is cumulative. By splitting the 2026 race into its 5 distinct components (3 legs + 2 transitions), we provide a realistic target that accounts for the 'Gear Complexity' of multi-sport.",
+        faq: [
+            { q: "What is an 'Ironman' distance?", a: "The 2026 standard is a 2.4m swim, 112m bike, and 26.2m run. Our tool supports Ironman, Half-Ironman (70.3), Olympic, and Sprint 2026 distances." },
+            { q: "How much time is lost in transitions?", a: "In 2026, transition is 'Free Time.' A muddy wetsuit or a dropped bike chain can add 5+ minutes. Practice your 2026 T1/T2 to lock in a faster total time without running faster." }
+        ]
+    },
+    'voltage-rest-soc': {
+        title: "Battery Voltage & Life Percentages",
+        howToUse: "Measure your battery's resting voltage and select its chemistry (LiPo, AGM, Lead-Acid). We show you the exact State of Charge (SoC) based on 2026 discharge curves.",
+        whyItWorks: "Battery chemistry is predictable. By mapping physical voltage to chemical capacity, our 2026 engine provides a high-accuracy estimate of remaining 'Fuel' without needing a shunt meter.",
+        faq: [
+            { q: "Why does my voltage jump after I stop charging?", a: "This is 'Surface Charge.' In 2026, we suggest waiting 2-4 hours for the chemistry to stabilize before using our tool for a true SoC reading." },
+            { q: "At what voltage is my battery 'Dead'?", a: "For a 12V 2026 Lead-Acid battery, 10.5V is considered 0%. For a single 2026 LiPo cell, 3.2V - 3.5V is the danger zone where capacity is effectively empty." }
+        ]
+    },
+    'wifi-mesh-count': {
+        title: "Wi-Fi Mesh Planning & Area Math",
+        howToUse: "Enter the square footage of your property and the number of floors. Our 2026 networking engine calculates the optimal node count to ensure zero 'Dead Zones.'",
+        whyItWorks: "Radio waves follow the 'Inverse Square Law.' By modeling the typical 2026 penetration loss of drywall and wood, we find the ideal node density to maintain high-speed 5GHz/6GHz handoffs.",
+        faq: [
+            { q: "Does the number of nodes increase speed?", a: "Usually no. Nodes increase *coverage.* In 2026, adding nodes can actually slow you down if you are already at max speed, due to added mesh 'hop' latency." },
+            { q: "Where is the best place for the master node?", a: "In the 2026 center of your home! Forcing your internet to travel from a corner basement to a 2nd-floor bedroom through three nodes causes massive signal degradation." }
+        ]
+    },
+    'yield-multiplier': {
+        title: "Yield Multipliers & Leverage Math",
+        howToUse: "Input your dividend yield and your leverage ratio. Our 2026 economics engine calculates your 'Amplified Yield'—showing how your equity grows relative to the asset base.",
+        whyItWorks: "Productivity scales with capital. By isolating the relationship between income and cost-of-capital, our 2026 tool reveals the mathematical power of compound yield in professional portfolios.",
+        faq: [
+            { q: "What is a 'Safe' multiplier in 2026?", a: "Most 2026 institutional portfolios aim for 1.2x to 1.5x efficiency. Exceeding 2.0x often introduces 'Margin Call' risk that can wipe out your initial equity." },
+            { q: "Does this account for taxes?", a: "Our 2026 tool provides Pre-Tax multipliers. Remember that amplified yields lead to amplified 2026 tax liabilities on capital gains and dividends." }
+        ]
+    },
+    'zoning-density-math': {
+        title: "Floor Area Ratio (FAR) & Urban Density",
+        howToUse: "Enter your total lot size and your building's footprint. We calculate the FAR to ensure your 2026 construction plan meets local zoning density caps.",
+        whyItWorks: "FAR is the 'Capacity' of land. By normalizing building volume against lot area, our 2026 tool provides developers and architects with the single most important number in zoning compliance.",
+        faq: [
+            { q: "What happens if I exceed my FAR?", a: "You will be denied a 2026 building permit unless you obtain a 'Variance' or buy 'Air Rights' from neighboring lots. Our tool helps you stay within the legal building envelope." },
+            { q: "Does a 2.0 FAR mean a 2-story building?", a: "Not necessarily. It could be a 10-story building that only takes up 20% of the lot's 2026 footprint. FAR measures total volume, not height directly." }
+        ]
+    },
+    'bold-text': {
+        title: "Bold Text & Unicode Styling",
+        howToUse: "Type your text into the generator and watch it transform. We provide multiple bold and serif styles that you can copy and paste directly into social media platforms.",
+        whyItWorks: "Standard keyboards use ASCII, but social media platforms support Unicode 'mathematical' characters that look like bold or italic fonts. Our 2026 generator maps your regular letters to these special characters for instant styling.",
+        faq: [
+            { q: "Is bold text readable by screen readers?", a: "Often no. Because these are mathematical symbols, screen readers may read them aloud as single characters. We recommend using stylized text for emphasis, not for critical information." },
+            { q: "Why doesn't my bold text show up on some devices?", a: "Most modern devices (iOS 15+, Android 12+) support these characters perfectly. If someone is on a very old browser, they might see boxes instead of the styled text." }
+        ]
+    },
+    'capital-gains-yield': {
+        title: "Capital Gains Yield & Price Appreciation",
+        howToUse: "Enter your initial purchase price and the current (or expected) selling price. Our tool isolates the 'price growth' part of your return, excluding dividends.",
+        whyItWorks: "Total return consists of Dividends + Capital Gains. isolates the growth of the asset's market value. This is critical for 2026 tax planning and growth-stock comparison.",
+        faq: [
+            { q: "Is yield the same as profit?", a: "Profit is a dollar amount; yield is a percentage. Yield allows you to compare a $10 gain on a $50 stock (20%) to a $100 gain on a $1000 stock (10%)." },
+            { q: "Does capital gains yield include inflation?", a: "No, this is a nominal yield. To find your 'Real Yield,' you'd need to subtract the inflation rate for the period." }
+        ]
+    },
+    'cholesterol-ratio': {
+        title: "Cholesterol Ratios & Lipid Health",
+        howToUse: "Enter your Total Cholesterol, HDL, and LDL values. We calculate the critical ratios (Total/HDL and LDL/HDL) used by clinicians to assess cardiovascular risk.",
+        whyItWorks: "Raw cholesterol numbers don't tell the whole story. The ratio of 'Good' (HDL) to 'Bad' (LDL) cholesterol is often a stronger predictor of heart health. Our 2026 calculator provides benchmarks based on current AHA guidelines.",
+        faq: [
+            { q: "What is a 'Good' Cholesterol Ratio?", a: "For Total/HDL, a ratio below 5.0 is standard, while 3.5 or lower is considered optimal for heart health. This tool helps you track your progress over time." },
+            { q: "Can my ratio be too low?", a: "Extremely low cholesterol ratios are rare but can sometimes indicate other underlying health issues. Always discuss your 2026 lipid profile results with a medical professional." }
+        ]
+    },
+    'compound-growth': {
+        title: "Compound Growth & Wealth Accumulation",
+        howToUse: "Input your asset's growth rate and time horizon. This tool projects the total value of an asset that grows at a steady percentage, similar to a housing market or index fund.",
+        whyItWorks: "Growth is the engine of 2026 wealth. By modeling a consistent annual percentage increase, you can visualize how small gains today turn into significant assets over 10, 20, or 30 years.",
+        faq: [
+            { q: "What is a realistic growth rate for 2026?", a: "Historically, the stock market averages around 7-10% annually before inflation. Many planners use 5-6% for a more conservative and 'safe' projection." },
+            { q: "Is compound growth the same as compound interest?", a: "They are mathematically identical. 'Interest' usually refers to bank accounts or bonds, while 'Growth' refers to stocks, real estate, or business value." }
+        ]
+    },
+    'compound-interest-rate': {
+        title: "Required Interest Rate & Financial Goals",
+        howToUse: "Enter where you are now, where you want to be, and how much time you have. We'll solve for the annual interest rate you need to reach your target.",
+        whyItWorks: "Most people know their goal but don't know the 'yield' required to get there. This tool uses the reverse-compound formula to find your target rate, helping you choose the right 2026 investment strategy.",
+        faq: [
+            { q: "What if the required rate is 20%?", a: "If our tool shows you need a 20% return, you may need to increase your time horizon or your monthly contribution, as a 20% annual return is extremely high-risk." },
+            { q: "How does compounding frequency affect the rate?", a: "More frequent compounding (like monthly) actually lowers the required annual rate slightly to reach the same end goal." }
+        ]
+    },
+    'credit-card-interest': {
+        title: "Credit Card Interest & Debt Management",
+        howToUse: "Enter your current card balance and your APR. Our 2026 analyzer shows you exactly how much interest is added to your bill every single month.",
+        whyItWorks: "Credit card companies calculate interest daily based on your average balance. This 'daily periodic rate' is what drives the compounding cycle that makes credit card debt so difficult to clear quickly.",
+        faq: [
+            { q: "How can I avoid paying interest?", a: "The only way to avoid interest is to pay your 'Statement Balance' in full before the due date every month. Most cards offer a 21-25 day 'grace period' where interest isn't charged." },
+            { q: "Does a 20% APR mean 20% per month?", a: "No! APR is Annual. A 20% APR means about 1.6% interest per month. However, because it compounds, the 'Effective' rate is actually slightly higher." }
+        ]
+    },
+    'credit-card-minimum-payment': {
+        title: "Credit Card Minimum FAQ & Strategy",
+        howToUse: "Enter your balance and interest rate. Choose whether your bank uses a flat percentage or interest-plus-principal for the minimum payment. We'll show you exactly how many years it will take to reach zero.",
+        whyItWorks: "Minimum payments are designed by banks to maximize interest profit. By calculating the ratio of interest to principal in every payment, our 2026 model reveals how little of your money is actually shrinking your debt.",
+        faq: [
+            { q: "Why is my balance hardly dropping?", a: "If your APR is high, the interest charge often equals or exceeds the amount you are paying off in the minimum payment. This tool helps you identify that 'stagnation point' to avoid 2026 debt traps." },
+            { q: "Can I increase my minimum payment?", a: "You can always pay more than the minimum. Even an extra $50 per month can cut your payoff timeline by decades in many high-interest scenarios." }
+        ]
+    },
+    'credit-card-payment': {
+        title: "Credit Card Payoff Planning 2026",
+        howToUse: "Input your debt goal (like 'pay off in 12 months') and your current balance. We'll find the exact monthly payment needed to balance interest and principal for a clean exit from debt.",
+        whyItWorks: "Debt payoff is a race against interest. By calculating the monthly interest accrual on your remaining balance, our 2026 planner ensures that your payment is large enough to stay ahead of the compounding curve.",
+        faq: [
+            { q: "Is a fixed payment better than a percentage?", a: "Yes. A fixed monthly payment (e.g., $300 every month) clears debt much faster than paying a percentage of the remaining balance, because the payment doesn't shrink as your debt does." },
+            { q: "How much interest will I save?", a: "Our calculator shows you a 'Total Interest' comparison between your current path and your new plan, letting you see the thousands of 2026 dollars you could save." }
+        ]
+    },
+    'credit-utilization': {
+        title: "Credit Utilization & Score Impact",
+        howToUse: "Enter your total credit limits and your current balances across all cards. We'll find your utilization ratio—one of the most important metrics for your 2026 credit score.",
+        whyItWorks: "Lenders use utilization to measure how much of your 'available' credit you are using. High utilization (above 30%) suggests financial risk, while low utilization suggests stability and discipline. This math is the bedrock of 2026 modern credit health.",
+        faq: [
+            { q: "Should I close unused credit cards?", a: "Usually no. Closing a card reduces your total credit limit, which raises your utilization ratio and can hurt your score. It's often better to keep the account open with a zero balance in 2026." },
+            { q: "How fast does utilization update?", a: "Most issuers report your balance once a month. Once you pay down a card, your utilization ratio (and often your score) should update within 30-45 days." }
+        ]
+    },
+    'dc-ac-loss-math': {
+        title: "Inverter Efficiency & Power Conversion",
+        howToUse: "Input your battery voltage, output wattage, and the rated efficiency of your inverter. We'll show you exactly how much 'juice' is lost as heat during the conversion process.",
+        whyItWorks: "Converting DC (Direct Current) to AC (Alternating Current) is never 100% efficient. By modeling the internal thermal losses of high-frequency switches, our 2026 engine helps you size your solar or backup system for real-world performance.",
+        faq: [
+            { q: "What causes 'Inverter Loss'?", a: "A mix of electrical resistance in the wiring and 'switching losses' in the transistors. Higher quality inverters in 2026 minimize these, but they can never be eliminated entirely." },
+            { q: "How much extra battery do I need for losses?", a: "A safe thumb rule is to add 15-20% to your total energy needs to account for both inverter loss and the efficiency of the battery discharge itself." }
+        ]
+    },
+    'debt': {
+        title: "Total Debt Tracker & Net Worth",
+        howToUse: "List your various loans and balances. We'll aggregate them into a single 'Total Liability' figure to help you understand your overall financial leverage in 2026.",
+        whyItWorks: "Total debt is the anchor on your net worth. By visualizing all debts in one place, you can move from 'payment management' to 'wealth management,' making strategic decisions based on interest rates and total principals.",
+        faq: [
+            { q: "What is 'Good' vs 'Bad' debt?", a: "Debt used to buy assets that grow in value (like a home or education) is often seen as better than debt for depreciating goods (like credit cards for shopping). Our 2026 tracker helps you differentiate between them." },
+            { q: "How does debt impact my 2026 net worth?", a: "Net Worth = Assets - Liabilities. Every dollar of debt you clear is a direct dollar increase to your personal wealth." }
+        ]
+    },
+    'deferred-payment-loan': {
+        title: "Loan Deferment & Capitalization Math",
+        howToUse: "Enter your loan balance, interest rate, and the length of the deferment period. We'll show you the 'Final Balance' when payments resume, including all capitalized interest.",
+        whyItWorks: "Deferment isn't a 'pause' on interest, just on payments. By calculating the daily interest accrual during the pause, our 2026 engine reveals the true cost of delaying your repayment schedule.",
+        faq: [
+            { q: "Should I pay anything during deferment?", a: "If you can afford to pay even just the monthly interest, you prevent that interest from 'capitalizing' and being added to your loan principal, saving you thousands in the long run." },
+            { q: "What loans offer 0% deferment?", a: "In 2026, some federal student loans (Subsidized) may have their interest covered by the government during deferment, but private loans almost always accrue interest." }
+        ]
+    },
+    'dimensional-analysis': {
+        title: "Dimensional Analysis & Unit Logic",
+        howToUse: "Enter your starting value and the units you want to convert between. Our 2026 engine uses the 'bridge method' to ensure units cancel out correctly for a perfect physical result.",
+        whyItWorks: "Units are the grammar of science. By treating units as algebraic quantities, dimensional analysis ensures that your mathematical models are physically possible. It's a vital 2026 tool for avoiding engineering and medical errors.",
+        faq: [
+            { q: "Can I use this for chemistry?", a: "Yes. Use it to convert moles to grams or liters to atoms by including Avogadro's number or molar mass in your chain of conversion factors." },
+            { q: "What is a 'Conversion Factor'?", a: "A fraction where the numerator and denominator are equal values in different units (like 12 inches / 1 foot). Multiplying by this factor changes the units without changing the value." }
+        ]
+    },
+    'dog-bmi': {
+        title: "Dog BMI & Canine Body Condition",
+        howToUse: "Select your dog's breed and input their weight. We use breed-specific density targets and the standard Body Condition Score (BCS) system to assess their current fitness level.",
+        whyItWorks: "A standard 'human' BMI doesn't work for dogs because of their vast anatomical differences. Our model uses morphometric data—the relationship between frame size and muscle mass—to provide a more clinical view of your pet's health.",
+        faq: [
+            { q: "Is weight the best way to track dog health?", a: "Weight is a baseline, but the BCS (Body Condition Score) is the gold standard in 2026. You should be able to see a tucked-up abdomen and feel but not see their ribs." },
+            { q: "How often should I weigh my dog?", a: "For a growing puppy or a dog on a 2026 weight loss plan, weekly weigh-ins are good. For a healthy adult, once every 3 months is usually sufficient to catch slow drifts in weight." }
+        ]
+    },
+    'eidl-advance': {
+        title: "EIDL Advance & SBA Grants",
+        howToUse: "Enter your estimated annual revenue and the number of employees. Our 2026 analyzer estimates your potential grant amount based on historical SBA Economic Injury Disaster Loan (EIDL) frameworks.",
+        whyItWorks: "Grants are calculated per employee and restricted by target revenue thresholds. By modeling the 2026 'Eligibility Filter,' we can help you understand if you qualify for 'Targeted' vs. 'Supplemental' advance funds.",
+        faq: [
+            { q: "Is the EIDL Advance a loan?", a: "No. The 'Advance' portion is a grant that does not need to be repaid. However, keep in mind that initial 2026 funding rounds for new disasters are often capped and time-sensitive." },
+            { q: "What is a 'Targeted' EIDL Advance?", a: "This is a specific grant for businesses in low-income communities that suffered more than a 30% economic loss. Our tool helps you estimate that loss calculation." }
+        ]
+    },
+    'finance-charge': {
+        title: "Finance Charges & Borrowing Costs",
+        howToUse: "Enter your loan principal, your APR, and any transaction or service fees. Our 2026 analyzer sums these components into a single 'Total Finance Charge.'",
+        whyItWorks: "Borrowing isn't just interest. A finance charge includes interest plus the extra 2026 costs of credit, like documentation fees or insurance requirements. Understanding this total is the only way to compare loans accurately.",
+        faq: [
+            { q: "Is a Finance Charge the same as Interest?", a: "No. Interest is the periodic cost of the principal, while the Finance Charge is the sum of interest AND all other associated borrowing fees." },
+            { q: "Can a low APR have a high Finance Charge?", a: "Yes! If a lender offers a 0.5% APR but charges $2,000 in 'upfront fees,' your total finance charge for a 1-year loan might be higher than a 5% loan with no fees." }
+        ]
+    },
+    'gold-purchasing-power': {
+        title: "Gold & Historical Inflation Logic",
+        howToUse: "Select a historical year (e.g., 1800 or 1920) and a currency amount. Our engine uses the gold price index to convert that 'old money' into 2026 purchasing power.",
+        whyItWorks: "Gold is the ultimate constant. By comparing how much gold an ounce of currency bought in the past versus today, we can filter out the noise of 'fiat inflation' and see the real value of labor and goods over centuries.",
+        faq: [
+            { q: "Why use gold as an inflation benchmark?", a: "Unlike dollars, gold cannot be printed. This makes it a 2026 gold-standard for measuring the 'debasement' of currency over long historical periods." },
+            { q: "Does this account for the 1971 gold-standard exit?", a: "Yes. Our model factors in the decoupling of the dollar from gold, showing the accelerated price shifts that occurred after 1971." }
+        ]
+    },
+    'golf-handicap': {
+        title: "Golf Handicaps & Course Ratings",
+        howToUse: "Input your score, the course rating, and the slope. Our 2026 USGA-style engine finds your 'Differential' for that round, which is used to build your total handicap index.",
+        whyItWorks: "A 90 on a hard course is better than an 85 on an easy one. By normalizing your performance against Course Rating and Slope, we create a fair 2026 baseline that allows you to compete with players of different skill levels.",
+        faq: [
+            { q: "What is Course Slope?", a: "Slope measures the relative difficulty of a course for a 'bogey' golfer compared to a 'scratch' golfer. The 2026 standard slope is 113." },
+            { q: "How many rounds do I need for a handicap?", a: "You can start with as few as 3 rounds (54 holes), but the index becomes significantly more stable once you have 20 rounds recorded in the system." }
+        ]
+    },
+    'grade': {
+        title: "Grade Prediction & GPA Strategy",
+        howToUse: "Enter your current individual scores and their weights (e.g., Homework 20%, Exams 60%). Then, set your desired 'Final Grade' goal to see what you need on your remaining work.",
+        whyItWorks: "Grade math is a weighted average. By isolating the 'Unknowns' (like your final exam), our 2026 student engine calculates the minimum threshold you need to maintain your academic standing.",
+        faq: [
+            { q: "What is 'Weighting'?", a: "Weighting means some assignments count more than others. In 2026, many college courses make the Final Exam 30-40% of the total grade, making it the most critical variable." },
+            { q: "Can this help with my GPA?", a: "Yes. By knowing your individual course outcomes, you can project your 2026 semester GPA before final grades are even posted." }
+        ]
+    },
+    'gravel-bag-count': {
+        title: "Aquarium & Garden Bed Volume",
+        howToUse: "Enter the length and width of your tank or bed, and how deep you want the substrate to be. Our 2026 planner calculates total volume and converts it to 'Number of Bags.'",
+        whyItWorks: "Gravel density varies, but we use a standard 2026 average of 100lb per cubic foot. By calculating the total cubic volume of your bed, we ensure you don't over-order heavy materials or end up with a bed that is too shallow.",
+        faq: [
+            { q: "Should I wash my gravel first?", a: "Always! Even 2026 'pre-washed' gravel contains dust that can cloud your water for weeks. Rinsing reduces the weight slightly due to loss of fines." },
+            { q: "How much depth do my plants need?", a: "Most rooted aquarium plants need 2-3 inches of substrate. For garden beds, 4-6 inches is standard for 2026 soil health and moisture retention." }
+        ]
+    },
+    'hex-to-rgb': {
+        title: "Web Colors & Decimal Conversion",
+        howToUse: "Type a 6-digit HEX code (e.g., #FF5733). Our 2026 converter splits the code into its Red, Green, and Blue intensity values for use in design software.",
+        whyItWorks: "HEX is base-16 math. By converting each 2-digit pair into base-10 (0-255), we translate the 'concise' web code into the 'descriptive' decimal code that 2026 graphic systems require.",
+        faq: [
+            { q: "What is an 'Alpha' value?", a: "Alpha represents transparency. While HEX uses 6 digits for color, an 8-digit HEX code includes 2 extra digits for transparency (0% to 100%)." },
+            { q: "Why are there only 16.7 million colors?", a: "Because 256 intensities for R x 256 for G x 256 for B equals 16,777,216. Our 2026 tool covers them all." }
+        ]
+    },
+    'hours-minutes': {
+        title: "Time Addition & Unit Splitting",
+        howToUse: "Input multiple time durations (e.g., 2h 45m + 1h 30m). Our 2026 analyzer carries the minutes into the hours correctly to give you a clean total.",
+        whyItWorks: "Standard math is base-10, but time is base-60. By normalizing all inputs into total minutes, performing the math, and then 'modding' back into hours, we eliminate the 2026 errors common in manual time tracking.",
+        faq: [
+            { q: "Can I subtract time too?", a: "Yes. This tool is perfect for calculating how much time you spent on a task if you know your 2026 start and end times but don't want to do the clock math." },
+            { q: "How do I convert hours to decimals?", a: "Divide your minutes by 60. For example, 1 hour and 30 minutes is 1.5 hours. Our 2026 tool provides both views instantly." }
+        ]
+    },
+    'injector-sizing-pro': {
+        title: "Injector Flow & Engine Performance",
+        howToUse: "Enter your target Horsepower, number of cylinders, and desired Duty Cycle (usually 80%). Our 2026 tuning engine calculates the flow rate (cc/min or lb/hr) needed to keep your engine running safe.",
+        whyItWorks: "Engines need 'Brake Specific Fuel Consumption' (BSFC) data to stay at the correct air-fuel ratio. By calculating total fuel mass per minute, we ensure your injectors aren't 'maxed out,' which leads to catastrophic lean-condition failures.",
+        faq: [
+            { q: "What is Duty Cycle?", a: "It's the percentage of time the injector is 'open.' In 2026 tuning, we aim for 80-85% at max RPM to allow for cooling and 'safe' headroom." },
+            { q: "Does fuel pressure change sizing?", a: "Yes! Increasing fuel pressure increases flow. If you change your 2026 fuel pressure regulator, you must re-calculate your effective injector size." }
+        ]
+    },
+    'jumbo-loan': {
+        title: "Jumbo Loans & High-Value Financing",
+        howToUse: "Enter the purchase price and your down payment. Our 2026 analyzer determines if the loan amount exceeds conforming limits, requiring a 'Jumbo' mortgage structure.",
+        whyItWorks: "Jumbo loans are for properties that exceed the limits set by Fannie Mae and Freddie Mac. Because they can't be 'guaranteed' as easily, they often require higher credit scores and larger down payments in 2026 markets.",
+        faq: [
+            { q: "What is a 'Conforming Limit'?", a: "It's the maximum loan amount that federal agencies will back. In 2026, this threshold varies by county, but once you cross it, you enter the 'Jumbo' zone." },
+            { q: "Are Jumbo rates higher than standard rates?", a: "Not always. In 2026, Jumbo rates can sometimes be lower than conforming rates, but the qualification process is significantly more rigorous." }
+        ]
+    },
+    'knots-to-kph': {
+        title: "Nautical Speed & Land Conversion",
+        howToUse: "Enter your speed in Knots. Our 2026 converter uses the standard nautical-to-metric ratio to give you a precise kilometers-per-hour (KPH) result.",
+        whyItWorks: "A Knot is one nautical mile per hour, which is exactly 1.852 kilometers. By applying this international standard, our 2026 engine bridges the gap between maritime navigation and terrestrial planning.",
+        faq: [
+            { q: "What is a Nautical Mile?", a: "It is based on one minute of latitude on the Earth's surface. This makes it a 2026 standard for long-distance sea and air travel where coordinates are used." },
+            { q: "Why use Knots instead of MPH?", a: "Knots allow navigators to easily calculate distance over the Earth's curvature. 1 knot = 1 nautical mile per hour = 1 minute of latitude per hour." }
+        ]
+    },
+    'life-runway': {
+        title: "Life Runway & Personal Burn Rate",
+        howToUse: "Enter your total liquid savings and your average monthly expenses. We'll show you exactly how many 'survival days' you have if your income stops today.",
+        whyItWorks: "Financial freedom is measured in time, not just dollars. By finding your 'Runway' (Savings / Monthly Burn), you can determine how much time you have to pivot, find a new role, or launch a 2026 startup.",
+        faq: [
+            { q: "What is a 'Healthy' life runway?", a: "Financial experts in 2026 recommend at least 6 months (180 days) of runway for employees and 12-18 months for founders or those in high-volatility sectors." },
+            { q: "How do I extend my runway?", a: "You can either increase your 'Fuel' (savings) or decrease your 'Burn' (expenses). Cutting 2026 discretionary spending is the fastest way to add days to your runway." }
+        ]
+    },
+    'man-hours': {
+        title: "Man-Hours & Project Effort Math",
+        howToUse: "Enter the number of staff members and the estimated calendar duration of the project. Our 2026 analyzer calculates the total 'Man-Hours' needed for labor budgeting.",
+        whyItWorks: "Man-hours (or Person-hours) represent the total amount of uninterrupted labor required to complete a task. This is the 2026 gold standard for quoting professional services and estimating industrial production costs.",
+        faq: [
+            { q: "Does 10 man-hours mean 10 hours on a clock?", a: "Not necessarily. If you use 5 workers, a 10 man-hour project only takes 2 hours of 'real' time. This tool helps you manage that staffing relationship." },
+            { q: "How do I account for breaks and lunch?", a: "You should only count 'active' labor in man-hours. In 2026, we suggest adding a 15-20% 'efficiency buffer' to account for communication and physiological breaks." }
+        ]
+    },
+    'common-factor': {
+        title: "Common Factors & GCF Logic",
+        howToUse: "Enter two or more numbers. Our math engine performs a prime factorization to find all shared factors and the Greatest Common Factor (GCF) instantly.",
+        whyItWorks: "Factoring is the process of breaking numbers into their building blocks. By identifying the intersections of these blocks, we find the common factors used for simplifying fractions and 2026 algebraic expressions.",
+        faq: [
+            { q: "What is the Greatest Common Factor (GCF)?", a: "It's the largest whole number that divides into two or more numbers without a remainder. It's essential for 2026 math students and cryptographic engineering." },
+            { q: "How do you find common factors manually?", a: "List all factors for each number and find the ones that appear in both lists. Our 2026 tool does this instantly for numbers as large as 1 quadrillion." }
+        ]
+    },
+    'metal-weight': {
+        title: "Metal Weight & Material Density",
+        howToUse: "Select your metal type (Aluminum, Brass, Copper, etc.) and enter the dimensions (Length, Width, Thickness). Our 2026 engine uses high-precision physical densities to give you the total weight.",
+        whyItWorks: "Every metal has a specific density (mass per volume). By calculating the total cubic volume of your sheet or rod and multiplying by the 2026 material coefficient, we ensure your shipping and structural loads are perfect.",
+        faq: [
+            { q: "Why is Aluminum lighter than Steel?", a: "Atomic structure. In 2026, Aluminum is roughly 1/3 the density of steel, which is why it's used for aviation and portable electronics where weight is critical." },
+            { q: "Is 'Gage' the same as 'Thickness'?", a: "Gage is a standardized numbering system where smaller numbers often mean thicker material. Our 2026 tool converts Gage to inches/mm automatically for accuracy." }
+        ]
+    },
+    'million-to-billion': {
+        title: "Million to Billion Scale Converter",
+        howToUse: "Enter a number in millions, billions, or trillions. Our 2026 economics engine converts between scales so you can visualize the massive differences in financial magnitude.",
+        whyItWorks: "Human brains struggle with large numbers. A 'Billion' is 1,000 times larger than a 'Million'. By normalizing these onto one 2026 scale, we provide clarity for national budgets, corporate valuations, and macro data.",
+        faq: [
+            { q: "How much is 1 billion seconds?", a: "Roughly 31.7 years. For comparison, 1 million seconds is only about 11.5 days. This 2026 tool helps you bridge that massive conceptual gap." },
+            { q: "What is a Trillion in 2026?", a: "In the 'Short Scale' used in the US and UK, a trillion is 1,000 billion (10^12). Our tool ensures you are using the correct global standard for your reports." }
+        ]
+    },
+    'ml-f1-balance': {
+        title: "F1 Score & Model Precision",
+        howToUse: "Enter your True Positives, False Positives, and False Negatives. Our machine learning engine calculates the F1 Score—the harmonic mean of your precision and recall.",
+        whyItWorks: "Accuracy can be misleading if data is imbalanced. The F1 Score (2 * (P * R) / (P + R)) ensures that both 'missing positives' and 'false alarms' are penalized equally, making it the 2026 gold standard for AI model evaluation.",
+        faq: [
+            { q: "When is F1 better than Accuracy?", a: "In scenarios like fraud detection or medical screening where the 'positive' case is rare. A model could be 99% accurate by saying 'no' to everyone, but its F1 score would be 0." },
+            { q: "What is a 'Good' F1 Score in 2026?", a: "It depends on the task, but generally 0.70+ is respectable, and 0.90+ is considered professional-grade for production models." }
+        ]
+    },
+    'mortgage': {
+        title: "Mortgage Math & Amortization 2026",
+        howToUse: "Input your home price, down payment, and interest rate. We'll show you your P&I (Principal & Interest) payment and create a full 30-year amortization schedule showing how your equity grows.",
+        whyItWorks: "Mortgages use 'Compounding interest in reverse.' At the start, most of your payment goes to interest. This tool helps you see the 2026 pivot point where your payments finally start hitting the principal for real wealth building.",
+        faq: [
+            { q: "Should I choose 15 or 30 years?", a: "30 years gives lower payments (better 'cash flow'). 15 years saves a fortune in interest. Use our 2026 comparison toggle to see which path fits your financial goals." },
+            { q: "How much down payment do I really need?", a: "While 20% avoids PMI (insurance), many 2026 programs allow 3% or 3.5%. This tool calculates the 'PMI penalty' so you can see if the extra cost is worth buying sooner." }
+        ]
+    },
+    'multi-rotor-airtime': {
+        title: "Drone Airtime & Multi-Rotor Logic",
+        howToUse: "Enter your battery capacity (mAh), total weight (g), and motor amp draw. Our 2026 physics engine predicts your 'Flight Minutes' until the 20% safety threshold.",
+        whyItWorks: "Airtime is limited by the relationship between 'Stored Energy' and 'Wattage Draw.' Heavier drones require more thrust, which increases amp draw and kills 2026 battery life. Our tool models this lift-to-power curve accurately.",
+        faq: [
+            { q: "Why shouldn't I fly to 0% battery?", a: "LiPo batteries in 2026 can be permanently damaged (or explode) if discharged below 3.0V per cell. We calculate airtime based on a safe 80% discharge rule." },
+            { q: "Does wind affect my 2026 airtime?", a: "Yes. Fighting wind requires more motor RPM, which drains current faster. In steady winds, we suggest subtracting 20% from our 'Indoor/Static' calculation for safety." }
         ]
     },
 };
