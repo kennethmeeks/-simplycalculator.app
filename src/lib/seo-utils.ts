@@ -207,6 +207,18 @@ export const getHighIntentSEO = (name: string, categoryTitle: string = 'Professi
         title = `TLS Ping Overhead Calculator — SSL Handshake Latency Tool`;
     } else if (lowerName === 'triathlon finish' || lowerName === 'triathlon-finish') {
         title = `Triathlon Finish Time Calculator — 2026 Race Day Predictor`;
+    } else if (lowerName === 'additional funds needed' || lowerName === 'additional-funds-needed') {
+        title = `Additional Funds Needed (AFN) Calculator — 2026 Financing Logic`;
+    } else if (lowerName === 'obs upload headroom' || lowerName === 'obs-upload-headroom') {
+        title = `OBS Upload Headroom Calculator — Stream Settings Optimizer`;
+    } else if (lowerName === 'thumbnail ctr stats' || lowerName === 'thumbnail-ctr-stats') {
+        title = `YouTube Thumbnail CTR Calculator — Video Performance Math`;
+    } else if (lowerName === 'crickets thermometer' || lowerName === 'crickets-thermometer') {
+        title = `Cricket Chirp Thermometer — Dolbear's Law Temperature Tool`;
+    } else if (lowerName === 'bmi women' || lowerName === 'bmi-women') {
+        title = `BMI Calculator for Women — Healthy Weight & Health Risks (2026)`;
+    } else if (lowerName === 'waist to height' || lowerName === 'waist-to-height') {
+        title = `Waist-to-Height Ratio Calculator — Better Than BMI for Health`;
     } else if (lowerName === 'battery state of charge' || lowerName === 'voltage-rest-soc') {
         title = `Battery State of Charge Calculator — Voltage to % Capacity (2026)`;
     } else if (lowerName === 'wi-fi mesh placer' || lowerName === 'wifi-mesh-count') {
@@ -388,6 +400,18 @@ export const getHighIntentSEO = (name: string, categoryTitle: string = 'Professi
         description = `Analyze network performance. Calculate the latency impact of SSL/TLS handshakes and certificate verification for 2026 web operations.`;
     } else if (lowerName === 'triathlon finish' || lowerName === 'triathlon-finish') {
         description = `Predict your total triathlon time. Calculate finish times for swim, bike, and run segments including 2026 transition (T1/T2) buffers.`;
+    } else if (lowerName === 'additional funds needed' || lowerName === 'additional-funds-needed') {
+        description = `Calculate the external capital required to support your 2026 business growth. Use the AFN formula to estimate new debt or equity needs based on sales expansion.`;
+    } else if (lowerName === 'obs upload headroom' || lowerName === 'obs-upload-headroom') {
+        description = `Optimize your 2026 stream quality. Calculate your OBS bitrate headroom based on upload speed to prevent dropped frames and network congestion.`;
+    } else if (lowerName === 'thumbnail ctr stats' || lowerName === 'thumbnail-ctr-stats') {
+        description = `Evaluate your YouTube thumbnail performance. Compare your Click-Through Rate (CTR) against 2026 platform benchmarks for better video reach.`;
+    } else if (lowerName === 'crickets thermometer' || lowerName === 'crickets-thermometer') {
+        description = `Tell the temperature by counting cricket chirps. Use Dolbear's Law to get accurate 2026 temperature readings using nature's own thermometer.`;
+    } else if (lowerName === 'bmi women' || lowerName === 'bmi-women') {
+        description = `A specialized BMI calculator for women. Assess your body mass index with 2026 health standards that consider female body composition and health risks.`;
+    } else if (lowerName === 'waist to height' || lowerName === 'waist-to-height') {
+        description = `Calculate your waist-to-height ratio (WtHR). A powerful 2026 metabolic health indicator that is often more accurate than BMI for predicting heart disease risk.`;
     } else if (lowerName === 'battery state of charge' || lowerName === 'voltage-rest-soc') {
         description = `Estimate your battery's remaining capacity based on resting voltage. Support for 2026 LiPo, LiFePO4, and Lead Acid discharge curves.`;
     } else if (lowerName === 'wi-fi mesh placer' || lowerName === 'wifi-mesh-count') {

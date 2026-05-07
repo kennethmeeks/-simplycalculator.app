@@ -79,6 +79,30 @@ export const getSpecificFAQ = (calculatorName: string, categoryTitle: string, pa
             { q: "What is a good triathlon transition time?", a: "Professional athletes aim for under 90 seconds. For 2026 age-groupers, 3-5 minutes per transition (T1/T2) is a safe and common buffer to include in your race prediction." },
             { q: "Does the calculator account for 'The Wall'?", a: "We assume a steady pace. In 2026 endurance math, experienced racers suggest adding a 5-10% 'fatigue buffer' to your run leg to account for the impact of the bike finished right before." }
         ],
+        '/additional-funds-needed': [
+            { q: "What does AFN mean in business finance?", a: "AFN (Additional Funds Needed) is a formula used to forecast how much new financing a company will need to support a planned increase in sales for 2026." },
+            { q: "Does AFN account for inflation?", a: "Indirectly. If inflation increases your costs and required asset base in 2026, your AFN requirement will rise accordingly." }
+        ],
+        '/obs-upload-headroom': [
+            { q: "How much bitrate should I use for 1080p 60fps?", a: "For 2026 standards, we recommend 6,000 to 8,000 Kbps. However, you should leave at least 20-25% 'Headroom' of your total upload speed for network stability." },
+            { q: "Why is my stream dropping frames if my speed is high?", a: "Fluctuations in network jitter or packet loss can occur in 2026 environments. Headroom ensures that a temporary dip in speed doesn't cause a disconnect." }
+        ],
+        '/thumbnail-ctr-stats': [
+            { q: "What is a good CTR for a YouTube thumbnail?", a: "While the platform average is 2-10%, a 'Great' CTR in 2026 is often anything above 8%. It depends heavily on your niche and audience loyalty." },
+            { q: "Does CTR affect YouTube search ranking?", a: "Absolutely. In 2026, Click-Through Rate is a primary signal to the algorithm that your thumbnail is satisfying user intent." }
+        ],
+        '/crickets-thermometer': [
+            { q: "How many chirps represent 1 degree?", a: "Using Dolbear's Law, you count chirps in 15 seconds and add 40 to get the temperature in Fahrenheit. Our 2026 tool handles the math for both C and F automatically." },
+            { q: "Does this work for all crickets?", a: "It is most accurate for the snowy tree cricket. Other species chirp at different 2026 rates, but Dolbear's Law remains a fascinating seasonal benchmark." }
+        ],
+        '/bmi-women': [
+            { q: "Is BMI different for men and women?", a: "The math is the same, but the 2026 health implications differ. Women naturally have a higher body fat percentage, which our specialized tool considers for health risk assessment." },
+            { q: "Does BMI account for bone density?", a: "No. BMI is a general screening tool. In 2026, we suggest using it alongside our Waist-to-Height tool for a more complete health picture." }
+        ],
+        '/waist-to-height': [
+            { q: "What is a healthy Waist-to-Height ratio?", a: "A ratio of 0.5 or less is generally considered healthy in 2026. This means your waist circumference should be less than half your height." },
+            { q: "Why is WtHR better than BMI?", a: "Because it measures 'Central Adiposity' (belly fat), which is more closely linked to 2026 cardiovascular risk than total body weight." }
+        ],
         '/voltage-rest-soc': [
             { q: "How do I check my battery's 'State of Charge' (SoC)?", a: "Measure the voltage after the battery has rested (no charging or discharging) for at least 2 hours. Our 2026 tool then maps that voltage to its percentage of remaining energy." },
             { q: "Why is 'Resting' voltage important?", a: "When a battery is under load, the voltage drops due to 'Voltage Sag.' When charging, it is artificially high. Only resting voltage provides an accurate state-of-charge reading in 2026." }

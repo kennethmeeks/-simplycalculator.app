@@ -322,6 +322,48 @@ export const getProContent = (path: string): ProContent[] => {
                 content: '• **Wetsuit Gain:** A 2026 wetsuit can shave 2-5% off your swim time due to increased buoyancy.\n• **Brick Training:** Practice your T2 transition (Bike to Run) in 2026 to avoid "Heavy Legs" and maintain your projected pace.\n• **Hydration Math:** Plan for 20-24 oz of fluid per 2026 hour on the bike to ensure your run segment doesn\'t suffer from cramping.'
             }
         ],
+        '/additional-funds-needed': [
+            {
+                title: 'Strategic Growth Checklist',
+                type: 'checklist',
+                content: '• **Sales Capacity:** Can your current factory layout handle the 2026 projected sales increase?\n• **Spontaneous Liabilities:** Ensure your accounts payable are expanding in sync with your 2026 growth.\n• **Retention Ratio:** Are you reinvesting enough profit to minimize your 2026 external funding needs?'
+            }
+        ],
+        '/obs-upload-headroom': [
+            {
+                title: 'Streaming Reliability Rule',
+                type: 'comparison',
+                content: 'Lower bitrates with higher headroom are always better in 2026 than high bitrates that crash. If your upload speed is 10Mbps, don\'t stream at 8Mbps. Target 6Mbps to ensure your 2026 viewers don\'t experience buffering during peak network traffic.'
+            }
+        ],
+        '/thumbnail-ctr-stats': [
+            {
+                title: 'Viral Design Checklist',
+                type: 'checklist',
+                content: '• **Contrast Check:** Does your 2026 subject stand out against the background?\n• **Text Legibility:** Use fewer than 4 words for 2026 mobile users.\n• **Emotional Hook:** Is there a clear "Question" or "Surprise" in the 2026 visual story?'
+            }
+        ],
+        '/crickets-thermometer': [
+            {
+                title: 'Biological Clock Truth',
+                type: 'summary',
+                content: 'In 2026, we use Dolbear\'s Law as more than a curiosity—it\'s a lesson in "Metabolic Kinetics." Crickets obey the Arrhenius equation; as thermal energy increases, their chemical reactions (chirps) accelerate in a predictable 2026 linear pattern.'
+            }
+        ],
+        '/bmi-women': [
+            {
+                title: 'Female Health Priorities',
+                type: 'checklist',
+                content: '• **Visceral Fat:** Even with a normal 2026 BMI, focus on waist circumference as a risk factor.\n• **Age Adjustments:** Bone density shifts in 2026 post-menopausal phases can impact "Ideal" weight targets.\n• **Activity Synergy:** Combine BMI tracking with 2026 strength training to maintain metabolically active muscle.'
+            }
+        ],
+        '/waist-to-height': [
+            {
+                title: 'Metabolic Health Summary',
+                type: 'summary',
+                content: 'The 2026 "Half Your Height" rule is a global benchmark for longevity. Unlike BMI, which ignores muscle mass, WtHR focuses on abdominal fat—the primary driver of 2026 metabolic syndrome and insulin resistance across all body types.'
+            }
+        ],
         '/voltage-rest-soc': [
             {
                 title: 'Battery Maintenance Pro-Tip',

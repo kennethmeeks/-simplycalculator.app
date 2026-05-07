@@ -1575,6 +1575,60 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "How much time is lost in transitions?", a: "In 2026, transition is 'Free Time.' A muddy wetsuit or a dropped bike chain can add 5+ minutes. Practice your 2026 T1/T2 to lock in a faster total time without running faster." }
         ]
     },
+    'additional-funds-needed': {
+        title: "Additional Funds Needed (AFN)",
+        howToUse: "Input your projected sales growth and your current asset/liability ratios. Our 2026 analyzer estimates the external gap that requires new debt or equity financing.",
+        whyItWorks: "The AFN model isolates 'Spontaneous Capital.' It assumes that as sales increase, some balance sheet items grow automatically, while others require 2026 management intervention to fund.",
+        faq: [
+            { q: "Is a negative AFN possible?", a: "Yes! If your 2026 business generates more internal profit and spontaneous credit than it needs for new assets, you will have 'Excess Funds' instead of a gap." },
+            { q: "What is the biggest driver of AFN?", a: "The 'Dividend Payout Ratio' in 2026. The more profit you keep (Retained Earnings), the less you need to borrow from external sources." }
+        ]
+    },
+    'obs-upload-headroom': {
+        title: "OBS Upload Headroom & Bitrate",
+        howToUse: "Enter your total upload speed. We apply the 2026 'Stability Factor' to find your maximum safe streaming bitrate without risking dropped frames.",
+        whyItWorks: "IP networks are bursty. By reserving 20% of your bandwidth as 'Buffer,' we ensure that background 2026 OS updates or smartphone syncs don't crash your live broadcast.",
+        faq: [
+            { q: "Can I use 100% of my upload?", a: "Technically yes, but practically no. In 2026, using 100% causes 'TCP Congestion,' which leads to stuttering and massive lag spikes for your viewers." },
+            { q: "Does Ethernet help headroom?", a: "Directly. Wi-Fi has 2026 'Airtime Contention' that eats into your headroom. A wired cable is the best way to maximize your usable streaming bandwidth." }
+        ]
+    },
+    'thumbnail-ctr-stats': {
+        title: "Thumbnail Page CTR & Performance",
+        howToUse: "Enter your total Impressions and Clicks for a specific 2026 video. We find your CTR and compare it to 2026 niche-specific averages.",
+        whyItWorks: "CTR is the 'Interest Filter.' By calculating the ratio of views to visual exposures, our 2026 engine reveals if your packaging matches the user's high-intent expectation.",
+        faq: [
+            { q: "Why is my CTR low on a viral video?", a: "Viral videos have massive Impressions. Since they reach a 'Broad' 2026 audience instead of just your fans, the CTR naturally drops—even if the video is extremely successful." },
+            { q: "What should I change first for CTR?", a: "The Title. In 2026, users see the thumbnail first, but the Title is what 'sells' the final click. Use our CTR tool to A/B test variations." }
+        ]
+    },
+    'crickets-thermometer': {
+        title: "Crickets Chirp Thermometer",
+        howToUse: "Count the number of 2026 cricket chirps you hear in 15 seconds. Input that number to find the temperature in your immediate area.",
+        whyItWorks: "Insects are ectothermic. Dolbear's Law (1897) remains accurate in 2026 because it maps the physical rhythm of muscle contractions to ambient thermal energy—Nature's own 2026 sensor.",
+        faq: [
+            { q: "Is this as accurate as a phone?", a: "It's surprisingly close! While a phone uses 2026 weather station data from miles away, the cricket is a 'Local' sensor of the micro-climate in your garden." },
+            { q: "Do crickets chirp when it's cold?", a: "Usually no. Below 55°F (13°C), most crickets stop chirping in 2026, as their metabolism slows down too much to power the physical sound production." }
+        ]
+    },
+    'bmi-women': {
+        title: "BMI for Women & Health Metrics",
+        howToUse: "Input your height and weight. Our 2026 engine applies the Quetelet Index with specialized insights for female body composition and hormone-linked health risks.",
+        whyItWorks: "BMI provides a baseline. By normalizing mass relative to height, our 2026 tool identifies weight categories that are statistically linked to increased metabolic and joint health risks in women.",
+        faq: [
+            { q: "Why is there a specific tool for women?", a: "Women have different body-fat distribution patterns (e.g., pear vs. apple). In 2026, we provide additional context on how these patterns impact cardiovascular risk beyond a simple number." },
+            { q: "Should I use this if I'm pregnant?", a: "No. During 2026 pregnancy, standard BMI is not a valid health tool. Always consult your healthcare provider for pregnancy-specific weight tracking." }
+        ]
+    },
+    'waist-to-height': {
+        title: "Waist-to-Height Ratio (WtHR)",
+        howToUse: "Measure your waist at the level of your belly button and enter your total height. We calculate your 2026 WtHR and risk category.",
+        whyItWorks: "Central obesity is the most dangerous fat. By ensuring your waist is less than half your height, our 2026 model identifies the threshold for 'Visceral Fat' accumulation linked to 90% of lifestyle diseases.",
+        faq: [
+            { q: "Where exactly should I measure?", a: "In 2026, the standard is mid-way between the bottom of your ribs and the top of your hips—usually crossing the navel. Keep the tape level!" },
+            { q: "Is WtHR accurate for tall people?", a: "Yes. By using height as the denominator, this 2026 tool 'Normalizes' the waist measurement, making it equally valid for both tall and short individuals." }
+        ]
+    },
     'voltage-rest-soc': {
         title: "Battery Voltage & Life Percentages",
         howToUse: "Measure your battery's resting voltage and select its chemistry (LiPo, AGM, Lead-Acid). We show you the exact State of Charge (SoC) based on 2026 discharge curves.",
