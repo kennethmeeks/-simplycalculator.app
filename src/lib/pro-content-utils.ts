@@ -671,6 +671,111 @@ export const getProContent = (path: string): ProContent[] => {
                 type: 'comparison',
                 content: 'Always hang ceiling drywall before walls. This allows the wall sheets to "prop up" the ceiling sheets at the edges, providing better structural support and easier taping. Use 5/8" thickness for ceilings to prevent sagging between rafters in 2026 builds.'
             }
+        ],
+        '/3x-rent': [
+            {
+                title: 'Rental Qualification Checklist',
+                type: 'checklist',
+                content: '• **Gross vs Net:** Most 2026 landlords use gross (pre-tax) income for the 3x rule.\n• **Co-Signers:** If you don\'t meet the 3x threshold, a guarantor with 80x the rent is often required.\n• **DTI Overlay:** Even if you hit 3x, high debt-to-income ratios can lead to 2026 application denials.'
+            }
+        ],
+        '/auto-loan': [
+            {
+                title: 'The 20/4/10 Rule for 2026',
+                type: 'summary',
+                content: 'For a sustainable auto budget, aim for: 20% down payment, a 4-year loan term, and total car expenses (loan + insurance + gas) staying below 10% of your gross income. Exceeding any of these in 2026 can lead to long-term financial strain as the vehicle depreciates.'
+            }
+        ],
+        '/house-affordability': [
+            {
+                title: 'Mortgage Readiness Guide',
+                type: 'checklist',
+                content: '• **PITI Analysis:** Factor in Principal, Interest, Taxes, and Insurance for a true 2026 cost.\n• **Maintenance Reserve:** Plan for 1% of the home\'s value annually in repair costs.\n• **Closing Costs:** Ensure you have an extra 3-5% of the purchase price ready for 2026 transactional fees.'
+            }
+        ],
+        '/salary': [
+            {
+                title: 'Negotiation Power Pro-Tip',
+                type: 'summary',
+                content: 'When discussing salary in 2026, always speak in terms of "Total Compensation." This includes bonuses, 401k matches, and equity. Use this tool to convert hourly offers into annual equivalents so you can compare multiple offers on a "Normalized" 2026 scale.'
+            }
+        ],
+        '/savings': [
+            {
+                title: 'Saving for 2026 High-Yields',
+                type: 'summary',
+                content: 'In 2026, keep your emergency fund in a "Liquid" high-yield savings account. While CDs might offer 0.5% more interest, the lack of accessibility during an emergency can cost you more in credit card interest than the extra yield is worth.'
+            }
+        ],
+        '/roi': [
+            {
+                title: 'Total Return Comparison',
+                type: 'comparison',
+                content: 'Simple ROI ignores the time value of money. A 20% return over 1 year is legendary; a 20% return over 20 years is losing to inflation. Always use this tool alongside our 2026 CAGR calculator to see the "Velocity" of your capital.'
+            }
+        ],
+        '/tax-bracket': [
+            {
+                title: 'Marginal vs. Effective Tax',
+                type: 'summary',
+                content: 'Your "Marginal Bracket" is only applied to the last dollar you earned. Your "Effective Rate" is the actual percentage of your total income that goes to the IRS. In 2026, understanding this distinction prevents the common fear that a raise will "move you into a higher bracket" and lower your take-home pay (it won\'t).'
+            }
+        ],
+        '/cap-rate': [
+            {
+                title: 'Real Estate Valuation Checklist',
+                type: 'checklist',
+                content: '• **NOI Verification:** Ensure all 2026 expenses (taxes, repairs, management) are subtracted from gross rent.\n• **Market Comparison:** Standard 2026 cap rates vary by asset class (e.g., 4% for multifamily, 7% for retail).\n• **Risk Buffer:** A higher cap rate often implies higher 2026 risk—lower tenant quality or older building systems.'
+            }
+        ],
+        '/investment': [
+            {
+                title: 'Risk-Adjusted Growth Logic',
+                type: 'summary',
+                content: 'Diversification is the target. In 2026, don\'t just look at total returns; look at "Drawdown." An investment that grows 15% but drops 40% along the way requires a much stronger stomach than one that grows 8% with 2026-standard stability.'
+            }
+        ],
+        '/math/percentage': [
+            {
+                title: 'Percentage Change Checklist',
+                type: 'checklist',
+                content: '• **Base Value:** Always define if you are calculating "of the original" or "of the total."\n• **Inversion:** Remember that a 50% drop requires a 100% gain to get back to even.\n• **Context:** In 2026 sales analysis, focus on "Year-over-Year" (YoY) percentages to smooth out seasonal spikes.'
+            }
+        ],
+        '/math/average': [
+            {
+                title: 'Mean vs. Median Truths',
+                type: 'summary',
+                content: 'The "Arithmetic Mean" (average) can be heavily skewed by outliers. In 2026 salary or housing data, always look at the Median alongside the Average to see if a few high-value data points are pulling the "normal" range higher than it actually is for most people.'
+            }
+        ],
+        '/dog-age': [
+            {
+                title: 'Canine Bio-Age Checklist',
+                type: 'checklist',
+                content: '• **Breed Size:** Large breeds age up to 2x faster than toy breeds in their senior years.\n• **Health Markers:** Watch for clouding eyes or stiffness as your dog hits their 2026 equivalent of "age 50."\n• **Nutrition:** Switch to senior-formulated 2026 diets once your dog surpasses the "human equivalent" of age 55.'
+            }
+        ],
+        '/love': [
+            {
+                title: 'Compatibility Logic',
+                type: 'summary',
+                content: 'While name-based math is for entertainment, 2026 relationship experts suggest focusing on "Value Alignment" for long-term success. Use this tool as a fun icebreaker, but remember that the true 100% match comes from shared goals and consistent communication.'
+            }
+        ],
+        '/zodiac': [
+            {
+                title: 'Astrological Interpretation Guide',
+                type: 'checklist',
+                content: '• **Sun vs Moon:** Your Sun sign is your core identity; your Moon sign is your 2026 emotional inner-world.\n• **Transit Awareness:** Check how current planetary alignments interact with your birth chart for deeper 2026 insights.\n• **Elemental Balance:** Look for Fire/Earth or Air/Water synergies in your personal and professional 2026 circles.'
+            }
+        ],
+        '/math/statistics': [
+           {
+                title: 'Data Integrity Checklist',
+                type: 'checklist',
+                content: '• **Sample Size:** Ensure your N-count is large enough (typically >30) for 2026 statistical significance.\n• **Standard Deviation:** A high SD indicates high volatility and low predictability in your data set.\n• **Correlation vs Causation:** Just because two 2026 metrics move together doesn\'t mean one causes the other.'
+            }
         ]
     };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Loader2, BookOpen, Calculator, Lightbulb, HelpCircle, Info, AlertTriangle, RotateCcw } from 'lucide-react';
+import { Loader2, BookOpen, Calculator, Lightbulb, HelpCircle, Info, AlertTriangle, RotateCcw, CheckCircle2, ArrowRightLeft, FileSearch } from 'lucide-react';
 import { fetchAIGuide, safeParseAIResponse } from '../lib/gemini';
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet-async';
@@ -154,12 +154,35 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                     </div>
 
                     {getProContent(path).map((pro, idx) => (
-                        <div key={idx} className="mt-12 p-8 bg-slate-50 border border-slate-200 rounded-2xl">
-                            <h3 className="text-lg font-black mb-4 text-slate-800 flex items-center gap-2">
-                                <span className="w-2 h-6 bg-blue-600 rounded-full"></span>
-                                {pro.title}
-                            </h3>
-                            <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                        <div key={idx} className={`mt-12 p-8 border-2 rounded-3xl transition-all hover:shadow-lg ${
+                            pro.type === 'checklist' ? 'bg-emerald-50/50 border-emerald-100' :
+                            pro.type === 'comparison' ? 'bg-amber-50/50 border-amber-100' :
+                            'bg-blue-50/50 border-blue-100'
+                        }`}>
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className={`p-3 rounded-2xl ${
+                                    pro.type === 'checklist' ? 'bg-emerald-100 text-emerald-600' :
+                                    pro.type === 'comparison' ? 'bg-amber-100 text-amber-600' :
+                                    'bg-blue-100 text-blue-600'
+                                }`}>
+                                    {pro.type === 'checklist' ? <CheckCircle2 className="w-6 h-6" /> :
+                                     pro.type === 'comparison' ? <ArrowRightLeft className="w-6 h-6" /> :
+                                     <FileSearch className="w-6 h-6" />}
+                                </div>
+                                <div>
+                                    <span className={`text-[10px] font-black uppercase tracking-widest ${
+                                        pro.type === 'checklist' ? 'text-emerald-600' :
+                                        pro.type === 'comparison' ? 'text-amber-600' :
+                                        'text-blue-600'
+                                    }`}>
+                                        {pro.type}
+                                    </span>
+                                    <h3 className="text-xl font-black text-slate-800 leading-tight">
+                                        {pro.title}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div className="text-[15px] text-slate-600 leading-relaxed font-medium whitespace-pre-line">
                                 {pro.content}
                             </div>
                         </div>
