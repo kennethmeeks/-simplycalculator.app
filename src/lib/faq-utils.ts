@@ -375,6 +375,38 @@ export const getSpecificFAQ = (calculatorName: string, categoryTitle: string, pa
         ],
         '/rebar': [
             { q: "What is the standard rebar spacing for a slab?", a: "Most 2026 residential driveways use #4 rebar spaced 12-18 inches apart in a grid pattern. Use this calculator to find the total tonnage or linear feet needed." }
+        ],
+        '/401k': [
+            { q: "How much should I contribute to my 401k in 2026?", a: "At minimum, contribute enough to get the full employer match. This is a 100% immediate return on your investment. In 2026, many experts suggest aiming for 15% of your gross income for retirement." },
+            { q: "What is the 401k contribution limit for 2026?", a: "As of 2026, the individual contribution limit for 401(k) plans is $23,500, with an additional $7,500 catch-up contribution for those aged 50 and older." }
+        ],
+        '/mortgage': [
+            { q: "What is the 28/36 rule in mortgage qualifying?", a: "It is a standard 2026 lending guideline. It means your housing costs shouldn't exceed 28% of your gross monthly income, and total debt shouldn't exceed 36%. Our calculator helps you test these ratios easily." },
+            { q: "Does the mortgage calculator include property taxes?", a: "Our 2026 tool allows you to input estimated taxes and insurance to calculate your full PITI (Principal, Interest, Taxes, and Insurance) payment, providing a realistic budget." }
+        ],
+        '/3x-rent': [
+            { q: "Is the 3x rent rule based on gross or net income?", a: "Landlords almost always use gross (pre-tax) income for the 3x rule. However, for your personal 2026 budgeting, ensure your net income can actually cover the rent and living expenses." },
+            { q: "What if I don't earn 3x the rent?", a: "In 2026, you may need a guarantor, a larger security deposit, or proof of significant savings to secure an apartment if your monthly income is below the 3x threshold." }
+        ],
+        '/bmi': [
+            { q: "Is a BMI of 25 considered overweight?", a: "According to 2026 NIH and WHO standards, a BMI of 25.0 to 29.9 falls into the overweight category. However, this tool should be used as a general indicator alongside other health measures." },
+            { q: "Can BMI be used for children?", a: "For children and teens, BMI is calculated the same way but interpreted differently using age-and-gender-specific percentiles. This tool is optimized for adult 2026 benchmarks." }
+        ],
+        '/scientific': [
+            { q: "Does this scientific calculator support radians and degrees?", a: "Yes. You can toggle between Radian and Degree modes for all trigonometric functions (Sin, Cos, Tan) to ensure accuracy in your 2026 math and engineering work." },
+            { q: "Can I use this for my exams?", a: "This 2026 full-screen calculator is designed for educational use. It includes advanced functions like factorials, logarithms, and powers required for college-level physics and calculus." }
+        ],
+        '/inflation': [
+            { q: "How is 2026 inflation calculated?", a: "We use the Consumer Price Index (CPI) data to track the purchasing power of the dollar. This tool compares the cost of a 'basket of goods' across different years to find the price shift." },
+            { q: "Why did $1 in 1950 have so much more value?", a: "Cumulative inflation over decades has decreased the currency's purchasing power. $1 in 1950 is equivalent to over $12 in 2026, illustrating the importance of wealth preservation." }
+        ],
+        '/debt-avalanche': [
+            { q: "Why choose Avalanche over Snowball?", a: "The Avalanche method is mathematically the most efficient way to pay off 2026 debt. By targeting high interest rates first, you minimize total interest paid and finish your journey faster." },
+            { q: "Is there a downside to the Debt Avalanche?", a: "It can be less motivating because it may take longer to pay off the first (large) debt. In 2026, ensure you have the discipline to stick with the plan without immediate 'small wins'." }
+        ],
+        '/debt-snowball': [
+            { q: "Does the Debt Snowball save the most money?", a: "No, it is designed for psychological success. By paying off small balances first, you gain momentum. In 2026, this 'behavioral math' often leads to higher completion rates for debt-free journeys." },
+            { q: "When should I switch to the Avalanche method?", a: "If you have a very large high-interest debt that is significantly slowing you down, you might switch to Avalanche once you've gained enough 2026 budgeting confidence from smaller wins." }
         ]
     };
 

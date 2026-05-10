@@ -442,6 +442,7 @@ export const getHighIntentSEO = (name: string, categoryTitle: string = 'Professi
 
     // Final truncate to stay within SEO limits
     if (title.length > 70) title = title.substring(0, 67) + '...';
+    if (description.length > 160) description = description.substring(0, 157) + '...';
 
     return { title, description };
 };
