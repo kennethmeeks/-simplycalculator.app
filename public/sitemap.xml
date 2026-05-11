@@ -1301,6 +1301,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://simplycalculator.app/scientific</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://simplycalculator.app/math/basic</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.6</priority>

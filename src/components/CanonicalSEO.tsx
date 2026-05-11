@@ -28,10 +28,14 @@ export const CanonicalSEO: React.FC = () => {
     // For all other paths, keep it normalized without trailing slash
     const canonicalUrl = path === '/' ? `${domain}/` : `${domain}${path}`;
 
+    // 4. Detect search results or non-canonical parameters to noindex
+    const isSearchPage = location.search.includes('?s=') || location.search.includes('&s=');
+
     return (
         <Helmet>
             <link rel="canonical" href={canonicalUrl} />
             <meta property="og:url" content={canonicalUrl} />
+            {isSearchPage && <meta name="robots" content="noindex, follow" />}
         </Helmet>
     );
 };
