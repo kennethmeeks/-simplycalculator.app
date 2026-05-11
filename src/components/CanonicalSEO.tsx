@@ -30,12 +30,13 @@ export const CanonicalSEO: React.FC = () => {
 
     // 4. Detect search results or non-canonical parameters to noindex
     const isSearchPage = location.search.includes('?s=') || location.search.includes('&s=');
+    const isEmbed = location.search.includes('embed=true');
 
     return (
         <Helmet>
             <link rel="canonical" href={canonicalUrl} />
             <meta property="og:url" content={canonicalUrl} />
-            {isSearchPage && <meta name="robots" content="noindex, follow" />}
+            {(isSearchPage || isEmbed) && <meta name="robots" content="noindex, follow" />}
         </Helmet>
     );
 };

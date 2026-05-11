@@ -396,7 +396,7 @@ export const CATEGORIES: CategoryData[] = [
           proTip: 'Use the memory functions (M+, MR) to store intermediate results and maintain maximum floating-point precision throughout multi-step problems.'
         }
       },
-      { name: 'Basic Calculator', path: '/math/basic', desc: 'A simple calculator for basic operations.', keywords: ['arithmetic', 'simple math', 'calculator', 'basics'] },
+      { name: 'Basic Calculator', path: '/math/basic-calculator', desc: 'A simple calculator for basic operations.', keywords: ['arithmetic', 'simple math', 'calculator', 'basics'] },
       { name: 'Addition', path: '/math/addition', desc: 'Sum multiple numbers with precision.', keywords: ['plus', 'summation', 'total', 'arithmetic', 'math basics'] },
       { name: 'Multiplication', path: '/math/multiplication', desc: 'Calculate the product of multiple values.', keywords: ['times', 'product', 'multiplier', 'arithmetic', 'math basics'] },
       { name: 'Division', path: '/math/division', desc: 'Calculate quotients and remainders.', keywords: ['divide', 'quotient', 'sharing', 'math basics', 'arithmetic'] },
@@ -430,6 +430,7 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Significant Figures', path: '/math/significant-figures', desc: 'Track precision through calculations.', keywords: ['sig figs', 'measurement math', 'precision'] },
       { name: 'Big Number Calculator', path: '/math/big-number', desc: 'Arithmetic operations on extremely large numbers.', keywords: ['large numbers', 'precision', 'advanced math'] },
       { name: 'Factor Calculator', path: '/math/factor', desc: 'Find factors of a number.', keywords: ['divisors', 'factoring'] },
+      { name: 'Rounding Calculator', path: '/math/rounding', desc: 'Round numbers to any decimal place or specific digit.', keywords: ['rounding', 'decimals', 'whole numbers', 'precision'] },
       { name: 'Prime Factorization', path: '/math/prime-factorization', desc: 'Decompose numbers into prime products.', keywords: ['prime factors', 'fundamental theorem', 'divisibility'] },
       { name: 'Prime Number', path: '/math/prime-number', desc: 'Verify and list prime integers.', keywords: ['primes', 'number theory', 'arithmetic'] },
       { name: 'Common Factor Calculator', path: '/math/common-factor', desc: 'Find common factors between numbers.', keywords: ['gcf', 'factoring', 'math'] },
