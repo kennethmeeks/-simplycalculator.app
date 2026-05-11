@@ -145,7 +145,7 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "What is a 'fast' reading speed for 2026?", a: "Business professionals often scan at 400-500 wpm. Our calculator allows you to customize these speeds to match your personal skill or the difficulty of the text." }
         ]
     },
-    'calories': {
+    'calorie': {
         title: "Calorie Needs & Weight Management",
         howToUse: "Input your age, gender, height, weight, and activity level. We use the 2026 Mifflin-St Jeor formula to determine your maintenance calories—the amount you need to stay exactly your current weight.",
         whyItWorks: "Weight change is a thermodynamic equation: Calories In vs. Calories Out. By finding your TDEE (Total Daily Energy Expenditure), you can scientifically plan a surplus for muscle gain or a deficit for fat loss without the guesswork.",
@@ -172,7 +172,7 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "What is percentage points vs percent?", a: "If an interest rate goes from 3% to 4%, it increased by 1 'percentage point' but grew by 33.3 'percent'. We help you clarify these critical business terms." }
         ]
     },
-    'loan-payment': {
+    'loan': {
         title: "Loan Payment & Total Interest Analysis",
         howToUse: "Enter your loan amount, interest rate (APR), and length of the loan in months or years. See exactly how much your monthly bill will be and the total 'cost of the money' over time.",
         whyItWorks: "Personal loans use 'simple interest' amortization. Our 2026 engine breaks down each payment into what goes to the bank (interest) and what goes to your debt (principal), helping you see how extra payments can save you thousands.",
@@ -1951,6 +1951,51 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         faq: [
             { q: "Why shouldn't I fly to 0% battery?", a: "LiPo batteries in 2026 can be permanently damaged (or explode) if discharged below 3.0V per cell. We calculate airtime based on a safe 80% discharge rule." },
             { q: "Does wind affect my 2026 airtime?", a: "Yes. Fighting wind requires more motor RPM, which drains current faster. In steady winds, we suggest subtracting 20% from our 'Indoor/Static' calculation for safety." }
+        ]
+    },
+    'bmi': {
+        title: "Body Mass Index (BMI) & Weight Profile",
+        howToUse: "Enter your height and weight. Our 2026 clinical-grade engine calculates your BMI score and places you into the standard WHO categories (Underweight, Normal, Overweight, or Obese).",
+        whyItWorks: "BMI is a screening tool used by medical professionals to estimate body fatness. While it doesn't measure fat directly, it correlates strongly with metabolic health outcomes in 2026 populations. It is the most efficient way to track weight trends over time.",
+        faq: [
+            { q: "What is a healthy BMI in 2026?", a: "The 18.5 to 24.9 range is considered 'Normal weight' by the WHO. Staying within this range is associated with lower risks of heart disease and Type 2 diabetes." },
+            { q: "Is BMI accurate for athletes?", a: "If you have very high muscle mass, BMI may overestimate your fatness. For 2026 athletes, we suggest using our 'Waist-to-Height' or 'Body Fat' tools in conjunction with BMI." }
+        ]
+    },
+    'mortgage': {
+        title: "Mortgage Payment & Amortization Math",
+        howToUse: "Enter the home price, down payment, interest rate, and loan term. We'll show you exactly how much you'll pay each month and how much total interest you'll give to the bank by 2056.",
+        whyItWorks: "Mortgages are large amortized loans. In the early years, most of your payment goes to interest. Our 2026 engine breaks down this 'interest-heavy' period so you can plan extra principal payments to save thousands.",
+        faq: [
+            { q: "What is PITI?", a: "It stands for Principal, Interest, Taxes, and Insurance. Our calculator includes all four to give you a 'Real World' 2026 payment estimate instead of just the base loan math." },
+            { q: "How does a 15-year compare to a 30-year?", a: "A 15-year mortgage has higher monthly payments but can save you over $100,000 in interest over the life of the loan. Use this tool to see if the higher payment fits your 2026 budget." }
+        ]
+    },
+    'tdee': {
+        title: "TDEE: Your Total Daily Calorie Burn",
+        howToUse: "Input your stats and activity level. We calculate your Maintenance Calories—the fuel your body needs to stay exactly the same weight in 2026.",
+        whyItWorks: "Total Daily Energy Expenditure (TDEE) is the sum of your BMR plus the energy used for movement and digestion. Understanding this number is the 'secret key' to 2026 weight management; eat below it to lose, eat above it to gain.",
+        faq: [
+            { q: "What happens if I eat my TDEE exactly?", a: "You will maintain your current weight. In 2026, we call this 'Maintenance mode.' It is a great way to stabilize after a successful diet or muscle-building phase." },
+            { q: "Does TDEE change every day?", a: "Yes, based on your movement. This tool uses a weekly average to give you a consistent calorie target that works for your 2026 lifestyle." }
+        ]
+    },
+    'scientific': {
+        title: "Scientific Calculator: Advanced Logic & Functions",
+        howToUse: "Use the keyboard or on-screen buttons for trigonometry, logarithms, and exponents. Our high-precision 2026 math engine handles complex nested parentheses and scientific notation instantly.",
+        whyItWorks: "Scientific calculators are designed for engineering, physics, and advanced mathematics. Unlike basic tools, our engine follows the strict order of operations (PEMDAS/BODMAS) to ensure 100% accuracy in your 2026 research and homework.",
+        faq: [
+            { q: "Does this calculator handle Degrees or Radians?", a: "Both! You can toggle between them in the settings. This is critical for 2026 engineering projects that often switch between geometric and rotational math." },
+            { q: "Can I use scientific notation like 1.2e5?", a: "Yes. Our engine supports the 'e' notation used in most 2026 professional programming and lab environments for handling very large or very small numbers." }
+        ]
+    },
+    'additional-funds-needed': {
+        title: "AFN: Growth Strategy & Capital Planning",
+        howToUse: "Enter your current sales, projected growth rate, and profit margin. Our 2026 corporate engine calculates how much external money (debt or equity) you need to fund your expansion.",
+        whyItWorks: "The Additional Funds Needed (AFN) formula is the standard 'stress test' for growing businesses. It shows you if your 2026 sales growth will 'outrun' your available cash, helping you secure financing before a liquidity crisis occurs.",
+        faq: [
+            { q: "What does a negative AFN mean?", a: "It's good news! It means your business generates enough internal cash to fund its own 2026 growth without needing to borrow more money." },
+            { q: "How can I reduce my AFN in 2026?", a: "By increasing your profit margin or improving asset efficiency (turnover). This tool allows you to simulate these changes to find the most 'capital efficient' path forward." }
         ]
     },
 };

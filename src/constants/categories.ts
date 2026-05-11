@@ -49,7 +49,20 @@ export const CATEGORIES: CategoryData[] = [
         },
         keywords: ['rent affordability', 'income for rent', '3x rent rule', 'leasing requirement', 'apartment qualifying', 'landlord check', 'monthly rent budget', 'can i afford this rent', 'salary for apartment', 'rental income test'] 
       },
-      { name: '401k Calculator', path: '/401k', desc: 'Estimate future 401k balance.', keywords: ['retirement savings', 'employer match', '401k growth', 'investment projection', 'wealth building', 'pension alternative', 'nest egg', 'retirement planning', 'contribution limit', 'compounding interest'] },
+      { 
+        name: '401k Calculator', 
+        path: '/401k', 
+        desc: 'Estimate future 401k balance.', 
+        guidance: {
+          whyItMatters: 'Planning for retirement is a decades-long game. Small changes in contribution rates or employer matching can lead to six-figure differences in your final nest egg due to the power of compounding.',
+          pitfalls: [
+            'Ignoring Inflation: $1M in 30 years won\'t buy what $1M buys today. Always look at "Real" future value to understand actual purchasing power.',
+            'Early Withdrawal Penalties: Withdrawing from your 401k before 59.5 often triggers a 10% penalty plus income tax, gutting your growth potential.'
+          ],
+          proTip: 'Aim to contribute at least enough to get the full employer match—it is effectively a 100% immediate return on your investment before market gains are even considered.'
+        },
+        keywords: ['retirement savings', 'employer match', '401k growth', 'investment projection', 'wealth building', 'pension alternative', 'nest egg', 'retirement planning', 'contribution limit', 'compounding interest'] 
+      },
       { name: '403b Calculator', path: '/403b', desc: 'Project non-profit retirement savings.', keywords: ['non profit retirement', 'teacher pension', 'TSA calculator', 'public sector savings', '403b growth', 'tax sheltered annuity', 'retirement nest egg', 'investment estimator', 'annual contribution', 'tax deferred growth'] },
       { name: '50/30/20 Rule', path: '/50-30-20-rule', desc: 'Standard budgeting rule for needs, wants, and savings.', keywords: ['budgeting method', 'finance breakdown', 'savings rule', 'needs vs wants', 'financial health', 'monthly budget', 'money management', 'spending plan', 'wealth simple', 'popular budget'] },
       { name: '529 Calculator', path: '/529-plan', desc: 'Estimate growth for education savings accounts.', keywords: ['college fund', 'education savings', 'tuition planner', 'tax free growth', 'university savings', 'student fund', '529 projection', 'schooling budget', 'child education', 'state 529 plan'] },
@@ -180,7 +193,19 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'IRA Calculator', path: '/ira', desc: 'Analyze traditional IRA contributions.' },
       { name: 'IRR Calculator', path: '/irr', desc: 'Internal Rate of Return for projects.' },
       { name: 'Lease Calculator', path: '/lease', desc: 'Compare buying vs leasing costs.' },
-      { name: 'Loan Calculator', path: '/loan', desc: 'Estimate payments for any loan.' },
+      { 
+        name: 'Loan Calculator', 
+        path: '/loan', 
+        desc: 'Estimate payments for any loan.',
+        guidance: {
+          whyItMatters: 'Understanding the total cost of borrowing allows you to compare different financial products fairly. The APR is often more telling than the quoted interest rate alone when assessing a loan\'s true cost.',
+          pitfalls: [
+            'Focusing Only on Monthly Payment: Low monthly payments often mask a higher total interest cost due to longer loan terms.',
+            'Prepayment Penalties: Some loans charge a fee if you pay them off early. Always check for these if you plan to get out of debt faster.'
+          ],
+          proTip: 'Always try to get pre-approved before shopping for a major purchase to ensure you\'re getting the best market rate available to you based on your credit score.'
+        }
+      },
       { name: 'Lottery Tax Calculator', path: '/lottery-tax', desc: 'Calculate net payout after jackpot taxes.' },
       { name: 'Margin Calculator', path: '/margin', desc: 'Calculate markup and profit margins.' },
       { name: 'Marriage Tax', path: '/marriage-tax', desc: 'Check for marriage tax penalties/bonuses.' },
@@ -188,7 +213,19 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Missouri Sales Tax Calculator', path: '/missouri-sales-tax', desc: 'Calculate MO sales tax rates.' },
       { name: 'National Insurance', path: '/national-insurance-uk', desc: 'Calculate UK National Insurance contributions.' },
       { name: 'Modified AGI (MAGI)', path: '/magi', desc: 'Modified Adjusted Gross Income for eligibility.' },
-      { name: 'Mortgage Calculator', path: '/mortgage', desc: 'Calculate monthly payments and amortization.' },
+      { 
+        name: 'Mortgage Calculator', 
+        path: '/mortgage', 
+        desc: 'Calculate monthly payments and amortization.',
+        guidance: {
+          whyItMatters: 'A mortgage is likely the largest financial commitment of your life. Even a 0.5% difference in interest rate can save or cost you tens of thousands of dollars over the life of a 30-year loan.',
+          pitfalls: [
+            'Forgetting PMI: If your down payment is less than 20%, you\'ll likely pay Private Mortgage Insurance, which increases your monthly cost without building any equity.',
+            'Escrow Volatility: Property taxes and insurance premiums change yearly. Your "fixed" mortgage payment might still fluctuate due to these escrow adjustments.'
+          ],
+          proTip: 'Making just one extra principal payment per year can shorten a 30-year mortgage by nearly 4 years and save significant interest over time.'
+        }
+      },
       { name: 'Mutual Fund', path: '/mutual-fund', desc: 'Analyze fund performance and fees.' },
       { name: 'Net to Gross Calculator', path: '/net-to-gross', desc: 'Calculate gross pay from target net amount.' },
       { name: 'Net Worth Calculator', path: '/net-worth', desc: 'Track total assets and liabilities.' },
@@ -346,6 +383,19 @@ export const CATEGORIES: CategoryData[] = [
       proTip: 'Whenever possible, draw the problem. Visualization, especially in geometry, helps you identify if an answer "looks" right before you commit to the result.'
     },
     items: [
+      { 
+        name: 'Scientific Calculator', 
+        path: '/scientific', 
+        desc: 'Advanced trignometric, logarithmic, and power functions.',
+        guidance: {
+          whyItMatters: 'Complex engineering, physics, and advanced math require precision beyond basic arithmetic. Trignometric, logarithmic, and exponential functions are the building blocks of modern technology.',
+          pitfalls: [
+            'Degree vs. Radian Mode: Using the wrong angular unit is the most common reason for incorrect trigonometric results. Always verify your current mode before calculating.',
+            'Order of Operations: Complex nested expressions require careful use of parentheses to ensure the math is processed in the order you intended.'
+          ],
+          proTip: 'Use the memory functions (M+, MR) to store intermediate results and maintain maximum floating-point precision throughout multi-step problems.'
+        }
+      },
       { name: 'Basic Calculator', path: '/math/basic', desc: 'A simple calculator for basic operations.', keywords: ['arithmetic', 'simple math', 'calculator', 'basics'] },
       { name: 'Addition', path: '/math/addition', desc: 'Sum multiple numbers with precision.', keywords: ['plus', 'summation', 'total', 'arithmetic', 'math basics'] },
       { name: 'Multiplication', path: '/math/multiplication', desc: 'Calculate the product of multiple values.', keywords: ['times', 'product', 'multiplier', 'arithmetic', 'math basics'] },
@@ -879,7 +929,20 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'BMI for Kids', path: '/bmi-kids', desc: 'Age-specific BMI for children.', keywords: ['pediatric bmi', 'child health', 'growth charts', 'bmi percentile', 'kids weight', 'adolescent health', 'child obesity', 'school health', 'parenting tools', 'pediatric assessment', 'growth tracking', 'child development'] },
       { name: 'BMI for Seniors', path: '/bmi-geriatric', desc: 'Weighted BMI standards for older adults.', keywords: ['geriatric bmi', 'senior health', 'older adult weight', 'elderly health', 'aging well', 'bmi for over 65', 'senior nutrition', 'gerontology', 'health assessment seniors', 'body mass index older', 'longevity health'] },
       { name: 'BEE Calculator', path: '/bee', desc: 'Basal Energy Expenditure analysis.', keywords: ['basal energy expenditure', 'bee', 'metabolic rate', 'harris benedict', 'energy physics', 'resting calories', 'biological fuel', 'human metabolism', 'energy budget', 'calorie needs', 'clinical nutrition', 'dietetics'] },
-      { name: 'BMI Calculator', path: '/bmi', desc: 'Body Mass Index for adults.', keywords: ['body mass index', 'bmi', 'weight health', 'obesity chart', 'underweight', 'overweight', 'healthy weight', 'height weight ratio', 'body metrics', 'fitness assessment', 'medical weight', 'who standards', 'cdc standards'] },
+      { 
+        name: 'BMI Calculator', 
+        path: '/bmi', 
+        desc: 'Body Mass Index for adults.', 
+        guidance: {
+          whyItMatters: 'BMI provides a quick, standardized way to screen for weight categories that may lead to health problems. It\'s a reliable starting point for discussions with a healthcare provider about overall wellness.',
+          pitfalls: [
+            'Muscle Mass Bias: BMI doesn\'t distinguish between muscle and fat. Highly muscular individuals may be classified as "overweight" despite having low body fat.',
+            'Distribution Ignored: BMI doesn\'t account for where fat is stored. Abdominal fat is generally more systemically inflammatory than fat stored in the hips or thighs.'
+          ],
+          proTip: 'Pair your BMI result with a waist-to-height ratio measurement for a more accurate and comprehensive picture of your metabolic health risk.'
+        },
+        keywords: ['body mass index', 'bmi', 'weight health', 'obesity chart', 'underweight', 'overweight', 'healthy weight', 'height weight ratio', 'body metrics', 'fitness assessment', 'medical weight', 'who standards', 'cdc standards'] 
+      },
       { name: 'BMR (Mifflin St Jeor)', path: '/bmr', desc: 'Basal Metabolic Rate formula.', keywords: ['basal metabolic rate', 'bmr', 'mifflin st jeor', 'calorie burns', 'metabolism', 'resting energy', 'weight loss maths', 'daily calories', 'metabolic engine', 'diet math', 'calorie tracking', 'energy expenditure'] },
       { name: 'Body Fat Calculator', path: '/body-fat', desc: 'Estimate body fat percentage.', keywords: ['fat percentage', 'body fat', 'lean mass', 'subcutaneous fat', 'visceral fat', 'composition analysis', 'navy method', 'bmi vs body fat', 'weight loss tracking', 'muscle mass', 'adiposity', 'fitness goals', 'body sculpting'] },
       { name: 'Face Shape', path: '/face-shape', desc: 'Identify facial structure for styling.' },
@@ -888,7 +951,19 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'BMI for Women', path: '/bmi-women', desc: 'Gender-adjusted BMI for adult females.' },
       { name: 'BMI for Teens', path: '/bmi-teens', desc: 'Adolescent health benchmarks.' },
       { name: 'Body Type', path: '/body-type', desc: 'Identify your somatic body category.' },
-      { name: 'Calorie Calculator', path: '/calorie', desc: 'Estimate daily energy expenditure.' },
+      { 
+        name: 'Calorie Calculator', 
+        path: '/calorie', 
+        desc: 'Estimate daily energy expenditure.',
+        guidance: {
+          whyItMatters: 'Daily calorie needs vary based on age, gender, and activity. Getting your caloric intake right is the foundation of energy balance and metabolic health.',
+          pitfalls: [
+            'Hidden Calories: Liquid calories, cooking oils, and condiments can easily add 500+ calories a day if they are not tracked or accounted for precisely.',
+            'BMR vs TDEE Confusion: Basal Metabolic Rate (BMR) is what you burn at complete rest; your total needed calories (TDEE) are always higher based on movement.'
+          ],
+          proTip: 'Focus on nutrient density, not just calorie counts. 200 calories of fiber-rich vegetables will keep you satiated much longer than 200 calories of refined sugar.'
+        }
+      },
       { name: 'Calorie Deficit', path: '/calorie-deficit', desc: 'Calculate calories needed for weight loss.' },
       { name: 'Calorie Intake (Simple)', path: '/calorie-intake', desc: 'Quick daily calorie estimation.' },
       { name: 'Calories Burned', path: '/calories-burned', desc: 'Track energy used during exercise.' },
@@ -940,7 +1015,19 @@ export const CATEGORIES: CategoryData[] = [
       { name: 'Sobriety Calculator', path: '/sobriety', desc: 'Track your journey and progress.' },
       { name: 'Sodium in Salt', path: '/sodium-in-salt', desc: 'Convert salt weight to sodium content.' },
       { name: 'Target Heart Rate', path: '/target-heart-rate', desc: 'Monitor your optimal workout intensity.' },
-      { name: 'TDEE Calculator', path: '/tdee', desc: 'Total Daily Energy Expenditure.' },
+      { 
+        name: 'TDEE Calculator', 
+        path: '/tdee', 
+        desc: 'Total Daily Energy Expenditure.',
+        guidance: {
+          whyItMatters: 'Your Total Daily Energy Expenditure is the "budget" for your metabolism. Knowing this number is essential for scientific weight management—whether your goal is loss, gain, or maintenance.',
+          pitfalls: [
+            'Overestimating Activity: Most people overestimate how many calories they burn during exercise. Always be conservative when selecting your baseline activity level.',
+            'Adaptive Thermogenesis: As you lose weight, your TDEE drops. You must re-calculate your maintenance calories every 5-10 lbs of significant body weight change.'
+          ],
+          proTip: 'Track your actual calorie intake and body weight for 2-3 weeks to find your "Tested TDEE," which is more accurate than any one theoretical formula.'
+        }
+      },
       { name: 'Vitamin Calculator', path: '/vitamin', desc: 'General vitamin goal assessment.' },
       { name: 'Vitamin A', path: '/vitamin-a', desc: 'Specific Vitamin A requirement math.' },
       { name: 'Vitamin D', path: '/vitamin-d', desc: 'Specific Vitamin D requirement math.' },
