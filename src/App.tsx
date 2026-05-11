@@ -553,13 +553,15 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/sitemap" element={<Sitemap />} />
-            {/* All Category Hubs at top-level */}
+            {/* Category Silos */}
             {CATEGORIES.map(cat => (
               <Route key={cat.slug} path={`/${cat.slug}`} element={<CategoryPage />} />
             ))}
             
+            {/* Legacy/Specific Route support */}
             <Route path="/category/:categoryKey" element={<CategoryPage />} />
             <Route path="/:calculatorPath" element={<CalculatorPage />} />
+            <Route path="/math/:calculatorPath" element={<CalculatorPage />} />
           </Routes>
           </Suspense>
           </ErrorBoundary>

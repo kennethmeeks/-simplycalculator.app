@@ -623,13 +623,6 @@ export const getProContent = (path: string): ProContent[] => {
                 content: '• **Propeller Pitch:** Lower pitch props draw less current but provide less "punch."\n• **Voltage Sag:** Watch for rapid drops under heavy throttle; 2026 LiPo batteries sag more as they age.\n• **Weight reduction:** Strip unnecessary casing and long wires to gain 2026 flight seconds.'
             }
         ],
-        '/additional-funds-needed': [
-            {
-                title: 'AFN Growth Strategy',
-                type: 'checklist',
-                content: '• **Spontaneous Liabilities:** Ensure you\'ve calculated accounts payable growth correctly.\n• **Retention Ratio:** How much profit are you reinvesting back into the firm?\n• **Capital Intensity:** How many assets do you need to support each new dollar of sales?'
-            }
-        ],
         '/roofing': [
             {
                 title: 'Roof Inspection Checklist (2026)',
@@ -777,72 +770,6 @@ export const getProContent = (path: string): ProContent[] => {
                 content: '• **Sample Size:** Ensure your N-count is large enough (typically >30) for 2026 statistical significance.\n• **Standard Deviation:** A high SD indicates high volatility and low predictability in your data set.\n• **Correlation vs Causation:** Just because two 2026 metrics move together doesn\'t mean one causes the other.'
             }
         ],
-        '/401k': [
-            {
-                title: '401k Optimization Secrets',
-                type: 'summary',
-                content: 'In 2026, the employer match is the highest guaranteed return you can find. If you aren\'t contributing enough to get the "full match," you are effectively leaving money on the table. Always prioritize reaching the match threshold before moving to secondary investments or discretionary spending.'
-            },
-            {
-                title: 'Retirement Readiness Checklist',
-                type: 'checklist',
-                content: '• **Vesting Schedule:** Check if your employer match is "cliff" or "graded" vesting before changing jobs.\n• **Asset Allocation:** Ensure your 401k isn\'t too heavy in company stock; diversification is key for 2026 stability.\n• **Roth Options:** If your 2026 tax bracket is low, consider a Roth 401k shift for tax-free withdrawals later.'
-            }
-        ],
-        '/mortgage': [
-            {
-                title: '2026 Mortgage Qualifier Logic',
-                type: 'comparison',
-                content: 'Standard fixed-rate mortgages (15 vs 30 year) offer stability, but your debt-to-income (DTI) ratio is what determines your interest rate tier. A 30-year term maximizes cash flow, while a 15-year term drastically reduces total interest paid, often saving over $200,000 on a $400k loan in 2026 markets.'
-            },
-            {
-                title: 'Home Buyer Checklist',
-                type: 'checklist',
-                content: '• **PMI Threshold:** Aim for 20% down to eliminate Private Mortgage Insurance costs instantly.\n• **PITI Analysis:** Don\'t just calculate principal and interest; add taxes, insurance, and HOA for the real 2026 cost.\n• **Interest Rates:** A 1% difference in rate can change your monthly payment by hundreds of dollars.'
-            }
-        ],
-        '/bmi': [
-            {
-                title: 'Beyond the BMI Number',
-                type: 'summary',
-                content: 'While BMI is a useful 2026 screening tool, it does not distinguish between muscle mass and body fat. Athletes with high muscle density may see an "Overweight" score despite low body fat. Always pair your BMI result with waist circumference measurements for a more complete 2026 health profile.'
-            }
-        ],
-        '/tdee': [
-            {
-                title: 'Metabolic Precision Guide',
-                type: 'checklist',
-                content: '• **NEAT Impact:** Non-Exercise Activity Thermogenesis (fidgeting, walking) accounts for more daily burn than a gym session.\n• **TEF Modifier:** Protein has a higher thermic effect of food (30%) compared to fats (3%) in 2026 diets.\n• **Weight Fluctuations:** Use a 7-day average of your TDEE to account for water weight and glycogen shifts.'
-            }
-        ],
-        '/scientific': [
-            {
-                title: 'Scientific Notation & Precision',
-                type: 'summary',
-                content: 'Our calculation engine uses double-precision floating-point numbers. In 2026 engineering, always round your final result according to the "Significant Figures" rule of your data set to avoid false precision in reports.'
-            }
-        ],
-        '/inflation': [
-            {
-                title: 'Real Value Analysis',
-                type: 'comparison',
-                content: 'Nominal Dollars (face value) vs. Real Dollars (purchasing power). In 2026 economics, $100 buys significantly less than it did in 2000. Use this calculator to adjust historical salaries or investment returns to see their actual value in today\'s economy.'
-            }
-        ],
-        '/debt-avalanche': [
-            {
-                title: 'Highest Math Efficiency',
-                type: 'summary',
-                content: 'The Avalanche method is mathematically superior because it targets high interest rates first. This saves you the maximum amount of money in interest over the life of your 2026 debt repayment plan, though it requires more discipline as short-term wins are fewer.'
-            }
-        ],
-        '/debt-snowball': [
-            {
-                title: 'Psychological Momentum Guide',
-                type: 'checklist',
-                content: '• **Quick Wins:** Start with the smallest balance to get a "paid off" dopamine hit within the first 60 days.\n• **Behavior Shift:** Focus on the habit of paying extra, which is often more sustainable in 2026 than raw math optimization.\n• **Roll-over:** Once a small debt is cleared, add its *full* payment amount to the next debt on the list.'
-            }
-        ]
     };
 
     return contentMap[path] || [];

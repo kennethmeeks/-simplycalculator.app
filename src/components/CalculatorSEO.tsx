@@ -105,7 +105,6 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
             <Helmet>
                 <title>{seo.title}</title>
                 <meta name="description" content={seo.description} />
-                <link rel="canonical" href={`https://simplycalculator.app${path}`} />
                 {displayContent.faq.length > 0 && (
                     <script type="application/ld+json">
                         {JSON.stringify({

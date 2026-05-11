@@ -1944,15 +1944,6 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "What is a 'Good' F1 Score in 2026?", a: "It depends on the task, but generally 0.70+ is respectable, and 0.90+ is considered professional-grade for production models." }
         ]
     },
-    'mortgage': {
-        title: "Mortgage Math & Amortization 2026",
-        howToUse: "Input your home price, down payment, and interest rate. We'll show you your P&I (Principal & Interest) payment and create a full 30-year amortization schedule showing how your equity grows.",
-        whyItWorks: "Mortgages use 'Compounding interest in reverse.' At the start, most of your payment goes to interest. This tool helps you see the 2026 pivot point where your payments finally start hitting the principal for real wealth building.",
-        faq: [
-            { q: "Should I choose 15 or 30 years?", a: "30 years gives lower payments (better 'cash flow'). 15 years saves a fortune in interest. Use our 2026 comparison toggle to see which path fits your financial goals." },
-            { q: "How much down payment do I really need?", a: "While 20% avoids PMI (insurance), many 2026 programs allow 3% or 3.5%. This tool calculates the 'PMI penalty' so you can see if the extra cost is worth buying sooner." }
-        ]
-    },
     'multi-rotor-airtime': {
         title: "Drone Airtime & Multi-Rotor Logic",
         howToUse: "Enter your battery capacity (mAh), total weight (g), and motor amp draw. Our 2026 physics engine predicts your 'Flight Minutes' until the 20% safety threshold.",

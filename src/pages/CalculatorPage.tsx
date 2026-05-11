@@ -31,13 +31,29 @@ export const CalculatorPage: React.FC = () => {
 
     // Find the item
     const { foundItem, foundCategory } = useMemo(() => {
-        const fullPath = location.pathname;
+        const fullPath = location.pathname.toLowerCase();
+        const cleanPath = fullPath.length > 1 && fullPath.endsWith('/') ? fullPath.slice(0, -1) : fullPath;
+        
         for (const cat of CATEGORIES) {
-            const item = cat.items.find(i => i.path === fullPath);
+            const item = cat.items.find(i => {
+                const itemPath = i.path.toLowerCase();
+                return itemPath === cleanPath || 
+                       itemPath === cleanPath.replace('/math/', '/') ||
+                       itemPath === cleanPath.replace('/category/', '/');
+            });
             if (item) return { foundItem: item, foundCategory: cat };
         }
         return { foundItem: null, foundCategory: null };
     }, [location.pathname]);
+
+    // Redirect to canonical path if needed (lowercase, no trailing slash, correct prefix)
+    if (foundItem && location.pathname !== foundItem.path) {
+        return <Navigate to={foundItem.path} replace />;
+    }
+
+    if (!foundItem) {
+        return <Navigate to="/" replace />;
+    }
 
     // Determine current fields
     const currentFields = useMemo(() => {
@@ -194,10 +210,6 @@ export const CalculatorPage: React.FC = () => {
         return { title: seo.title, desc: seo.description };
     }, [foundItem, foundCategory]);
 
-    if (!foundItem) {
-        return <Navigate to="/" replace />;
-    }
-
     const handleCalculate = async () => {
         const hasValues = Object.values(inputs).some(v => v && (v as string).trim() !== '');
         if (!hasValues) {
@@ -348,7 +360,6 @@ export const CalculatorPage: React.FC = () => {
             <Helmet>
                 <title>{seoData.title}</title>
                 <meta name="description" content={seoData.desc} />
-                <link rel="canonical" href={`https://simplycalculator.app${foundItem.path}`} />
                 <meta property="og:title" content={seoData.title} />
                 <meta property="og:description" content={seoData.desc} />
                 <meta property="og:url" content={`https://simplycalculator.app${foundItem.path}`} />

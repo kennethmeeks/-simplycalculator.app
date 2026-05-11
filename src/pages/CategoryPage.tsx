@@ -12,6 +12,12 @@ export const CategoryPage: React.FC = () => {
   const categoryKey = params.categoryKey || location.pathname.split('/').pop() || '';
   const data = CATEGORIES.find(c => c.slug === categoryKey);
   
+  // Redirect legacy /category/path to /path for SEO consistency
+  if (location.pathname.startsWith('/category/')) {
+    const slug = location.pathname.replace('/category/', '');
+    return <Navigate to={`/${slug}`} replace />;
+  }
+  
   if (!categoryKey || !data) {
     return <Navigate to="/" replace />;
   }

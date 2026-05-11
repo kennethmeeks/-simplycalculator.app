@@ -24,8 +24,9 @@ export const CanonicalSEO: React.FC = () => {
         if (!path.startsWith('/')) path = '/' + path;
     }
 
-    // Special case for root
-    const canonicalUrl = `${domain}${path === '/' ? '' : path}`;
+    // Special case for root: standard practice is to have the trailing slash
+    // For all other paths, keep it normalized without trailing slash
+    const canonicalUrl = path === '/' ? `${domain}/` : `${domain}${path}`;
 
     return (
         <Helmet>
