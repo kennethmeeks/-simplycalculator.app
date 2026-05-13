@@ -1,11 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { CATEGORIES } from '../constants/categories';
+import { CATEGORIES, CalculatorItem } from '../constants/categories';
 import { getCategoryIcon } from '../constants/categoryIcons';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Search, Zap, X } from 'lucide-react';
 
 export const Home: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<(CalculatorItem & { category: string })[]>([]);
+  const navigate = useNavigate();
+
+  const allTools = useMemo(() => {
+    return CATEGORIES.flatMap(cat => cat.items.map(item => ({ ...item, category: cat.title })));
+  }, []);
+
+  const handleSearch = (val: string) => {
+    setSearchTerm(val);
+    if (val.length < 2) {
+      setSearchResults([]);
+      return;
+    }
+
+    const term = val.toLowerCase();
+    const filtered = allTools.filter(tool => 
+      tool.name.toLowerCase().includes(term) || 
+      tool.desc.toLowerCase().includes(term) ||
+      tool.keywords?.some(k => k.toLowerCase().includes(term))
+    ).slice(0, 8);
+    setSearchResults(filtered);
+  };
+
+  const clearSearch = () => {
+    setSearchTerm('');
+    setSearchResults([]);
+  };
+
   return (
     <>
       <Helmet>
@@ -52,6 +81,64 @@ export const Home: React.FC = () => {
               Access over 1600+ professional-grade calculators for finance, health, and engineering. 
               Built with industry-standard formulas and zero latency.
             </p>
+
+            <div className="relative max-w-2xl mb-12 z-50">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                  <Search className="h-6 w-6 text-slate-400" />
+                </div>
+                <input 
+                  type="text" 
+                  value={searchTerm}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  placeholder="Search 1,600+ professional tools (e.g. 'mortgage', 'bmi', 'concrete')..." 
+                  className="block w-full h-16 pl-16 pr-12 py-4 bg-white border-2 border-slate-100 rounded-2xl text-lg font-medium placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-8 focus:ring-blue-100 transition-all shadow-xl shadow-blue-900/5 group"
+                />
+                {searchTerm && (
+                  <button 
+                    onClick={clearSearch}
+                    className="absolute inset-y-0 right-4 flex items-center px-4 text-slate-400 hover:text-slate-600"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+
+              {searchResults.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-3 bg-white border border-slate-100 rounded-2xl shadow-2xl shadow-blue-900/10 overflow-hidden ring-1 ring-slate-200/50">
+                  <div className="p-3 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Top Result Matches</span>
+                    <span className="text-[10px] font-bold text-blue-600 mr-2 bg-blue-50 px-2 py-0.5 rounded italic">Instant Access</span>
+                  </div>
+                  <div className="max-h-[400px] overflow-y-auto">
+                    {searchResults.map((tool, idx) => (
+                      <Link 
+                        key={idx}
+                        to={tool.path}
+                        className="flex items-center gap-4 p-4 hover:bg-blue-50/50 transition-colors border-b border-slate-50 last:border-0 group"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-white transition-colors flex-shrink-0">
+                          <Zap size={18} fill="currentColor" className="opacity-80" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-bold text-slate-900 truncate uppercase tracking-tight">{tool.name}</span>
+                            <span className="text-[9px] font-black text-slate-300 uppercase shrink-0 border border-slate-100 px-1.5 rounded bg-white">
+                              {tool.category}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 truncate mt-0.5">{tool.desc}</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="p-4 bg-blue-600 text-white text-xs font-bold text-center cursor-pointer hover:bg-blue-700 transition-colors" onClick={() => navigate('/sitemap')}>
+                    VIEW ALL 1,600+ CALCULATORS
+                  </div>
+                </div>
+              )}
+            </div>
             
             <div className="flex flex-wrap gap-8">
                 <div className="space-y-1">

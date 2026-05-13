@@ -64,6 +64,24 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
             { q: "How much can I put in my 403b in 2026?", a: "The elective deferral limits are generally the same as 401ks. Use this tool to see how hitting those limits every year impacts your millionaire status by age 65." }
         ]
     },
+    'average-calculator': {
+        title: "The Ultimate Guide to Calculating Averages & Statistics",
+        howToUse: "Paste your raw data into the text area. You can use commas, spaces, or tabs. Our engine automatically filters out non-numeric noise and provides an instant 2026-ready statistical profile including mean, median, mode, and standard deviation.",
+        whyItWorks: "Calculating a simple average (mean) is just the beginning. To truly understand a dataset, you need to look at its distribution (standard deviation) and 'middle' (median). This calculator provides a multi-layered view of your data to ensure you don't overlook outliers that can skew your results.",
+        faq: [
+            { q: "What is the difference between Mean, Median, and Mode?", a: "The Mean is the total divided by count. The Median is the middle number when sorted. The Mode is the most frequent number. Using all three gives you a complete 2026-standard statistical view." },
+            { q: "When should I use the Geometric Mean?", a: "Geometric mean is best for datasets with widely varying values or percentages, like investment returns or population growth rates. It prevents high values from 'pulling' the average too far up." },
+            { q: "Why does Standard Deviation matter?", a: "Standard deviation tells you how 'spread out' your numbers are. A low deviation means most numbers are close to the average; a high deviation means your data is very inconsistent." },
+            { q: "How do I calculate the average of 5 numbers?", a: "Add the 5 numbers together and divide by 5. Or, just paste them into our tool and get the answer plus range, variance, and harmonic mean instantly." }
+        ],
+        glossary: [
+            { term: 'Arithmetic Mean', definition: 'The sum of a collection of numbers divided by the count of numbers in the collection.' },
+            { term: 'Standard Deviation', definition: 'A measure of the amount of variation or dispersion of a set of values.' },
+            { term: 'Outlier', definition: 'A data point that differs significantly from other observations in the same dataset.' },
+            { term: 'Sample Size', definition: 'The number of individual pieces of data (observations) used in the calculation.' }
+        ],
+        methodology: "Our statistical engine uses standard floating-point arithmetic to compute the sum and mean. For median, we use an O(n log n) sorting algorithm. Variance and Standard Deviation are calculated using the 'Population' formula (N) rather than 'Sample' (N-1) by default, providing the most accurate representation of your provided dataset."
+    },
     '50-30-20-rule': {
         title: "50/30/20 Budgeting Blueprint",
         howToUse: "Enter your net (after-tax) monthly income. We will instantly split your budget into three categories: 50% for Needs, 30% for Wants, and 20% for Savings and Debt repayment.",
@@ -71,6 +89,50 @@ export const CATEGORY_EDUCATION: Record<string, CategoryEducation> = {
         faq: [
             { q: "Does the 50/30/20 rule use gross or net income?", a: "It uses Net (Take-Home) income. This is the actual cash that hits your bank account every month after taxes and union dues are taken out." },
             { q: "What counts as a 'Need' in the 50/30/20 rule?", a: "Housing, groceries, utilities, insurance, and minimum debt payments. If you can't live without it for a month, it's a 'Need'." }
+        ]
+    },
+    'health': {
+        title: "Clinical Health & Wellness Metrics",
+        howToUse: "Input your physical measurements like weight, height, and age. Our clinical-grade engine applies standard World Health Organization (WHO) and NIH formulas to provide a clear picture of your current health status for 2026.",
+        whyItWorks: "Health indicators like BMI, BMR, and Body Fat Percentage provide a quantitative baseline for your wellness journey. They help you understand how your body composition compares to clinical benchmarks, allowing for more informed discussions with your healthcare provider.",
+        faq: [
+            { q: "Is BMI an accurate measure of health?", a: "BMI is a reliable screening tool but doesn't account for muscle mass or fat distribution. We recommend using it alongside Waist-to-Height ratio for a more complete 2026 health profile." },
+            { q: "How many calories should I eat to lose weight?", a: "Calculate your TDEE first. A safe 2026 deficit is typically 500 calories below your maintenance level, which leads to about 1lb of weight loss per week." }
+        ],
+        glossary: [
+            { term: 'BMI (Body Mass Index)', definition: 'A value derived from the mass and height of a person.' },
+            { term: 'BMR (Basal Metabolic Rate)', definition: 'The number of calories your body burns at rest to maintain basic vital functions.' }
+        ]
+    },
+    'construction': {
+        title: "Construction & Job Site Material Estimation",
+        howToUse: "Enter your project dimensions (length, width, depth) and material types. Our engine handles complex volume conversions and waste factors to ensure you order exactly what you need for your 2026 build.",
+        whyItWorks: "Accurate material estimation prevents both costly surplus and project-stopping shortages. By factoring in standard 10% waste margins and precise density charts, we provide contractor-grade results in seconds.",
+        faq: [
+            { q: "How many bags of concrete do I need for a slab?", a: "Calculate total cubic yards then multiply by 45 for 80lb bags. Our dedicated concrete tool handles the math and the waste factor for you." },
+            { q: "What is the standard waste factor for flooring?", a: "For 2026 projects, we recommend a 10% waste factor for standard tiles and 15% for complex patterns or herringbone layouts." }
+        ],
+        glossary: [
+            { term: 'Cubic Yard', definition: 'A unit of volume used for materials like concrete, gravel, and topsoil.' },
+            { term: 'Waste Factor', definition: 'Additional material ordered to account for cuts, breakage, and errors.' }
+        ]
+    },
+    'math': {
+        title: "Advanced Mathematics & Statistical Analysis",
+        howToUse: "Input your variables or raw datasets. Our 2026 math engine applies rigorous algebraic and statistical formulas to solve everything from basic fractions to advanced standard deviation and probability.",
+        whyItWorks: "Mathematical precision is the core of logic. Our engine uses standard IEEE 754 floating-point arithmetic to ensure results are accurate to 10+ decimal places, meeting both academic and professional standards.",
+        faq: [
+            { q: "What is the order of operations used?", a: "We follow standard PEMDAS/BODMAS rules. For scientific inputs, we recommend using parentheses to ensure your intent is captured exactly." },
+            { q: "How is standard deviation calculated?", a: "Our tool defaults to the Population Standard Deviation (N), though we provide the Sample version (N-1) in the detailed logic breakdown." }
+        ]
+    },
+    'automotive': {
+        title: "Automotive Performance & Cost Analysis",
+        howToUse: "Enter vehicle specs like fuel economy, price, or engine parameters. We'll project depreciation, efficiency, and running costs based on 2026 market standards.",
+        whyItWorks: "Vehicle ownership is often a household's second largest expense. Understanding MPG, depreciation curves, and loan costs helps you minimize total cost of ownership and maximize resale value.",
+        faq: [
+            { q: "How fast does a car depreciate in 2026?", a: "Expect 15-20% loss in the first year, then 10% annually. Our depreciation tool uses current resale data for more accurate results." },
+            { q: "Is higher MPG always better?", a: "Yes, but consider the 'buy-up' cost of a hybrid. Use our ROI tool to see how many years it takes to break even on fuel savings." }
         ]
     },
     '529-plan': {

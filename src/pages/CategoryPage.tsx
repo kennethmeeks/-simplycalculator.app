@@ -3,6 +3,7 @@ import { Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight } from 'lucide-react';
 import { CATEGORIES } from '../constants/categories';
+import { CATEGORY_EDUCATION } from '../constants/educational';
 
 export const CategoryPage: React.FC = () => {
   const params = useParams<{ categoryKey: string }>();
@@ -11,6 +12,7 @@ export const CategoryPage: React.FC = () => {
   // Determine key from param or from path segment
   const categoryKey = params.categoryKey || location.pathname.split('/').pop() || '';
   const data = CATEGORIES.find(c => c.slug === categoryKey);
+  const education = CATEGORY_EDUCATION[categoryKey];
   
   // Redirect legacy /category/path to /path for SEO consistency
   if (location.pathname.startsWith('/category/')) {
@@ -133,34 +135,68 @@ export const CategoryPage: React.FC = () => {
           ))}
         </div>
 
-        <section className="mt-20 bg-[#f9f9f9] p-12 border-2 border-[#111] relative overflow-hidden">
+        <section className="mt-20 bg-[#f9f9f9] p-8 sm:p-12 border-2 border-[#111] relative overflow-hidden">
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#111]/5 -rotate-12 translate-x-8 translate-y-8"></div>
             <article className="max-w-none text-[#555] relative z-10">
-                <h2 className="text-2xl font-black text-[#111] mb-8 tracking-tighter uppercase font-sans">Accuracy Standard: {data.title}</h2>
-                <div className="grid md:grid-cols-2 gap-16">
-                    <div>
-                        <p className="leading-relaxed text-[14px] font-medium">
-                            Accuracy is our absolute priority in the <strong>{data.title}</strong> sector. Our calculators
-                            follow standard 2026 mathematical protocols. Every result is generated using verified algorithms 
-                            ensuring consistent reproducibility.
-                        </p>
+                <h2 className="text-2xl font-black text-[#111] mb-8 tracking-tighter uppercase font-sans">
+                    {education ? education.title : `Accuracy Standard: ${data.title}`}
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-10 sm:gap-16">
+                    <div className="space-y-6">
+                        <div>
+                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111] mb-3"># Overview & Utility</h4>
+                            <p className="leading-relaxed text-[14px] font-medium">
+                                {education ? education.whyItWorks : `Accuracy is our absolute priority in the ${data.title} sector. Our calculators follow standard 2026 mathematical protocols. Every result is generated using verified algorithms ensuring consistent reproducibility.`}
+                            </p>
+                        </div>
+                        {education?.glossary && (
+                            <div>
+                                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111] mb-3"># Key Terminology</h4>
+                                <dl className="space-y-4">
+                                    {education.glossary.slice(0, 3).map((term, i) => (
+                                        <div key={i}>
+                                            <dt className="text-[12px] font-bold text-[#111] mb-1">{term.term}</dt>
+                                            <dd className="text-[11px] leading-relaxed opacity-80">{term.definition}</dd>
+                                        </div>
+                                    ))}
+                                </dl>
+                            </div>
+                        )}
                     </div>
-                    <div>
-                        <p className="leading-relaxed text-[14px] font-medium opacity-60">
-                            We solve the complexity of {data.title} through rapid interface optimization. By removing the overhead of 
-                            legacy software, we provide a direct channel between your variables and their logical outcome. 
-                            Professional grade, zero overhead.
-                        </p>
+                    
+                    <div className="space-y-8">
+                        <div>
+                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111] mb-3"># Methodology</h4>
+                            <p className="leading-relaxed text-[14px] font-medium opacity-80">
+                                {education ? education.howToUse : `We solve the complexity of ${data.title} through rapid interface optimization. By removing the overhead of legacy software, we provide a direct channel between your variables and their logical outcome.`}
+                            </p>
+                        </div>
+
+                        {education?.faq && (
+                            <div>
+                                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111] mb-4"># Frequently Asked</h4>
+                                <div className="space-y-5">
+                                    {education.faq.slice(0, 2).map((item, i) => (
+                                        <div key={i} className="bg-white p-4 border border-[#eee]">
+                                            <p className="text-[12px] font-bold text-[#111] mb-2">Q: {item.q}</p>
+                                            <p className="text-[11px] leading-relaxed opacity-70">{item.a}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
+
                 <div className="mt-12 pt-8 border-t-2 border-[#eee] flex flex-wrap justify-between items-center gap-6">
                     <div className="flex gap-4 text-[9px] font-black uppercase tracking-[0.2em] text-[#bbb]">
                         <span>Verified Core</span>
-                        <span>Multi-Region Calibrated</span>
-                        <span>Open Logic Standards</span>
+                        <span>2026 Standards</span>
+                        <span>Open Calculation Engine</span>
                     </div>
                     <Link to="/" className="text-[10px] font-black text-blue-600 uppercase tracking-widest underline decoration-2 underline-offset-4">
-                        Exit Category Hub →
+                        Explore All 1,600+ Tools →
                     </Link>
                 </div>
             </article>
