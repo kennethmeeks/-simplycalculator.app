@@ -57,12 +57,14 @@ async function startDevServer() {
       
       // Add individual calculators
       cat.items.forEach(item => {
+        // Use normalized path format consistency with CanonicalSEO
+        const itemPath = item.path.startsWith('/') ? item.path : '/' + item.path;
         xml += `
   <url>
-    <loc>${domain}${item.path.startsWith('/') ? item.path : '/' + item.path}</loc>
+    <loc>${domain}${itemPath}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>`;
       });
     });

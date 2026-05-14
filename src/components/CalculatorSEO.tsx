@@ -178,18 +178,24 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
                             <BookOpen className="w-5 h-5 text-blue-600" />
                             Guide: How it Works
                         </h3>
-                        {isLoading && !guideContent ? (
-                             <div className="space-y-4 animate-pulse">
-                                <div className="h-4 bg-slate-100 rounded w-3/4"></div>
-                                <div className="h-4 bg-slate-100 rounded w-5/6"></div>
-                                <div className="h-4 bg-slate-100 rounded w-2/3"></div>
-                             </div>
-                        ) : (
+                        {(!guideContent && !isLoading) || guideContent ? (
                             <div className="text-slate-600 leading-relaxed prose prose-slate max-w-none text-[14px]">
                                 <ReactMarkdown>
                                     {displayContent.howAndWhy}
                                 </ReactMarkdown>
                             </div>
+                        ) : (
+                             <div className="space-y-4">
+                                <div className="text-slate-600 leading-relaxed prose prose-slate max-w-none text-[14px] opacity-40">
+                                    <ReactMarkdown>
+                                        {displayContent.howAndWhy}
+                                    </ReactMarkdown>
+                                </div>
+                                <div className="flex items-center gap-2 text-[10px] font-bold text-blue-600 animate-pulse">
+                                    <Loader2 className="w-3 h-3 animate-spin" />
+                                    ENHANCING GUIDE WITH AI...
+                                </div>
+                             </div>
                         )}
                     </div>
 

@@ -705,6 +705,31 @@ export const CalculatorPage: React.FC = () => {
                                     </Link>
                                 ))}
                             </div>
+
+                            {/* Internal Link Optimization: Related Search Terms */}
+                            <div className="mt-16 p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                                <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                                    Popular Search Terms
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {foundCategory.items.filter(i => i.path !== foundItem.path).slice(8, 18).map((related, idx) => (
+                                        <Link 
+                                            key={idx}
+                                            to={related.path}
+                                            className="px-4 py-2 bg-white border border-slate-200 rounded-full text-[11px] font-bold text-slate-600 hover:border-blue-600 hover:text-blue-600 transition-all whitespace-nowrap uppercase tracking-tight"
+                                        >
+                                            {related.name}
+                                        </Link>
+                                    ))}
+                                    <Link 
+                                        to="/sitemap"
+                                        className="px-4 py-2 bg-blue-600 border border-blue-600 rounded-full text-[11px] font-bold text-white hover:bg-blue-700 transition-all whitespace-nowrap uppercase tracking-tight"
+                                    >
+                                        View All 1900+ Tools
+                                    </Link>
+                                </div>
+                            </div>
                         </section>
                     </div>
                 </div>
