@@ -134,7 +134,7 @@ export const Home: React.FC = () => {
                     ))}
                   </div>
                   <div className="p-4 bg-blue-600 text-white text-xs font-bold text-center cursor-pointer hover:bg-blue-700 transition-colors" onClick={() => navigate('/sitemap')}>
-                    VIEW ALL 1,600+ CALCULATORS
+                    VIEW ALL 1,900+ CALCULATORS
                   </div>
                 </div>
               )}
