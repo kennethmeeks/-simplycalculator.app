@@ -105,6 +105,52 @@ export const CalculatorSEO: React.FC<CalculatorSEOProps> = ({ name, path, descri
             <Helmet>
                 <title>{seo.title}</title>
                 <meta name="description" content={seo.description} />
+                {item?.keywords && (
+                    <meta name="keywords" content={item.keywords.join(', ')} />
+                )}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": name,
+                        "description": description || seo.description,
+                        "applicationCategory": "EducationalApplication",
+                        "operatingSystem": "Web",
+                        "softwareVersion": "2026.5.14",
+                        "keywords": item?.keywords?.join(', '),
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://simplycalculator.app"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": category?.title || "Tools",
+                                "item": `https://simplycalculator.app/${category?.slug || ""}`
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": name,
+                                "item": `https://simplycalculator.app${path}`
+                            }
+                        ]
+                    })}
+                </script>
                 {displayContent.faq.length > 0 && (
                     <script type="application/ld+json">
                         {JSON.stringify({

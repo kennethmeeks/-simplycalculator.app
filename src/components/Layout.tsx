@@ -200,34 +200,63 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </div>
 
       {!isEmbed && (
-        <footer className="bg-[#333] text-white py-8 mt-auto">
+        <footer className="bg-slate-900 text-white py-16 mt-auto">
         <div className="max-w-[1400px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2 font-bold text-xl">
-              <Calculator className="w-6 h-6" />
-              <span>simplycalculator.app</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
+            <div className="col-span-2">
+              <div className="flex items-center gap-2 font-bold text-xl mb-4">
+                <Calculator className="w-6 h-6 text-blue-500" />
+                <span>simplycalculator<span className="text-blue-500">.app</span></span>
+              </div>
+              <p className="text-slate-400 text-sm max-w-sm mb-6">
+                The world's most comprehensive collection of high-precision mathematical tools. 
+                Updated for 2026 with over 1900+ calculators for finance, science, and life.
+              </p>
+              <div className="flex gap-4">
+                 <Link to="/sitemap" className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold transition-all uppercase tracking-wider">Site Index</Link>
+                 <Link to="/about" className="px-4 py-2 border border-slate-700 hover:border-slate-500 rounded-lg text-xs font-bold transition-all uppercase tracking-wider">About Hub</Link>
+              </div>
             </div>
-            <div className="flex gap-6 text-sm">
-              <Link to="/about" className="hover:underline">About Us</Link>
-              <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
-              <Link to="/terms" className="hover:underline">Terms of Service</Link>
-              <Link to="/contact" className="hover:underline">Contact Us</Link>
-              <Link to="/sitemap" className="hover:underline">Sitemap</Link>
+            
+            {CATEGORIES.slice(0, 4).map(cat => (
+              <div key={cat.slug} className="space-y-4">
+                <h4 className="text-[11px] font-black uppercase tracking-[2px] text-blue-500">{cat.title}</h4>
+                <ul className="space-y-2">
+                  {cat.items.slice(0, 6).map(item => (
+                    <li key={item.path}>
+                      <Link to={item.path} className="text-slate-400 hover:text-white text-[13px] transition-colors">{item.name}</Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link to={`/${cat.slug}`} className="text-slate-500 hover:text-blue-400 text-[11px] font-bold uppercase tracking-wider">View All →</Link>
+                  </li>
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-wrap justify-center gap-6 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+              <Link to="/about" className="hover:text-white">About Us</Link>
+              <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+              <Link to="/contact" className="hover:text-white">Contact Us</Link>
+              <Link to="/sitemap" className="hover:text-white">Sitemap</Link>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-[#444] text-center space-y-2">
-            <p className="text-[#999] text-xs">
-              © 2026 simplycalculator.app. All rights reserved. Providing free online calculators for everyone.
+
+          <div className="mt-8 text-center space-y-4">
+            <p className="text-slate-600 text-xs">
+              © 2026 simplycalculator.app — Built for Precision. Delivering 1900+ verified algorithms.
             </p>
-            <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
-              <strong>Advertiser Disclosure:</strong> simplycalculator.app is an independent, advertising-supported comparison service. We may receive compensation from the companies whose products appear on this site.
-            </p>
-            <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
-              <strong>Affiliate Disclaimer:</strong> simplycalculator.app participates in affiliate marketing programs, which means we may earn a commission on sales made through our links to retailer sites. This comes at no additional cost to you and helps us keep our tools free for everyone.
-            </p>
-            <p className="text-[#777] text-[10px] leading-relaxed max-w-2xl mx-auto">
-              <strong>Disclaimer:</strong> The calculations provided are for illustrative purposes only and do not constitute financial, investment, or legal advice. simplycalculator.app is not a financial institution. We recommend consulting with a qualified professional before making any financial decisions. Member FDIC status applies only to products offered by our banking partners.
-            </p>
+            <div className="max-w-3xl mx-auto space-y-2">
+                <p className="text-slate-700 text-[9px] leading-relaxed italic">
+                  <strong>Advertiser & Affiliate Disclosure:</strong> simplycalculator.app is supported by its users. When you browse our tools, we may earn affiliate commissions from companies like Amazon, Bank of America, or Progressive. 
+                </p>
+                <p className="text-slate-700 text-[9px] leading-relaxed">
+                  <strong>Legal Disclaimer:</strong> Calculations are provided "as-is" for educational purposes. We are not a licensed financial advisor. Consult with registered CPAs or Attorneys for critical decisions. Member FDIC status is provider-dependent.
+                </p>
+            </div>
           </div>
         </div>
       </footer>

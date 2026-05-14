@@ -38,13 +38,13 @@ export const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>SimplyCalculator: Solve Any Professional Math Problem (1,600+ Tools 2026)</title>
-        <meta name="description" content="Access the verified SimplyCalculator 2026 toolkit. Solve any math or financial problem with over 1,600+ professional online tools. High-precision calculations for everyone." />
+        <title>SimplyCalculator: Solve Any Professional Math Problem (1,900+ Tools 2026)</title>
+        <meta name="description" content="Access the verified SimplyCalculator 2026 toolkit. Solve any math or financial problem with over 1,900+ professional online tools. High-precision calculations for everyone." />
         <meta property="og:title" content="SimplyCalculator: The Professional High-Intent Math Toolkit" />
-        <meta property="og:description" content="Browse 1,600+ verified tools for professional and personal calculations. Completely free, mobile-optimized, and built for 2026 standards." />
+        <meta property="og:description" content="Browse 1,900+ verified tools for professional and personal calculations. Completely free, mobile-optimized, and built for 2026 standards." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SimplyCalculator | 1,600+ Professional Tools for 2026" />
+        <meta name="twitter:title" content="SimplyCalculator | 1,900+ Professional Tools for 2026" />
         <meta name="twitter:description" content="Verified mathematical accuracy for all your calculation needs. Free and instant." />
         <script type="application/ld+json">
           {`
@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
               <span className="text-blue-600">Accuracy.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-500 mb-10 font-medium max-w-xl leading-relaxed">
-              Access over 1600+ professional-grade calculators for finance, health, and engineering. 
+              Access over 1,900+ professional-grade calculators for finance, health, and engineering. 
               Built with industry-standard formulas and zero latency.
             </p>
 
@@ -91,7 +91,7 @@ export const Home: React.FC = () => {
                   type="text" 
                   value={searchTerm}
                   onChange={(e) => handleSearch(e.target.value)}
-                  placeholder="Search 1,600+ professional tools (e.g. 'mortgage', 'bmi', 'concrete')..." 
+                  placeholder="Search 1,900+ professional tools (e.g. 'mortgage', 'bmi', 'concrete')..." 
                   className="block w-full h-16 pl-16 pr-12 py-4 bg-white border-2 border-slate-100 rounded-2xl text-lg font-medium placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-8 focus:ring-blue-100 transition-all shadow-xl shadow-blue-900/5 group"
                 />
                 {searchTerm && (
@@ -142,7 +142,7 @@ export const Home: React.FC = () => {
             
             <div className="flex flex-wrap gap-8">
                 <div className="space-y-1">
-                  <span className="block text-2xl font-bold text-slate-900">1600+</span>
+                  <span className="block text-2xl font-bold text-slate-900">1900+</span>
                   <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Verified Tools</span>
                 </div>
                 <div className="w-[1px] h-10 bg-slate-200"></div>

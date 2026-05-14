@@ -35,14 +35,14 @@ async function startDevServer() {
   <url>
     <loc>${domain}/</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>${domain}/sitemap</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>`;
 
     // Add category pages
@@ -51,8 +51,8 @@ async function startDevServer() {
   <url>
     <loc>${domain}/category/${cat.slug}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>`;
       
       // Add individual calculators
@@ -306,15 +306,15 @@ async function startDevServer() {
 
       const category = categorySlug ? CATEGORIES.find(c => c.slug === categorySlug) : null;
 
-      let title = "All Online Calculators 2026 | 1600+ Free Tools | simplycalculator.app";
-      let description = "Access over 1600+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces.";
+      let title = "All Online Calculators 2026 | 1900+ Free Tools | simplycalculator.app";
+      let description = "Access over 1900+ free online calculators for 2026. Organized tools for Finance, Health, Math, Construction, Tech, and more. Accurate formulas and easy-to-use interfaces.";
       let pageHeader = "All Professional Calculators";
       let targetCategories = CATEGORIES;
       let breadcrumbs = "";
 
       if (isSitemap) {
         title = "Sitemap | All Online Calculators 2026 | simplycalculator.app";
-        description = "Browse our complete list of over 1600+ free online calculators. Find tools for finance, fitness, health, math, and more in our comprehensive sitemap.";
+        description = "Browse our complete list of over 1900+ free online calculators. Find tools for finance, fitness, health, math, and more in our comprehensive sitemap.";
         pageHeader = "Site Directory";
       } else if (category) {
         title = `${category.title} Calculators | 2026 Online Suite | simplycalculator.app`;
@@ -450,8 +450,8 @@ async function startDevServer() {
                   <div class="mt-8 pt-8 border-t border-slate-200">
                     <h4 class="text-lg font-black mb-4 text-slate-800">Contextual Next Steps</h4>
                     <p class="text-sm text-slate-600 mb-4">After reviewing your results, consider exploring these related tools to deepen your analysis:</p>
-                    <ul class="space-y-2">
-                      ${calculatorCategory.items.slice(0, 8).filter(i => i.path !== matchedCalculator.path).map(i => `
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                      ${calculatorCategory.items.slice(0, 20).filter(i => i.path !== matchedCalculator.path).map(i => `
                         <li><a href="${i.path}" class="text-blue-600 hover:underline font-bold text-sm">${i.name}</a></li>
                       `).join('')}
                     </ul>
